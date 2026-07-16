@@ -824,8 +824,8 @@ export default function CourseSearch({
         )}
         {searchTerm && ` matching "${searchTerm}"`}
         {filterPills.length > 0 && (
-          <span className="inline-flex flex-wrap items-center gap-1.5">
-            <span className="text-gray-500">, filtered by</span>
+          <span className="inline-flex flex-wrap items-center gap-1.5 border-l border-gray-300 pl-2">
+            <span className="font-medium text-gray-700">Filtered by</span>
             {filterPills.map((pill) => (
               <Badge key={pill.key} variant="secondary">
                 {pill.label}
