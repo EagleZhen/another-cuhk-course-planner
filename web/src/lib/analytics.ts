@@ -2,6 +2,7 @@
 // PostHog is initialized in instrumentation-client.ts
 
 import posthog from 'posthog-js'
+import type { UserFilterKey } from '@/lib/courseFilters'
 
 // Simple tracking helper using direct PostHog import
 const track = (event: string, properties?: Record<string, unknown>) => {
@@ -66,7 +67,7 @@ export const analytics = {
   // Track chip-filter usage (day / credits / level / career) → which catalog facets students narrow by.
   // `level` = numeric course level (code's first digit); `career` = UG/PG. (Pre-#203, `level` carried career values, since split into `career`.)
   // Key questions: which levels/credits/days matter? Is the default career (UG) right?
-  chipFilterToggled: (filter: string, value: string, action: 'add' | 'remove') => {
+  chipFilterToggled: (filter: UserFilterKey, value: string, action: 'add' | 'remove') => {
     track('chip_filter_toggled', { filter, value, action })
   },
 
@@ -74,6 +75,11 @@ export const analytics = {
   // `enrolled_count`: the active cart it filters against (0 = no-op).
   noConflictFilterToggled: (action: 'add' | 'remove', enrolledCount: number) => {
     track('no_conflict_filter_toggled', { action, enrolled_count: enrolledCount })
+  },
+
+  // Clearing a whole filter dimension → is the summary ✕ used for recovery, or the panel's Clear?
+  filterCleared: (filter: UserFilterKey, source: 'summary' | 'panel') => {
+    track('filter_cleared', { filter, source })
   },
 
   // === COURSE MANAGEMENT BEHAVIOR ===

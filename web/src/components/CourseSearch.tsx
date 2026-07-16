@@ -56,6 +56,7 @@ import {
   careerDimension,
   type CourseFilterCriteria,
   type CourseFilterContext,
+  type UserFilterKey,
 } from '@/lib/courseFilters'
 import { ChipFilterRow } from '@/components/ChipFilterRow'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
@@ -747,13 +748,13 @@ export default function CourseSearch({
   const isSearchingOutsideSelectedSubjects = Boolean(
     searchedSubjectCode && selectedSubjects.size > 0 && !selectedSubjects.has(searchedSubjectCode)
   )
-  // A compact summary of every active filter, shown as a wrapping pill row under the result count
-  // (also the only active-filter cue once the filter panel is collapsed). Search stays inline
-  // in the count line; career appears whenever its selection is non-empty.
-  const filterPills: { key: string; label: string; onRemove?: () => void }[] = []
+  // A compact summary of every active filter, shown under the result count and the only cue once
+  // the panel collapses. `filter` names the dimension — it doubles as the React key and the
+  // analytics arg (see the ✕ handler). Search stays inline in the count line.
+  const filterPills: { filter: UserFilterKey; label: string; onRemove?: () => void }[] = []
   if (selectedSubjects.size > 0) {
     filterPills.push({
-      key: 'subjects',
+      filter: 'subject',
       label: selectedSubjectList.join(', '),
       onRemove: onClearSubjects,
     })
@@ -766,14 +767,14 @@ export default function CourseSearch({
         return dayKey ?? `Day ${dayIndex}`
       })
       .join(', ')
-    filterPills.push({ key: 'days', label: days, onRemove: () => setSelectedDays(new Set()) })
+    filterPills.push({ filter: 'day', label: days, onRemove: () => setSelectedDays(new Set()) })
   }
   if (selectedCredits.size > 0) {
     const credits = Array.from(selectedCredits)
       .sort((a, b) => a - b)
       .join(', ')
     filterPills.push({
-      key: 'credits',
+      filter: 'credits',
       label: `${credits} credits`,
       onRemove: () => setSelectedCredits(new Set()),
     })
@@ -783,24 +784,24 @@ export default function CourseSearch({
       .sort((a, b) => a - b)
       .map((level) => `L${level}`)
     filterPills.push({
-      key: 'level',
+      filter: 'level',
       label: levels.join(', '),
       onRemove: () => setSelectedLevels(new Set()),
     })
   }
-  // Career shows the chosen value(s), including the default Undergraduate — consistent with every
-  // other pill. Only an empty selection is "no constraint", so only that gets no pill.
+  // Career shows the chosen value(s), including the default Undergraduate — only an empty selection
+  // is "no constraint", so only that gets no pill.
   if (selectedCareers.size > 0) {
     const careers = Array.from(selectedCareers).map((career) => CAREER_SHORT_LABEL[career])
     filterPills.push({
-      key: 'career',
+      filter: 'career',
       label: careers.join(', '),
       onRemove: () => setSelectedCareers(new Set()),
     })
   }
   if (noConflictOnly) {
     filterPills.push({
-      key: 'no-conflict',
+      filter: 'noConflict',
       label: 'No time conflicts',
       onRemove: () => setNoConflictOnly(false),
     })
@@ -829,12 +830,15 @@ export default function CourseSearch({
           <span className="inline-flex flex-wrap items-center gap-1.5 border-l border-gray-300 pl-2">
             <span className="font-medium text-gray-700">Filtered by</span>
             {filterPills.map((pill) => (
-              <Badge key={pill.key} variant="secondary">
+              <Badge key={pill.filter} variant="secondary">
                 {pill.label}
                 {pill.onRemove && (
                   <button
                     type="button"
-                    onClick={pill.onRemove}
+                    onClick={() => {
+                      analytics.filterCleared(pill.filter, 'summary')
+                      pill.onRemove?.()
+                    }}
                     className="group -my-0.5 inline-flex size-5 touch-manipulation cursor-pointer items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                     aria-label={`Remove ${pill.label} filter`}
                     title={`Remove ${pill.label} filter`}

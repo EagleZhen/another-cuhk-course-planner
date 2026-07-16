@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { analytics } from '@/lib/analytics'
+import type { UserFilterKey } from '@/lib/courseFilters'
 
 interface ChipFilterRowProps<T> {
   label: string
@@ -21,7 +22,7 @@ interface ChipFilterRowProps<T> {
   /** Tooltip per chip; `selected` is its current state. */
   toggleTitle?: (value: T, selected: boolean) => string
   /** When set, adding a chip emits `chip_filter_toggled` under this filter name (value = chip label). */
-  analyticsKey?: string
+  analyticsKey?: UserFilterKey
   /** Also emit `remove` on deselect (per chip, and per cleared value on Clear). Off by default. */
   trackRemovals?: boolean
 }
@@ -91,10 +92,13 @@ export function ChipFilterRow<T>({
           variant="destructive"
           size="sm"
           onClick={() => {
-            if (analyticsKey && trackRemovals) {
-              for (const value of options) {
-                if (isSelected(value)) {
-                  analytics.chipFilterToggled(analyticsKey, getLabel(value), 'remove')
+            if (analyticsKey) {
+              analytics.filterCleared(analyticsKey, 'panel')
+              if (trackRemovals) {
+                for (const value of options) {
+                  if (isSelected(value)) {
+                    analytics.chipFilterToggled(analyticsKey, getLabel(value), 'remove')
+                  }
                 }
               }
             }
