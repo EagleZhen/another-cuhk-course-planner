@@ -747,11 +747,6 @@ export default function CourseSearch({
   const isSearchingOutsideSelectedSubjects = Boolean(
     searchedSubjectCode && selectedSubjects.size > 0 && !selectedSubjects.has(searchedSubjectCode)
   )
-  const selectedDayNames = Array.from(selectedDays).map((dayIndex) => {
-    const dayKey = Object.entries(DAYS).find(([_, info]) => info.index === dayIndex)?.[0] as WeekDay
-    return dayKey ? DAYS[dayKey].displayName : `Day ${dayIndex}`
-  })
-
   // A compact summary of every active filter, shown as a wrapping pill row under the result count
   // (also the only active-filter cue once the filter panel is collapsed). Search stays inline
   // in the count line; career appears whenever its selection is non-empty.
@@ -813,6 +808,16 @@ export default function CourseSearch({
 
   const showResultsSummary =
     filterPills.length > 0 || Boolean(searchTerm) || displayResults.courses.length > 0
+
+  // The default Undergraduate career is the resting catalog, not a narrowing action.
+  const hasNarrowingFilter =
+    selectedSubjects.size > 0 ||
+    selectedDays.size > 0 ||
+    selectedCredits.size > 0 ||
+    selectedLevels.size > 0 ||
+    noConflictOnly ||
+    selectedCareers.size !== 1 ||
+    !selectedCareers.has('Undergraduate')
 
   const resultsSummary = showResultsSummary ? (
     <div className="flex items-center justify-between gap-2 mb-3">
@@ -1220,7 +1225,7 @@ export default function CourseSearch({
           <>
             {resultsSummary}
             <div className="text-center py-12">
-              {searchTerm || selectedSubjects.size > 0 ? (
+              {searchTerm || hasNarrowingFilter ? (
                 // No results for search/filter
                 <div className="space-y-3">
                   <div className="text-gray-400">
@@ -1233,28 +1238,20 @@ export default function CourseSearch({
                       : searchTerm && selectedSubjects.size > 0
                         ? `No courses match "${searchTerm}" within ${selectedSubjectSummary}.`
                         : searchTerm
-                          ? `No courses match "${searchTerm}". Try different keywords or check spelling.`
-                          : `No courses found within ${selectedSubjectSummary}.`}
+                          ? `No courses match "${searchTerm}".`
+                          : selectedSubjects.size > 0
+                            ? `No courses found within ${selectedSubjectSummary}.`
+                            : 'No courses match the selected filters.'}
                   </p>
-                  <div className="mx-auto max-w-xl text-center text-xs text-gray-400">
-                    <p className="mb-2 font-medium text-gray-500">Try this:</p>
-                    <ul className="list-disc list-inside space-y-1.5 text-center">
-                      {selectedDays.size > 0 && (
-                        <li>Clear day filters: {selectedDayNames.join(', ')}.</li>
-                      )}
-                      {isSearchingOutsideSelectedSubjects && searchedSubjectCode ? (
-                        <li>
-                          Add {searchedSubjectCode} to the subject filter, or clear subject filters.
-                        </li>
-                      ) : selectedSubjects.size > 0 ? (
-                        <li>Clear subject filters to search across all subjects.</li>
-                      ) : null}
-                      {searchTerm && <li>Check the course code, title, or instructor spelling.</li>}
-                      <li>
-                        Try a broader search, such as &ldquo;CSCI&rdquo;, &ldquo;nature&rdquo;, or
-                        an instructor name.
-                      </li>
-                    </ul>
+                  <div className="mx-auto max-w-xl space-y-1.5">
+                    <p className="text-sm text-gray-500">
+                      Try adjusting or removing a filter above to see more courses.
+                    </p>
+                    {searchTerm && (
+                      <p className="text-xs text-gray-400">
+                        Check the course code, title, or instructor spelling.
+                      </p>
+                    )}
                   </div>
                 </div>
               ) : hasDataLoaded ? (

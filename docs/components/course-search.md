@@ -23,6 +23,7 @@ Course-level filtering lives in [courseFilters.ts](../../web/src/lib/courseFilte
 - **Career** defaults to `Undergraduate` and is excluded from `hasActiveFilters`: it picks _which_ catalog you browse, so it does not switch off the shuffled 10-course landing.
 - **No-conflict filtering** keeps a course when at least one complete, cohort-compatible section combination avoids both internal clashes and the visible, valid planner baseline. The course under test is removed from its own baseline; hidden and invalid enrollments do not block it.
 - **Active-filter summary.** Removable grouped pills stay visible for empty filtered results and are the only filter cue once the panel collapses; each ✕ clears its whole dimension. Unlike `hasActiveFilters` (which ignores career), the summary includes any chosen career, including the default `Undergraduate`.
+- **Empty filtered results** keep the user's selections visible and point back to the removable summary; the generic no-data state is reserved for an unnarrowed catalog.
 - The supported career list is explicit. A Vitest contract test ensures it covers every value in published course data, so a new source value requires an intentional UI decision.
 - **Adding a filter** (see credits for the full pattern):
   - _Engine_ (`courseFilters.ts`): a predicate builder keyed in `BUILDERS`, its `criteria` field (usually also in `hasActiveFilters` — career is the exception), and — for a chip filter — a `ChipDimension`.
