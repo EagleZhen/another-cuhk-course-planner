@@ -99,6 +99,7 @@ interface CourseSearchProps {
   ) => void
   onDataUpdate?: (timestamp: Date, allCourses?: InternalCourse[]) => void // Callback when data is loaded
   onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
+  onClearSubjects?: () => void
 }
 
 /** Compact level chip labels for mobile, where the full career names wrap several lines. */
@@ -138,6 +139,7 @@ export default function CourseSearch({
   onSearchControlReady,
   onDataUpdate,
   onAvailableSubjectsUpdate,
+  onClearSubjects,
 }: CourseSearchProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
@@ -753,9 +755,13 @@ export default function CourseSearch({
   // A compact summary of every active filter, shown as a wrapping pill row under the result count
   // (also the only active-filter cue once the filter panel is collapsed). Search stays inline
   // in the count line; career appears whenever its selection is non-empty.
-  const filterPills: { key: string; label: string }[] = []
+  const filterPills: { key: string; label: string; onRemove?: () => void }[] = []
   if (selectedSubjects.size > 0) {
-    filterPills.push({ key: 'subjects', label: selectedSubjectList.join(', ') })
+    filterPills.push({
+      key: 'subjects',
+      label: selectedSubjectList.join(', '),
+      onRemove: onClearSubjects,
+    })
   }
   if (selectedDays.size > 0) {
     const days = Array.from(selectedDays)
@@ -765,29 +771,123 @@ export default function CourseSearch({
         return dayKey ?? `Day ${dayIndex}`
       })
       .join(', ')
-    filterPills.push({ key: 'days', label: days })
+    filterPills.push({ key: 'days', label: days, onRemove: () => setSelectedDays(new Set()) })
   }
   if (selectedCredits.size > 0) {
     const credits = Array.from(selectedCredits)
       .sort((a, b) => a - b)
       .join(', ')
-    filterPills.push({ key: 'credits', label: `${credits} credits` })
+    filterPills.push({
+      key: 'credits',
+      label: `${credits} credits`,
+      onRemove: () => setSelectedCredits(new Set()),
+    })
   }
   if (selectedLevels.size > 0) {
     const levels = Array.from(selectedLevels)
       .sort((a, b) => a - b)
       .map((level) => `L${level}`)
-    filterPills.push({ key: 'level', label: levels.join(', ') })
+    filterPills.push({
+      key: 'level',
+      label: levels.join(', '),
+      onRemove: () => setSelectedLevels(new Set()),
+    })
   }
   // Career shows the chosen value(s), including the default Undergraduate — consistent with every
   // other pill. Only an empty selection is "no constraint", so only that gets no pill.
   if (selectedCareers.size > 0) {
     const careers = Array.from(selectedCareers).map((career) => CAREER_SHORT_LABEL[career])
-    filterPills.push({ key: 'career', label: careers.join(', ') })
+    filterPills.push({
+      key: 'career',
+      label: careers.join(', '),
+      onRemove: () => setSelectedCareers(new Set()),
+    })
   }
   if (noConflictOnly) {
-    filterPills.push({ key: 'no-conflict', label: 'No time conflicts' })
+    filterPills.push({
+      key: 'no-conflict',
+      label: 'No time conflicts',
+      onRemove: () => setNoConflictOnly(false),
+    })
   }
+
+  const showResultsSummary =
+    filterPills.length > 0 || Boolean(searchTerm) || displayResults.courses.length > 0
+
+  const resultsSummary = showResultsSummary ? (
+    <div className="flex items-center justify-between gap-2 mb-3">
+      <div className="text-sm text-gray-600 flex flex-wrap items-center gap-2">
+        Showing {displayResults.courses.length} course
+        {displayResults.courses.length !== 1 ? 's' : ''}
+        {displayResults.total > displayResults.courses.length && (
+          <span className="font-medium"> of {displayResults.total} total</span>
+        )}
+        {searchTerm && ` matching "${searchTerm}"`}
+        {filterPills.length > 0 && (
+          <span className="inline-flex flex-wrap items-center gap-1.5">
+            <span className="text-gray-500">, filtered by</span>
+            {filterPills.map((pill) => (
+              <Badge key={pill.key} variant="secondary">
+                {pill.label}
+                {pill.onRemove && (
+                  <button
+                    type="button"
+                    onClick={pill.onRemove}
+                    className="-my-0.5 -mr-1 inline-flex size-5 touch-manipulation cursor-pointer items-center justify-center rounded-sm text-gray-500 hover:bg-black/10 hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                    aria-label={`Remove ${pill.label} filter`}
+                    title={`Remove ${pill.label} filter`}
+                  >
+                    <X className="h-3 w-3" aria-hidden="true" />
+                  </button>
+                )}
+              </Badge>
+            ))}
+          </span>
+        )}
+        {isFiltering && (
+          <span
+            role="status"
+            className="ml-2 inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200"
+          >
+            <div className="w-2.5 h-2.5 border border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+            Updating
+          </span>
+        )}
+        {!isFiltering && displayResults.isShuffled && (
+          <>
+            <span className="text-blue-600 font-medium"> (shuffled)</span>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                analytics.shuffleReset()
+                setShuffleTrigger(0)
+              }}
+              className="h-6 px-2 text-xs cursor-pointer ml-2"
+              title="Reset to original order"
+            >
+              ↻ Reset
+            </Button>
+          </>
+        )}
+      </div>
+
+      {displayResults.total > 1 && (
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={() => {
+            analytics.shuffleUsed(displayResults.total)
+            setShuffleTrigger((prev) => prev + 1)
+          }}
+          className="h-6 px-2 text-xs"
+          title="Shuffle courses for discovery"
+        >
+          🎲 Shuffle
+        </Button>
+      )}
+    </div>
+  ) : null
 
   return (
     <div className="space-y-2">
@@ -1117,124 +1217,63 @@ export default function CourseSearch({
             <p className="text-sm text-gray-500">Searching through course data</p>
           </div>
         ) : displayResults.courses.length === 0 ? (
-          <div className="text-center py-12">
-            {searchTerm || selectedSubjects.size > 0 ? (
-              // No results for search/filter
-              <div className="space-y-3">
-                <div className="text-gray-400">
-                  <Search className="w-12 h-12 mx-auto mb-3" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-600">No matching courses</h3>
-                <p className="text-sm text-gray-500 mx-auto max-w-xl">
-                  {isSearchingOutsideSelectedSubjects && searchedSubjectCode
-                    ? `"${searchTerm}" looks like a ${searchedSubjectCode} course, but you are currently searching within ${selectedSubjectSummary}.`
-                    : searchTerm && selectedSubjects.size > 0
-                      ? `No courses match "${searchTerm}" within ${selectedSubjectSummary}.`
-                      : searchTerm
-                        ? `No courses match "${searchTerm}". Try different keywords or check spelling.`
-                        : `No courses found within ${selectedSubjectSummary}.`}
-                </p>
-                <div className="mx-auto max-w-xl text-center text-xs text-gray-400">
-                  <p className="mb-2 font-medium text-gray-500">Try this:</p>
-                  <ul className="list-disc list-inside space-y-1.5 text-center">
-                    {selectedDays.size > 0 && (
-                      <li>Clear day filters: {selectedDayNames.join(', ')}.</li>
-                    )}
-                    {isSearchingOutsideSelectedSubjects && searchedSubjectCode ? (
+          <>
+            {resultsSummary}
+            <div className="text-center py-12">
+              {searchTerm || selectedSubjects.size > 0 ? (
+                // No results for search/filter
+                <div className="space-y-3">
+                  <div className="text-gray-400">
+                    <Search className="w-12 h-12 mx-auto mb-3" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-600">No matching courses</h3>
+                  <p className="text-sm text-gray-500 mx-auto max-w-xl">
+                    {isSearchingOutsideSelectedSubjects && searchedSubjectCode
+                      ? `"${searchTerm}" looks like a ${searchedSubjectCode} course, but you are currently searching within ${selectedSubjectSummary}.`
+                      : searchTerm && selectedSubjects.size > 0
+                        ? `No courses match "${searchTerm}" within ${selectedSubjectSummary}.`
+                        : searchTerm
+                          ? `No courses match "${searchTerm}". Try different keywords or check spelling.`
+                          : `No courses found within ${selectedSubjectSummary}.`}
+                  </p>
+                  <div className="mx-auto max-w-xl text-center text-xs text-gray-400">
+                    <p className="mb-2 font-medium text-gray-500">Try this:</p>
+                    <ul className="list-disc list-inside space-y-1.5 text-center">
+                      {selectedDays.size > 0 && (
+                        <li>Clear day filters: {selectedDayNames.join(', ')}.</li>
+                      )}
+                      {isSearchingOutsideSelectedSubjects && searchedSubjectCode ? (
+                        <li>
+                          Add {searchedSubjectCode} to the subject filter, or clear subject filters.
+                        </li>
+                      ) : selectedSubjects.size > 0 ? (
+                        <li>Clear subject filters to search across all subjects.</li>
+                      ) : null}
+                      {searchTerm && <li>Check the course code, title, or instructor spelling.</li>}
                       <li>
-                        Add {searchedSubjectCode} to the subject filter, or clear subject filters.
+                        Try a broader search, such as &ldquo;CSCI&rdquo;, &ldquo;nature&rdquo;, or
+                        an instructor name.
                       </li>
-                    ) : selectedSubjects.size > 0 ? (
-                      <li>Clear subject filters to search across all subjects.</li>
-                    ) : null}
-                    {searchTerm && <li>Check the course code, title, or instructor spelling.</li>}
-                    <li>
-                      Try a broader search, such as &ldquo;CSCI&rdquo;, &ldquo;nature&rdquo;, or an
-                      instructor name.
-                    </li>
-                  </ul>
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            ) : hasDataLoaded ? (
-              // No data available (only show after load has completed)
-              <div className="space-y-3">
-                <div className="text-gray-400">
-                  <span className="text-4xl">📚</span>
+              ) : hasDataLoaded ? (
+                // No data available (only show after load has completed)
+                <div className="space-y-3">
+                  <div className="text-gray-400">
+                    <span className="text-4xl">📚</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-600">No courses available</h3>
+                  <p className="text-sm text-gray-500">
+                    No course data is currently available for {currentTerm}.
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-600">No courses available</h3>
-                <p className="text-sm text-gray-500">
-                  No course data is currently available for {currentTerm}.
-                </p>
-              </div>
-            ) : null}
-          </div>
+              ) : null}
+            </div>
+          </>
         ) : (
           <>
-            <div className="flex items-center justify-between gap-2 mb-3">
-              <div className="text-sm text-gray-600 flex flex-wrap items-center gap-2">
-                <>
-                  {/* Always show current status */}
-                  Showing {displayResults.courses.length} course
-                  {displayResults.courses.length !== 1 ? 's' : ''}
-                  {displayResults.total > displayResults.courses.length && (
-                    <span className="font-medium"> of {displayResults.total} total</span>
-                  )}
-                  {searchTerm && ` matching "${searchTerm}"`}
-                  {/* Active-filter summary — pills wrap with the count text, clear of the shuffle button. */}
-                  {filterPills.length > 0 && (
-                    <span className="inline-flex flex-wrap items-center gap-1.5">
-                      <span className="text-gray-500">, filtered by</span>
-                      {filterPills.map((pill) => (
-                        <Badge key={pill.key} variant="secondary">
-                          {pill.label}
-                        </Badge>
-                      ))}
-                    </span>
-                  )}
-                  {/* Add loading indicator as pill badge */}
-                  {isFiltering && (
-                    <span className="ml-2 inline-flex items-center gap-1.5 px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded-full border border-blue-200">
-                      <div className="w-2.5 h-2.5 border border-blue-400 border-t-transparent rounded-full animate-spin"></div>
-                      Updating
-                    </span>
-                  )}
-                </>
-                {!isFiltering && displayResults.isShuffled && (
-                  <>
-                    <span className="text-blue-600 font-medium"> (shuffled)</span>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => {
-                        // Track reset usage for shuffle satisfaction analysis
-                        analytics.shuffleReset()
-                        setShuffleTrigger(0)
-                      }}
-                      className="h-6 px-2 text-xs cursor-pointer ml-2"
-                      title="Reset to original order"
-                    >
-                      ↻ Reset
-                    </Button>
-                  </>
-                )}
-              </div>
-
-              {displayResults.total > 1 && (
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => {
-                    // Track shuffle usage for discovery behavior analysis
-                    analytics.shuffleUsed(displayResults.total)
-                    setShuffleTrigger((prev) => prev + 1)
-                  }}
-                  className="h-6 px-2 text-xs"
-                  title="Shuffle courses for discovery"
-                >
-                  🎲 Shuffle
-                </Button>
-              )}
-            </div>
+            {resultsSummary}
 
             {/* Show helpful message when results are limited */}
             {displayResults.isLimited && (
