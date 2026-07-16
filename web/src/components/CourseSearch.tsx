@@ -838,11 +838,13 @@ export default function CourseSearch({
                   <button
                     type="button"
                     onClick={pill.onRemove}
-                    className="-my-0.5 -mr-1 inline-flex size-5 touch-manipulation cursor-pointer items-center justify-center rounded-sm text-gray-500 hover:bg-black/10 hover:text-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                    className="group -my-0.5 inline-flex size-5 touch-manipulation cursor-pointer items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                     aria-label={`Remove ${pill.label} filter`}
                     title={`Remove ${pill.label} filter`}
                   >
-                    <X className="h-3 w-3" aria-hidden="true" />
+                    <span className="inline-flex size-4 items-center justify-center rounded-full text-gray-500 transition-colors group-hover:bg-black/10 group-hover:text-gray-800">
+                      <X className="h-3 w-3" aria-hidden="true" />
+                    </span>
                   </button>
                 )}
               </Badge>
