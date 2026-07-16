@@ -844,17 +844,6 @@ export default function CourseSearch({
                   onTermChange={onTermChange}
                 />
               </div>
-              {selectedSubjects.size > 0 && (
-                <div className="flex items-center gap-1">
-                  <span>filtered by</span>
-                  <span className="font-semibold text-blue-600">
-                    {Array.from(selectedSubjects).sort().join(', ')}
-                  </span>
-                  <span>
-                    ({selectedSubjects.size} subject{selectedSubjects.size !== 1 ? 's' : ''})
-                  </span>
-                </div>
-              )}
               {lastDataUpdate && (
                 <>
                   <div className="flex items-center gap-1.5">
@@ -1194,7 +1183,7 @@ export default function CourseSearch({
                   {/* Active-filter summary — pills wrap with the count text, clear of the shuffle button. */}
                   {filterPills.length > 0 && (
                     <span className="inline-flex flex-wrap items-center gap-1.5">
-                      <span className="text-gray-500">filtered by</span>
+                      <span className="text-gray-500">, filtered by</span>
                       {filterPills.map((pill) => (
                         <Badge key={pill.key} variant="secondary">
                           {pill.label}
