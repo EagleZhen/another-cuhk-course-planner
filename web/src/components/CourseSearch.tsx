@@ -824,9 +824,6 @@ export default function CourseSearch({
       <div className="text-sm text-gray-600 flex flex-wrap items-center gap-2">
         Showing {displayResults.courses.length} course
         {displayResults.courses.length !== 1 ? 's' : ''}
-        {displayResults.total > displayResults.courses.length && (
-          <span className="font-medium"> of {displayResults.total} total</span>
-        )}
         {searchTerm && ` matching "${searchTerm}"`}
         {filterPills.length > 0 && (
           <span className="inline-flex flex-wrap items-center gap-1.5 border-l border-gray-300 pl-2">
@@ -1280,11 +1277,13 @@ export default function CourseSearch({
                 <div className="flex items-start gap-2">
                   <span className="text-amber-600 text-3xl">💡</span>
                   <div>
-                    <strong>Too many results to display.</strong>
+                    <strong>
+                      Showing {displayResults.courses.length} of {displayResults.total} matching
+                      courses
+                    </strong>
                     <br />
                     <span className="text-amber-600">
-                      Try searching for specific course codes or adding more subject filters to
-                      narrow results.
+                      Try refining your search or adjusting one of the filters above.
                     </span>
                   </div>
                 </div>
