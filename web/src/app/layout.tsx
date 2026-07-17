@@ -65,6 +65,10 @@ export const metadata: Metadata = {
   },
 
   other: {
+    // Stop Chrome/Edge offering to translate. Their translators rewrite text nodes
+    // out from under React, which crashes the app on the next re-render.
+    google: 'notranslate',
+
     'application/ld+json': JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'WebApplication',
@@ -83,7 +87,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" translate="no">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
         <MobileDesktopNotice />
