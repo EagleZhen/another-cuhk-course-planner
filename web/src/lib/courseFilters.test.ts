@@ -246,10 +246,13 @@ describe('courseMatchesKeyword', () => {
     ['full code', 'csci1130'],
     ['bare code', '1130'],
     ['title', 'computing'],
-    ['description', 'programming'],
     ['instructor', 'chan'],
   ])('matches on %s', (_label, query) => {
     expect(courseMatchesKeyword(course, query, TERM)).toBe(true)
+  })
+
+  it('does not match description text', () => {
+    expect(courseMatchesKeyword(course, 'programming', TERM)).toBe(false)
   })
 
   it('returns false when nothing matches', () => {

@@ -14,10 +14,10 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 
 ## Filtering
 
-Course-level filtering lives in [courseFilters.ts](../../web/src/lib/courseFilters.ts) as composable predicate builders; `CourseSearch` only supplies state and presentation (shuffle, result limit). Routing every caller through this one engine is the point — the old duplicated predicates had drifted, so results and the day-option chips disagreed on whether search matched `description`.
+Course-level filtering lives in [courseFilters.ts](../../web/src/lib/courseFilters.ts) as composable predicate builders; `CourseSearch` only supplies state and presentation (shuffle, result limit). Routing every caller through this one engine keeps the results and chip-filter options from drifting apart.
 
 - **Criteria vs. context.** `criteria` is user selections (empty = no constraint); `context` is the ambient scope (the term and current enrollments). Keeping ambient data in `context` lets `hasActiveFilters` stay a pure test of whether the user narrowed anything — which drives the 10-vs-100 result cap.
-- **Keyword search** covers code, title, description, and instructors, via one shared `courseMatchesKeyword`.
+- **Keyword search** covers code, title, and current-term instructors via one shared `courseMatchesKeyword`. Course descriptions are display content, not a matching field; they can mention prerequisites or related courses that are not the course the user searched for.
 - **Chip-filter options** (days, credits, numeric level, and career) come from `availableValues`: values present after every _other_ filter, plus the current selection. Excluding the own dimension avoids a self-loop; keeping the selection stops a selected chip vanishing (which would leave results you can't clear).
 - **Numeric level** comes from the course code's first digit (1–9) and counts as an active filter. Codes without a valid leading digit contribute no level chip.
 - **Career** defaults to `Undergraduate` and is excluded from `hasActiveFilters`: it picks _which_ catalog you browse, so it does not switch off the shuffled 10-course landing.
