@@ -344,14 +344,12 @@ export default function ShoppingCart({
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
-              const hasRemovedSections = (enrollment.removedSections?.length ?? 0) > 0
               const isSelectable = isVisible || isInvalid
-              const accentColor =
-                isInvalid || hasRemovedSections
-                  ? '#fbbf24'
-                  : enrollment.color
-                    ? getComputedBorderColor(enrollment.color)
-                    : undefined
+              const accentColor = isInvalid
+                ? '#fbbf24'
+                : enrollment.color
+                  ? getComputedBorderColor(enrollment.color)
+                  : undefined
               const hasUnseenInvalid = hasUnseenInvalidChange(enrollment)
               const isCourseRemoved = enrollment.invalidReason === 'Course no longer available'
               const invalidHeading = isCourseRemoved
@@ -379,7 +377,7 @@ export default function ShoppingCart({
                   className={`
                     relative group space-y-2 rounded border border-l-4 p-2
                     transition-all duration-300 motion-reduce:transition-none
-                    ${isInvalid || hasRemovedSections ? 'border-amber-200 bg-amber-50' : 'border-gray-200 bg-white'}
+                    ${isInvalid ? 'border-amber-200 bg-amber-50' : 'border-gray-200 bg-white'}
                     ${isSelected && isSelectable ? `ring-1 shadow-lg scale-[1.02]` : ''}
                     ${isInvalid ? 'cursor-help' : isSelectable ? 'cursor-pointer' : 'cursor-not-allowed'}
                   `}
@@ -635,27 +633,12 @@ export default function ShoppingCart({
                         )
                       })}
 
-                      {hasRemovedSections && (
-                        <div className="border-t border-amber-200 px-3 py-2">
-                          <div className="flex items-start gap-2 text-xs leading-4 text-amber-700">
-                            <AlertTriangle className="mt-0.5 size-4 shrink-0 text-amber-600" />
-                            <div className="min-w-0">
-                              <p className="font-medium text-amber-800">
-                                A selected section is no longer offered.
-                              </p>
-                              <p className="mt-1">
-                                Choose another offered section below, or remove the course.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-
                       {enrollment.removedSections?.map((section) => {
                         const compatible = getCompatibleSections(enrollment, section.sectionType)
                         const sectionTypeName = getSectionTypeName(
                           section.sectionType
                         ).toLowerCase()
+                        const removedTooltip = `This ${sectionTypeName} section is no longer offered`
                         const meetingRows: MeetingRow[] = sectionSignature(section).meetings.map(
                           (meeting) => ({ status: 'removed', meeting })
                         )
@@ -663,13 +646,12 @@ export default function ShoppingCart({
                         return (
                           <div
                             key={section.id}
-                            className="rounded border border-amber-200 bg-amber-50 px-2 py-2"
+                            data-removed-section={section.id}
+                            className="cursor-help rounded border border-amber-200 bg-amber-50 px-2 py-2"
+                            title={removedTooltip}
                           >
                             <div className="mb-1 flex items-start justify-between gap-2">
-                              <div
-                                className="cursor-help font-mono text-xs font-medium text-gray-500 line-through"
-                                title={`This ${sectionTypeName} section is no longer offered`}
-                              >
+                              <div className="font-mono text-xs font-medium text-gray-500 line-through">
                                 {section.sectionCode}
                               </div>
 

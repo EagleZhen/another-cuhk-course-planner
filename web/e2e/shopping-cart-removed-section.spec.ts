@@ -64,7 +64,15 @@ async function openCart(page: Page, alternatives: ReturnType<typeof section>[]) 
   )
   await page.goto('/')
 
-  await expect(page.getByText('A selected section is no longer offered.')).toBeVisible()
+  const courseCard = page
+    .getByText('ACCT1111', { exact: true })
+    .locator('xpath=ancestor::div[contains(@class, "border-l-4")][1]')
+  const tombstone = page.locator('[data-removed-section="removed"]')
+
+  await expect(courseCard).not.toHaveClass(/bg-amber-50/)
+  await expect(page.getByText('A selected section is no longer offered.')).toHaveCount(0)
+  await expect(tombstone).toHaveClass(/cursor-help/)
+  await expect(tombstone).toHaveAttribute('title', 'This lecture section is no longer offered')
   await expect(page.getByText('A-LEC (removed)', { exact: true })).toHaveClass(/line-through/)
   await expect(page.getByTitle('This meeting was removed since you last checked')).toBeVisible()
 }
@@ -90,7 +98,6 @@ test('next replaces a removed section with the first compatible alternative', as
 
   await expect(page.getByText('B-LEC (first)', { exact: true })).toBeVisible()
   await expect(page.getByText('A-LEC (removed)', { exact: true })).toHaveCount(0)
-  await expect(page.getByText('A selected section is no longer offered.')).toHaveCount(0)
   await expect(page.getByText('1 course changed since you last checked')).toHaveCount(0)
   await expectReplacementSaved(page, 'first')
 })
