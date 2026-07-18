@@ -137,7 +137,7 @@ export interface CourseEnrollment {
   // Sync status fields
   isInvalid?: boolean // True if course/sections no longer exist
   invalidReason?: string // Human-readable reason for invalidity
-  lastSynced?: Date // When this enrollment was last synced with fresh data
+  lastSynced?: Date | string // Date in memory; ISO string after localStorage persistence
   // Per-section sectionSignature the user last saw, keyed by section id. Not rendered
   // directly — only used to detect changes. Missing entry = adopt current section.
   lastSeenSections?: Record<string, SectionSignature>

@@ -7,6 +7,7 @@ import {
   diffEnrollment,
   recordSeenSections,
   diffSectionDetail,
+  formatSyncTimestamp,
   sectionsOverlapInTime,
   checkSectionConflict,
   hasConflictFreeEnrollment,
@@ -19,6 +20,15 @@ import type {
   InternalMeeting,
   SectionSignature,
 } from './types'
+
+describe('formatSyncTimestamp', () => {
+  it('formats live dates and persisted strings identically in 24-hour time', () => {
+    const timestamp = new Date(2026, 6, 14, 21, 27)
+
+    expect(formatSyncTimestamp(timestamp)).toBe('Jul 14, 2026 21:27')
+    expect(formatSyncTimestamp('2026-07-14T21:27:10')).toBe('Jul 14, 2026 21:27')
+  })
+})
 
 function makeSection(overrides: Partial<InternalSection>): InternalSection {
   return {

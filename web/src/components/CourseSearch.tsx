@@ -26,6 +26,7 @@ import {
   getSectionTypePriority,
   formatTimeCompact,
   formatInstructorsCompact,
+  formatSyncTimestamp,
   getAvailabilityBadges,
   getAvailabilityBadgeStyle,
   checkSectionConflict,
@@ -963,17 +964,7 @@ export default function CourseSearch({
                       <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                     </span>
                     <span className="whitespace-nowrap">
-                      Last Data Sync:{' '}
-                      {lastDataUpdate.toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric',
-                      })}{' '}
-                      {lastDataUpdate.toLocaleTimeString([], {
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        hour12: false,
-                      })}
+                      Last Data Sync: {formatSyncTimestamp(lastDataUpdate)}
                     </span>
                   </div>
                 </>

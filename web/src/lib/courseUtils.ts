@@ -830,6 +830,23 @@ export function getDeterministicColor(courseCode: string): string {
   return DETERMINISTIC_COLORS[Math.abs(hash) % DETERMINISTIC_COLORS.length]
 }
 
+export function formatSyncTimestamp(timestamp: Date | string): string {
+  const date = timestamp instanceof Date ? timestamp : new Date(timestamp)
+  if (Number.isNaN(date.getTime())) return 'Unknown'
+
+  const formattedDate = date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  })
+  const formattedTime = date.toLocaleTimeString('en-GB', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  })
+  return `${formattedDate} ${formattedTime}`
+}
+
 /**
  * Group meetings by time + location + instructor to show unique meetings
  * This consolidates duplicate meetings that occur at the same time/place with same instructor

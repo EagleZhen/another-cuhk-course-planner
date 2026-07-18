@@ -10,6 +10,7 @@ import {
   sectionSignature,
   formatTimeCompact,
   formatInstructorsCompact,
+  formatSyncTimestamp,
   getSectionTypePriority,
   categorizeCompatibleSections,
   getAvailabilityBadges,
@@ -609,11 +610,8 @@ export default function ShoppingCart({
                         )}
                       </div>
                       {enrollment.lastSynced && (
-                        <div className="text-xs text-gray-500 mt-2">Last synced:</div>
-                      )}
-                      {enrollment.lastSynced && (
-                        <div className="text-xs text-gray-500">
-                          {enrollment.lastSynced.toLocaleString()}
+                        <div className="mt-2 text-xs text-gray-500">
+                          Last synced · {formatSyncTimestamp(enrollment.lastSynced)}
                         </div>
                       )}
                     </div>
