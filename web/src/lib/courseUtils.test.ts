@@ -407,20 +407,26 @@ describe('recordSeenSections', () => {
 })
 
 describe('diffSectionDetail', () => {
-  it('reports no changed meetings and no language change when before matches current', () => {
+  it('returns unchanged live rows and no language change when before matches current', () => {
     const now = mkSection('1', [mkMeeting({})], 'English only')
     const detail = diffSectionDetail(now, sig(now))
-    expect(detail.changedMeetings).toHaveLength(0)
+    expect(detail.rows).toEqual([
+      {
+        status: 'unchanged',
+        meeting: { time: 'We 2:30PM - 5:15PM', location: 'Hum 314', instructor: 'Staff' },
+      },
+    ])
     expect(detail.languageChanged).toBe(false)
   })
 
-  it('pairs a changed meeting with its previous value and pinpoints the field', () => {
+  it('pairs an equal-count change without also returning a removed row', () => {
     const before = mkSection('1', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
     const now = mkSection('1', [mkMeeting({ time: 'We 9AM - 10AM' })])
     const detail = diffSectionDetail(now, sig(before))
-    expect(detail.changedMeetings).toEqual([
+    expect(detail.rows).toEqual([
       {
-        current: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        status: 'changed',
+        meeting: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
         before: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
         fields: { time: true, location: false, instructor: false },
       },
@@ -435,7 +441,7 @@ describe('diffSectionDetail', () => {
       mkMeeting({ time: 'We 9AM - 10AM', location: 'T.C. Cheng 208', instructors: 'Prof Chen' }),
     ])
     const detail = diffSectionDetail(now, sig(before))
-    expect(detail.changedMeetings[0].fields).toEqual({
+    expect(detail.rows[0].fields).toEqual({
       time: true,
       location: true,
       instructor: true,
@@ -452,14 +458,18 @@ describe('diffSectionDetail', () => {
       mkMeeting({ time: 'Th 9AM - 10AM' }),
     ])
     const detail = diffSectionDetail(now, sig(before))
-    expect(detail.changedMeetings).toHaveLength(1)
-    expect(detail.changedMeetings[0].current.time).toBe('Th 9AM - 10AM')
-    expect(detail.changedMeetings[0].before!.time).toBe('We 9AM - 10AM')
-    expect(detail.changedMeetings[0].fields).toEqual({
-      time: true,
-      location: false,
-      instructor: false,
-    })
+    expect(detail.rows).toEqual([
+      {
+        status: 'unchanged',
+        meeting: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+      },
+      {
+        status: 'changed',
+        meeting: { time: 'Th 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        before: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        fields: { time: true, location: false, instructor: false },
+      },
+    ])
   })
 
   it('pairs by appearance order when several meetings change at once (same count)', () => {
@@ -472,30 +482,100 @@ describe('diffSectionDetail', () => {
       mkMeeting({ time: 'Th 9AM - 10AM' }),
     ])
     const detail = diffSectionDetail(now, sig(before))
-    expect(detail.changedMeetings.map((c) => [c.current.time, c.before!.time])).toEqual([
+    expect(detail.rows.map((row) => [row.meeting.time, row.before!.time])).toEqual([
       ['Tu 9AM - 10AM', 'Mo 9AM - 10AM'],
       ['Th 9AM - 10AM', 'We 9AM - 10AM'],
     ])
+    expect(detail.rows.every((row) => row.status === 'changed')).toBe(true)
   })
 
-  it('leaves before/fields undefined for an added meeting (counts differ, no pairing)', () => {
+  it('tags an unpaired new meeting as added', () => {
     const before = mkSection('1', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
     const now = mkSection('1', [
       mkMeeting({ time: 'Mo 9AM - 10AM' }),
       mkMeeting({ time: 'We 9AM - 10AM' }),
     ])
     const detail = diffSectionDetail(now, sig(before))
-    expect(detail.changedMeetings).toHaveLength(1)
-    expect(detail.changedMeetings[0].current.time).toBe('We 9AM - 10AM')
-    expect(detail.changedMeetings[0].before).toBeUndefined()
-    expect(detail.changedMeetings[0].fields).toBeUndefined()
+    expect(detail.rows).toEqual([
+      {
+        status: 'unchanged',
+        meeting: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+      },
+      {
+        status: 'added',
+        meeting: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+      },
+    ])
   })
 
-  it('reports a language-only change with no changed meetings', () => {
+  it('appends a removed meeting after the remaining live rows', () => {
+    const before = mkSection('1', [
+      mkMeeting({ time: 'Mo 9AM - 10AM', location: 'Science Centre 327' }),
+      mkMeeting({ time: 'We 9AM - 10AM' }),
+      mkMeeting({ time: 'Fr 9AM - 10AM' }),
+    ])
+    const now = mkSection('1', [
+      mkMeeting({ time: 'We 9AM - 10AM' }),
+      mkMeeting({ time: 'Fr 9AM - 10AM' }),
+    ])
+
+    expect(diffSectionDetail(now, sig(before)).rows).toEqual([
+      {
+        status: 'unchanged',
+        meeting: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+      },
+      {
+        status: 'unchanged',
+        meeting: { time: 'Fr 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+      },
+      {
+        status: 'removed',
+        meeting: {
+          time: 'Mo 9AM - 10AM',
+          location: 'Science Centre 327',
+          instructor: 'Staff',
+        },
+      },
+    ])
+  })
+
+  it('does not fabricate pairings when added and removed counts differ', () => {
+    const before = mkSection('1', [
+      mkMeeting({ time: 'Mo 9AM - 10AM' }),
+      mkMeeting({ time: 'We 9AM - 10AM' }),
+    ])
+    const now = mkSection('1', [
+      mkMeeting({ time: 'We 9AM - 10AM' }),
+      mkMeeting({ time: 'Th 9AM - 10AM' }),
+      mkMeeting({ time: 'Fr 9AM - 10AM' }),
+    ])
+
+    expect(diffSectionDetail(now, sig(before)).rows).toEqual([
+      {
+        status: 'unchanged',
+        meeting: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+      },
+      {
+        status: 'added',
+        meeting: { time: 'Th 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+      },
+      {
+        status: 'added',
+        meeting: { time: 'Fr 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+      },
+      {
+        status: 'removed',
+        meeting: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+      },
+    ])
+  })
+
+  it('reports a language-only change with unchanged meeting rows', () => {
     const before = mkSection('1', [mkMeeting({})], 'English only')
     const now = mkSection('1', [mkMeeting({})], 'Putonghua and English')
     const detail = diffSectionDetail(now, sig(before))
-    expect(detail.changedMeetings).toHaveLength(0)
+    expect(detail.rows).toHaveLength(1)
+    expect(detail.rows[0].status).toBe('unchanged')
     expect(detail.languageChanged).toBe(true)
   })
 })

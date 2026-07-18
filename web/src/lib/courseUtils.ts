@@ -16,6 +16,8 @@ import type {
   SectionSignature,
   SectionMeetingSignature,
   SectionMeetingChange,
+  SectionDiffDetail,
+  MeetingRow,
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
 import { SCHEDULE_DATA_VERSION } from './constants'
@@ -546,33 +548,41 @@ export function recordSeenSections(
   return { ...enrollment, lastSeenSections: next }
 }
 
-// Each changed meeting paired to its previous value, so the cart can highlight the exact
-// field that moved. Meetings are paired positionally only when the count is unchanged
-// (|added| === |removed|); a differing count means one was added/removed outright, so it's
-// left unpaired (before/fields undefined) and the caller highlights the whole row.
+// Detection above compares meeting positions to decide whether a section changed. Detail
+// classification instead uses content-based set differences so rows shifted by a removal
+// remain unchanged. Equal added/removed counts retain the existing positional pairing.
 export function diffSectionDetail(
   section: InternalSection,
   before: SectionSignature
-): { changedMeetings: SectionMeetingChange[]; languageChanged: boolean } {
+): SectionDiffDetail {
   const current = sectionSignature(section)
   const added = current.meetings.filter((m) => !before.meetings.some((b) => sameMeeting(b, m)))
   const removed = before.meetings.filter((b) => !current.meetings.some((m) => sameMeeting(m, b)))
   const paired = added.length === removed.length
-  const changedMeetings: SectionMeetingChange[] = added.map((meeting, i) => {
-    const previous = paired ? removed[i] : undefined
+
+  const rows: MeetingRow[] = current.meetings.map((meeting) => {
+    const addedIndex = added.findIndex((candidate) => sameMeeting(candidate, meeting))
+    if (addedIndex === -1) return { status: 'unchanged', meeting }
+    if (!paired) return { status: 'added', meeting }
+
+    const previous = removed[addedIndex]
     return {
-      current: meeting,
+      status: 'changed',
+      meeting,
       before: previous,
-      fields: previous
-        ? {
-            time: previous.time !== meeting.time,
-            location: previous.location !== meeting.location,
-            instructor: previous.instructor !== meeting.instructor,
-          }
-        : undefined,
+      fields: {
+        time: previous.time !== meeting.time,
+        location: previous.location !== meeting.location,
+        instructor: previous.instructor !== meeting.instructor,
+      },
     }
   })
-  return { changedMeetings, languageChanged: before.language !== current.language }
+
+  if (!paired) {
+    rows.push(...removed.map((meeting): MeetingRow => ({ status: 'removed', meeting })))
+  }
+
+  return { rows, languageChanged: before.language !== current.language }
 }
 
 // Finds the change entry for a raw (as-rendered) meeting, or undefined if it didn't change.

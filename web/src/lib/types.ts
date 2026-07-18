@@ -77,6 +77,20 @@ export interface SectionChange {
   after: SectionSignature
 }
 
+export type MeetingChangeStatus = 'unchanged' | 'added' | 'changed' | 'removed'
+
+export interface MeetingRow {
+  status: MeetingChangeStatus
+  meeting: SectionMeetingSignature
+  before?: SectionMeetingSignature
+  fields?: { time: boolean; location: boolean; instructor: boolean }
+}
+
+export interface SectionDiffDetail {
+  rows: MeetingRow[]
+  languageChanged: boolean
+}
+
 // One changed meeting, paired to its previous value when meetings can be matched 1:1
 // (see diffSectionDetail). `before`/`fields` are absent when a meeting was added with no
 // counterpart to pair against. `fields` marks which of time/location/instructor differ.
