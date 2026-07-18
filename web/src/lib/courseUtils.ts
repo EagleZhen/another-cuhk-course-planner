@@ -595,19 +595,34 @@ function migrateLegacyPartialRemovals(enrollments: CourseEnrollment[]): CourseEn
   })
 }
 
+// Blobs written before the tombstone model carried sectionIds on lastSeenInvalidState;
+// rebuild the reason-only shape so runtime objects match the current type.
+function stripLegacyInvalidStateFields(enrollments: CourseEnrollment[]): CourseEnrollment[] {
+  return enrollments.map((enrollment) =>
+    enrollment.lastSeenInvalidState
+      ? { ...enrollment, lastSeenInvalidState: { reason: enrollment.lastSeenInvalidState.reason } }
+      : enrollment
+  )
+}
+
+// Every step is idempotent, so re-normalizing current-version data is a no-op.
+function normalizeStoredEnrollments(enrollments: CourseEnrollment[]): CourseEnrollment[] {
+  return reviveEnrollmentDates(
+    stripLegacyInvalidStateFields(migrateLegacyPartialRemovals(enrollments))
+  )
+}
+
 // Enrollments to load from a persisted schedule blob, or null to wipe it. Known versions
 // are normalized to the current model; unknown/newer versions are rejected.
 export function readStoredEnrollments(parsed: unknown): CourseEnrollment[] | null {
   if (Array.isArray(parsed)) {
-    return reviveEnrollmentDates(migrateLegacyPartialRemovals(parsed as CourseEnrollment[]))
+    return normalizeStoredEnrollments(parsed as CourseEnrollment[])
   }
   if (parsed && typeof parsed === 'object') {
     const version = (parsed as { version?: unknown }).version
     if (typeof version === 'number' && version >= 1 && version <= SCHEDULE_DATA_VERSION) {
-      return reviveEnrollmentDates(
-        migrateLegacyPartialRemovals(
-          ((parsed as { enrollments?: CourseEnrollment[] }).enrollments ?? []) as CourseEnrollment[]
-        )
+      return normalizeStoredEnrollments(
+        ((parsed as { enrollments?: CourseEnrollment[] }).enrollments ?? []) as CourseEnrollment[]
       )
     }
   }

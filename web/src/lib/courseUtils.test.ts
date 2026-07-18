@@ -363,6 +363,21 @@ describe('readStoredEnrollments', () => {
     expect(loaded?.[1]).toEqual(wholeCourseRemoval)
   })
 
+  it('strips the legacy sectionIds key from a persisted lastSeenInvalidState', () => {
+    const stored = [
+      {
+        ...mkEnrollment([]),
+        isInvalid: true,
+        invalidReason: 'Course no longer available',
+        lastSeenInvalidState: { reason: 'Course no longer available', sectionIds: ['tut-old'] },
+      },
+    ] as unknown as CourseEnrollment[]
+
+    const loaded = readStoredEnrollments({ version: 2, enrollments: stored })
+
+    expect(loaded?.[0].lastSeenInvalidState).toEqual({ reason: 'Course no longer available' })
+  })
+
   it('wipes (null) for an unknown/newer version', () => {
     expect(readStoredEnrollments({ version: SCHEDULE_DATA_VERSION + 1, enrollments })).toBeNull()
     expect(readStoredEnrollments({ version: 0, enrollments })).toBeNull()

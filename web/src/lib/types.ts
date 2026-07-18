@@ -126,8 +126,8 @@ export const SECTION_TYPE_CONFIG = {
 export type SectionType = keyof typeof SECTION_TYPE_CONFIG
 
 // Reason-only: per-section removals track acknowledgment via removedSectionsAcknowledged,
-// so the invalid state's identity is just its reason. (Persisted v2 blobs may carry an
-// extra sectionIds key; it is simply ignored.)
+// so the invalid state's identity is just its reason. (Persisted pre-tombstone blobs carried
+// an extra sectionIds key; readStoredEnrollments strips it on load.)
 export interface InvalidEnrollmentState {
   reason: string
 }
