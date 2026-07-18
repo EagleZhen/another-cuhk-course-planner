@@ -166,7 +166,7 @@ export function detectConflicts(events: CalendarEvent[]): CalendarEvent[] {
 }
 
 /** Visible and still valid — the enrollments that count toward the timetable (calendar, conflicts). */
-export function isActiveEnrollment(enrollment: CourseEnrollment): boolean {
+export function isVisibleAndValid(enrollment: CourseEnrollment): boolean {
   return enrollment.isVisible && !enrollment.isInvalid
 }
 
@@ -176,7 +176,7 @@ export function isActiveEnrollment(enrollment: CourseEnrollment): boolean {
 export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): CalendarEvent[] {
   const events: CalendarEvent[] = []
 
-  enrollments.filter(isActiveEnrollment).forEach((enrollment) => {
+  enrollments.filter(isVisibleAndValid).forEach((enrollment) => {
     enrollment.selectedSections.forEach((section) => {
       section.meetings.forEach((meeting) => {
         const timeRange = parseTimeRange(meeting.time)
@@ -229,7 +229,7 @@ export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
     meeting: InternalMeeting
   }> = []
 
-  enrollments.filter(isActiveEnrollment).forEach((enrollment) => {
+  enrollments.filter(isVisibleAndValid).forEach((enrollment) => {
     enrollment.selectedSections.forEach((section) => {
       section.meetings.forEach((meeting) => {
         const timeRange = parseTimeRange(meeting.time)
@@ -1488,7 +1488,7 @@ export function checkSectionConflict(
 
   // Check against all visible enrolled sections
   for (const enrollment of currentEnrollments) {
-    if (!isActiveEnrollment(enrollment)) continue
+    if (!isVisibleAndValid(enrollment)) continue
 
     for (const enrolledSection of enrollment.selectedSections) {
       // Skip itself from checking
@@ -1760,7 +1760,7 @@ export function generateICSCalendar(
 
     // Process each enrollment - only include visible and valid courses
     // Invisible courses (toggled off) should not be exported to calendar
-    enrollments.filter(isActiveEnrollment).forEach((enrollment) => {
+    enrollments.filter(isVisibleAndValid).forEach((enrollment) => {
       enrollment.selectedSections.forEach((section) => {
         section.meetings.forEach((meeting) => {
           const events = createICSEventsForMeeting(meeting, enrollment.course, section, termName)
