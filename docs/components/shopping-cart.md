@@ -16,11 +16,12 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 - Hidden cards are not selectable; hiding a currently selected course also deselects it. Invalid cards remain selectable in the cart, but have no timetable events.
 - Visibility is not just cosmetic: it feeds calendar conflict detection and ICS export (see [weekly-calendar.md](weekly-calendar.md#ics-export)).
 
-## Invalid Enrollments
+## Removed Offerings
 
-- Invalid courses (marked by background sync) stay in the cart with an amber status and last-synced time — only the user removes them. See [architecture.md](../architecture.md#browser-state).
-- A new invalid state joins the banner's Review queue. **Dismiss all** acknowledges both invalid and section-detail changes; the unavailable status remains but its explanation collapses. A different reason or set of missing sections alerts again.
-- Re-adding an invalid course from search clears its invalid and acknowledgment state and refreshes the stale `course` object, via `updateExistingEnrollment` in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
+- A missing course or current term uses the terminal `isInvalid` card with an amber status and last-synced time. It stays until the user removes it. See [architecture.md](../architecture.md#browser-state).
+- A missing selected section does not invalidate the course. It moves from `selectedSections` to the display-only `removedSections`, so surviving sections still feed the timetable, conflicts, and ICS. The cart shows a struck-through tombstone with compatible replacement arrows, or a search/remove hint when none exist.
+- Both states join the banner's Review queue. **Dismiss all** acknowledges the changes but keeps section tombstones and replacement controls available.
+- Re-adding from search clears unavailable state and tombstones while refreshing the course through `updateExistingEnrollment` in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
 
 ## Change Detection
 
@@ -30,7 +31,7 @@ Flags an enrolled section that changed (time, location, instructor, or language)
 - That signature advances only on add / section-change / sync / dismiss — never on plain reload — so a note persists across reloads until dismissed and re-fires on further change. Sync only fills in _missing_ signatures, so fresh data the user hasn't seen yet isn't retroactively flagged.
 - Compares time + location + instructor + language; ignores `dates` and availability; only `selectedSections`. Detection compares meeting positions to decide whether to show the summary banner; detail rows use content-based set differences so a deletion does not make later meetings look changed. Logic lives in [courseUtils.ts](../../web/src/lib/courseUtils.ts) (`sectionSignature`, `diffEnrollment`, `diffSectionDetail`).
 - Equal added/removed counts pair positionally into field-level "previously" highlights; unequal counts show whole rows as added/removed rather than guessing pairs — a wrong before/after is worse than none.
-- A whole course or section disappearing stays on the `isInvalid` path above. A meeting disappearing from a section that still exists stays in the valid card as a removed row.
+- A whole course or current term disappearing uses `isInvalid`; a selected section becomes a tombstone; a meeting disappearing from a live section stays in that section as a removed row.
 
 ## Summary Semantics
 

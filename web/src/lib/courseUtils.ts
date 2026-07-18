@@ -452,6 +452,7 @@ export function updateExistingEnrollment(
     course: freshCourse,
     selectedSections,
     removedSections: undefined,
+    removedSectionsAcknowledged: undefined,
     isInvalid: false,
     invalidReason: undefined,
     lastSeenInvalidState: undefined,
@@ -518,13 +519,21 @@ export function syncEnrollment(
   }
 
   const sortedSelectedSections = sortSectionsByPriority(selectedSections, freshCourse, currentTerm)
+  const nextRemovedSections = pruneReplacedTombstones(removedSections, sortedSelectedSections)
+  const previousRemovedIds = new Set(enrollment.removedSections?.map((section) => section.id) ?? [])
+  const hasNewRemovedSection =
+    nextRemovedSections?.some((section) => !previousRemovedIds.has(section.id)) ?? false
 
   return recordSeenSections(
     {
       ...enrollment,
       course: freshCourse,
       selectedSections: sortedSelectedSections,
-      removedSections: pruneReplacedTombstones(removedSections, sortedSelectedSections),
+      removedSections: nextRemovedSections,
+      removedSectionsAcknowledged:
+        nextRemovedSections && !hasNewRemovedSection
+          ? enrollment.removedSectionsAcknowledged
+          : undefined,
       isInvalid: false,
       invalidReason: undefined,
       lastSeenInvalidState: undefined,
@@ -665,7 +674,8 @@ export function getChangedCourseIds(
     .filter(
       (enrollment) =>
         hasUnseenInvalidChange(enrollment) ||
-        (enrollment.removedSections?.length ?? 0) > 0 ||
+        ((enrollment.removedSections?.length ?? 0) > 0 &&
+          !enrollment.removedSectionsAcknowledged) ||
         sectionChanges?.has(enrollment.courseId)
     )
     .map((enrollment) => enrollment.courseId)
@@ -718,11 +728,11 @@ export function recordSeenSections(
   return { ...enrollment, lastSeenSections: next }
 }
 
-/** Acknowledge both section-detail changes and the current invalid status. */
+/** Acknowledge changes without deleting section tombstones or changing the timetable. */
 export function recordSeenChanges(enrollment: CourseEnrollment): CourseEnrollment {
   return {
     ...recordSeenSections(enrollment, { onlyMissing: false }),
-    removedSections: undefined,
+    removedSectionsAcknowledged: (enrollment.removedSections?.length ?? 0) > 0 ? true : undefined,
     lastSeenInvalidState: getInvalidEnrollmentState(enrollment),
   }
 }

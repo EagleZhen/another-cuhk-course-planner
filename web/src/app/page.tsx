@@ -370,12 +370,16 @@ export default function Home() {
           enrollment.course,
           currentTerm
         )
+        const removedSections = pruneReplacedTombstones(enrollment.removedSections, updatedSections)
 
         return recordSeenSections(
           {
             ...enrollment,
             selectedSections: updatedSections,
-            removedSections: pruneReplacedTombstones(enrollment.removedSections, updatedSections),
+            removedSections,
+            removedSectionsAcknowledged: removedSections
+              ? enrollment.removedSectionsAcknowledged
+              : undefined,
           },
           { onlyMissing: true }
         )

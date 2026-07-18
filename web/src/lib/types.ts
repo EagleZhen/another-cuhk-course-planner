@@ -137,6 +137,8 @@ export interface CourseEnrollment {
   selectedSections: InternalSection[]
   // Display-only tombstones for picked sections that vanished while the course still exists.
   removedSections?: InternalSection[]
+  // Dismiss hides the banner without deleting tombstones or their replacement controls.
+  removedSectionsAcknowledged?: boolean
   color: string
   isVisible: boolean
   // Sync status fields
