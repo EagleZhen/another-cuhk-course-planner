@@ -206,6 +206,32 @@ describe('syncEnrollment', () => {
     expect(result.course).toBe(freshCourse)
   })
 
+  it('flags meeting changes on a section that vanished and later returned', () => {
+    const lec = makeSection({ id: 'lec' })
+    const tut = makeSection({
+      id: 'tut',
+      sectionType: 'TUT',
+      meetings: [mkMeeting({ time: 'Mo 9:30AM - 10:15AM' })],
+    })
+    const seeded = recordSeenSections(
+      { ...mkEnrollment([lec, tut]), course: makeCourse([lec, tut]) },
+      { onlyMissing: false }
+    )
+
+    // Scrape 1: the TUT disappears — its snapshot must survive tombstoning.
+    const tombstoned = syncEnrollment(seeded, [makeCourse([lec])], 'Term 1', syncedAt)
+    expect(tombstoned.removedSections).toEqual([tut])
+    expect(tombstoned.lastSeenSections?.['tut']).toBeDefined()
+
+    // Scrape 2: it returns at a new time — the change must diff against the old snapshot.
+    const movedTut = { ...tut, meetings: [mkMeeting({ time: 'Fr 2:30PM - 4:15PM' })] }
+    const restored = syncEnrollment(tombstoned, [makeCourse([lec, movedTut])], 'Term 1', syncedAt)
+    expect(restored.removedSections).toBeUndefined()
+    expect(diffEnrollment(restored)).toMatchObject([
+      { sectionId: 'tut', before: { meetings: [{ time: 'Mo 9:30AM - 10:15AM' }] } },
+    ])
+  })
+
   it('restores a tombstone to the live selection when its section reappears', () => {
     const lec = makeSection({ id: 'lec', sectionType: 'LEC' })
     const removedTut = makeSection({ id: 'tut', sectionType: 'TUT' })

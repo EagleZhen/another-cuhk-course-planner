@@ -724,7 +724,9 @@ export function hasUnseenInvalidChange(enrollment: CourseEnrollment): boolean {
   return enrollment.lastSeenInvalidState?.reason !== current.reason
 }
 
-// Rebuilds lastSeenSections for the selected sections, pruning de-selected ids.
+// Rebuilds lastSeenSections for the sections still visible in the cart — selected and
+// tombstoned — pruning the rest. Tombstones keep their snapshot so a section that vanishes
+// and later returns with different meetings still diffs against what the user last saw.
 // onlyMissing seeds only new entries (add/sync); false overwrites all (dismiss).
 export function recordSeenSections(
   enrollment: CourseEnrollment,
@@ -732,7 +734,7 @@ export function recordSeenSections(
 ): CourseEnrollment {
   const prev = enrollment.lastSeenSections ?? {}
   const next: Record<string, SectionSignature> = {}
-  for (const section of enrollment.selectedSections) {
+  for (const section of [...enrollment.selectedSections, ...(enrollment.removedSections ?? [])]) {
     next[section.id] =
       opts.onlyMissing && prev[section.id] !== undefined
         ? prev[section.id]

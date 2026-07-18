@@ -28,7 +28,7 @@ Sync (`syncEnrollment` in [courseUtils.ts](../../web/src/lib/courseUtils.ts)) re
 
 Transitions and acknowledgment:
 
-- Sync tombstones a vanished pick and restores it to live if its id reappears. `removedSectionsAcknowledged` resets only when a _new_ tombstone appears.
+- Sync tombstones a vanished pick and restores it to live if its id reappears — tombstones keep their `lastSeenSections` snapshot, so meeting changes made while it was gone still get flagged on return. `removedSectionsAcknowledged` resets only when a _new_ tombstone appears.
 - Going invalid preserves tombstones and acknowledgments, so a course that returns resumes where it left off.
 - Choosing a replacement via a tombstone's arrows selects a live section of that type, which prunes the tombstone (`pruneReplacedTombstones`).
 - The Review banner (`getChangedCourseIds`) queues unseen invalid reasons, unacknowledged visible tombstones, and section-detail changes. **Dismiss all** acknowledges only what is visible: tombstones hidden behind an invalid card stay unacknowledged, so they re-alert once the course returns and they can actually be seen.
