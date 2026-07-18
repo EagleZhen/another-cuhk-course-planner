@@ -26,11 +26,9 @@ import type {
 } from './types'
 
 describe('formatSyncTimestamp', () => {
-  it('formats live dates and persisted strings identically in 24-hour time', () => {
-    const timestamp = new Date(2026, 6, 14, 21, 27)
-
-    expect(formatSyncTimestamp(timestamp)).toBe('Jul 14, 2026 21:27')
-    expect(formatSyncTimestamp('2026-07-14T21:27:10')).toBe('Jul 14, 2026 21:27')
+  it('formats in 24-hour time and falls back to Unknown for an invalid Date', () => {
+    expect(formatSyncTimestamp(new Date(2026, 6, 14, 21, 27))).toBe('Jul 14, 2026 21:27')
+    expect(formatSyncTimestamp(new Date('corrupt'))).toBe('Unknown')
   })
 })
 
@@ -172,12 +170,24 @@ describe('readStoredEnrollments', () => {
   const enrollments = [{ courseId: 'COMM1180' }] as unknown as CourseEnrollment[]
 
   it('loads the legacy pre-version array format', () => {
-    expect(readStoredEnrollments(enrollments)).toBe(enrollments)
+    expect(readStoredEnrollments(enrollments)).toEqual(enrollments)
   })
 
   it('loads a known version (1..current) and returns its enrollments', () => {
-    expect(readStoredEnrollments({ version: 1, enrollments })).toBe(enrollments)
-    expect(readStoredEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments })).toBe(enrollments)
+    expect(readStoredEnrollments({ version: 1, enrollments })).toEqual(enrollments)
+    expect(readStoredEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments })).toEqual(
+      enrollments
+    )
+  })
+
+  it('revives lastSynced from its persisted ISO string to a Date', () => {
+    const stored = [
+      { courseId: 'COMM1180', lastSynced: '2026-07-14T13:27:10.392Z' },
+    ] as unknown as CourseEnrollment[]
+
+    const loaded = readStoredEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments: stored })
+
+    expect(loaded?.[0].lastSynced).toEqual(new Date('2026-07-14T13:27:10.392Z'))
   })
 
   it('wipes (null) for an unknown/newer version', () => {

@@ -471,15 +471,26 @@ export function markCourseUnavailable(
   }
 }
 
+// JSON.stringify writes Dates as ISO strings; revive them here so the rest of the app
+// only ever sees Date. Keep this in sync with any future Date field on CourseEnrollment.
+function reviveEnrollmentDates(enrollments: CourseEnrollment[]): CourseEnrollment[] {
+  return enrollments.map((enrollment) =>
+    typeof enrollment.lastSynced === 'string'
+      ? { ...enrollment, lastSynced: new Date(enrollment.lastSynced) }
+      : enrollment
+  )
+}
+
 // Enrollments to load from a persisted schedule blob, or null to wipe it. Known versions
 // load as-is — schema changes so far are additive — unknown/newer versions don't.
 export function readStoredEnrollments(parsed: unknown): CourseEnrollment[] | null {
-  if (Array.isArray(parsed)) return parsed as CourseEnrollment[] // legacy pre-version format
+  if (Array.isArray(parsed)) return reviveEnrollmentDates(parsed as CourseEnrollment[]) // legacy pre-version format
   if (parsed && typeof parsed === 'object') {
     const version = (parsed as { version?: unknown }).version
     if (typeof version === 'number' && version >= 1 && version <= SCHEDULE_DATA_VERSION) {
-      return ((parsed as { enrollments?: CourseEnrollment[] }).enrollments ??
-        []) as CourseEnrollment[]
+      return reviveEnrollmentDates(
+        ((parsed as { enrollments?: CourseEnrollment[] }).enrollments ?? []) as CourseEnrollment[]
+      )
     }
   }
   return null
@@ -898,8 +909,8 @@ export function getDeterministicColor(courseCode: string): string {
   return DETERMINISTIC_COLORS[Math.abs(hash) % DETERMINISTIC_COLORS.length]
 }
 
-export function formatSyncTimestamp(timestamp: Date | string): string {
-  const date = timestamp instanceof Date ? timestamp : new Date(timestamp)
+export function formatSyncTimestamp(date: Date): string {
+  // Guards against a corrupt persisted value revived into an invalid Date.
   if (Number.isNaN(date.getTime())) return 'Unknown'
 
   const formattedDate = date.toLocaleDateString('en-US', {
