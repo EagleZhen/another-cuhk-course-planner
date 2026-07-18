@@ -543,14 +543,6 @@ export default function ShoppingCart({
                           <Search className="size-3.5 text-gray-400 hover:text-gray-600" />
                         </Button>
                       )}
-                      {isInvalid && (
-                        <div
-                          className="flex size-5 items-center justify-center"
-                          title={invalidTooltip}
-                        >
-                          <AlertTriangle className="size-3.5 text-amber-600" />
-                        </div>
-                      )}
                       <span className="flex h-full shrink-0 items-center text-xs font-medium leading-5 text-gray-500">
                         {enrollment.course.credits} credits
                       </span>
