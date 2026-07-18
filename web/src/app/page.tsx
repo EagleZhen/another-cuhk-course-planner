@@ -18,6 +18,7 @@ import {
   parseSectionTypes,
   sortSectionsByPriority,
   updateExistingEnrollment,
+  markCourseUnavailable,
   extractAcademicYearCode,
   readStoredEnrollments,
   recordSeenSections,
@@ -499,22 +500,13 @@ export default function Home() {
 
           if (!freshCourse) {
             console.warn(`⚠️ Course ${courseKey} no longer exists in fresh data`)
-            // Mark as invalid but preserve for user to see
-            return {
-              ...enrollment,
-              isInvalid: true,
-              invalidReason: 'Course no longer available',
-            }
+            return markCourseUnavailable(enrollment, timestamp)
           }
 
           // Find fresh sections for current term
           const termData = freshCourse.terms.find((t) => t.termName === currentTerm)
           if (!termData) {
-            return {
-              ...enrollment,
-              isInvalid: true,
-              invalidReason: 'Course no longer available',
-            }
+            return markCourseUnavailable(enrollment, timestamp)
           }
 
           // Update sections with fresh data

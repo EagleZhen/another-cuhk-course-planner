@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
   updateExistingEnrollment,
+  markCourseUnavailable,
   sortSectionsByPriority,
   readStoredEnrollments,
   sectionSignature,
@@ -130,6 +131,35 @@ describe('updateExistingEnrollment', () => {
     expect(result.lastSynced).not.toEqual(existing.lastSynced)
     expect(result.course).toEqual(freshCourse)
     expect(result.selectedSections).toEqual([freshSection])
+  })
+})
+
+describe('markCourseUnavailable', () => {
+  it('records when the unavailable course was synced', () => {
+    const enrollment: CourseEnrollment = {
+      courseId: 'CSCI3150',
+      course: {
+        subject: 'CSCI',
+        courseCode: '3150',
+        title: 'Introduction to Operating Systems',
+        credits: 3,
+        terms: [],
+      },
+      selectedSections: [makeSection({})],
+      color: 'bg-blue-500',
+      isVisible: true,
+    }
+    const syncedAt = new Date('2026-07-14T13:27:10.392Z')
+
+    const result = markCourseUnavailable(enrollment, syncedAt)
+
+    expect(result).toMatchObject({
+      isInvalid: true,
+      invalidReason: 'Course no longer available',
+      lastSynced: syncedAt,
+    })
+    expect(result.course).toBe(enrollment.course)
+    expect(result.selectedSections).toBe(enrollment.selectedSections)
   })
 })
 

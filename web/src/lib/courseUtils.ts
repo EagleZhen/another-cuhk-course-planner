@@ -456,6 +456,19 @@ export function updateExistingEnrollment(
   }
 }
 
+/** Preserve an unavailable course in the cart and record when fresh data confirmed it. */
+export function markCourseUnavailable(
+  enrollment: CourseEnrollment,
+  syncedAt: Date
+): CourseEnrollment {
+  return {
+    ...enrollment,
+    isInvalid: true,
+    invalidReason: 'Course no longer available',
+    lastSynced: syncedAt,
+  }
+}
+
 // Enrollments to load from a persisted schedule blob, or null to wipe it. Known versions
 // load as-is — schema changes so far are additive — unknown/newer versions don't.
 export function readStoredEnrollments(parsed: unknown): CourseEnrollment[] | null {
