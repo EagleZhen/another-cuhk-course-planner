@@ -118,7 +118,7 @@ describe('updateExistingEnrollment', () => {
       isVisible: true,
       isInvalid: true,
       invalidReason: 'Course no longer available',
-      lastSeenInvalidState: { reason: 'Course no longer available', sectionIds: [] },
+      lastSeenInvalidState: { reason: 'Course no longer available' },
       removedSections: [makeSection({ id: 'removed-tut', sectionType: 'TUT' })],
       removedSectionsAcknowledged: true,
       lastSynced: new Date('2026-01-01'),
@@ -191,10 +191,7 @@ describe('syncEnrollment', () => {
       isInvalid: true,
       invalidReason: 'Some sections no longer available',
       removedSectionsAcknowledged: true,
-      lastSeenInvalidState: {
-        reason: 'Some sections no longer available',
-        sectionIds: ['tut-old'],
-      },
+      lastSeenInvalidState: { reason: 'Some sections no longer available' },
     }
 
     const result = syncEnrollment(enrollment, [freshCourse], 'Term 1', syncedAt)
@@ -341,10 +338,7 @@ describe('readStoredEnrollments', () => {
       isVisible: true,
       isInvalid: true,
       invalidReason: 'Some sections no longer available',
-      lastSeenInvalidState: {
-        reason: 'Some sections no longer available',
-        sectionIds: ['removed'],
-      },
+      lastSeenInvalidState: { reason: 'Some sections no longer available' },
     }
     const wholeCourseRemoval = {
       ...partialRemoval,

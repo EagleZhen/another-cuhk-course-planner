@@ -700,30 +700,13 @@ function getInvalidEnrollmentState(
   enrollment: CourseEnrollment
 ): InvalidEnrollmentState | undefined {
   if (!enrollment.isInvalid) return undefined
-  return {
-    reason: enrollment.invalidReason ?? 'Course data is outdated',
-    sectionIds: [],
-  }
-}
-
-function sameInvalidEnrollmentState(
-  left: InvalidEnrollmentState,
-  right: InvalidEnrollmentState
-): boolean {
-  return (
-    left.reason === right.reason &&
-    left.sectionIds.length === right.sectionIds.length &&
-    left.sectionIds.every((id, index) => id === right.sectionIds[index])
-  )
+  return { reason: enrollment.invalidReason ?? 'Course data is outdated' }
 }
 
 export function hasUnseenInvalidChange(enrollment: CourseEnrollment): boolean {
   const current = getInvalidEnrollmentState(enrollment)
   if (!current) return false
-  return (
-    !enrollment.lastSeenInvalidState ||
-    !sameInvalidEnrollmentState(current, enrollment.lastSeenInvalidState)
-  )
+  return enrollment.lastSeenInvalidState?.reason !== current.reason
 }
 
 // Rebuilds lastSeenSections for the selected sections, pruning de-selected ids.

@@ -125,9 +125,11 @@ export const SECTION_TYPE_CONFIG = {
 // Derive the type from the config keys - automatically stays in sync
 export type SectionType = keyof typeof SECTION_TYPE_CONFIG
 
+// Reason-only: per-section removals track acknowledgment via removedSectionsAcknowledged,
+// so the invalid state's identity is just its reason. (Persisted v2 blobs may carry an
+// extra sectionIds key; it is simply ignored.)
 export interface InvalidEnrollmentState {
   reason: string
-  sectionIds: string[]
 }
 
 // Course enrollment using clean internal types
