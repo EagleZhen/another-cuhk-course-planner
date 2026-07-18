@@ -16,7 +16,13 @@ export const changedText = 'rounded bg-amber-100 text-amber-800 cursor-help'
 
 // One meeting in the unified 3-row emoji format, styled by its change status.
 // Shared by the cart (all statuses) and search results (always 'unchanged').
-export function MeetingRowCard({ row }: { row: MeetingRow }) {
+export function MeetingRowCard({
+  row,
+  showChangeTooltip = true,
+}: {
+  row: MeetingRow
+  showChangeTooltip?: boolean
+}) {
   const { meeting } = row
   const before = row.status === 'changed' ? row.before : undefined
   const fields = row.status === 'changed' ? row.fields : undefined
@@ -33,16 +39,16 @@ export function MeetingRowCard({ row }: { row: MeetingRow }) {
     case 'unchanged':
       break
     case 'added':
-      containerClass = 'bg-amber-50 border-amber-200 cursor-help'
-      tooltip = 'New meeting (added since you last checked)'
+      containerClass = `bg-amber-50 border-amber-200${showChangeTooltip ? ' cursor-help' : ''}`
+      tooltip = showChangeTooltip ? 'New meeting (added since you last checked)' : undefined
       wholeMeetingChange = true
       break
     case 'changed':
       break
     case 'removed':
-      containerClass = 'bg-amber-50 border-amber-200 cursor-help'
+      containerClass = `bg-amber-50 border-amber-200${showChangeTooltip ? ' cursor-help' : ''}`
       valueClass = 'text-gray-400 line-through'
-      tooltip = 'This meeting was removed since you last checked'
+      tooltip = showChangeTooltip ? 'This meeting was removed since you last checked' : undefined
       wholeMeetingChange = true
       break
   }

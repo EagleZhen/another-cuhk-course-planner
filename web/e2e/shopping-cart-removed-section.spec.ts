@@ -68,13 +68,32 @@ async function openCart(page: Page, alternatives: ReturnType<typeof section>[]) 
     .getByText('ACCT1111', { exact: true })
     .locator('xpath=ancestor::div[contains(@class, "border-l-4")][1]')
   const tombstone = page.locator('[data-removed-section="removed"]')
+  const removedSectionHelp = page.locator('[data-removed-section-help="removed"]')
 
   await expect(courseCard).not.toHaveClass(/bg-amber-50/)
   await expect(page.getByText('A selected section is no longer offered.')).toHaveCount(0)
-  await expect(tombstone).toHaveClass(/cursor-help/)
-  await expect(tombstone).toHaveAttribute('title', 'This lecture section is no longer offered')
+  await expect(tombstone).not.toHaveAttribute('title')
+  await expect(removedSectionHelp).toHaveClass(/cursor-help/)
+  await expect(removedSectionHelp).toHaveAttribute(
+    'title',
+    'This lecture section is no longer offered'
+  )
   await expect(page.getByText('A-LEC (removed)', { exact: true })).toHaveClass(/line-through/)
-  await expect(page.getByTitle('This meeting was removed since you last checked')).toBeVisible()
+  await expect(tombstone.getByTitle('This meeting was removed since you last checked')).toHaveCount(
+    0
+  )
+
+  if (alternatives.length > 0) {
+    const remainingLabel = alternatives.length === 1 ? '1 remains' : `${alternatives.length} remain`
+    await expect(page.getByText(remainingLabel, { exact: true })).not.toHaveAttribute('title')
+
+    for (const name of [
+      'Choose the last compatible lecture section',
+      'Choose the first compatible lecture section',
+    ]) {
+      await expect(page.getByRole('button', { name })).not.toHaveAttribute('title')
+    }
+  }
 }
 
 async function expectReplacementSaved(page: Page, sectionId: string) {
@@ -92,9 +111,9 @@ async function expectReplacementSaved(page: Page, sectionId: string) {
 }
 
 test('next replaces a removed section with the first compatible alternative', async ({ page }) => {
-  await openCart(page, [firstReplacement, lastReplacement])
+  await openCart(page, [firstReplacement])
 
-  await page.getByTitle('Choose the first compatible lecture section').click()
+  await page.getByRole('button', { name: 'Choose the first compatible lecture section' }).click()
 
   await expect(page.getByText('B-LEC (first)', { exact: true })).toBeVisible()
   await expect(page.getByText('A-LEC (removed)', { exact: true })).toHaveCount(0)
@@ -107,7 +126,7 @@ test('previous replaces a removed section with the last compatible alternative',
 }) => {
   await openCart(page, [firstReplacement, lastReplacement])
 
-  await page.getByTitle('Choose the last compatible lecture section').click()
+  await page.getByRole('button', { name: 'Choose the last compatible lecture section' }).click()
 
   await expect(page.getByText('C-LEC (last)', { exact: true })).toBeVisible()
   await expectReplacementSaved(page, 'last')
@@ -122,7 +141,9 @@ test('dismisses the banner without removing the tombstone or replacement control
 
   await expect(page.getByText('1 course changed since you last checked')).toHaveCount(0)
   await expect(page.getByText('A-LEC (removed)', { exact: true })).toBeVisible()
-  await expect(page.getByTitle('Choose the first compatible lecture section')).toBeVisible()
+  await expect(
+    page.getByRole('button', { name: 'Choose the first compatible lecture section' })
+  ).toBeVisible()
   await expect
     .poll(() =>
       page.evaluate((key) => {
@@ -140,7 +161,7 @@ test('dismisses the banner without removing the tombstone or replacement control
   await expect(page.getByText('1 course changed since you last checked')).toHaveCount(0)
   await expect(page.getByText('A-LEC (removed)', { exact: true })).toBeVisible()
 
-  await page.getByTitle('Choose the first compatible lecture section').click()
+  await page.getByRole('button', { name: 'Choose the first compatible lecture section' }).click()
   await expect(page.getByText('B-LEC (first)', { exact: true })).toBeVisible()
   await expectReplacementSaved(page, 'first')
 })
@@ -151,5 +172,7 @@ test('shows guidance when the removed section type has no alternatives', async (
   await expect(
     page.getByText('No alternatives available. Search or remove the course.')
   ).toBeVisible()
-  await expect(page.getByTitle(/Choose the .* compatible lecture section/)).toHaveCount(0)
+  await expect(
+    page.getByRole('button', { name: /Choose the .* compatible lecture section/ })
+  ).toHaveCount(0)
 })

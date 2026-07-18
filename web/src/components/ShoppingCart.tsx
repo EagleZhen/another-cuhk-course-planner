@@ -4,7 +4,16 @@ import { useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search } from 'lucide-react'
+import {
+  Eye,
+  EyeOff,
+  Trash2,
+  AlertTriangle,
+  ChevronLeft,
+  ChevronRight,
+  CircleHelp,
+  Search,
+} from 'lucide-react'
 import {
   parseSectionTypes,
   sectionSignature,
@@ -647,16 +656,31 @@ export default function ShoppingCart({
                           <div
                             key={section.id}
                             data-removed-section={section.id}
-                            className="cursor-help rounded border border-amber-200 bg-amber-50 px-2 py-2"
-                            title={removedTooltip}
+                            className="rounded border border-amber-200 bg-amber-50 px-2 py-2"
                           >
                             <div className="mb-1 flex items-start justify-between gap-2">
-                              <div className="font-mono text-xs font-medium text-gray-500 line-through">
-                                {section.sectionCode}
+                              <div className="flex min-w-0 items-start gap-1">
+                                <div className="font-mono text-xs font-medium text-gray-500 line-through">
+                                  {section.sectionCode}
+                                </div>
+                                <span
+                                  role="img"
+                                  aria-label={removedTooltip}
+                                  data-removed-section-help={section.id}
+                                  className="mt-px shrink-0 cursor-help text-amber-700"
+                                  title={removedTooltip}
+                                >
+                                  <CircleHelp aria-hidden="true" className="h-3 w-3" />
+                                </span>
                               </div>
 
                               {compatible.length > 0 ? (
                                 <div className="flex shrink-0 items-center gap-1">
+                                  <span className="relative -top-px mr-1 text-[10px] leading-none text-gray-500">
+                                    {compatible.length === 1
+                                      ? '1 remains'
+                                      : `${compatible.length} remain`}
+                                  </span>
                                   <Button
                                     variant="ghost"
                                     size="sm"
@@ -665,7 +689,7 @@ export default function ShoppingCart({
                                       chooseReplacement(enrollment, section.sectionType, 'prev')
                                     }}
                                     className="h-4 w-4 cursor-pointer p-0 hover:bg-amber-100"
-                                    title={`Choose the last compatible ${sectionTypeName} section`}
+                                    aria-label={`Choose the last compatible ${sectionTypeName} section`}
                                   >
                                     <ChevronLeft className="h-3 w-3 text-gray-600" />
                                   </Button>
@@ -677,7 +701,7 @@ export default function ShoppingCart({
                                       chooseReplacement(enrollment, section.sectionType, 'next')
                                     }}
                                     className="h-4 w-4 cursor-pointer p-0 hover:bg-amber-100"
-                                    title={`Choose the first compatible ${sectionTypeName} section`}
+                                    aria-label={`Choose the first compatible ${sectionTypeName} section`}
                                   >
                                     <ChevronRight className="h-3 w-3 text-gray-600" />
                                   </Button>
@@ -691,7 +715,7 @@ export default function ShoppingCart({
 
                             <div className="space-y-1">
                               {meetingRows.map((row, index) => (
-                                <MeetingRowCard key={index} row={row} />
+                                <MeetingRowCard key={index} row={row} showChangeTooltip={false} />
                               ))}
                             </div>
                           </div>
