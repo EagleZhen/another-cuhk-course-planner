@@ -8,15 +8,11 @@ import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search }
 import {
   parseSectionTypes,
   sectionSignature,
-  formatTimeCompact,
-  formatInstructorsCompact,
   formatSyncTimestamp,
   getSectionTypePriority,
   categorizeCompatibleSections,
   getAvailabilityBadges,
   getComputedBorderColor,
-  googleSearchAndOpen,
-  googleMapsSearchAndOpen,
   formatCourseCodeWithPrefix,
   checkSectionConflict,
   diffSectionDetail,
@@ -31,126 +27,11 @@ import type {
   MeetingRow,
 } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
-import { GoogleIcon } from '@/components/icons/GoogleIcon'
-import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
+import { MeetingRowCard, changedText } from '@/components/MeetingRowCard'
 
 // Shared style for the change-banner actions; the grid gives both equal width.
 const bannerButtonClass =
   'h-6 w-full rounded border border-amber-300 bg-white/50 px-2 text-[11px] font-medium text-amber-800 hover:bg-amber-100 cursor-pointer'
-
-// Amber text marks a changed value without shifting the surrounding row.
-const changedText = 'rounded bg-amber-100 text-amber-800 cursor-help'
-
-function renderMeetingRow(row: MeetingRow, key: string) {
-  const { meeting } = row
-  const before = row.status === 'changed' ? row.before : undefined
-  const fields = row.status === 'changed' ? row.fields : undefined
-  const formattedTime = formatTimeCompact(meeting.time || 'TBA')
-  const formattedInstructor = formatInstructorsCompact(meeting.instructor || 'TBA')
-  const location = meeting.location || 'TBA'
-
-  let containerClass = 'bg-white border-gray-200'
-  let valueClass = 'text-gray-600'
-  let tooltip: string | undefined
-  let wholeMeetingChange = false
-
-  switch (row.status) {
-    case 'unchanged':
-      break
-    case 'added':
-      containerClass = 'bg-amber-50 border-amber-200 cursor-help'
-      tooltip = 'New meeting (added since you last checked)'
-      wholeMeetingChange = true
-      break
-    case 'changed':
-      break
-    case 'removed':
-      containerClass = 'bg-amber-50 border-amber-200 cursor-help'
-      valueClass = 'text-gray-400 line-through'
-      tooltip = 'This meeting was removed since you last checked'
-      wholeMeetingChange = true
-      break
-  }
-
-  return (
-    <div
-      key={key}
-      className={`rounded border px-2 py-1.5 shadow-sm ${containerClass}`}
-      title={tooltip}
-    >
-      {/* Row 1: Time */}
-      <div className="flex items-center gap-1 text-[11px]">
-        <span>⏰</span>
-        <span
-          className={`font-mono ${fields?.time ? changedText : valueClass}`}
-          title={fields?.time && before ? `Previously ${before.time}` : undefined}
-        >
-          {formattedTime}
-        </span>
-      </div>
-      {/* Row 2: Instructor */}
-      <div className="flex items-center gap-1 text-[11px] mt-1">
-        <span>🧑🏻‍🏫</span>
-        <div className="flex items-center gap-1 min-w-0 flex-1">
-          <span
-            className={`truncate ${fields?.instructor ? changedText : valueClass}`}
-            title={
-              fields?.instructor && before
-                ? `Previously ${before.instructor}`
-                : wholeMeetingChange
-                  ? undefined
-                  : formattedInstructor
-            }
-          >
-            {formattedInstructor}
-          </span>
-          {formattedInstructor !== 'Staff' && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                googleSearchAndOpen(`CUHK ${formattedInstructor}`)
-              }}
-              className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-              title={`Search Google for "CUHK ${formattedInstructor}"`}
-            >
-              <GoogleIcon className="size-3" />
-            </button>
-          )}
-        </div>
-      </div>
-      {/* Row 3: Location */}
-      <div className="flex items-center gap-1 text-[11px] mt-1">
-        <span>📍</span>
-        <div className="flex items-center gap-1 min-w-0 flex-1">
-          <span
-            className={`truncate ${fields?.location ? changedText : valueClass}`}
-            title={
-              fields?.location && before
-                ? `Previously ${before.location}`
-                : wholeMeetingChange
-                  ? undefined
-                  : location
-            }
-          >
-            {location}
-          </span>
-          {location !== 'TBA' && location !== 'No Room Required' && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                googleMapsSearchAndOpen(location)
-              }}
-              className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-              title={`View "${location}" on Google Maps`}
-            >
-              <GoogleMapsIcon className="size-3" />
-            </button>
-          )}
-        </div>
-      </div>
-    </div>
-  )
-}
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
@@ -751,12 +632,9 @@ export default function ShoppingCart({
 
                             {/* Meeting rows are normalized and deduped by sectionSignature. */}
                             <div className="space-y-1">
-                              {meetingRows.map((row, index) =>
-                                renderMeetingRow(
-                                  row,
-                                  row.status === 'removed' ? `removed-${index}` : `live-${index}`
-                                )
-                              )}
+                              {meetingRows.map((row, index) => (
+                                <MeetingRowCard key={index} row={row} />
+                              ))}
                             </div>
                           </div>
                         )

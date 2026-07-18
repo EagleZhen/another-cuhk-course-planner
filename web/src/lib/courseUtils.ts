@@ -927,25 +927,6 @@ export function formatSyncTimestamp(date: Date): string {
 }
 
 /**
- * Group meetings by time + location + instructor to show unique meetings
- * This consolidates duplicate meetings that occur at the same time/place with same instructor
- */
-export function getUniqueMeetings(meetings: InternalMeeting[]): InternalMeeting[] {
-  const meetingGroups = new Map<string, InternalMeeting[]>()
-
-  meetings.forEach((meeting) => {
-    const key = `${meeting?.time || 'TBA'}-${meeting?.location || 'TBA'}-${meeting?.instructors || 'TBA'}`
-    if (!meetingGroups.has(key)) {
-      meetingGroups.set(key, [])
-    }
-    meetingGroups.get(key)!.push(meeting)
-  })
-
-  // Return first meeting from each group (they're identical for display purposes)
-  return Array.from(meetingGroups.values()).map((group) => group[0])
-}
-
-/**
  * Format time string for compact display: "Tu 12:30PM - 2:15PM" → "Tu 12:30-14:15"
  */
 export function formatTimeCompact(timeStr: string): string {
