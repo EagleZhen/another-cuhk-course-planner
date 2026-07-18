@@ -445,10 +445,10 @@ export default function ShoppingCart({
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
-              const invalidMessage =
-                enrollment.invalidReason === 'Course no longer available'
-                  ? `CUHK no longer offers this course in ${currentTerm}. It's off your calendar; remove it from your cart when ready.`
-                  : enrollment.invalidReason
+              const isCourseRemoved = enrollment.invalidReason === 'Course no longer available'
+              const invalidMessage = isCourseRemoved
+                ? `This course is no longer offered in ${currentTerm}. It's off your timetable but stays here until you're ready to remove it.`
+                : enrollment.invalidReason
               const changes = sectionChanges?.get(enrollment.courseId)
 
               return (
@@ -592,9 +592,21 @@ export default function ShoppingCart({
                   {isInvalid ? (
                     /* Show simplified invalid state */
                     <div className="bg-orange-50 border border-orange-200 rounded px-3 py-2">
-                      <div className="flex items-center gap-2 text-xs text-orange-600">
-                        <AlertTriangle className="w-4 h-4 text-orange-500 flex-shrink-0" />
-                        <span>{invalidMessage}</span>
+                      <div className="flex items-start gap-2 text-xs leading-4 text-orange-600">
+                        <AlertTriangle className="mt-0.5 size-4 flex-shrink-0 text-orange-500" />
+                        {isCourseRemoved ? (
+                          <div className="min-w-0">
+                            <p className="font-medium text-orange-700">
+                              This course is no longer offered in {currentTerm}.
+                            </p>
+                            <p className="mt-1">
+                              It&apos;s off your timetable but stays here until you&apos;re ready to
+                              remove it.
+                            </p>
+                          </div>
+                        ) : (
+                          <span>{invalidMessage}</span>
+                        )}
                       </div>
                       {enrollment.lastSynced && (
                         <div className="text-xs text-gray-500 mt-2">Last synced:</div>
