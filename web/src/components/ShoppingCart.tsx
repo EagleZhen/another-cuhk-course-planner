@@ -363,7 +363,7 @@ export default function ShoppingCart({
                   }}
                   className={`
                     relative group space-y-2 rounded border border-l-4 p-2
-                    transition-[transform,box-shadow] duration-300 motion-reduce:transition-none
+                    transition-all duration-300 motion-reduce:transition-none
                     ${isInvalid ? 'border-amber-200 bg-amber-50' : 'border-gray-200 bg-white'}
                     ${isSelected && isSelectable ? `ring-1 shadow-lg scale-[1.02]` : ''}
                     ${isSelectable ? 'cursor-pointer' : 'cursor-not-allowed'}
