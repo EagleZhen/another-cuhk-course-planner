@@ -20,7 +20,7 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 
 - A missing course or current term uses the terminal `isInvalid` card with an amber status and last-synced time. It stays until the user removes it. See [architecture.md](../architecture.md#browser-state).
 - A missing selected section does not invalidate the course. It moves from `selectedSections` to the display-only `removedSections`, so surviving sections still feed the timetable, conflicts, and ICS. The cart shows a struck-through tombstone with compatible replacement arrows, or a search/remove hint when none exist.
-- Both states join the banner's Review queue. **Dismiss all** acknowledges the changes but keeps section tombstones and replacement controls available.
+- Both states join the banner's Review queue. **Dismiss all** acknowledges the changes but keeps section tombstones and replacement controls available. It only acknowledges what is visible: tombstones hidden behind an invalid card stay unacknowledged, so they re-alert once the course returns and they can actually be seen.
 - Re-adding from search clears unavailable state and tombstones while refreshing the course through `updateExistingEnrollment` in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
 
 ## Change Detection

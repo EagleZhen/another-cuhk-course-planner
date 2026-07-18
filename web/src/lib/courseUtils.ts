@@ -665,6 +665,13 @@ export function diffEnrollment(enrollment: CourseEnrollment): SectionChange[] {
   return changes
 }
 
+// The invalid card replaces the section list, hiding any tombstones. They only count as
+// reviewable — flaggable in the banner, acknowledgeable by dismiss — while the enrollment
+// is valid, so a dismiss can never silently acknowledge tombstones the user has not seen.
+function hasReviewableTombstones(enrollment: CourseEnrollment): boolean {
+  return !enrollment.isInvalid && (enrollment.removedSections?.length ?? 0) > 0
+}
+
 /** Course ids needing attention, in cart order and without duplicates. */
 export function getChangedCourseIds(
   enrollments: CourseEnrollment[],
@@ -674,8 +681,7 @@ export function getChangedCourseIds(
     .filter(
       (enrollment) =>
         hasUnseenInvalidChange(enrollment) ||
-        ((enrollment.removedSections?.length ?? 0) > 0 &&
-          !enrollment.removedSectionsAcknowledged) ||
+        (hasReviewableTombstones(enrollment) && !enrollment.removedSectionsAcknowledged) ||
         sectionChanges?.has(enrollment.courseId)
     )
     .map((enrollment) => enrollment.courseId)
@@ -732,7 +738,11 @@ export function recordSeenSections(
 export function recordSeenChanges(enrollment: CourseEnrollment): CourseEnrollment {
   return {
     ...recordSeenSections(enrollment, { onlyMissing: false }),
-    removedSectionsAcknowledged: (enrollment.removedSections?.length ?? 0) > 0 ? true : undefined,
+    removedSectionsAcknowledged: hasReviewableTombstones(enrollment)
+      ? true
+      : enrollment.isInvalid
+        ? enrollment.removedSectionsAcknowledged // hidden tombstones keep their state
+        : undefined,
     lastSeenInvalidState: getInvalidEnrollmentState(enrollment),
   }
 }

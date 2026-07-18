@@ -501,6 +501,63 @@ describe('getChangedCourseIds', () => {
     expect(resynced.removedSectionsAcknowledged).toBe(true)
     expect(getChangedCourseIds([resynced])).toEqual([])
   })
+
+  it('does not acknowledge tombstones hidden behind an invalid card on dismiss', () => {
+    const removed = makeSection({ id: 'removed-tut', sectionType: 'TUT' })
+    const invalid = {
+      ...mkEnrollment([]),
+      isInvalid: true,
+      invalidReason: 'Course no longer available',
+      removedSections: [removed],
+    }
+
+    // Dismiss acknowledges the invalid state, but the tombstones stay unseen.
+    const dismissed = recordSeenChanges(invalid)
+    expect(dismissed.removedSectionsAcknowledged).toBeUndefined()
+    expect(getChangedCourseIds([dismissed])).toEqual([])
+
+    // The course returns with the section still missing: the now-visible
+    // tombstone re-enters the review queue instead of staying acknowledged.
+    const alternative = makeSection({ id: 'alternative-tut', sectionType: 'TUT' })
+    const freshCourse = {
+      ...invalid.course,
+      terms: [{ termCode: '2510', termName: 'Term 1', sections: [alternative] }],
+    }
+    const resynced = syncEnrollment(
+      dismissed,
+      [freshCourse],
+      'Term 1',
+      new Date('2026-07-18T12:00:00.000Z')
+    )
+    expect(resynced.isInvalid).toBe(false)
+    expect(resynced.removedSections).toEqual([removed])
+    expect(getChangedCourseIds([resynced])).toEqual(['COMM1180'])
+  })
+
+  it('keeps a previously seen tombstone acknowledged across invalid and back', () => {
+    const removed = makeSection({ id: 'removed-tut', sectionType: 'TUT' })
+    const seen = recordSeenChanges({ ...mkEnrollment([]), removedSections: [removed] })
+    expect(seen.removedSectionsAcknowledged).toBe(true)
+
+    // Course disappears, user dismisses the invalid card, course returns unchanged:
+    // nothing new happened, so the banner stays quiet.
+    const invalid = { ...seen, isInvalid: true, invalidReason: 'Course no longer available' }
+    const dismissed = recordSeenChanges(invalid)
+    expect(dismissed.removedSectionsAcknowledged).toBe(true)
+
+    const freshCourse = {
+      ...seen.course,
+      terms: [{ termCode: '2510', termName: 'Term 1', sections: [] }],
+    }
+    const resynced = syncEnrollment(
+      dismissed,
+      [freshCourse],
+      'Term 1',
+      new Date('2026-07-18T12:00:00.000Z')
+    )
+    expect(resynced.removedSectionsAcknowledged).toBe(true)
+    expect(getChangedCourseIds([resynced])).toEqual([])
+  })
 })
 
 describe('sectionsOverlapInTime', () => {
