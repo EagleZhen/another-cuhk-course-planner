@@ -458,9 +458,16 @@ export default function ShoppingCart({
                   : undefined
               const hasUnseenInvalid = hasUnseenInvalidChange(enrollment)
               const isCourseRemoved = enrollment.invalidReason === 'Course no longer available'
-              const invalidMessage = isCourseRemoved
-                ? `This course is no longer offered in ${currentTerm}. It's off your timetable but stays here until you're ready to remove it.`
-                : enrollment.invalidReason
+              const invalidHeading = isCourseRemoved
+                ? `This course is no longer offered in ${currentTerm}.`
+                : enrollment.invalidReason || 'Course data is outdated'
+              const courseRemovedDetail =
+                "It's off your timetable but stays here until you're ready to remove it."
+              const invalidDetail =
+                isCourseRemoved && hasUnseenInvalid ? courseRemovedDetail : undefined
+              const invalidTooltip = isCourseRemoved
+                ? `${invalidHeading} ${courseRemovedDetail}`
+                : invalidHeading
               const changes = sectionChanges?.get(enrollment.courseId)
 
               return (
@@ -497,7 +504,7 @@ export default function ShoppingCart({
                     !isVisible && !isInvalid
                       ? 'Course is hidden from calendar. Click the eye icon to show it and enable selection.'
                       : isInvalid
-                        ? invalidMessage || 'Course data is outdated'
+                        ? invalidTooltip
                         : undefined
                   }
                   onClick={() => {
@@ -539,7 +546,7 @@ export default function ShoppingCart({
                       {isInvalid && (
                         <div
                           className="flex size-5 items-center justify-center"
-                          title={invalidMessage || 'Course data is outdated'}
+                          title={invalidTooltip}
                         >
                           <AlertTriangle className="size-3.5 text-amber-600" />
                         </div>
@@ -601,21 +608,10 @@ export default function ShoppingCart({
                     <div className="px-3 py-2">
                       <div className="flex items-start gap-2 text-xs leading-4 text-amber-700">
                         <AlertTriangle className="mt-0.5 size-4 flex-shrink-0 text-amber-600" />
-                        {isCourseRemoved ? (
-                          <div className="min-w-0">
-                            <p className="font-medium text-amber-800">
-                              This course is no longer offered in {currentTerm}.
-                            </p>
-                            {hasUnseenInvalid && (
-                              <p className="mt-1">
-                                It&apos;s off your timetable but stays here until you&apos;re ready
-                                to remove it.
-                              </p>
-                            )}
-                          </div>
-                        ) : (
-                          <span>{invalidMessage}</span>
-                        )}
+                        <div className="min-w-0">
+                          <p className="font-medium text-amber-800">{invalidHeading}</p>
+                          {invalidDetail && <p className="mt-1">{invalidDetail}</p>}
+                        </div>
                       </div>
                       {enrollment.lastSynced && (
                         <div className="mt-2 text-xs text-gray-500">
