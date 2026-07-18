@@ -451,6 +451,7 @@ export function updateExistingEnrollment(
     ...existing,
     course: freshCourse,
     selectedSections,
+    removedSections: undefined,
     isInvalid: false,
     invalidReason: undefined,
     lastSeenInvalidState: undefined,
@@ -469,6 +470,68 @@ export function markCourseUnavailable(
     invalidReason: 'Course no longer available',
     lastSynced: syncedAt,
   }
+}
+
+/** Drop display-only tombstones once the user has a live selection of the same type. */
+export function pruneReplacedTombstones(
+  removedSections: InternalSection[] | undefined,
+  selectedSections: InternalSection[]
+): InternalSection[] | undefined {
+  if (!removedSections?.length) return undefined
+  const selectedTypes = new Set(selectedSections.map((section) => section.sectionType))
+  const remaining = removedSections.filter((section) => !selectedTypes.has(section.sectionType))
+  return remaining.length > 0 ? remaining : undefined
+}
+
+/** Reconcile one enrollment with fresh course data while preserving vanished picks as tombstones. */
+export function syncEnrollment(
+  enrollment: CourseEnrollment,
+  freshCourses: InternalCourse[],
+  currentTerm: string,
+  syncedAt: Date
+): CourseEnrollment {
+  const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
+  const freshCourse = freshCourses.find(
+    (course) => `${course.subject}${course.courseCode}` === courseKey
+  )
+  const termData = freshCourse?.terms.find((term) => term.termName === currentTerm)
+
+  if (!freshCourse || !termData) return markCourseUnavailable(enrollment, syncedAt)
+
+  const seenIds = new Set<string>()
+  const intendedSections = sortSectionsByPriority(
+    [...enrollment.selectedSections, ...(enrollment.removedSections ?? [])].filter((section) => {
+      if (seenIds.has(section.id)) return false
+      seenIds.add(section.id)
+      return true
+    }),
+    enrollment.course,
+    currentTerm
+  )
+  const selectedSections: InternalSection[] = []
+  const removedSections: InternalSection[] = []
+
+  for (const intended of intendedSections) {
+    const freshSection = termData.sections.find((section) => section.id === intended.id)
+    if (freshSection) selectedSections.push(freshSection)
+    else removedSections.push(intended)
+  }
+
+  const sortedSelectedSections = sortSectionsByPriority(selectedSections, freshCourse, currentTerm)
+
+  return recordSeenSections(
+    {
+      ...enrollment,
+      course: freshCourse,
+      selectedSections: sortedSelectedSections,
+      removedSections: pruneReplacedTombstones(removedSections, sortedSelectedSections),
+      isInvalid: false,
+      invalidReason: undefined,
+      lastSeenInvalidState: undefined,
+      lastSynced: syncedAt,
+    },
+    { onlyMissing: true }
+  )
 }
 
 // JSON.stringify writes Dates as ISO strings; revive them here so the rest of the app
@@ -563,7 +626,10 @@ export function getChangedCourseIds(
 ): string[] {
   return enrollments
     .filter(
-      (enrollment) => hasUnseenInvalidChange(enrollment) || sectionChanges?.has(enrollment.courseId)
+      (enrollment) =>
+        hasUnseenInvalidChange(enrollment) ||
+        (enrollment.removedSections?.length ?? 0) > 0 ||
+        sectionChanges?.has(enrollment.courseId)
     )
     .map((enrollment) => enrollment.courseId)
 }
@@ -574,10 +640,7 @@ function getInvalidEnrollmentState(
   if (!enrollment.isInvalid) return undefined
   return {
     reason: enrollment.invalidReason ?? 'Course data is outdated',
-    sectionIds: enrollment.selectedSections
-      .filter((section) => section.isInvalid)
-      .map((section) => section.id)
-      .sort(),
+    sectionIds: [],
   }
 }
 
@@ -622,6 +685,7 @@ export function recordSeenSections(
 export function recordSeenChanges(enrollment: CourseEnrollment): CourseEnrollment {
   return {
     ...recordSeenSections(enrollment, { onlyMissing: false }),
+    removedSections: undefined,
     lastSeenInvalidState: getInvalidEnrollmentState(enrollment),
   }
 }
