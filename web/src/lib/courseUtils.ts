@@ -15,7 +15,9 @@ import type {
   SectionChange,
   SectionSignature,
   SectionMeetingSignature,
-  SectionMeetingChange,
+  SectionDiffDetail,
+  MeetingRow,
+  InvalidEnrollmentState,
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
 import { SCHEDULE_DATA_VERSION } from './constants'
@@ -451,19 +453,44 @@ export function updateExistingEnrollment(
     selectedSections,
     isInvalid: false,
     invalidReason: undefined,
+    lastSeenInvalidState: undefined,
     lastSynced: new Date(),
   }
+}
+
+/** Preserve an unavailable course in the cart and record when fresh data confirmed it. */
+export function markCourseUnavailable(
+  enrollment: CourseEnrollment,
+  syncedAt: Date
+): CourseEnrollment {
+  return {
+    ...enrollment,
+    isInvalid: true,
+    invalidReason: 'Course no longer available',
+    lastSynced: syncedAt,
+  }
+}
+
+// JSON.stringify writes Dates as ISO strings; revive them here so the rest of the app
+// only ever sees Date. Keep this in sync with any future Date field on CourseEnrollment.
+function reviveEnrollmentDates(enrollments: CourseEnrollment[]): CourseEnrollment[] {
+  return enrollments.map((enrollment) =>
+    typeof enrollment.lastSynced === 'string'
+      ? { ...enrollment, lastSynced: new Date(enrollment.lastSynced) }
+      : enrollment
+  )
 }
 
 // Enrollments to load from a persisted schedule blob, or null to wipe it. Known versions
 // load as-is — schema changes so far are additive — unknown/newer versions don't.
 export function readStoredEnrollments(parsed: unknown): CourseEnrollment[] | null {
-  if (Array.isArray(parsed)) return parsed as CourseEnrollment[] // legacy pre-version format
+  if (Array.isArray(parsed)) return reviveEnrollmentDates(parsed as CourseEnrollment[]) // legacy pre-version format
   if (parsed && typeof parsed === 'object') {
     const version = (parsed as { version?: unknown }).version
     if (typeof version === 'number' && version >= 1 && version <= SCHEDULE_DATA_VERSION) {
-      return ((parsed as { enrollments?: CourseEnrollment[] }).enrollments ??
-        []) as CourseEnrollment[]
+      return reviveEnrollmentDates(
+        ((parsed as { enrollments?: CourseEnrollment[] }).enrollments ?? []) as CourseEnrollment[]
+      )
     }
   }
   return null
@@ -529,6 +556,51 @@ export function diffEnrollment(enrollment: CourseEnrollment): SectionChange[] {
   return changes
 }
 
+/** Course ids needing attention, in cart order and without duplicates. */
+export function getChangedCourseIds(
+  enrollments: CourseEnrollment[],
+  sectionChanges?: ReadonlyMap<string, SectionChange[]>
+): string[] {
+  return enrollments
+    .filter(
+      (enrollment) => hasUnseenInvalidChange(enrollment) || sectionChanges?.has(enrollment.courseId)
+    )
+    .map((enrollment) => enrollment.courseId)
+}
+
+function getInvalidEnrollmentState(
+  enrollment: CourseEnrollment
+): InvalidEnrollmentState | undefined {
+  if (!enrollment.isInvalid) return undefined
+  return {
+    reason: enrollment.invalidReason ?? 'Course data is outdated',
+    sectionIds: enrollment.selectedSections
+      .filter((section) => section.isInvalid)
+      .map((section) => section.id)
+      .sort(),
+  }
+}
+
+function sameInvalidEnrollmentState(
+  left: InvalidEnrollmentState,
+  right: InvalidEnrollmentState
+): boolean {
+  return (
+    left.reason === right.reason &&
+    left.sectionIds.length === right.sectionIds.length &&
+    left.sectionIds.every((id, index) => id === right.sectionIds[index])
+  )
+}
+
+export function hasUnseenInvalidChange(enrollment: CourseEnrollment): boolean {
+  const current = getInvalidEnrollmentState(enrollment)
+  if (!current) return false
+  return (
+    !enrollment.lastSeenInvalidState ||
+    !sameInvalidEnrollmentState(current, enrollment.lastSeenInvalidState)
+  )
+}
+
 // Rebuilds lastSeenSections for the selected sections, pruning de-selected ids.
 // onlyMissing seeds only new entries (add/sync); false overwrites all (dismiss).
 export function recordSeenSections(
@@ -546,42 +618,49 @@ export function recordSeenSections(
   return { ...enrollment, lastSeenSections: next }
 }
 
-// Each changed meeting paired to its previous value, so the cart can highlight the exact
-// field that moved. Meetings are paired positionally only when the count is unchanged
-// (|added| === |removed|); a differing count means one was added/removed outright, so it's
-// left unpaired (before/fields undefined) and the caller highlights the whole row.
+/** Acknowledge both section-detail changes and the current invalid status. */
+export function recordSeenChanges(enrollment: CourseEnrollment): CourseEnrollment {
+  return {
+    ...recordSeenSections(enrollment, { onlyMissing: false }),
+    lastSeenInvalidState: getInvalidEnrollmentState(enrollment),
+  }
+}
+
+// Detection above compares meeting positions to decide whether a section changed. Detail
+// classification instead uses content-based set differences so rows shifted by a removal
+// remain unchanged. Equal added/removed counts retain the existing positional pairing.
 export function diffSectionDetail(
   section: InternalSection,
   before: SectionSignature
-): { changedMeetings: SectionMeetingChange[]; languageChanged: boolean } {
+): SectionDiffDetail {
   const current = sectionSignature(section)
   const added = current.meetings.filter((m) => !before.meetings.some((b) => sameMeeting(b, m)))
   const removed = before.meetings.filter((b) => !current.meetings.some((m) => sameMeeting(m, b)))
   const paired = added.length === removed.length
-  const changedMeetings: SectionMeetingChange[] = added.map((meeting, i) => {
-    const previous = paired ? removed[i] : undefined
+
+  const rows: MeetingRow[] = current.meetings.map((meeting) => {
+    const addedIndex = added.findIndex((candidate) => sameMeeting(candidate, meeting))
+    if (addedIndex === -1) return { status: 'unchanged', meeting }
+    if (!paired) return { status: 'added', meeting }
+
+    const previous = removed[addedIndex]
     return {
-      current: meeting,
+      status: 'changed',
+      meeting,
       before: previous,
-      fields: previous
-        ? {
-            time: previous.time !== meeting.time,
-            location: previous.location !== meeting.location,
-            instructor: previous.instructor !== meeting.instructor,
-          }
-        : undefined,
+      fields: {
+        time: previous.time !== meeting.time,
+        location: previous.location !== meeting.location,
+        instructor: previous.instructor !== meeting.instructor,
+      },
     }
   })
-  return { changedMeetings, languageChanged: before.language !== current.language }
-}
 
-// Finds the change entry for a raw (as-rendered) meeting, or undefined if it didn't change.
-export function matchChangedMeeting(
-  meeting: InternalMeeting,
-  changedMeetings: SectionMeetingChange[]
-): SectionMeetingChange | undefined {
-  const row = meetingRow(meeting)
-  return changedMeetings.find((c) => sameMeeting(c.current, row))
+  if (!paired) {
+    rows.push(...removed.map((meeting): MeetingRow => ({ status: 'removed', meeting })))
+  }
+
+  return { rows, languageChanged: before.language !== current.language }
 }
 
 /**
@@ -830,23 +909,21 @@ export function getDeterministicColor(courseCode: string): string {
   return DETERMINISTIC_COLORS[Math.abs(hash) % DETERMINISTIC_COLORS.length]
 }
 
-/**
- * Group meetings by time + location + instructor to show unique meetings
- * This consolidates duplicate meetings that occur at the same time/place with same instructor
- */
-export function getUniqueMeetings(meetings: InternalMeeting[]): InternalMeeting[] {
-  const meetingGroups = new Map<string, InternalMeeting[]>()
+export function formatSyncTimestamp(date: Date): string {
+  // Guards against a corrupt persisted value revived into an invalid Date.
+  if (Number.isNaN(date.getTime())) return 'Unknown'
 
-  meetings.forEach((meeting) => {
-    const key = `${meeting?.time || 'TBA'}-${meeting?.location || 'TBA'}-${meeting?.instructors || 'TBA'}`
-    if (!meetingGroups.has(key)) {
-      meetingGroups.set(key, [])
-    }
-    meetingGroups.get(key)!.push(meeting)
+  const formattedDate = date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
   })
-
-  // Return first meeting from each group (they're identical for display purposes)
-  return Array.from(meetingGroups.values()).map((group) => group[0])
+  const formattedTime = date.toLocaleTimeString('en-GB', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  })
+  return `${formattedDate} ${formattedTime}`
 }
 
 /**

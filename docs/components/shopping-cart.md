@@ -2,7 +2,7 @@
 
 **File:** [web/src/components/ShoppingCart.tsx](../../web/src/components/ShoppingCart.tsx)
 
-Lists enrolled courses with section details, availability, conflicts, and per-course actions (hide, remove, cycle sections). State lives in [page.tsx](../../web/src/app/page.tsx); the cart only renders it and raises handlers.
+Lists enrolled courses with section details, availability, conflicts, and per-course actions (hide, remove, cycle sections). State lives in [page.tsx](../../web/src/app/page.tsx); the cart renders it and raises handlers.
 
 Only non-obvious constraints and rationale are documented here; the code is the reference for behavior.
 
@@ -13,13 +13,14 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 
 ## Visibility and Selection
 
-- Hidden and invalid cards are not selectable; hiding a currently selected course also deselects it.
+- Hidden cards are not selectable; hiding a currently selected course also deselects it. Invalid cards remain selectable in the cart, but have no timetable events.
 - Visibility is not just cosmetic: it feeds calendar conflict detection and ICS export (see [weekly-calendar.md](weekly-calendar.md#ics-export)).
 
 ## Invalid Enrollments
 
-- Invalid courses (marked by background sync) are rendered in orange with the reason and last-synced time, not deleted — the user decides whether to remove them. See [architecture.md](../architecture.md#browser-state).
-- Re-adding an invalid course from search clears `isInvalid`/`invalidReason`/`lastSynced` and refreshes the stale `course` object, via `updateExistingEnrollment` in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
+- Invalid courses (marked by background sync) stay in the cart with an amber status and last-synced time — only the user removes them. See [architecture.md](../architecture.md#browser-state).
+- A new invalid state joins the banner's Review queue. **Dismiss all** acknowledges both invalid and section-detail changes; the unavailable status remains but its explanation collapses. A different reason or set of missing sections alerts again.
+- Re-adding an invalid course from search clears its invalid and acknowledgment state and refreshes the stale `course` object, via `updateExistingEnrollment` in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
 
 ## Change Detection
 
@@ -27,8 +28,9 @@ Flags an enrolled section that changed (time, location, instructor, or language)
 
 - The rendered timetable is always the fresh scrape. What the user _last saw_ is kept as an invisible per-section signature (`lastSeenSections` on `CourseEnrollment`); a section whose current signature differs is surfaced as changed.
 - That signature advances only on add / section-change / sync / dismiss — never on plain reload — so a note persists across reloads until dismissed and re-fires on further change. Sync only fills in _missing_ signatures, so fresh data the user hasn't seen yet isn't retroactively flagged.
-- Compares time + location + instructor + language; ignores `dates` and availability; only `selectedSections`. A summary banner plus an amber highlight on the exact changed value show it; logic lives in [courseUtils.ts](../../web/src/lib/courseUtils.ts) (`sectionSignature`, `diffEnrollment`, `diffSectionDetail`).
-- Cancellation (a section or course _disappearing_) stays on the `isInvalid` path above — "gone" has no before/after to show.
+- Compares time + location + instructor + language; ignores `dates` and availability; only `selectedSections`. Detection compares meeting positions to decide whether to show the summary banner; detail rows use content-based set differences so a deletion does not make later meetings look changed. Logic lives in [courseUtils.ts](../../web/src/lib/courseUtils.ts) (`sectionSignature`, `diffEnrollment`, `diffSectionDetail`).
+- Equal added/removed counts pair positionally into field-level "previously" highlights; unequal counts show whole rows as added/removed rather than guessing pairs — a wrong before/after is worse than none.
+- A whole course or section disappearing stays on the `isInvalid` path above. A meeting disappearing from a section that still exists stays in the valid card as a removed row.
 
 ## Summary Semantics
 

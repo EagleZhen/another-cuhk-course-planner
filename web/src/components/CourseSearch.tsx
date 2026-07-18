@@ -20,17 +20,16 @@ import {
 import {
   parseSectionTypes,
   isCourseEnrollmentComplete,
-  getUniqueMeetings,
+  sectionSignature,
   getSectionPrefix,
   categorizeCompatibleSections,
   getSectionTypePriority,
-  formatTimeCompact,
   formatInstructorsCompact,
+  formatSyncTimestamp,
   getAvailabilityBadges,
   getAvailabilityBadgeStyle,
   checkSectionConflict,
   googleSearchAndOpen,
-  googleMapsSearchAndOpen,
   cuhkLibrarySearchAndOpen,
   getDayIndex,
   getAggregateSeatInfo,
@@ -74,7 +73,7 @@ import {
 import { TermSelector } from '@/components/TermSelector'
 import { CuhkLibraryImageIcon } from '@/components/icons/CuhkLibraryImageIcon'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
-import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
+import { MeetingRowCard } from '@/components/MeetingRowCard'
 
 // Using clean internal types only
 
@@ -963,17 +962,7 @@ export default function CourseSearch({
                       <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                     </span>
                     <span className="whitespace-nowrap">
-                      Last Data Sync:{' '}
-                      {lastDataUpdate.toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric',
-                      })}{' '}
-                      {lastDataUpdate.toLocaleTimeString([], {
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        hour12: false,
-                      })}
+                      Last Data Sync: {formatSyncTimestamp(lastDataUpdate)}
                     </span>
                   </div>
                 </>
@@ -2504,73 +2493,14 @@ function CourseCard({
                                 </div>
                               )}
 
-                              {/* Meetings displayed in unified 3-row emoji format */}
+                              {/* Meeting rows are normalized and deduped by sectionSignature. */}
                               <div className="space-y-1">
-                                {getUniqueMeetings(section.meetings).map((meeting, index) => {
-                                  const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
-                                  const formattedInstructor = formatInstructorsCompact(
-                                    meeting?.instructors || 'TBA'
-                                  )
-                                  const location = meeting?.location || 'TBA'
-
-                                  return (
-                                    <div
-                                      key={index}
-                                      className="bg-white border border-gray-200 rounded px-2 py-1.5 shadow-sm"
-                                    >
-                                      {/* Row 1: Time */}
-                                      <div className="flex items-center gap-1 text-[11px]">
-                                        <span>⏰</span>
-                                        <span className="font-mono text-gray-600">
-                                          {formattedTime}
-                                        </span>
-                                      </div>
-                                      {/* Row 2: Instructor */}
-                                      <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
-                                        <span>🧑🏻‍🏫</span>
-                                        <div className="flex items-center gap-1 min-w-0 flex-1">
-                                          <span className="truncate" title={formattedInstructor}>
-                                            {formattedInstructor}
-                                          </span>
-                                          {formattedInstructor !== 'Staff' && (
-                                            <button
-                                              onClick={(e) => {
-                                                e.stopPropagation()
-                                                googleSearchAndOpen(`CUHK ${formattedInstructor}`)
-                                              }}
-                                              className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                                              title={`Search Google for "CUHK ${formattedInstructor}"`}
-                                            >
-                                              <GoogleIcon className="size-3" />
-                                            </button>
-                                          )}
-                                        </div>
-                                      </div>
-                                      {/* Row 3: Location */}
-                                      <div className="flex items-center gap-1 text-gray-600 text-[11px] mt-1">
-                                        <span>📍</span>
-                                        <div className="flex items-center gap-1 min-w-0 flex-1">
-                                          <span className="truncate" title={location}>
-                                            {location}
-                                          </span>
-                                          {location !== 'TBA' &&
-                                            location !== 'No Room Required' && (
-                                              <button
-                                                onClick={(e) => {
-                                                  e.stopPropagation()
-                                                  googleMapsSearchAndOpen(location)
-                                                }}
-                                                className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                                                title={`View "${location}" on Google Maps`}
-                                              >
-                                                <GoogleMapsIcon className="size-3" />
-                                              </button>
-                                            )}
-                                        </div>
-                                      </div>
-                                    </div>
-                                  )
-                                })}
+                                {sectionSignature(section).meetings.map((meeting, index) => (
+                                  <MeetingRowCard
+                                    key={index}
+                                    row={{ status: 'unchanged', meeting }}
+                                  />
+                                ))}
                               </div>
                             </div>
                           </div>

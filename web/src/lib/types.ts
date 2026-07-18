@@ -77,13 +77,18 @@ export interface SectionChange {
   after: SectionSignature
 }
 
-// One changed meeting, paired to its previous value when meetings can be matched 1:1
-// (see diffSectionDetail). `before`/`fields` are absent when a meeting was added with no
-// counterpart to pair against. `fields` marks which of time/location/instructor differ.
-export interface SectionMeetingChange {
-  current: SectionMeetingSignature
+export type MeetingChangeStatus = 'unchanged' | 'added' | 'changed' | 'removed'
+
+export interface MeetingRow {
+  status: MeetingChangeStatus
+  meeting: SectionMeetingSignature
   before?: SectionMeetingSignature
   fields?: { time: boolean; location: boolean; instructor: boolean }
+}
+
+export interface SectionDiffDetail {
+  rows: MeetingRow[]
+  languageChanged: boolean
 }
 
 export interface SectionAvailability {
@@ -122,6 +127,11 @@ export const SECTION_TYPE_CONFIG = {
 // Derive the type from the config keys - automatically stays in sync
 export type SectionType = keyof typeof SECTION_TYPE_CONFIG
 
+export interface InvalidEnrollmentState {
+  reason: string
+  sectionIds: string[]
+}
+
 // Course enrollment using clean internal types
 export interface CourseEnrollment {
   courseId: string
@@ -132,10 +142,13 @@ export interface CourseEnrollment {
   // Sync status fields
   isInvalid?: boolean // True if course/sections no longer exist
   invalidReason?: string // Human-readable reason for invalidity
-  lastSynced?: Date // When this enrollment was last synced with fresh data
+  lastSynced?: Date // Persisted as an ISO string; revived to Date in readStoredEnrollments
   // Per-section sectionSignature the user last saw, keyed by section id. Not rendered
   // directly — only used to detect changes. Missing entry = adopt current section.
   lastSeenSections?: Record<string, SectionSignature>
+  // Invalid status the user last acknowledged. Kept separate from isInvalid because
+  // dismissing a notification must not make unavailable data appear valid.
+  lastSeenInvalidState?: InvalidEnrollmentState
 }
 
 // Calendar event using clean internal types

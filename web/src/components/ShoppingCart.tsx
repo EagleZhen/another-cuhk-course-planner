@@ -7,33 +7,36 @@ import { Button } from '@/components/ui/button'
 import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search } from 'lucide-react'
 import {
   parseSectionTypes,
-  getUniqueMeetings,
-  formatTimeCompact,
-  formatInstructorsCompact,
+  sectionSignature,
+  formatSyncTimestamp,
   getSectionTypePriority,
   categorizeCompatibleSections,
   getAvailabilityBadges,
   getComputedBorderColor,
-  googleSearchAndOpen,
-  googleMapsSearchAndOpen,
   formatCourseCodeWithPrefix,
   checkSectionConflict,
   diffSectionDetail,
-  matchChangedMeeting,
+  getChangedCourseIds,
+  hasUnseenInvalidChange,
 } from '@/lib/courseUtils'
-import type { CourseEnrollment, CalendarEvent, SectionType, SectionChange } from '@/lib/types'
+import type {
+  CourseEnrollment,
+  CalendarEvent,
+  SectionType,
+  SectionChange,
+  MeetingRow,
+} from '@/lib/types'
 import { analytics } from '@/lib/analytics'
-import { GoogleIcon } from '@/components/icons/GoogleIcon'
-import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
+import { MeetingRowCard, changedText } from '@/components/MeetingRowCard'
 
-// Shared style for the change-banner's "Show" / "Dismiss all" buttons.
+// Shared style for the change-banner actions; the grid gives both equal width.
 const bannerButtonClass =
-  'h-5 rounded border border-amber-300 bg-white/50 px-1.5 text-[10px] text-amber-800 hover:bg-amber-100 cursor-pointer'
+  'h-6 w-full rounded border border-amber-300 bg-white/50 px-2 text-[11px] font-medium text-amber-800 hover:bg-amber-100 cursor-pointer'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
   calendarEvents: CalendarEvent[] // Calendar events for conflict detection
-  selectedEnrollment?: string | null // Enrollment ID that was clicked/selected
+  selectedEnrollment?: string | null // Enrollment ID focused across the cart and calendar
   currentTerm: string // Current term to get available sections
   onToggleVisibility: (enrollmentId: string) => void
   onRemoveCourse: (enrollmentId: string) => void
@@ -122,9 +125,9 @@ export default function ShoppingCart({
     onSectionChange(enrollment.courseId, sectionType, newSection.id)
   }
 
-  // Scroll a course card into view within the cart container, if not already fully visible.
-  // Shared by the selection effect and the "Show" button so both scroll reliably.
-  const scrollEnrollmentIntoView = useCallback((enrollmentId: string) => {
+  // Scroll a course card within the cart. Selection only scrolls when needed; Review always
+  // aligns the target near the top so the queue's cart order is visually predictable.
+  const scrollEnrollmentIntoView = useCallback((enrollmentId: string, alwaysAlign = false) => {
     const container = scrollContainerRef.current
     const element = itemRefs.current.get(enrollmentId)
     if (!container || !element) return
@@ -145,7 +148,7 @@ export default function ShoppingCart({
     const visibleTop = container.scrollTop
     const visibleBottom = container.scrollTop + container.clientHeight
 
-    if (elementTopInContainer < visibleTop || elementBottom > visibleBottom) {
+    if (alwaysAlign || elementTopInContainer < visibleTop || elementBottom > visibleBottom) {
       container.scrollTo({ top: Math.max(0, idealScrollTop), behavior: 'smooth' })
     }
   }, [])
@@ -217,19 +220,17 @@ export default function ShoppingCart({
 
   const statusCounts = getStatusCounts()
 
-  // Changed courses in cart order; "Show" selects the next one (reusing the select/scroll
-  // path that clicking a card or calendar event uses) so the user can step through changes.
-  const changedCourseIds = courseEnrollments
-    .filter((e) => sectionChanges?.has(e.courseId))
-    .map((e) => e.courseId)
-  const showNextChange = () => {
+  // Review reuses the cart/calendar focus state. Invalid enrollments have no calendar events,
+  // so focusing one highlights only its cart card.
+  const changedCourseIds = getChangedCourseIds(courseEnrollments, sectionChanges)
+  const selectedChangeIndex = changedCourseIds.indexOf(selectedEnrollment ?? '')
+  const nextReviewIndex =
+    changedCourseIds.length > 0 ? (selectedChangeIndex + 1) % changedCourseIds.length : 0
+  const reviewNextChange = () => {
     if (!onSelectEnrollment || changedCourseIds.length === 0) return
-    const current = changedCourseIds.indexOf(selectedEnrollment ?? '')
-    const next = changedCourseIds[(current + 1) % changedCourseIds.length]
+    const next = changedCourseIds[nextReviewIndex]
     onSelectEnrollment(next)
-    // Scroll directly too: when next is already the selected course, selectedEnrollment
-    // doesn't change, so the selection effect wouldn't re-fire on its own.
-    scrollEnrollmentIntoView(next)
+    scrollEnrollmentIntoView(next, true)
   }
 
   return (
@@ -271,27 +272,30 @@ export default function ShoppingCart({
         </div>
       </CardHeader>
 
-      {sectionChanges && sectionChanges.size > 0 ? (
+      {changedCourseIds.length > 0 ? (
         <div
-          className="flex cursor-help items-center justify-between gap-2 border-y border-amber-200 bg-amber-50 px-3 py-1.5 text-xs text-amber-800"
-          title={`CUHK updated the teaching timetable for ${Array.from(sectionChanges.keys()).join(', ')}. Re-export your calendar and update any screenshot you saved.`}
+          className="flex flex-col gap-1.5 border-y border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800"
+          title={`CUHK course data changed for ${changedCourseIds.join(', ')}. Review the highlighted cards and update any saved calendar or screenshot.`}
         >
-          <span className="flex items-center gap-1.5">
+          <span className="flex items-center gap-1.5 leading-4">
             <AlertTriangle className="size-3.5 shrink-0 text-amber-600" />
             <span>
-              {sectionChanges.size} {sectionChanges.size === 1 ? 'course' : 'courses'} changed
+              {changedCourseIds.length} {changedCourseIds.length === 1 ? 'course' : 'courses'}{' '}
+              changed since you last checked
             </span>
           </span>
-          <span className="flex shrink-0 items-center gap-1.5">
+          <span
+            className={`grid w-full gap-1.5 ${onSelectEnrollment && onDismissAllChanges ? 'grid-cols-2' : 'grid-cols-1'}`}
+          >
             {onSelectEnrollment && (
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={showNextChange}
+                onClick={reviewNextChange}
                 className={bannerButtonClass}
-                title="Scroll to the next changed course"
+                title="Review the next changed course from top to bottom"
               >
-                Show
+                Review next
               </Button>
             )}
             {onDismissAllChanges && (
@@ -300,6 +304,7 @@ export default function ShoppingCart({
                 size="sm"
                 onClick={onDismissAllChanges}
                 className={bannerButtonClass}
+                title="Dismiss all change notifications"
               >
                 Dismiss all
               </Button>
@@ -320,12 +325,32 @@ export default function ShoppingCart({
         ) : (
           <div
             ref={scrollContainerRef}
-            className="space-y-3 overflow-y-auto h-full p-1 pr-2 pt-1 pb-2"
+            // Padding leaves room for the selected card's scale + ring; without it the
+            // overflow container clips the card edge flush against the banner/header.
+            className="space-y-3 overflow-y-auto h-full p-1.5 pr-2 pt-2 pb-2"
           >
             {courseEnrollments.map((enrollment) => {
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
+              const isSelectable = isVisible || isInvalid
+              const accentColor = isInvalid
+                ? '#fbbf24'
+                : enrollment.color
+                  ? getComputedBorderColor(enrollment.color)
+                  : undefined
+              const hasUnseenInvalid = hasUnseenInvalidChange(enrollment)
+              const isCourseRemoved = enrollment.invalidReason === 'Course no longer available'
+              const invalidHeading = isCourseRemoved
+                ? `This course is no longer offered in ${currentTerm}.`
+                : enrollment.invalidReason || 'Course data is outdated'
+              const courseRemovedDetail =
+                "It's off your timetable but stays here until you're ready to remove it."
+              const invalidDetail =
+                isCourseRemoved && hasUnseenInvalid ? courseRemovedDetail : undefined
+              const invalidTooltip = isCourseRemoved
+                ? `${invalidHeading} ${courseRemovedDetail}`
+                : invalidHeading
               const changes = sectionChanges?.get(enrollment.courseId)
 
               return (
@@ -339,26 +364,22 @@ export default function ShoppingCart({
                     }
                   }}
                   className={`
-                    border rounded p-2 transition-all duration-300 relative group space-y-2
-                    border-l-4 border-gray-200
-                    ${isInvalid ? 'bg-orange-50 opacity-75' : 'bg-white'}
-                    ${isSelected && isVisible && !isInvalid ? `ring-1 shadow-lg scale-[1.02]` : ''}
-                    ${!isVisible || isInvalid ? 'cursor-not-allowed' : 'cursor-pointer'}
+                    relative group space-y-2 rounded border border-l-4 p-2
+                    transition-all duration-300 motion-reduce:transition-none
+                    ${isInvalid ? 'border-amber-200 bg-amber-50' : 'border-gray-200 bg-white'}
+                    ${isSelected && isSelectable ? `ring-1 shadow-lg scale-[1.02]` : ''}
+                    ${isSelectable ? 'cursor-pointer' : 'cursor-not-allowed'}
                   `}
                   style={{
-                    ...(isInvalid
+                    ...(accentColor
                       ? {
-                          borderLeftColor: '#fb923c', // orange-400 for invalid courses
+                          borderLeftColor: accentColor,
                         }
-                      : enrollment.color
-                        ? {
-                            borderLeftColor: getComputedBorderColor(enrollment.color), // course color for normal/conflict courses
-                          }
-                        : {}),
-                    // Ring color matches the left border color when selected
-                    ...(isSelected && isVisible && !isInvalid && enrollment.color
+                      : {}),
+                    // Every selected card uses the same accent for its left border and ring.
+                    ...(isSelected && isSelectable && accentColor
                       ? {
-                          '--tw-ring-color': getComputedBorderColor(enrollment.color),
+                          '--tw-ring-color': accentColor,
                         }
                       : {}),
                   }}
@@ -366,12 +387,11 @@ export default function ShoppingCart({
                     !isVisible && !isInvalid
                       ? 'Course is hidden from calendar. Click the eye icon to show it and enable selection.'
                       : isInvalid
-                        ? enrollment.invalidReason || 'Course data is outdated'
+                        ? invalidTooltip
                         : undefined
                   }
                   onClick={() => {
-                    // Only allow selection if the enrollment is visible and not invalid
-                    if (isVisible && !isInvalid && onSelectEnrollment) {
+                    if (isSelectable && onSelectEnrollment) {
                       const newSelection = isSelected ? null : enrollment.courseId
                       onSelectEnrollment(newSelection)
                     }
@@ -406,14 +426,6 @@ export default function ShoppingCart({
                           <Search className="size-3.5 text-gray-400 hover:text-gray-600" />
                         </Button>
                       )}
-                      {isInvalid && (
-                        <div
-                          className="flex size-5 items-center justify-center"
-                          title={enrollment.invalidReason || 'Course data is outdated'}
-                        >
-                          <AlertTriangle className="size-3.5 text-orange-500" />
-                        </div>
-                      )}
                       <span className="flex h-full shrink-0 items-center text-xs font-medium leading-5 text-gray-500">
                         {enrollment.course.credits} credits
                       </span>
@@ -427,7 +439,7 @@ export default function ShoppingCart({
                         onClick={(e) => {
                           e.stopPropagation()
                           // If making invisible and currently selected, deselect it
-                          if (isVisible && isSelected && onSelectEnrollment) {
+                          if (!isInvalid && isVisible && isSelected && onSelectEnrollment) {
                             onSelectEnrollment(null)
                           }
                           // Toggle visibility for this enrollment
@@ -468,17 +480,17 @@ export default function ShoppingCart({
                   {/* Selected Sections - Compact Display or Invalid Message */}
                   {isInvalid ? (
                     /* Show simplified invalid state */
-                    <div className="bg-orange-50 border border-orange-200 rounded px-3 py-2">
-                      <div className="flex items-center gap-2 text-xs text-orange-600">
-                        <AlertTriangle className="w-4 h-4 text-orange-500 flex-shrink-0" />
-                        <span>{enrollment.invalidReason}</span>
+                    <div className="border-t border-amber-200 px-3 py-2">
+                      <div className="flex items-start gap-2 text-xs leading-4 text-amber-700">
+                        <AlertTriangle className="mt-0.5 size-4 flex-shrink-0 text-amber-600" />
+                        <div className="min-w-0">
+                          <p className="font-medium text-amber-800">{invalidHeading}</p>
+                          {invalidDetail && <p className="mt-1">{invalidDetail}</p>}
+                        </div>
                       </div>
                       {enrollment.lastSynced && (
-                        <div className="text-xs text-gray-500 mt-2">Last synced:</div>
-                      )}
-                      {enrollment.lastSynced && (
-                        <div className="text-xs text-gray-500">
-                          {enrollment.lastSynced.toLocaleString()}
+                        <div className="mt-2 text-xs text-gray-500">
+                          Last synced · {formatSyncTimestamp(enrollment.lastSynced)}
                         </div>
                       )}
                     </div>
@@ -516,9 +528,12 @@ export default function ShoppingCart({
                         const changeDetail = sectionChange
                           ? diffSectionDetail(section, sectionChange.before)
                           : undefined
-                        // Amber highlight for a changed value (no border/padding, so the text
-                        // doesn't shift). Same amber family as the summary banner.
-                        const changedText = 'rounded bg-amber-100 text-amber-800 cursor-help'
+                        const meetingRows: MeetingRow[] =
+                          changeDetail?.rows ??
+                          sectionSignature(section).meetings.map((meeting) => ({
+                            status: 'unchanged',
+                            meeting,
+                          }))
 
                         return (
                           <div
@@ -617,107 +632,11 @@ export default function ShoppingCart({
                               </div>
                             )}
 
-                            {/* Unique meetings for this section - consolidated by time+location+instructor */}
+                            {/* Meeting rows are normalized and deduped by sectionSignature. */}
                             <div className="space-y-1">
-                              {getUniqueMeetings(section.meetings).map((meeting, index) => {
-                                const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
-                                const formattedInstructor = formatInstructorsCompact(
-                                  meeting?.instructors || 'TBA'
-                                )
-                                const location = meeting?.location || 'TBA'
-                                const meetingChange = changeDetail
-                                  ? matchChangedMeeting(meeting, changeDetail.changedMeetings)
-                                  : undefined
-                                const fields = meetingChange?.fields
-                                const before = meetingChange?.before
-                                // Highlight the whole box only when the meeting changed but can't be
-                                // paired to a previous one (added meeting); otherwise highlight the
-                                // specific field lines that moved.
-                                const isNewMeeting = !!meetingChange && !fields
-
-                                return (
-                                  <div
-                                    key={index}
-                                    className={`rounded border px-2 py-1.5 shadow-sm ${isNewMeeting ? 'bg-amber-50 border-amber-200 cursor-help' : 'bg-white border-gray-200'}`}
-                                    title={
-                                      isNewMeeting
-                                        ? 'New meeting since you last checked'
-                                        : undefined
-                                    }
-                                  >
-                                    {/* Row 1: Time */}
-                                    <div className="flex items-center gap-1 text-[11px]">
-                                      <span>⏰</span>
-                                      <span
-                                        className={`font-mono ${fields?.time ? changedText : 'text-gray-600'}`}
-                                        title={
-                                          fields?.time && before
-                                            ? `Previously ${before.time}`
-                                            : undefined
-                                        }
-                                      >
-                                        {formattedTime}
-                                      </span>
-                                    </div>
-                                    {/* Row 2: Instructor */}
-                                    <div className="flex items-center gap-1 text-[11px] mt-1 text-gray-600">
-                                      <span>🧑🏻‍🏫</span>
-                                      <div className="flex items-center gap-1 min-w-0 flex-1">
-                                        <span
-                                          className={`truncate ${fields?.instructor ? changedText : ''}`}
-                                          title={
-                                            fields?.instructor && before
-                                              ? `Previously ${before.instructor}`
-                                              : formattedInstructor
-                                          }
-                                        >
-                                          {formattedInstructor}
-                                        </span>
-                                        {formattedInstructor !== 'Staff' && (
-                                          <button
-                                            onClick={(e) => {
-                                              e.stopPropagation()
-                                              googleSearchAndOpen(`CUHK ${formattedInstructor}`)
-                                            }}
-                                            className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                                            title={`Search Google for "CUHK ${formattedInstructor}"`}
-                                          >
-                                            <GoogleIcon className="size-3" />
-                                          </button>
-                                        )}
-                                      </div>
-                                    </div>
-                                    {/* Row 3: Location */}
-                                    <div className="flex items-center gap-1 text-[11px] mt-1 text-gray-600">
-                                      <span>📍</span>
-                                      <div className="flex items-center gap-1 min-w-0 flex-1">
-                                        <span
-                                          className={`truncate ${fields?.location ? changedText : ''}`}
-                                          title={
-                                            fields?.location && before
-                                              ? `Previously ${before.location}`
-                                              : location
-                                          }
-                                        >
-                                          {location}
-                                        </span>
-                                        {location !== 'TBA' && location !== 'No Room Required' && (
-                                          <button
-                                            onClick={(e) => {
-                                              e.stopPropagation()
-                                              googleMapsSearchAndOpen(location)
-                                            }}
-                                            className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                                            title={`View "${location}" on Google Maps`}
-                                          >
-                                            <GoogleMapsIcon className="size-3" />
-                                          </button>
-                                        )}
-                                      </div>
-                                    </div>
-                                  </div>
-                                )
-                              })}
+                              {meetingRows.map((row, index) => (
+                                <MeetingRowCard key={index} row={row} />
+                              ))}
                             </div>
                           </div>
                         )

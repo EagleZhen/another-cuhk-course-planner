@@ -18,8 +18,10 @@ import {
   parseSectionTypes,
   sortSectionsByPriority,
   updateExistingEnrollment,
+  markCourseUnavailable,
   extractAcademicYearCode,
   readStoredEnrollments,
+  recordSeenChanges,
   recordSeenSections,
   diffEnrollment,
 } from '@/lib/courseUtils'
@@ -211,8 +213,8 @@ export default function Home() {
     return detectConflicts(events)
   }, [courseEnrollments])
 
-  // Sections that changed (time/location/instructor/language) since the user last saw them.
-  // Cancellations already have their own isInvalid card, so skip those enrollments here.
+  // Section details that changed since the user last saw them. Invalid enrollments surface
+  // through the cart's banner/card instead, so they do not need a meeting-level diff.
   const sectionChanges = useMemo(() => {
     const map = new Map<string, SectionChange[]>()
     for (const enrollment of courseEnrollments) {
@@ -377,9 +379,7 @@ export default function Home() {
   }
 
   const handleDismissAllChanges = () => {
-    setCourseEnrollments((prev) =>
-      prev.map((enrollment) => recordSeenSections(enrollment, { onlyMissing: false }))
-    )
+    setCourseEnrollments((prev) => prev.map(recordSeenChanges))
   }
 
   const handleAddCourse = (
@@ -499,22 +499,13 @@ export default function Home() {
 
           if (!freshCourse) {
             console.warn(`⚠️ Course ${courseKey} no longer exists in fresh data`)
-            // Mark as invalid but preserve for user to see
-            return {
-              ...enrollment,
-              isInvalid: true,
-              invalidReason: 'Course no longer available',
-            }
+            return markCourseUnavailable(enrollment, timestamp)
           }
 
           // Find fresh sections for current term
           const termData = freshCourse.terms.find((t) => t.termName === currentTerm)
           if (!termData) {
-            return {
-              ...enrollment,
-              isInvalid: true,
-              invalidReason: 'Course no longer available',
-            }
+            return markCourseUnavailable(enrollment, timestamp)
           }
 
           // Update sections with fresh data
@@ -545,6 +536,9 @@ export default function Home() {
               selectedSections: sortSectionsByPriority(syncedSections, freshCourse, currentTerm),
               isInvalid: hasInvalidSections,
               invalidReason: hasInvalidSections ? 'Some sections no longer available' : undefined,
+              lastSeenInvalidState: hasInvalidSections
+                ? enrollment.lastSeenInvalidState
+                : undefined,
               lastSynced: timestamp, // Track when we last synced this enrollment
             },
             { onlyMissing: true }
