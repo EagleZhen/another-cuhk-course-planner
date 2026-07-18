@@ -445,6 +445,10 @@ export default function ShoppingCart({
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
+              const invalidMessage =
+                enrollment.invalidReason === 'Course no longer available'
+                  ? `CUHK no longer offers this course in ${currentTerm}. It's off your calendar; remove it from your cart when ready.`
+                  : enrollment.invalidReason
               const changes = sectionChanges?.get(enrollment.courseId)
 
               return (
@@ -485,7 +489,7 @@ export default function ShoppingCart({
                     !isVisible && !isInvalid
                       ? 'Course is hidden from calendar. Click the eye icon to show it and enable selection.'
                       : isInvalid
-                        ? enrollment.invalidReason || 'Course data is outdated'
+                        ? invalidMessage || 'Course data is outdated'
                         : undefined
                   }
                   onClick={() => {
@@ -528,7 +532,7 @@ export default function ShoppingCart({
                       {isInvalid && (
                         <div
                           className="flex size-5 items-center justify-center"
-                          title={enrollment.invalidReason || 'Course data is outdated'}
+                          title={invalidMessage || 'Course data is outdated'}
                         >
                           <AlertTriangle className="size-3.5 text-orange-500" />
                         </div>
@@ -590,7 +594,7 @@ export default function ShoppingCart({
                     <div className="bg-orange-50 border border-orange-200 rounded px-3 py-2">
                       <div className="flex items-center gap-2 text-xs text-orange-600">
                         <AlertTriangle className="w-4 h-4 text-orange-500 flex-shrink-0" />
-                        <span>{enrollment.invalidReason}</span>
+                        <span>{invalidMessage}</span>
                       </div>
                       {enrollment.lastSynced && (
                         <div className="text-xs text-gray-500 mt-2">Last synced:</div>
