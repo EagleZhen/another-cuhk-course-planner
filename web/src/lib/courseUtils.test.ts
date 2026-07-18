@@ -320,6 +320,48 @@ describe('readStoredEnrollments', () => {
     expect(loaded?.[0].lastSynced).toEqual(new Date('2026-07-14T13:27:10.392Z'))
   })
 
+  it('migrates v2 partial removals without changing whole-course removals', () => {
+    const liveSection = { ...makeSection({ id: 'live' }), isInvalid: false }
+    const removedSection = {
+      ...makeSection({ id: 'removed', sectionType: 'TUT' }),
+      isInvalid: true,
+    }
+    const partialRemoval = {
+      courseId: 'CSCI3100',
+      course: makeCourse([liveSection, removedSection]),
+      selectedSections: [liveSection, removedSection],
+      color: 'bg-blue-500',
+      isVisible: true,
+      isInvalid: true,
+      invalidReason: 'Some sections no longer available',
+      lastSeenInvalidState: {
+        reason: 'Some sections no longer available',
+        sectionIds: ['removed'],
+      },
+    }
+    const wholeCourseRemoval = {
+      ...partialRemoval,
+      courseId: 'CSCI3150',
+      invalidReason: 'Course no longer available',
+    }
+
+    const loaded = readStoredEnrollments({
+      version: 2,
+      enrollments: [partialRemoval, wholeCourseRemoval],
+    })
+
+    expect(loaded?.[0]).toMatchObject({
+      selectedSections: [{ id: 'live' }],
+      removedSections: [{ id: 'removed' }],
+      isInvalid: false,
+      invalidReason: undefined,
+      lastSeenInvalidState: undefined,
+    })
+    expect(loaded?.[0].selectedSections[0]).not.toHaveProperty('isInvalid')
+    expect(loaded?.[0].removedSections?.[0]).not.toHaveProperty('isInvalid')
+    expect(loaded?.[1]).toEqual(wholeCourseRemoval)
+  })
+
   it('wipes (null) for an unknown/newer version', () => {
     expect(readStoredEnrollments({ version: SCHEDULE_DATA_VERSION + 1, enrollments })).toBeNull()
     expect(readStoredEnrollments({ version: 0, enrollments })).toBeNull()

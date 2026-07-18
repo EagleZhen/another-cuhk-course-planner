@@ -544,15 +544,52 @@ function reviveEnrollmentDates(enrollments: CourseEnrollment[]): CourseEnrollmen
   )
 }
 
+function stripLegacySectionInvalid(section: InternalSection): InternalSection {
+  const cleaned = { ...(section as InternalSection & { isInvalid?: boolean }) }
+  delete cleaned.isInvalid
+  return cleaned
+}
+
+function migrateLegacyPartialRemovals(enrollments: CourseEnrollment[]): CourseEnrollment[] {
+  return enrollments.map((enrollment) => {
+    if (!enrollment.isInvalid || enrollment.invalidReason !== 'Some sections no longer available') {
+      return enrollment
+    }
+
+    const selectedSections: InternalSection[] = []
+    const removedSections: InternalSection[] = []
+
+    for (const section of enrollment.selectedSections) {
+      const wasRemoved = (section as InternalSection & { isInvalid?: boolean }).isInvalid === true
+      const cleaned = stripLegacySectionInvalid(section)
+      if (wasRemoved) removedSections.push(cleaned)
+      else selectedSections.push(cleaned)
+    }
+
+    return {
+      ...enrollment,
+      selectedSections,
+      removedSections: removedSections.length > 0 ? removedSections : undefined,
+      isInvalid: false,
+      invalidReason: undefined,
+      lastSeenInvalidState: undefined,
+    }
+  })
+}
+
 // Enrollments to load from a persisted schedule blob, or null to wipe it. Known versions
-// load as-is — schema changes so far are additive — unknown/newer versions don't.
+// are normalized to the current model; unknown/newer versions are rejected.
 export function readStoredEnrollments(parsed: unknown): CourseEnrollment[] | null {
-  if (Array.isArray(parsed)) return reviveEnrollmentDates(parsed as CourseEnrollment[]) // legacy pre-version format
+  if (Array.isArray(parsed)) {
+    return reviveEnrollmentDates(migrateLegacyPartialRemovals(parsed as CourseEnrollment[]))
+  }
   if (parsed && typeof parsed === 'object') {
     const version = (parsed as { version?: unknown }).version
     if (typeof version === 'number' && version >= 1 && version <= SCHEDULE_DATA_VERSION) {
       return reviveEnrollmentDates(
-        ((parsed as { enrollments?: CourseEnrollment[] }).enrollments ?? []) as CourseEnrollment[]
+        migrateLegacyPartialRemovals(
+          ((parsed as { enrollments?: CourseEnrollment[] }).enrollments ?? []) as CourseEnrollment[]
+        )
       )
     }
   }
