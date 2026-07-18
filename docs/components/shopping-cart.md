@@ -16,12 +16,25 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 - Hidden cards are not selectable; hiding a currently selected course also deselects it. Invalid cards remain selectable in the cart, but have no timetable events.
 - Visibility is not just cosmetic: it feeds calendar conflict detection and ICS export (see [weekly-calendar.md](weekly-calendar.md#ics-export)).
 
-## Removed Offerings
+## Enrollment Lifecycle
 
-- A missing course or current term uses the terminal `isInvalid` card with an amber status and last-synced time. It stays until the user removes it. See [architecture.md](../architecture.md#browser-state).
-- A missing selected section does not invalidate the course. It moves from `selectedSections` to the display-only `removedSections`, so surviving sections still feed the timetable, conflicts, and ICS. The cart shows a struck-through tombstone with compatible replacement arrows, or a search/remove hint when none exist.
-- Both states join the banner's Review queue. **Dismiss all** acknowledges the changes but keeps section tombstones and replacement controls available. It only acknowledges what is visible: tombstones hidden behind an invalid card stay unacknowledged, so they re-alert once the course returns and they can actually be seen.
-- Re-adding from search clears unavailable state and tombstones while refreshing the course through `updateExistingEnrollment` in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
+Sync (`syncEnrollment` in [courseUtils.ts](../../web/src/lib/courseUtils.ts)) reconciles every enrollment against each fresh scrape. An enrollment is in one of three states:
+
+| State | When | Consequences |
+| --- | --- | --- |
+| Valid | course, term, and every picked section exist | fully counted |
+| Valid + tombstones | course/term exist, some picked sections don't (`removedSections`) | live sections still feed the timetable, conflicts, and ICS; tombstones render struck-through with replacement arrows, or a search/remove hint when no alternatives exist; with zero live sections the course appears in no status count |
+| Invalid | course or current term gone | amber card with reason + last-synced time replaces the section list (hiding any tombstones); excluded from timetable and credits; stays until the user removes it |
+
+Transitions and acknowledgment:
+
+- Sync tombstones a vanished pick and restores it to live if its id reappears. `removedSectionsAcknowledged` resets only when a _new_ tombstone appears.
+- Going invalid preserves tombstones and acknowledgments, so a course that returns resumes where it left off.
+- Choosing a replacement via a tombstone's arrows selects a live section of that type, which prunes the tombstone (`pruneReplacedTombstones`).
+- The Review banner (`getChangedCourseIds`) queues unseen invalid reasons, unacknowledged visible tombstones, and section-detail changes. **Dismiss all** acknowledges only what is visible: tombstones hidden behind an invalid card stay unacknowledged, so they re-alert once the course returns and they can actually be seen.
+- Re-adding from search (`updateExistingEnrollment`) is the full reset: clears invalid state, tombstones, and acknowledgments, and refreshes the stale `course`.
+
+`isVisible` (the eye toggle) is orthogonal: a hidden course leaves the timetable and ICS but its lifecycle keeps running. See [architecture.md](../architecture.md#browser-state).
 
 ## Change Detection
 
