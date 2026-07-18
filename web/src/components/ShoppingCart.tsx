@@ -597,7 +597,7 @@ export default function ShoppingCart({
                   {/* Selected Sections - Compact Display or Invalid Message */}
                   {isInvalid ? (
                     /* Show simplified invalid state */
-                    <div className="px-3 py-2">
+                    <div className="border-t border-amber-200 px-3 py-2">
                       <div className="flex items-start gap-2 text-xs leading-4 text-amber-700">
                         <AlertTriangle className="mt-0.5 size-4 flex-shrink-0 text-amber-600" />
                         <div className="min-w-0">
