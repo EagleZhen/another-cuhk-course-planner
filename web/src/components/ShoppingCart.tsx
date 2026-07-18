@@ -368,7 +368,7 @@ export default function ShoppingCart({
                     transition-all duration-300 motion-reduce:transition-none
                     ${isInvalid ? 'border-amber-200 bg-amber-50' : 'border-gray-200 bg-white'}
                     ${isSelected && isSelectable ? `ring-1 shadow-lg scale-[1.02]` : ''}
-                    ${isSelectable ? 'cursor-pointer' : 'cursor-not-allowed'}
+                    ${isInvalid ? 'cursor-help' : isSelectable ? 'cursor-pointer' : 'cursor-not-allowed'}
                   `}
                   style={{
                     ...(accentColor
