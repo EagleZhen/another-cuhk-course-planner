@@ -543,6 +543,16 @@ export function diffEnrollment(enrollment: CourseEnrollment): SectionChange[] {
   return changes
 }
 
+/** Course ids needing attention, in cart order and without duplicates. */
+export function getChangedCourseIds(
+  enrollments: CourseEnrollment[],
+  sectionChanges?: ReadonlyMap<string, SectionChange[]>
+): string[] {
+  return enrollments
+    .filter((enrollment) => enrollment.isInvalid || sectionChanges?.has(enrollment.courseId))
+    .map((enrollment) => enrollment.courseId)
+}
+
 // Rebuilds lastSeenSections for the selected sections, pruning de-selected ids.
 // onlyMissing seeds only new entries (add/sync); false overwrites all (dismiss).
 export function recordSeenSections(

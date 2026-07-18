@@ -19,6 +19,7 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 ## Invalid Enrollments
 
 - Invalid courses (marked by background sync) are rendered in orange with the reason and last-synced time, not deleted — the user decides whether to remove them. See [architecture.md](../architecture.md#browser-state).
+- Invalid courses also count in the changed-course banner and its "Show" cycle. They remain there until removed or restored; dismiss only acknowledges ordinary section-detail changes.
 - Re-adding an invalid course from search clears `isInvalid`/`invalidReason`/`lastSynced` and refreshes the stale `course` object, via `updateExistingEnrollment` in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
 
 ## Change Detection

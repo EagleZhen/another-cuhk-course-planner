@@ -8,6 +8,7 @@ import {
   diffEnrollment,
   recordSeenSections,
   diffSectionDetail,
+  getChangedCourseIds,
   formatSyncTimestamp,
   sectionsOverlapInTime,
   checkSectionConflict,
@@ -220,6 +221,23 @@ function mkEnrollment(
   }
 }
 const sig = (s: InternalSection) => sectionSignature(s)
+
+describe('getChangedCourseIds', () => {
+  it('includes invalid and section-changed courses once in cart order', () => {
+    const enrollments = [
+      { ...mkEnrollment([]), courseId: 'invalid', isInvalid: true },
+      { ...mkEnrollment([]), courseId: 'unchanged' },
+      { ...mkEnrollment([]), courseId: 'changed' },
+      { ...mkEnrollment([]), courseId: 'both', isInvalid: true },
+    ]
+    const sectionChanges = new Map<string, []>([
+      ['changed', []],
+      ['both', []],
+    ])
+
+    expect(getChangedCourseIds(enrollments, sectionChanges)).toEqual(['invalid', 'changed', 'both'])
+  })
+})
 
 describe('sectionsOverlapInTime', () => {
   it('reports only real meeting overlaps', () => {

@@ -20,6 +20,7 @@ import {
   formatCourseCodeWithPrefix,
   checkSectionConflict,
   diffSectionDetail,
+  getChangedCourseIds,
 } from '@/lib/courseUtils'
 import type {
   CourseEnrollment,
@@ -339,9 +340,9 @@ export default function ShoppingCart({
 
   // Changed courses in cart order; "Show" selects the next one (reusing the select/scroll
   // path that clicking a card or calendar event uses) so the user can step through changes.
-  const changedCourseIds = courseEnrollments
-    .filter((e) => sectionChanges?.has(e.courseId))
-    .map((e) => e.courseId)
+  const changedCourseIds = getChangedCourseIds(courseEnrollments, sectionChanges)
+  const hasSectionChanges = (sectionChanges?.size ?? 0) > 0
+  const hasInvalidChanges = courseEnrollments.some((enrollment) => enrollment.isInvalid)
   const showNextChange = () => {
     if (!onSelectEnrollment || changedCourseIds.length === 0) return
     const current = changedCourseIds.indexOf(selectedEnrollment ?? '')
@@ -391,15 +392,16 @@ export default function ShoppingCart({
         </div>
       </CardHeader>
 
-      {sectionChanges && sectionChanges.size > 0 ? (
+      {changedCourseIds.length > 0 ? (
         <div
           className="flex cursor-help items-center justify-between gap-2 border-y border-amber-200 bg-amber-50 px-3 py-1.5 text-xs text-amber-800"
-          title={`CUHK updated the teaching timetable for ${Array.from(sectionChanges.keys()).join(', ')}. Re-export your calendar and update any screenshot you saved.`}
+          title={`CUHK course data changed for ${changedCourseIds.join(', ')}. Review the highlighted cards and update any saved calendar or screenshot.`}
         >
           <span className="flex items-center gap-1.5">
             <AlertTriangle className="size-3.5 shrink-0 text-amber-600" />
             <span>
-              {sectionChanges.size} {sectionChanges.size === 1 ? 'course' : 'courses'} changed
+              {changedCourseIds.length} {changedCourseIds.length === 1 ? 'course' : 'courses'}{' '}
+              changed
             </span>
           </span>
           <span className="flex shrink-0 items-center gap-1.5">
@@ -414,14 +416,19 @@ export default function ShoppingCart({
                 Show
               </Button>
             )}
-            {onDismissAllChanges && (
+            {onDismissAllChanges && hasSectionChanges && (
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={onDismissAllChanges}
                 className={bannerButtonClass}
+                title={
+                  hasInvalidChanges
+                    ? 'Dismiss timetable changes; unavailable courses remain until removed'
+                    : 'Dismiss all changes'
+                }
               >
-                Dismiss all
+                {hasInvalidChanges ? 'Dismiss updates' : 'Dismiss all'}
               </Button>
             )}
           </span>

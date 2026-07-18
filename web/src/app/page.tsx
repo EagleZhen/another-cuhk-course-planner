@@ -212,8 +212,8 @@ export default function Home() {
     return detectConflicts(events)
   }, [courseEnrollments])
 
-  // Sections that changed (time/location/instructor/language) since the user last saw them.
-  // Cancellations already have their own isInvalid card, so skip those enrollments here.
+  // Section details that changed since the user last saw them. Invalid enrollments surface
+  // through the cart's banner/card instead, so they do not need a meeting-level diff.
   const sectionChanges = useMemo(() => {
     const map = new Map<string, SectionChange[]>()
     for (const enrollment of courseEnrollments) {
