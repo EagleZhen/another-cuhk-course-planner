@@ -325,7 +325,9 @@ export default function ShoppingCart({
         ) : (
           <div
             ref={scrollContainerRef}
-            className="space-y-3 overflow-y-auto h-full p-1 pr-2 pt-1 pb-2"
+            // Padding leaves room for the selected card's scale + ring; without it the
+            // overflow container clips the card edge flush against the banner/header.
+            className="space-y-3 overflow-y-auto h-full p-1.5 pr-2 pt-2 pb-2"
           >
             {courseEnrollments.map((enrollment) => {
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
