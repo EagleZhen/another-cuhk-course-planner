@@ -21,6 +21,7 @@ import {
   checkSectionConflict,
   diffSectionDetail,
   getChangedCourseIds,
+  hasUnseenInvalidChange,
 } from '@/lib/courseUtils'
 import type {
   CourseEnrollment,
@@ -33,9 +34,9 @@ import { analytics } from '@/lib/analytics'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 
-// Shared style for the change-banner's "Show" / "Dismiss all" buttons.
+// Shared style for the change-banner actions; the grid gives both equal width.
 const bannerButtonClass =
-  'h-5 rounded border border-amber-300 bg-white/50 px-1.5 text-[10px] text-amber-800 hover:bg-amber-100 cursor-pointer'
+  'h-6 w-full rounded border border-amber-300 bg-white/50 px-2 text-[11px] font-medium text-amber-800 hover:bg-amber-100 cursor-pointer'
 
 // Amber text marks a changed value without shifting the surrounding row.
 const changedText = 'rounded bg-amber-100 text-amber-800 cursor-help'
@@ -154,7 +155,7 @@ function renderMeetingRow(row: MeetingRow, key: string) {
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
   calendarEvents: CalendarEvent[] // Calendar events for conflict detection
-  selectedEnrollment?: string | null // Enrollment ID that was clicked/selected
+  selectedEnrollment?: string | null // Enrollment ID focused across the cart and calendar
   currentTerm: string // Current term to get available sections
   onToggleVisibility: (enrollmentId: string) => void
   onRemoveCourse: (enrollmentId: string) => void
@@ -243,9 +244,9 @@ export default function ShoppingCart({
     onSectionChange(enrollment.courseId, sectionType, newSection.id)
   }
 
-  // Scroll a course card into view within the cart container, if not already fully visible.
-  // Shared by the selection effect and the "Show" button so both scroll reliably.
-  const scrollEnrollmentIntoView = useCallback((enrollmentId: string) => {
+  // Scroll a course card within the cart. Selection only scrolls when needed; Review always
+  // aligns the target near the top so the queue's cart order is visually predictable.
+  const scrollEnrollmentIntoView = useCallback((enrollmentId: string, alwaysAlign = false) => {
     const container = scrollContainerRef.current
     const element = itemRefs.current.get(enrollmentId)
     if (!container || !element) return
@@ -266,7 +267,7 @@ export default function ShoppingCart({
     const visibleTop = container.scrollTop
     const visibleBottom = container.scrollTop + container.clientHeight
 
-    if (elementTopInContainer < visibleTop || elementBottom > visibleBottom) {
+    if (alwaysAlign || elementTopInContainer < visibleTop || elementBottom > visibleBottom) {
       container.scrollTo({ top: Math.max(0, idealScrollTop), behavior: 'smooth' })
     }
   }, [])
@@ -338,19 +339,17 @@ export default function ShoppingCart({
 
   const statusCounts = getStatusCounts()
 
-  // Changed courses in cart order; "Show" selects the next one (reusing the select/scroll
-  // path that clicking a card or calendar event uses) so the user can step through changes.
+  // Review reuses the cart/calendar focus state. Invalid enrollments have no calendar events,
+  // so focusing one highlights only its cart card.
   const changedCourseIds = getChangedCourseIds(courseEnrollments, sectionChanges)
-  const hasSectionChanges = (sectionChanges?.size ?? 0) > 0
-  const hasInvalidChanges = courseEnrollments.some((enrollment) => enrollment.isInvalid)
-  const showNextChange = () => {
+  const selectedChangeIndex = changedCourseIds.indexOf(selectedEnrollment ?? '')
+  const nextReviewIndex =
+    changedCourseIds.length > 0 ? (selectedChangeIndex + 1) % changedCourseIds.length : 0
+  const reviewNextChange = () => {
     if (!onSelectEnrollment || changedCourseIds.length === 0) return
-    const current = changedCourseIds.indexOf(selectedEnrollment ?? '')
-    const next = changedCourseIds[(current + 1) % changedCourseIds.length]
+    const next = changedCourseIds[nextReviewIndex]
     onSelectEnrollment(next)
-    // Scroll directly too: when next is already the selected course, selectedEnrollment
-    // doesn't change, so the selection effect wouldn't re-fire on its own.
-    scrollEnrollmentIntoView(next)
+    scrollEnrollmentIntoView(next, true)
   }
 
   return (
@@ -394,41 +393,39 @@ export default function ShoppingCart({
 
       {changedCourseIds.length > 0 ? (
         <div
-          className="flex cursor-help items-center justify-between gap-2 border-y border-amber-200 bg-amber-50 px-3 py-1.5 text-xs text-amber-800"
+          className="flex flex-col gap-1.5 border-y border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800"
           title={`CUHK course data changed for ${changedCourseIds.join(', ')}. Review the highlighted cards and update any saved calendar or screenshot.`}
         >
-          <span className="flex items-center gap-1.5">
+          <span className="flex items-center gap-1.5 leading-4">
             <AlertTriangle className="size-3.5 shrink-0 text-amber-600" />
             <span>
               {changedCourseIds.length} {changedCourseIds.length === 1 ? 'course' : 'courses'}{' '}
-              changed
+              changed since you last checked
             </span>
           </span>
-          <span className="flex shrink-0 items-center gap-1.5">
+          <span
+            className={`grid w-full gap-1.5 ${onSelectEnrollment && onDismissAllChanges ? 'grid-cols-2' : 'grid-cols-1'}`}
+          >
             {onSelectEnrollment && (
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={showNextChange}
+                onClick={reviewNextChange}
                 className={bannerButtonClass}
-                title="Scroll to the next changed course"
+                title="Review the next changed course from top to bottom"
               >
-                Show
+                Review next
               </Button>
             )}
-            {onDismissAllChanges && hasSectionChanges && (
+            {onDismissAllChanges && (
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={onDismissAllChanges}
                 className={bannerButtonClass}
-                title={
-                  hasInvalidChanges
-                    ? 'Dismiss timetable changes; unavailable courses remain until removed'
-                    : 'Dismiss all changes'
-                }
+                title="Dismiss all change notifications"
               >
-                {hasInvalidChanges ? 'Dismiss updates' : 'Dismiss all'}
+                Dismiss all
               </Button>
             )}
           </span>
@@ -453,6 +450,13 @@ export default function ShoppingCart({
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
+              const isSelectable = isVisible || isInvalid
+              const accentColor = isInvalid
+                ? '#fbbf24'
+                : enrollment.color
+                  ? getComputedBorderColor(enrollment.color)
+                  : undefined
+              const hasUnseenInvalid = hasUnseenInvalidChange(enrollment)
               const isCourseRemoved = enrollment.invalidReason === 'Course no longer available'
               const invalidMessage = isCourseRemoved
                 ? `This course is no longer offered in ${currentTerm}. It's off your timetable but stays here until you're ready to remove it.`
@@ -470,26 +474,22 @@ export default function ShoppingCart({
                     }
                   }}
                   className={`
-                    border rounded p-2 transition-all duration-300 relative group space-y-2
-                    border-l-4 border-gray-200
-                    ${isInvalid ? 'bg-orange-50 opacity-75' : 'bg-white'}
-                    ${isSelected && isVisible && !isInvalid ? `ring-1 shadow-lg scale-[1.02]` : ''}
-                    ${!isVisible || isInvalid ? 'cursor-not-allowed' : 'cursor-pointer'}
+                    relative group space-y-2 rounded border border-l-4 p-2
+                    transition-[transform,box-shadow] duration-300 motion-reduce:transition-none
+                    ${isInvalid ? 'border-amber-200 bg-amber-50' : 'border-gray-200 bg-white'}
+                    ${isSelected && isSelectable ? `ring-1 shadow-lg scale-[1.02]` : ''}
+                    ${isSelectable ? 'cursor-pointer' : 'cursor-not-allowed'}
                   `}
                   style={{
-                    ...(isInvalid
+                    ...(accentColor
                       ? {
-                          borderLeftColor: '#fb923c', // orange-400 for invalid courses
+                          borderLeftColor: accentColor,
                         }
-                      : enrollment.color
-                        ? {
-                            borderLeftColor: getComputedBorderColor(enrollment.color), // course color for normal/conflict courses
-                          }
-                        : {}),
-                    // Ring color matches the left border color when selected
-                    ...(isSelected && isVisible && !isInvalid && enrollment.color
+                      : {}),
+                    // Every selected card uses the same accent for its left border and ring.
+                    ...(isSelected && isSelectable && accentColor
                       ? {
-                          '--tw-ring-color': getComputedBorderColor(enrollment.color),
+                          '--tw-ring-color': accentColor,
                         }
                       : {}),
                   }}
@@ -501,8 +501,7 @@ export default function ShoppingCart({
                         : undefined
                   }
                   onClick={() => {
-                    // Only allow selection if the enrollment is visible and not invalid
-                    if (isVisible && !isInvalid && onSelectEnrollment) {
+                    if (isSelectable && onSelectEnrollment) {
                       const newSelection = isSelected ? null : enrollment.courseId
                       onSelectEnrollment(newSelection)
                     }
@@ -542,7 +541,7 @@ export default function ShoppingCart({
                           className="flex size-5 items-center justify-center"
                           title={invalidMessage || 'Course data is outdated'}
                         >
-                          <AlertTriangle className="size-3.5 text-orange-500" />
+                          <AlertTriangle className="size-3.5 text-amber-600" />
                         </div>
                       )}
                       <span className="flex h-full shrink-0 items-center text-xs font-medium leading-5 text-gray-500">
@@ -558,7 +557,7 @@ export default function ShoppingCart({
                         onClick={(e) => {
                           e.stopPropagation()
                           // If making invisible and currently selected, deselect it
-                          if (isVisible && isSelected && onSelectEnrollment) {
+                          if (!isInvalid && isVisible && isSelected && onSelectEnrollment) {
                             onSelectEnrollment(null)
                           }
                           // Toggle visibility for this enrollment
@@ -599,18 +598,20 @@ export default function ShoppingCart({
                   {/* Selected Sections - Compact Display or Invalid Message */}
                   {isInvalid ? (
                     /* Show simplified invalid state */
-                    <div className="bg-orange-50 border border-orange-200 rounded px-3 py-2">
-                      <div className="flex items-start gap-2 text-xs leading-4 text-orange-600">
-                        <AlertTriangle className="mt-0.5 size-4 flex-shrink-0 text-orange-500" />
+                    <div className="px-3 py-2">
+                      <div className="flex items-start gap-2 text-xs leading-4 text-amber-700">
+                        <AlertTriangle className="mt-0.5 size-4 flex-shrink-0 text-amber-600" />
                         {isCourseRemoved ? (
                           <div className="min-w-0">
-                            <p className="font-medium text-orange-700">
+                            <p className="font-medium text-amber-800">
                               This course is no longer offered in {currentTerm}.
                             </p>
-                            <p className="mt-1">
-                              It&apos;s off your timetable but stays here until you&apos;re ready to
-                              remove it.
-                            </p>
+                            {hasUnseenInvalid && (
+                              <p className="mt-1">
+                                It&apos;s off your timetable but stays here until you&apos;re ready
+                                to remove it.
+                              </p>
+                            )}
                           </div>
                         ) : (
                           <span>{invalidMessage}</span>

@@ -17,6 +17,7 @@ import type {
   SectionMeetingSignature,
   SectionDiffDetail,
   MeetingRow,
+  InvalidEnrollmentState,
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
 import { SCHEDULE_DATA_VERSION } from './constants'
@@ -452,6 +453,7 @@ export function updateExistingEnrollment(
     selectedSections,
     isInvalid: false,
     invalidReason: undefined,
+    lastSeenInvalidState: undefined,
     lastSynced: new Date(),
   }
 }
@@ -549,8 +551,43 @@ export function getChangedCourseIds(
   sectionChanges?: ReadonlyMap<string, SectionChange[]>
 ): string[] {
   return enrollments
-    .filter((enrollment) => enrollment.isInvalid || sectionChanges?.has(enrollment.courseId))
+    .filter(
+      (enrollment) => hasUnseenInvalidChange(enrollment) || sectionChanges?.has(enrollment.courseId)
+    )
     .map((enrollment) => enrollment.courseId)
+}
+
+function getInvalidEnrollmentState(
+  enrollment: CourseEnrollment
+): InvalidEnrollmentState | undefined {
+  if (!enrollment.isInvalid) return undefined
+  return {
+    reason: enrollment.invalidReason ?? 'Course data is outdated',
+    sectionIds: enrollment.selectedSections
+      .filter((section) => section.isInvalid)
+      .map((section) => section.id)
+      .sort(),
+  }
+}
+
+function sameInvalidEnrollmentState(
+  left: InvalidEnrollmentState,
+  right: InvalidEnrollmentState
+): boolean {
+  return (
+    left.reason === right.reason &&
+    left.sectionIds.length === right.sectionIds.length &&
+    left.sectionIds.every((id, index) => id === right.sectionIds[index])
+  )
+}
+
+export function hasUnseenInvalidChange(enrollment: CourseEnrollment): boolean {
+  const current = getInvalidEnrollmentState(enrollment)
+  if (!current) return false
+  return (
+    !enrollment.lastSeenInvalidState ||
+    !sameInvalidEnrollmentState(current, enrollment.lastSeenInvalidState)
+  )
 }
 
 // Rebuilds lastSeenSections for the selected sections, pruning de-selected ids.
@@ -568,6 +605,14 @@ export function recordSeenSections(
         : sectionSignature(section)
   }
   return { ...enrollment, lastSeenSections: next }
+}
+
+/** Acknowledge both section-detail changes and the current invalid status. */
+export function recordSeenChanges(enrollment: CourseEnrollment): CourseEnrollment {
+  return {
+    ...recordSeenSections(enrollment, { onlyMissing: false }),
+    lastSeenInvalidState: getInvalidEnrollmentState(enrollment),
+  }
 }
 
 // Detection above compares meeting positions to decide whether a section changed. Detail

@@ -21,6 +21,7 @@ import {
   markCourseUnavailable,
   extractAcademicYearCode,
   readStoredEnrollments,
+  recordSeenChanges,
   recordSeenSections,
   diffEnrollment,
 } from '@/lib/courseUtils'
@@ -378,9 +379,7 @@ export default function Home() {
   }
 
   const handleDismissAllChanges = () => {
-    setCourseEnrollments((prev) =>
-      prev.map((enrollment) => recordSeenSections(enrollment, { onlyMissing: false }))
-    )
+    setCourseEnrollments((prev) => prev.map(recordSeenChanges))
   }
 
   const handleAddCourse = (
@@ -537,6 +536,9 @@ export default function Home() {
               selectedSections: sortSectionsByPriority(syncedSections, freshCourse, currentTerm),
               isInvalid: hasInvalidSections,
               invalidReason: hasInvalidSections ? 'Some sections no longer available' : undefined,
+              lastSeenInvalidState: hasInvalidSections
+                ? enrollment.lastSeenInvalidState
+                : undefined,
               lastSynced: timestamp, // Track when we last synced this enrollment
             },
             { onlyMissing: true }

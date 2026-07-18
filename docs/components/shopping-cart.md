@@ -2,7 +2,7 @@
 
 **File:** [web/src/components/ShoppingCart.tsx](../../web/src/components/ShoppingCart.tsx)
 
-Lists enrolled courses with section details, availability, conflicts, and per-course actions (hide, remove, cycle sections). State lives in [page.tsx](../../web/src/app/page.tsx); the cart only renders it and raises handlers.
+Lists enrolled courses with section details, availability, conflicts, and per-course actions (hide, remove, cycle sections). State lives in [page.tsx](../../web/src/app/page.tsx); the cart renders it and raises handlers.
 
 Only non-obvious constraints and rationale are documented here; the code is the reference for behavior.
 
@@ -13,20 +13,21 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 
 ## Visibility and Selection
 
-- Hidden and invalid cards are not selectable; hiding a currently selected course also deselects it.
+- Hidden cards are not selectable; hiding a currently selected course also deselects it. Invalid cards remain selectable in the cart, but have no timetable events.
 - Visibility is not just cosmetic: it feeds calendar conflict detection and ICS export (see [weekly-calendar.md](weekly-calendar.md#ics-export)).
 
 ## Invalid Enrollments
 
-- Invalid courses (marked by background sync) are rendered in orange with the reason and last-synced time, not deleted — the user decides whether to remove them. See [architecture.md](../architecture.md#browser-state).
-- Invalid courses also count in the changed-course banner and its "Show" cycle. They remain there until removed or restored; dismiss only acknowledges ordinary section-detail changes.
-- Re-adding an invalid course from search clears `isInvalid`/`invalidReason`/`lastSynced` and refreshes the stale `course` object, via `updateExistingEnrollment` in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
+- Invalid courses (marked by background sync) stay in the cart with an amber status and last-synced time — only the user removes them. See [architecture.md](../architecture.md#browser-state).
+- A new invalid state joins the banner's Review queue. **Dismiss all** acknowledges both invalid and section-detail changes; the unavailable status remains but its explanation collapses. A different reason or set of missing sections alerts again.
+- Re-adding an invalid course from search clears its invalid and acknowledgment state and refreshes the stale `course` object, via `updateExistingEnrollment` in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
 
 ## Change Detection
 
 Flags an enrolled section that changed (time, location, instructor, or language) since the user last saw it, so they know to re-export their `.ics` or update a saved screenshot — which the app can't do for them.
 
 - The rendered timetable is always the fresh scrape. What the user _last saw_ is kept as an invisible per-section signature (`lastSeenSections` on `CourseEnrollment`); a section whose current signature differs is surfaced as changed.
+- **Review next** selects changed cards from top to bottom. Invalid enrollments use the same selection styling but remain excluded from the timetable.
 - That signature advances only on add / section-change / sync / dismiss — never on plain reload — so a note persists across reloads until dismissed and re-fires on further change. Sync only fills in _missing_ signatures, so fresh data the user hasn't seen yet isn't retroactively flagged.
 - Compares time + location + instructor + language; ignores `dates` and availability; only `selectedSections`. Detection compares meeting positions to decide whether to show the summary banner; detail rows use content-based set differences so a deletion does not make later meetings look changed. Logic lives in [courseUtils.ts](../../web/src/lib/courseUtils.ts) (`sectionSignature`, `diffEnrollment`, `diffSectionDetail`).
 - Added or removed meetings get an amber row; removed meetings also use strikethrough and appear after the current rows. Changes that pair one-to-one highlight only the fields that moved.

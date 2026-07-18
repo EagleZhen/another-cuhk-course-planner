@@ -127,6 +127,11 @@ export const SECTION_TYPE_CONFIG = {
 // Derive the type from the config keys - automatically stays in sync
 export type SectionType = keyof typeof SECTION_TYPE_CONFIG
 
+export interface InvalidEnrollmentState {
+  reason: string
+  sectionIds: string[]
+}
+
 // Course enrollment using clean internal types
 export interface CourseEnrollment {
   courseId: string
@@ -141,6 +146,9 @@ export interface CourseEnrollment {
   // Per-section sectionSignature the user last saw, keyed by section id. Not rendered
   // directly — only used to detect changes. Missing entry = adopt current section.
   lastSeenSections?: Record<string, SectionSignature>
+  // Invalid status the user last acknowledged. Kept separate from isInvalid because
+  // dismissing a notification must not make unavailable data appear valid.
+  lastSeenInvalidState?: InvalidEnrollmentState
 }
 
 // Calendar event using clean internal types

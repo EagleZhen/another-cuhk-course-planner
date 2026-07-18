@@ -6,6 +6,8 @@ import {
   readStoredEnrollments,
   sectionSignature,
   diffEnrollment,
+  hasUnseenInvalidChange,
+  recordSeenChanges,
   recordSeenSections,
   diffSectionDetail,
   getChangedCourseIds,
@@ -105,6 +107,7 @@ describe('updateExistingEnrollment', () => {
       isVisible: true,
       isInvalid: true,
       invalidReason: 'Course no longer available',
+      lastSeenInvalidState: { reason: 'Course no longer available', sectionIds: [] },
       lastSynced: new Date('2026-01-01'),
     }
 
@@ -128,6 +131,7 @@ describe('updateExistingEnrollment', () => {
 
     expect(result.isInvalid).toBeFalsy()
     expect(result.invalidReason).toBeUndefined()
+    expect(result.lastSeenInvalidState).toBeUndefined()
     expect(result.lastSynced).toBeInstanceOf(Date)
     expect(result.lastSynced).not.toEqual(existing.lastSynced)
     expect(result.course).toEqual(freshCourse)
@@ -236,6 +240,46 @@ describe('getChangedCourseIds', () => {
     ])
 
     expect(getChangedCourseIds(enrollments, sectionChanges)).toEqual(['invalid', 'changed', 'both'])
+  })
+
+  it('acknowledges section and invalid changes without making the course valid', () => {
+    const section = mkSection('8818', [mkMeeting({ time: 'Mo 2:30PM - 5:15PM' })])
+    const enrollment = {
+      ...mkEnrollment([section], {
+        '8818': {
+          meetings: [{ time: 'stale', location: 'stale', instructor: 'stale' }],
+          language: '',
+        },
+      }),
+      isInvalid: true,
+      invalidReason: 'Some sections no longer available',
+    }
+
+    expect(diffEnrollment(enrollment)).toHaveLength(1)
+    expect(hasUnseenInvalidChange(enrollment)).toBe(true)
+
+    const acknowledged = recordSeenChanges(enrollment)
+
+    expect(diffEnrollment(acknowledged)).toHaveLength(0)
+    expect(hasUnseenInvalidChange(acknowledged)).toBe(false)
+    expect(acknowledged.isInvalid).toBe(true)
+  })
+
+  it('reports a changed invalid state after the previous one was acknowledged', () => {
+    const acknowledged = recordSeenChanges({
+      ...mkEnrollment([]),
+      isInvalid: true,
+      invalidReason: 'Some sections no longer available',
+    })
+    const changedReason = { ...acknowledged, invalidReason: 'Course no longer available' }
+    const changedSections = {
+      ...acknowledged,
+      selectedSections: [makeSection({ id: 'newly-missing', isInvalid: true })],
+    }
+
+    expect(getChangedCourseIds([acknowledged])).toEqual([])
+    expect(getChangedCourseIds([changedReason])).toEqual(['COMM1180'])
+    expect(getChangedCourseIds([changedSections])).toEqual(['COMM1180'])
   })
 })
 
