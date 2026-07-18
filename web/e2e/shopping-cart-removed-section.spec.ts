@@ -72,12 +72,12 @@ async function openCart(page: Page, alternatives: ReturnType<typeof section>[]) 
 
   await expect(courseCard).not.toHaveClass(/bg-amber-50/)
   await expect(page.getByText('A selected section is no longer offered.')).toHaveCount(0)
-  await expect(tombstone).not.toHaveAttribute('title')
-  await expect(removedSectionHelp).toHaveClass(/cursor-help/)
-  await expect(removedSectionHelp).toHaveAttribute(
+  await expect(tombstone).toHaveClass(/cursor-help/)
+  await expect(tombstone).toHaveAttribute(
     'title',
-    'This lecture section is no longer offered'
+    "This lecture is no longer offered. It's off your timetable but stays here until you're ready to choose another section or remove the course."
   )
+  await expect(removedSectionHelp).toHaveCount(0)
   await expect(page.getByText('A-LEC (removed)', { exact: true })).toHaveClass(/line-through/)
   await expect(tombstone.getByTitle('This meeting was removed since you last checked')).toHaveCount(
     0

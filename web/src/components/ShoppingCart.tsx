@@ -4,16 +4,7 @@ import { useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import {
-  Eye,
-  EyeOff,
-  Trash2,
-  AlertTriangle,
-  ChevronLeft,
-  ChevronRight,
-  CircleHelp,
-  Search,
-} from 'lucide-react'
+import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search } from 'lucide-react'
 import {
   parseSectionTypes,
   sectionSignature,
@@ -644,7 +635,7 @@ export default function ShoppingCart({
                         const sectionTypeName = getSectionTypeName(
                           section.sectionType
                         ).toLowerCase()
-                        const removedTooltip = `This ${sectionTypeName} section is no longer offered`
+                        const removedTooltip = `This ${sectionTypeName} is no longer offered. It's off your timetable but stays here until you're ready to choose another section or remove the course.`
                         const meetingRows: MeetingRow[] = sectionSignature(section).meetings.map(
                           (meeting) => ({ status: 'removed', meeting })
                         )
@@ -653,22 +644,12 @@ export default function ShoppingCart({
                           <div
                             key={section.id}
                             data-removed-section={section.id}
-                            className="rounded border border-amber-200 bg-amber-50 px-2 py-2"
+                            className="cursor-help rounded border border-amber-200 bg-amber-50 px-2 py-2"
+                            title={removedTooltip}
                           >
                             <div className="mb-1 flex items-start justify-between gap-2">
-                              <div className="flex min-w-0 items-start gap-1">
-                                <div className="font-mono text-xs font-medium text-gray-500 line-through">
-                                  {section.sectionCode}
-                                </div>
-                                <span
-                                  role="img"
-                                  aria-label={removedTooltip}
-                                  data-removed-section-help={section.id}
-                                  className="mt-px shrink-0 cursor-help text-amber-700"
-                                  title={removedTooltip}
-                                >
-                                  <CircleHelp aria-hidden="true" className="h-3 w-3" />
-                                </span>
+                              <div className="font-mono text-xs font-medium text-gray-500 line-through">
+                                {section.sectionCode}
                               </div>
 
                               {compatible.length > 0 ? (
