@@ -34,7 +34,7 @@ import {
   getDayIndex,
   getAggregateSeatInfo,
   extractAcademicYearCode,
-  isActiveEnrollment,
+  isVisibleAndValid,
 } from '@/lib/courseUtils'
 import { ACADEMIC_CAREERS } from '@/lib/types'
 import type {
@@ -217,7 +217,7 @@ export default function CourseSearch({
 
   const toggleNoConflictFilter = () => {
     // Count the active cart — the baseline the filter acts on (see buildNoConflictPredicate).
-    const enrolledCount = courseEnrollments.filter(isActiveEnrollment).length
+    const enrolledCount = courseEnrollments.filter(isVisibleAndValid).length
     analytics.noConflictFilterToggled(noConflictOnly ? 'remove' : 'add', enrolledCount)
     setNoConflictOnly((enabled) => !enabled)
   }

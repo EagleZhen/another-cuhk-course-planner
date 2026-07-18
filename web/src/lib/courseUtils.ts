@@ -166,8 +166,17 @@ export function detectConflicts(events: CalendarEvent[]): CalendarEvent[] {
 }
 
 /** Visible and still valid — the enrollments that count toward the timetable (calendar, conflicts). */
-export function isActiveEnrollment(enrollment: CourseEnrollment): boolean {
+export function isVisibleAndValid(enrollment: CourseEnrollment): boolean {
   return enrollment.isVisible && !enrollment.isInvalid
+}
+
+// Requires at least one live section: an enrollment whose every selected section was
+// tombstoned would otherwise count as Open vacuously, despite having nothing to enroll in.
+export function isEnrollmentOpen(enrollment: CourseEnrollment): boolean {
+  return (
+    enrollment.selectedSections.length > 0 &&
+    enrollment.selectedSections.every((section) => section.availability.status === 'Open')
+  )
 }
 
 /**
@@ -176,7 +185,7 @@ export function isActiveEnrollment(enrollment: CourseEnrollment): boolean {
 export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): CalendarEvent[] {
   const events: CalendarEvent[] = []
 
-  enrollments.filter(isActiveEnrollment).forEach((enrollment) => {
+  enrollments.filter(isVisibleAndValid).forEach((enrollment) => {
     enrollment.selectedSections.forEach((section) => {
       section.meetings.forEach((meeting) => {
         const timeRange = parseTimeRange(meeting.time)
@@ -229,7 +238,7 @@ export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
     meeting: InternalMeeting
   }> = []
 
-  enrollments.filter(isActiveEnrollment).forEach((enrollment) => {
+  enrollments.filter(isVisibleAndValid).forEach((enrollment) => {
     enrollment.selectedSections.forEach((section) => {
       section.meetings.forEach((meeting) => {
         const timeRange = parseTimeRange(meeting.time)
@@ -451,6 +460,8 @@ export function updateExistingEnrollment(
     ...existing,
     course: freshCourse,
     selectedSections,
+    removedSections: undefined,
+    removedSectionsAcknowledged: undefined,
     isInvalid: false,
     invalidReason: undefined,
     lastSeenInvalidState: undefined,
@@ -471,6 +482,76 @@ export function markCourseUnavailable(
   }
 }
 
+/** Drop display-only tombstones once the user has a live selection of the same type. */
+export function pruneReplacedTombstones(
+  removedSections: InternalSection[] | undefined,
+  selectedSections: InternalSection[]
+): InternalSection[] | undefined {
+  if (!removedSections?.length) return undefined
+  const selectedTypes = new Set(selectedSections.map((section) => section.sectionType))
+  const remaining = removedSections.filter((section) => !selectedTypes.has(section.sectionType))
+  return remaining.length > 0 ? remaining : undefined
+}
+
+/** Reconcile one enrollment with fresh course data while preserving vanished picks as tombstones. */
+export function syncEnrollment(
+  enrollment: CourseEnrollment,
+  freshCourses: InternalCourse[],
+  currentTerm: string,
+  syncedAt: Date
+): CourseEnrollment {
+  const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
+  const freshCourse = freshCourses.find(
+    (course) => `${course.subject}${course.courseCode}` === courseKey
+  )
+  const termData = freshCourse?.terms.find((term) => term.termName === currentTerm)
+
+  if (!freshCourse || !termData) return markCourseUnavailable(enrollment, syncedAt)
+
+  const seenIds = new Set<string>()
+  const intendedSections = sortSectionsByPriority(
+    [...enrollment.selectedSections, ...(enrollment.removedSections ?? [])].filter((section) => {
+      if (seenIds.has(section.id)) return false
+      seenIds.add(section.id)
+      return true
+    }),
+    enrollment.course,
+    currentTerm
+  )
+  const selectedSections: InternalSection[] = []
+  const removedSections: InternalSection[] = []
+
+  for (const intended of intendedSections) {
+    const freshSection = termData.sections.find((section) => section.id === intended.id)
+    if (freshSection) selectedSections.push(freshSection)
+    else removedSections.push(intended)
+  }
+
+  const sortedSelectedSections = sortSectionsByPriority(selectedSections, freshCourse, currentTerm)
+  const nextRemovedSections = pruneReplacedTombstones(removedSections, sortedSelectedSections)
+  const previousRemovedIds = new Set(enrollment.removedSections?.map((section) => section.id) ?? [])
+  const hasNewRemovedSection =
+    nextRemovedSections?.some((section) => !previousRemovedIds.has(section.id)) ?? false
+
+  return recordSeenSections(
+    {
+      ...enrollment,
+      course: freshCourse,
+      selectedSections: sortedSelectedSections,
+      removedSections: nextRemovedSections,
+      removedSectionsAcknowledged:
+        nextRemovedSections && !hasNewRemovedSection
+          ? enrollment.removedSectionsAcknowledged
+          : undefined,
+      isInvalid: false,
+      invalidReason: undefined,
+      lastSeenInvalidState: undefined,
+      lastSynced: syncedAt,
+    },
+    { onlyMissing: true }
+  )
+}
+
 // JSON.stringify writes Dates as ISO strings; revive them here so the rest of the app
 // only ever sees Date. Keep this in sync with any future Date field on CourseEnrollment.
 function reviveEnrollmentDates(enrollments: CourseEnrollment[]): CourseEnrollment[] {
@@ -481,14 +562,66 @@ function reviveEnrollmentDates(enrollments: CourseEnrollment[]): CourseEnrollmen
   )
 }
 
+function stripLegacySectionInvalid(section: InternalSection): InternalSection {
+  const cleaned = { ...(section as InternalSection & { isInvalid?: boolean }) }
+  delete cleaned.isInvalid
+  return cleaned
+}
+
+function migrateLegacyPartialRemovals(enrollments: CourseEnrollment[]): CourseEnrollment[] {
+  return enrollments.map((enrollment) => {
+    if (!enrollment.isInvalid || enrollment.invalidReason !== 'Some sections no longer available') {
+      return enrollment
+    }
+
+    const selectedSections: InternalSection[] = []
+    const removedSections: InternalSection[] = []
+
+    for (const section of enrollment.selectedSections) {
+      const wasRemoved = (section as InternalSection & { isInvalid?: boolean }).isInvalid === true
+      const cleaned = stripLegacySectionInvalid(section)
+      if (wasRemoved) removedSections.push(cleaned)
+      else selectedSections.push(cleaned)
+    }
+
+    return {
+      ...enrollment,
+      selectedSections,
+      removedSections: removedSections.length > 0 ? removedSections : undefined,
+      isInvalid: false,
+      invalidReason: undefined,
+      lastSeenInvalidState: undefined,
+    }
+  })
+}
+
+// Blobs written before the tombstone model carried sectionIds on lastSeenInvalidState;
+// rebuild the reason-only shape so runtime objects match the current type.
+function stripLegacyInvalidStateFields(enrollments: CourseEnrollment[]): CourseEnrollment[] {
+  return enrollments.map((enrollment) =>
+    enrollment.lastSeenInvalidState
+      ? { ...enrollment, lastSeenInvalidState: { reason: enrollment.lastSeenInvalidState.reason } }
+      : enrollment
+  )
+}
+
+// Every step is idempotent, so re-normalizing current-version data is a no-op.
+function normalizeStoredEnrollments(enrollments: CourseEnrollment[]): CourseEnrollment[] {
+  return reviveEnrollmentDates(
+    stripLegacyInvalidStateFields(migrateLegacyPartialRemovals(enrollments))
+  )
+}
+
 // Enrollments to load from a persisted schedule blob, or null to wipe it. Known versions
-// load as-is — schema changes so far are additive — unknown/newer versions don't.
+// are normalized to the current model; unknown/newer versions are rejected.
 export function readStoredEnrollments(parsed: unknown): CourseEnrollment[] | null {
-  if (Array.isArray(parsed)) return reviveEnrollmentDates(parsed as CourseEnrollment[]) // legacy pre-version format
+  if (Array.isArray(parsed)) {
+    return normalizeStoredEnrollments(parsed as CourseEnrollment[])
+  }
   if (parsed && typeof parsed === 'object') {
     const version = (parsed as { version?: unknown }).version
     if (typeof version === 'number' && version >= 1 && version <= SCHEDULE_DATA_VERSION) {
-      return reviveEnrollmentDates(
+      return normalizeStoredEnrollments(
         ((parsed as { enrollments?: CourseEnrollment[] }).enrollments ?? []) as CourseEnrollment[]
       )
     }
@@ -556,6 +689,13 @@ export function diffEnrollment(enrollment: CourseEnrollment): SectionChange[] {
   return changes
 }
 
+// The invalid card replaces the section list, hiding any tombstones. They only count as
+// reviewable — flaggable in the banner, acknowledgeable by dismiss — while the enrollment
+// is valid, so a dismiss can never silently acknowledge tombstones the user has not seen.
+function hasReviewableTombstones(enrollment: CourseEnrollment): boolean {
+  return !enrollment.isInvalid && (enrollment.removedSections?.length ?? 0) > 0
+}
+
 /** Course ids needing attention, in cart order and without duplicates. */
 export function getChangedCourseIds(
   enrollments: CourseEnrollment[],
@@ -563,7 +703,10 @@ export function getChangedCourseIds(
 ): string[] {
   return enrollments
     .filter(
-      (enrollment) => hasUnseenInvalidChange(enrollment) || sectionChanges?.has(enrollment.courseId)
+      (enrollment) =>
+        hasUnseenInvalidChange(enrollment) ||
+        (hasReviewableTombstones(enrollment) && !enrollment.removedSectionsAcknowledged) ||
+        sectionChanges?.has(enrollment.courseId)
     )
     .map((enrollment) => enrollment.courseId)
 }
@@ -572,36 +715,18 @@ function getInvalidEnrollmentState(
   enrollment: CourseEnrollment
 ): InvalidEnrollmentState | undefined {
   if (!enrollment.isInvalid) return undefined
-  return {
-    reason: enrollment.invalidReason ?? 'Course data is outdated',
-    sectionIds: enrollment.selectedSections
-      .filter((section) => section.isInvalid)
-      .map((section) => section.id)
-      .sort(),
-  }
-}
-
-function sameInvalidEnrollmentState(
-  left: InvalidEnrollmentState,
-  right: InvalidEnrollmentState
-): boolean {
-  return (
-    left.reason === right.reason &&
-    left.sectionIds.length === right.sectionIds.length &&
-    left.sectionIds.every((id, index) => id === right.sectionIds[index])
-  )
+  return { reason: enrollment.invalidReason ?? 'Course data is outdated' }
 }
 
 export function hasUnseenInvalidChange(enrollment: CourseEnrollment): boolean {
   const current = getInvalidEnrollmentState(enrollment)
   if (!current) return false
-  return (
-    !enrollment.lastSeenInvalidState ||
-    !sameInvalidEnrollmentState(current, enrollment.lastSeenInvalidState)
-  )
+  return enrollment.lastSeenInvalidState?.reason !== current.reason
 }
 
-// Rebuilds lastSeenSections for the selected sections, pruning de-selected ids.
+// Rebuilds lastSeenSections for the sections still visible in the cart — selected and
+// tombstoned — pruning the rest. Tombstones keep their snapshot so a section that vanishes
+// and later returns with different meetings still diffs against what the user last saw.
 // onlyMissing seeds only new entries (add/sync); false overwrites all (dismiss).
 export function recordSeenSections(
   enrollment: CourseEnrollment,
@@ -609,7 +734,7 @@ export function recordSeenSections(
 ): CourseEnrollment {
   const prev = enrollment.lastSeenSections ?? {}
   const next: Record<string, SectionSignature> = {}
-  for (const section of enrollment.selectedSections) {
+  for (const section of [...enrollment.selectedSections, ...(enrollment.removedSections ?? [])]) {
     next[section.id] =
       opts.onlyMissing && prev[section.id] !== undefined
         ? prev[section.id]
@@ -618,10 +743,15 @@ export function recordSeenSections(
   return { ...enrollment, lastSeenSections: next }
 }
 
-/** Acknowledge both section-detail changes and the current invalid status. */
+/** Acknowledge changes without deleting section tombstones or changing the timetable. */
 export function recordSeenChanges(enrollment: CourseEnrollment): CourseEnrollment {
   return {
     ...recordSeenSections(enrollment, { onlyMissing: false }),
+    removedSectionsAcknowledged: hasReviewableTombstones(enrollment)
+      ? true
+      : enrollment.isInvalid
+        ? enrollment.removedSectionsAcknowledged // hidden tombstones keep their state
+        : undefined,
     lastSeenInvalidState: getInvalidEnrollmentState(enrollment),
   }
 }
@@ -1488,7 +1618,7 @@ export function checkSectionConflict(
 
   // Check against all visible enrolled sections
   for (const enrollment of currentEnrollments) {
-    if (!isActiveEnrollment(enrollment)) continue
+    if (!isVisibleAndValid(enrollment)) continue
 
     for (const enrolledSection of enrollment.selectedSections) {
       // Skip itself from checking
@@ -1760,7 +1890,7 @@ export function generateICSCalendar(
 
     // Process each enrollment - only include visible and valid courses
     // Invisible courses (toggled off) should not be exported to calendar
-    enrollments.filter(isActiveEnrollment).forEach((enrollment) => {
+    enrollments.filter(isVisibleAndValid).forEach((enrollment) => {
       enrollment.selectedSections.forEach((section) => {
         section.meetings.forEach((meeting) => {
           const events = createICSEventsForMeeting(meeting, enrollment.course, section, termName)

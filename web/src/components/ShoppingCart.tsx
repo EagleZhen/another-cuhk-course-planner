@@ -4,12 +4,22 @@ import { useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search } from 'lucide-react'
+import {
+  Eye,
+  EyeOff,
+  Trash2,
+  AlertTriangle,
+  ChevronLeft,
+  ChevronRight,
+  CircleHelp,
+  Search,
+} from 'lucide-react'
 import {
   parseSectionTypes,
   sectionSignature,
   formatSyncTimestamp,
   getSectionTypePriority,
+  getSectionTypeName,
   categorizeCompatibleSections,
   getAvailabilityBadges,
   getComputedBorderColor,
@@ -18,6 +28,7 @@ import {
   diffSectionDetail,
   getChangedCourseIds,
   hasUnseenInvalidChange,
+  isEnrollmentOpen,
 } from '@/lib/courseUtils'
 import type {
   CourseEnrollment,
@@ -63,12 +74,24 @@ export default function ShoppingCart({
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map())
 
-  // Note: Removed unused helper functions - cycling now uses direct compatibility checking
+  const getCompatibleSections = (enrollment: CourseEnrollment, sectionType: SectionType) => {
+    const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
+    const typeGroup = sectionTypes.find((group) => group.type === sectionType)
+    if (!typeGroup) return []
+
+    const currentPriority = getSectionTypePriority(sectionType, sectionTypes)
+    const higherPrioritySelections = enrollment.selectedSections.filter((section) => {
+      const priority = getSectionTypePriority(section.sectionType, sectionTypes)
+      return priority < currentPriority
+    })
+
+    return categorizeCompatibleSections(typeGroup.sections, higherPrioritySelections).compatible
+  }
 
   // Helper function to cycle to next/previous section (compatible sections only - hierarchical priority)
   const cycleSection = (
     enrollment: CourseEnrollment,
-    sectionType: string,
+    sectionType: SectionType,
     direction: 'next' | 'prev'
   ) => {
     if (!onSectionChange) return
@@ -76,22 +99,7 @@ export default function ShoppingCart({
     const currentSection = enrollment.selectedSections.find((s) => s.sectionType === sectionType)
     if (!currentSection) return
 
-    // Get compatible sections considering ONLY HIGHER priority constraints (hierarchical)
-    const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
-    const typeGroup = sectionTypes.find((group) => group.type === sectionType)
-    if (!typeGroup) return
-
-    // Only constrain by HIGHER priority sections (lower priority numbers)
-    const currentPriority = getSectionTypePriority(sectionType as SectionType, sectionTypes)
-    const higherPrioritySelections = enrollment.selectedSections.filter((s) => {
-      const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
-      return sPriority < currentPriority // Higher priority (lower number)
-    })
-
-    const { compatible } = categorizeCompatibleSections(
-      typeGroup.sections,
-      higherPrioritySelections
-    )
+    const compatible = getCompatibleSections(enrollment, sectionType)
 
     if (compatible.length <= 1) {
       console.debug(
@@ -123,6 +131,19 @@ export default function ShoppingCart({
     analytics.sectionCycled(`${enrollment.course.subject}${enrollment.course.courseCode}`)
 
     onSectionChange(enrollment.courseId, sectionType, newSection.id)
+  }
+
+  const chooseReplacement = (
+    enrollment: CourseEnrollment,
+    sectionType: SectionType,
+    direction: 'next' | 'prev'
+  ) => {
+    if (!onSectionChange) return
+    const compatible = getCompatibleSections(enrollment, sectionType)
+    const replacement = direction === 'next' ? compatible[0] : compatible[compatible.length - 1]
+    if (!replacement) return
+
+    onSectionChange(enrollment.courseId, sectionType, replacement.id)
   }
 
   // Scroll a course card within the cart. Selection only scrolls when needed; Review always
@@ -178,12 +199,8 @@ export default function ShoppingCart({
 
       // Status counts
       open: {
-        visible: visibleValidEnrollments.filter((enrollment) =>
-          enrollment.selectedSections.every((section) => section.availability.status === 'Open')
-        ).length,
-        total: validEnrollments.filter((enrollment) =>
-          enrollment.selectedSections.every((section) => section.availability.status === 'Open')
-        ).length,
+        visible: visibleValidEnrollments.filter(isEnrollmentOpen).length,
+        total: validEnrollments.filter(isEnrollmentOpen).length,
       },
       waitlisted: {
         visible: visibleValidEnrollments.filter((enrollment) =>
@@ -368,7 +385,7 @@ export default function ShoppingCart({
                     transition-all duration-300 motion-reduce:transition-none
                     ${isInvalid ? 'border-amber-200 bg-amber-50' : 'border-gray-200 bg-white'}
                     ${isSelected && isSelectable ? `ring-1 shadow-lg scale-[1.02]` : ''}
-                    ${isSelectable ? 'cursor-pointer' : 'cursor-not-allowed'}
+                    ${isInvalid ? 'cursor-help' : isSelectable ? 'cursor-pointer' : 'cursor-not-allowed'}
                   `}
                   style={{
                     ...(accentColor
@@ -498,27 +515,7 @@ export default function ShoppingCart({
                     /* Show normal section details */
                     <div className={`space-y-2 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}>
                       {enrollment.selectedSections.map((section) => {
-                        // Get compatible alternatives considering ONLY HIGHER priority constraints (hierarchical)
-                        const sectionTypes = parseSectionTypes(enrollment.course, currentTerm)
-                        const typeGroup = sectionTypes.find(
-                          (group) => group.type === section.sectionType
-                        )
-                        if (!typeGroup) return null
-
-                        // Only constrain by HIGHER priority sections (lower priority numbers)
-                        const higherPrioritySelections = enrollment.selectedSections.filter((s) => {
-                          const sPriority = getSectionTypePriority(s.sectionType, sectionTypes)
-                          const currentPriority = getSectionTypePriority(
-                            section.sectionType,
-                            sectionTypes
-                          )
-                          return sPriority < currentPriority // Higher priority (lower number)
-                        })
-
-                        const { compatible } = categorizeCompatibleSections(
-                          typeGroup.sections,
-                          higherPrioritySelections
-                        )
+                        const compatible = getCompatibleSections(enrollment, section.sectionType)
 
                         const canCycle = compatible.length > 1
                         const currentIndex = compatible.findIndex((s) => s.id === section.id)
@@ -636,6 +633,86 @@ export default function ShoppingCart({
                             <div className="space-y-1">
                               {meetingRows.map((row, index) => (
                                 <MeetingRowCard key={index} row={row} />
+                              ))}
+                            </div>
+                          </div>
+                        )
+                      })}
+
+                      {enrollment.removedSections?.map((section) => {
+                        const compatible = getCompatibleSections(enrollment, section.sectionType)
+                        const sectionTypeName = getSectionTypeName(
+                          section.sectionType
+                        ).toLowerCase()
+                        const removedTooltip = `This ${sectionTypeName} section is no longer offered`
+                        const meetingRows: MeetingRow[] = sectionSignature(section).meetings.map(
+                          (meeting) => ({ status: 'removed', meeting })
+                        )
+
+                        return (
+                          <div
+                            key={section.id}
+                            data-removed-section={section.id}
+                            className="rounded border border-amber-200 bg-amber-50 px-2 py-2"
+                          >
+                            <div className="mb-1 flex items-start justify-between gap-2">
+                              <div className="flex min-w-0 items-start gap-1">
+                                <div className="font-mono text-xs font-medium text-gray-500 line-through">
+                                  {section.sectionCode}
+                                </div>
+                                <span
+                                  role="img"
+                                  aria-label={removedTooltip}
+                                  data-removed-section-help={section.id}
+                                  className="mt-px shrink-0 cursor-help text-amber-700"
+                                  title={removedTooltip}
+                                >
+                                  <CircleHelp aria-hidden="true" className="h-3 w-3" />
+                                </span>
+                              </div>
+
+                              {compatible.length > 0 ? (
+                                <div className="flex shrink-0 items-center gap-1">
+                                  <span className="relative -top-px mr-1 text-[10px] leading-none text-gray-500">
+                                    {compatible.length === 1
+                                      ? '1 remains'
+                                      : `${compatible.length} remain`}
+                                  </span>
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={(event) => {
+                                      event.stopPropagation()
+                                      chooseReplacement(enrollment, section.sectionType, 'prev')
+                                    }}
+                                    className="h-4 w-4 cursor-pointer p-0 hover:bg-amber-100"
+                                    aria-label={`Choose the last compatible ${sectionTypeName} section`}
+                                  >
+                                    <ChevronLeft className="h-3 w-3 text-gray-600" />
+                                  </Button>
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={(event) => {
+                                      event.stopPropagation()
+                                      chooseReplacement(enrollment, section.sectionType, 'next')
+                                    }}
+                                    className="h-4 w-4 cursor-pointer p-0 hover:bg-amber-100"
+                                    aria-label={`Choose the first compatible ${sectionTypeName} section`}
+                                  >
+                                    <ChevronRight className="h-3 w-3 text-gray-600" />
+                                  </Button>
+                                </div>
+                              ) : (
+                                <span className="max-w-32 text-right text-[10px] leading-4 text-gray-500">
+                                  No alternatives available. Search or remove the course.
+                                </span>
+                              )}
+                            </div>
+
+                            <div className="space-y-1">
+                              {meetingRows.map((row, index) => (
+                                <MeetingRowCard key={index} row={row} showChangeTooltip={false} />
                               ))}
                             </div>
                           </div>

@@ -3,7 +3,7 @@
 // predicate builder, so a new filter is one builder plus one criteria field.
 
 import type { AcademicCareer, CourseEnrollment, InternalCourse, InternalSection } from './types'
-import { getDayIndex, hasConflictFreeEnrollment, isActiveEnrollment } from './courseUtils'
+import { getDayIndex, hasConflictFreeEnrollment, isVisibleAndValid } from './courseUtils'
 
 /** The user's active selections. An empty/blank field means "no constraint". */
 export interface CourseFilterCriteria {
@@ -103,7 +103,7 @@ const buildNoConflictPredicate: PredicateBuilder = (criteria, context) => {
   const sectionsByCourseId = new Map<string, Set<InternalSection>>()
 
   for (const enrollment of context.enrollments) {
-    if (!isActiveEnrollment(enrollment)) continue
+    if (!isVisibleAndValid(enrollment)) continue
 
     const courseId = `${enrollment.course.subject}${enrollment.course.courseCode}`
     const ownSections = sectionsByCourseId.get(courseId) ?? new Set<InternalSection>()

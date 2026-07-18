@@ -18,7 +18,8 @@ import {
   parseSectionTypes,
   sortSectionsByPriority,
   updateExistingEnrollment,
-  markCourseUnavailable,
+  pruneReplacedTombstones,
+  syncEnrollment,
   extractAcademicYearCode,
   readStoredEnrollments,
   recordSeenChanges,
@@ -369,9 +370,17 @@ export default function Home() {
           enrollment.course,
           currentTerm
         )
+        const removedSections = pruneReplacedTombstones(enrollment.removedSections, updatedSections)
 
         return recordSeenSections(
-          { ...enrollment, selectedSections: updatedSections },
+          {
+            ...enrollment,
+            selectedSections: updatedSections,
+            removedSections,
+            removedSectionsAcknowledged: removedSections
+              ? enrollment.removedSectionsAcknowledged
+              : undefined,
+          },
           { onlyMissing: true }
         )
       })
@@ -489,61 +498,9 @@ export default function Home() {
 
         console.debug('Background syncing shopping cart with fresh course data...')
 
-        const syncedEnrollments = currentEnrollments.map((enrollment) => {
-          const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
-
-          // Find fresh course data
-          const freshCourse = allFreshCourses.find(
-            (course) => `${course.subject}${course.courseCode}` === courseKey
-          )
-
-          if (!freshCourse) {
-            console.warn(`⚠️ Course ${courseKey} no longer exists in fresh data`)
-            return markCourseUnavailable(enrollment, timestamp)
-          }
-
-          // Find fresh sections for current term
-          const termData = freshCourse.terms.find((t) => t.termName === currentTerm)
-          if (!termData) {
-            return markCourseUnavailable(enrollment, timestamp)
-          }
-
-          // Update sections with fresh data
-          const syncedSections = enrollment.selectedSections.map((oldSection) => {
-            const freshSection = termData.sections.find((s) => s.id === oldSection.id)
-
-            if (!freshSection) {
-              console.warn(`⚠️ Section ${oldSection.sectionCode} no longer exists for ${courseKey}`)
-              // Keep old section but mark as invalid
-              return { ...oldSection, isInvalid: true }
-            }
-
-            // Merge fresh data with preserved user choices
-            return {
-              ...freshSection, // Fresh section data (classAttributes, availability, etc.)
-              // Preserve any user-specific state if needed in future
-            }
-          })
-
-          // Check if any sections are invalid
-          const hasInvalidSections = syncedSections.some((s) => s.isInvalid)
-
-          return recordSeenSections(
-            {
-              ...enrollment,
-              course: freshCourse, // Always use fresh course data
-              // Canonicalize order so carts stored before this fix self-heal
-              selectedSections: sortSectionsByPriority(syncedSections, freshCourse, currentTerm),
-              isInvalid: hasInvalidSections,
-              invalidReason: hasInvalidSections ? 'Some sections no longer available' : undefined,
-              lastSeenInvalidState: hasInvalidSections
-                ? enrollment.lastSeenInvalidState
-                : undefined,
-              lastSynced: timestamp, // Track when we last synced this enrollment
-            },
-            { onlyMissing: true }
-          )
-        })
+        const syncedEnrollments = currentEnrollments.map((enrollment) =>
+          syncEnrollment(enrollment, allFreshCourses, currentTerm, timestamp)
+        )
 
         // Log sync results
         const invalidCount = syncedEnrollments.filter((e) => e.isInvalid).length

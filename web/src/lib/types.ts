@@ -43,8 +43,6 @@ export interface InternalSection {
   meetings: InternalMeeting[]
   availability: SectionAvailability
   classAttributes: string // Language of instruction (e.g., "English only", "Putonghua and English", or "")
-  // Sync status fields (for sections that may no longer exist)
-  isInvalid?: boolean // True if this section no longer exists in fresh data
 }
 
 export interface InternalMeeting {
@@ -127,9 +125,11 @@ export const SECTION_TYPE_CONFIG = {
 // Derive the type from the config keys - automatically stays in sync
 export type SectionType = keyof typeof SECTION_TYPE_CONFIG
 
+// Reason-only: per-section removals track acknowledgment via removedSectionsAcknowledged,
+// so the invalid state's identity is just its reason. (Persisted pre-tombstone blobs carried
+// an extra sectionIds key; readStoredEnrollments strips it on load.)
 export interface InvalidEnrollmentState {
   reason: string
-  sectionIds: string[]
 }
 
 // Course enrollment using clean internal types
@@ -137,10 +137,14 @@ export interface CourseEnrollment {
   courseId: string
   course: InternalCourse // ✅ Strong internal type
   selectedSections: InternalSection[]
+  // Display-only tombstones for picked sections that vanished while the course still exists.
+  removedSections?: InternalSection[]
+  // Dismiss hides the banner without deleting tombstones or their replacement controls.
+  removedSectionsAcknowledged?: boolean
   color: string
   isVisible: boolean
   // Sync status fields
-  isInvalid?: boolean // True if course/sections no longer exist
+  isInvalid?: boolean // True if the course or current term no longer exists
   invalidReason?: string // Human-readable reason for invalidity
   lastSynced?: Date // Persisted as an ISO string; revived to Date in readStoredEnrollments
   // Per-section sectionSignature the user last saw, keyed by section id. Not rendered

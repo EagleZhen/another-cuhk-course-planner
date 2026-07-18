@@ -15,6 +15,9 @@ import {
   sectionsOverlapInTime,
   checkSectionConflict,
   hasConflictFreeEnrollment,
+  pruneReplacedTombstones,
+  syncEnrollment,
+  isEnrollmentOpen,
 } from './courseUtils'
 import { SCHEDULE_DATA_VERSION } from './constants'
 import type {
@@ -48,6 +51,16 @@ function makeSection(overrides: Partial<InternalSection>): InternalSection {
     },
     classAttributes: '',
     ...overrides,
+  }
+}
+
+function makeCourse(sections: InternalSection[], termName = 'Term 1'): InternalCourse {
+  return {
+    subject: 'CSCI',
+    courseCode: '3100',
+    title: 'Software Engineering',
+    credits: 3,
+    terms: [{ termCode: '2510', termName, sections }],
   }
 }
 
@@ -105,7 +118,9 @@ describe('updateExistingEnrollment', () => {
       isVisible: true,
       isInvalid: true,
       invalidReason: 'Course no longer available',
-      lastSeenInvalidState: { reason: 'Course no longer available', sectionIds: [] },
+      lastSeenInvalidState: { reason: 'Course no longer available' },
+      removedSections: [makeSection({ id: 'removed-tut', sectionType: 'TUT' })],
+      removedSectionsAcknowledged: true,
       lastSynced: new Date('2026-01-01'),
     }
 
@@ -130,10 +145,155 @@ describe('updateExistingEnrollment', () => {
     expect(result.isInvalid).toBeFalsy()
     expect(result.invalidReason).toBeUndefined()
     expect(result.lastSeenInvalidState).toBeUndefined()
+    expect(result.removedSections).toBeUndefined()
+    expect(result.removedSectionsAcknowledged).toBeUndefined()
     expect(result.lastSynced).toBeInstanceOf(Date)
     expect(result.lastSynced).not.toEqual(existing.lastSynced)
     expect(result.course).toEqual(freshCourse)
     expect(result.selectedSections).toEqual([freshSection])
+  })
+})
+
+describe('pruneReplacedTombstones', () => {
+  it('drops removed sections whose type now has a live selection', () => {
+    const removedTut = makeSection({ id: 'old-tut', sectionType: 'TUT' })
+    const removedLab = makeSection({ id: 'old-lab', sectionType: 'LAB' })
+    const selected = [
+      makeSection({ id: 'lec', sectionType: 'LEC' }),
+      makeSection({ id: 'new-tut', sectionType: 'TUT' }),
+    ]
+
+    expect(pruneReplacedTombstones([removedTut, removedLab], selected)).toEqual([removedLab])
+    expect(pruneReplacedTombstones([removedTut], selected)).toBeUndefined()
+  })
+})
+
+describe('syncEnrollment', () => {
+  const syncedAt = new Date('2026-07-18T12:00:00.000Z')
+
+  it('keeps surviving sections live and moves a missing selection to removedSections', () => {
+    const staleLec = makeSection({ id: 'lec', sectionType: 'LEC' })
+    const staleTut = makeSection({ id: 'tut-old', sectionType: 'TUT' })
+    const freshLec = makeSection({
+      id: 'lec',
+      sectionType: 'LEC',
+      availability: { ...staleLec.availability, enrolled: 20, availableSeats: 30 },
+    })
+    const alternativeTut = makeSection({ id: 'tut-new', sectionType: 'TUT' })
+    const oldCourse = makeCourse([staleLec, staleTut])
+    const freshCourse = makeCourse([freshLec, alternativeTut])
+    const enrollment: CourseEnrollment = {
+      courseId: 'CSCI3100',
+      course: oldCourse,
+      selectedSections: [staleTut, staleLec],
+      color: 'bg-blue-500',
+      isVisible: true,
+      isInvalid: true,
+      invalidReason: 'Some sections no longer available',
+      removedSectionsAcknowledged: true,
+      lastSeenInvalidState: { reason: 'Some sections no longer available' },
+    }
+
+    const result = syncEnrollment(enrollment, [freshCourse], 'Term 1', syncedAt)
+
+    expect(result.selectedSections).toEqual([freshLec])
+    expect(result.removedSections).toEqual([staleTut])
+    expect(result.removedSectionsAcknowledged).toBeUndefined()
+    expect(result.isInvalid).toBe(false)
+    expect(result.invalidReason).toBeUndefined()
+    expect(result.lastSeenInvalidState).toBeUndefined()
+    expect(result.lastSynced).toBe(syncedAt)
+    expect(result.course).toBe(freshCourse)
+  })
+
+  it('flags meeting changes on a section that vanished and later returned', () => {
+    const lec = makeSection({ id: 'lec' })
+    const tut = makeSection({
+      id: 'tut',
+      sectionType: 'TUT',
+      meetings: [mkMeeting({ time: 'Mo 9:30AM - 10:15AM' })],
+    })
+    const seeded = recordSeenSections(
+      { ...mkEnrollment([lec, tut]), course: makeCourse([lec, tut]) },
+      { onlyMissing: false }
+    )
+
+    // Scrape 1: the TUT disappears — its snapshot must survive tombstoning.
+    const tombstoned = syncEnrollment(seeded, [makeCourse([lec])], 'Term 1', syncedAt)
+    expect(tombstoned.removedSections).toEqual([tut])
+    expect(tombstoned.lastSeenSections?.['tut']).toBeDefined()
+
+    // Scrape 2: it returns at a new time — the change must diff against the old snapshot.
+    const movedTut = { ...tut, meetings: [mkMeeting({ time: 'Fr 2:30PM - 4:15PM' })] }
+    const restored = syncEnrollment(tombstoned, [makeCourse([lec, movedTut])], 'Term 1', syncedAt)
+    expect(restored.removedSections).toBeUndefined()
+    expect(diffEnrollment(restored)).toMatchObject([
+      { sectionId: 'tut', before: { meetings: [{ time: 'Mo 9:30AM - 10:15AM' }] } },
+    ])
+  })
+
+  it('restores a tombstone to the live selection when its section reappears', () => {
+    const lec = makeSection({ id: 'lec', sectionType: 'LEC' })
+    const removedTut = makeSection({ id: 'tut', sectionType: 'TUT' })
+    const freshTut = makeSection({
+      id: 'tut',
+      sectionType: 'TUT',
+      availability: { ...removedTut.availability, status: 'Waitlisted' },
+    })
+    const freshCourse = makeCourse([lec, freshTut])
+    const enrollment: CourseEnrollment = {
+      courseId: 'CSCI3100',
+      course: makeCourse([lec]),
+      selectedSections: [lec],
+      removedSections: [removedTut],
+      removedSectionsAcknowledged: true,
+      color: 'bg-blue-500',
+      isVisible: true,
+    }
+
+    const result = syncEnrollment(enrollment, [freshCourse], 'Term 1', syncedAt)
+
+    expect(result.selectedSections).toEqual([lec, freshTut])
+    expect(result.removedSections).toBeUndefined()
+    expect(result.removedSectionsAcknowledged).toBeUndefined()
+  })
+
+  it('keeps an all-tombstones enrollment valid and interactive', () => {
+    const lec = makeSection({ id: 'lec', sectionType: 'LEC' })
+    const tut = makeSection({ id: 'tut', sectionType: 'TUT' })
+    const enrollment: CourseEnrollment = {
+      courseId: 'CSCI3100',
+      course: makeCourse([lec, tut]),
+      selectedSections: [lec, tut],
+      color: 'bg-blue-500',
+      isVisible: true,
+    }
+
+    const result = syncEnrollment(enrollment, [makeCourse([])], 'Term 1', syncedAt)
+
+    expect(result.selectedSections).toEqual([])
+    expect(result.removedSections).toEqual([lec, tut])
+    expect(result.isInvalid).toBe(false)
+  })
+
+  it.each([
+    ['course', []],
+    ['term', [{ ...makeCourse([]), terms: [] }]],
+  ])('marks the whole enrollment unavailable when the %s disappears', (_kind, freshCourses) => {
+    const section = makeSection({ id: 'lec' })
+    const enrollment: CourseEnrollment = {
+      courseId: 'CSCI3100',
+      course: makeCourse([section]),
+      selectedSections: [section],
+      color: 'bg-blue-500',
+      isVisible: true,
+    }
+
+    expect(syncEnrollment(enrollment, freshCourses, 'Term 1', syncedAt)).toMatchObject({
+      isInvalid: true,
+      invalidReason: 'Course no longer available',
+      lastSynced: syncedAt,
+    })
   })
 })
 
@@ -190,6 +350,60 @@ describe('readStoredEnrollments', () => {
     expect(loaded?.[0].lastSynced).toEqual(new Date('2026-07-14T13:27:10.392Z'))
   })
 
+  it('migrates v2 partial removals without changing whole-course removals', () => {
+    const liveSection = { ...makeSection({ id: 'live' }), isInvalid: false }
+    const removedSection = {
+      ...makeSection({ id: 'removed', sectionType: 'TUT' }),
+      isInvalid: true,
+    }
+    const partialRemoval = {
+      courseId: 'CSCI3100',
+      course: makeCourse([liveSection, removedSection]),
+      selectedSections: [liveSection, removedSection],
+      color: 'bg-blue-500',
+      isVisible: true,
+      isInvalid: true,
+      invalidReason: 'Some sections no longer available',
+      lastSeenInvalidState: { reason: 'Some sections no longer available' },
+    }
+    const wholeCourseRemoval = {
+      ...partialRemoval,
+      courseId: 'CSCI3150',
+      invalidReason: 'Course no longer available',
+    }
+
+    const loaded = readStoredEnrollments({
+      version: 2,
+      enrollments: [partialRemoval, wholeCourseRemoval],
+    })
+
+    expect(loaded?.[0]).toMatchObject({
+      selectedSections: [{ id: 'live' }],
+      removedSections: [{ id: 'removed' }],
+      isInvalid: false,
+      invalidReason: undefined,
+      lastSeenInvalidState: undefined,
+    })
+    expect(loaded?.[0].selectedSections[0]).not.toHaveProperty('isInvalid')
+    expect(loaded?.[0].removedSections?.[0]).not.toHaveProperty('isInvalid')
+    expect(loaded?.[1]).toEqual(wholeCourseRemoval)
+  })
+
+  it('strips the legacy sectionIds key from a persisted lastSeenInvalidState', () => {
+    const stored = [
+      {
+        ...mkEnrollment([]),
+        isInvalid: true,
+        invalidReason: 'Course no longer available',
+        lastSeenInvalidState: { reason: 'Course no longer available', sectionIds: ['tut-old'] },
+      },
+    ] as unknown as CourseEnrollment[]
+
+    const loaded = readStoredEnrollments({ version: 2, enrollments: stored })
+
+    expect(loaded?.[0].lastSeenInvalidState).toEqual({ reason: 'Course no longer available' })
+  })
+
   it('wipes (null) for an unknown/newer version', () => {
     expect(readStoredEnrollments({ version: SCHEDULE_DATA_VERSION + 1, enrollments })).toBeNull()
     expect(readStoredEnrollments({ version: 0, enrollments })).toBeNull()
@@ -237,10 +451,14 @@ function mkEnrollment(
 const sig = (s: InternalSection) => sectionSignature(s)
 
 describe('getChangedCourseIds', () => {
-  it('includes invalid and section-changed courses once in cart order', () => {
+  it('includes invalid, tombstoned, and section-changed courses once in cart order', () => {
     const enrollments = [
       { ...mkEnrollment([]), courseId: 'invalid', isInvalid: true },
-      { ...mkEnrollment([]), courseId: 'unchanged' },
+      {
+        ...mkEnrollment([]),
+        courseId: 'removed',
+        removedSections: [makeSection({ id: 'removed' })],
+      },
       { ...mkEnrollment([]), courseId: 'changed' },
       { ...mkEnrollment([]), courseId: 'both', isInvalid: true },
     ]
@@ -249,7 +467,12 @@ describe('getChangedCourseIds', () => {
       ['both', []],
     ])
 
-    expect(getChangedCourseIds(enrollments, sectionChanges)).toEqual(['invalid', 'changed', 'both'])
+    expect(getChangedCourseIds(enrollments, sectionChanges)).toEqual([
+      'invalid',
+      'removed',
+      'changed',
+      'both',
+    ])
   })
 
   it('acknowledges section and invalid changes without making the course valid', () => {
@@ -262,7 +485,7 @@ describe('getChangedCourseIds', () => {
         },
       }),
       isInvalid: true,
-      invalidReason: 'Some sections no longer available',
+      invalidReason: 'Course no longer available',
     }
 
     expect(diffEnrollment(enrollment)).toHaveLength(1)
@@ -275,21 +498,122 @@ describe('getChangedCourseIds', () => {
     expect(acknowledged.isInvalid).toBe(true)
   })
 
-  it('reports a changed invalid state after the previous one was acknowledged', () => {
+  it('reports a changed whole-course invalid reason after it was acknowledged', () => {
     const acknowledged = recordSeenChanges({
       ...mkEnrollment([]),
       isInvalid: true,
-      invalidReason: 'Some sections no longer available',
+      invalidReason: 'Course data is outdated',
     })
     const changedReason = { ...acknowledged, invalidReason: 'Course no longer available' }
-    const changedSections = {
-      ...acknowledged,
-      selectedSections: [makeSection({ id: 'newly-missing', isInvalid: true })],
-    }
 
     expect(getChangedCourseIds([acknowledged])).toEqual([])
     expect(getChangedCourseIds([changedReason])).toEqual(['COMM1180'])
-    expect(getChangedCourseIds([changedSections])).toEqual(['COMM1180'])
+  })
+
+  it('dismisses the banner while preserving tombstones and their replacement path', () => {
+    const removed = makeSection({ id: 'removed-tut', sectionType: 'TUT' })
+    const enrollment = { ...mkEnrollment([]), removedSections: [removed] }
+
+    const acknowledged = recordSeenChanges(enrollment)
+
+    expect(acknowledged.removedSections).toEqual([removed])
+    expect(acknowledged.removedSectionsAcknowledged).toBe(true)
+    expect(acknowledged.selectedSections).toEqual([])
+    expect(getChangedCourseIds([acknowledged])).toEqual([])
+
+    const alternative = makeSection({ id: 'alternative-tut', sectionType: 'TUT' })
+    const freshCourse = {
+      ...acknowledged.course,
+      terms: [{ termCode: '2510', termName: 'Term 1', sections: [alternative] }],
+    }
+    const resynced = syncEnrollment(
+      acknowledged,
+      [freshCourse],
+      'Term 1',
+      new Date('2026-07-18T12:00:00.000Z')
+    )
+
+    expect(resynced.removedSections).toEqual([removed])
+    expect(resynced.removedSectionsAcknowledged).toBe(true)
+    expect(getChangedCourseIds([resynced])).toEqual([])
+  })
+
+  it('does not acknowledge tombstones hidden behind an invalid card on dismiss', () => {
+    const removed = makeSection({ id: 'removed-tut', sectionType: 'TUT' })
+    const invalid = {
+      ...mkEnrollment([]),
+      isInvalid: true,
+      invalidReason: 'Course no longer available',
+      removedSections: [removed],
+    }
+
+    // Dismiss acknowledges the invalid state, but the tombstones stay unseen.
+    const dismissed = recordSeenChanges(invalid)
+    expect(dismissed.removedSectionsAcknowledged).toBeUndefined()
+    expect(getChangedCourseIds([dismissed])).toEqual([])
+
+    // The course returns with the section still missing: the now-visible
+    // tombstone re-enters the review queue instead of staying acknowledged.
+    const alternative = makeSection({ id: 'alternative-tut', sectionType: 'TUT' })
+    const freshCourse = {
+      ...invalid.course,
+      terms: [{ termCode: '2510', termName: 'Term 1', sections: [alternative] }],
+    }
+    const resynced = syncEnrollment(
+      dismissed,
+      [freshCourse],
+      'Term 1',
+      new Date('2026-07-18T12:00:00.000Z')
+    )
+    expect(resynced.isInvalid).toBe(false)
+    expect(resynced.removedSections).toEqual([removed])
+    expect(getChangedCourseIds([resynced])).toEqual(['COMM1180'])
+  })
+
+  it('keeps a previously seen tombstone acknowledged across invalid and back', () => {
+    const removed = makeSection({ id: 'removed-tut', sectionType: 'TUT' })
+    const seen = recordSeenChanges({ ...mkEnrollment([]), removedSections: [removed] })
+    expect(seen.removedSectionsAcknowledged).toBe(true)
+
+    // Course disappears, user dismisses the invalid card, course returns unchanged:
+    // nothing new happened, so the banner stays quiet.
+    const invalid = { ...seen, isInvalid: true, invalidReason: 'Course no longer available' }
+    const dismissed = recordSeenChanges(invalid)
+    expect(dismissed.removedSectionsAcknowledged).toBe(true)
+
+    const freshCourse = {
+      ...seen.course,
+      terms: [{ termCode: '2510', termName: 'Term 1', sections: [] }],
+    }
+    const resynced = syncEnrollment(
+      dismissed,
+      [freshCourse],
+      'Term 1',
+      new Date('2026-07-18T12:00:00.000Z')
+    )
+    expect(resynced.removedSectionsAcknowledged).toBe(true)
+    expect(getChangedCourseIds([resynced])).toEqual([])
+  })
+})
+
+describe('isEnrollmentOpen', () => {
+  const open = makeSection({ id: 'open' })
+  const closed = makeSection({
+    id: 'closed',
+    availability: { ...open.availability, status: 'Closed' },
+  })
+
+  it('is open only when every selected section is open', () => {
+    expect(isEnrollmentOpen(mkEnrollment([open]))).toBe(true)
+    expect(isEnrollmentOpen(mkEnrollment([open, closed]))).toBe(false)
+  })
+
+  it('is not open with zero live sections (all tombstoned), despite vacuous every()', () => {
+    const allTombstoned = {
+      ...mkEnrollment([]),
+      removedSections: [makeSection({ id: 'removed-lec' })],
+    }
+    expect(isEnrollmentOpen(allTombstoned)).toBe(false)
   })
 })
 

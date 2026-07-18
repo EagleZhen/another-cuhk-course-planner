@@ -16,11 +16,25 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 - Hidden cards are not selectable; hiding a currently selected course also deselects it. Invalid cards remain selectable in the cart, but have no timetable events.
 - Visibility is not just cosmetic: it feeds calendar conflict detection and ICS export (see [weekly-calendar.md](weekly-calendar.md#ics-export)).
 
-## Invalid Enrollments
+## Enrollment Lifecycle
 
-- Invalid courses (marked by background sync) stay in the cart with an amber status and last-synced time — only the user removes them. See [architecture.md](../architecture.md#browser-state).
-- A new invalid state joins the banner's Review queue. **Dismiss all** acknowledges both invalid and section-detail changes; the unavailable status remains but its explanation collapses. A different reason or set of missing sections alerts again.
-- Re-adding an invalid course from search clears its invalid and acknowledgment state and refreshes the stale `course` object, via `updateExistingEnrollment` in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
+Sync (`syncEnrollment` in [courseUtils.ts](../../web/src/lib/courseUtils.ts)) reconciles every enrollment against each fresh scrape. An enrollment is in one of three states:
+
+| State | When | Consequences |
+| --- | --- | --- |
+| Valid | course, term, and every picked section exist | fully counted |
+| Valid + tombstones | course/term exist, some picked sections don't (`removedSections`) | live sections still feed the timetable, conflicts, and ICS; tombstones render struck-through with replacement arrows, or a search/remove hint when no alternatives exist; with zero live sections the course appears in no status count |
+| Invalid | course or current term gone | amber card with reason + last-synced time replaces the section list (hiding any tombstones); excluded from timetable and credits; stays until the user removes it |
+
+Transitions and acknowledgment:
+
+- Sync tombstones a vanished pick and restores it to live if its id reappears — tombstones keep their `lastSeenSections` snapshot, so meeting changes made while it was gone still get flagged on return. `removedSectionsAcknowledged` resets only when a _new_ tombstone appears.
+- Going invalid preserves tombstones and acknowledgments, so a course that returns resumes where it left off.
+- Choosing a replacement via a tombstone's arrows selects a live section of that type, which prunes the tombstone (`pruneReplacedTombstones`).
+- The Review banner (`getChangedCourseIds`) queues unseen invalid reasons, unacknowledged visible tombstones, and section-detail changes. **Dismiss all** acknowledges only what is visible: tombstones hidden behind an invalid card stay unacknowledged, so they re-alert once the course returns and they can actually be seen.
+- Re-adding from search (`updateExistingEnrollment`) is the full reset: clears invalid state, tombstones, and acknowledgments, and refreshes the stale `course`.
+
+`isVisible` (the eye toggle) is orthogonal: a hidden course leaves the timetable and ICS but its lifecycle keeps running. See [architecture.md](../architecture.md#browser-state).
 
 ## Change Detection
 
@@ -30,7 +44,7 @@ Flags an enrolled section that changed (time, location, instructor, or language)
 - That signature advances only on add / section-change / sync / dismiss — never on plain reload — so a note persists across reloads until dismissed and re-fires on further change. Sync only fills in _missing_ signatures, so fresh data the user hasn't seen yet isn't retroactively flagged.
 - Compares time + location + instructor + language; ignores `dates` and availability; only `selectedSections`. Detection compares meeting positions to decide whether to show the summary banner; detail rows use content-based set differences so a deletion does not make later meetings look changed. Logic lives in [courseUtils.ts](../../web/src/lib/courseUtils.ts) (`sectionSignature`, `diffEnrollment`, `diffSectionDetail`).
 - Equal added/removed counts pair positionally into field-level "previously" highlights; unequal counts show whole rows as added/removed rather than guessing pairs — a wrong before/after is worse than none.
-- A whole course or section disappearing stays on the `isInvalid` path above. A meeting disappearing from a section that still exists stays in the valid card as a removed row.
+- A whole course or current term disappearing uses `isInvalid`; a selected section becomes a tombstone; a meeting disappearing from a live section stays in that section as a removed row.
 
 ## Summary Semantics
 
