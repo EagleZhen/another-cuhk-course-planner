@@ -647,14 +647,14 @@ export default function ShoppingCart({
                             className="cursor-help rounded border border-amber-200 bg-amber-50 px-2 py-2"
                             title={removedTooltip}
                           >
-                            <div className="mb-1 flex items-start justify-between gap-2">
+                            <div className="mb-1 flex items-start justify-between gap-0.5">
                               <div className="font-mono text-xs font-medium text-gray-500 line-through">
                                 {section.sectionCode}
                               </div>
 
                               {compatible.length > 0 ? (
-                                <div className="flex shrink-0 items-center gap-1">
-                                  <span className="relative -top-px mr-1 text-[10px] leading-none text-gray-500">
+                                <div className="flex shrink-0 items-center gap-0.5">
+                                  <span className="relative -top-px text-[10px] leading-none text-gray-500">
                                     {compatible.length === 1
                                       ? '1 remains'
                                       : `${compatible.length} remain`}

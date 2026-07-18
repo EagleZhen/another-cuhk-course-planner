@@ -85,7 +85,12 @@ async function openCart(page: Page, alternatives: ReturnType<typeof section>[]) 
 
   if (alternatives.length > 0) {
     const remainingLabel = alternatives.length === 1 ? '1 remains' : `${alternatives.length} remain`
-    await expect(page.getByText(remainingLabel, { exact: true })).not.toHaveAttribute('title')
+    const remainingCount = page.getByText(remainingLabel, { exact: true })
+
+    await expect(tombstone.locator(':scope > div').first()).toHaveCSS('column-gap', '2px')
+    await expect(remainingCount.locator('..')).toHaveCSS('column-gap', '2px')
+    await expect(remainingCount).toHaveCSS('margin-right', '0px')
+    await expect(remainingCount).not.toHaveAttribute('title')
 
     for (const name of [
       'Choose the last compatible lecture section',
