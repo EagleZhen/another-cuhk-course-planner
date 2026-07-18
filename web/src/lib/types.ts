@@ -91,15 +91,6 @@ export interface SectionDiffDetail {
   languageChanged: boolean
 }
 
-// One changed meeting, paired to its previous value when meetings can be matched 1:1
-// (see diffSectionDetail). `before`/`fields` are absent when a meeting was added with no
-// counterpart to pair against. `fields` marks which of time/location/instructor differ.
-export interface SectionMeetingChange {
-  current: SectionMeetingSignature
-  before?: SectionMeetingSignature
-  fields?: { time: boolean; location: boolean; instructor: boolean }
-}
-
 export interface SectionAvailability {
   capacity: number
   enrolled: number

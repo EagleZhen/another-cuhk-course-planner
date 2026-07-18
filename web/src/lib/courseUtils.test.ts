@@ -7,7 +7,6 @@ import {
   diffEnrollment,
   recordSeenSections,
   diffSectionDetail,
-  matchChangedMeeting,
   sectionsOverlapInTime,
   checkSectionConflict,
   hasConflictFreeEnrollment,
@@ -577,28 +576,5 @@ describe('diffSectionDetail', () => {
     expect(detail.rows).toHaveLength(1)
     expect(detail.rows[0].status).toBe('unchanged')
     expect(detail.languageChanged).toBe(true)
-  })
-})
-
-describe('matchChangedMeeting', () => {
-  const changed = [
-    {
-      current: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
-      before: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
-      fields: { time: true, location: false, instructor: false },
-    },
-  ]
-
-  it('matches a raw meeting to its change entry after normalization', () => {
-    const meeting = mkMeeting({ time: 'We 9AM - 10AM', location: 'Hum  314' }) // double space
-    expect(matchChangedMeeting(meeting, changed)).toBe(changed[0])
-  })
-
-  it('returns undefined for a meeting not in the changed list', () => {
-    expect(matchChangedMeeting(mkMeeting({ time: 'Mo 9AM - 10AM' }), changed)).toBeUndefined()
-  })
-
-  it('returns undefined for an empty changed list', () => {
-    expect(matchChangedMeeting(mkMeeting({}), [])).toBeUndefined()
   })
 })

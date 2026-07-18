@@ -27,8 +27,9 @@ Flags an enrolled section that changed (time, location, instructor, or language)
 
 - The rendered timetable is always the fresh scrape. What the user _last saw_ is kept as an invisible per-section signature (`lastSeenSections` on `CourseEnrollment`); a section whose current signature differs is surfaced as changed.
 - That signature advances only on add / section-change / sync / dismiss — never on plain reload — so a note persists across reloads until dismissed and re-fires on further change. Sync only fills in _missing_ signatures, so fresh data the user hasn't seen yet isn't retroactively flagged.
-- Compares time + location + instructor + language; ignores `dates` and availability; only `selectedSections`. A summary banner plus an amber highlight on the exact changed value show it; logic lives in [courseUtils.ts](../../web/src/lib/courseUtils.ts) (`sectionSignature`, `diffEnrollment`, `diffSectionDetail`).
-- Cancellation (a section or course _disappearing_) stays on the `isInvalid` path above — "gone" has no before/after to show.
+- Compares time + location + instructor + language; ignores `dates` and availability; only `selectedSections`. Detection compares meeting positions to decide whether to show the summary banner; detail rows use content-based set differences so a deletion does not make later meetings look changed. Logic lives in [courseUtils.ts](../../web/src/lib/courseUtils.ts) (`sectionSignature`, `diffEnrollment`, `diffSectionDetail`).
+- Added or removed meetings get an amber row; removed meetings also use strikethrough and appear after the current rows. Changes that pair one-to-one highlight only the fields that moved.
+- A whole course or section disappearing stays on the `isInvalid` path above. A meeting disappearing from a section that still exists stays in the valid card as a removed row.
 
 ## Summary Semantics
 

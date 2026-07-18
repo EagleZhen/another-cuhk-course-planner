@@ -15,7 +15,6 @@ import type {
   SectionChange,
   SectionSignature,
   SectionMeetingSignature,
-  SectionMeetingChange,
   SectionDiffDetail,
   MeetingRow,
 } from './types'
@@ -583,15 +582,6 @@ export function diffSectionDetail(
   }
 
   return { rows, languageChanged: before.language !== current.language }
-}
-
-// Finds the change entry for a raw (as-rendered) meeting, or undefined if it didn't change.
-export function matchChangedMeeting(
-  meeting: InternalMeeting,
-  changedMeetings: SectionMeetingChange[]
-): SectionMeetingChange | undefined {
-  const row = meetingRow(meeting)
-  return changedMeetings.find((c) => sameMeeting(c.current, row))
 }
 
 /**

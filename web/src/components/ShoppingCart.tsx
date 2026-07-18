@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search } from 'lucide-react'
 import {
   parseSectionTypes,
-  getUniqueMeetings,
+  sectionSignature,
   formatTimeCompact,
   formatInstructorsCompact,
   getSectionTypePriority,
@@ -19,9 +19,14 @@ import {
   formatCourseCodeWithPrefix,
   checkSectionConflict,
   diffSectionDetail,
-  matchChangedMeeting,
 } from '@/lib/courseUtils'
-import type { CourseEnrollment, CalendarEvent, SectionType, SectionChange } from '@/lib/types'
+import type {
+  CourseEnrollment,
+  CalendarEvent,
+  SectionType,
+  SectionChange,
+  MeetingRow,
+} from '@/lib/types'
 import { analytics } from '@/lib/analytics'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
@@ -29,6 +34,120 @@ import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 // Shared style for the change-banner's "Show" / "Dismiss all" buttons.
 const bannerButtonClass =
   'h-5 rounded border border-amber-300 bg-white/50 px-1.5 text-[10px] text-amber-800 hover:bg-amber-100 cursor-pointer'
+
+// Amber text marks a changed value without shifting the surrounding row.
+const changedText = 'rounded bg-amber-100 text-amber-800 cursor-help'
+
+function renderMeetingRow(row: MeetingRow, key: string) {
+  const { meeting } = row
+  const before = row.status === 'changed' ? row.before : undefined
+  const fields = row.status === 'changed' ? row.fields : undefined
+  const formattedTime = formatTimeCompact(meeting.time || 'TBA')
+  const formattedInstructor = formatInstructorsCompact(meeting.instructor || 'TBA')
+  const location = meeting.location || 'TBA'
+
+  let containerClass = 'bg-white border-gray-200'
+  let valueClass = 'text-gray-600'
+  let tooltip: string | undefined
+  let wholeMeetingChange = false
+
+  switch (row.status) {
+    case 'unchanged':
+      break
+    case 'added':
+      containerClass = 'bg-amber-50 border-amber-200 cursor-help'
+      tooltip = 'New meeting (added since you last checked)'
+      wholeMeetingChange = true
+      break
+    case 'changed':
+      break
+    case 'removed':
+      containerClass = 'bg-amber-50 border-amber-200 cursor-help'
+      valueClass = 'text-gray-400 line-through'
+      tooltip = 'This meeting was removed since you last checked'
+      wholeMeetingChange = true
+      break
+  }
+
+  return (
+    <div
+      key={key}
+      className={`rounded border px-2 py-1.5 shadow-sm ${containerClass}`}
+      title={tooltip}
+    >
+      {/* Row 1: Time */}
+      <div className="flex items-center gap-1 text-[11px]">
+        <span>⏰</span>
+        <span
+          className={`font-mono ${fields?.time ? changedText : valueClass}`}
+          title={fields?.time && before ? `Previously ${before.time}` : undefined}
+        >
+          {formattedTime}
+        </span>
+      </div>
+      {/* Row 2: Instructor */}
+      <div className="flex items-center gap-1 text-[11px] mt-1">
+        <span>🧑🏻‍🏫</span>
+        <div className="flex items-center gap-1 min-w-0 flex-1">
+          <span
+            className={`truncate ${fields?.instructor ? changedText : valueClass}`}
+            title={
+              fields?.instructor && before
+                ? `Previously ${before.instructor}`
+                : wholeMeetingChange
+                  ? undefined
+                  : formattedInstructor
+            }
+          >
+            {formattedInstructor}
+          </span>
+          {formattedInstructor !== 'Staff' && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                googleSearchAndOpen(`CUHK ${formattedInstructor}`)
+              }}
+              className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+              title={`Search Google for "CUHK ${formattedInstructor}"`}
+            >
+              <GoogleIcon className="size-3" />
+            </button>
+          )}
+        </div>
+      </div>
+      {/* Row 3: Location */}
+      <div className="flex items-center gap-1 text-[11px] mt-1">
+        <span>📍</span>
+        <div className="flex items-center gap-1 min-w-0 flex-1">
+          <span
+            className={`truncate ${fields?.location ? changedText : valueClass}`}
+            title={
+              fields?.location && before
+                ? `Previously ${before.location}`
+                : wholeMeetingChange
+                  ? undefined
+                  : location
+            }
+          >
+            {location}
+          </span>
+          {location !== 'TBA' && location !== 'No Room Required' && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                googleMapsSearchAndOpen(location)
+              }}
+              className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+              title={`View "${location}" on Google Maps`}
+            >
+              <GoogleMapsIcon className="size-3" />
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
@@ -516,9 +635,12 @@ export default function ShoppingCart({
                         const changeDetail = sectionChange
                           ? diffSectionDetail(section, sectionChange.before)
                           : undefined
-                        // Amber highlight for a changed value (no border/padding, so the text
-                        // doesn't shift). Same amber family as the summary banner.
-                        const changedText = 'rounded bg-amber-100 text-amber-800 cursor-help'
+                        const meetingRows: MeetingRow[] =
+                          changeDetail?.rows ??
+                          sectionSignature(section).meetings.map((meeting) => ({
+                            status: 'unchanged',
+                            meeting,
+                          }))
 
                         return (
                           <div
@@ -617,107 +739,14 @@ export default function ShoppingCart({
                               </div>
                             )}
 
-                            {/* Unique meetings for this section - consolidated by time+location+instructor */}
+                            {/* Meeting rows are normalized and deduped by sectionSignature. */}
                             <div className="space-y-1">
-                              {getUniqueMeetings(section.meetings).map((meeting, index) => {
-                                const formattedTime = formatTimeCompact(meeting?.time || 'TBA')
-                                const formattedInstructor = formatInstructorsCompact(
-                                  meeting?.instructors || 'TBA'
+                              {meetingRows.map((row, index) =>
+                                renderMeetingRow(
+                                  row,
+                                  row.status === 'removed' ? `removed-${index}` : `live-${index}`
                                 )
-                                const location = meeting?.location || 'TBA'
-                                const meetingChange = changeDetail
-                                  ? matchChangedMeeting(meeting, changeDetail.changedMeetings)
-                                  : undefined
-                                const fields = meetingChange?.fields
-                                const before = meetingChange?.before
-                                // Highlight the whole box only when the meeting changed but can't be
-                                // paired to a previous one (added meeting); otherwise highlight the
-                                // specific field lines that moved.
-                                const isNewMeeting = !!meetingChange && !fields
-
-                                return (
-                                  <div
-                                    key={index}
-                                    className={`rounded border px-2 py-1.5 shadow-sm ${isNewMeeting ? 'bg-amber-50 border-amber-200 cursor-help' : 'bg-white border-gray-200'}`}
-                                    title={
-                                      isNewMeeting
-                                        ? 'New meeting since you last checked'
-                                        : undefined
-                                    }
-                                  >
-                                    {/* Row 1: Time */}
-                                    <div className="flex items-center gap-1 text-[11px]">
-                                      <span>⏰</span>
-                                      <span
-                                        className={`font-mono ${fields?.time ? changedText : 'text-gray-600'}`}
-                                        title={
-                                          fields?.time && before
-                                            ? `Previously ${before.time}`
-                                            : undefined
-                                        }
-                                      >
-                                        {formattedTime}
-                                      </span>
-                                    </div>
-                                    {/* Row 2: Instructor */}
-                                    <div className="flex items-center gap-1 text-[11px] mt-1 text-gray-600">
-                                      <span>🧑🏻‍🏫</span>
-                                      <div className="flex items-center gap-1 min-w-0 flex-1">
-                                        <span
-                                          className={`truncate ${fields?.instructor ? changedText : ''}`}
-                                          title={
-                                            fields?.instructor && before
-                                              ? `Previously ${before.instructor}`
-                                              : formattedInstructor
-                                          }
-                                        >
-                                          {formattedInstructor}
-                                        </span>
-                                        {formattedInstructor !== 'Staff' && (
-                                          <button
-                                            onClick={(e) => {
-                                              e.stopPropagation()
-                                              googleSearchAndOpen(`CUHK ${formattedInstructor}`)
-                                            }}
-                                            className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                                            title={`Search Google for "CUHK ${formattedInstructor}"`}
-                                          >
-                                            <GoogleIcon className="size-3" />
-                                          </button>
-                                        )}
-                                      </div>
-                                    </div>
-                                    {/* Row 3: Location */}
-                                    <div className="flex items-center gap-1 text-[11px] mt-1 text-gray-600">
-                                      <span>📍</span>
-                                      <div className="flex items-center gap-1 min-w-0 flex-1">
-                                        <span
-                                          className={`truncate ${fields?.location ? changedText : ''}`}
-                                          title={
-                                            fields?.location && before
-                                              ? `Previously ${before.location}`
-                                              : location
-                                          }
-                                        >
-                                          {location}
-                                        </span>
-                                        {location !== 'TBA' && location !== 'No Room Required' && (
-                                          <button
-                                            onClick={(e) => {
-                                              e.stopPropagation()
-                                              googleMapsSearchAndOpen(location)
-                                            }}
-                                            className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-                                            title={`View "${location}" on Google Maps`}
-                                          >
-                                            <GoogleMapsIcon className="size-3" />
-                                          </button>
-                                        )}
-                                      </div>
-                                    </div>
-                                  </div>
-                                )
-                              })}
+                              )}
                             </div>
                           </div>
                         )
