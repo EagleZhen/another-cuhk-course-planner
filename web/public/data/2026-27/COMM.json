@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-16T05:26:19.916319+00:00",
+    "scraped_at": "2026-07-18T02:52:18.742468+00:00",
     "subject": "COMM",
     "subject_title": "Communication",
-    "total_courses": 151,
+    "total_courses": 152,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -1764,6 +1764,68 @@
         "Essays": "50",
         "Project": "30",
         "Participation": "20"
+      }
+    },
+    {
+      "subject": "COMM",
+      "course_code": "2590",
+      "title": "Global Cinema",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9728)",
+              "meetings": [
+                {
+                  "time": "Tu 3:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 608",
+                  "instructor": "Dr. CHAN Ka Ming",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 3:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 608",
+                  "instructor": "Dr. CHAN Ka Ming",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 3:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 608",
+                  "instructor": "Dr. CHAN Ka Ming",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "27",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "27",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course explores the complicated political, economic and cultural forces that contribute to the uneven development of global cinema. The first part of the programme will dive into the history and geographical factors of four major types of cinema, including Hollywood’s cinema for entertainment, European’s cinema of auteurism, Latin American’s Third Cinema and Propaganda Cinema. The second part will address the global technological and commercialization forces affecting the interaction of international cinema industries. That includes the choices of popular genres, trans-national stardom, co-production strategies, emergence of festival cinema and more. In addition, the course will also survey the efforts and challenges faced by several major movie production centres.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Sch of Journalism and Comm",
+      "academic_org": "Sch of Journalism and Comm",
+      "learning_outcomes": "After completing this course, students should be able to:\n- understand and appreciate the characteristics of different national cinema\n- understand the current trend and major issues of global cinema\n- analyze key movies and assess their position in the global context\n- grasp basic concepts and theoretical framework related to global cinema\n- gain deeper insights on particular researched nations through their understanding of movies",
+      "assessment_types": {
+        "Presentation": "20",
+        "Participation": "10",
+        "Report": "30",
+        "Test or quiz": "40"
       }
     },
     {
@@ -5205,64 +5267,6 @@
       "credits": "3.00",
       "terms": [
         {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "AEJ1-PRJ (5159)",
-              "meetings": [
-                {
-                  "time": "Th 2:30PM - 5:15PM",
-                  "location": "T.C. Cheng Bldg 110",
-                  "instructor": "Staff",
-                  "dates": "10/9, 17/9, 24/9"
-                },
-                {
-                  "time": "Th 2:30PM - 5:15PM",
-                  "location": "T.C. Cheng Bldg 110",
-                  "instructor": "Staff",
-                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
-                }
-              ],
-              "availability": {
-                "capacity": "45",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "45",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "AGJ1-PRJ (5158)",
-              "meetings": [
-                {
-                  "time": "Th 10:30AM - 1:15PM",
-                  "location": "T.C. Cheng Bldg 111",
-                  "instructor": "Staff",
-                  "dates": "10/9, 17/9, 24/9"
-                },
-                {
-                  "time": "Th 10:30AM - 1:15PM",
-                  "location": "T.C. Cheng Bldg 111",
-                  "instructor": "Staff",
-                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
-                }
-              ],
-              "availability": {
-                "capacity": "50",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "50",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        },
-        {
           "term_code": "2430",
           "term_name": "2026-27 Term 2",
           "schedule": [
@@ -6319,7 +6323,7 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "52",
+                "enrolled": "51",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -7154,10 +7158,10 @@
               ],
               "availability": {
                 "capacity": "54",
-                "enrolled": "51",
+                "enrolled": "50",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7454,10 +7458,10 @@
               ],
               "availability": {
                 "capacity": "62",
-                "enrolled": "57",
+                "enrolled": "56",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"

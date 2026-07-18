@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "scraped_at": "2026-07-16T08:09:01.014830+00:00",
+    "scraped_at": "2026-07-18T05:22:51.424008+00:00",
     "subject": "GESC",
     "subject_title": "GE - Shaw College",
-    "total_courses": 19,
+    "total_courses": 20,
     "scraper_version": "memory-safe-v2.0"
   },
   "courses": [
@@ -1918,6 +1918,94 @@
         "Project": "20",
         "Report": "20",
         "Short answer test or exam": "60"
+      }
+    },
+    {
+      "subject": "GESC",
+      "course_code": "2440",
+      "title": "Exploring Night Sky",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9726)",
+              "meetings": [
+                {
+                  "time": "Fr 3:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 501",
+                  "instructor": "Dr. PANG Kam Moon, \nDr. WONG Wing Hung",
+                  "dates": "15/1, 22/1, 29/1"
+                },
+                {
+                  "time": "Fr 3:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 501",
+                  "instructor": "Dr. PANG Kam Moon, \nDr. WONG Wing Hung",
+                  "dates": "12/2, 19/2, 26/2"
+                },
+                {
+                  "time": "Fr 3:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 501",
+                  "instructor": "Dr. PANG Kam Moon, \nDr. WONG Wing Hung",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 3:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park 501",
+                  "instructor": "Dr. PANG Kam Moon, \nDr. WONG Wing Hung",
+                  "dates": "2/4, 9/4, 16/4, 23/4"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-F01-FLD (9725)",
+              "meetings": [
+                {
+                  "time": "Sa 12:00AM - 12:00AM",
+                  "location": "No Room Required",
+                  "instructor": "Dr. PANG Kam Moon, \nDr. WONG Wing Hung",
+                  "dates": "6/3"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "Since ancient time, human beings have been curious about and fascinating with the remote sky. This curiosity and fascination have boosted the invention of various techniques in observational astronomy and, on the other hand, the spread of mythology about constellations under cultural influences. This course introduces the mythology in both the East and the West, stimulating students to ponder on the cultural significances behind the stories. In addition, students are encouraged to practice basic techniques in observational astronomy, acquiring knowledge through experiential learning. No scientific knowledge beyond junior secondary education is assumed.",
+      "enrollment_requirement": "1. For Shaw College students only.\n2. Not for students who have taken UGEB2510.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Field Studies/Field-trip\nLecture\nPracticum",
+      "campus": "Main Campus",
+      "academic_group": "Shaw College",
+      "academic_org": "Shaw College",
+      "learning_outcomes": "Students are expected to (i) gain basic knowledge and techniques in observational astronomy, (ii) to acquire an ability to apply observational astronomy to organize stargazing activities, and (iii) to have an acquaintance with mythology about constellations in both the East and the West.",
+      "assessment_types": {
+        "Essays": "25",
+        "Presentation": "25",
+        "Participation": "10",
+        "Selected response test or exam": "40"
       }
     }
   ]
