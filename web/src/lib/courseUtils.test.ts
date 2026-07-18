@@ -17,6 +17,7 @@ import {
   hasConflictFreeEnrollment,
   pruneReplacedTombstones,
   syncEnrollment,
+  isEnrollmentOpen,
 } from './courseUtils'
 import { SCHEDULE_DATA_VERSION } from './constants'
 import type {
@@ -557,6 +558,27 @@ describe('getChangedCourseIds', () => {
     )
     expect(resynced.removedSectionsAcknowledged).toBe(true)
     expect(getChangedCourseIds([resynced])).toEqual([])
+  })
+})
+
+describe('isEnrollmentOpen', () => {
+  const open = makeSection({ id: 'open' })
+  const closed = makeSection({
+    id: 'closed',
+    availability: { ...open.availability, status: 'Closed' },
+  })
+
+  it('is open only when every selected section is open', () => {
+    expect(isEnrollmentOpen(mkEnrollment([open]))).toBe(true)
+    expect(isEnrollmentOpen(mkEnrollment([open, closed]))).toBe(false)
+  })
+
+  it('is not open with zero live sections (all tombstoned), despite vacuous every()', () => {
+    const allTombstoned = {
+      ...mkEnrollment([]),
+      removedSections: [makeSection({ id: 'removed-lec' })],
+    }
+    expect(isEnrollmentOpen(allTombstoned)).toBe(false)
   })
 })
 

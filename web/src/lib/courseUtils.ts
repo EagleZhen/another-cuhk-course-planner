@@ -170,6 +170,15 @@ export function isVisibleAndValid(enrollment: CourseEnrollment): boolean {
   return enrollment.isVisible && !enrollment.isInvalid
 }
 
+// Requires at least one live section: an enrollment whose every selected section was
+// tombstoned would otherwise count as Open vacuously, despite having nothing to enroll in.
+export function isEnrollmentOpen(enrollment: CourseEnrollment): boolean {
+  return (
+    enrollment.selectedSections.length > 0 &&
+    enrollment.selectedSections.every((section) => section.availability.status === 'Open')
+  )
+}
+
 /**
  * Convert course enrollments to calendar events with day/time info
  */

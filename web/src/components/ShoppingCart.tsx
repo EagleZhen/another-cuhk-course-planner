@@ -28,6 +28,7 @@ import {
   diffSectionDetail,
   getChangedCourseIds,
   hasUnseenInvalidChange,
+  isEnrollmentOpen,
 } from '@/lib/courseUtils'
 import type {
   CourseEnrollment,
@@ -198,12 +199,8 @@ export default function ShoppingCart({
 
       // Status counts
       open: {
-        visible: visibleValidEnrollments.filter((enrollment) =>
-          enrollment.selectedSections.every((section) => section.availability.status === 'Open')
-        ).length,
-        total: validEnrollments.filter((enrollment) =>
-          enrollment.selectedSections.every((section) => section.availability.status === 'Open')
-        ).length,
+        visible: visibleValidEnrollments.filter(isEnrollmentOpen).length,
+        total: validEnrollments.filter(isEnrollmentOpen).length,
       },
       waitlisted: {
         visible: visibleValidEnrollments.filter((enrollment) =>
