@@ -1,8 +1,11 @@
+import json
 import logging
+from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
-from cuhk_scraper import Course, CuhkScraper, TermInfo
+from cuhk_scraper import Course, CuhkScraper, ScrapingProgressTracker, TermInfo
+from data_utils import SCHEMA_VERSION
 
 
 def _course(code, term_names):
@@ -54,3 +57,44 @@ def test_empty_subject_writes_no_file_but_reports_success(scraper, tmp_path):
     result = _save(scraper, [], tmp_path)
     assert result == []  # not None, so the caller still marks it completed
     assert not any(tmp_path.iterdir())
+
+
+def test_metadata_is_versioned_and_carries_no_timestamp(scraper, tmp_path):
+    # A per-file timestamp would rewrite every subject file on every scrape.
+    _save(scraper, [_course("1000", ["2025-26 Term 1"])], tmp_path)
+    metadata = json.loads((tmp_path / "2025-26" / "TEST.json").read_text())["metadata"]
+    assert metadata["schema_version"] == SCHEMA_VERSION
+    assert "scraped_at" not in metadata
+
+
+@pytest.fixture
+def tracker(tmp_path):
+    return ScrapingProgressTracker(str(tmp_path / "progress.json"), logging.getLogger("test"))
+
+
+def _entry(tracker, subject):
+    return tracker.progress_data["scraping_log"]["subjects"][subject]
+
+
+def test_last_scraped_survives_retry_and_failure(tracker):
+    # The subject's data file outlives a failed re-scrape, so its recorded age must
+    # too: publishing blocks on a published subject with no known scrape time.
+    tracker.complete_subject("TEST", 5, "data/2025-26/TEST.json", 1.0, {})
+    completed_at = _entry(tracker, "TEST")["last_scraped"]
+
+    tracker.start_subject("TEST")
+    assert _entry(tracker, "TEST")["last_scraped"] == completed_at
+
+    tracker.fail_subject("TEST", "boom")
+    assert _entry(tracker, "TEST")["last_scraped"] == completed_at
+
+    # The publisher reads the file, not the tracker.
+    saved = json.loads(Path(tracker.progress_file).read_text(encoding="utf-8"))
+    assert saved["scraping_log"]["subjects"]["TEST"]["last_scraped"] == completed_at
+
+
+def test_never_scraped_subject_omits_last_scraped(tracker):
+    # Absent, not null: publishing must be able to tell "never scraped" from a real
+    # timestamp, and a null would have to be special-cased everywhere downstream.
+    tracker.fail_subject("TEST", "boom")
+    assert "last_scraped" not in _entry(tracker, "TEST")

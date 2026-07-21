@@ -30,6 +30,10 @@ except ImportError:
 # from partition_subject_by_year). Not a year, so year globs exclude it.
 NO_TERMS_DIR = "no-terms"
 
+# Stamped into every course file's metadata; the publisher rejects anything else.
+# Bump on any file-shape change, and add a row to the table in docs/data-pipeline.md.
+SCHEMA_VERSION = 1
+
 
 def clean_word_html(html_content: str) -> str:
     """

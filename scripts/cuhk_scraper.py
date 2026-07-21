@@ -13,6 +13,7 @@ import requests
 from bs4 import BeautifulSoup, Tag
 from data_utils import (
     NO_TERMS_DIR,
+    SCHEMA_VERSION,
     calculate_duration_seconds,
     clean_class_attributes,
     clean_html_text,
@@ -216,6 +217,7 @@ class ScrapingProgressTracker:
     def start_subject(self, subject: str, estimated_courses: int = 0):
         """Mark subject as started"""
         subjects = self.progress_data["scraping_log"]["subjects"]
+        previous = subjects.get(subject, {})
         subjects[subject] = {
             "status": "in_progress",
             "started_at": utc_now_iso(),
@@ -224,8 +226,12 @@ class ScrapingProgressTracker:
             "completed_courses": [],  # Track completed course codes
             "last_course_completed": "",
             "last_progress_update": utc_now_iso(),
-            "retry_count": subjects.get(subject, {}).get("retry_count", 0),
+            "retry_count": previous.get("retry_count", 0),
         }
+        # Carry forward when the subject last succeeded: its data file survives this
+        # run, and the publisher needs that age even if this attempt never finishes.
+        if "last_scraped" in previous:
+            subjects[subject]["last_scraped"] = previous["last_scraped"]
         self._save_progress()
         self.logger.info(f"🚀 Started scraping {subject}")
 
@@ -306,6 +312,9 @@ class ScrapingProgressTracker:
             "retry_count": retry_count,
             "courses_scraped": current_data.get("courses_scraped", 0),
         }
+        # See start_subject: a failed attempt must not erase the last success.
+        if "last_scraped" in current_data:
+            subjects[subject]["last_scraped"] = current_data["last_scraped"]
 
         # Update totals
         log = self.progress_data["scraping_log"]
@@ -1950,14 +1959,13 @@ class CuhkScraper:
             if " - " in subject_title:
                 subject_title = subject_title.split(" - ", 1)[1]
 
-            # Create subject data structure with timestamp in metadata (not filename)
-            scraped_at = utc_now_iso()
+            # No scrape timestamp here: it would rewrite every file on every run.
+            # Freshness comes from last_scraped in logs/scraping_progress.json.
             metadata = {
-                "scraped_at": scraped_at,
+                "schema_version": SCHEMA_VERSION,
                 "subject": subject,
                 "subject_title": subject_title,  # Add subject title to metadata
                 "total_courses": len(courses),
-                "scraper_version": "memory-safe-v2.0",
             }
 
             subject_data = {
@@ -2004,7 +2012,7 @@ class CuhkScraper:
             # Create per-subject JSON structure
             subject_data = {
                 "metadata": {
-                    "scraped_at": utc_now_iso(),
+                    "schema_version": SCHEMA_VERSION,
                     "subject": subject,
                     "total_courses": len(courses),
                     "output_mode": "per_subject",
