@@ -60,7 +60,7 @@ import {
 import { ChipFilterRow } from '@/components/ChipFilterRow'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
-import { SCRAPED_AT } from '@/lib/generated/scrape-time'
+import { SCRAPED_AT_BY_YEAR } from '@/lib/generated/scrape-times'
 import ReactMarkdown from 'react-markdown'
 import { analytics } from '@/lib/analytics'
 import { getSubjectCodesForYear } from '@/lib/subjectUtils'
@@ -84,7 +84,6 @@ interface CourseSearchProps {
   availableTerms?: string[]
   selectedSections: Map<string, string>
   selectedSubjects?: Set<string> // Subject filter
-  lastDataUpdate?: Date | null // Last data sync timestamp
   onAddCourse: (
     course: InternalCourse,
     termName: string,
@@ -131,7 +130,6 @@ export default function CourseSearch({
   availableTerms = [],
   selectedSections,
   selectedSubjects = new Set(),
-  lastDataUpdate,
   onAddCourse,
   onRemoveCourse,
   onTermChange,
@@ -613,8 +611,8 @@ export default function CourseSearch({
         setHasDataLoaded(true) // At least one year's data is now available
         setLoading(false)
 
-        // Also hands the parent fresh course data to sync the cart against.
-        onDataUpdate?.(new Date(SCRAPED_AT), allCoursesData)
+        // Hands the parent fresh course data to sync the cart against.
+        onDataUpdate?.(new Date(SCRAPED_AT_BY_YEAR[selectedYear]), allCoursesData)
       } catch (error) {
         console.error('Failed to load course data:', error)
         loadedYearsRef.current.delete(selectedYear) // released so the year can retry
@@ -928,7 +926,7 @@ export default function CourseSearch({
                   onTermChange={onTermChange}
                 />
               </div>
-              {lastDataUpdate && (
+              {SCRAPED_AT_BY_YEAR[selectedYear] && (
                 <>
                   <div className="flex items-center gap-1.5">
                     <AlertTriangle className="w-3 h-3 text-orange-500 flex-shrink-0" />
@@ -939,7 +937,8 @@ export default function CourseSearch({
                       <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                     </span>
                     <span className="whitespace-nowrap">
-                      Last Data Sync: {formatSyncTimestamp(lastDataUpdate)}
+                      Last Data Sync:{' '}
+                      {formatSyncTimestamp(new Date(SCRAPED_AT_BY_YEAR[selectedYear]))}
                     </span>
                   </div>
                 </>

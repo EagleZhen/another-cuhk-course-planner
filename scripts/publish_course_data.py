@@ -19,17 +19,18 @@ import shutil
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, Iterable, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
 from data_utils import (
     SCHEMA_VERSION,
+    SCRAPE_TIME_FILENAME,
     collect_subjects_from_files,
     collect_terms_from_files,
     diff_subject_manifest,
     diff_term_names,
     is_subject_file,
-    render_scrape_time_module,
+    render_scrape_times_module,
     render_subjects_module,
     render_terms_module,
     save_json_with_newline,
@@ -63,7 +64,7 @@ STRIPPED_COURSE_FIELDS = (
 # Generated frontend manifests
 SUBJECTS_FILE = os.path.join("web", "src", "lib", "generated", "subjects.ts")
 TERMS_FILE = os.path.join("web", "src", "lib", "generated", "terms.ts")
-SCRAPE_TIME_FILE = os.path.join("web", "src", "lib", "generated", "scrape-time.ts")
+SCRAPE_TIMES_FILE = os.path.join("web", "src", "lib", "generated", "scrape-times.ts")
 
 
 def update_generated_file(
@@ -248,18 +249,18 @@ def categorize_year_files(
     return files_to_copy, blocking_failures, empty_codes
 
 
-def collect_scraped_at(
-    publishable_files_by_year: Dict[str, List[Path]], progress_data: Optional[Dict]
-) -> Optional[str]:
-    """Oldest scrape time across published subjects — the only one true of all of them."""
-    subjects = (progress_data or {}).get("scraping_log", {}).get("subjects", {})
-    times = [
-        last_scraped
-        for filepaths in publishable_files_by_year.values()
-        for filepath in filepaths
-        if (last_scraped := subjects.get(filepath.stem, {}).get("last_scraped"))
-    ]
-    return min(times, key=datetime.fromisoformat) if times else None
+def collect_scrape_times(years: Iterable[str]) -> Dict[str, str]:
+    """Each year's scrape time, read from the directory the scraper stamped.
+
+    A year with no stamp is left out, so the app shows no sync time for it rather
+    than borrowing another year's.
+    """
+    times = {}
+    for year in years:
+        stamp = Path(SOURCE_DATA_DIR) / year / SCRAPE_TIME_FILENAME
+        if stamp.exists():
+            times[year] = stamp.read_text(encoding="utf-8").strip()
+    return times
 
 
 def calculate_scraping_statistics(progress_data: Optional[Dict]) -> Optional[Dict]:
@@ -510,10 +511,12 @@ def main():
             print(f"   Review the Git diff and commit {Path(TERMS_FILE).as_posix()}.")
             print()
 
-        # No "changed" warning here: this one moves with every scrape by design.
-        scraped_at = collect_scraped_at(publishable_files_by_year, progress_data)
-        if scraped_at:
-            update_generated_file(SCRAPE_TIME_FILE, render_scrape_time_module(scraped_at), dry_run)
+        # No "changed" warning here: these move with every scrape by design.
+        scrape_times = collect_scrape_times(publishable_files_by_year)
+        if scrape_times:
+            update_generated_file(
+                SCRAPE_TIMES_FILE, render_scrape_times_module(scrape_times), dry_run
+            )
 
         # Copy files, stripping unused fields, into web/public/data/<year>/.
         print()

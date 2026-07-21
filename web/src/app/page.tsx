@@ -57,7 +57,6 @@ export default function Home() {
   const [courseEnrollments, setCourseEnrollments] = useState<CourseEnrollment[]>([])
   const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())
   const [selectedEnrollment, setSelectedEnrollment] = useState<string | null>(null)
-  const [lastDataUpdate, setLastDataUpdate] = useState<Date | null>(null)
   const [lastSyncTimestamp, setLastSyncTimestamp] = useState<Date | null>(null)
   const [selectedSubjects, setSelectedSubjects] = useState<Set<string>>(new Set())
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
@@ -474,10 +473,9 @@ export default function Home() {
     setSelectedSections(newSectionsMap)
   }
 
-  // Handle data updates from CourseSearch - update timestamp and sync enrollments
+  // Handle data updates from CourseSearch - sync enrollments against fresh data
   const handleDataUpdate = useCallback(
     (timestamp: Date, allFreshCourses?: InternalCourse[]) => {
-      setLastDataUpdate(timestamp)
       console.debug(`Course data loaded from: ${timestamp.toLocaleString()}`)
 
       // Background sync: Update existing enrollments with fresh data
@@ -736,7 +734,6 @@ export default function Home() {
                 selectedSubjects={selectedSubjects} // Subject filter state
                 onClearSubjects={() => setSelectedSubjects(new Set())}
                 onAvailableSubjectsUpdate={setAvailableSubjects} // Available subjects callback
-                lastDataUpdate={lastDataUpdate} // Last data sync timestamp
               />
             </CardContent>
           </Card>
