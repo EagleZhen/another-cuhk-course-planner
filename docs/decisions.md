@@ -128,6 +128,39 @@ Why it fits:
 
 Limitation: bump `DEFAULT_CURRENT_TERM` by hand on rollover; the test catches a stale one.
 
+## Derive Data Freshness At Publish
+
+Each course file used to carry its own `scraped_at`. Since a scrape rewrites every file, ~90% of the files in a scrape commit differed only by that timestamp (883 of 969 in `5ff71fd8`), burying the real course changes.
+
+Decision: drop the per-file timestamp. Publishing writes the oldest `last_scraped` from [logs/scraping_progress.json](../logs/scraping_progress.json) into `scrape-time.ts`, and the app reads that.
+
+Why it fits:
+
+- the progress log already recorded `last_scraped` per subject, so the per-file copy was a duplicate that churned
+- oldest, not newest: the app claims one sync time for everything on screen, and only the oldest is true of every subject
+- not the run's start time either — it resets on every scrape including a partial one, so scraping a single subject would claim all 400 are fresh
+- a build-time constant, not another fetch: data and code deploy together, and the app already generates `subjects.ts` / `terms.ts` this way
+
+Watchouts:
+
+- `schema_version` gates the file shape at publish, but stays optional in the app's Zod schema: a tab open across a deploy can fetch data from a different version, and that must degrade rather than fail to load
+- freshness is not completeness — see [Data Pipeline](data-pipeline.md#freshness)
+- enrollment counters still churn every scrape, so diffs are quieter, not quiet
+
+## Save Each Subject Immediately
+
+A full scrape covers ~260 subjects over ~10 hours. Accumulating every course in memory until the end risks losing the entire run to one crash.
+
+Decision: write each subject's files as soon as it finishes, then `del` its courses and force a `gc.collect()` before the next one (`scrape_all_subjects` in [scripts/cuhk_scraper.py](../scripts/cuhk_scraper.py)).
+
+Why it fits:
+
+- a crash costs the remaining time, not the results: finished subjects are already written, and their previous data stays valid until a later run overwrites it
+- peak memory stays flat in the number of subjects instead of growing across the run
+- the progress log records what each subject produced and when, which is what publishing validates against
+
+Limitation: a re-run rescrapes every subject it is given — there is no skip-completed resume.
+
 ## Eager Current Year, Lazy Archived Years
 
 `CURRENT_ACADEMIC_YEAR` (from `DEFAULT_CURRENT_TERM`) is the single knob for the live year. The app eager-loads it at startup and fetches other years only when selected; a non-live year shows a persistent "archived, for reference only" bar.
