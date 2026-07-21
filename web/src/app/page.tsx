@@ -481,7 +481,9 @@ export default function Home() {
       // Background sync: Update existing enrollments with fresh data
       // Use callback form to avoid dependency on courseEnrollments
       setCourseEnrollments((currentEnrollments) => {
-        if (!allFreshCourses || currentEnrollments.length === 0) {
+        // Length, not just presence: syncing against an empty catalog would mark every
+        // enrollment "no longer available" rather than leaving the cart alone.
+        if (!allFreshCourses?.length || currentEnrollments.length === 0) {
           return currentEnrollments // No changes needed
         }
 

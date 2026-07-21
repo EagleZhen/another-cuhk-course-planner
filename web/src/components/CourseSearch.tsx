@@ -611,8 +611,13 @@ export default function CourseSearch({
         setHasDataLoaded(true) // At least one year's data is now available
         setLoading(false)
 
-        // Hands the parent fresh course data to sync the cart against.
-        onDataUpdate?.(new Date(SCRAPED_AT_BY_YEAR[selectedYear]), allCoursesData)
+        // Hands the parent fresh course data to sync the cart against, but only from a
+        // complete load: courses of a subject that failed to fetch are indistinguishable
+        // from courses CUHK dropped, and the cart would tombstone them.
+        const scrapedAt = SCRAPED_AT_BY_YEAR[selectedYear]
+        if (failed === 0 && scrapedAt) {
+          onDataUpdate?.(new Date(scrapedAt), allCoursesData)
+        }
       } catch (error) {
         console.error('Failed to load course data:', error)
         loadedYearsRef.current.delete(selectedYear) // released so the year can retry
