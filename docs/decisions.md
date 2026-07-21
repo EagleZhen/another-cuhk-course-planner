@@ -128,18 +128,18 @@ Why it fits:
 
 Limitation: bump `DEFAULT_CURRENT_TERM` by hand on rollover; the test catches a stale one.
 
-## Derive Data Freshness At Publish
+## Stamp Each Data Directory With Its Scrape Time
 
 Each course file used to carry its own `scraped_at`. Since a scrape rewrites every file, ~90% of the files in a scrape commit differed only by that timestamp (883 of 969 in `5ff71fd8`), burying the real course changes.
 
-Decision: drop the per-file timestamp. Publishing writes the oldest `last_scraped` from [logs/scraping_progress.json](../logs/scraping_progress.json) into `scrape-time.ts`, and the app reads that.
+Decision: drop the per-file timestamp. A full scrape writes `data/<dir>/scraped-at.txt`, and publishing reads those into `scrape-times.ts` for the app.
 
 Why it fits:
 
-- the progress log already recorded `last_scraped` per subject, so the per-file copy was a duplicate that churned
-- oldest, not newest: the app claims one sync time for everything on screen, and only the oldest is true of every subject
-- not the run's start time either — it resets on every scrape including a partial one, so scraping a single subject would claim all 400 are fresh
-- a build-time constant, not another fetch: data and code deploy together, and the app already generates `subjects.ts` / `terms.ts` this way
+- one timestamp per directory instead of ~900 per scrape, so a data diff shows course changes
+- **per directory, not per subject**: a scrape only writes the years CUHK still serves, so a dropped year's timestamp freezes with its data. Anything derived from per-subject times (`last_scraped`, or the run's start) keeps advancing instead, because those subjects are still scraped for the live year — it would advertise frozen data as fresh
+- full runs only: a partial scrape can't speak for the subjects it never touched, so it leaves the stamps alone and stays pessimistic
+- a build-time constant, not another fetch: data and code deploy together, and the app already generates `subjects.ts` / `terms.ts` this way. The module stays purely derived, so deleting `generated/` and re-publishing round-trips
 
 Watchouts:
 

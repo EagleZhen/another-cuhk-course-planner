@@ -8,7 +8,7 @@ CUHK course catalog
     -> data/<year>/*.json (+ data/no-terms/*.json for courses with no scheduled terms)
     -> scripts/publish_course_data.py
         -> web/public/data/<year>/*.json
-        -> web/src/lib/generated/{subjects,terms,scrape-time}.ts
+        -> web/src/lib/generated/{subjects,terms,scrape-times}.ts
 ```
 
 ## Quick Start
@@ -50,13 +50,13 @@ Every course file carries `metadata.schema_version` (`SCHEMA_VERSION` in [script
 
 | Version | Change |
 | --- | --- |
-| 1 | Versioned metadata, no per-file scrape timestamp (see [decisions.md](decisions.md#derive-data-freshness-at-publish)) |
+| 1 | Versioned metadata, no per-file scrape timestamp (see [decisions.md](decisions.md#stamp-each-data-directory-with-its-scrape-time)) |
 
 ### Freshness
 
-The app's "Last Data Sync" is the **oldest** `last_scraped` in [logs/scraping_progress.json](../logs/scraping_progress.json) — the only time true of every subject — written to [scrape-time.ts](../web/src/lib/generated/scrape-time.ts) at publish.
+Each data directory holds a `scraped-at.txt`: when the scrape that wrote it started. Publishing reads those into [scrape-times.ts](../web/src/lib/generated/scrape-times.ts) for the app's "Last Data Sync".
 
-`last_scraped` still advances when some course outcomes fail, since those are permanent CUHK-side defects listed in [logs/failed_course_outcomes.txt](../logs/failed_course_outcomes.txt). A subject that fails outright keeps its previous value, matching the file left on disk.
+Only full scrapes write them, and only for the directories they produced — so a year CUHK drops keeps its own time ([why](decisions.md#stamp-each-data-directory-with-its-scrape-time)).
 
 ## Publish
 
@@ -88,11 +88,11 @@ Publishing generates the app's manifests from validated yearly data:
 
 - [subjects.ts](../web/src/lib/generated/subjects.ts): subject codes per academic year and code-to-title mappings
 - [terms.ts](../web/src/lib/generated/terms.ts): available terms per academic year
-- [scrape-time.ts](../web/src/lib/generated/scrape-time.ts): the data's scrape time (see [Freshness](#freshness))
+- [scrape-times.ts](../web/src/lib/generated/scrape-times.ts): each year's scrape time (see [Freshness](#freshness))
 
 All three are derived from the same publishable files copied into the web app, so skipped files cannot enter an index that the app uses for fetching.
 
-If a subject or term manifest changes, the publisher warns. Review and commit its Git diff with the data PR; no separate generation command or second publish run is needed. `scrape-time.ts` changes on every scrape by design, so it is not warned about.
+If a subject or term manifest changes, the publisher warns. Review and commit its Git diff with the data PR; no separate generation command or second publish run is needed. `scrape-times.ts` changes on every scrape by design, so it is not warned about.
 
 The default selected term (`DEFAULT_CURRENT_TERM` in [web/src/lib/constants.ts](../web/src/lib/constants.ts)) is set by hand; [constants.test.ts](../web/src/lib/constants.test.ts) verifies it remains in the generated term list.
 
