@@ -74,6 +74,9 @@ const ExternalCourseSchema = z.object({
 // Course data file schema
 const ExternalCourseDataSchema = z.object({
   metadata: z.object({
+    // Optional on purpose: a tab open across a deploy can fetch data written by a
+    // different schema version, and that must degrade rather than fail to load.
+    schema_version: z.number().optional(),
     subject: z.string(),
     total_courses: z.number(),
   }),

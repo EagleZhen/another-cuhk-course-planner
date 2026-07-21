@@ -8,7 +8,7 @@ CUHK course catalog
     -> data/<year>/*.json (+ data/no-terms/*.json for courses with no scheduled terms)
     -> scripts/publish_course_data.py
         -> web/public/data/<year>/*.json
-        -> web/src/lib/generated/{subjects,terms}.ts
+        -> web/src/lib/generated/{subjects,terms,scrape-times}.ts
 ```
 
 ## Quick Start
@@ -44,6 +44,20 @@ The scrape log timestamp uses the local machine timezone, normally HKT/UTC+8 for
 
 Scripts that write JSON output use `save_json_with_newline()` in [scripts/data_utils.py](../scripts/data_utils.py) for consistent formatting (2-space indent, trailing newline) and clean diffs.
 
+### File Schema
+
+Every course file carries `metadata.schema_version` (`SCHEMA_VERSION` in [scripts/data_utils.py](../scripts/data_utils.py)); publishing rejects anything else. Bump it for any file-shape change and add a row.
+
+| Version | Change |
+| --- | --- |
+| 1 | Versioned metadata, no per-file scrape timestamp (see [decisions.md](decisions.md#stamp-each-data-directory-with-its-scrape-time)) |
+
+### Freshness
+
+Each data directory holds a `_scraped_at.txt`: when the scrape that wrote it started. Publishing reads those into [scrape-times.ts](../web/src/lib/generated/scrape-times.ts) for the app's "Last Data Sync".
+
+Only full scrapes write them, and only for the directories they produced — so a year CUHK drops keeps its own time ([why](decisions.md#stamp-each-data-directory-with-its-scrape-time)).
+
 ## Publish
 
 Publishing validates scraped data and copies publishable files to a per-year directory under [web/public/data/](../web/public/data/) (`web/public/data/<year>/`), so the app can fetch one year at a time. Fields the app never renders are stripped during the copy (see `STRIPPED_COURSE_FIELDS` in [scripts/publish_course_data.py](../scripts/publish_course_data.py)); the full data stays in [data/](../data/).
@@ -57,7 +71,7 @@ The publish script checks:
 
 These checks validate selected files; they do not prove that an academic year contains every subject. Treat unexpected subject removals as data-review signals.
 
-After validation succeeds, publishing regenerates the app's subject and term manifests (see [Generated Manifests](#generated-manifests)). Validation failures and dry runs leave both manifests unchanged.
+After validation succeeds, publishing regenerates the app's manifests (see [Generated Manifests](#generated-manifests)). Validation failures and dry runs leave them unchanged.
 
 Publish logs are written to [logs/latest_publish.log](../logs/latest_publish.log) and timestamped files in [logs/publish/](../logs/publish/).
 
@@ -70,14 +84,15 @@ Read the publish count summary per source year (`data/<year>/`) as:
 
 ## Generated Manifests
 
-Publishing generates both app manifests from validated yearly data:
+Publishing generates the app's manifests from validated yearly data:
 
 - [subjects.ts](../web/src/lib/generated/subjects.ts): subject codes per academic year and code-to-title mappings
 - [terms.ts](../web/src/lib/generated/terms.ts): available terms per academic year
+- [scrape-times.ts](../web/src/lib/generated/scrape-times.ts): each year's scrape time (see [Freshness](#freshness))
 
-Both manifests are derived from the same publishable files copied into the web app, so skipped files cannot enter an index that the app uses for fetching.
+The subject and term manifests are derived from the same publishable files copied into the web app, so a skipped file cannot enter an index the app fetches by. `scrape-times.ts` takes only its years from those files; the times themselves come from each source directory's stamp.
 
-If either changes, the publisher warns. Review and commit its Git diff with the data PR; no separate generation command or second publish run is needed.
+If a subject or term manifest changes, the publisher warns. Review and commit its Git diff with the data PR; no separate generation command or second publish run is needed. `scrape-times.ts` changes on every scrape by design, so it is not warned about.
 
 The default selected term (`DEFAULT_CURRENT_TERM` in [web/src/lib/constants.ts](../web/src/lib/constants.ts)) is set by hand; [constants.test.ts](../web/src/lib/constants.test.ts) verifies it remains in the generated term list.
 

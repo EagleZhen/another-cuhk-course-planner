@@ -5,6 +5,7 @@ import os
 import time
 from dataclasses import asdict, dataclass, field
 from datetime import datetime
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import ddddocr
@@ -13,6 +14,8 @@ import requests
 from bs4 import BeautifulSoup, Tag
 from data_utils import (
     NO_TERMS_DIR,
+    SCHEMA_VERSION,
+    SCRAPE_TIME_FILENAME,
     calculate_duration_seconds,
     clean_class_attributes,
     clean_html_text,
@@ -216,6 +219,7 @@ class ScrapingProgressTracker:
     def start_subject(self, subject: str, estimated_courses: int = 0):
         """Mark subject as started"""
         subjects = self.progress_data["scraping_log"]["subjects"]
+        previous = subjects.get(subject, {})
         subjects[subject] = {
             "status": "in_progress",
             "started_at": utc_now_iso(),
@@ -224,8 +228,12 @@ class ScrapingProgressTracker:
             "completed_courses": [],  # Track completed course codes
             "last_course_completed": "",
             "last_progress_update": utc_now_iso(),
-            "retry_count": subjects.get(subject, {}).get("retry_count", 0),
+            "retry_count": previous.get("retry_count", 0),
         }
+        # Carry forward when the subject last succeeded: the file it wrote is still on
+        # disk, so the entry should keep saying when that data is from.
+        if "last_scraped" in previous:
+            subjects[subject]["last_scraped"] = previous["last_scraped"]
         self._save_progress()
         self.logger.info(f"🚀 Started scraping {subject}")
 
@@ -306,6 +314,9 @@ class ScrapingProgressTracker:
             "retry_count": retry_count,
             "courses_scraped": current_data.get("courses_scraped", 0),
         }
+        # See start_subject: a failed attempt must not erase the last success.
+        if "last_scraped" in current_data:
+            subjects[subject]["last_scraped"] = current_data["last_scraped"]
 
         # Update totals
         log = self.progress_data["scraping_log"]
@@ -1809,8 +1820,15 @@ class CuhkScraper:
 
         return assessment_types
 
-    def scrape_all_subjects(self, subjects: List[str]) -> Dict[str, Any]:
-        """Memory-safe scraping with immediate saves, progress tracking, and memory cleanup"""
+    def scrape_all_subjects(
+        self, subjects: List[str], full_catalog: bool = False
+    ) -> Dict[str, Any]:
+        """Memory-safe scraping with immediate saves, progress tracking, and memory cleanup.
+
+        full_catalog marks a run over every subject CUHK offers, which is what lets it
+        speak for the directories it writes (see _write_scrape_times).
+        """
+        run_started_at = utc_now_iso()
 
         self.logger.info(f"🛡️  Starting scraping for {len(subjects)} subjects")
         self.logger.info(f"📁 Saving to: {self.config.output_directory}/")
@@ -1909,6 +1927,8 @@ class CuhkScraper:
             if i < len(subjects) - 1:
                 time.sleep(self.config.request_delay)
 
+        self._write_scrape_times(saved_files, run_started_at, full_catalog)
+
         # Print progress summary if tracking enabled
         if self.progress_tracker:
             self.progress_tracker.print_summary()
@@ -1931,6 +1951,28 @@ class CuhkScraper:
             "saved_files": saved_files,
         }
 
+    def _write_scrape_times(
+        self, saved_files: Dict[str, List[str]], scraped_at: str, full_catalog: bool
+    ) -> None:
+        """Stamp every directory this run wrote with when the run started.
+
+        Skipped for a partial scrape: it refreshes a few subjects, so advancing a
+        directory's stamp would speak for the subjects it never touched.
+
+        A full run that had failures still stamps, which would overstate the failed
+        subjects' age. Publishing is what stops that reaching the app: it blocks on any
+        subject whose progress status isn't "completed". Keep the two in step if that
+        check ever loosens.
+        """
+        if not full_catalog:
+            self.logger.info("🕒 Partial scrape: leaving scrape times untouched")
+            return
+
+        directories = {Path(path).parent for paths in saved_files.values() for path in paths}
+        for directory in sorted(directories):
+            (directory / SCRAPE_TIME_FILENAME).write_text(f"{scraped_at}\n", encoding="utf-8")
+        self.logger.info(f"🕒 Stamped {len(directories)} directories with {scraped_at}")
+
     def _save_subject_immediately(
         self, subject: str, courses: List[Course], config: ScrapingConfig
     ) -> Optional[List[str]]:
@@ -1950,14 +1992,13 @@ class CuhkScraper:
             if " - " in subject_title:
                 subject_title = subject_title.split(" - ", 1)[1]
 
-            # Create subject data structure with timestamp in metadata (not filename)
-            scraped_at = utc_now_iso()
+            # No scrape timestamp here: it would rewrite every file on every run.
+            # Freshness is stamped once per directory instead (see _write_scrape_times).
             metadata = {
-                "scraped_at": scraped_at,
+                "schema_version": SCHEMA_VERSION,
                 "subject": subject,
                 "subject_title": subject_title,  # Add subject title to metadata
                 "total_courses": len(courses),
-                "scraper_version": "memory-safe-v2.0",
             }
 
             subject_data = {
@@ -1976,7 +2017,9 @@ class CuhkScraper:
                 os.makedirs(dir_path, exist_ok=True)
                 file_path = os.path.join(dir_path, f"{subject}.json")
                 save_json_with_newline(file_path, slice_data)
-                written.append(file_path)
+                # Recorded in logs/scraping_progress.json, which is committed, so keep
+                # separators posix rather than whatever the scraping machine uses.
+                written.append(Path(file_path).as_posix())
 
             # If this scrape found no dormant courses, drop any stale no-terms file so a
             # now-offered course isn't left duplicated in both a year dir and no-terms.
@@ -2004,7 +2047,7 @@ class CuhkScraper:
             # Create per-subject JSON structure
             subject_data = {
                 "metadata": {
-                    "scraped_at": utc_now_iso(),
+                    "schema_version": SCHEMA_VERSION,
                     "subject": subject,
                     "total_courses": len(courses),
                     "output_mode": "per_subject",

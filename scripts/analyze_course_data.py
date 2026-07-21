@@ -409,7 +409,6 @@ def generate_subject_summary(subjects_data: Dict[str, any]) -> Dict[str, any]:
             "total_courses": len(courses),
             "total_sections": total_sections,
             "total_meetings": total_meetings,
-            "scraped_at": metadata.get("scraped_at", "unknown"),
             "subject_title": metadata.get("subject_title", subject_code),
         }
 

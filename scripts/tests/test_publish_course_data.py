@@ -3,7 +3,12 @@ import os
 
 import publish_course_data
 import pytest
-from data_utils import render_subjects_module, render_terms_module
+from data_utils import (
+    SCHEMA_VERSION,
+    render_scrape_times_module,
+    render_subjects_module,
+    render_terms_module,
+)
 from publish_course_data import update_generated_file
 
 
@@ -17,6 +22,9 @@ def _configure_publisher(tmp_path, monkeypatch, *, dry_run=False):
     monkeypatch.setattr(publish_course_data, "PUBLISHED_DATA_DIR", str(published_dir))
     monkeypatch.setattr(publish_course_data, "SUBJECTS_FILE", str(generated_dir / "subjects.ts"))
     monkeypatch.setattr(publish_course_data, "TERMS_FILE", str(generated_dir / "terms.ts"))
+    monkeypatch.setattr(
+        publish_course_data, "SCRAPE_TIMES_FILE", str(generated_dir / "scrape-times.ts")
+    )
     monkeypatch.setattr(publish_course_data, "PUBLISH_LOG_DIR", str(log_dir / "publish"))
     monkeypatch.setattr(
         publish_course_data, "SCRAPING_PROGRESS_FILE", str(log_dir / "scraping_progress.json")
@@ -45,6 +53,7 @@ def _write_course_file(
     year_dir.mkdir(parents=True, exist_ok=True)
     data = {
         "metadata": {
+            "schema_version": SCHEMA_VERSION,
             "subject": subject,
             "subject_title": subject_title,
             "total_courses": 1,
@@ -198,6 +207,51 @@ def test_validation_failure_leaves_manifests_untouched(tmp_path, monkeypatch):
 
     assert subjects_file.read_text() == "subjects-old"
     assert terms_file.read_text() == "terms-old"
+    assert not published_dir.exists()
+
+
+def test_publish_writes_each_year_scrape_time(tmp_path, monkeypatch):
+    # Read from the year directory, so a year CUHK stopped serving keeps its own time
+    # instead of inheriting one from the years still being scraped.
+    source_dir, _, generated_dir = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir)
+    (source_dir / "2025-26" / "_scraped_at.txt").write_text("2026-07-18T00:41:13+00:00\n")
+
+    publish_course_data.main()
+
+    assert (generated_dir / "scrape-times.ts").read_text() == render_scrape_times_module(
+        {"2025-26": "2026-07-18T00:41:13+00:00"}
+    )
+
+
+def test_publish_clears_scrape_times_for_years_without_a_stamp(tmp_path, monkeypatch):
+    # Better no sync time than one left over from a previous publish, which the app
+    # would still display as if it described the data now on disk.
+    source_dir, _, generated_dir = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir)
+    (generated_dir / "scrape-times.ts").write_text(
+        render_scrape_times_module({"2025-26": "2020-01-01T00:00:00+00:00"})
+    )
+
+    publish_course_data.main()
+
+    assert (generated_dir / "scrape-times.ts").read_text() == render_scrape_times_module({})
+
+
+def test_publish_blocks_on_unversioned_data(tmp_path, monkeypatch, capsys):
+    # Blocks, not warns: an unrecognized shape must never reach the app. Pre-versioned
+    # data omits the key, so treating "absent" as current would let all of it through.
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir)
+    course_file = source_dir / "2025-26" / "AAAA.json"
+    data = json.loads(course_file.read_text())
+    del data["metadata"]["schema_version"]
+    course_file.write_text(json.dumps(data))
+
+    with pytest.raises(SystemExit, match="1"):
+        publish_course_data.main()
+
+    assert "Schema version" in capsys.readouterr().out
     assert not published_dir.exists()
 
 

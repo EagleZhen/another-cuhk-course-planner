@@ -19,14 +19,18 @@ import shutil
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, Iterable, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
 from data_utils import (
+    SCHEMA_VERSION,
+    SCRAPE_TIME_FILENAME,
     collect_subjects_from_files,
     collect_terms_from_files,
     diff_subject_manifest,
     diff_term_names,
+    is_subject_file,
+    render_scrape_times_module,
     render_subjects_module,
     render_terms_module,
     save_json_with_newline,
@@ -60,6 +64,7 @@ STRIPPED_COURSE_FIELDS = (
 # Generated frontend manifests
 SUBJECTS_FILE = os.path.join("web", "src", "lib", "generated", "subjects.ts")
 TERMS_FILE = os.path.join("web", "src", "lib", "generated", "terms.ts")
+SCRAPE_TIMES_FILE = os.path.join("web", "src", "lib", "generated", "scrape-times.ts")
 
 
 def update_generated_file(
@@ -117,6 +122,12 @@ def validate_course_file(
     metadata = data.get("metadata", {})
 
     # Check metadata
+    file_version = metadata.get("schema_version")
+    if file_version != SCHEMA_VERSION:
+        issues.append(
+            f"Schema version is {file_version!r}, expected {SCHEMA_VERSION} — re-scrape this subject"
+        )
+
     if metadata.get("subject") != subject_code:
         issues.append(
             f"Subject mismatch: file says '{metadata.get('subject')}', expected '{subject_code}'"
@@ -196,17 +207,11 @@ def find_course_files(year_dir: str) -> Tuple[List[str], List[str], int]:
     unexpected_files = []
 
     for file_path in all_files:
-        filename = os.path.basename(file_path)
-        name_without_ext = os.path.splitext(filename)[0]  # Remove extension
-
-        # Validate it's a proper subject code (4 letters or has underscore for special codes)
-        if (
-            len(name_without_ext) == 4 and name_without_ext.isalpha() and name_without_ext.isupper()
-        ) or "_" in name_without_ext:
+        if is_subject_file(file_path):
             course_files.append(file_path)
         else:
             # Unexpected file format - report but don't include
-            unexpected_files.append(filename)
+            unexpected_files.append(os.path.basename(file_path))
 
     return sorted(course_files), sorted(unexpected_files), len(all_files)
 
@@ -242,6 +247,20 @@ def categorize_year_files(
             files_to_copy.append(file_path)
 
     return files_to_copy, blocking_failures, empty_codes
+
+
+def collect_scrape_times(years: Iterable[str]) -> Dict[str, str]:
+    """Each year's scrape time, read from the directory the scraper stamped.
+
+    A year with no stamp is left out, so the app shows no sync time for it rather
+    than borrowing another year's.
+    """
+    times = {}
+    for year in years:
+        stamp = Path(SOURCE_DATA_DIR) / year / SCRAPE_TIME_FILENAME
+        if stamp.exists():
+            times[year] = stamp.read_text(encoding="utf-8").strip()
+    return times
 
 
 def calculate_scraping_statistics(progress_data: Optional[Dict]) -> Optional[Dict]:
@@ -439,8 +458,9 @@ def main():
         else:
             print(f"Publishing {len(copy_plan)} files under {published_root}/<year>/")
 
-        # Render both manifests before writing either one. This runs after every
-        # validation gate so failed publishes leave generated files untouched.
+        # Render the subject and term manifests before writing either one, and run the
+        # whole block after every validation gate, so a failed publish leaves the
+        # generated files untouched.
         subjects_by_year, subject_titles = collect_subjects_from_files(publishable_files_by_year)
         new_subjects_content = render_subjects_module(subjects_by_year, subject_titles)
 
@@ -491,6 +511,12 @@ def main():
                     print(f"   Removed: {', '.join(sorted(removed))}")
             print(f"   Review the Git diff and commit {Path(TERMS_FILE).as_posix()}.")
             print()
+
+        # Written even when empty, so the module always reflects the data just published
+        # rather than leaving times behind from an earlier run. No "changed" warning:
+        # these move with every scrape by design.
+        scrape_times = collect_scrape_times(publishable_files_by_year)
+        update_generated_file(SCRAPE_TIMES_FILE, render_scrape_times_module(scrape_times), dry_run)
 
         # Copy files, stripping unused fields, into web/public/data/<year>/.
         print()

@@ -128,6 +128,39 @@ Why it fits:
 
 Limitation: bump `DEFAULT_CURRENT_TERM` by hand on rollover; the test catches a stale one.
 
+## Stamp Each Data Directory With Its Scrape Time
+
+Each course file used to carry its own `scraped_at`. Since a scrape rewrites every file, ~90% of the files in a scrape commit differed only by that timestamp (883 of 969 in `5ff71fd8`), burying the real course changes.
+
+Decision: drop the per-file timestamp. A full scrape writes `data/<dir>/_scraped_at.txt`, and publishing reads those into `scrape-times.ts` for the app.
+
+Why it fits:
+
+- one timestamp per directory instead of ~900 per scrape, so a data diff shows course changes
+- **per directory, not per subject**: a scrape only writes the years CUHK still serves, so a dropped year's timestamp freezes with its data. Anything derived from per-subject times (`last_scraped`, or the run's start) keeps advancing instead, because those subjects are still scraped for the live year — it would advertise frozen data as fresh
+- full runs only: a partial scrape can't speak for the subjects it never touched, so it leaves the stamps alone and stays pessimistic
+- a build-time constant, not another fetch: data and code deploy together, and the app already generates `subjects.ts` / `terms.ts` this way. The module stays purely derived, so deleting `generated/` and re-publishing round-trips
+
+Watchouts:
+
+- `schema_version` gates the file shape at publish, but stays optional in the app's Zod schema: a tab open across a deploy can fetch data from a different version, and that must degrade rather than fail to load
+- freshness is not completeness — see [Data Pipeline](data-pipeline.md#freshness)
+- enrollment counters still churn every scrape, so diffs are quieter, not quiet
+
+## Save Each Subject Immediately
+
+A full scrape covers ~260 subjects over ~10 hours. Accumulating every course in memory until the end risks losing the entire run to one crash.
+
+Decision: write each subject's files as soon as it finishes, then `del` its courses and force a `gc.collect()` before the next one (`scrape_all_subjects` in [scripts/cuhk_scraper.py](../scripts/cuhk_scraper.py)).
+
+Why it fits:
+
+- a crash costs the remaining time, not the results: finished subjects are already written, and their previous data stays valid until a later run overwrites it
+- peak memory stays flat in the number of subjects instead of growing across the run
+- the progress log records what each subject produced and when, which is what publishing validates against
+
+Limitation: a re-run rescrapes every subject it is given — there is no skip-completed resume.
+
 ## Eager Current Year, Lazy Archived Years
 
 `CURRENT_ACADEMIC_YEAR` (from `DEFAULT_CURRENT_TERM`) is the single knob for the live year. The app eager-loads it at startup and fetches other years only when selected; a non-live year shows a persistent "archived, for reference only" bar.

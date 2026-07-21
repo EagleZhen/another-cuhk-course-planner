@@ -60,6 +60,7 @@ import {
 import { ChipFilterRow } from '@/components/ChipFilterRow'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
+import { SCRAPED_AT_BY_YEAR } from '@/lib/generated/scrape-times'
 import ReactMarkdown from 'react-markdown'
 import { analytics } from '@/lib/analytics'
 import { getSubjectCodesForYear } from '@/lib/subjectUtils'
@@ -83,7 +84,6 @@ interface CourseSearchProps {
   availableTerms?: string[]
   selectedSections: Map<string, string>
   selectedSubjects?: Set<string> // Subject filter
-  lastDataUpdate?: Date | null // Last data sync timestamp
   onAddCourse: (
     course: InternalCourse,
     termName: string,
@@ -130,7 +130,6 @@ export default function CourseSearch({
   availableTerms = [],
   selectedSections,
   selectedSubjects = new Set(),
-  lastDataUpdate,
   onAddCourse,
   onRemoveCourse,
   onTermChange,
@@ -482,7 +481,6 @@ export default function CourseSearch({
         })
 
         const allCoursesData: InternalCourse[] = []
-        const scrapingTimestamps: Date[] = []
 
         console.log(
           `Loading ${availableSubjects.length} subjects in parallel (exemption codes excluded)...`
@@ -510,19 +508,6 @@ export default function CourseSearch({
               }))
               setLoadedBytes((prev) => prev + dataSize)
 
-              // Extract scraping timestamp from metadata
-              let scrapedAt = null
-              if (rawData.metadata?.scraped_at) {
-                try {
-                  scrapedAt = new Date(rawData.metadata.scraped_at)
-                } catch {
-                  console.warn(
-                    `Invalid scraped_at timestamp in ${subject}.json:`,
-                    rawData.metadata.scraped_at
-                  )
-                }
-              }
-
               // Validate data structure
               if (rawData.courses && Array.isArray(rawData.courses)) {
                 const transformedData = transformExternalCourseData(rawData)
@@ -539,7 +524,6 @@ export default function CourseSearch({
                   courses: transformedData.courses,
                   loadTime: Math.round(loadTime),
                   dataSize: Math.round(dataSize / 1024),
-                  scrapedAt,
                   success: true,
                 }
               } else {
@@ -566,9 +550,6 @@ export default function CourseSearch({
         results.forEach((result) => {
           if (result.success && result.courses) {
             allCoursesData.push(...result.courses)
-            if (result.scrapedAt) {
-              scrapingTimestamps.push(result.scrapedAt)
-            }
             subjectLoadTimes.push({
               subject: result.subject,
               time: result.loadTime || 0,
@@ -630,13 +611,12 @@ export default function CourseSearch({
         setHasDataLoaded(true) // At least one year's data is now available
         setLoading(false)
 
-        // Find the oldest scraping timestamp and notify parent
-        if (scrapingTimestamps.length > 0 && onDataUpdate) {
-          const oldestTimestamp = new Date(Math.min(...scrapingTimestamps.map((d) => d.getTime())))
-          console.debug(
-            `Oldest data from: ${oldestTimestamp.toLocaleString()} (${scrapingTimestamps.length} files checked)`
-          )
-          onDataUpdate(oldestTimestamp, allCoursesData) // Pass both timestamp and fresh course data for sync
+        // Hands the parent fresh course data to sync the cart against, but only from a
+        // complete load: courses of a subject that failed to fetch are indistinguishable
+        // from courses CUHK dropped, and the cart would tombstone them.
+        const scrapedAt = SCRAPED_AT_BY_YEAR[selectedYear]
+        if (failed === 0 && scrapedAt) {
+          onDataUpdate?.(new Date(scrapedAt), allCoursesData)
         }
       } catch (error) {
         console.error('Failed to load course data:', error)
@@ -951,7 +931,7 @@ export default function CourseSearch({
                   onTermChange={onTermChange}
                 />
               </div>
-              {lastDataUpdate && (
+              {SCRAPED_AT_BY_YEAR[selectedYear] && (
                 <>
                   <div className="flex items-center gap-1.5">
                     <AlertTriangle className="w-3 h-3 text-orange-500 flex-shrink-0" />
@@ -962,7 +942,8 @@ export default function CourseSearch({
                       <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                     </span>
                     <span className="whitespace-nowrap">
-                      Last Data Sync: {formatSyncTimestamp(lastDataUpdate)}
+                      Last Data Sync:{' '}
+                      {formatSyncTimestamp(new Date(SCRAPED_AT_BY_YEAR[selectedYear]))}
                     </span>
                   </div>
                 </>
