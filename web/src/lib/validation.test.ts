@@ -48,6 +48,24 @@ describe('transformExternalCourseData', () => {
     expect(result.courses[0].career).toBe('Postgraduate - PGDE')
   })
 
+  it('accepts data from any schema version', () => {
+    // A tab open across a deploy can fetch data written by a different schema
+    // version. Tightening this to a required or exact match would turn that into
+    // a subject that fails to load.
+    for (const metadata of [
+      { subject: 'CSCI', total_courses: 1 },
+      { schema_version: 999, subject: 'CSCI', total_courses: 1 },
+    ]) {
+      const result = transformExternalCourseData({
+        metadata,
+        courses: [
+          { subject: 'CSCI', course_code: '3100', title: 'Software Engineering', credits: '3.00' },
+        ],
+      })
+      expect(result.courses).toHaveLength(1)
+    }
+  })
+
   it('accepts published course data with stripped fields absent', () => {
     // Publish removes fields the app never renders (STRIPPED_COURSE_FIELDS in
     // scripts/publish_course_data.py): course_syllabus, required_readings,

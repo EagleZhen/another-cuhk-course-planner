@@ -60,6 +60,7 @@ import {
 import { ChipFilterRow } from '@/components/ChipFilterRow'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
 import { transformExternalCourseData } from '@/lib/validation'
+import { SCRAPED_AT } from '@/lib/generated/scrape-time'
 import ReactMarkdown from 'react-markdown'
 import { analytics } from '@/lib/analytics'
 import { getSubjectCodesForYear } from '@/lib/subjectUtils'
@@ -482,7 +483,6 @@ export default function CourseSearch({
         })
 
         const allCoursesData: InternalCourse[] = []
-        const scrapingTimestamps: Date[] = []
 
         console.log(
           `Loading ${availableSubjects.length} subjects in parallel (exemption codes excluded)...`
@@ -510,19 +510,6 @@ export default function CourseSearch({
               }))
               setLoadedBytes((prev) => prev + dataSize)
 
-              // Extract scraping timestamp from metadata
-              let scrapedAt = null
-              if (rawData.metadata?.scraped_at) {
-                try {
-                  scrapedAt = new Date(rawData.metadata.scraped_at)
-                } catch {
-                  console.warn(
-                    `Invalid scraped_at timestamp in ${subject}.json:`,
-                    rawData.metadata.scraped_at
-                  )
-                }
-              }
-
               // Validate data structure
               if (rawData.courses && Array.isArray(rawData.courses)) {
                 const transformedData = transformExternalCourseData(rawData)
@@ -539,7 +526,6 @@ export default function CourseSearch({
                   courses: transformedData.courses,
                   loadTime: Math.round(loadTime),
                   dataSize: Math.round(dataSize / 1024),
-                  scrapedAt,
                   success: true,
                 }
               } else {
@@ -566,9 +552,6 @@ export default function CourseSearch({
         results.forEach((result) => {
           if (result.success && result.courses) {
             allCoursesData.push(...result.courses)
-            if (result.scrapedAt) {
-              scrapingTimestamps.push(result.scrapedAt)
-            }
             subjectLoadTimes.push({
               subject: result.subject,
               time: result.loadTime || 0,
@@ -630,14 +613,8 @@ export default function CourseSearch({
         setHasDataLoaded(true) // At least one year's data is now available
         setLoading(false)
 
-        // Find the oldest scraping timestamp and notify parent
-        if (scrapingTimestamps.length > 0 && onDataUpdate) {
-          const oldestTimestamp = new Date(Math.min(...scrapingTimestamps.map((d) => d.getTime())))
-          console.debug(
-            `Oldest data from: ${oldestTimestamp.toLocaleString()} (${scrapingTimestamps.length} files checked)`
-          )
-          onDataUpdate(oldestTimestamp, allCoursesData) // Pass both timestamp and fresh course data for sync
-        }
+        // Also hands the parent fresh course data to sync the cart against.
+        onDataUpdate?.(new Date(SCRAPED_AT), allCoursesData)
       } catch (error) {
         console.error('Failed to load course data:', error)
         loadedYearsRef.current.delete(selectedYear) // released so the year can retry
