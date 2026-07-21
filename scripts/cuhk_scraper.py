@@ -5,6 +5,7 @@ import os
 import time
 from dataclasses import asdict, dataclass, field
 from datetime import datetime
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import ddddocr
@@ -1984,7 +1985,9 @@ class CuhkScraper:
                 os.makedirs(dir_path, exist_ok=True)
                 file_path = os.path.join(dir_path, f"{subject}.json")
                 save_json_with_newline(file_path, slice_data)
-                written.append(file_path)
+                # Recorded in logs/scraping_progress.json, which is committed, so keep
+                # separators posix rather than whatever the scraping machine uses.
+                written.append(Path(file_path).as_posix())
 
             # If this scrape found no dormant courses, drop any stale no-terms file so a
             # now-offered course isn't left duplicated in both a year dir and no-terms.
