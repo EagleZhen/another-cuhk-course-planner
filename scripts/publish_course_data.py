@@ -28,6 +28,7 @@ from data_utils import (
     collect_terms_from_files,
     diff_subject_manifest,
     diff_term_names,
+    render_scrape_time_module,
     render_subjects_module,
     render_terms_module,
     save_json_with_newline,
@@ -61,6 +62,7 @@ STRIPPED_COURSE_FIELDS = (
 # Generated frontend manifests
 SUBJECTS_FILE = os.path.join("web", "src", "lib", "generated", "subjects.ts")
 TERMS_FILE = os.path.join("web", "src", "lib", "generated", "terms.ts")
+SCRAPE_TIME_FILE = os.path.join("web", "src", "lib", "generated", "scrape-time.ts")
 
 
 def update_generated_file(
@@ -249,6 +251,20 @@ def categorize_year_files(
             files_to_copy.append(file_path)
 
     return files_to_copy, blocking_failures, empty_codes
+
+
+def collect_scraped_at(
+    publishable_files_by_year: Dict[str, List[Path]], progress_data: Optional[Dict]
+) -> Optional[str]:
+    """Oldest scrape time across published subjects — the only one true of all of them."""
+    subjects = (progress_data or {}).get("scraping_log", {}).get("subjects", {})
+    times = [
+        last_scraped
+        for filepaths in publishable_files_by_year.values()
+        for filepath in filepaths
+        if (last_scraped := subjects.get(filepath.stem, {}).get("last_scraped"))
+    ]
+    return min(times, key=datetime.fromisoformat) if times else None
 
 
 def calculate_scraping_statistics(progress_data: Optional[Dict]) -> Optional[Dict]:
@@ -498,6 +514,11 @@ def main():
                     print(f"   Removed: {', '.join(sorted(removed))}")
             print(f"   Review the Git diff and commit {Path(TERMS_FILE).as_posix()}.")
             print()
+
+        # No "changed" warning here: this one moves with every scrape by design.
+        scraped_at = collect_scraped_at(publishable_files_by_year, progress_data)
+        if scraped_at:
+            update_generated_file(SCRAPE_TIME_FILE, render_scrape_time_module(scraped_at), dry_run)
 
         # Copy files, stripping unused fields, into web/public/data/<year>/.
         print()

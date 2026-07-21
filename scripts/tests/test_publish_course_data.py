@@ -3,7 +3,12 @@ import os
 
 import publish_course_data
 import pytest
-from data_utils import SCHEMA_VERSION, render_subjects_module, render_terms_module
+from data_utils import (
+    SCHEMA_VERSION,
+    render_scrape_time_module,
+    render_subjects_module,
+    render_terms_module,
+)
 from publish_course_data import update_generated_file
 
 
@@ -17,6 +22,9 @@ def _configure_publisher(tmp_path, monkeypatch, *, dry_run=False):
     monkeypatch.setattr(publish_course_data, "PUBLISHED_DATA_DIR", str(published_dir))
     monkeypatch.setattr(publish_course_data, "SUBJECTS_FILE", str(generated_dir / "subjects.ts"))
     monkeypatch.setattr(publish_course_data, "TERMS_FILE", str(generated_dir / "terms.ts"))
+    monkeypatch.setattr(
+        publish_course_data, "SCRAPE_TIME_FILE", str(generated_dir / "scrape-time.ts")
+    )
     monkeypatch.setattr(publish_course_data, "PUBLISH_LOG_DIR", str(log_dir / "publish"))
     monkeypatch.setattr(
         publish_course_data, "SCRAPING_PROGRESS_FILE", str(log_dir / "scraping_progress.json")
@@ -200,6 +208,41 @@ def test_validation_failure_leaves_manifests_untouched(tmp_path, monkeypatch):
     assert subjects_file.read_text() == "subjects-old"
     assert terms_file.read_text() == "terms-old"
     assert not published_dir.exists()
+
+
+def _write_progress(tmp_path, last_scraped_by_subject):
+    log_dir = tmp_path / "logs"
+    log_dir.mkdir(parents=True, exist_ok=True)
+    subjects = {
+        subject: {
+            "status": "completed",
+            "last_scraped": last_scraped,
+            "courses_count": 1,
+            "courses_scraped": 1,
+        }
+        for subject, last_scraped in last_scraped_by_subject.items()
+    }
+    (log_dir / "scraping_progress.json").write_text(
+        json.dumps({"scraping_log": {"subjects": subjects}})
+    )
+
+
+def test_publish_writes_the_oldest_scrape_time(tmp_path, monkeypatch):
+    # The oldest is the only time true of every subject; the newest would claim BBBB's
+    # data is hours fresher than it is.
+    source_dir, _, generated_dir = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir)
+    _write_course_file(source_dir, filename="BBBB.json", subject="BBBB", subject_title="Subject B")
+    _write_progress(
+        tmp_path,
+        {"AAAA": "2026-07-18T11:16:31+00:00", "BBBB": "2026-07-18T00:48:36+00:00"},
+    )
+
+    publish_course_data.main()
+
+    assert (generated_dir / "scrape-time.ts").read_text() == render_scrape_time_module(
+        "2026-07-18T00:48:36+00:00"
+    )
 
 
 def test_publish_blocks_on_unversioned_data(tmp_path, monkeypatch, capsys):
