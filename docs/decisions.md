@@ -132,7 +132,7 @@ Limitation: bump `DEFAULT_CURRENT_TERM` by hand on rollover; the test catches a 
 
 Each course file used to carry its own `scraped_at`. Since a scrape rewrites every file, ~90% of the files in a scrape commit differed only by that timestamp (883 of 969 in `5ff71fd8`), burying the real course changes.
 
-Decision: drop the per-file timestamp. A full scrape writes `data/<dir>/scraped-at.txt`, and publishing reads those into `scrape-times.ts` for the app.
+Decision: drop the per-file timestamp. A full scrape writes `data/<dir>/_scraped_at.txt`, and publishing reads those into `scrape-times.ts` for the app.
 
 Why it fits:
 

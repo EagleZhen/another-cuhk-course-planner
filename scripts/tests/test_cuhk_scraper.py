@@ -79,15 +79,15 @@ def test_full_scrape_stamps_every_directory_it_wrote(scraper, tmp_path):
     # publisher only ever reads year dirs.
     _write_scrape_times(scraper, tmp_path, full_catalog=True)
 
-    assert (tmp_path / "2025-26" / "scraped-at.txt").read_text() == "2026-07-18T00:41:13+00:00\n"
-    assert (tmp_path / "no-terms" / "scraped-at.txt").exists()
+    assert (tmp_path / "2025-26" / "_scraped_at.txt").read_text() == "2026-07-18T00:41:13+00:00\n"
+    assert (tmp_path / "no-terms" / "_scraped_at.txt").exists()
 
 
 def test_partial_scrape_leaves_scrape_times_alone(scraper, tmp_path):
     # A few refreshed subjects can't speak for the rest of the directory.
     _write_scrape_times(scraper, tmp_path, full_catalog=False)
 
-    assert not list(tmp_path.rglob("scraped-at.txt"))
+    assert not list(tmp_path.rglob("_scraped_at.txt"))
 
 
 def test_dropped_year_keeps_its_scrape_time(scraper, tmp_path):
@@ -109,8 +109,8 @@ def test_dropped_year_keeps_its_scrape_time(scraper, tmp_path):
         True,
     )
 
-    assert (tmp_path / "2025-26" / "scraped-at.txt").read_text() == "2026-01-01T00:00:00+00:00\n"
-    assert (tmp_path / "2026-27" / "scraped-at.txt").read_text() == "2027-01-01T00:00:00+00:00\n"
+    assert (tmp_path / "2025-26" / "_scraped_at.txt").read_text() == "2026-01-01T00:00:00+00:00\n"
+    assert (tmp_path / "2026-27" / "_scraped_at.txt").read_text() == "2027-01-01T00:00:00+00:00\n"
 
 
 @pytest.fixture

@@ -215,7 +215,7 @@ def test_publish_writes_each_year_scrape_time(tmp_path, monkeypatch):
     # instead of inheriting one from the years still being scraped.
     source_dir, _, generated_dir = _configure_publisher(tmp_path, monkeypatch)
     _write_course_file(source_dir)
-    (source_dir / "2025-26" / "scraped-at.txt").write_text("2026-07-18T00:41:13+00:00\n")
+    (source_dir / "2025-26" / "_scraped_at.txt").write_text("2026-07-18T00:41:13+00:00\n")
 
     publish_course_data.main()
 

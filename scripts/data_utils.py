@@ -32,7 +32,7 @@ NO_TERMS_DIR = "no-terms"
 
 # Holds one ISO timestamp: when the scrape that last wrote this directory started.
 # Sits beside the course files so it freezes with them once CUHK drops a year.
-SCRAPE_TIME_FILENAME = "scraped-at.txt"
+SCRAPE_TIME_FILENAME = "_scraped_at.txt"
 
 
 def is_subject_file(path: Path) -> bool:
