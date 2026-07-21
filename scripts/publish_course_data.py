@@ -23,6 +23,7 @@ from typing import Dict, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
 from data_utils import (
+    SCHEMA_VERSION,
     collect_subjects_from_files,
     collect_terms_from_files,
     diff_subject_manifest,
@@ -117,6 +118,12 @@ def validate_course_file(
     metadata = data.get("metadata", {})
 
     # Check metadata
+    file_version = metadata.get("schema_version")
+    if file_version != SCHEMA_VERSION:
+        issues.append(
+            f"Schema version is {file_version!r}, expected {SCHEMA_VERSION} — re-scrape this subject"
+        )
+
     if metadata.get("subject") != subject_code:
         issues.append(
             f"Subject mismatch: file says '{metadata.get('subject')}', expected '{subject_code}'"

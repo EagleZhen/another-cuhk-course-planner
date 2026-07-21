@@ -3,7 +3,7 @@ import os
 
 import publish_course_data
 import pytest
-from data_utils import render_subjects_module, render_terms_module
+from data_utils import SCHEMA_VERSION, render_subjects_module, render_terms_module
 from publish_course_data import update_generated_file
 
 
@@ -45,6 +45,7 @@ def _write_course_file(
     year_dir.mkdir(parents=True, exist_ok=True)
     data = {
         "metadata": {
+            "schema_version": SCHEMA_VERSION,
             "subject": subject,
             "subject_title": subject_title,
             "total_courses": 1,
@@ -198,6 +199,23 @@ def test_validation_failure_leaves_manifests_untouched(tmp_path, monkeypatch):
 
     assert subjects_file.read_text() == "subjects-old"
     assert terms_file.read_text() == "terms-old"
+    assert not published_dir.exists()
+
+
+def test_publish_blocks_on_unversioned_data(tmp_path, monkeypatch, capsys):
+    # Blocks, not warns: an unrecognized shape must never reach the app. Pre-versioned
+    # data omits the key, so treating "absent" as current would let all of it through.
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir)
+    course_file = source_dir / "2025-26" / "AAAA.json"
+    data = json.loads(course_file.read_text())
+    del data["metadata"]["schema_version"]
+    course_file.write_text(json.dumps(data))
+
+    with pytest.raises(SystemExit, match="1"):
+        publish_course_data.main()
+
+    assert "Schema version" in capsys.readouterr().out
     assert not published_dir.exists()
 
 
