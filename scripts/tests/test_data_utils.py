@@ -68,6 +68,17 @@ def test_collect_subjects_from_files_excludes_unselected_files(tmp_path):
     assert subject_titles == {"AAAA": "Subject A"}
 
 
+def test_collect_subjects_ignores_non_subject_files(tmp_path):
+    # Year dirs hold more than course files. Readers must skip what isn't named for a
+    # subject code rather than assume every .json has course metadata.
+    _write_subject_manifest_file(tmp_path, "2025-26", "AAAA", "Subject A")
+    (tmp_path / "2025-26" / "anything.json").write_text('{"not": "a subject file"}')
+
+    subjects_by_year, _ = collect_subjects(tmp_path)
+
+    assert subjects_by_year == {"2025-26": ["AAAA"]}
+
+
 def test_collect_subjects_rejects_filename_metadata_mismatch(tmp_path):
     _write_subject_manifest_file(tmp_path, "2025-26", "AAAA", "Subject B", metadata_subject="BBBB")
 

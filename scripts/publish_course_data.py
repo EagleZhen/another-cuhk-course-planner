@@ -28,6 +28,7 @@ from data_utils import (
     collect_terms_from_files,
     diff_subject_manifest,
     diff_term_names,
+    is_subject_file,
     render_scrape_time_module,
     render_subjects_module,
     render_terms_module,
@@ -205,17 +206,11 @@ def find_course_files(year_dir: str) -> Tuple[List[str], List[str], int]:
     unexpected_files = []
 
     for file_path in all_files:
-        filename = os.path.basename(file_path)
-        name_without_ext = os.path.splitext(filename)[0]  # Remove extension
-
-        # Validate it's a proper subject code (4 letters or has underscore for special codes)
-        if (
-            len(name_without_ext) == 4 and name_without_ext.isalpha() and name_without_ext.isupper()
-        ) or "_" in name_without_ext:
+        if is_subject_file(file_path):
             course_files.append(file_path)
         else:
             # Unexpected file format - report but don't include
-            unexpected_files.append(filename)
+            unexpected_files.append(os.path.basename(file_path))
 
     return sorted(course_files), sorted(unexpected_files), len(all_files)
 

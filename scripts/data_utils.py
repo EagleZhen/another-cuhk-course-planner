@@ -12,7 +12,7 @@ import re
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Iterable, Optional, Tuple
+from typing import Any, Iterable, Mapping, Optional, Tuple
 from zoneinfo import ZoneInfo
 
 from bs4 import BeautifulSoup, Comment, Tag
@@ -29,6 +29,15 @@ except ImportError:
 # Directory name for the bucket of courses with no scheduled terms (the None key
 # from partition_subject_by_year). Not a year, so year globs exclude it.
 NO_TERMS_DIR = "no-terms"
+
+
+def is_subject_file(path: Path) -> bool:
+    """Whether a data file holds one subject's courses, rather than anything else kept
+    alongside it. Named for the subject code: four uppercase letters, or an underscore
+    for the EX_* exemption codes."""
+    stem = Path(path).stem
+    return (len(stem) == 4 and stem.isalpha() and stem.isupper()) or "_" in stem
+
 
 # Stamped into every course file's metadata; the publisher rejects anything else.
 # Bump on any file-shape change, and add a row to the table in docs/data-pipeline.md.
@@ -549,7 +558,7 @@ def year_dirs(data_root: Path) -> list[Path]:
 
 
 def collect_subjects_from_files(
-    files_by_year: dict[str, Iterable[Path]],
+    files_by_year: Mapping[str, Iterable[Path]],
 ) -> Tuple[dict[str, list[str]], dict[str, str]]:
     """Collect year-scoped subjects from an explicit set of course files."""
     subjects_by_year: dict[str, list[str]] = {}
@@ -577,11 +586,14 @@ def collect_subjects_from_files(
     return subjects_by_year, subject_titles
 
 
+def subject_files(directory: Path) -> list[Path]:
+    """Course files in a data directory, skipping anything else that lives there."""
+    return sorted(path for path in Path(directory).glob("*.json") if is_subject_file(path))
+
+
 def collect_subjects(data_root: Path) -> Tuple[dict[str, list[str]], dict[str, str]]:
     """Collect year-scoped subject codes and their latest titles from scraped data."""
-    files_by_year = {
-        year_dir.name: sorted(year_dir.glob("*.json")) for year_dir in year_dirs(data_root)
-    }
+    files_by_year = {year_dir.name: subject_files(year_dir) for year_dir in year_dirs(data_root)}
     return collect_subjects_from_files(files_by_year)
 
 
@@ -764,7 +776,7 @@ def collect_terms_from_files(filepaths: Iterable[Path]) -> dict[str, list[str]]:
 
 def collect_terms_by_year(year_dir: Path) -> dict[str, list[str]]:
     """Collect terms found under a year directory, grouped by academic year."""
-    return collect_terms_from_files(sorted(Path(year_dir).glob("*.json")))
+    return collect_terms_from_files(subject_files(year_dir))
 
 
 def render_terms_module(terms_by_year: dict[str, list[str]]) -> str:
