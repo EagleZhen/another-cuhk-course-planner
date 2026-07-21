@@ -230,8 +230,8 @@ class ScrapingProgressTracker:
             "last_progress_update": utc_now_iso(),
             "retry_count": previous.get("retry_count", 0),
         }
-        # Carry forward when the subject last succeeded: its data file survives this
-        # run, and the publisher needs that age even if this attempt never finishes.
+        # Carry forward when the subject last succeeded: the file it wrote is still on
+        # disk, so the entry should keep saying when that data is from.
         if "last_scraped" in previous:
             subjects[subject]["last_scraped"] = previous["last_scraped"]
         self._save_progress()
@@ -1988,7 +1988,7 @@ class CuhkScraper:
                 subject_title = subject_title.split(" - ", 1)[1]
 
             # No scrape timestamp here: it would rewrite every file on every run.
-            # Freshness comes from last_scraped in logs/scraping_progress.json.
+            # Freshness is stamped once per directory instead (see _write_scrape_times).
             metadata = {
                 "schema_version": SCHEMA_VERSION,
                 "subject": subject,

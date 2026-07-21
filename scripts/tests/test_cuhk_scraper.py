@@ -123,8 +123,8 @@ def _entry(tracker, subject):
 
 
 def test_last_scraped_survives_retry_and_failure(tracker):
-    # The subject's data file outlives a failed re-scrape, so its recorded age must
-    # too: publishing blocks on a published subject with no known scrape time.
+    # The subject's data file outlives a failed re-scrape, so the log should keep
+    # reporting when that data is from.
     tracker.complete_subject("TEST", 5, "data/2025-26/TEST.json", 1.0, {})
     completed_at = _entry(tracker, "TEST")["last_scraped"]
 

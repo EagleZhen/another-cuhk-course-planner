@@ -71,7 +71,7 @@ The publish script checks:
 
 These checks validate selected files; they do not prove that an academic year contains every subject. Treat unexpected subject removals as data-review signals.
 
-After validation succeeds, publishing regenerates the app's subject and term manifests (see [Generated Manifests](#generated-manifests)). Validation failures and dry runs leave both manifests unchanged.
+After validation succeeds, publishing regenerates the app's manifests (see [Generated Manifests](#generated-manifests)). Validation failures and dry runs leave them unchanged.
 
 Publish logs are written to [logs/latest_publish.log](../logs/latest_publish.log) and timestamped files in [logs/publish/](../logs/publish/).
 
@@ -90,7 +90,7 @@ Publishing generates the app's manifests from validated yearly data:
 - [terms.ts](../web/src/lib/generated/terms.ts): available terms per academic year
 - [scrape-times.ts](../web/src/lib/generated/scrape-times.ts): each year's scrape time (see [Freshness](#freshness))
 
-All three are derived from the same publishable files copied into the web app, so skipped files cannot enter an index that the app uses for fetching.
+The subject and term manifests are derived from the same publishable files copied into the web app, so a skipped file cannot enter an index the app fetches by. `scrape-times.ts` takes only its years from those files; the times themselves come from each source directory's stamp.
 
 If a subject or term manifest changes, the publisher warns. Review and commit its Git diff with the data PR; no separate generation command or second publish run is needed. `scrape-times.ts` changes on every scrape by design, so it is not warned about.
 

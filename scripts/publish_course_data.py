@@ -458,8 +458,9 @@ def main():
         else:
             print(f"Publishing {len(copy_plan)} files under {published_root}/<year>/")
 
-        # Render both manifests before writing either one. This runs after every
-        # validation gate so failed publishes leave generated files untouched.
+        # Render the subject and term manifests before writing either one, and run the
+        # whole block after every validation gate, so a failed publish leaves the
+        # generated files untouched.
         subjects_by_year, subject_titles = collect_subjects_from_files(publishable_files_by_year)
         new_subjects_content = render_subjects_module(subjects_by_year, subject_titles)
 
