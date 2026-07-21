@@ -1958,6 +1958,11 @@ class CuhkScraper:
 
         Skipped for a partial scrape: it refreshes a few subjects, so advancing a
         directory's stamp would speak for the subjects it never touched.
+
+        A full run that had failures still stamps, which would overstate the failed
+        subjects' age. Publishing is what stops that reaching the app: it blocks on any
+        subject whose progress status isn't "completed". Keep the two in step if that
+        check ever loosens.
         """
         if not full_catalog:
             self.logger.info("🕒 Partial scrape: leaving scrape times untouched")

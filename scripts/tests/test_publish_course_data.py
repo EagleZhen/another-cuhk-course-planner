@@ -224,14 +224,18 @@ def test_publish_writes_each_year_scrape_time(tmp_path, monkeypatch):
     )
 
 
-def test_publish_omits_years_without_a_scrape_time(tmp_path, monkeypatch):
-    # Better no sync time than one borrowed from another year.
+def test_publish_clears_scrape_times_for_years_without_a_stamp(tmp_path, monkeypatch):
+    # Better no sync time than one left over from a previous publish, which the app
+    # would still display as if it described the data now on disk.
     source_dir, _, generated_dir = _configure_publisher(tmp_path, monkeypatch)
     _write_course_file(source_dir)
+    (generated_dir / "scrape-times.ts").write_text(
+        render_scrape_times_module({"2025-26": "2020-01-01T00:00:00+00:00"})
+    )
 
     publish_course_data.main()
 
-    assert not (generated_dir / "scrape-times.ts").exists()
+    assert (generated_dir / "scrape-times.ts").read_text() == render_scrape_times_module({})
 
 
 def test_publish_blocks_on_unversioned_data(tmp_path, monkeypatch, capsys):

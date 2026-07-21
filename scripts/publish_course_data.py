@@ -512,12 +512,11 @@ def main():
             print(f"   Review the Git diff and commit {Path(TERMS_FILE).as_posix()}.")
             print()
 
-        # No "changed" warning here: these move with every scrape by design.
+        # Written even when empty, so the module always reflects the data just published
+        # rather than leaving times behind from an earlier run. No "changed" warning:
+        # these move with every scrape by design.
         scrape_times = collect_scrape_times(publishable_files_by_year)
-        if scrape_times:
-            update_generated_file(
-                SCRAPE_TIMES_FILE, render_scrape_times_module(scrape_times), dry_run
-            )
+        update_generated_file(SCRAPE_TIMES_FILE, render_scrape_times_module(scrape_times), dry_run)
 
         # Copy files, stripping unused fields, into web/public/data/<year>/.
         print()
