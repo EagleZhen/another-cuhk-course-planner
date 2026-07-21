@@ -36,7 +36,8 @@ def main():
         scraper = CuhkScraper(config)
 
         # Get subjects (from args or live website)
-        if len(sys.argv) > 1:
+        full_catalog = len(sys.argv) <= 1
+        if not full_catalog:
             # Debug mode: scrape specific subjects from command line
             subjects = sys.argv[1].split(",")
             logger.info(f"🎯 Debug mode: scraping {len(subjects)} subject(s): {subjects}")
@@ -65,7 +66,7 @@ def main():
         logger.info("  - Subject titles included in metadata")
 
         # Use clean core API (separation of concerns)
-        results = scraper.scrape_all_subjects(subjects)
+        results = scraper.scrape_all_subjects(subjects, full_catalog=full_catalog)
 
         # Create summary (this is "what to scrape" logic, not core scraping)
         completed_count = len(results["completed"])

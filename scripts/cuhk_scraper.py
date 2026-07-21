@@ -15,6 +15,7 @@ from bs4 import BeautifulSoup, Tag
 from data_utils import (
     NO_TERMS_DIR,
     SCHEMA_VERSION,
+    SCRAPE_TIME_FILENAME,
     calculate_duration_seconds,
     clean_class_attributes,
     clean_html_text,
@@ -1819,8 +1820,15 @@ class CuhkScraper:
 
         return assessment_types
 
-    def scrape_all_subjects(self, subjects: List[str]) -> Dict[str, Any]:
-        """Memory-safe scraping with immediate saves, progress tracking, and memory cleanup"""
+    def scrape_all_subjects(
+        self, subjects: List[str], full_catalog: bool = False
+    ) -> Dict[str, Any]:
+        """Memory-safe scraping with immediate saves, progress tracking, and memory cleanup.
+
+        full_catalog marks a run over every subject CUHK offers, which is what lets it
+        speak for the directories it writes (see _write_scrape_times).
+        """
+        run_started_at = utc_now_iso()
 
         self.logger.info(f"🛡️  Starting scraping for {len(subjects)} subjects")
         self.logger.info(f"📁 Saving to: {self.config.output_directory}/")
@@ -1919,6 +1927,8 @@ class CuhkScraper:
             if i < len(subjects) - 1:
                 time.sleep(self.config.request_delay)
 
+        self._write_scrape_times(saved_files, run_started_at, full_catalog)
+
         # Print progress summary if tracking enabled
         if self.progress_tracker:
             self.progress_tracker.print_summary()
@@ -1940,6 +1950,23 @@ class CuhkScraper:
             "failed": failed_subjects,
             "saved_files": saved_files,
         }
+
+    def _write_scrape_times(
+        self, saved_files: Dict[str, List[str]], scraped_at: str, full_catalog: bool
+    ) -> None:
+        """Stamp every directory this run wrote with when the run started.
+
+        Skipped for a partial scrape: it refreshes a few subjects, so advancing a
+        directory's stamp would speak for the subjects it never touched.
+        """
+        if not full_catalog:
+            self.logger.info("🕒 Partial scrape: leaving scrape times untouched")
+            return
+
+        directories = {Path(path).parent for paths in saved_files.values() for path in paths}
+        for directory in sorted(directories):
+            (directory / SCRAPE_TIME_FILENAME).write_text(f"{scraped_at}\n", encoding="utf-8")
+        self.logger.info(f"🕒 Stamped {len(directories)} directories with {scraped_at}")
 
     def _save_subject_immediately(
         self, subject: str, courses: List[Course], config: ScrapingConfig

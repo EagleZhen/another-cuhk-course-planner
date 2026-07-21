@@ -67,6 +67,52 @@ def test_metadata_is_versioned_and_carries_no_timestamp(scraper, tmp_path):
     assert "scraped_at" not in metadata
 
 
+def _write_scrape_times(scraper, out_dir, *, full_catalog):
+    saved = _save(scraper, [_course("1000", ["2025-26 Term 1"]), _course("9999", [])], out_dir)
+    CuhkScraper._write_scrape_times(
+        scraper, {"TEST": saved}, "2026-07-18T00:41:13+00:00", full_catalog
+    )
+
+
+def test_full_scrape_stamps_every_directory_it_wrote(scraper, tmp_path):
+    # Including no-terms: stamping whatever was written needs no special cases, and the
+    # publisher only ever reads year dirs.
+    _write_scrape_times(scraper, tmp_path, full_catalog=True)
+
+    assert (tmp_path / "2025-26" / "scraped-at.txt").read_text() == "2026-07-18T00:41:13+00:00\n"
+    assert (tmp_path / "no-terms" / "scraped-at.txt").exists()
+
+
+def test_partial_scrape_leaves_scrape_times_alone(scraper, tmp_path):
+    # A few refreshed subjects can't speak for the rest of the directory.
+    _write_scrape_times(scraper, tmp_path, full_catalog=False)
+
+    assert not list(tmp_path.rglob("scraped-at.txt"))
+
+
+def test_dropped_year_keeps_its_scrape_time(scraper, tmp_path):
+    # Once CUHK stops serving a year, scrapes stop writing it while its files stay on
+    # disk. Its stamp has to stay put rather than follow the years still produced.
+    _save(scraper, [_course("1000", ["2025-26 Term 1", "2026-27 Term 1"])], tmp_path)
+    CuhkScraper._write_scrape_times(
+        scraper,
+        {"TEST": [str(tmp_path / "2025-26" / "TEST.json")]},
+        "2026-01-01T00:00:00+00:00",
+        True,
+    )
+
+    _save(scraper, [_course("1000", ["2026-27 Term 1"])], tmp_path)
+    CuhkScraper._write_scrape_times(
+        scraper,
+        {"TEST": [str(tmp_path / "2026-27" / "TEST.json")]},
+        "2027-01-01T00:00:00+00:00",
+        True,
+    )
+
+    assert (tmp_path / "2025-26" / "scraped-at.txt").read_text() == "2026-01-01T00:00:00+00:00\n"
+    assert (tmp_path / "2026-27" / "scraped-at.txt").read_text() == "2027-01-01T00:00:00+00:00\n"
+
+
 @pytest.fixture
 def tracker(tmp_path):
     return ScrapingProgressTracker(str(tmp_path / "progress.json"), logging.getLogger("test"))

@@ -30,6 +30,10 @@ except ImportError:
 # from partition_subject_by_year). Not a year, so year globs exclude it.
 NO_TERMS_DIR = "no-terms"
 
+# Holds one ISO timestamp: when the scrape that last wrote this directory started.
+# Sits beside the course files so it freezes with them once CUHK drops a year.
+SCRAPE_TIME_FILENAME = "scraped-at.txt"
+
 
 def is_subject_file(path: Path) -> bool:
     """Whether a data file holds one subject's courses, rather than anything else kept
