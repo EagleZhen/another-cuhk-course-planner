@@ -951,7 +951,7 @@ export default function CourseSearch({
                       <time dateTime={SCRAPED_AT_BY_YEAR[selectedYear]}>
                         {mounted
                           ? formatSyncTimestamp(new Date(SCRAPED_AT_BY_YEAR[selectedYear]))
-                          : '—'}
+                          : 'Loading…'}
                       </time>
                     </span>
                   </div>
