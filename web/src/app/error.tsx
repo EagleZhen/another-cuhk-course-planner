@@ -17,14 +17,18 @@ export default function ErrorPage({ error }: { error: Error & { digest?: string 
         className="w-full max-w-md rounded-xl border border-slate-200 bg-white p-8 text-center shadow-sm"
       >
         <TriangleAlert aria-hidden="true" className="mx-auto mb-4 size-10 text-amber-500" />
-        <h1 className="text-xl font-semibold text-slate-900">Something went wrong</h1>
-        <p className="mt-2 text-sm text-slate-600">
-          The planner hit an unexpected problem. Reload the page to try again.
-        </p>
-        <Button className="mt-6" onClick={() => window.location.reload()}>
+        <h1 className="text-balance text-xl font-semibold text-slate-900">
+          The planner ran into a problem
+        </h1>
+        <p className="mt-2 text-balance text-sm text-slate-600">Reload the page to try again.</p>
+        <Button
+          className="mt-6 bg-slate-900 hover:bg-slate-700 active:bg-slate-950"
+          onClick={() => window.location.reload()}
+        >
           <RefreshCw aria-hidden="true" />
           Reload page
         </Button>
+        <p className="mt-3 text-xs text-slate-500">Still stuck? Let me know through Feedback.</p>
       </section>
     </main>
   )
