@@ -20,7 +20,7 @@ import type {
   InvalidEnrollmentState,
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
-import { SCHEDULE_DATA_VERSION } from './constants'
+import { HONG_KONG_TIMEZONE, HONG_KONG_TIMEZONE_LABEL, SCHEDULE_DATA_VERSION } from './constants'
 import { createEvents } from 'ics'
 import moment from 'moment-timezone'
 
@@ -1047,13 +1047,15 @@ export function formatSyncTimestamp(date: Date): string {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
+    timeZone: HONG_KONG_TIMEZONE,
   })
   const formattedTime = date.toLocaleTimeString('en-GB', {
     hour: '2-digit',
     minute: '2-digit',
-    hour12: false,
+    hourCycle: 'h23',
+    timeZone: HONG_KONG_TIMEZONE,
   })
-  return `${formattedDate} ${formattedTime}`
+  return `${formattedDate} ${formattedTime} ${HONG_KONG_TIMEZONE_LABEL}`
 }
 
 /**
@@ -1766,7 +1768,7 @@ function convertToHongKongUTC(date: Date, hours: number, minutes: number): momen
   const timeString = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')} ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:00`
 
   // Parse as Hong Kong time and convert to UTC
-  return moment.tz(timeString, 'Asia/Hong_Kong').utc()
+  return moment.tz(timeString, HONG_KONG_TIMEZONE).utc()
 }
 
 /**
