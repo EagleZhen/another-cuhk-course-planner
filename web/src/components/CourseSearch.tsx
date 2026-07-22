@@ -140,6 +140,8 @@ export default function CourseSearch({
   onAvailableSubjectsUpdate,
   onClearSubjects,
 }: CourseSearchProps) {
+  // Keeps the timestamp out of the prerendered HTML, where browsers rewrite it before hydration.
+  const [mounted, setMounted] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
   const [isFiltering, setIsFiltering] = useState(false)
@@ -161,6 +163,8 @@ export default function CourseSearch({
   })
   const [searchSequence, setSearchSequence] = useState(0) // Track new searches for auto-expansion
   const [isFromCourseDetails, setIsFromCourseDetails] = useState(false) // Track if search is from course details
+
+  useEffect(() => setMounted(true), [])
 
   // Day filter toggle function
   const toggleDayFilter = (dayIndex: number) => {
@@ -945,7 +949,9 @@ export default function CourseSearch({
                       Last Data Sync:{' '}
                       {/* dateTime carries the unambiguous instant for machines and screen readers. */}
                       <time dateTime={SCRAPED_AT_BY_YEAR[selectedYear]}>
-                        {formatSyncTimestamp(new Date(SCRAPED_AT_BY_YEAR[selectedYear]))}
+                        {mounted
+                          ? formatSyncTimestamp(new Date(SCRAPED_AT_BY_YEAR[selectedYear]))
+                          : 'Loading…'}
                       </time>
                     </span>
                   </div>
