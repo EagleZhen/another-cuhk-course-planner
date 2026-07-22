@@ -947,12 +947,16 @@ export default function CourseSearch({
                     </span>
                     <span className="whitespace-nowrap">
                       Last Data Sync:{' '}
-                      {/* dateTime carries the unambiguous instant for machines and screen readers. */}
-                      <time dateTime={SCRAPED_AT_BY_YEAR[selectedYear]}>
-                        {mounted
-                          ? formatSyncTimestamp(new Date(SCRAPED_AT_BY_YEAR[selectedYear]))
-                          : 'Loading…'}
-                      </time>
+                      {/* The whole element waits for mount: a prerendered <time> is what iOS
+                          data detectors look for, and it would wrap non-temporal placeholder
+                          text. dateTime carries the instant for machines and screen readers. */}
+                      {mounted ? (
+                        <time dateTime={SCRAPED_AT_BY_YEAR[selectedYear]}>
+                          {formatSyncTimestamp(new Date(SCRAPED_AT_BY_YEAR[selectedYear]))}
+                        </time>
+                      ) : (
+                        'Loading…'
+                      )}
                     </span>
                   </div>
                 </>
