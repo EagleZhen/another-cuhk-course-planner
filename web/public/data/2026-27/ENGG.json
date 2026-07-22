@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "ENGG",
     "subject_title": "Courses offered by Fac of Erg",
-    "total_courses": 33
+    "total_courses": 34
   },
   "courses": [
     {
@@ -9922,6 +9922,73 @@
         "Others": "5",
         "Presentation": "25",
         "Selected response test or exam": "25"
+      }
+    },
+    {
+      "subject": "ENGG",
+      "course_code": "5392",
+      "title": "Lightwave System Technologies",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9732)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg 833",
+                  "instructor": "Professor CHEN Lian Kuan",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg 833",
+                  "instructor": "Professor CHEN Lian Kuan",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg 1004",
+                  "instructor": "Professor CHEN Lian Kuan",
+                  "dates": "8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg 1004",
+                  "instructor": "Professor CHEN Lian Kuan",
+                  "dates": "12/4, 19/4, 26/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers the design of advanced optical fiber communication systems. Topics include: optical signal characterization and spectral efficient optical modulation formats, high-speed signal transmission & multiplexing techniques, linear & nonlinear fiber effects and fiber transmission impairments, basic guided-wave optoelectronics and novel integrated optical devices (tunable lasers, planar lightwave circuits, silicon photonics), optical signal amplification, regeneration and performance monitoring techniques, coherent optical communications and enabling digital signal processing techniques, and examples of optical subsystems for optical networks.\n\nAdvisory: Knowledge of basic optical communication principles is required.",
+      "enrollment_requirement": "For all students in Engineering Faculty;Exclusion: IERG5040",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. understand the detailed theories and design considerations of optical signals and high-speed optical communication\nsystems,\n2. understand the various key enabling technologies to enhance the capacity and functionality of high-speed optical\ntransmission systems,\n3. appreciate different kind of optical systems and networks in the practical deployment.",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "40",
+        "Presentation": "40"
       }
     },
     {

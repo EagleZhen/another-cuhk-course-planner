@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "ARCH",
     "subject_title": "Architectural Studies",
-    "total_courses": 46
+    "total_courses": 45
   },
   "courses": [
     {
@@ -1182,44 +1182,6 @@
                   "time": "Th 1:30PM - 6:15PM",
                   "location": "No Room Required",
                   "instructor": "Mr. FINGRUT Adam",
-                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
-                }
-              ],
-              "availability": {
-                "capacity": "20",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "20",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "DU01-STD (8752)",
-              "meetings": [
-                {
-                  "time": "Mo 1:30PM - 6:15PM",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-                },
-                {
-                  "time": "Mo 1:30PM - 6:15PM",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
-                },
-                {
-                  "time": "Th 1:30PM - 6:15PM",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "10/9, 17/9, 24/9"
-                },
-                {
-                  "time": "Th 1:30PM - 6:15PM",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
                   "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
                 }
               ],
@@ -2645,51 +2607,6 @@
       "academic_group": "Sch of Architecture",
       "academic_org": "Sch of Architecture",
       "learning_outcomes": "Upon completion of the course, students will have acquired a deeper understanding of the current discourse on building technology. Students will also gain an understanding of the significance of new approaches and their impact on building technology.",
-      "assessment_types": {}
-    },
-    {
-      "subject": "ARCH",
-      "course_code": "4731",
-      "title": "Topical Studies of Cities",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "A-LEC (5141)",
-              "meetings": [
-                {
-                  "time": "Tu 9:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 505",
-                  "instructor": "Staff",
-                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
-                }
-              ],
-              "availability": {
-                "capacity": "81",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "81",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
-      "description": "This elective course is offered to investigate urban studies. Each specific elective is designed to allow students to gain in-depth knowledge and ability to discourse or execute the theory and practice of the particular field. There will be different number of electives offered with specific course description for students to choose from, designated as 4731A/B/C/D, etc. Students are allowed to take these courses at most twice, provided that the course contents are different, and gain the units each time they pass the course. However, students cannot take courses with the same course code more than once in a single term.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Sch of Architecture",
-      "academic_org": "Sch of Architecture",
-      "learning_outcomes": "Upon completion of the course, students will have acquired a deeper understanding of the current discourse on cities. Students will also gain an understanding of the significance of new approaches and their impact on cities.",
       "assessment_types": {}
     },
     {
@@ -4120,10 +4037,10 @@
               ],
               "availability": {
                 "capacity": "94",
-                "enrolled": "82",
+                "enrolled": "81",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4240,10 +4157,10 @@
               ],
               "availability": {
                 "capacity": "94",
-                "enrolled": "82",
+                "enrolled": "81",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4335,10 +4252,10 @@
               ],
               "availability": {
                 "capacity": "94",
-                "enrolled": "82",
+                "enrolled": "81",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4389,10 +4306,10 @@
               ],
               "availability": {
                 "capacity": "94",
-                "enrolled": "82",
+                "enrolled": "81",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "English only"
