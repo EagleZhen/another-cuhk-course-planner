@@ -22,6 +22,7 @@ from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
+import pyperclip
 from data_utils import (
     SCHEMA_VERSION,
     SCRAPE_TIME_FILENAME,
@@ -65,6 +66,8 @@ STRIPPED_COURSE_FIELDS = (
 SUBJECTS_FILE = os.path.join("web", "src", "lib", "generated", "subjects.ts")
 TERMS_FILE = os.path.join("web", "src", "lib", "generated", "terms.ts")
 SCRAPE_TIMES_FILE = os.path.join("web", "src", "lib", "generated", "scrape-times.ts")
+
+HONG_KONG_TZ = ZoneInfo("Asia/Hong_Kong")
 
 
 def update_generated_file(
@@ -263,6 +266,24 @@ def collect_scrape_times(years: Iterable[str]) -> Dict[str, str]:
     return times
 
 
+def copy_commit_title(scrape_times: Dict[str, str]) -> None:
+    """Put the commit title for this run on the clipboard, ready to paste.
+
+    Writes to stderr, which isn't teed into the publish log, so the committed
+    log stays free of clipboard chatter either way.
+    """
+    if not scrape_times:
+        return
+    latest = max(datetime.fromisoformat(value) for value in scrape_times.values())
+    title = f"chore(data): update course data {latest.astimezone(HONG_KONG_TZ):%Y-%m-%d %H:%M HKT}"
+    try:
+        pyperclip.copy(title)
+        print(f"\nCommit title copied: {title}", file=sys.stderr)
+    except pyperclip.PyperclipException:
+        # Headless runs, or Linux without xclip/wl-copy.
+        print(f"\nClipboard unavailable. Commit title: {title}", file=sys.stderr)
+
+
 def calculate_scraping_statistics(progress_data: Optional[Dict]) -> Optional[Dict]:
     """Calculate detailed scraping statistics"""
     if not progress_data or "scraping_log" not in progress_data:
@@ -386,7 +407,7 @@ def main():
                 started_at_str = log_data.get("started_at")
                 if isinstance(started_at_str, str) and started_at_str:
                     utc_time = datetime.fromisoformat(started_at_str)
-                    hk_time = utc_time.astimezone(ZoneInfo("Asia/Hong_Kong"))
+                    hk_time = utc_time.astimezone(HONG_KONG_TZ)
                     time_str = hk_time.strftime("%Y-%m-%d %H:%M HKT")
                     print(
                         f"Scraped at {time_str}: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
@@ -548,6 +569,8 @@ def main():
         print("Logs saved to:")
         print(f"   {Path(timestamped_publish_log).as_posix()}")
         print(f"   {Path(latest_publish_log).as_posix()}")
+
+        copy_commit_title(scrape_times)
 
     finally:
         # Restore original stdout and close log file
