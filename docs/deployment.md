@@ -22,7 +22,7 @@ posthog-js sends everything to `/x8m2k` (its `api_host`) — a same-origin path,
 
 Don't confuse that with `ui_host` (`us.posthog.com`): that's PostHog's separate dashboard host, referenced only so the SDK can link back to it. No events go there, so it isn't proxied.
 
-The entry pageview is captured manually, then `utm_*` params are stripped from the URL — so inbound links can be tagged (e.g. `?utm_source=dcard`) without the tag lingering in bookmarks or re-shares. Unhandled JS errors are auto-captured to Error Tracking; the route-level error boundary reports caught render errors before showing its reload prompt.
+The entry pageview is captured manually, then `utm_*` params are stripped from the URL — so inbound links can be tagged (e.g. `?utm_source=dcard`) without the tag lingering in bookmarks or re-shares. Unhandled JS errors are auto-captured to Error Tracking; the route-level error boundary reports the render errors it catches, which never reach that hook.
 
 See [decisions.md](decisions.md#posthog-over-vercel-analytics) for the analytics provider rationale.
 
