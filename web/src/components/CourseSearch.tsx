@@ -943,7 +943,10 @@ export default function CourseSearch({
                     </span>
                     <span className="whitespace-nowrap">
                       Last Data Sync:{' '}
-                      {formatSyncTimestamp(new Date(SCRAPED_AT_BY_YEAR[selectedYear]))}
+                      {/* dateTime carries the unambiguous instant for machines and screen readers. */}
+                      <time dateTime={SCRAPED_AT_BY_YEAR[selectedYear]}>
+                        {formatSyncTimestamp(new Date(SCRAPED_AT_BY_YEAR[selectedYear]))}
+                      </time>
                     </span>
                   </div>
                 </>

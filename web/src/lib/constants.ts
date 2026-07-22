@@ -16,6 +16,12 @@ export const SCHEDULE_DATA_VERSION = 3
 // build machine's output disagree with the browser's and break hydration.
 export const HONG_KONG_TIMEZONE = 'Asia/Hong_Kong'
 
+// Suffix for times shown in that zone. Kept next to it so the two stay in step.
+// Only CLDR's en-HK locale carries "HKT" — other English locales fall back to
+// "GMT+8" — so a literal keeps the build and the browser in agreement whatever
+// locale data each one ships.
+export const HONG_KONG_TIMEZONE_LABEL = 'HKT'
+
 // Default selected term. Bump on rollover manually for now.
 export const DEFAULT_CURRENT_TERM = '2026-27 Term 1'
 

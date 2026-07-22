@@ -31,7 +31,7 @@ import type {
 describe('formatSyncTimestamp', () => {
   // Absolute instants, so these assertions hold under any TZ the test runs in.
   it('formats in 24-hour time and falls back to Unknown for an invalid Date', () => {
-    expect(formatSyncTimestamp(new Date('2026-07-14T13:27:00Z'))).toBe('Jul 14, 2026 21:27')
+    expect(formatSyncTimestamp(new Date('2026-07-14T13:27:00Z'))).toBe('Jul 14, 2026 21:27 HKT')
     expect(formatSyncTimestamp(new Date('corrupt'))).toBe('Unknown')
   })
 
@@ -43,7 +43,7 @@ describe('formatSyncTimestamp', () => {
     try {
       for (const timezone of ['UTC', 'America/New_York', 'Asia/Hong_Kong']) {
         process.env.TZ = timezone
-        expect(formatSyncTimestamp(new Date('2026-07-17T16:05:00Z'))).toBe('Jul 18, 2026 00:05')
+        expect(formatSyncTimestamp(new Date('2026-07-17T16:05:00Z'))).toBe('Jul 18, 2026 00:05 HKT')
       }
     } finally {
       process.env.TZ = originalTimezone

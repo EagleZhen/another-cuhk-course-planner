@@ -20,7 +20,7 @@ import type {
   InvalidEnrollmentState,
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
-import { HONG_KONG_TIMEZONE, SCHEDULE_DATA_VERSION } from './constants'
+import { HONG_KONG_TIMEZONE, HONG_KONG_TIMEZONE_LABEL, SCHEDULE_DATA_VERSION } from './constants'
 import { createEvents } from 'ics'
 import moment from 'moment-timezone'
 
@@ -1055,7 +1055,7 @@ export function formatSyncTimestamp(date: Date): string {
     hourCycle: 'h23',
     timeZone: HONG_KONG_TIMEZONE,
   })
-  return `${formattedDate} ${formattedTime}`
+  return `${formattedDate} ${formattedTime} ${HONG_KONG_TIMEZONE_LABEL}`
 }
 
 /**
