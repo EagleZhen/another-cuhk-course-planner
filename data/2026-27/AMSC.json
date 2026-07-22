@@ -1,0 +1,681 @@
+{
+  "metadata": {
+    "schema_version": 1,
+    "subject": "AMSC",
+    "subject_title": "Advanced Materials Science",
+    "total_courses": 11
+  },
+  "courses": [
+    {
+      "subject": "AMSC",
+      "course_code": "5710",
+      "title": "Advanced Materials Characterization",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (3952)",
+              "meetings": [
+                {
+                  "time": "Mo 12:30PM - 3:15PM",
+                  "location": "Wen Lan Tang LG204",
+                  "instructor": "Professor LI Quan",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 12:30PM - 3:15PM",
+                  "location": "Wen Lan Tang LG204",
+                  "instructor": "Professor LI Quan",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T01-TUT (4715)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor LI Quan",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers principles, operation and data analysis skills of most useful advanced materials characterization techniques in modern research, with X-ray, electron, and ion beam as probing sources. The content includes surface spectroscopy, diffraction, electron microscopy, mass spectroscopy and etc.",
+      "enrollment_requirement": "For students in MSc Advanced Materials Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Material Science & Erg",
+      "academic_org": "Div of Material Science & Erg",
+      "learning_outcomes": "1. Master the principle of commonly used materials characterization and analytical techniques\n2. Interpret experimental results obtained by the materials characterization techniques covered in the course\n3. Apply the concepts and methodology in materials characterization in realistic problems and cases\n4. Analyze, judge and solve realistic problems and cases in relation to materials characterization\n5. Develop an analytical mind towards materials characterization",
+      "course_syllabus": "Surface characterization\nElectron microscopy\nDiffraction\nChromatography\nMass spectroscopy\nParticle beam techniques",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Presentation": "30",
+        "Test or quiz": "50"
+      },
+      "feedback_evaluation": "1. Send email to the teacher, give him/her a call, or come to his/her office, especially for issues that require immediate action;\n2. Express your views in the mid-term and term-end course evaluation;\n3. Express your views (or ask a student representative to help you convey the messages) in the staff-student consultation meeting held every year;\n4. Post a message on the forum of the course website or on the Discussion board of the CUHK Blackboard.",
+      "required_readings": "Lecture notes and related reading materials will be provided by course instructors.",
+      "recommended_readings": "Lecture notes and related reading materials will be provided by course instructors."
+    },
+    {
+      "subject": "AMSC",
+      "course_code": "5720",
+      "title": "Advanced Materials Synthesis",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (3894)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Professor CHEN Ye",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the fabrication methods of traditional materials (including metals, ceramics and polymers) and advanced materials (including nanomaterials, semiconductors, smart materials, biomaterials, and so on). Students will learn basic scientific principles involved in the synthesis, processing, scaling up, and quality control. Frontier synthetic methodologies, such as those involving theoretical predictions or cutting-edge fabrication techniques, will also be introduced.",
+      "enrollment_requirement": "For students in MSc Advanced Materials Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Material Science & Erg",
+      "academic_org": "Div of Material Science & Erg",
+      "learning_outcomes": "1. To learn the classification of traditional and advanced materials, understand their basic building blocks, and appreciate the importance of structure-property in Materials Science.\n2. To know the various fabrication methods for traditional and advanced materials.\n3. Via case studies of representative advanced materials, to understand the fundamentals in advanced materials synthesis.\n4. To learn various advanced aiding tools for materials fabrication.\n5. To understand basic principles of quality control.",
+      "course_syllabus": "Topic 1: Classification of Materials (10%)\nTopic 2: Fabrication Methods of Traditional Materials (30%)\nTopic 3: Synthetic Methods of Representative Advanced Materials (50%)\nTopic 4: Introduction to Quality Control (10%)",
+      "assessment_types": {
+        "Examination": "45",
+        "Homework or assignment": "20",
+        "Project": "35"
+      },
+      "feedback_evaluation": "1. Send email to the teacher, give him/her a call, or come to his/her office, especially for issues that require immediate action;\n2. Express your views in the mid-term and term-end course evaluation;\n3. Express your views (or ask a student representative to help you convey the messages) in the staff-student consultation meeting held every year;\n4. Post a message on the forum of the course website or on the Discussion board of the CUHK Blackboard.",
+      "required_readings": "Lecture notes and related reading materials will be provided by course instructors.",
+      "recommended_readings": "Lecture notes and related reading materials will be provided by course instructors."
+    },
+    {
+      "subject": "AMSC",
+      "course_code": "5730",
+      "title": "Frontiers in Advanced Materials",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (3893)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Cheng Yu Tung Building 209A",
+                  "instructor": "Professor CHEN Ye, \nProfessor HUANG Zhifeng, \nProfessor LI Quan, \nProfessor LU Xinhui, \nProfessor MIAO Qian, \nProfessor NGAI To, \nProfessor Oleksandr SAVATIEIEV, \nProfessor WAN Qingyun, \nProfessor WANG Jianfang, \nProfessor XIA Jiang, \nProfessor XU Lei, \nProfessor ZHU Junyi",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                },
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Cheng Yu Tung Building 209A",
+                  "instructor": "Professor CHEN Ye, \nProfessor HUANG Zhifeng, \nProfessor LI Quan, \nProfessor LU Xinhui, \nProfessor MIAO Qian, \nProfessor NGAI To, \nProfessor Oleksandr SAVATIEIEV, \nProfessor WAN Qingyun, \nProfessor WANG Jianfang, \nProfessor XIA Jiang, \nProfessor XU Lei, \nProfessor ZHU Junyi",
+                  "dates": "10/9, 17/9, 24/9"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "5",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course offers a comprehensive exploration of various types of advanced materials across diverse fields, such as energy materials, biomaterials, photonic materials, quantum materials, chiral materials, optoelectronic materials, etc. Through lectures, case studies, and discussions, students will gain insights into the role of these materials in driving technological innovation and addressing global challenges.",
+      "enrollment_requirement": "For students in MSc Advanced Materials Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Material Science & Erg",
+      "academic_org": "Div of Material Science & Erg",
+      "learning_outcomes": "Students at the end of the course are expected to have gained an appreciation of the fundamental concepts as well as the state-of-the-art methodologies in frontiers of materials research. They are expected to have gained the ability to operate these concepts in precise frameworks, and to have the ability to pursue these topics in further depth beyond this course. Some of the material will have to be learnt by the students on their own, and through this activity students will develop the capability and habit of self-directed learning.",
+      "course_syllabus": "Chapter 1: Introduction of Modern Materials Science\nChapter 2: Selected topics on Advanced Materials (I)\nChapter 3: Selected topics on Advanced Materials (II)\nChapter 4: Selected topics on Advanced Materials (III)\nChapter 5: Selected topics on Advanced Materials (IV)\nChapter 6: Selected topics on Advanced Materials (V)\nChapter 7: Selected topics on Advanced Materials (VI)\nChapter 8: Selected topics on Advanced Materials (VII)\nChapter 9: Selected topics on Advanced Materials (VIII)\n\nA maximum 8 Topics will be selected from the following depending on the teacher’s availability. Topics<8 may happen if the topics last longer than one week.\n1. Biomaterials, unique properties, their interaction with the biological system and applications. (~ 2 weeks)\n2. Energy storage materials (battery), electrochemical principles, present development and challenges. (~ 1 week)\n3. Plasmonic materials, including their synthesis, characterization, properties, and diverse applications. (~ 2 weeks)\n4. Mechanical and Hydrodynamic Metamaterials. (1 week)\n5. Semiconducting materials, surface, defect and doping. (1 week)\n6. Photovoltaic materials, fundamental mechanism, device fabrication, and research frontiers (1 week)\n7. Organic electronics: Introduction to organic electronics with a case study on molecular engineering of organic field effect transistors (2 weeks)\n8. Nanomaterials: phase engineering, chiral nanomaterials and various applications (1 week)\n9. Polymer and biopolymer materials: synthesis, properties, and applications in health (1 week)\n10. Materials for application in photocatalysis (1 week)",
+      "assessment_types": {
+        "Essays": "25",
+        "Presentation": "40",
+        "Test or quiz": "35"
+      },
+      "feedback_evaluation": "1. Send email to the teacher, give him/her a call, or come to his/her office, especially for issues that require immediate action;\n2. Express your views in the mid-term and term-end course evaluation;\n3. Express your views (or ask a student representative to help you convey the messages) in the staff-student consultation meeting held every year;\n4. Post a message on the forum of the course website or on the Discussion board of the CUHK Blackboard.",
+      "required_readings": "Lecture notes and related reading materials will be provided by course instructors.",
+      "recommended_readings": "Lecture notes and related reading materials will be provided by course instructors."
+    },
+    {
+      "subject": "AMSC",
+      "course_code": "5731",
+      "title": "AI-Driven Materials Design and Simulations",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (3999)",
+              "meetings": [
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor HU Chen",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor HU Chen",
+                  "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor HU Chen",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "5",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course provides a basic introduction to artificial intelligence (AI) approaches in materials design and simulations. It covers machine learning (ML) techniques, data-driven materials design and searches in large materials databases, and AI-assisted materials simulations. Students will gain foundational knowledge and hands-on experience using AI and simulations to predict material properties, design novel materials, and address real-world materials design challenges.",
+      "enrollment_requirement": "For students in MSc Advanced Materials Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Material Science & Erg",
+      "academic_org": "Div of Material Science & Erg",
+      "learning_outcomes": "1. Understand fundamental principles of artificial intelligence applied to materials design and simulations.\n2. Apply AI-related concepts and approaches to basic materials research problems.\n3. Interpret and analyze results from AI-assisted materials modeling and simulations.\n4. Enhance the understanding of general concepts in materials simulations and data-driven modeling.\n5. Develop an analytical mindset toward AI-driven materials research.",
+      "course_syllabus": "1. Basic concepts and introduction to artificial intelligence in materials science\n2. Data, databases, and data-driven materials modeling\n3. AI-assisted materials simulations\n4. Applications and case studies in materials design\n5. Current challenges and future perspectives",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Presentation": "30",
+        "Project": "50"
+      },
+      "feedback_evaluation": "1. Send email to the teacher, give him/her a call, or come to his/her office, especially for issues that require immediate action;\n2. Express your views in the mid-term and term-end course evaluation;\n3. Express your views (or ask a student representative to help you convey the messages) in the staff-student consultation meeting held every year;\n4. Post a message on the forum of the course website or on the Discussion board of the CUHK Blackboard.",
+      "required_readings": "Lecture notes and related reading materials will be provided by course instructors.",
+      "recommended_readings": "Lecture notes and related reading materials will be provided by course instructors."
+    },
+    {
+      "subject": "AMSC",
+      "course_code": "5732",
+      "title": "Project",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (4012)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HUANG Zhifeng, \nProfessor LU Xinhui",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "A project for M.Sc. students. The project provides a challenge for students to apply their knowledge acquired in lecture courses to carry out independent projects in material science, physics or chemistry. A project report has to be written under the supervision of the teaching staff.",
+      "enrollment_requirement": "The registration of the course requires the permission of the supervisor;For students in MSc Advanced Materials Science with a cumulative GPA >=3.5;For students in MSc in Advanced Materials Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Div of Material Science & Erg",
+      "academic_org": "Div of Material Science & Erg",
+      "learning_outcomes": "| 1. Identify key issues and apply basic concepts, principles and methods in studying a problem. 2. Present scientific work in a clear, concise, and logical manner. 3. Demonstrate the ability in self-learning. 4. Manage project work: self-monitor, evaluate the progress critically, and accomplish the project goals on schedule. |\n| --- |",
+      "course_syllabus": "Project assigned by the supervisor.",
+      "assessment_types": {
+        "Project": "70",
+        "Report": "30"
+      },
+      "feedback_evaluation": "1. Send email to the teacher, give him/her a call, or come to his/her office, especially for issues that require immediate action;\n2. Express your views in the mid-term and term-end course evaluation;\n3. Express your views (or ask a student representative to help you convey the messages) in the staff-student consultation meeting held every year;\n4. Post a message on the forum of the course website or on the Discussion board of the CUHK Blackboard.",
+      "required_readings": "Readings provided by the supervisor.",
+      "recommended_readings": "Readings provided by the supervisor."
+    },
+    {
+      "subject": "AMSC",
+      "course_code": "5733",
+      "title": "Properties of Advanced Materials",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4062)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Professor GOH Swee Kuan, \nProfessor HUI Pak Ming, \nProfessor LI Yufan, \nProfessor ONG Hock Chun Daniel",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Professor GOH Swee Kuan, \nProfessor HUI Pak Ming, \nProfessor LI Yufan, \nProfessor ONG Hock Chun Daniel",
+                  "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Professor GOH Swee Kuan, \nProfessor HUI Pak Ming, \nProfessor LI Yufan, \nProfessor ONG Hock Chun Daniel",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "5",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The course provides an in-depth exploration of selected properties and applications of advanced materials. It starts with an introductory module covering the essential concepts and ideas in quantum physics for studying advanced materials. It is followed by modules on semiconductors, heterostructures and their applications; magnetic properties and materials; and superconducting materials and applications. Students will be exposed to a balanced discussion among the basic principles, materials, applications, and the latest developments.",
+      "enrollment_requirement": "For students in MSc Advanced Materials Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Material Science & Erg",
+      "academic_org": "Div of Material Science & Erg",
+      "learning_outcomes": "1. To acquire basic concepts in quantum physics and apply them to study atoms, bonding, energy bands, and conducting, insulating and semiconducting materials.\n2. To acquire the basic principles, properties of selected materials, applications, and latest developments in semiconductors, superconductors, and magnetic materials.\n3. To develop an awareness of the impact of advanced materials in the years to come.\n4. To develop an awareness of the research opportunities offered by advanced materials and to motivate life-long learning.",
+      "course_syllabus": "* *Basic quantum physics for materials studies**\nTopics include - Electron waves, Schrodinger equation, confinement and energy levels, tunnelling, atoms, bonding in molecules, from bonds to bands, free electron waves in metals, density of states, filling in electrons, bands and band gaps, metals, insulators and semiconductors.\n\n* *Semiconductors, heterostructures and their applications**\nTopics include – bands and band alignment, doping, p-n junction, two-dimensional electron gas, quantum Hall effect, quantum cascade laser, split gate technology, quantum dots.\n\n* *Magnetic Properties, materials, and applications**\nTopics include – orbital and spin magnetic dipole moments, paramagnetism, diamagnetism, ferromagnetism and anti-ferromagnetism, experimental methods, giant magnetoresistance, spin-transfer torque, domains and domain wall motion, spin current and spin-orbit torque, magnetic tunnel junctions, and topics in non-colinear and unconventional magnets.\n\n* *Superconductivity: Principles, materials, and applications**\nTopics include – zero resistance and Meissner effect, London equations and penetration depth, Type I and Type II superconductors, Cooper pairs and energy gap, role of Fermi surface, phase transition viewpoint, low Tc and high Tc materials, cryogenics and measurement techniques, selected applications, hydrides superconductors and other frontier topics.",
+      "assessment_types": {
+        "Homework or assignment": "90",
+        "Test or quiz": "10"
+      },
+      "feedback_evaluation": "1. Contact teachers directly at their offices, via emails or phone calls, especially for issues that require immediate action.\n2. Ask the teaching assistant to relay your views to teachers.\n3. Express your views in the mid-term and end-of-term course evaluations.\n4. Express your views in the annual staff-student consultation meeting either in person or through a student representative.",
+      "required_readings": "Lecture notes and reading materials will be provided by the teachers of the modules.",
+      "recommended_readings": "Lecture notes and reading materials will be provided by the teachers of the modules."
+    },
+    {
+      "subject": "AMSC",
+      "course_code": "5735",
+      "title": "Functional Molecules for Optoelectronics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4063)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 301",
+                  "instructor": "Professor MIAO Qian, \nProfessor WAN Qingyun",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 301",
+                  "instructor": "Professor MIAO Qian, \nProfessor WAN Qingyun",
+                  "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "5",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an overview of functional molecules for applications in organic (opto)electronic devices including organic field-effect transistors (OFETs), organic solar cells (OSCs), organic light-emitting diodes (OLEDs), and organic photodetectors. It covers the design of functional molecules, device architectures, and key physical properties such as light absorption, luminescence, electrical conductivity, and magnetic behavior. The course also introduces essential principles of organic and supramolecular chemistry underpinning advances in organic optoelectronics.",
+      "enrollment_requirement": "For students in MSc Advanced Materials Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Material Science & Erg",
+      "academic_org": "Div of Material Science & Erg",
+      "learning_outcomes": "1. Understand the electronic structures of organic molecular materials and band structures of solid-state materials.\n2. Understand the photo-physical properties and electronic conductivities of organic materials.\n3. Understand the working principle, device structures of Organic Light-Emitting Diode (OLED), Organic Field-Effect Transistor (OFET) and Organic Solar Cell (OSC).\n4. Understand the basic organic chemistry and supramolecular chemistry principles for developing organic electronic materials, and apply these principles to explain the structures, properties and functions of functional molecules in organic (opto)electronics.",
+      "course_syllabus": "Chapter 1: Organic Semiconductor Materials, Electronic Structures, Atomic and Molecular Orbitals\nChapter 2: Basic Photophysical Parameters and Spectroscopic Methods\nChapter 3: Excited Molecules, Optical Process (Energy Transfer and Exciton Diffusion) in Organic Semiconductor\nChapter 4: Fermi Level and Band Structure. Electrical Current and Carrier Transport.\nChapter 5: Charge Carrier Recombination, Dissociation of Excitations\nChapter 6: Device structure and operational principle of OLED, OFET and OSC\nChapter 7: Organic chemistry of polycyclic arenes for organic electronic materials\nChapter 8: Supramolecular chemistry for organic electronic materials\nChapter 9: Molecular switches and devices",
+      "assessment_types": {
+        "Essays": "20",
+        "Examination": "80"
+      },
+      "feedback_evaluation": "1. Send email to the teacher, give him/her a call, or come to his/her office, especially for issues that require immediate action;\n2. Express your views in the mid-term and term-end course evaluation;\n3. Express your views (or ask a student representative to help you convey the messages) in the staff-student consultation meeting held every year;\n4. Post a message on the forum of the course website or on the Discussion board of the CUHK Blackboard.",
+      "required_readings": "Lecture notes and related reading materials will be provided by course instructors.",
+      "recommended_readings": "Lecture notes and related reading materials will be provided by course instructors."
+    },
+    {
+      "subject": "AMSC",
+      "course_code": "5737",
+      "title": "Biomaterials for Healthcare",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4076)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 506",
+                  "instructor": "Professor XIA Jiang",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 506",
+                  "instructor": "Professor XIA Jiang",
+                  "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "5",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course will cover the fundamentals of biomaterials, including the chemistry of proteins, carbohydrates and lipids, and the advanced applications of biomaterials in tissue engineering and regeneration. Examples of healthcare products, including collagen-based biomaterials, will be described.",
+      "enrollment_requirement": "For students in MSc Advanced Materials Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Material Science & Erg",
+      "academic_org": "Div of Material Science & Erg",
+      "learning_outcomes": "1. To learn the basic composition of biomaterials.\n2. To promote and advance a molecular view of biomaterials.\n3. To appreciate the priority of safety in the practical application of biomaterials.\n4. To understand the rigorous regulation of biomaterials.\n5. To gain basic knowledge on biomaterial industry and to understand the job opportunity and requirement of working in biomaterials.",
+      "course_syllabus": "Chapter 1: Classes of Materials Used in Medicine\nChapter 2: Background Concepts in the Use of Biomaterials in Surgery and Medical Devices\nChapter 3: Host Reaction to Biomaterials and Their Evaluation\nChapter 4: Biological Testing of Biomaterials\nChapter 5: Degradation of Materials in the Biological Environment\nChapter 6: Applications of Biomaterials in Functional Tissue Engineering\nChapter 7: Implants, Devices, and Biomaterials: Special Considerations\nChapter 8: Voluntary Standards, Regulatory Compliance, and Non-Technical Issues",
+      "assessment_types": {
+        "Homework or assignment": "10",
+        "Presentation": "10",
+        "Project": "60",
+        "Report": "20"
+      },
+      "feedback_evaluation": "1. Send email to the teacher, or come to his/her office, especially for issues that require immediate action;\n2. Express your views during or after the class, and in the mid-term and term-end course evaluation;\n3. Express your views (or ask a student representative to help you convey the messages) in the staff-student consultation meeting;\n4. Send a message through the CUHK Blackboard.",
+      "required_readings": "Lecture notes and related reading materials will be provided by course instructors.",
+      "recommended_readings": "Lecture notes and related reading materials will be provided by course instructors."
+    },
+    {
+      "subject": "AMSC",
+      "course_code": "5738",
+      "title": "Surface Science and Thin Film Technology",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (3951)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Building LT2",
+                  "instructor": "Professor WANG Jianfang",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Building LT2",
+                  "instructor": "Professor WANG Jianfang",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "5",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces surface science, the fabrication, characterization, and physical properties of thin films. The topics include vacuum science and technology, basic concepts of surface science, thin film deposition techniques, kinetics and thermodynamics of surface reactions, film growth processes and modes, characterization, epitaxy, and physical properties of thin films. State-of-the-art research advancements on thin film preparation and properties are also selectively introduced.",
+      "enrollment_requirement": "For students in MSc Advanced Materials Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Material Science & Erg",
+      "academic_org": "Div of Material Science & Erg",
+      "learning_outcomes": "(1) To learn the basic principles of surface science.\n(2) To know the technologies that are related to thin films.\n(3) To understand the basic principles of vacuum science and technology that are related to surface science and thin-film deposition techniques.\n(4) To understand the thermodynamics of evaporation and learn the basic principles of evaporation.\n(5) To acquire the basic knowledge about adsorption, surface diffusion, nucleation, and structure development that are involved in thin-film deposition.\n(6) To acquire the basic knowledge of epitaxial deposition.\n(7) To learn the basic knowledge of chemical vapor deposition.\n(8) To learn the basic techniques of measuring the physical and chemical properties of thin films.",
+      "course_syllabus": "1: Introduction to Surface Science and Thin Film Technology\n2: Vacuum Science and Technology\n3: Surface Science\n4: Evaporation\n5: Deposition\n6: Epitaxy\n7: Chemical Vapor Deposition\n8: Analysis and Properties of Thin Films",
+      "assessment_types": {
+        "Homework or assignment": "15",
+        "Presentation": "30",
+        "Test or quiz": "55"
+      },
+      "feedback_evaluation": "1. Send email to the teacher, make appointment with the teacher for discussion, or come to his/her office, especially for issues that require immediate action;\n2. Express your views in the mid-term and term-end course evaluation;\n3. Express your views (or ask a student representative to help you convey your messages) in the staff-student consultation meeting held every year;\n4. Post a message on the forum of the course website or on the Discussion Board of the CUHK Blackboard.",
+      "required_readings": "1. John B. Hudson, “Surface Science: An Introduction”, Boston: Butterworth-Heinemann, 1992, QC173.4.S94 H84.\n2. Kenjiro Oura, Victor G. Lifshits, Alexander A. Saranin, Andrey V. Zotov, Mitsuhiro Katayama, “Surface Science – An Introduction”, Springer-Verlag, QC173.4.S94 S96425 2003.\n3. Donald L. Smith, “Thin-Film Deposition: Principles & Practice”, McGraw-Hill, Inc., TA418.9.T45S65 1995.\n4. Milton Ohring, “The Materials Science of Thin Films”, Academic Press, TA418.9.T45 047 1992.\n5. Anthony C. Jones, Michael L. Hitchman, Ed., “Chemical Vapor Deposition: Precursors, Processes and Applications”, RSC, TS695.C67 2009.\n6. Hans Luth, “Solid Surfaces, Interfaces and Thin Films”, 6th Edition, Springer, QC173.4 S94 L86 2015.\n7. Terry L. Alford, Leonard C. Feldman, James W. Mayer, “Fundamentals of Nanoscale Film Analysis”, Springer, QC176.83 A44 2007.",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "AMSC",
+      "course_code": "5739",
+      "title": "Functional Materials for Clean Energy and Sustainability",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (4077)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 301",
+                  "instructor": "Professor HUANG Zhifeng",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 301",
+                  "instructor": "Professor HUANG Zhifeng",
+                  "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "5",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This interdisciplinary course explores the design, synthesis, and application of advanced functional materials critical to address global energy and environmental challenges. Students will learn how cutting-edge materials science drives innovations in renewable energy technologies, energy storage, carbon capture and green chemistry. The course integrates the principles of chemistry, physics, and materials science to prepare students for careers in research, industry, or policy-making in clean energy and sustainability.",
+      "enrollment_requirement": "For students in MSc Advanced Materials Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Material Science & Erg",
+      "academic_org": "Div of Material Science & Erg",
+      "learning_outcomes": "1. To learn the core concepts and methodologies in the design and characterization of functional materials for sustainable development through thematic lectures.\n2. To establish a systematic framework of thinking for understanding the structure–property–performance relationships of materials, and to analyze and design innovative materials for renewable energy and green technologies.\n3. To utilize advanced characterization techniques (such as spectroscopy and microscopy) to visualize and interpret the micro-structural and chemical features of materials.\n4. To cultivate rigorous scientific attitudes, critical thinking, and independent research abilities to address complex challenges in clean energy and sustainable technologies.\n5. To develop the ability of critically evaluating application potentials of materials in energy and environmental systems, recognizing that even theoretically superior materials may face challenges in scalability, economic feasibility, and long-term stability, and remaining aware of the limitations and discrepancies between experimental results, material models, and real-world conditions.",
+      "course_syllabus": "Chapter 1: Introduction to Functional Materials and Sustainable Energy\nChapter 2: Synthesis and Characterization of Advanced Functional Materials\nChapter 3: Green Chemistry and Environmental Functional Materials\nChapter 4: Frontiers and Interdisciplinary Topics in Sustainable Materials\n- Materials for Carbon Capture, Utilization, and Storage (CCUS)\n- Materials for Photoelectrochemical Energy Conversion\n- Materials for Chemical Energy Storage and Battery\n- Materials for Thermoelectric and Catalytic Conversion",
+      "assessment_types": {
+        "Homework or assignment": "40",
+        "Project": "60"
+      },
+      "feedback_evaluation": "1. Send email to the teacher, give him/her a call, or come to his/her office, especially for issues that require immediate action;\n2. Express your views in the mid-term and term-end course evaluation;\n3. Express your views (or ask a student representative to help you convey the messages) in the staff-student consultation meeting held every year;\n4. Post a message on the forum of the course website or on the Discussion board of the CUHK Blackboard.",
+      "required_readings": "Lecture notes and related reading materials will be provided by course instructors.",
+      "recommended_readings": "Lecture notes and related reading materials will be provided by course instructors."
+    },
+    {
+      "subject": "AMSC",
+      "course_code": "5750",
+      "title": "Electronics and Photonics",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (3987)",
+              "meetings": [
+                {
+                  "time": "Fr 12:30PM - 3:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Professor XUE Haoran",
+                  "dates": "15/1, 22/1, 29/1"
+                },
+                {
+                  "time": "Fr 12:30PM - 3:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Professor XUE Haoran",
+                  "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
+                },
+                {
+                  "time": "Fr 12:30PM - 3:15PM",
+                  "location": "Science Centre L5",
+                  "instructor": "Professor XUE Haoran",
+                  "dates": "2/4, 9/4, 16/4, 23/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "5",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is devoted to the fundamental concepts, structures, and working principles of common electronic and photonic devices. It includes the fundamental concepts of semiconductors, field-effect transistors, Schottky junctions, p-n junctions, light-emitting diodes, lasers, photodetectors, solar cells, waveguides, and control of light polarization. Closely related materials and state-of-the-art research advancements on electronics and photonics are also selectively introduced.",
+      "enrollment_requirement": "For students in MSc Advanced Materials Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Material Science & Erg",
+      "academic_org": "Div of Material Science & Erg",
+      "learning_outcomes": "(1) To acquire the basic knowledge of semiconductor physics.\n(2) To learn field-effect transistors and Schottky junctions.\n(3) To learn the working principles of dielectric waveguides and optical fibers and related materials.\n(4) To learn pn junctions.\n(5) To learn the working principle of light-emitting diodes and related semiconductor materials.\n(6) To learn the working principle of laser diodes.\n(7) To learn the working principle of photodetectors.\n(8) To learn the working principle of solar cells and related materials.",
+      "course_syllabus": "1. Introduction\n2. Semiconductor Physics I\n3. Semiconductor Physics II\n4. Field-effect transistors and Schottky junctions\n5. Dielectric Waveguides and Optical Fibers\n6. pn Junction I\n7. pn Junction II\n8. Light-Emitting Diodes\n9. Laser Diodes\n10. Photodetectors\n11. Photovoltaic Devices",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Test or quiz": "80"
+      },
+      "feedback_evaluation": "1. Send email to the teacher, make appointment for discussion, or come to his/her office, especially for issues that require immediate action;\n2. Express your views in the mid-term and term-end course evaluation;\n3. Express your views (or ask a student representative to help you convey the messages) in the staff-student consultation meeting held every year;\n4. Post a message on the forum of the course website or on the Discussion Board of the CUHK Blackboard.",
+      "required_readings": "1. S. O. Kasap, “Optoelectronics and Photonics: Principles and Practices”, Prentice Hall, Upper Saddle River, NJ 07458, TK8304.K37 2001.\n2. D. A. Neamen, “Semiconductor Physics and Devices: Basic Principles”, 3rd ed., McGraw-Hill, Boston, MA, QC611.N39 2003.\n3. B. E. A. Saleh, M. C. Teich, “Fundamentals of Photonics”, 2nd Edition, John Wiley & Sons, Inc., New Jersey, TA1520.S24 2007.",
+      "recommended_readings": ""
+    }
+  ]
+}

@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "ENGG",
     "subject_title": "Courses offered by Fac of Erg",
-    "total_courses": 8
+    "total_courses": 7
   },
   "courses": [
     {
@@ -186,32 +186,6 @@
       "feedback_evaluation": "Wewelcome students' comments and feedback on the course. There are three mainchannels for collecting students' feedback.\n1. Course evaluation: A formal evaluation questionnaire conducted near the end ofthe course.\n2. Informal online contact\nStudentscan write their comments via email or newsgroup. The course instructor willfollow up with the comments or pass the information to the course instructor ifnecessary.\n3. Individual consulting\nStudents arewelcome to visit the course instructor during office hours. They can exchangeopinions to make the course better suits the students' needs.",
       "required_readings": "To be provided by the course teacher.",
       "recommended_readings": "1. G. P. Agrawal,\"Fiber-Optic Communication Systems\", Wiley, 4th Edition\n2. G. P. Agrawal,\"Nonlinear Fiber Optics\", Academic Press, 5th Edition"
-    },
-    {
-      "subject": "ENGG",
-      "course_code": "5392",
-      "title": "Lightwave System Technologies",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course covers the design of advanced optical fiber communication systems. Topics include: optical signal characterization and spectral efficient optical modulation formats, high-speed signal transmission & multiplexing techniques, linear & nonlinear fiber effects and fiber transmission impairments, basic guided-wave optoelectronics and novel integrated optical devices (tunable lasers, planar lightwave circuits, silicon photonics), optical signal amplification, regeneration and performance monitoring techniques, coherent optical communications and enabling digital signal processing techniques, and examples of optical subsystems for optical networks.\n\nAdvisory: Knowledge of basic optical communication principles is required.",
-      "enrollment_requirement": "For all students in Engineering Faculty;Exclusion: IERG5040",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Information Engineering",
-      "academic_org": "Div of Information Engineering",
-      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. understand the detailed theories and design considerations of optical signals and high-speed optical communication\nsystems,\n2. understand the various key enabling technologies to enhance the capacity and functionality of high-speed optical\ntransmission systems,\n3. appreciate different kind of optical systems and networks in the practical deployment.",
-      "course_syllabus": "This course covers the design of advanced optical fiber communication systems. Topics include: optical signal characterization and spectral efficient optical modulation formats, high-speed signal transmission & multiplexing techniques, linear & nonlinear fiber effects and fiber transmission impairments, basic guided-wave optoelectronics and novel integrated optical devices (tunable lasers, planar lightwave circuits, silicon photonics), optical signal amplification, regeneration and performance monitoring techniques, coherent optical communications and enabling digital signal processing techniques, and examples of optical subsystems for optical networks. The course syllabus may be updated from year to year.",
-      "assessment_types": {
-        "Essays": "20",
-        "Essay test or exam": "40",
-        "Presentation": "40"
-      },
-      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
-      "required_readings": "1. G. P. Agrawal, Fiber-Optic Communication Systems (4th Edition), Wiley-Interscience, 2010.\n2. G. P. Agrawal, Lightwave Technology: Components and Devices, Wiley-Interscience, 2004.",
-      "recommended_readings": "1. G. P. Agrawal, Lightwave Technology: Telecommunication Systems, Wiley-Interscience, 2005.\n2. G. P. Agrawal, Nonlinear Fiber Optics (4th Edition), Academic Press, 2006.\n3. I. Kaminow, T. Koch, Optical Fiber Telecommunications III-A&B, Academic Press, 1997.\n4. I. Kaminow, T. Li, Optical Fiber Telecommunications IV-A&B, Academic Press, 2002.\n5. I. Kaminow, T. Li, and A. Willner, Optical Fiber Telecommunications V-A&B, Academic Press, 2008."
     }
   ]
 }
