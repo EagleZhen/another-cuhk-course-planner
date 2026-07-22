@@ -11,6 +11,11 @@ export const NOTICE_IMAGE_LOADED_EVENT = 'mobile-notice-image-loaded'
 // Data versioning
 export const SCHEDULE_DATA_VERSION = 3
 
+// CUHK's timezone. Pin it wherever a date is formatted or parsed: the page is
+// prerendered at build time, so reading the ambient zone instead would make the
+// build machine's output disagree with the browser's and break hydration.
+export const HONG_KONG_TIMEZONE = 'Asia/Hong_Kong'
+
 // Default selected term. Bump on rollover manually for now.
 export const DEFAULT_CURRENT_TERM = '2026-27 Term 1'
 

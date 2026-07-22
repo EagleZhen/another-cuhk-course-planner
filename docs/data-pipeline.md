@@ -54,7 +54,7 @@ Every course file carries `metadata.schema_version` (`SCHEMA_VERSION` in [script
 
 ### Freshness
 
-Each data directory holds a `_scraped_at.txt`: when the scrape that wrote it started. Publishing reads those into [scrape-times.ts](../web/src/lib/generated/scrape-times.ts) for the app's "Last Data Sync".
+Each data directory holds a `_scraped_at.txt`: when the scrape that wrote it started. Publishing reads those into [scrape-times.ts](../web/src/lib/generated/scrape-times.ts) for the app's "Last Data Sync", which always displays them in HKT — the page is prerendered, so a zone that varies by machine would break hydration.
 
 Only full scrapes write them, and only for the directories they produced — so a year CUHK drops keeps its own time ([why](decisions.md#stamp-each-data-directory-with-its-scrape-time)).
 

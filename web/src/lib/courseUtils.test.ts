@@ -29,9 +29,25 @@ import type {
 } from './types'
 
 describe('formatSyncTimestamp', () => {
+  // Absolute instants, so these assertions hold under any TZ the test runs in.
   it('formats in 24-hour time and falls back to Unknown for an invalid Date', () => {
-    expect(formatSyncTimestamp(new Date(2026, 6, 14, 21, 27))).toBe('Jul 14, 2026 21:27')
+    expect(formatSyncTimestamp(new Date('2026-07-14T13:27:00Z'))).toBe('Jul 14, 2026 21:27')
     expect(formatSyncTimestamp(new Date('corrupt'))).toBe('Unknown')
+  })
+
+  // Guards the hydration fix: the build machine prerenders this string and the
+  // visitor's browser rehydrates it, so it must not depend on the ambient zone.
+  // The instant lands on a different date in UTC than in Hong Kong.
+  it('formats in Hong Kong time regardless of the ambient timezone', () => {
+    const originalTimezone = process.env.TZ
+    try {
+      for (const timezone of ['UTC', 'America/New_York', 'Asia/Hong_Kong']) {
+        process.env.TZ = timezone
+        expect(formatSyncTimestamp(new Date('2026-07-17T16:05:00Z'))).toBe('Jul 18, 2026 00:05')
+      }
+    } finally {
+      process.env.TZ = originalTimezone
+    }
   })
 })
 
