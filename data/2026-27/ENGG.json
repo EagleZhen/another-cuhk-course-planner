@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "ENGG",
     "subject_title": "Courses offered by Fac of Erg",
-    "total_courses": 33
+    "total_courses": 34
   },
   "courses": [
     {
@@ -10035,6 +10035,77 @@
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for\n\nstudents to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in\n\naddition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the\n\ninstructor directly.",
       "required_readings": "Wenbo Mao, \"Modern Cryptography: Theory and Practice\", Prentice Hall",
       "recommended_readings": "1. Jonathan Katz and Yehuda Lindell, \"Introduction to Modern Cryptography: Principles and Protocols\", CRC Press\n\n2. Niels Ferguson, Bruce Schneier and Tadayoshi Kohno, \"Cryptographiy Engineering: Design Principles and Practical Applications\", Wiley Publishing, Inc.\n\n3. Christof Paar and Jan Pelzl, \"Understanding Cryptography: A Textbook for Students and Practitioners\", Springer"
+    },
+    {
+      "subject": "ENGG",
+      "course_code": "5392",
+      "title": "Lightwave System Technologies",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9732)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg 833",
+                  "instructor": "Professor CHEN Lian Kuan",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Ho Sin-Hang Engg Bldg 833",
+                  "instructor": "Professor CHEN Lian Kuan",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg 1004",
+                  "instructor": "Professor CHEN Lian Kuan",
+                  "dates": "8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "William M W Mong Eng Bldg 1004",
+                  "instructor": "Professor CHEN Lian Kuan",
+                  "dates": "12/4, 19/4, 26/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course covers the design of advanced optical fiber communication systems. Topics include: optical signal characterization and spectral efficient optical modulation formats, high-speed signal transmission & multiplexing techniques, linear & nonlinear fiber effects and fiber transmission impairments, basic guided-wave optoelectronics and novel integrated optical devices (tunable lasers, planar lightwave circuits, silicon photonics), optical signal amplification, regeneration and performance monitoring techniques, coherent optical communications and enabling digital signal processing techniques, and examples of optical subsystems for optical networks.\n\nAdvisory: Knowledge of basic optical communication principles is required.",
+      "enrollment_requirement": "For all students in Engineering Faculty;Exclusion: IERG5040",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. understand the detailed theories and design considerations of optical signals and high-speed optical communication\nsystems,\n2. understand the various key enabling technologies to enhance the capacity and functionality of high-speed optical\ntransmission systems,\n3. appreciate different kind of optical systems and networks in the practical deployment.",
+      "course_syllabus": "This course covers the design of advanced optical fiber communication systems. Topics include: optical signal characterization and spectral efficient optical modulation formats, high-speed signal transmission & multiplexing techniques, linear & nonlinear fiber effects and fiber transmission impairments, basic guided-wave optoelectronics and novel integrated optical devices (tunable lasers, planar lightwave circuits, silicon photonics), optical signal amplification, regeneration and performance monitoring techniques, coherent optical communications and enabling digital signal processing techniques, and examples of optical subsystems for optical networks. The course syllabus may be updated from year to year.",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "40",
+        "Presentation": "40"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "1. G. P. Agrawal, Fiber-Optic Communication Systems (4th Edition), Wiley-Interscience, 2010.\n2. G. P. Agrawal, Lightwave Technology: Components and Devices, Wiley-Interscience, 2004.",
+      "recommended_readings": "1. G. P. Agrawal, Lightwave Technology: Telecommunication Systems, Wiley-Interscience, 2005.\n2. G. P. Agrawal, Nonlinear Fiber Optics (4th Edition), Academic Press, 2006.\n3. I. Kaminow, T. Koch, Optical Fiber Telecommunications III-A&B, Academic Press, 1997.\n4. I. Kaminow, T. Li, Optical Fiber Telecommunications IV-A&B, Academic Press, 2002.\n5. I. Kaminow, T. Li, and A. Willner, Optical Fiber Telecommunications V-A&B, Academic Press, 2008."
     },
     {
       "subject": "ENGG",

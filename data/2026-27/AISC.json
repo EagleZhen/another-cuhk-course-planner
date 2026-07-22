@@ -1,0 +1,360 @@
+{
+  "metadata": {
+    "schema_version": 1,
+    "subject": "AISC",
+    "subject_title": "Artificial Intelligence for Science",
+    "total_courses": 6
+  },
+  "courses": [
+    {
+      "subject": "AISC",
+      "course_code": "5000",
+      "title": "Foundation of Machine Learning and AI",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "A-LEC (3938)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg LT3",
+                  "instructor": "Professor JIN Bangti, \nProfessor WANG Yi, \nProfessor ZHU Huichen",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Esther Lee Bldg LT3",
+                  "instructor": "Professor JIN Bangti, \nProfessor WANG Yi, \nProfessor ZHU Huichen",
+                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                }
+              ],
+              "availability": {
+                "capacity": "140",
+                "enrolled": "119",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "21",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the fundamental concepts of machine learning and artificial intelligence, covering key algorithms and models.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence for Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Science",
+      "academic_org": "Div of Science",
+      "learning_outcomes": "By the end of Foundations of Machine Learning and AI, students will understand basic machine learning ideas, e.g. linear regression and classification in terms of loss, likelihood, and decision theory, and explain the architecture of deep neural networks, training via gradient descent and backpropagation. Students will be able to discuss the roles of regularization, convolutional neural networks, autoencoders, and attention/transformers at a conceptual level.",
+      "course_syllabus": "This course covers foundational concepts underpinning machine learning and AI. Following a brief review on linear algebra, probability and information theory for ML, various learning models and training will be covered, including single-layer regression/classification, loss/likelihood and MLE, least-squares geometry, bias–variance, discriminant functions/decision theory, and optimization via (stochastic) gradient descent and backpropagation with regularization (weight decay, dropout, learning curves). Selected topics (instructor-added) may include CNNs, autoencoders, and transformers/attention.",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "30",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "Course and Teaching Evaluation Survey",
+      "required_readings": "Nil",
+      "recommended_readings": "Bishop, C. M., & Bishop, H. (2023). *Deep learning: Foundations and concepts*. Springer Nature.\n\nBengio, Y., Goodfellow, I., & Courville, A. (2017). *Deep learning.* MIT press"
+    },
+    {
+      "subject": "AISC",
+      "course_code": "5010",
+      "title": "Basic Programming for AI",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "A-LEC (4061)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Building LT3",
+                  "instructor": "Dr. LI Kwan Kit Ronald, \nDr. WONG Chak Fu, \nProfessor ZHANG Xinglong",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Building LT3",
+                  "instructor": "Dr. LI Kwan Kit Ronald, \nDr. WONG Chak Fu, \nProfessor ZHANG Xinglong",
+                  "dates": "18/2, 25/2, 4/3, 11/3, 18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "140",
+                "enrolled": "121",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "19",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Students will learn essential programming skills using Python, focusing on problem-solving and data analysis techniques applicable to AI.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence for Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Science",
+      "academic_org": "Div of Science",
+      "learning_outcomes": "By the end of this course, students should be able to:\n\n* write Python code beyond “notebook hacking”\n* clean messy data, run analyses, and produce figures\n* build reusable modules/classes for research tasks\n* handle errors properly (not crash silently)\n* create reproducible environments that others can run\n* collaborate professionally with Git/GitHub\n* run a baseline machine learning workflow using scikit-learn\n\nSpecifically, the students can aim to achieve the following objectives:\n\nA. Core Python Programming Competence\n\n* Write correct Python programs using variables, expressions, control flow, loops, and functions to solve data-driven problems.\n* Use Python data structures effectively (lists, tuples, dictionaries, sets) and apply common patterns such as slicing, iteration, list comprehensions, and functional tools (e.g., zip, enumerate, lambda).\n* Work confidently with strings and encodings, including text processing tasks commonly encountered in scientific data and AI pipelines.\n\nB. Software Design and Object-Oriented Programming\n\n* Apply object-oriented programming (OOP) principles—inheritance, encapsulation, abstraction, and polymorphism—to build modular and reusable code.\n* Design basic Python modules and scripts, separating logic into functions/classes and structuring code for clarity and maintainability.\n\nC. Practical Engineering Skills for Reliable Coding\n\n* Debug and interpret Python errors, using error messages, print-based inspection, and systematic debugging strategies to identify and fix issues efficiently.\n* Implement robust programs with error handling, including exceptions, input validation, and defensive coding practices.\n\nD. Data Handling and Scientific Computing\n\n* Read, write, and manage files and datasets, including common formats (CSV/JSON/TXT), using appropriate File I/O techniques.\n* Use NumPy for numerical computing, including array operations, vector/matrix/tensor manipulation, and efficient computation through vectorization.\n* Use pandas for data extraction, cleaning, transformation, and aggregation, preparing datasets for downstream analysis and modelling.\n\nE. Visualization and Communication\n\n* Create clear and informative visualizations using Matplotlib, selecting appropriate chart types and formatting to communicate results effectively.\n\nF. Reproducible and Collaborative Workflows\n\n* Build reproducible Python environments using conda/mamba, manage dependencies, and control randomness using seeds.\n* Collaborate using Git/GitHub, including basic version control operations, branching workflows, pull requests, and code review practices.\n\nG. Quality Assurance and Maintainability\n\n* Improve reliability and code quality using assertions, logging, basic testing (pytest), and (introductory) type hints to support correctness and future extension.\n\nH. Applied AI Programming (Tool-Oriented, Not Theory-Heavy)\n\n* Use common ML/AI Python libraries as practical tools (e.g., scikit-learn and introductory exposure to TensorFlow/PyTorch/Keras) to: a) load and preprocess data, b) train baseline models, c) evaluate performance using standard metrics, and d) run simple end-to-end modelling workflows.",
+      "course_syllabus": "The course syllabus ensures that all students develop:\n\n* Python programming skills for AI applications\n* Practical data analysis and visualization abilities\n* Foundational knowledge of linear algebra and calculus as applied in AI\n* Hands-on experience in building and deploying machine learning models for real-world problems\n\n1) Python Fundamentals for AI Programming\n\n* Fundamental concepts\n\n* Python syntax and execution model (script vs notebook)\n* Variables, expressions, operators, statements\n* Data types (int/float/bool/None), type conversion\n* Control flow: conditionals and loops\n* Functions: parameters, return values, scope\n* Pythonic iteration: zip, enumerate, list comprehensions, basic lambda\n\nWhat is covered\n\n* Writing correct programs to solve small computational problems\n* Basic algorithmic thinking and code structure\n\nNot covered (in depth)\n\n* Advanced algorithm design / competitive programming\n\n2) Data Structures and Text Handling\n\n* Fundamental concepts\n* Core containers: lists, tuples, dicts, sets\n* Indexing, slicing, mutability vs immutability\n* String processing: formatting, splitting, parsing\n* Encodings and Unicode awareness (UTF-8, common pitfalls in scientific text data)\n\nWhat is covered\n\n* Practical manipulation of structured data (tables, mappings, records)\n* Text processing typical in logs, datasets, metadata, and scientific outputs\n\nNot covered (in depth)\n\n* Formal language processing or NLP models\n\n3) Object-Oriented Programming (OOP) for Reusable Code\n\n* Fundamental concepts\n* Classes/objects, methods, attributes\n* Encapsulation and abstraction (API design mindset)\n* Inheritance and polymorphism (when/how to use them)\n* Code organization into modules\n\nWhat is covered\n\n* Building simple, reusable components for scientific/AI workflows\n\nNot covered (in depth)\n\n* Design patterns at enterprise-level complexity\n\n4) Input/Output, File Processing, Libraries, and Error Handling\n\n* Fundamental concepts\n* File I/O: reading/writing text and structured formats (CSV/JSON)\n* Import system and modular scripts\n* Standard library vs third-party libraries\n* Exceptions, try/except, defensive programming, user input validation\n\nWhat is covered\n\n* Building robust scripts that work on real datasets and files\n\nNot covered (in depth)\n\n* Systems programming, OS internals\n\n5) Reproducible Computing and Collaborative Development\n\n* Fundamental concepts\n* Environment management: conda/mamba, dependency specification\n* Reproducibility principles: versions, fixed seeds, deterministic workflows (as feasible)\n* Git/GitHub essentials: commits, branches, pull requests, code reviews\n\nWhat is covered\n\n* Creating research-ready code that others can run and verify\n\nNot covered (in depth)\n\n* Large-scale DevOps/CI pipelines (may be briefly introduced as optional)\n\n6) Numerical Computing and Data Analysis\n\n* Fundamental concepts\n* NumPy arrays: shape, dtype, broadcasting, vectorization\n* Matrix/tensor operations and efficient computation\n* pandas DataFrames: indexing, filtering, merge/join, groupby, missing values\n* Data cleaning and transformation pipelines\n\nWhat is covered\n\n* Preparing and transforming datasets for analysis/modelling\n\nNot covered (in depth)\n\n* Advanced statistical inference (handled in Mathematics & Statistics for AI)\n\n7) Scientific Visualization\n\n* Fundamental concepts\n* Plot selection for different data types (trend, distribution, comparison)\n* Basic Matplotlib usage and good plotting practices\n* Interpreting visual results and communicating findings\n\nWhat is covered\n\n* Producing figures for reports and research presentations\n\nNot covered (in depth)\n\n* Interactive dashboards and advanced visualization libraries (optional extension)",
+      "assessment_types": {
+        "Classwork": "20",
+        "Homework or assignment": "20",
+        "Presentation": "20",
+        "Project": "40"
+      },
+      "feedback_evaluation": "Course and Teaching Evaluation Survey was conducted at the university",
+      "required_readings": "Grigorov, D. (2024). Introduction to Python and large language models: A guide to language models. Apress.\n\nGuillod, J. (2025). Python programming for mathematics. CRC Press.\n\nMcKinney, W. (2022). Python for data analysis: Data wrangling with pandas, NumPy, and Jupyter (3rd ed.). O’Reilly Media.\n\nMiller, B. N., Ranum, D. L., & Anderson, J. (2019). Python programming in context. Jones & Bartlett Learning.\n\nShea, J. M. (2025). Linear algebra for data science with Python. CRC Press.\n\nSlatkin, B. (2024). Effective Python: 125 specific ways to write better Python (2nd ed.). Addison-Wesley.",
+      "recommended_readings": "Nil"
+    },
+    {
+      "subject": "AISC",
+      "course_code": "5020",
+      "title": "Mathematics & Statistics for AI",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "A-LEC (3948)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Building LT3",
+                  "instructor": "Dr. CHEUNG King Chau, \nProfessor CHOI Pui Tung",
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12, 9/12"
+                }
+              ],
+              "availability": {
+                "capacity": "140",
+                "enrolled": "119",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "21",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides a solid foundation in the mathematical and statistical concepts necessary for understanding and developing AI models, including linear algebra, probability, and statistical inference.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence for Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Science",
+      "academic_org": "Div of Science",
+      "learning_outcomes": "Students completing this course gain the mathematical foundations needed to understand, design, and build AI models. They use linear algebra (vectors, matrices, eigenvalues, SVD) to structure data and representations; apply multivariate calculus and computation graphs to derive and implement backpropagation; and wield probability, information theory, and inference to formulate principled objectives (entropy, cross‑entropy, KL). They diagnose conditioning and stability, choose effective SGD/optimizer strategies, and reason about constraints. They reduce dimensionality with PCA, model latent structure via GMM/EM, and leverage the mathematics of CNNs for vision. The result is a disciplined ability to translate real problems into robust, well‑optimized AI systems.",
+      "course_syllabus": "Core Content:\n\nLinear algebra\n\n* Vectors, matrices, tensors\n* Matrix operations, dot product, norms\n* Linear independence, span, rank, eigenvalues, SVD\n\nCalculus & computation graphs\n\n* Gradients, Jacobians, Hessians\n* Multivariate chain rule\n* Computation graphs\n\nProbability and information theory\n\n* Random variables, PDFs/PMFs\n* Joint, marginal, conditional probability\n* Expectation, variance, covariance\n* Entropy, cross‑entropy, KL divergence\n\nStatistical inference\n\n* Maximum Likelihood Estimation (MLE)\n* Maximum a Posteriori (MAP) and Bayesian inference\n* Least Squares, Mean Squared Error (MSE), logistic regression\n* Bias–variance trade‑off\n\nOptimization\n\n* Gradient descent, convexity, constrained optimization\n* Condition number, stability, step size\n* Stochastic Gradient Descent (SGD), momentum, RMSProp, Adam\n* Line search & curvature considerations\n\nDimensionality Reduction\n\n* PCA via eigenvalues and SVD\n* Probabilistic PCA\n* Applications to preprocessing, compression, visualization\n\nLatent Variable and Mixture Models\n\n* Gaussian Mixture Models (GMM)\n* Expectation–Maximization (EM)\n\nSelected Content:\n\nProbabilistic Generative Models\n\n* Likelihood‑based generative models\n* Conceptual introduction to VAEs and GANs\n* ELBO and variational inference at a high level\n\nBayesian Networks and Graphical Models\n\n* DAG structure, factorization\n* Conditional independence; inference\n* Learning graph models conceptually",
+      "assessment_types": {
+        "Examination": "25",
+        "Homework or assignment": "30",
+        "Project": "25",
+        "Test or quiz": "20"
+      },
+      "feedback_evaluation": "Students are encouraged to provide feedback to help improve both teaching and learning. Formal feedback will be collected through the Course and Teaching Evaluation Survey at the end of the semester. In addition, students may share suggestions throughout the course via verbal comments, email communication, and informal check‑ins. All feedback will be reviewed to enhance future course delivery.",
+      "required_readings": "1. Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep learning*. Cambridge, MA: MIT Press.\n2. Deisenroth, M. P., Faisal, A. A., & Ong, C. S. (2020). *Mathematics for machine learning*. Cambridge, England: Cambridge University Press.\n3. Nelson, H. (2023). *Essential math for AI: Next-level mathematics for developing efficient and successful AI systems*. Sebastopol, CA: O’Reilly Media.",
+      "recommended_readings": "1. Trevor Hastie, Robert Tibshirani, Jerome Friedman (2001). The Elements of Statistical Learning, Available at http://www-stat.stanford.edu/∼tibs/ElemStatLearn/.\n2. Chris Bishop (2006). Pattern Recognition and Machine Learning.\n3. Luc Devroye, L ́aszl ́o Gy ̈orfi, G ́abor Lugosi. (1996). A probabilistic theory of pattern recognition.\n4. Gyorfi, Kohler, Krzyzak and Walk (2002). A Distribution-Free Theory of Nonparametric Regression.\n5. Larry Wasserman (2004). All of Statistics: A Concise Course in Statistical Inference.\n6. Aggarwal, C. C. (2020). *Linear algebra and optimization for machine learning: A textbook*. Cham, Switzerland: Springer Nature Switzerland AG.\n7. Golden, R. M. (2020). *Statistical machine learning: A unified framework*. CRC Press."
+    },
+    {
+      "subject": "AISC",
+      "course_code": "5030",
+      "title": "Introduction of AI for Science",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "A-LEC (3892)",
+              "meetings": [
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Dr. WONG Tat Wing, \nProfessor CHOI Pui Tung, \nProfessor KANG Byung Ho, \nProfessor LIU Lin, \nProfessor LUI Lok Ming, \nProfessor Oleksandr SAVATIEIEV, \nProfessor TSE Ying Lung, \nProfessor WONG Wing Tak Jack, \nProfessor XUE Haoran, \nProfessor ZHU Junyi",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Dr. WONG Tat Wing, \nProfessor CHOI Pui Tung, \nProfessor KANG Byung Ho, \nProfessor LIU Lin, \nProfessor LUI Lok Ming, \nProfessor Oleksandr SAVATIEIEV, \nProfessor TSE Ying Lung, \nProfessor WONG Wing Tak Jack, \nProfessor XUE Haoran, \nProfessor ZHU Junyi",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11, 7/12"
+                }
+              ],
+              "availability": {
+                "capacity": "140",
+                "enrolled": "122",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "18",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course explores the transformative applications of AI in research, innovation, and technology across various science disciplines. Through engaging case studies and practical examples, students will discover how AI is reshaping the landscape of modern science and technology. Students will attend lectures featuring different science researchers, who will share how AI has been utilised in their fields. Designed to be accessible, the course emphasizes the practical applications of AI in science without requiring advanced programming skills or in-depth knowledge of AI techniques.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence for Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Science",
+      "academic_org": "Div of Science",
+      "learning_outcomes": "By the end of this course, students will be able to explain how AI is being applied across a range of science disciplines and describe the opportunities and limitations these applications create for research and innovation. They will be able to interpret and discuss real-world case studies presented by researchers, identifying the research questions addressed, the types of data involved, and the role AI plays in generating or validating insights. Students will also be able to outline the history and motivation behind these problems, including why they matter scientifically and how approaches have evolved over time.",
+      "course_syllabus": "Core topics cover major AI applications in the sciences, organized around a rotating set of researcher-led talks and case studies. Each talk introduces an applied scientific problem and the AI approach used to address it, without assuming advanced programming. Across the series, students engage with examples from multiple science domains (as determined by the invited speakers) and develop a shared foundation in discussing AI-enabled research in context. The course also includes dedicated weeks for student presentations, where students synthesize one talk/theme, communicate key ideas to peers, and connect it to broader scientific motivation and context. Specific talk topics may change each year.",
+      "assessment_types": {
+        "Examination": "40",
+        "Presentation": "40",
+        "Participation": "20"
+      },
+      "feedback_evaluation": "Course and Teaching Evaluation Survey",
+      "required_readings": "Nil",
+      "recommended_readings": "* Week 1: Jumper, J., Evans, R., Pritzel, A., Green, T., Figurnov, M., Ronneberger, O., ... & Hassabis, D. (2021). Highly accurate protein structure prediction with AlphaFold. *Nature*, 596(7873), 583-589. <https://doi.org/10.1038/s41586-021-03819-2>\n* Week 3: Cheng, M., Fu, C. L., Okabe, R., Chotrattanapituk, A., Boonkird, A., Hung, N. T., & Li, M. (2026). Artificial intelligence-driven approaches for materials design and discovery. *Nature Materials*, 1-17. https://doi.org/10.1038/s41563-025-02403-7\n* Week 5: Géron, A. (2022). *Hands-on machine learning with Scikit-Learn, Keras and TensorFlow: concepts, tools, and techniques to build intelligent systems* (3rd ed.). O’Reilly.\n* Week 6: Noor, M. H. M., & Ige, A. O. (2025). A survey on state-of-the-art deep learning applications and challenges. *Engineering Applications of Artificial Intelligence*, *159*, 111225.\n* Week 10: Liu, L. (2021). A review of deep learning for cryospheric studies, in *Deep Learning for the Earth Sciences*, G. Camps-Valls, D. Tuia, X. Zhu, and M. Reichstein, Eds., Wiley & Sons. <https://doi.org/10.1002/9781119646181.ch17>"
+    },
+    {
+      "subject": "AISC",
+      "course_code": "5110",
+      "title": "AI for Life Sciences Research and Applications",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "A-LEC (4055)",
+              "meetings": [
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Cheng Yu Tung Building LT1A",
+                  "instructor": "Professor AU Wing Ngor Shannon, \nProfessor CHAN Ting Fung Philos, \nProfessor CHOW Hei Man, \nProfessor KANG Byung Ho, \nProfessor WONG Wing Tak Jack",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "Cheng Yu Tung Building LT1A",
+                  "instructor": "Professor AU Wing Ngor Shannon, \nProfessor CHAN Ting Fung Philos, \nProfessor CHOW Hei Man, \nProfessor KANG Byung Ho, \nProfessor WONG Wing Tak Jack",
+                  "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "140",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "140",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed for students with foundational science or computational backgrounds seeking to understand how artificial intelligence (AI) transforms life sciences research and applications. No prior experience in life sciences is required. The course aims to provide essential biological principles to AI-driven solutions across five interconnected domains: macromolecular structure determination, cell imaging, bioinformatics, drug discovery, and personalized medicine and nutrition. Students will learn how AI addresses key technical challenges—from protein folding and genomic analysis to clinical trial optimization—while developing competency in interpreting AI outputs in biological contexts. By course completion, students will understand both the capabilities and limitations of AI applications in advancing life science research.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence for Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Science",
+      "academic_org": "Div of Science",
+      "learning_outcomes": "Students will understand how artificial intelligence (AI) addresses fundamental challenges across the life sciences—from protein folding and cell imaging to genomic analysis, drug discovery, and personalized medicine. They will compare classical and AI-based approaches, interpret AI outputs in biological contexts, and critically evaluate the impact of AI on accelerating scientific discovery while engaging with ethical considerations required for responsible AI development in life science applications.",
+      "course_syllabus": "This course explores how AI addresses fundamental challenges across five interconnected domains of life science research. Module 1 covers macromolecular structure—from structural biology fundamentals to AI-driven protein folding and de novo design. Module 2 examines cell imaging, focusing on microscopy principles and how AI facilitates overcoming challenges in cellular microscopy imaging such as noise, resolution, and annotation. Module 3 addresses real-world applications in personalized medicine and nutrition, grounded in ethical frameworks and stakeholder engagement. Module 4 introduces bioinformatics, comparing classical pipelines with AI approaches for genomic and transcriptomic analysis, emphasizing biological data interpretation. Module 5 traces AI's integration throughout drug discovery—from target identification to clinical trial design and optimization. From the modules, students will be able to develop competency in translating AI capabilities to assist in tackling issues in life research endeavors and applications",
+      "assessment_types": {
+        "Examination": "72",
+        "Homework or assignment": "18",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "Course and Teaching Evaluation Survey",
+      "required_readings": "* *Module 1.**\n\nTBA\n\n* *Module 2.**\n\n1. Belthangady & Royer (2019). \"Applications, promises, and pitfalls of deep learning for fluorescence image reconstruction.\" Nature Methods 16, 1215-1225.\n2. Heinrich et al. (2021). \"Whole-cell organelle segmentation in volume electron microscopy.\" Nature 599, 141-146.\n3. Stringer et al. (2021). \"Cellpose: a generalist algorithm for cellular segmentation.\" Nature Methods 18, 100-106.\n\n* *Module 3.**\n\nTBA\n\n* *Module 4.**\n\nTBA\n\n* *Module 5.**\n\nTBA",
+      "recommended_readings": "* *Module 1.**\n\nTBA\n\n* *Module 2.**\n\n1. Moen et al. (2019). \"Deep learning for cellular image analysis.\" Nature Methods 16, 1233-1246.\n2. Li et al. (2022). \"Real-time denoising enables high-sensitivity fluorescence time-lapse imaging beyond the shot-noise limit.\" Nature Biotechnology 41, 282-292.\n3. Xu et al. (2021). \"A connectome of the adult Drosophila central brain.\" eLife 10, e57443.\n\n* *Module 3.**\n\n1. Zarrinpar, A.; Lee, D.-K.; Silva, A.; Datta, N.; Kee, T.; Eriksen, C.; Weigle, K.; Agopian, V.; Kaldas, F.; Farmer, D.; Wang, S. E.; Busuttil, R.; Ho, C.-M.; Ho, D., Individualizing liver transplant immunosuppression using a phenotypic personalized medicine platform. Science Translational Medicine 2016, 8 (333), 333ra49-333ra49.\n2. Rashid M, Toh TB, Hooi L, Silva A, Zhang Y, Tan PF, The AL, Karnani N, Jha S, Ho CM, Chng WJ, Ho D, Chow EK; Optimizing drug combinations against multiple myeloma using a quadratic phenotypic optimization platform (QPOP); Science Translational Medicine, 2018 Aug 8;10(453).\n3. Aifric O'sullivan, Bethany Henrick, Bonnie Dixon, Daniela Barile, Angela Zivkovic, Jennifer Smilowitz, Danielle Lemay, William Martin, J Bruce German, Sara Elizabeth Schaefer. 21st Century Toolkit for Optimizing Population Health through Precision Nutrition. Critical Reviews in Food Science and Nutrition. Published online: 05 Jul 2017\n4. National Academy of Medicine: An Artificial Intelligence Code of Conduct for Health and Medicine: Essential Guidance for Aligned Action. https://www.nationalacademies.org/read/29087/chapter/1\n\n* *Module 4.**\n\nTBA\n\n* *Module 5.**\n\nTBA"
+    },
+    {
+      "subject": "AISC",
+      "course_code": "5120",
+      "title": "AI for Chemistry",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "A-LEC (3995)",
+              "meetings": [
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Building LT7",
+                  "instructor": "Professor Oleksandr SAVATIEIEV, \nProfessor ZHANG Xinglong",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Building LT7",
+                  "instructor": "Professor Oleksandr SAVATIEIEV, \nProfessor ZHANG Xinglong",
+                  "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "140",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "140",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course focuses on how artificial intelligence is applied specifically to chemical data and chemical discovery workflows. Building on machine learning concepts covered in the core modules, students will learn chemistry-aware representations (e.g., molecular graphs and 3D conformations), data curation and evaluation strategies (e.g., scaffold splits, dataset bias, uncertainty), and practical modelling pipelines for molecules, reactions, and spectroscopy. Through case studies and hands-on exercises using Python and chemistry toolkits such as RDKit (and modern deep learning frameworks), students will develop the ability to design reliable AI workflows for real chemical problems including molecular property prediction, reaction outcome modelling, catalyst screening, and data-driven discovery. The course features an invited seminar session delivered by a guest speaker. Students will undertake an individual or group project and give a presentation in the final week.",
+      "enrollment_requirement": "For students in MSc Artificial Intelligence for Science",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Science",
+      "academic_org": "Div of Science",
+      "learning_outcomes": "1. **Describe** the unique characteristics and challenges of chemical data that influence how AI methods are applied in chemistry.\n2. **Recognise and use** common chemistry representations (e.g., SMILES, molecular graphs, basic 3D conformations) and apply standard preprocessing and data curation practices.\n3. **Apply** chemistry-aware evaluation strategies (e.g., scaffold splitting) and **identify** common issues such as data leakage, dataset bias, and uncertainty in model predictions.\n4. **Interpret and compare** representative AI approaches for key chemistry tasks (e.g., molecular property prediction, reaction prediction/retrosynthesis, and molecule generation) using case studies and guided exercises.\n5. **Complete** a small-scale individual or group project that applies course concepts to a chemistry dataset, and **communicate** the main results and limitations in a final presentation.",
+      "course_syllabus": "Core topics include: (1) unique characteristics of chemical data and why chemistry AI differs from generic ML; (2) chemistry-aware representations and preprocessing (SMILES, molecular graphs, basic 3D conformations, data curation/standardisation); (3) reliable evaluation in chemistry (scaffold-based splitting, data leakage, dataset bias, and uncertainty awareness); (4) representative AI approaches and case studies for molecular property prediction, reaction prediction/retrosynthesis, and constraint-aware molecular generation; and (5) guided hands-on exercises and a small-scale project with final presentation, with optional enrichment via an invited research seminar.",
+      "assessment_types": {
+        "Presentation": "45",
+        "Participation": "10",
+        "Report": "45"
+      },
+      "feedback_evaluation": "Course and Teaching Evaluation Survey",
+      "required_readings": "Topic-by-topic:\n\n* *L1**\nButler, K. T., Davies, D. W., Cartwright, H., Isayev, O., & Walsh, A. (2018). Machine learning for molecular and materials science. *Nature, 559*(7715), 547–555. https://doi.org/10.1038/s41586-018-0337-2\n\n* *L2**\nWeininger, D. (1988). SMILES, a chemical language and information system. 1. Introduction to methodology and encoding rules. *Journal of Chemical Information and Computer Sciences, 28*(1), 31–36. <https://doi.org/10.1021/ci00057a005>\n\n* *L3**\nYang, K., Swanson, K., Jin, W., Coley, C., Eiden, P., Gao, H., … Barzilay, R. (2019). Analyzing learned molecular representations for property prediction. *Journal of Chemical Information and Modeling, 59*(8), 3370–3388. <https://doi.org/10.1021/acs.jcim.9b00237>\n\n* *L4**\nGilmer, J., Schoenholz, S. S., Riley, P. F., Vinyals, O., & Dahl, G. E. (2017). Neural message passing for quantum chemistry. In D. Precup & Y. W. Teh (Eds.), *Proceedings of the 34th International Conference on Machine Learning* (Vol. 70, pp. 1263–1272). PMLR.\n\n* *L5**\nBatzner, S., Musaelian, A., Sun, L., Geiger, M., Mailoa, J. P., Kornbluth, M., … Kozinsky, B. (2022). E(3)-equivariant graph neural networks for data-efficient interatomic potentials (NequIP). *Nature Communications, 13*, Article 2453. <https://doi.org/10.1038/s41467-022-29939-5>\n\n* *L6**\nGal, Y., & Ghahramani, Z. (2016). Dropout as a Bayesian approximation: Representing model uncertainty in deep learning. In M. F. Balcan & K. Q. Weinberger (Eds.), *Proceedings of the 33rd International Conference on Machine Learning* (Vol. 48, pp. 1050–1059). PMLR.\n\nLakshminarayanan, B., Pritzel, A., & Blundell, C. (2017). Simple and scalable predictive uncertainty estimation using deep ensembles. In I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, & R. Garnett (Eds.), *Advances in Neural Information Processing Systems* (Vol. 30, pp. 6402–6413). Curran Associates, Inc.\n\n* *L7**\nSchwaller, P., Laino, T., Gaudin, T., Bolgar, P., Bekas, C., & Lee, A. A. (2019). Molecular transformer: A model for uncertainty-calibrated chemical reaction prediction. *ACS Central Science, 5*(9), 1572–1583. https://doi.org/10.1021/acscentsci.9b00576\n\n* *L8**\nElton, D. C., Boukouvalas, Z., Fuge, M. D., & Chung, P. W. (2019). Deep learning for molecular design—A review of the state of the art. *Molecular Systems Design & Engineering, 4*(3), 828–849. https://doi.org/10.1039/C9ME00039A\n\n* *L9**\nAhneman, D. T., Estrada, J. G., Lin, S., Dreher, S. D., & Doyle, A. G. (2018). Predicting reaction performance in C–N cross-coupling using machine learning. *Science, 360*(6385), 186–190. https://doi.org/10.1126/science.aar5169\n\n* *L10**\nWestermayr, J., & Marquetand, P. (2025). Machine learning spectroscopy to advance computation and analysis. *Chemical Science, 16*(46), 21660–21676. https://doi.org/10.1039/D5SC05628D\n\n* *L11**\nChen, R., Liu, Y., Chen, Z., *et al.* (2025). Large language model guided automated reaction pathway exploration. *Communications Chemistry, 8*, Article 255. https://doi.org/10.1038/s42004-025-01630-y\n\nJablonka, K. M., Schwaller, P., Ortega-Guerrero, A., & Smit, B. (2024). Leveraging large language models for predictive chemistry. *Nature Machine Intelligence, 6*(2), 161–169. <https://doi.org/10.1038/s42256-023-00788-1>\n\nZheng, Y., Koh, H. Y., Ju, J., Nguyen, A. T. N., May, L. T., Webb, G. I., … Pan, S. (2025). Large language models for scientific discovery in molecular property prediction. *Nature Machine Intelligence, 7*, 437–447. https://doi.org/10.1038/s42256-025-00994-z\n\nRuan, Y., Lu, C., Xu, N., *et al.* (2024). An automatic end-to-end chemical synthesis development platform powered by large language models. *Nature Communications, 15*, Article 10160. https://doi.org/10.1038/s41467-024-54457-x",
+      "recommended_readings": "Literature review articles, book chapters of students’ own interests."
+    }
+  ]
+}

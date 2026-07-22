@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "PHIL",
     "subject_title": "Philosophy",
-    "total_courses": 64
+    "total_courses": 65
   },
   "courses": [
     {
@@ -2485,7 +2485,7 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese and English"
             },
             {
               "section": "-T01-TUT (9442)",
@@ -2511,7 +2511,7 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese and English"
             }
           ]
         }
@@ -2526,6 +2526,87 @@
       "academic_group": "Dept of Philosophy",
       "academic_org": "Dept of Philosophy",
       "learning_outcomes": "1. Demonstrate familiarity with the primary and secondary sources on the syllabus.\n\n2. Gain competence in explaining and evaluating the key concepts and theories addressed in the course.\n\n3. Be able to articulate and defend a philosophical thesis of their own concerning the issues discussed in the course.\n\n4. Demonstrate progress in their papers toward mastering the expository and critical skills for argumentative writing.",
+      "assessment_types": {
+        "Essays": "50",
+        "Others": "20",
+        "Presentation": "30"
+      }
+    },
+    {
+      "subject": "PHIL",
+      "course_code": "4443",
+      "title": "Seminar on Philosophical Issues",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (9911)",
+              "meetings": [
+                {
+                  "time": "Mo 1:30PM - 3:15PM",
+                  "location": "Chen Kou Bun Bldg 706C",
+                  "instructor": "Staff",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 1:30PM - 3:15PM",
+                  "location": "Chen Kou Bun Bldg 706C",
+                  "instructor": "Staff",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua and English"
+            },
+            {
+              "section": "-T01-TUT (9912)",
+              "meetings": [
+                {
+                  "time": "Mo 3:30PM - 4:15PM",
+                  "location": "Chen Kou Bun Bldg 706C",
+                  "instructor": "Staff",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 3:30PM - 4:15PM",
+                  "location": "Chen Kou Bun Bldg 706C",
+                  "instructor": "Staff",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua and English"
+            }
+          ]
+        }
+      ],
+      "description": "This is a seminar course devoted to examining selected issues in philosophy. The specific content of the course varies from semester to semester. Offerings with different subtitles can be taken up for credit, up to a maximum of two times.\n\nAdvisory to Majors: to be taken in year 3 or above.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Philosophy",
+      "academic_org": "Dept of Philosophy",
+      "learning_outcomes": "1. Gain competence in explaining and evaluating the key concepts and theories addressed in the course.\n\n2. Demonstrate familiarity with the primary and secondary source texts in the syllabus.\n\n3. Engage in in-depth discussion on the selected topics of the course.\n\n4. Demonstrate ability to articulate and defend one’s own philosophical theses with clarity.\n\n5. Demonstrate consolidated skills in expository and argument writing.",
       "assessment_types": {
         "Essays": "50",
         "Others": "20",
@@ -3725,11 +3806,11 @@
                 }
               ],
               "availability": {
-                "capacity": "30",
+                "capacity": "40",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "40",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"

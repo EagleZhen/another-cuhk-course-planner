@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "schema_version": 1,
+    "subject": "ICMS",
+    "subject_title": "Microelectronics and Integrated Circuits",
+    "total_courses": 3
+  },
+  "courses": [
+    {
+      "subject": "ICMS",
+      "course_code": "5723",
+      "title": "CMOS Radio Frequency Integrated Circuits Design",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This subject aims to train students with the advanced knowledge of radio frequency (RF) integrated circuit design in the advanced CMOS technology, including design and analysis of widely-used RF transceiver architectures and circuits. The student will get hands-on experience to design and analyze RF integrated circuits and get familiar with the complete design flow from circuit design, layout design and parasitic parameters extraction.\n\nThe content of this course is composed of seven parts: 1)RF passive circuits and matching networks; 2) Noise and nonlinearity in RF system; 3) Communication system and standard; 4) RF transceiver architecture; 5) RF transceiver calibration; 6) RF module circuit design; 7) Introduction to mmWave IC. The students to be enrolled in this course are required to be with basic knowledge in physics, semiconductor device and integrated circuits.",
+      "enrollment_requirement": "For students in MSc Microelectronics and Integrated Circuits",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Electronic Engineering",
+      "academic_org": "Div of Electronic Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Understand RFIC system and architecture design.\n2. Understand popular communication system and standard.\n3. Analyze important RF module circuits in advanced CMOS process.\n\nUse mainstream EDA tools in the industry to design and optimize the performance of RF module circuits.",
+      "course_syllabus": "RF passive circuits and matching networks\n\nNoise and nonlinearity in RF system\n\nCommunication system and standard\n\nTransceiver architecture\n\nTransceiver calibration\n\nFrequency synthesizer - I\n\nFrequency synthesizer - II\n\nVoltage-controlled oscillator and divider\n\nLow noise amplifier\n\nMixer\n\nPower amplifier\n\nIntroduction to mmWave IC",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Project": "60"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "To be provided by the course teacher.",
+      "recommended_readings": "Willy M. Sansen, Analog design essentials. Springer, 2006.\n\nBehzad Razavi, Design of analog CMOS integrated circuits (Second Edition). McGraw-Hill Education, 2017.\n\nBehzad Razavi, RF Microelectronics (Second Edition). Pearson Education, Inc., 2012"
+    },
+    {
+      "subject": "ICMS",
+      "course_code": "5727",
+      "title": "Mixed-signal Integrated Circuit Design",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This subject aims to train students with the advanced knowledge of mixed-signal integrated circuit design in the advanced CMOS technology, including design and analysis of the circuit and theory of switch capacitor circuit, analog-to-digital converter (ADC) and digital-to-analog converter (DAC). The student will get hands-on experience to design and analyze advanced mixed-signal integrated circuits and complete design flow from circuit design, layout design and parasitic parameters extraction.\n\nThe content of this course is composed of eight parts: 1) ADC/DAC fundamentals; 2) switch capacitor circuit; 3) SAR ADC; 4) pipelined ADC; 5) interleaved ADC; 6) sigma-delta ADC; 7) high resolution DAC; 8) high-speed DAC. The students to be enrolled in this course are required to be with basic knowledge in physics, semiconductor device and integrated circuits.",
+      "enrollment_requirement": "For students in MSc Microelectronics and Integrated Circuits;Not for students who have taken ELEG5769",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Electronic Engineering",
+      "academic_org": "Div of Electronic Engineering",
+      "learning_outcomes": "Upon successful completion of this course, students will be able to:\n\n1. Understand the advanced knowledge of mixed-signal IC design in CMOS process.\n\n2. Understand the switch capacitor circuit design.\n\n3. Analyze important ADC design including SAR ADC, pipelined ADC, interleaved ADC and sigma-delta ADC.\n\n4. Analyze important DAC design including current steering DAC, R-2R DAC and sigma-delta DAC.\n\n5. Use mainstream EDA tools in the industry to optimize the performance mixed-signal integrated circuits.",
+      "course_syllabus": "ADC/DAC fundamentals\n\nSwitch capacitor circuit\n\nSAR ADC\n\nPipelined ADC\n\nPipelined-SAR ADC\n\nInterleaved ADC\n\nSwitch capacitor sigma-delta ADC\n\nContinuous-time sigma-delta ADC\n\nAdvanced ADC architectures - I\n\nAdvanced ADC architectures - II\n\nHigh-resolution DAC\n\nHigh-speed DAC",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Project": "60"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "To be provided by the course teacher.",
+      "recommended_readings": "Willy M. Sansen, Analog design essentials. Springer, 2006.\n\nBehzad Razavi, Design of analog CMOS integrated circuits (Second Edition). McGraw-Hill Education, 2017.\n\nFranco Maloberti, Data Converters, Springer, 2007.\n\nMarcel J.M. Pelgrom, Analog-to-Digital Conversion, Springer, 2022."
+    },
+    {
+      "subject": "ICMS",
+      "course_code": "5730",
+      "title": "Digital Automotive IC Design",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The emerging intelligence of automotive vehicles, robots, unmanned aerial vehicles and industry equipment requires increasingly powerful computing capability embedded in vehicles, which motivates the eager demand for automotive Integrated Circuit (IC). Automotive IC is required to implement the functions needed by the electronic systems in vehicles and equipment, and to be with such characteristics as high reliability and robustness. This course intends to provide for the enrolled students with the knowledge of automotive IC, including the characteristics, design, related software and application. Further more, such advanced knowledges as AXI bus, SoC (System on Chip), high level of IC design and verification language SystemVerilog, UVM (Universal Verification Methodology) will also be provided, which is required for complicated IC in other domains besides vehicles. The students can therefore be with knowledge and design capability for both automotive IC and universal complicated IC.\n\nThe content of this course is composed of the following parts: 1) Electrical and electronic architecture of vehicle; 2) Particulars of automotive IC; 3) CAN (Controller Area Network); 4) Design methodology of digital automotive IC; 5) AXI bus; 6) Hardware and software of SoC (System on Chip); 7) SystemVerilog; 8) UVM. The students to be enrolled in this course are required to be with basic knowledge of digital IC design.",
+      "enrollment_requirement": "For students in MSc Microelectronics and Integrated Circuits;Not for students who have taken ELEG5765",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Electronic Engineering",
+      "academic_org": "Div of Electronic Engineering",
+      "learning_outcomes": "1. Understand the essential knowledge and particulars of automotive IC.\n\n2. Understand the electrical and electronic architecture of vehicle.\n\n3. Understand the fundamental design techniques for digital automotive IC.\n\n4. Understand CAN (Controller Area Network).\n\n5. Understand AXI bus.\n\n6. Understand the hardware and software of SoC (System on Chip).\n\n7. Understand SystemVerilog.\n\n8. Understand UVM.\n\n9. Obtain practical experience of designing automotive IC.",
+      "course_syllabus": "Electrical and electronic architecture of vehicle\n\nTypes and particulars of automotive IC\n\nCAN\n\nDesign of digital automotive IC\n\nAXI bus\n\nSoC\n\nSystemVerilog\n\nUVM\n\nAdvanced topics",
+      "assessment_types": {
+        "Essay test or exam": "45",
+        "Homework or assignment": "55"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedback using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "To be provided by the course teacher.",
+      "recommended_readings": "1. H. Zitta, et al., “Automotive IC-Design”.\n2. A. Nardi, et al., “Design-For-Safety For Automotive IC Design: Challenges And Opportunities”.\n3. Davide Appello, “Automotive IC's: less testing, more prevention”.\n4. Y. Shinojima, “Automotive semiconductors in the CASE era”.\n5. 姜鴻雷，“智能汽車”。\n6. “从芯片到软件，车载计算平台产业链全面拆解”。\n7. “2022汽车芯片行业研究报告”。"
+    }
+  ]
+}
