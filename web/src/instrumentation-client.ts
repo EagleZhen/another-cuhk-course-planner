@@ -40,6 +40,13 @@ if (typeof window !== 'undefined' && posthogKey) {
     },
   })
 
+  // Tag every event with the build's commit (from next.config) so an error reveals
+  // whether it came from stale cache or current code.
+  const buildId = process.env.NEXT_PUBLIC_BUILD_ID
+  if (buildId) {
+    posthog.register({ build_id: buildId })
+  }
+
   // Capture the pageview (records UTM), then strip utm_* from the URL — else a
   // lingering ?utm_source=... sticks to bookmarks and re-shares, mis-attributing
   // later visits.
