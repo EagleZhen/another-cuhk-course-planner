@@ -70,6 +70,21 @@ Where:
 - analytics initializes in [web/src/instrumentation-client.ts](../web/src/instrumentation-client.ts)
 - event helpers live in [web/src/lib/analytics.ts](../web/src/lib/analytics.ts)
 
+## Keep Volatile Text Out Of Prerendered HTML
+
+A formatted date/time in the static export is a magnet for anything that rewrites text before React hydrates — timezone drift (build renders UTC, browser renders local), iOS data detectors, page translation, extensions — and each mismatch is a hydration error (React #418). The app is prerendered but almost entirely client-rendered, so such text buys little and risks this.
+
+Decision: keep volatile, rewritable text out of the prerendered HTML. The "Last Data Sync" time renders only after mount (a brief "Loading…" ships instead); its formatter is also timezone-pinned so our own output is deterministic.
+
+Why it fits:
+
+- removes the whole class at once — detectors and translators get nothing to act on, rather than patching each cause
+- the gate looks removable but isn't; deleting it reopens #418
+
+Where:
+
+- render gate in [web/src/components/CourseSearch.tsx](../web/src/components/CourseSearch.tsx), timezone pin in `formatSyncTimestamp` ([web/src/lib/courseUtils.ts](../web/src/lib/courseUtils.ts))
+
 ## Regression-First Testing
 
 No tests exist yet; shipping has relied on manual testing. Retroactive full coverage is a stalling task; a test per bug fix is not.
