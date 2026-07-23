@@ -8,6 +8,7 @@ For Next.js work, read the relevant version-matched docs in `web/node_modules/ne
 
 - `README.md`: overview and repo map
 - `docs/README.md`: documentation map (start here for project docs)
+- `docs/commit-conventions.md`: required types and scopes; read before proposing or creating a commit title
 
 ## Working Style
 
