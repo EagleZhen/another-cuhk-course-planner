@@ -9,6 +9,8 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 ## Layout
 
 - **Dynamic hour height:** the grid is scaled so a 45-minute event (`MINIMUM_COURSE_DURATION_MINUTES`, the shortest CUHK class) exactly fits the rows enabled in the display config. Hardcoding card or slot heights breaks the guarantee that the shortest class can show every enabled row.
+- **Minimum day width:** day columns share available space but stop shrinking at 128px; narrower viewports scroll horizontally.
+- **Single scroll container:** one element owns both axes to avoid duplicate horizontal scrollbars.
 - **Z-index ladder:** sticky day header `z-50`, selected card `z-40`, conflict stacks `z-2x`, dropdown menus `z-[60]` (must clear the sticky header). Changing one requires checking the others.
 
 ## ICS Export
@@ -27,6 +29,6 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 
 ## Known Limitations
 
-- On small-width devices, event card text truncates; the grid keeps `MINIMUM_CALENDAR_WIDTH` and scrolls horizontally instead of adapting to narrow columns. Low priority.
+- Card fields truncate to one line. Wrapping would require variable card heights, particularly for instructor lists.
 - Desktop and mobile header layouts duplicate the ICS split-button markup within the file.
 - User dialogs are native `alert`/`confirm` rather than styled modals (deliberate simplicity).
