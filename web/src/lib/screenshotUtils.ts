@@ -3,6 +3,8 @@
  * Extracted from courseUtils.ts for better separation of concerns
  */
 
+import { CALENDAR_LAYOUT_CONSTANTS } from './calendarConfig'
+
 // Centralized screenshot configuration
 const SCREENSHOT_CONFIG = {
   // DOM element selectors
@@ -46,17 +48,14 @@ const SCREENSHOT_CONFIG = {
   // Element styling during preparation
   styling: {
     unscheduledContainer: {
-      paddingRight: '32px',
       paddingBottom: '24px',
-      marginLeft: '30px', // Align with calendar time column
-      marginRight: '16px',
       marginBottom: '16px',
     },
     courseCard: {
       maxWidth: '160px',
       minWidth: '140px',
     },
-    minElementWidth: 800,
+    minContentWidth: 800,
   },
 
   // CSS class replacements for clean screenshots
@@ -65,6 +64,15 @@ const SCREENSHOT_CONFIG = {
     'shadow-lg': 'shadow-sm',
   },
 } as const
+
+export function getScreenshotContentWidth(minimumCalendarWidth: number): number {
+  return Math.max(minimumCalendarWidth, SCREENSHOT_CONFIG.styling.minContentWidth)
+}
+
+interface CalendarScreenshotOptions {
+  minimumCalendarWidth: number
+  websiteUrl?: string
+}
 
 // Layout configuration interface
 interface LayoutConfig {
@@ -277,11 +285,19 @@ class ScreenshotStateManager {
  * Prepare calendar element for screenshot capture
  * Handles basic visibility and sizing requirements
  */
-function prepareCalendarElement(element: HTMLElement, stateManager: ScreenshotStateManager): void {
+function prepareCalendarElement(
+  element: HTMLElement,
+  stateManager: ScreenshotStateManager,
+  captureWidth: number
+): void {
   const originalStyle = element.style.cssText
   stateManager.storeElementState(element, originalStyle)
 
   // Expand element for capture
+  element.style.width = `${captureWidth}px`
+  element.style.minWidth = `${captureWidth}px`
+  element.style.maxWidth = `${captureWidth}px`
+  element.style.boxSizing = 'border-box'
   element.style.maxHeight = 'none'
   element.style.height = 'auto'
   element.style.overflow = 'visible'
@@ -314,25 +330,18 @@ function findSelectedCards(element: HTMLElement): NodeListOf<Element> {
 /**
  * Apply unscheduled container styling using configuration
  */
-function applyUnscheduledContainerStyling(container: HTMLElement, calendarWidth?: number): void {
+function applyUnscheduledContainerStyling(container: HTMLElement, captureWidth: number): void {
   const styling = SCREENSHOT_CONFIG.styling.unscheduledContainer
 
   // Transform from card to distinct section with proper borders
   container.setAttribute('class', 'border border-gray-200 bg-white')
 
-  // Apply configured margins
-  container.style.marginLeft = styling.marginLeft
-  container.style.marginRight = styling.marginRight
+  const leftInset = CALENDAR_LAYOUT_CONSTANTS.TIME_LABEL_COLUMN_WIDTH
+  container.style.marginLeft = `${leftInset}px`
+  container.style.marginRight = '0'
   container.style.marginBottom = styling.marginBottom
   container.style.boxSizing = 'border-box'
-
-  // Set width based on calendar width if provided
-  if (calendarWidth) {
-    const marginLeft = parseInt(styling.marginLeft)
-    const marginRight = parseInt(styling.marginRight)
-    const availableWidth = calendarWidth - marginLeft - marginRight
-    container.style.width = `${availableWidth}px`
-  }
+  container.style.width = `${captureWidth - leftInset}px`
 }
 
 /**
@@ -361,7 +370,7 @@ function applyCourseCardStyling(
 function prepareUnscheduledElement(
   element: HTMLElement,
   stateManager: ScreenshotStateManager,
-  calendarWidth?: number
+  captureWidth: number
 ): void {
   const originalStyle = element.style.cssText
   stateManager.storeElementState(element, originalStyle)
@@ -369,12 +378,14 @@ function prepareUnscheduledElement(
   const containerStyling = SCREENSHOT_CONFIG.styling.unscheduledContainer
 
   // Container sizing and overflow
-  element.style.paddingRight = containerStyling.paddingRight
+  element.style.paddingLeft = '0'
+  element.style.paddingRight = '0'
   element.style.paddingBottom = containerStyling.paddingBottom
-  element.style.width = 'auto'
-  element.style.minWidth = '100%'
+  element.style.width = `${captureWidth}px`
+  element.style.minWidth = `${captureWidth}px`
+  element.style.maxWidth = `${captureWidth}px`
   element.style.overflow = 'visible'
-  element.style.boxSizing = 'content-box'
+  element.style.boxSizing = 'border-box'
   element.style.maxHeight = 'none'
   element.style.height = 'auto'
   element.style.overflowY = 'visible'
@@ -391,7 +402,7 @@ function prepareUnscheduledElement(
       [{ element: cardContainer, originalClass }]
     )
 
-    applyUnscheduledContainerStyling(cardContainer, calendarWidth)
+    applyUnscheduledContainerStyling(cardContainer, captureWidth)
   }
 
   // Hide interactive elements for professional look
@@ -596,29 +607,25 @@ function downloadCompositeImage(canvas: HTMLCanvasElement, termName: string): Pr
   })
 }
 
-/**
- * Captures a calendar screenshot with term name header and website attribution
- * Now supports compositing calendar and unscheduled sections together
- */
+/** Capture and download the timetable with optional unscheduled courses. */
 export async function captureCalendarScreenshot(
   calendarElement: HTMLElement,
   unscheduledElement: HTMLElement | null,
   termName: string,
-  websiteUrl: string = typeof window !== 'undefined' ? window.location.origin : ''
+  options: CalendarScreenshotOptions
 ): Promise<void> {
   const stateManager = new ScreenshotStateManager()
+  const captureWidth = getScreenshotContentWidth(options.minimumCalendarWidth)
+  const websiteUrl =
+    options.websiteUrl ?? (typeof window !== 'undefined' ? window.location.origin : '')
 
   try {
     // Helper to prepare element for screenshot capture with measurements
-    const prepareElementForCapture = async (
-      element: HTMLElement,
-      isUnscheduled = false,
-      calendarWidth?: number
-    ) => {
+    const prepareElementForCapture = async (element: HTMLElement, isUnscheduled = false) => {
       if (isUnscheduled) {
-        prepareUnscheduledElement(element, stateManager, calendarWidth)
+        prepareUnscheduledElement(element, stateManager, captureWidth)
       } else {
-        prepareCalendarElement(element, stateManager)
+        prepareCalendarElement(element, stateManager, captureWidth)
       }
 
       // Force layout recalculation
@@ -628,7 +635,7 @@ export async function captureCalendarScreenshot(
       const rect = element.getBoundingClientRect()
       return {
         element,
-        actualWidth: Math.max(rect.width, SCREENSHOT_CONFIG.styling.minElementWidth),
+        actualWidth: rect.width,
         actualHeight: rect.height,
       }
     }
@@ -643,13 +650,7 @@ export async function captureCalendarScreenshot(
       actualHeight: number
     } | null = null
     if (unscheduledElement) {
-      unscheduledInfo = await prepareElementForCapture(
-        unscheduledElement,
-        true,
-        calendarInfo.actualWidth
-      )
-      // Match width to calendar for perfect alignment
-      unscheduledInfo.actualWidth = calendarInfo.actualWidth
+      unscheduledInfo = await prepareElementForCapture(unscheduledElement, true)
     }
 
     // Step 2.5: Clear selection visual effects for clean screenshot (CSS only)

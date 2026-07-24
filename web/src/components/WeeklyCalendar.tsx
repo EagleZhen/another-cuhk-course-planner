@@ -226,7 +226,9 @@ export default function WeeklyCalendar({
         '[data-screenshot="unscheduled"]'
       ) as HTMLElement | null
 
-      await captureCalendarScreenshot(calendarRef.current, unscheduledElement, selectedTerm)
+      await captureCalendarScreenshot(calendarRef.current, unscheduledElement, selectedTerm, {
+        minimumCalendarWidth,
+      })
       analytics.screenshotTaken()
     } catch (error) {
       console.error('Screenshot capture failed:', error)

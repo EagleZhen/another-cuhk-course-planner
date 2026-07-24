@@ -12,6 +12,7 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 - **Minimum day width:** day columns share available space but stop shrinking at 128px; narrower viewports scroll horizontally.
 - **Bounded wrapping:** locations and instructors may use a second line only when the meeting duration already provides enough card height.
 - **Single scroll container:** one element owns both axes to avoid duplicate horizontal scrollbars.
+- **Screenshot width:** exports use at least 800px and expand for seven-day calendars, independent of viewport width.
 - **Z-index ladder:** sticky day header `z-50`, selected card `z-40`, conflict stacks `z-2x`, dropdown menus `z-[60]` (must clear the sticky header). Changing one requires checking the others.
 
 ## ICS Export
