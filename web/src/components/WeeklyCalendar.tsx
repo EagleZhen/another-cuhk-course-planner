@@ -20,8 +20,9 @@ import {
   DEFAULT_CALENDAR_CONFIG,
   CALENDAR_LAYOUT_CONSTANTS,
   TEXT_STYLES,
-  ROW_HEIGHTS,
   MINIMUM_COURSE_DURATION_MINUTES,
+  calculateReferenceCardHeight,
+  getCardTextLineLimits,
   getDayIndex,
   getRequiredDays,
   getGridColumns,
@@ -31,23 +32,6 @@ import {
 } from '@/lib/calendarConfig'
 import type { CalendarEvent, CourseEnrollment, InternalSection, InternalMeeting } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
-
-/**
- * Calculate the total height needed for a course card based on display configuration
- */
-const calculateReferenceCardHeight = (displayConfig: CalendarDisplayConfig): number => {
-  let totalHeight = ROW_HEIGHTS.COURSE_CODE // Course code + section type always shown
-
-  if (displayConfig.showTitle) totalHeight += ROW_HEIGHTS.TITLE
-  if (displayConfig.showTime) totalHeight += ROW_HEIGHTS.TIME
-  if (displayConfig.showLocation) totalHeight += ROW_HEIGHTS.LOCATION
-  if (displayConfig.showInstructor) totalHeight += ROW_HEIGHTS.INSTRUCTOR
-
-  // Add padding (4px top + 4px bottom)
-  totalHeight += CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING * 2
-
-  return totalHeight
-}
 
 /**
  * Calculate dynamic hour height based on minimum course duration requirements
@@ -765,6 +749,7 @@ export default function WeeklyCalendar({
                           )
                           const isConflicted = group.length > 1
                           const isSelected = selectedEnrollment === event.enrollmentId
+                          const textLineLimits = getCardTextLineLimits(height, localDisplayConfig)
 
                           // Stacking for conflicts
                           const stackOffset = isConflicted
@@ -867,13 +852,21 @@ export default function WeeklyCalendar({
                               )}
 
                               {localDisplayConfig.showLocation && (
-                                <div className={`${TEXT_STYLES.LOCATION} truncate`}>
+                                <div
+                                  className={`${TEXT_STYLES.LOCATION} ${
+                                    textLineLimits.location === 2 ? 'line-clamp-2' : 'truncate'
+                                  }`}
+                                >
                                   {event.location}
                                 </div>
                               )}
 
                               {localDisplayConfig.showInstructor && (
-                                <div className={`${TEXT_STYLES.INSTRUCTOR} truncate`}>
+                                <div
+                                  className={`${TEXT_STYLES.INSTRUCTOR} ${
+                                    textLineLimits.instructor === 2 ? 'line-clamp-2' : 'truncate'
+                                  }`}
+                                >
                                   {event.instructors
                                     ? formatInstructorsCompact(event.instructors)
                                     : 'TBA'}

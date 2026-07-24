@@ -132,6 +132,38 @@ export const ROW_HEIGHTS = {
  */
 export const MINIMUM_COURSE_DURATION_MINUTES = 45
 
+export function calculateReferenceCardHeight(displayConfig: CalendarDisplayConfig): number {
+  let height = ROW_HEIGHTS.COURSE_CODE
+
+  if (displayConfig.showTitle) height += ROW_HEIGHTS.TITLE
+  if (displayConfig.showTime) height += ROW_HEIGHTS.TIME
+  if (displayConfig.showLocation) height += ROW_HEIGHTS.LOCATION
+  if (displayConfig.showInstructor) height += ROW_HEIGHTS.INSTRUCTOR
+
+  return height + CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING * 2
+}
+
+/** Spend spare duration-derived height on at most one extra line per field. */
+export function getCardTextLineLimits(
+  cardHeight: number,
+  displayConfig: CalendarDisplayConfig
+): { location: 1 | 2; instructor: 1 | 2 } {
+  let spareHeight = Math.max(0, cardHeight - calculateReferenceCardHeight(displayConfig))
+  let location: 1 | 2 = 1
+  let instructor: 1 | 2 = 1
+
+  if (displayConfig.showLocation && spareHeight >= ROW_HEIGHTS.LOCATION) {
+    location = 2
+    spareHeight -= ROW_HEIGHTS.LOCATION
+  }
+
+  if (displayConfig.showInstructor && spareHeight >= ROW_HEIGHTS.INSTRUCTOR) {
+    instructor = 2
+  }
+
+  return { location, instructor }
+}
+
 // Default calendar configuration
 export const DEFAULT_CALENDAR_CONFIG: CalendarLayoutConfig = {
   activeDays: DAY_COMBINATIONS.weekdays,
