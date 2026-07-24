@@ -269,13 +269,26 @@ def collect_scrape_times(years: Iterable[str]) -> Dict[str, str]:
 def copy_commit_title(scrape_times: Dict[str, str]) -> None:
     """Put the commit title for this run on the clipboard, ready to paste.
 
+    List only years stamped by the newest full scrape. Older source years remain
+    publishable after CUHK drops them, but they were not updated by this run.
+
     Writes to stderr, which isn't teed into the publish log, so the committed
     log stays free of clipboard chatter either way.
     """
     if not scrape_times:
         return
-    latest = max(datetime.fromisoformat(value) for value in scrape_times.values())
-    title = f"chore(data): update course data {latest.astimezone(HONG_KONG_TZ):%Y-%m-%d %H:%M HKT}"
+
+    parsed_times = {
+        year: datetime.fromisoformat(scraped_at) for year, scraped_at in scrape_times.items()
+    }
+    latest = max(parsed_times.values())
+    years = ", ".join(
+        sorted(year for year, scraped_at in parsed_times.items() if scraped_at == latest)
+    )
+    title = (
+        f"chore(data): update {years} courses "
+        f"({latest.astimezone(HONG_KONG_TZ):%Y-%m-%d %H:%M HKT})"
+    )
     try:
         pyperclip.copy(title)
         print(f"\nCommit title copied: {title}", file=sys.stderr)

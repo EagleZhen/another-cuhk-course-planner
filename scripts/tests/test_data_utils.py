@@ -1,4 +1,5 @@
 import json
+from datetime import datetime, timedelta
 
 import data_utils
 import pytest
@@ -13,7 +14,14 @@ from data_utils import (
     render_scrape_times_module,
     render_subjects_module,
     render_terms_module,
+    utc_now_iso,
 )
+
+
+def test_utc_now_iso_returns_aware_utc_timestamp():
+    timestamp = datetime.fromisoformat(utc_now_iso())
+
+    assert timestamp.utcoffset() == timedelta(0)
 
 
 @pytest.mark.parametrize(

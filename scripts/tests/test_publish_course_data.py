@@ -116,6 +116,23 @@ def test_update_generated_file_reports_dry_run_without_writing(tmp_path):
     assert manifest.read_text() == "old"
 
 
+def test_copy_commit_title_lists_only_years_from_latest_scrape(monkeypatch, capsys):
+    copied_titles = []
+    monkeypatch.setattr(publish_course_data.pyperclip, "copy", copied_titles.append)
+
+    publish_course_data.copy_commit_title(
+        {
+            "2026-27": "2026-07-21T15:05:01.505056+00:00",
+            "2024-25": "2026-06-01T10:00:00+00:00",
+            "2025-26": "2026-07-21T15:05:01.505056+00:00",
+        }
+    )
+
+    expected = "chore(data): update 2025-26, 2026-27 courses (2026-07-21 23:05 HKT)"
+    assert copied_titles == [expected]
+    assert f"Commit title copied: {expected}" in capsys.readouterr().err
+
+
 def test_publish_regenerates_changed_manifests(tmp_path, monkeypatch, capsys):
     source_dir, published_dir, generated_dir = _configure_publisher(tmp_path, monkeypatch)
     _write_course_file(source_dir)

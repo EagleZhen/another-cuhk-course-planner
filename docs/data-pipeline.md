@@ -71,7 +71,7 @@ The publish script checks:
 
 These checks validate selected files; they do not prove that an academic year contains every subject. Treat unexpected subject removals as data-review signals.
 
-A run ends by copying a ready-to-paste commit title, stamped with the scrape time, to the clipboard.
+A run ends by copying a ready-to-paste commit title to the clipboard: `chore(data): update <years> courses (<scrape time in HKT>)`. It lists only the years stamped by the latest full scrape, excluding older frozen years that remain publishable.
 
 After validation succeeds, publishing regenerates the app's manifests (see [Generated Manifests](#generated-manifests)). Validation failures and dry runs leave them unchanged.
 
