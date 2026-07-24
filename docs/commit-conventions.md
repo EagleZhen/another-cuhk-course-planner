@@ -59,7 +59,7 @@ fix(calendar): prevent event labels from overflowing
 refactor(planner): centralize stored schedule migration
 fix(scraper): handle future-dated course headings
 feat(publish): generate term manifests automatically
-chore(data): scrape 2026-07-23 22:30
+chore(data): update 2025-26, 2026-27 courses (2026-07-21 23:05 HKT)
 chore(deps): update PostHog
 ci: add Dependabot version updates
 docs(calendar): explain ICS undo semantics
