@@ -79,14 +79,14 @@ export const CALENDAR_LAYOUT_CONSTANTS = {
   BASE_HOUR_SLOT_HEIGHT: 64,
   /** Width of the time labels column displaying hours (e.g., "09", "10", "11") */
   TIME_LABEL_COLUMN_WIDTH: 48,
+  /** Smallest allowed day-column width */
+  MINIMUM_DAY_COLUMN_WIDTH: 128,
   /** Pixel offset for stacking overlapping course cards to show conflicts */
   CONFLICT_CARD_STACK_OFFSET: 16,
   /** Internal padding inside each course card for text spacing */
   COURSE_CARD_PADDING: 4,
   /** Absolute minimum height for very short events (accessibility requirement) */
   MINIMUM_CARD_HEIGHT: 24,
-  /** Minimum calendar width for proper display on smaller screens */
-  MINIMUM_CALENDAR_WIDTH: 640,
   /** Height of sticky header for scroll calculations */
   STICKY_HEADER_HEIGHT: 32,
 } as const
@@ -131,6 +131,38 @@ export const ROW_HEIGHTS = {
  * can display all required information properly, then longer courses scale proportionally.
  */
 export const MINIMUM_COURSE_DURATION_MINUTES = 45
+
+export function calculateReferenceCardHeight(displayConfig: CalendarDisplayConfig): number {
+  let height = ROW_HEIGHTS.COURSE_CODE
+
+  if (displayConfig.showTitle) height += ROW_HEIGHTS.TITLE
+  if (displayConfig.showTime) height += ROW_HEIGHTS.TIME
+  if (displayConfig.showLocation) height += ROW_HEIGHTS.LOCATION
+  if (displayConfig.showInstructor) height += ROW_HEIGHTS.INSTRUCTOR
+
+  return height + CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING * 2
+}
+
+/** Spend spare duration-derived height on at most one extra line per field. */
+export function getCardTextLineLimits(
+  cardHeight: number,
+  displayConfig: CalendarDisplayConfig
+): { location: 1 | 2; instructor: 1 | 2 } {
+  let spareHeight = Math.max(0, cardHeight - calculateReferenceCardHeight(displayConfig))
+  let location: 1 | 2 = 1
+  let instructor: 1 | 2 = 1
+
+  if (displayConfig.showLocation && spareHeight >= ROW_HEIGHTS.LOCATION) {
+    location = 2
+    spareHeight -= ROW_HEIGHTS.LOCATION
+  }
+
+  if (displayConfig.showInstructor && spareHeight >= ROW_HEIGHTS.INSTRUCTOR) {
+    instructor = 2
+  }
+
+  return { location, instructor }
+}
 
 // Default calendar configuration
 export const DEFAULT_CALENDAR_CONFIG: CalendarLayoutConfig = {
@@ -185,14 +217,16 @@ export function getRequiredDays(events: Array<{ day: number }>): WeekDay[] {
   return hasWeekendCourses(events) ? DAY_COMBINATIONS.full : DAY_COMBINATIONS.weekdays
 }
 
-/**
- * Generate CSS grid-template-columns string for calendar layout.
- * Creates responsive column layout: fixed time column + equal day columns.
- */
+/** Build equal day columns that stop shrinking at their minimum width. */
 export function getGridColumns(dayCount: number): string {
-  const timeColumnWidth = CALENDAR_LAYOUT_CONSTANTS.TIME_LABEL_COLUMN_WIDTH
-  const dayColumns = Array(dayCount).fill('1fr').join(' ')
-  return `${timeColumnWidth}px ${dayColumns}`
+  const { TIME_LABEL_COLUMN_WIDTH, MINIMUM_DAY_COLUMN_WIDTH } = CALENDAR_LAYOUT_CONSTANTS
+  return `${TIME_LABEL_COLUMN_WIDTH}px repeat(${dayCount}, minmax(${MINIMUM_DAY_COLUMN_WIDTH}px, 1fr))`
+}
+
+/** Calculate the width where the timetable starts scrolling. */
+export function getMinimumCalendarWidth(dayCount: number): number {
+  const { TIME_LABEL_COLUMN_WIDTH, MINIMUM_DAY_COLUMN_WIDTH } = CALENDAR_LAYOUT_CONSTANTS
+  return TIME_LABEL_COLUMN_WIDTH + dayCount * MINIMUM_DAY_COLUMN_WIDTH
 }
 
 /** Get calendar configuration with weekend support */

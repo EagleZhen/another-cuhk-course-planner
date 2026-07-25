@@ -20,33 +20,18 @@ import {
   DEFAULT_CALENDAR_CONFIG,
   CALENDAR_LAYOUT_CONSTANTS,
   TEXT_STYLES,
-  ROW_HEIGHTS,
   MINIMUM_COURSE_DURATION_MINUTES,
+  calculateReferenceCardHeight,
+  getCardTextLineLimits,
   getDayIndex,
   getRequiredDays,
   getGridColumns,
+  getMinimumCalendarWidth,
   type CalendarDisplayConfig,
   type CalendarLayoutConfig,
 } from '@/lib/calendarConfig'
 import type { CalendarEvent, CourseEnrollment, InternalSection, InternalMeeting } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
-
-/**
- * Calculate the total height needed for a course card based on display configuration
- */
-const calculateReferenceCardHeight = (displayConfig: CalendarDisplayConfig): number => {
-  let totalHeight = ROW_HEIGHTS.COURSE_CODE // Course code + section type always shown
-
-  if (displayConfig.showTitle) totalHeight += ROW_HEIGHTS.TITLE
-  if (displayConfig.showTime) totalHeight += ROW_HEIGHTS.TIME
-  if (displayConfig.showLocation) totalHeight += ROW_HEIGHTS.LOCATION
-  if (displayConfig.showInstructor) totalHeight += ROW_HEIGHTS.INSTRUCTOR
-
-  // Add padding (4px top + 4px bottom)
-  totalHeight += CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING * 2
-
-  return totalHeight
-}
 
 /**
  * Calculate dynamic hour height based on minimum course duration requirements
@@ -131,21 +116,21 @@ export default function WeeklyCalendar({
     canScrollDown: false,
   })
 
-  // Ref for capturing the calendar component
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
   const calendarRef = useRef<HTMLDivElement>(null)
 
   const updateScrollStateHandler = useCallback(() => {
-    if (!calendarRef.current) return
+    if (!scrollContainerRef.current) return
 
-    const { scrollTop, scrollHeight, clientHeight } = calendarRef.current
+    const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current
     const maxScrollTop = Math.max(0, scrollHeight - clientHeight)
 
     // Auto-adjust if scrolled past the new bottom
     if (scrollTop > maxScrollTop) {
-      calendarRef.current.scrollTop = maxScrollTop
+      scrollContainerRef.current.scrollTop = maxScrollTop
     }
 
-    const currentScrollTop = calendarRef.current.scrollTop
+    const currentScrollTop = scrollContainerRef.current.scrollTop
     const tolerance = 1
     const significantScrollThreshold = 5
 
@@ -163,14 +148,17 @@ export default function WeeklyCalendar({
   }, [updateScrollStateHandler])
 
   const scrollToTopHandler = useCallback(() => {
-    if (calendarRef.current) {
-      calendarRef.current.scrollTo({ top: 0, behavior: 'smooth' })
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }, [])
 
   const scrollToBottomHandler = useCallback(() => {
-    if (calendarRef.current) {
-      calendarRef.current.scrollTo({ top: calendarRef.current.scrollHeight, behavior: 'smooth' })
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        top: scrollContainerRef.current.scrollHeight,
+        behavior: 'smooth',
+      })
     }
   }, [])
 
@@ -180,10 +168,10 @@ export default function WeeklyCalendar({
 
   // Update scroll indicators when content changes
   useEffect(() => {
-    if (!calendarRef.current) return
+    if (!scrollContainerRef.current) return
 
     const resizeObserver = new ResizeObserver(updateScrollStateHandler)
-    resizeObserver.observe(calendarRef.current)
+    resizeObserver.observe(scrollContainerRef.current)
 
     // Update immediately on config/events change
     updateScrollStateHandler()
@@ -193,12 +181,12 @@ export default function WeeklyCalendar({
 
   // Auto-scroll to selected event
   useEffect(() => {
-    if (!selectedEnrollment || !calendarRef.current) return
+    if (!selectedEnrollment || !scrollContainerRef.current) return
 
     const selectedElement = eventRefs.current.get(selectedEnrollment)
     if (!selectedElement) return
 
-    const container = calendarRef.current
+    const container = scrollContainerRef.current
     const elementTop = selectedElement.offsetTop
     const elementHeight = selectedElement.offsetHeight
     const containerHeight = container.clientHeight
@@ -238,7 +226,9 @@ export default function WeeklyCalendar({
         '[data-screenshot="unscheduled"]'
       ) as HTMLElement | null
 
-      await captureCalendarScreenshot(calendarRef.current, unscheduledElement, selectedTerm)
+      await captureCalendarScreenshot(calendarRef.current, unscheduledElement, selectedTerm, {
+        minimumCalendarWidth,
+      })
       analytics.screenshotTaken()
     } catch (error) {
       console.error('Screenshot capture failed:', error)
@@ -382,6 +372,7 @@ export default function WeeklyCalendar({
   // Dynamic day detection - show weekends only when courses exist
   const days = getRequiredDays(events)
   const gridColumns = getGridColumns(days.length)
+  const minimumCalendarWidth = getMinimumCalendarWidth(days.length)
 
   // Calculate dynamic hour height based on display configuration
   const dynamicHourHeight = calculateDynamicHourHeight(
@@ -615,275 +606,282 @@ export default function WeeklyCalendar({
           </button>
         )}
 
-        {/* Mobile horizontal scroll wrapper */}
-        <div className="overflow-x-auto h-full">
+        <div
+          className="h-full max-h-[720px] overflow-auto"
+          ref={scrollContainerRef}
+          onScroll={handleScroll}
+        >
           <div
+            ref={calendarRef}
             className="h-full"
-            style={{ minWidth: `${CALENDAR_LAYOUT_CONSTANTS.MINIMUM_CALENDAR_WIDTH}px` }}
+            style={{ minWidth: `${minimumCalendarWidth}px` }}
           >
+            {/* Sticky Header Row */}
             <div
-              className="h-full max-h-[720px] overflow-y-auto"
-              ref={calendarRef}
-              onScroll={handleScroll}
+              className="grid border-gray-200 bg-white sticky top-0 z-50 shadow-xs"
+              style={{
+                gridTemplateColumns: gridColumns,
+                height: `${CALENDAR_LAYOUT_CONSTANTS.STICKY_HEADER_HEIGHT}px`,
+              }}
             >
-              {/* Sticky Header Row */}
-              <div
-                className="grid border-gray-200 bg-white sticky top-0 z-50 shadow-xs"
-                style={{
-                  gridTemplateColumns: gridColumns,
-                  height: `${CALENDAR_LAYOUT_CONSTANTS.STICKY_HEADER_HEIGHT}px`,
-                }}
-              >
-                <div className="h-full flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0 bg-white">
-                  Time
+              <div className="h-full flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0 bg-white">
+                Time
+              </div>
+              {days.map((day) => (
+                <div
+                  key={day}
+                  className="h-full flex items-center justify-center text-xs font-medium text-gray-700 border-b border-r border-gray-200 min-w-0 flex-1 bg-white"
+                >
+                  {day}
                 </div>
-                {days.map((day) => (
-                  <div
-                    key={day}
-                    className="h-full flex items-center justify-center text-xs font-medium text-gray-700 border-b border-r border-gray-200 min-w-0 flex-1 bg-white"
-                  >
-                    {day}
-                  </div>
-                ))}
+              ))}
+            </div>
+
+            {/* Calendar Content Grid */}
+            <div
+              className="grid"
+              style={{ gridTemplateColumns: gridColumns }}
+              onClick={(e) => {
+                const target = e.target as HTMLElement
+                const isEmptySpace = !target.closest('[data-course-card]')
+
+                if (isEmptySpace && onSelectEnrollment) {
+                  onSelectEnrollment(null)
+                }
+              }}
+            >
+              {/* Time column */}
+              <div className="flex flex-col flex-shrink-0 border-r border-gray-200 time-column">
+                <div className="flex-1">
+                  {hours.map((hour) => (
+                    <div
+                      key={hour}
+                      className="flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100 transition-all duration-300"
+                      style={{ height: `${dynamicHourHeight}px` }}
+                    >
+                      {hour.toString().padStart(2, '0')}
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              {/* Calendar Content Grid */}
-              <div
-                className="grid"
-                style={{ gridTemplateColumns: gridColumns }}
-                onClick={(e) => {
-                  const target = e.target as HTMLElement
-                  const isEmptySpace = !target.closest('[data-course-card]')
+              {/* Day columns with clean time-based rendering */}
+              {days.map((day) => {
+                // Get the CalendarEvent.day index for this day key
+                const calendarEventDayIndex = getDayIndex(day)
+                const dayEvents = events
+                  .filter((event) => event.day === calendarEventDayIndex)
+                  .map((event) => ({
+                    ...event,
+                    hasConflict: events.some(
+                      (other) =>
+                        other.id !== event.id &&
+                        other.day === event.day &&
+                        eventsOverlap(event, other)
+                    ),
+                  }))
 
-                  if (isEmptySpace && onSelectEnrollment) {
-                    onSelectEnrollment(null)
-                  }
-                }}
-              >
-                {/* Time column */}
-                <div className="flex flex-col flex-shrink-0 border-r border-gray-200 time-column">
-                  <div className="flex-1">
-                    {hours.map((hour) => (
-                      <div
-                        key={hour}
-                        className="flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100 transition-all duration-300"
-                        style={{ height: `${dynamicHourHeight}px` }}
-                      >
-                        {hour.toString().padStart(2, '0')}
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                const eventGroups = groupOverlappingEvents(dayEvents)
 
-                {/* Day columns with clean time-based rendering */}
-                {days.map((day) => {
-                  // Get the CalendarEvent.day index for this day key
-                  const calendarEventDayIndex = getDayIndex(day)
-                  const dayEvents = events
-                    .filter((event) => event.day === calendarEventDayIndex)
-                    .map((event) => ({
-                      ...event,
-                      hasConflict: events.some(
-                        (other) =>
-                          other.id !== event.id &&
-                          other.day === event.day &&
-                          eventsOverlap(event, other)
-                      ),
-                    }))
+                return (
+                  <div
+                    key={day}
+                    className="flex flex-col relative min-w-0 flex-1 border-r border-gray-200 day-column"
+                  >
+                    {/* Hour slots with dynamic height */}
+                    <div className="relative flex-1">
+                      {hours.map((hour) => (
+                        <div
+                          key={hour}
+                          className="border-b border-gray-200 transition-all duration-300"
+                          style={{ height: `${dynamicHourHeight}px` }}
+                        />
+                      ))}
 
-                  const eventGroups = groupOverlappingEvents(dayEvents)
+                      {/* Dynamic conflict zones - scale with hour height */}
+                      {eventGroups.map((group, groupIndex) => {
+                        if (group.length <= 1) return null
 
-                  return (
-                    <div
-                      key={day}
-                      className="flex flex-col relative min-w-0 flex-1 border-r border-gray-200 day-column"
-                    >
-                      {/* Hour slots with dynamic height */}
-                      <div className="relative flex-1">
-                        {hours.map((hour) => (
+                        // Calculate based on pure time bounds with dynamic height
+                        const startTimes = group.map((e) => e.startHour * 60 + e.startMinute)
+                        const endTimes = group.map((e) => e.endHour * 60 + e.endMinute)
+                        const minStart = Math.min(...startTimes)
+                        const maxEnd = Math.max(...endTimes)
+
+                        const zoneTop =
+                          timeToPixels(
+                            Math.floor(minStart / 60),
+                            minStart % 60,
+                            calendarConfig.startHour,
+                            dynamicHourHeight
+                          ) - CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
+                        const zoneBottom =
+                          timeToPixels(
+                            Math.floor(maxEnd / 60),
+                            maxEnd % 60,
+                            calendarConfig.startHour,
+                            dynamicHourHeight
+                          ) + CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
+
+                        return (
                           <div
-                            key={hour}
-                            className="border-b border-gray-200 transition-all duration-300"
-                            style={{ height: `${dynamicHourHeight}px` }}
+                            key={`conflict-zone-${groupIndex}`}
+                            style={{
+                              position: 'absolute',
+                              top: `${zoneTop}px`,
+                              height: `${zoneBottom - zoneTop}px`,
+                              left: '0px',
+                              right: '0px',
+                              zIndex: 1,
+                              background:
+                                'repeating-linear-gradient(45deg, rgba(168, 85, 247, 0.6) 0px, rgba(168, 85, 247, 0.6) 10px, rgba(255, 255, 255, 0.3) 10px, rgba(255, 255, 255, 0.3) 20px)',
+                            }}
+                            className="border-2 border-purple-500 rounded-sm animate-pulse transition-all duration-300"
                           />
-                        ))}
+                        )
+                      })}
 
-                        {/* Dynamic conflict zones - scale with hour height */}
-                        {eventGroups.map((group, groupIndex) => {
-                          if (group.length <= 1) return null
+                      {/* Event cards with dynamic time-based positioning */}
+                      {eventGroups.map((group) => {
+                        return group.map((event, stackIndex) => {
+                          const { top, height } = getCardDimensions(
+                            event,
+                            calendarConfig.startHour,
+                            dynamicHourHeight
+                          )
+                          const isConflicted = group.length > 1
+                          const isSelected = selectedEnrollment === event.enrollmentId
+                          const textLineLimits = getCardTextLineLimits(height, localDisplayConfig)
 
-                          // Calculate based on pure time bounds with dynamic height
-                          const startTimes = group.map((e) => e.startHour * 60 + e.startMinute)
-                          const endTimes = group.map((e) => e.endHour * 60 + e.endMinute)
-                          const minStart = Math.min(...startTimes)
-                          const maxEnd = Math.max(...endTimes)
+                          // Stacking for conflicts
+                          const stackOffset = isConflicted
+                            ? stackIndex * CALENDAR_LAYOUT_CONSTANTS.CONFLICT_CARD_STACK_OFFSET
+                            : 0
+                          const rightOffset = isConflicted
+                            ? (group.length - 1 - stackIndex) *
+                              CALENDAR_LAYOUT_CONSTANTS.CONFLICT_CARD_STACK_OFFSET
+                            : 0
 
-                          const zoneTop =
-                            timeToPixels(
-                              Math.floor(minStart / 60),
-                              minStart % 60,
-                              calendarConfig.startHour,
-                              dynamicHourHeight
-                            ) - CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
-                          const zoneBottom =
-                            timeToPixels(
-                              Math.floor(maxEnd / 60),
-                              maxEnd % 60,
-                              calendarConfig.startHour,
-                              dynamicHourHeight
-                            ) + CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
+                          // Z-index should be lower than sticky header (z-50)
+                          let zIndex = isConflicted ? 20 + stackIndex : 10
+                          if (isSelected) zIndex = 40 // Lower than header z-50
 
                           return (
                             <div
-                              key={`conflict-zone-${groupIndex}`}
+                              key={event.id}
+                              ref={(el) => {
+                                if (el && event.enrollmentId) {
+                                  eventRefs.current.set(event.enrollmentId, el)
+                                } else if (event.enrollmentId) {
+                                  eventRefs.current.delete(event.enrollmentId)
+                                }
+                              }}
+                              data-course-card="true"
                               style={{
                                 position: 'absolute',
-                                top: `${zoneTop}px`,
-                                height: `${zoneBottom - zoneTop}px`,
-                                left: '0px',
-                                right: '0px',
-                                zIndex: 1,
-                                background:
-                                  'repeating-linear-gradient(45deg, rgba(168, 85, 247, 0.6) 0px, rgba(168, 85, 247, 0.6) 10px, rgba(255, 255, 255, 0.3) 10px, rgba(255, 255, 255, 0.3) 20px)',
-                              }}
-                              className="border-2 border-purple-500 rounded-sm animate-pulse transition-all duration-300"
-                            />
-                          )
-                        })}
-
-                        {/* Event cards with dynamic time-based positioning */}
-                        {eventGroups.map((group) => {
-                          return group.map((event, stackIndex) => {
-                            const { top, height } = getCardDimensions(
-                              event,
-                              calendarConfig.startHour,
-                              dynamicHourHeight
-                            )
-                            const isConflicted = group.length > 1
-                            const isSelected = selectedEnrollment === event.enrollmentId
-
-                            // Stacking for conflicts
-                            const stackOffset = isConflicted
-                              ? stackIndex * CALENDAR_LAYOUT_CONSTANTS.CONFLICT_CARD_STACK_OFFSET
-                              : 0
-                            const rightOffset = isConflicted
-                              ? (group.length - 1 - stackIndex) *
-                                CALENDAR_LAYOUT_CONSTANTS.CONFLICT_CARD_STACK_OFFSET
-                              : 0
-
-                            // Z-index should be lower than sticky header (z-50)
-                            let zIndex = isConflicted ? 20 + stackIndex : 10
-                            if (isSelected) zIndex = 40 // Lower than header z-50
-
-                            return (
-                              <div
-                                key={event.id}
-                                ref={(el) => {
-                                  if (el && event.enrollmentId) {
-                                    eventRefs.current.set(event.enrollmentId, el)
-                                  } else if (event.enrollmentId) {
-                                    eventRefs.current.delete(event.enrollmentId)
-                                  }
-                                }}
-                                data-course-card="true"
-                                style={{
-                                  position: 'absolute',
-                                  top: `${top}px`,
-                                  height: `${height}px`,
-                                  left: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING + stackOffset}px`,
-                                  right: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING + rightOffset}px`,
-                                  padding: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING}px`,
-                                  zIndex,
-                                  ...(isSelected && {
-                                    backgroundImage: `repeating-linear-gradient(
+                                top: `${top}px`,
+                                height: `${height}px`,
+                                left: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING + stackOffset}px`,
+                                right: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING + rightOffset}px`,
+                                padding: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING}px`,
+                                zIndex,
+                                ...(isSelected && {
+                                  backgroundImage: `repeating-linear-gradient(
                                   45deg,
                                   transparent,
                                   transparent 8px,
                                   rgba(255,255,255,0.15) 8px,
                                   rgba(255,255,255,0.15) 10px
                                 )`,
-                                  }),
-                                }}
-                                className={`
+                                }),
+                              }}
+                              className={`
                               ${event.color}
                               rounded-sm text-xs text-white
                               hover:scale-105 transition-all duration-300 cursor-pointer
                               overflow-hidden group
                               ${isSelected ? 'scale-105' : ''}
                             `}
-                                onClick={() => {
+                              onClick={() => {
+                                if (onSelectEnrollment && event.enrollmentId) {
+                                  const newSelection = isSelected ? null : event.enrollmentId
+                                  onSelectEnrollment(newSelection)
+                                }
+                              }}
+                            >
+                              {/* Visibility toggle button */}
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={(e) => {
+                                  e.stopPropagation()
                                   if (onSelectEnrollment && event.enrollmentId) {
-                                    const newSelection = isSelected ? null : event.enrollmentId
-                                    onSelectEnrollment(newSelection)
+                                    onSelectEnrollment(event.enrollmentId)
+                                  }
+                                  if (onToggleVisibility && event.enrollmentId) {
+                                    onToggleVisibility(event.enrollmentId)
                                   }
                                 }}
+                                className="absolute top-0.5 right-0.5 h-4 w-4 p-0 bg-black/20 hover:bg-white/40 backdrop-blur-sm cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                title={event.isVisible ? 'Hide course' : 'Show course'}
                               >
-                                {/* Visibility toggle button */}
-                                <Button
-                                  variant="ghost"
-                                  size="sm"
-                                  onClick={(e) => {
-                                    e.stopPropagation()
-                                    if (onSelectEnrollment && event.enrollmentId) {
-                                      onSelectEnrollment(event.enrollmentId)
-                                    }
-                                    if (onToggleVisibility && event.enrollmentId) {
-                                      onToggleVisibility(event.enrollmentId)
-                                    }
-                                  }}
-                                  className="absolute top-0.5 right-0.5 h-4 w-4 p-0 bg-black/20 hover:bg-white/40 backdrop-blur-sm cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                                  title={event.isVisible ? 'Hide course' : 'Show course'}
-                                >
-                                  {event.isVisible ? (
-                                    <Eye className="w-2.5 h-2.5 text-white" />
-                                  ) : (
-                                    <EyeOff className="w-2.5 h-2.5 text-white" />
-                                  )}
-                                </Button>
-
-                                {/* Course content with conditional rendering based on config */}
-                                <div className={`${TEXT_STYLES.COURSE_CODE} truncate pr-3`}>
-                                  {formatCourseCodeWithSection(
-                                    event.subject,
-                                    event.courseCode,
-                                    event.sectionCode
-                                  )}
-                                </div>
-
-                                {localDisplayConfig.showTitle && (
-                                  <div className={`${TEXT_STYLES.TITLE} truncate`}>
-                                    {event.title || 'Course Title'}
-                                  </div>
+                                {event.isVisible ? (
+                                  <Eye className="w-2.5 h-2.5 text-white" />
+                                ) : (
+                                  <EyeOff className="w-2.5 h-2.5 text-white" />
                                 )}
+                              </Button>
 
-                                {localDisplayConfig.showTime && (
-                                  <div className={`${TEXT_STYLES.TIME} truncate`}>
-                                    {formatTimeCompact(event.time)}
-                                  </div>
-                                )}
-
-                                {localDisplayConfig.showLocation && (
-                                  <div className={`${TEXT_STYLES.LOCATION} truncate`}>
-                                    {event.location}
-                                  </div>
-                                )}
-
-                                {localDisplayConfig.showInstructor && (
-                                  <div className={`${TEXT_STYLES.INSTRUCTOR} truncate`}>
-                                    {event.instructors
-                                      ? formatInstructorsCompact(event.instructors)
-                                      : 'TBA'}
-                                  </div>
+                              {/* Course content with conditional rendering based on config */}
+                              <div className={`${TEXT_STYLES.COURSE_CODE} truncate pr-3`}>
+                                {formatCourseCodeWithSection(
+                                  event.subject,
+                                  event.courseCode,
+                                  event.sectionCode
                                 )}
                               </div>
-                            )
-                          })
-                        })}
-                      </div>
+
+                              {localDisplayConfig.showTitle && (
+                                <div className={`${TEXT_STYLES.TITLE} truncate`}>
+                                  {event.title || 'Course Title'}
+                                </div>
+                              )}
+
+                              {localDisplayConfig.showTime && (
+                                <div className={`${TEXT_STYLES.TIME} truncate`}>
+                                  {formatTimeCompact(event.time)}
+                                </div>
+                              )}
+
+                              {localDisplayConfig.showLocation && (
+                                <div
+                                  className={`${TEXT_STYLES.LOCATION} ${
+                                    textLineLimits.location === 2 ? 'line-clamp-2' : 'truncate'
+                                  }`}
+                                >
+                                  {event.location}
+                                </div>
+                              )}
+
+                              {localDisplayConfig.showInstructor && (
+                                <div
+                                  className={`${TEXT_STYLES.INSTRUCTOR} ${
+                                    textLineLimits.instructor === 2 ? 'line-clamp-2' : 'truncate'
+                                  }`}
+                                >
+                                  {event.instructors
+                                    ? formatInstructorsCompact(event.instructors)
+                                    : 'TBA'}
+                                </div>
+                              )}
+                            </div>
+                          )
+                        })
+                      })}
                     </div>
-                  )
-                })}
-              </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>
