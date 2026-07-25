@@ -69,6 +69,10 @@ export function getScreenshotContentWidth(minimumCalendarWidth: number): number 
   return Math.max(minimumCalendarWidth, SCREENSHOT_CONFIG.styling.minContentWidth)
 }
 
+export function getScreenshotCaptureHeight(measuredHeight: number): number {
+  return Math.ceil(measuredHeight) + 1
+}
+
 interface CalendarScreenshotOptions {
   minimumCalendarWidth: number
   websiteUrl?: string
@@ -636,7 +640,7 @@ export async function captureCalendarScreenshot(
       return {
         element,
         actualWidth: rect.width,
-        actualHeight: rect.height,
+        actualHeight: isUnscheduled ? rect.height : getScreenshotCaptureHeight(rect.height),
       }
     }
 
