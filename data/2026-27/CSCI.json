@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "CSCI",
     "subject_title": "Computer Science",
-    "total_courses": 55
+    "total_courses": 54
   },
   "courses": [
     {
@@ -3788,96 +3788,6 @@
     },
     {
       "subject": "CSCI",
-      "course_code": "3280",
-      "title": "Introduction to Multimedia Systems",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (4849)",
-              "meetings": [
-                {
-                  "time": "We 11:30AM - 1:15PM",
-                  "location": "William M W Mong Eng Bldg 407",
-                  "instructor": "Staff",
-                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
-                },
-                {
-                  "time": "Th 2:30PM - 3:15PM",
-                  "location": "Lady Shaw Bldg LT2",
-                  "instructor": "Staff",
-                  "dates": "10/9, 17/9, 24/9"
-                },
-                {
-                  "time": "Th 2:30PM - 3:15PM",
-                  "location": "Lady Shaw Bldg LT2",
-                  "instructor": "Staff",
-                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
-                }
-              ],
-              "availability": {
-                "capacity": "100",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "100",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "-T01-TUT (4848)",
-              "meetings": [
-                {
-                  "time": "Th 3:30PM - 4:15PM",
-                  "location": "Lady Shaw Bldg LT2",
-                  "instructor": "Staff",
-                  "dates": "10/9, 17/9, 24/9"
-                },
-                {
-                  "time": "Th 3:30PM - 4:15PM",
-                  "location": "Lady Shaw Bldg LT2",
-                  "instructor": "Staff",
-                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
-                }
-              ],
-              "availability": {
-                "capacity": "100",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "100",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
-      "description": "This course covers the design and implementation of modern multimedia systems. Topics include multimedia systems design, multimedia data representation, multimedia hardware and software, multimedia communication and networking, multimedia programming and multimedia information systems.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Computer Sci & Engg",
-      "academic_org": "Dept of Computer Sci & Engg",
-      "learning_outcomes": "1. Be able to understand the fundamental technologies used in modern multimedia systems;\n2. Be able to understand how different media are digitally represented;\n3. Be able to understand the popular audio, image, and video standards;\n4. Be able to understand the basic algorithms used in multimedia standards;\n5. Be able to know the capabilities and limitations of these technologies;\n6. Be able to work collaboratively on interesting multimedia project.",
-      "course_syllabus": "This course covers the design and implementation of modern multimedia systems. Topics include multimedia systems design, multimedia data representation, multimedia hardware and software, multimedia communication and networking, multimedia programming and multimedia information systems.",
-      "assessment_types": {
-        "Essay test or exam": "50",
-        "Others": "50"
-      },
-      "feedback_evaluation": "1. The course will be evaluated by course evaluation done by the students;\n2. Results of assignments;\n3. Results of project;\n4. Results of examination;",
-      "required_readings": "1. Fundamentals of Multimedia, by Ze-Nian Li, Mark S. Drew, Prentice Hall;\n2. Multimedia Communications: Applications, Networks, Protocols and Standards, by Fred Halsall, Addison Wesley;\n3. Networked Multimedia Systems, by Raghavan and Tripathi, Prentice Hall;\n4. Other supplementary reading will be determined by the course instructor;",
-      "recommended_readings": ""
-    },
-    {
-      "subject": "CSCI",
       "course_code": "3320",
       "title": "Fundamentals of Machine Learning",
       "credits": "3.00",
@@ -7054,7 +6964,7 @@
               "availability": {
                 "capacity": "60",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "30",
                 "waitlist_total": "0",
                 "available_seats": "60",
                 "status": "Open"
@@ -7108,7 +7018,7 @@
               "availability": {
                 "capacity": "60",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "30",
                 "waitlist_total": "0",
                 "available_seats": "60",
                 "status": "Open"
@@ -7376,7 +7286,7 @@
               "availability": {
                 "capacity": "60",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "30",
                 "waitlist_total": "0",
                 "available_seats": "60",
                 "status": "Open"
@@ -7610,7 +7520,7 @@
               "availability": {
                 "capacity": "60",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "30",
                 "waitlist_total": "0",
                 "available_seats": "60",
                 "status": "Open"
