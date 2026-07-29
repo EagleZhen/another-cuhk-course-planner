@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "GLSD",
     "subject_title": "Global Studies",
-    "total_courses": 26
+    "total_courses": 25
   },
   "courses": [
     {
@@ -582,32 +582,6 @@
       "credits": "3.00",
       "terms": [
         {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (5239)",
-              "meetings": [
-                {
-                  "time": "Tu 10:30AM - 1:15PM",
-                  "location": "Humanities Building 11",
-                  "instructor": "Dr. CHEUNG Ho Yan Yannie",
-                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
-                }
-              ],
-              "availability": {
-                "capacity": "30",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "30",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        },
-        {
           "term_code": "2430",
           "term_name": "2026-27 Term 2",
           "schedule": [
@@ -720,67 +694,6 @@
       "assessment_types": {
         "Essay test or exam": "70",
         "Others": "30"
-      }
-    },
-    {
-      "subject": "GLSD",
-      "course_code": "3201",
-      "title": "Cultural Psychology and Globalization",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2430",
-          "term_name": "2026-27 Term 2",
-          "schedule": [
-            {
-              "section": "--LEC (7071)",
-              "meetings": [
-                {
-                  "time": "We 10:30AM - 1:15PM",
-                  "location": "Lee Shau Kee Building 302",
-                  "instructor": "Professor LEUNG Ka Yee",
-                  "dates": "13/1, 20/1, 27/1, 3/2"
-                },
-                {
-                  "time": "We 10:30AM - 1:15PM",
-                  "location": "Lee Shau Kee Building 302",
-                  "instructor": "Professor LEUNG Ka Yee",
-                  "dates": "17/2, 24/2, 3/3"
-                },
-                {
-                  "time": "We 10:30AM - 1:15PM",
-                  "location": "Lee Shau Kee Building 302",
-                  "instructor": "Professor LEUNG Ka Yee",
-                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
-                }
-              ],
-              "availability": {
-                "capacity": "30",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "30",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
-      "description": "People from all over the world are similar to and different from one another. Besides being individuals, they are also products of their culture—their psychological processes (i.e., thoughts, feelings, behavior, identities, beliefs, and assumptions) are shaped by their cultural backgrounds and experiences. In this course, we learn about how cultures influence and shape individuals’ psychological processes, what happens when individuals from different cultures meet one another (resulting from globalization), and when cultures meet one another within individuals (resulting in multiculturalism).\n\nThe course will focus on timely, essential and at times sensitive and controversial topics central to the psychology of globalization, such as colonialism and how it shaped our psychological understanding of ourselves and others; how racism and stereotyping are psychological phenomena that interfere with successful globalization today; or how different moral cultures understand and often conflict with each other.\n\nThis course adopts an introductory approach to cultural psychology and focuses on how our individual psychology interacts with an increasingly globalized world. The first part of the course will introduce students to fundamental concepts and findings in the field of cultural psychology. The second part of this course will explore the relevance of this body of knowledge in a time of rapid globalization, one of the most important developments in the twenty-first century.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Global Studies Pgm Comm",
-      "academic_org": "Global Studies Pgm Comm",
-      "learning_outcomes": "After taking this course, students are expected to:\n\n• Demonstrate a comprehensive understanding over the major concepts, theories, and cases in the development of globalization and cultural psychology;\n• Describe the phenomenon of the globalization, and analyze the impacts on cultural psychology;\n• Relate theories and concepts to globalization and cultural psychology as a discipline;\n• Engage into the debates of those impacts of the globalization and present their ideas;\n• Develop presentation, analytical, and communication skills through group-based work.",
-      "assessment_types": {
-        "Homework or assignment": "50",
-        "Project": "40",
-        "Participation": "10"
       }
     },
     {
