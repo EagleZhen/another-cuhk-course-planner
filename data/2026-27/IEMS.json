@@ -311,7 +311,7 @@
               "section": "A-LEC (1590)",
               "meetings": [
                 {
-                  "time": "Tu 7:00PM - 9:30PM",
+                  "time": "Tu 7:00PM - 10:00PM",
                   "location": "Cheng Yu Tung Building LT1A",
                   "instructor": "Dr. YIN Ho Fai Hoover",
                   "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
@@ -635,6 +635,32 @@
       "credits": "3.00",
       "terms": [
         {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "A-LEC (10069)",
+              "meetings": [
+                {
+                  "time": "Fr 7:00PM - 9:30PM",
+                  "location": "Science Centre L1",
+                  "instructor": "Mr. CHENG Benedict Kin Fan",
+                  "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                }
+              ],
+              "availability": {
+                "capacity": "140",
+                "enrolled": "0",
+                "waitlist_capacity": "10",
+                "waitlist_total": "0",
+                "available_seats": "140",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
           "term_code": "2430",
           "term_name": "2026-27 Term 2",
           "schedule": [
@@ -642,22 +668,10 @@
               "section": "A-LEC (1597)",
               "meetings": [
                 {
-                  "time": "Fr 7:00PM - 9:30PM",
-                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "time": "TBA",
+                  "location": "TBA",
                   "instructor": "Staff",
-                  "dates": "15/1, 22/1, 29/1"
-                },
-                {
-                  "time": "Fr 7:00PM - 9:30PM",
-                  "location": "Yasumoto Int'l Acad Park LT5",
-                  "instructor": "Staff",
-                  "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
-                },
-                {
-                  "time": "Fr 7:00PM - 9:30PM",
-                  "location": "Yasumoto Int'l Acad Park LT5",
-                  "instructor": "Staff",
-                  "dates": "2/4, 9/4, 16/4, 23/4"
+                  "dates": "01/07/2026 - 31/08/2027"
                 }
               ],
               "availability": {
@@ -912,7 +926,7 @@
               "section": "--LEC (2476)",
               "meetings": [
                 {
-                  "time": "We 7:00PM - 9:30PM",
+                  "time": "We 7:00PM - 10:00PM",
                   "location": "Cheng Yu Tung Building LT1B",
                   "instructor": "Dr. MA Pui Kit",
                   "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"

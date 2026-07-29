@@ -2982,13 +2982,13 @@
                 {
                   "time": "Sa 10:30AM - 1:15PM",
                   "location": "Wu Ho Man Yuen Bldg 303",
-                  "instructor": "Professor CHOI Wai Shan",
+                  "instructor": "Mr. LIU Chun Wai, \nProfessor CHOI Wai Shan",
                   "dates": "12/9, 19/9"
                 },
                 {
                   "time": "Sa 10:30AM - 1:15PM",
                   "location": "Wu Ho Man Yuen Bldg 303",
-                  "instructor": "Professor CHOI Wai Shan",
+                  "instructor": "Mr. LIU Chun Wai, \nProfessor CHOI Wai Shan",
                   "dates": "3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11, 5/12"
                 }
               ],
@@ -3440,16 +3440,16 @@
               "section": "GA-LEC (2441)",
               "meetings": [
                 {
-                  "time": "Tu 9:30AM - 12:15PM",
-                  "location": "TBA",
+                  "time": "We 3:15PM - 6:00PM",
+                  "location": "Town Centre Sapphire Room",
                   "instructor": "Professor LIU Chang",
-                  "dates": "12/1, 19/1, 26/1, 2/2"
+                  "dates": "13/1, 20/1, 27/1, 3/2"
                 },
                 {
-                  "time": "Tu 9:30AM - 12:15PM",
-                  "location": "TBA",
+                  "time": "We 3:15PM - 6:00PM",
+                  "location": "Town Centre Sapphire Room",
                   "instructor": "Professor LIU Chang",
-                  "dates": "16/2, 23/2, 2/3"
+                  "dates": "17/2, 24/2, 3/3"
                 }
               ],
               "availability": {
@@ -4332,10 +4332,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "54",
+                "enrolled": "53",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "17",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4354,6 +4354,12 @@
                   "location": "Wu Ho Man Yuen Bldg 506",
                   "instructor": "Dr. TSUI Po Yung",
                   "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. TSUI Po Yung",
+                  "dates": "21/10"
                 }
               ],
               "availability": {
@@ -4414,21 +4420,33 @@
                   "time": "Fr 2:30PM - 6:15PM",
                   "location": "Wu Ho Man Yuen Bldg 408",
                   "instructor": "Professor LO Wing Hung Carlos",
-                  "dates": "12/2, 19/2, 26/2, 5/3"
+                  "dates": "26/2"
                 },
                 {
                   "time": "Fr 2:30PM - 6:15PM",
                   "location": "Wu Ho Man Yuen Bldg 408",
                   "instructor": "Professor LO Wing Hung Carlos",
                   "dates": "8/1, 15/1, 22/1, 29/1"
+                },
+                {
+                  "time": "We 4:30PM - 8:15PM",
+                  "location": "Esther Lee Bldg 203",
+                  "instructor": "Professor LO Wing Hung Carlos",
+                  "dates": "9/12"
+                },
+                {
+                  "time": "We 4:30PM - 8:15PM",
+                  "location": "Esther Lee Bldg 203",
+                  "instructor": "Professor LO Wing Hung Carlos",
+                  "dates": "23/12, 30/12"
                 }
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "54",
+                "enrolled": "53",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "17",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4452,7 +4470,13 @@
                   "time": "Sa 2:30PM - 6:15PM",
                   "location": "Wu Ho Man Yuen Bldg 303",
                   "instructor": "Professor LO Wing Hung Carlos",
-                  "dates": "13/2, 20/2, 27/2, 6/3"
+                  "dates": "20/2, 27/2"
+                },
+                {
+                  "time": "Su 2:30PM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor LO Wing Hung Carlos",
+                  "dates": "28/2"
                 }
               ],
               "availability": {
@@ -4507,15 +4531,33 @@
                   "time": "Sa 10:30AM - 1:15PM",
                   "location": "Wu Ho Man Yuen Bldg 507",
                   "instructor": "Dr. YU Yuen Ping",
-                  "dates": "3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11, 5/12"
+                  "dates": "28/11, 5/12"
+                },
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. YU Yuen Ping",
+                  "dates": "24/9"
+                },
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. YU Yuen Ping",
+                  "dates": "19/11, 26/11"
+                },
+                {
+                  "time": "Sa 10:30AM - 1:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 507",
+                  "instructor": "Dr. YU Yuen Ping",
+                  "dates": "3/10, 10/10, 17/10, 24/10, 31/10, 7/11"
                 }
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "54",
+                "enrolled": "53",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "17",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4524,10 +4566,22 @@
               "section": "NB-LEC (1192)",
               "meetings": [
                 {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. YU Yuen Ping",
+                  "dates": "28/10"
+                },
+                {
                   "time": "Fr 6:30PM - 9:15PM",
                   "location": "Yasumoto Int'l Acad Park 201",
                   "instructor": "Dr. YU Yuen Ping",
-                  "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                  "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Dr. YU Yuen Ping",
+                  "dates": "30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
                 }
               ],
               "availability": {
@@ -4741,6 +4795,12 @@
                   "location": "Cheng Yu Tung Building 209B",
                   "instructor": "Professor Elsie Tsui",
                   "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor Elsie Tsui",
+                  "dates": "24/10"
                 }
               ],
               "availability": {
@@ -4786,22 +4846,54 @@
               "section": "--LEC (1358)",
               "meetings": [
                 {
-                  "time": "Fr 6:30PM - 9:15PM",
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "TBA"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "N-LEC (9872)",
+              "meetings": [
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
                   "location": "Cheng Yu Tung Building LT5",
                   "instructor": "Dr. NG Wing Fung",
                   "dates": "11/12, 18/12"
                 },
                 {
-                  "time": "Fr 6:30PM - 9:15PM",
+                  "time": "Fr 6:30PM - 9:30PM",
                   "location": "Cheng Yu Tung Building LT5",
                   "instructor": "Dr. NG Wing Fung",
                   "dates": "8/1, 15/1, 22/1, 29/1"
                 },
                 {
-                  "time": "Fr 6:30PM - 9:15PM",
+                  "time": "Fr 6:30PM - 9:30PM",
                   "location": "Cheng Yu Tung Building LT5",
                   "instructor": "Dr. NG Wing Fung",
                   "dates": "12/2, 19/2, 26/2, 5/3"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. NG Wing Fung",
+                  "dates": "6/1"
+                },
+                {
+                  "time": "Su 10:30AM - 1:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. NG Wing Fung",
+                  "dates": "17/1"
                 }
               ],
               "availability": {
@@ -4861,6 +4953,12 @@
                   "location": "Lee Shau Kee Archi Bldg G03",
                   "instructor": "Dr. YU Jieqiong",
                   "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5, 14/5, 21/5, 28/5, 4/6, 11/6"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "TBA",
+                  "instructor": "Dr. YU Jieqiong",
+                  "dates": "15/3"
                 }
               ],
               "availability": {
@@ -5041,6 +5139,18 @@
                   "location": "Cheng Yu Tung Building LT5",
                   "instructor": "Professor WAN William Piu",
                   "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "We 6:30PM - 9:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor WAN William Piu",
+                  "dates": "16/12"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Professor WAN William Piu",
+                  "dates": "6/3"
                 }
               ],
               "availability": {
@@ -5134,6 +5244,18 @@
                   "location": "Sino Building UG06",
                   "instructor": "Staff",
                   "dates": "8/5, 15/5, 22/5, 29/5, 5/6, 12/6"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "16/3"
+                },
+                {
+                  "time": "Mo 6:30PM - 9:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "3/5"
                 }
               ],
               "availability": {

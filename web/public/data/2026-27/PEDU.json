@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "PEDU",
     "subject_title": "Education (PG)",
-    "total_courses": 56
+    "total_courses": 57
   },
   "courses": [
     {
@@ -695,6 +695,63 @@
         "Presentation": "40",
         "Participation": "10"
       }
+    },
+    {
+      "subject": "PEDU",
+      "course_code": "6128",
+      "title": "Introduction to Artificial Intelligence and Data Analytics in Education",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9871)",
+              "meetings": [
+                {
+                  "time": "Sa 9:30AM - 12:00PM",
+                  "location": "Ho Tim Building M1",
+                  "instructor": "Staff",
+                  "dates": "16/1, 23/1, 30/1"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:00PM",
+                  "location": "Ho Tim Building M1",
+                  "instructor": "Staff",
+                  "dates": "13/2, 20/2, 27/2, 6/3, 13/3, 20/3"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:00PM",
+                  "location": "Ho Tim Building M1",
+                  "instructor": "Staff",
+                  "dates": "3/4, 10/4, 17/4, 24/4"
+                }
+              ],
+              "availability": {
+                "capacity": "48",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "48",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Artificial intelligence (AI) is an emerging and disruptive technology that continues to reshape various sectors. Its implications for teaching and learning are profound, making it essential for educators to be well-versed in these technologies. AI and data have a mutually beneficial relationship. This course aims to equip students with the knowledge and skills necessary to understand and implement AI and data analytics in educational settings. It covers the fundamental concepts of AI, its applications in education, and the ethical considerations surrounding its use. It also contains a balanced look at the impact of AI on education.",
+      "enrollment_requirement": "For students in MA Chi Lang Edu, Master of Edu, MPhil Edu, MA Eng Lang Teach, MA Sch Improve & Leader, MPhil Sports Sci & Phys Edu, Doctor of Edu & PhD Edu",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Education",
+      "academic_org": "Div of Education",
+      "learning_outcomes": "• Demonstrate an understanding of the foundational concepts of AI and data analytics.\n• Understand the benefits and ethical considerations of using AI in the classroom.\n• Familiarize yourself with the various tools for AI and data analytics available for education.\n• Develop the capacity to incorporate AI tools into lessons and activities to improve student engagement and learning outcomes.\n• Develop the capacity to create and evaluate content, activities, and assessments using AI.\n\n(Individual course teachers may update the learning outcome as and whenever necessary.)",
+      "assessment_types": {}
     },
     {
       "subject": "PEDU",
@@ -1999,7 +2056,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Dr. CHU Kai Wing, \nDr. HO Sai Mun Stanley, \nProfessor CHIU Kin Fung, \nProfessor DAI Yun, \nProfessor LAM Yu Hin, \nProfessor QIAN Haiyan, \nProfessor TEO Kheng Guan Timothy, \nProfessor TSE Chi Shing",
+                  "instructor": "Dr. CHU Kai Wing, \nDr. HO Sai Mun Stanley, \nProfessor CHIU Kin Fung, \nProfessor DAI Yun, \nProfessor LAM Yu Hin, \nProfessor QIAN Haiyan, \nProfessor TSE Chi Shing",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],

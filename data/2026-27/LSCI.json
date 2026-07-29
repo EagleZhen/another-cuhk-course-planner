@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "LSCI",
     "subject_title": "Life Sciences Courses",
-    "total_courses": 58
+    "total_courses": 59
   },
   "courses": [
     {
@@ -1840,6 +1840,65 @@
     },
     {
       "subject": "LSCI",
+      "course_code": "5750",
+      "title": "Environmental Health",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (10071)",
+              "meetings": [
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "Mong Man Wai Bldg 710",
+                  "instructor": "Professor Benoit THIBODEAU",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "Mong Man Wai Bldg 710",
+                  "instructor": "Professor Benoit THIBODEAU",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the contemporary problems and issues in environmentally dependent aspects of health. Broad coverage of health effects of foodborne, airborne and waterborne pollutants, pesticides, and consumer product are considered.",
+      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken ENSC4250",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Division of Life Sciences",
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "This course is designed to give students an overview of the sources, modes of action, and health effects of the global and local important pollutants including pesticides, food additives, transgenes in genetically modified foods, environmental tobacco smoke, indoor air pollutants, water pollutants, peroxisome proliferators, environmental estrogens, and benzene. After the study, the student should be able to:\n1. Describe the sources of the pollutants\n2. Understand the modes of action of the pollutants\n3. Familiar with the symptoms and human health effects resulting from exposure to the pollutants\n4. Discuss ways to reduce our exposure to the pollutants",
+      "course_syllabus": "•Pesticides\n•Food additives\n•Genetic modified foods\n•Environmental tobacco smoke\n•Indoor air pollutants\n•Drinking water quality and health\n•Peroxisome proliferators\n•Environmental estrogens\n•Occupational chemical hazards",
+      "assessment_types": {
+        "Homework or assignment": "15",
+        "Short answer test or exam": "45",
+        "Selected response test or exam": "40"
+      },
+      "feedback_evaluation": "The sources of feedback comments will be obtained from:\n1. The free comments of the term-end Course Evaluation Exercise implemented by the University\n2. The discussion with the student representatives during the Staff-Student Consultative Committee",
+      "required_readings": "Nil.",
+      "recommended_readings": "Pesticides:\n1. F. P. Kaloyanova and M. A. El Batawi (eds.). Human Toxicology of Pesticides. CRC\nPress. 1991. (WA240K2781991)\n2. K. A. Hassall (ed.). The Biochemistry & Uses of Pesticides. 2nd ed. Macmillan Press.\n1990. (SB951H2771990)\n3. M. A. Kamrin (ed.). Pesticides Profiles: Toxicity, Environmental Impact, and Fate. CRC\nPress. 1997. (SB951P3761997)\n4. S. R. Baker and C. F. Wilkinson (eds.). The Effect of Pesticides on Human Health. Vol\nXVIII. Princeton Scientific Publishing Co., Inc. 1990. (WA670A38v.18c.2)\n\nFood additives and contaminants:\n5. J. M. Concon. Food Toxicology: Part B. Contaminants and Additives. Marcel Dekker\nInc., New York. 1988. (WA712.066.ptB)\n6. L. M. Crawford and D. A. Franco (eds.). Animal Drugs and Human Health. Technomic Publishing Co. Inc., Lancaster. 1994. (WA707.A55.1994)\n7. C. S. Creaser and R. Purchase (eds.). Food Contaminants: Sources and Surveillance.\nThe Royal Society of Chemistry, Cambridge. 1991. (TX531.F56.1991)\n8. J. A. Maga and A. T. Tu (eds.). Food Additive Toxicology. Marcel Dekker Inc., New\nYork. 1995. (TX553.A3F563.1995)\n\nGenetically modified foods:\n9. K. Roseboro (ed.). Genetically Altered Foods and Your Health. Basic health\nPublications, North Bergen, New Jersey. 2004. (WA695.R67.2004)\n10. F. E. Ahmed (ed.). Testing of Genetically Modified Organisms in Foods. Food Products Press, New York. 2004. (WA701.T45.2004)\n\nEnvironmental tobacco smoke:\n11. E. L. Wynder and J. Garland (eds.). The Biologic Effects of Tobacco. Little Brown and Company. Boston. 1995. (QP981.T6W9)\n\n12. N. L. Benowitz (ed). Nicotine Safety and Toxicity. Oxford University Press, New York 1998. (QV137N551998)\n\n13. W. R. Martin, G. R. Van Loon, E. T. Iwamoto and L. Davis (eds.) Tobacco Smoking and Nicotine: A Neurobiological Approach. Plenum Press, New York and London. 1987. (QV137T62)\n\nIndoor air pollutants:\n14. D. J. Hansen (ed.). The Work Environment. Vol. 3. Indoor Health Hazards. Ch. 3.\nLewis Publishers, BoCa Ration. 1994. (WA400W671994).\n15. J. E. Craig. Indoor Air Quality and Pollution. Ch. 3. In Pathology of Environmental and Occupational Diseases. Mosby, St. Louis. 1995. (WA30C761995).\n16. H. Koren (ed.). Handbook of Environmental Health and Safety. Principles and Practices. Vol. II. 2nd ed. Lewis Publishers. National Environmental Health Association. 1991. (WA30K671991v.2).\n\n17. A. M. Pope and D. P. Rall (eds.). Environmental Medicine: Integrating a Missing\nElement into Medical Education. National Academy Press. Washington, DC. 1995. (WA. 510.I567.1995)\n\nDrinking water quality and health:\n18. W. Viessman, Jr. and M. J. Hammer (eds.). Water Supply and Pollution Control. 6th ed. Addison-Wesley Longman, Inc. California. 1998. (TD353V541998)\n\n19. G. A. McFeters (ed.). Drinking Water Microbiology. Springer-Verlag. New York.\n1990. (TD384D75)\n\n20. J. E. Craighead. Pathology of Environmental and Occupational Disease. Mosby, St. Louis. 1995. (WA30C761995)\n\n21. Guidelines for Drinking-Water Quality. 2nd ed. Vol. 2. World Health Organization.\nGeneva. 1996. (TD215W671993.v.2)\n\nPeroxisome proliferators:\n22. S. S. T. Lee, T. Pineau, J. Drago, E. J. Lee, Jennie W. Owens, D. L. Kroetz, P. M.\nFernandez-Salguero, H. Westphal and F. J. Gonzalez. Targeted Disruption of the Alpha\nIsoform of the Peroxisome Proliferator-Activated Receptor Gene in Mice Results in\nAbolishment of the Pleiotropic Effects of Peroxisome Proliferators. Molec. Cell. Biol.\n15:3012-3022, 1995.\n23. H. Keller, A. Mahfoudi, C. Dreyer, A. K. Hihi, J. Medin, K. Ozato and W. Wahli.\nPeroxisome Proliferator-Activated Receptors and Lipid Metabolism. Annals New York\nAcademy of Sciences. 304:157-173, 1990.\n24. J. K. Reddy, T. Suga, G. P. Mannaerts, P. B. Lazarow and S. Subramani (eds.).\nPeroxisomes: Biology and Role in Toxicology and Disease. Annals of the New York\nAcademy of Sciences. New York. Volume 804. 1996.\n25. J. M. Peters, R. C. Cattley and F. J. Gonzalez. Role of PPAR in the Mechanism of Action of the Nongenotoxic Carcinogen and Peroxisome Proliferator Wy 14,643. Carcinogenesis 18:2029-2033, 1997.\n\nEnvironmental estrogens:\n26. J. A. McLachlan. Estrogens in the Environment. Elsevier/North-Holland. New York.\n1979. (QV600.D48.v.5)\n27. D. L. Davis, H. L. Bradlow, M. Wolff, T. Woodruff, D. G. Hoel and H. Anton-Culver.\n28. Medical hypothesis: Xenoestrogens as Preventable Causes of Breast Cancer. Environ.\n29. Health Perspect. 101:323-377, 1993.\n30. S. H. Safe. Environmental and Dietary Estrogens and Human Health: Is Tthere a\nProblem? Environ. Health Perspect. 103:346-351, 1995.\n31. J. A. McLachlan and S. F. Arnold. Environmental estrogens. American Scientist 84:452 461, 1996. (LJ.SB502. cc)\n\nOccupational chemical hazards - benzene:\n32. M. Lippmann (ed.). Environmental Toxicants: Human Exposures and their Health\nEffects. Van Nostrand Reinhold, Mew York. 1992. (WA671E615)\n33. A. Hricko. Rings of Controversy Around Benzene. Environmental Health\nPerspectives. 102:276-281, 1994.\n34. J. E. Craighead. Pathology of Environmental and Occupational Disease. Mosby, St.\nLouis. 1995. (MDWA30C761995)\n35. B. S. Levy and D. H. Wegman. Occupational Health: Recognizing and Preventing Work-Related Disease. 3rd ed. Little, Brown and Company, New York. 1995.\n(WA4400221995)"
+    },
+    {
+      "subject": "LSCI",
       "course_code": "5801",
       "title": "Human Physiology for Nutrition Studies I",
       "credits": "3.00",
@@ -2934,7 +2993,7 @@
                   "time": "Mo 2:30PM - 5:15PM",
                   "location": "Basic Med Sci Bldg Rm1",
                   "instructor": "Professor ZHAO Yunde, \nProfessor ZHUANG Xiaohong",
-                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                  "dates": "3/8, 10/8, 17/8, 24/8, 31/8, 7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
                 },
                 {
                   "time": "Mo 2:30PM - 5:15PM",

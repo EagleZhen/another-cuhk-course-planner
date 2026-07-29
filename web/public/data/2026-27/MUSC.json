@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "MUSC",
     "subject_title": "Music",
-    "total_courses": 123
+    "total_courses": 122
   },
   "courses": [
     {
@@ -4195,32 +4195,6 @@
       "credits": "3.00",
       "terms": [
         {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (8252)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "07/09/2026 - 30/11/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "5",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "5",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese and English"
-            }
-          ]
-        },
-        {
           "term_code": "2430",
           "term_name": "2026-27 Term 2",
           "schedule": [
@@ -5426,86 +5400,6 @@
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
-            },
-            {
-              "section": "G-LEC (8062)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "07/09/2026 - 30/11/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "1",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese and English"
-            },
-            {
-              "section": "H-LEC (8078)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "07/09/2026 - 30/11/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "1",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese and English"
-            },
-            {
-              "section": "I-LEC (8079)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "07/09/2026 - 30/11/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "1",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese and English"
-            },
-            {
-              "section": "J-LEC (8080)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "07/09/2026 - 30/11/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "1",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese and English"
             }
           ]
         }
@@ -5681,86 +5575,6 @@
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
-            },
-            {
-              "section": "G-LEC (8048)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "11/01/2027 - 19/04/2027"
-                }
-              ],
-              "availability": {
-                "capacity": "1",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese and English"
-            },
-            {
-              "section": "H-LEC (8049)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "11/01/2027 - 19/04/2027"
-                }
-              ],
-              "availability": {
-                "capacity": "1",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese and English"
-            },
-            {
-              "section": "I-LEC (8052)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "11/01/2027 - 19/04/2027"
-                }
-              ],
-              "availability": {
-                "capacity": "1",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese and English"
-            },
-            {
-              "section": "J-LEC (8054)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "11/01/2027 - 19/04/2027"
-                }
-              ],
-              "availability": {
-                "capacity": "1",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese and English"
             }
           ]
         }
@@ -5823,51 +5637,6 @@
       "academic_group": "Dept of Music",
       "academic_org": "Dept of Music",
       "learning_outcomes": "1. To develop students’ ability in formulating and delimiting a research topic, producing a cogent argument, selecting an appropriate methodology, and presenting a coherent research proposal.\n2. To train students in the construction of a thorough and pertinent bibliography, in the critique and synthesis of information collected through primary and/or secondary sources, and in the systematic integration of source materials with original thinking and argumentation.\n3. To familiarize students with the styles and formats of academic writing.",
-      "assessment_types": {}
-    },
-    {
-      "subject": "MUSC",
-      "course_code": "4623",
-      "title": "Senior Research Project II",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2430",
-          "term_name": "2026-27 Term 2",
-          "schedule": [
-            {
-              "section": "--LEC (9696)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "TBA",
-                  "instructor": "Staff",
-                  "dates": "11/01/2027 - 19/04/2027"
-                }
-              ],
-              "availability": {
-                "capacity": "2",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese and English"
-            }
-          ]
-        }
-      ],
-      "description": "This course forms the second of a two-part course for capstone research projects in Music. Students will complete an extended independent research project under the supervision of a Music faculty member. The topic, contents, and other particulars of the project are to be determined in consultation with the Supervisor.",
-      "enrollment_requirement": "Pre-requisite: MUSC4613",
-      "course_attributes": "Capstone Course\nSTOT Course",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Music",
-      "academic_org": "Dept of Music",
-      "learning_outcomes": "Completion of an independent research project that:\n\n1. Shows evidence of analytical and critical thinking, clarity of expression, and research organization;\n2. Demonstrates a thorough understanding of issues, concepts and/or repertoire related to the project;\n3. Applies appropriate scholarly methodologies related to the respective project;\n4. Uses an appropriate format to present the research outcomes.",
       "assessment_types": {}
     },
     {
