@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "TRAN",
     "subject_title": "Translation",
-    "total_courses": 10
+    "total_courses": 8
   },
   "courses": [
     {
@@ -60,32 +60,6 @@
     },
     {
       "subject": "TRAN",
-      "course_code": "4050",
-      "title": "Advanced Interpreting",
-      "credits": "3.00",
-      "terms": [],
-      "description": "This course explores the principles and techniques of two common modes of interpreting: consecutive interpreting and simultaneous interpreting. The students are expected to interpret between Chinese and English for speeches in political, economic, business, medical, cultural and other social settings in the context of Hong Kong and the Mainland China. They will enhance their critical analysis of the interpreting process, and learn to conduct in-depth research for an interpreting topic. They will also engage in discussions of the work ethics and roles of interpreters.",
-      "enrollment_requirement": "Pre-requisite(s): TRAN1030(2030) or consent of instructor.",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Translation",
-      "academic_org": "Dept of Translation",
-      "learning_outcomes": "1. To be equipped with diverse skills for consecutive interpreting and simultaneous interpreting between English and Chinese;\n2. To be able to process difficult ideas and arguments in Chinese and English speech for oral delivery into either of the two languages;\n3. To be able to conduct in-depth, systematic preparation and research for an interpreting task;\n4. To be able to interpret bi-directionally in a political, medical, business and other social settings in the context of Hong Kong and the Mainland China.\n\n5. To be able to critically assess the interpreting tasks and apply appropriate tactics.",
-      "course_syllabus": "1. Intensive training on basic interpreting skills between Chinese and English: active listening, paraphrasing, shadowing, sight translation, CI and SI;\n2. Interpreting for governmental and diplomatic affairs, e.g. in meetings of the Legislative Council and press briefing of the Ministry of Foreign Affairs;\n3. Interpreting for medical and environmental issues, e.g. in press release and reports from related governmental departments and discussions in international conferences;\n4. Interpreting for macro-economic issues, e.g. in summits and conferences of the WTO, APEC, BRIC and etc.;\n5. Interpreting for business negotiations;\n6. Interpreting for cultural matters, e.g. in the UNESCO and UN Women conferences, releases and interviews in HKAFF and etc.;\n7. Interpreting for local affairs, e.g. meetings in Heung Yee Kuk, police interrogation, and communications in social services;\n8. Escort interpreting in a field trip;\n9. Building and developing an interpreter’s glossary;\n10. Preparation and research for an interpreting task;\n11. Speech analysis: Cantonese, Putonghua and English;\n12. Research issues and frameworks in interpreting studies;\n13. Critical study of the role of interpreter in Hong Kong and China.\n\n14. Critical self-reflection and peer feedback.",
-      "assessment_types": {
-        "Essay test or exam": "30",
-        "Others": "50",
-        "Presentation": "20"
-      },
-      "feedback_evaluation": "Students are welcome to provide their feedback on the course through歡迎學生透過以下途徑發表課程意見\n\n1. mid-term questionnaires學期中問卷調查\n\n2. end-of-term questionnaires學期尾問卷調查\n\n3. emails電郵",
-      "required_readings": "Interpreting: International Journal of Research and Practice in Interpreting (selected articles).",
-      "recommended_readings": "1. Anderson, R. Bruce W. (2002). \"Perspectives on the Role of Interpreter\". In Franz Pochhacker and Miriam Shlesinger (eds.). The Interpreting Studies Reader. London; New York: Routledge, 208-217.\n\n2. Chiaro, Delia and Guiseppe, Nocella (2004). \"Interpreters' Perception of Linguistic and Non-Linguistic Factors Affecting Quality: A Survey through the World Wide Web\". Meta 49(2): 278-293.\n\n3. Diriker, Ebru (2004). De-/Re-contextualizing Conference Interpreting: Interpreters in the Ivory Tower? Amsterdam; Philadelphia, Pa.: J. Benjamins.\n\n4. Roy, Cynthia B. (2002). \"The Problem with Definitions, Descriptions, and the Role Metaphors of Interpreters\". In Franz Pochhacker and Miriam Shlesinger (eds). The Interpreting Studies Reader. London; New York: Routledge, 344-353.\n\n5. Tirkkonen, Condit Sonja and Jääskeläinen Riitta (ed.) (2000). Tapping and Mapping the Processes of Translation and Interpreting: Outlooks on Empirical Research. Amsterdam; Philadelphia: J. Benjamins.\n\n6. Kalina, S. (1992). “Discourse Processing and Interpreting Strategies—An Approach to the Teaching of Interpreting”. In Teaching Translation and Interpreting. Amsterdam: Benjamins, 251-257.\n\n7. Lambert, S. & B. Moser-Mercer (eds.) (1994). Bridging the Gap. Empirical Research in Simultaneous Interpreting. Amsterdam/Philadelphia: John Benjamins.\n\n8. Gambier, Y., Gile, D. & Taylor, C. (1997). Conference Interpreting: Current Trends in Research. Amsterdam/Philadelphia: John Benjamins.\n\n9. Kalina, S. (1994). “Analyzing Interpreters' Performance: Methods and Problems”, in C. Dollerup & A. Lindegaard (eds.). Teaching Translation and Interpreting 2: Insights, Aims, Visions. Selected Papers from the Second “Language International” Conference, Elsinore, Denmark 4-6 June 1993. Amsterdam/Philadelphia: John Benjamins Publishing Company, 225-232."
-    },
-    {
-      "subject": "TRAN",
       "course_code": "4620",
       "title": "Advanced Translation Technologies in the Age of AI",
       "credits": "3.00",
@@ -109,33 +83,6 @@
       "feedback_evaluation": "Students are welcome to provide feedback on the course through\n\n* mid-term questionnaires, i.e., Early Feedback Collection System\n* end-of-term questionnaires\n* emails",
       "required_readings": "Ramalho, L. (2022). *Fluent Python: Clear, concise, and effective programming* (2nd ed.). O’Reilly Media, Inc.\n\nVajjala, S., Majumder, B., Gupta, A., & Surana, H. (2020). *Practical natural language processing: a comprehensive guide to building real-world NLP systems*. O’Reilly Media.\n\nHammond, M. (2020). *Python for linguists*. Cambridge University Press.",
       "recommended_readings": "Chollet, F. (2021). *Deep learning with Python* (2nd ed.). Manning Publications.\n\nDowney, A. B. (2015). *Think Python: How to think like a computer scientist* (2nd ed.). O’Reilly Media.\n\nJurafsky, D., & Martin, J. H. (2023). *Speech and language processing: An introduction to natural language processing, computational linguistics, and speech recognition* (3rd ed. draft). Stanford University. <https://web.stanford.edu/~jurafsky/slp3/>\n\nKleppmann, M. (2017). *Designing data-intensive applications: The big ideas behind reliable, scalable, and maintainable systems*. O’Reilly Media.\n\nMüller, A. C., & Guido, S. (2016). *Introduction to machine learning with Python: A guide for data scientists*. O’Reilly Media.\n\nRussell, M. A., & Klassen, M. (2019). *Mining the social web: Data mining Facebook, Twitter, LinkedIn, Instagram, GitHub, and more* (3rd ed.). O’Reilly Media.\n\nSweigart, A. (2019). *Automate the boring stuff with Python: Practical programming for total beginners* (2nd ed.). No Starch Press.\n\nVanderPlas, J. (2022). *Python data science handbook: Essential tools for working with data* (2nd ed.). O'Reilly Media."
-    },
-    {
-      "subject": "TRAN",
-      "course_code": "4840",
-      "title": "Advanced Legal Translation",
-      "credits": "3.00",
-      "terms": [],
-      "description": "With basic knowledge about legal knowledge and legal translation skills acquired from TRAN2840, this course moves one step further to improve students' expertise in the legal arena. It aims to deepen students' understanding of legal translation and enhance their ability to translate legal texts by providing advanced and comprehensive training in translating legal documents in the contexts of Hong Kong and Mainland China. The students are required to conduct more in-depth analysis of legal documents, both from English to Chinese and from Chinese to English. The students are also expected to develop critical thinking and master various practical skills to tackle with difficult and challenging issues encountered in the legal translation process.",
-      "enrollment_requirement": "Prerequisite: TRAN2840 or consent of instructor",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Translation",
-      "academic_org": "Dept of Translation",
-      "learning_outcomes": "1. understand and translate legal terminology and formulaic phrases commonly used in legal texts;\n2. demonstrate their analytical abilities in decomposing and translating long and complex legal sentences;\n3. understand differences and similarities of legal translation in Hong Kong and PRC contexts.",
-      "course_syllabus": "1. Translation of legal terminology 法律文本中疑難詞彙的翻譯\n\n2. Translation of formulaic phrases in legal texts 法律文本中程式化短語的翻譯\n\n3. Typical legislative sentence structures 典型法例句式的翻譯\n\n4. Long and complex sentences in legal translation 法律文本中的複雜長句翻譯\n\n5. Comparison of legal translation in Hong Kong and PRC 香港與中國大陸法律翻譯比較",
-      "assessment_types": {
-        "Attendance": "10",
-        "Essay test or exam": "40",
-        "Homework or assignment": "30",
-        "Report": "20"
-      },
-      "feedback_evaluation": "Students are welcome to provide their feedback on the course through歡迎學生透過以下途徑發表課程意見\n\n- mid-term questionnaires學期中問卷調查\n\n- end-of-term questionnaires學期尾問卷調查\n\n- emails電郵",
-      "required_readings": "None",
-      "recommended_readings": "1. Coode, George (1852). Legislative Expression or The Language of the Written Law. In Appendix to Stanley Robinson, Drafting: its applications to conveyancing and commercial documents. London: Butterworths, 1980.\n\n2. Mellinkoff, David (1963). The Language of the Law. Boston: Little, Brown and Company.\n\n3. Sarcevic, Susan (1997). New Approach To Legal Translation. The Hague: Kluwer Law International.\n\n4. 陳忠誠 (1992)。《法窗譯話》。北京：中國對外翻譯出版公司。\n\n5. 姜劍雲(1995)。《法律語言與言語研究》。北京：群眾出版社。\n\n6. 李克興、張新红 (2006)。《法律文本與法律翻譯》。北京：中國對外翻譯出版公司。\n\n7. 陸文慧(2002) 。《法律翻譯 : 從實踐出發》。香港 ：中華書局。\n\n8. 王道庚 (2013)。《法律翻譯—理論與實踐》（第二版）。香港：香港城市大學出版社"
     },
     {
       "subject": "TRAN",
