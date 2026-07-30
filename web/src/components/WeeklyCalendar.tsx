@@ -104,6 +104,7 @@ export default function WeeklyCalendar({
   // Local state for display configuration testing
   const [localDisplayConfig, setLocalDisplayConfig] = useState<CalendarDisplayConfig>(displayConfig)
   const [isCapturing, setIsCapturing] = useState(false)
+  const [screenshotError, setScreenshotError] = useState<string | null>(null)
   const [isIcsMenuExpanded, setIsIcsMenuExpanded] = useState(false)
 
   // Refs for auto-scrolling to selected events
@@ -219,6 +220,7 @@ export default function WeeklyCalendar({
       return
     }
 
+    setScreenshotError(null)
     setIsCapturing(true)
     try {
       // Find unscheduled section using data attribute
@@ -231,6 +233,8 @@ export default function WeeklyCalendar({
       })
       analytics.screenshotTaken()
     } catch (error) {
+      analytics.screenshotFailed(error)
+      setScreenshotError('Couldn’t create the screenshot. Please try again.')
       console.error('Screenshot capture failed:', error)
       if (error instanceof Error) {
         console.error('Error details:', { message: error.message, stack: error.stack })
@@ -574,6 +578,12 @@ export default function WeeklyCalendar({
           <DisplayToggleButtons displayConfig={localDisplayConfig} onToggle={toggleDisplayOption} />
         </div>
         {/* #endregion */}
+
+        {screenshotError && (
+          <p role="alert" className="mt-2 text-center text-sm text-red-600">
+            {screenshotError}
+          </p>
+        )}
       </CardHeader>
 
       {/* Unscheduled Events Row */}

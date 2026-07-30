@@ -132,6 +132,11 @@ export const analytics = {
     track('screenshot_taken')
   },
 
+  screenshotFailed: (error: unknown) => {
+    const exception = error instanceof Error ? error : new Error(String(error))
+    posthog.captureException(exception, { error_context: 'screenshot_export' })
+  },
+
   // === MOBILE DESKTOP NOTICE ===
 
   // Track how often the desktop-nudge modal shows → is it engagement or just friction?
