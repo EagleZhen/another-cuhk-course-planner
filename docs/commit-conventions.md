@@ -8,6 +8,8 @@ Use Conventional Commit titles with a small, project-specific set of types and s
 
 The scope is optional. Add `!` before `:` for a breaking change.
 
+Reference an issue with `Refs #N` in the body; it shows up on the issue timeline. Use `Closes #N` only when the commit really closes it — GitHub acts on that at merge.
+
 ## Types
 
 | Type       | Use for                                                     |
