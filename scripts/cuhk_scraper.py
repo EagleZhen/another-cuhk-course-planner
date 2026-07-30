@@ -1204,8 +1204,7 @@ class CuhkScraper:
         desc_elem = soup.find("span", {"id": "uc_course_lbl_crse_descrlong"})
         if desc_elem:
             # Use HTML content (not extracted text) to preserve <br> tags and formatting
-            # TODO: Consider preserving original HTML and converting to markdown later for better robustness
-            # This would allow re-processing if conversion logic improves without re-scraping
+            # TODO(#27): store the original HTML too, so conversion can improve without re-scraping
             desc_html = str(desc_elem)
             course.description, _ = html_to_clean_markdown(desc_html)
 
@@ -1756,10 +1755,7 @@ class CuhkScraper:
 
     def _parse_course_outcome_content(self, html: str, course: Course) -> None:
         """Parse Course Outcome page content and extract all relevant information"""
-        # TODO: Consider preserving original HTML alongside markdown conversion
-        # This would allow re-processing with improved conversion logic without re-scraping
-        # Current approach: HTML → Markdown (one-way, conversion challenges with complex HTML)
-        # Future approach: Store both HTML and Markdown, convert HTML post-scraping
+        # TODO(#27): store the original HTML too, so conversion can improve without re-scraping
         soup = BeautifulSoup(html, "html.parser")
 
         # Extract Assessment Types (table structure)
