@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect, useCallback } from 'react'
+import posthog from 'posthog-js'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { TermSelector } from '@/components/TermSelector'
@@ -233,7 +234,7 @@ export default function WeeklyCalendar({
       })
       analytics.screenshotTaken()
     } catch (error) {
-      analytics.screenshotFailed(error)
+      posthog.captureException(error, { error_context: 'screenshot_export' })
       setScreenshotError('Couldn’t create the screenshot. Please try again.')
       console.error('Screenshot capture failed:', error)
       if (error instanceof Error) {

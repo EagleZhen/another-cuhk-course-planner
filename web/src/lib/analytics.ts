@@ -11,7 +11,6 @@ const track = (event: string, properties?: Record<string, unknown>) => {
   }
 }
 
-// Analytics focused ONLY on validating core value hypotheses
 export const analytics = {
   // === HYPOTHESIS 1: "App Helps People Plan Schedules" ===
 
@@ -130,11 +129,6 @@ export const analytics = {
   // Track screenshot export → curiosity metric to understand schedule export trends
   screenshotTaken: () => {
     track('screenshot_taken')
-  },
-
-  screenshotFailed: (error: unknown) => {
-    const exception = error instanceof Error ? error : new Error(String(error))
-    posthog.captureException(exception, { error_context: 'screenshot_export' })
   },
 
   // === MOBILE DESKTOP NOTICE ===
