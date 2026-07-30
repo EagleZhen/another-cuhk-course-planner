@@ -34,6 +34,8 @@ Transitions and acknowledgment:
 - The Review banner (`getChangedCourseIds`) queues unseen invalid reasons, unacknowledged visible tombstones, and section-detail changes. **Dismiss all** acknowledges only what is visible: tombstones hidden behind an invalid card stay unacknowledged, so they re-alert once the course returns and they can actually be seen.
 - Re-adding from search (`updateExistingEnrollment`) is the full reset: clears invalid state, tombstones, and acknowledgments, and refreshes the stale `course`.
 
+Acknowledgment runs on three mechanisms with separate reset rules (`lastSeenSections`, `lastSeenInvalidState`, `removedSectionsAcknowledged`). Unifying them into one snapshot is [#215](https://github.com/EagleZhen/another-cuhk-course-planner/issues/215).
+
 `isVisible` (the eye toggle) is orthogonal: a hidden course leaves the timetable and ICS but its lifecycle keeps running. See [architecture.md](../architecture.md#browser-state).
 
 ## Change Detection

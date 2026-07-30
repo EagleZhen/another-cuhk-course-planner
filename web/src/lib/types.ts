@@ -133,6 +133,9 @@ export interface InvalidEnrollmentState {
 }
 
 // Course enrollment using clean internal types
+// Acknowledgment is tracked by three separate mechanisms below: removedSectionsAcknowledged,
+// lastSeenSections, and lastSeenInvalidState
+// TODO(#215): unify them into one snapshot
 export interface CourseEnrollment {
   courseId: string
   course: InternalCourse // ✅ Strong internal type
