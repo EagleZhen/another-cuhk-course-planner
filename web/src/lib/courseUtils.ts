@@ -1,5 +1,6 @@
 // Unified course utilities for conflict detection and data transformation
 // Uses clean internal types with proper validation boundaries
+// TODO(#159): split this grab-bag into focused modules
 
 import type {
   TimeRange,
