@@ -3,6 +3,7 @@
  * Extracted from courseUtils.ts for better separation of concerns
  */
 
+import { toPng } from 'html-to-image'
 import { CALENDAR_LAYOUT_CONSTANTS } from './calendarConfig'
 
 // Centralized screenshot configuration
@@ -495,7 +496,6 @@ async function captureElementAsPng(
   width: number,
   height: number
 ): Promise<string> {
-  const { toPng } = await import('html-to-image')
   const canvasConfig = SCREENSHOT_CONFIG.canvas
 
   return await toPng(element, {
