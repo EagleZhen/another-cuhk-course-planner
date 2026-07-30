@@ -26,4 +26,4 @@ Run checks proportional to the change. Avoid full scrapes or full builds unless 
 
 `TODO(#N):` marks deferred work with a filed issue; a bare `TODO:` is an unfiled note. When editing near one, mention it, and propose the fix if it is small or blocking — as its own commit, never folded into the current diff. Don't act unasked.
 
-Remove the marker when closing its issue (`grep -rn "#N"`). Pointers to closed issues train readers to ignore markers.
+Remove the marker when closing its issue (grep for its number). Pointers to closed issues train readers to ignore markers.
