@@ -10,6 +10,7 @@
  */
 
 import posthog from 'posthog-js'
+import { getClientExceptionContext, preparePostHogEvent } from '@/lib/posthogEvent'
 
 const posthogKey = process.env.NEXT_PUBLIC_POSTHOG_KEY
 
@@ -31,12 +32,10 @@ if (typeof window !== 'undefined' && posthogKey) {
     disable_session_recording: true, // No session recordings
     autocapture: false, // No automatic click tracking
 
-    // Clean URL tracking (remove query params)
-    sanitize_properties: (properties) => {
-      if (properties.$current_url) {
-        properties.$current_url = properties.$current_url.split('?')[0]
-      }
-      return properties
+    // Strip query params and add lightweight context to exceptions.
+    before_send: (event) => {
+      const context = event?.event === '$exception' ? getClientExceptionContext() : undefined
+      return preparePostHogEvent(event, context)
     },
   })
 
