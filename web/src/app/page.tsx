@@ -511,7 +511,8 @@ export default function Home() {
           console.debug(`Successfully synced ${syncedEnrollments.length} enrollments`)
         }
 
-        // Update sync timestamp after successful sync
+        // This setState and the logs above sit inside the updater, so StrictMode double-invokes them
+        // TODO(#172): move them out to an effect
         setLastSyncTimestamp(timestamp)
 
         return syncedEnrollments
