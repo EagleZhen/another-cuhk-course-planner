@@ -11,7 +11,6 @@ const track = (event: string, properties?: Record<string, unknown>) => {
   }
 }
 
-// Analytics focused ONLY on validating core value hypotheses
 export const analytics = {
   // === HYPOTHESIS 1: "App Helps People Plan Schedules" ===
 
