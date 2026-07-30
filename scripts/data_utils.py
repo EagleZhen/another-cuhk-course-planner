@@ -5,6 +5,9 @@ Designed to handle Word HTML artifacts and provide clean markdown conversion.
 
 Extracted from cuhk_scraper.py for maintainability and reusability.
 This module has no external dependencies beyond BeautifulSoup and optional markdownify.
+
+Despite the name, it also holds publish-side helpers: year/term partitioning and manifest generation.
+TODO(#153): split scrape vs. publish utilities.
 """
 
 import json

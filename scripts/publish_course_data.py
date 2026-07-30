@@ -388,6 +388,7 @@ class ConsoleLogger:
         self.log_file.close()
 
 
+# TODO(#154): extract each phase into a named helper so this reads as a sequence of steps
 def main():
     # Generate log filename with timestamp
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
