@@ -2030,6 +2030,10 @@ class CuhkScraper:
                 if os.path.exists(stale_no_terms):
                     os.remove(stale_no_terms)
 
+            # Year dirs get no equivalent pruning: a subject that drops out of a still-active
+            # year keeps its file from the previous scrape, and the app still serves it.
+            # TODO(#149): reconcile year subdirs the same way.
+
             summary = ", ".join(written) if written else "(no file — empty subject)"
             self.logger.info(f"💾 SAVED {subject} → {summary}")
             return written
