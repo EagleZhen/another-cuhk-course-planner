@@ -58,6 +58,7 @@ export default function Home() {
   const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())
   const [selectedEnrollment, setSelectedEnrollment] = useState<string | null>(null)
   const [lastSyncTimestamp, setLastSyncTimestamp] = useState<Date | null>(null)
+  // TODO(#146): rename to reflect these are toggled subject filters, not selected subjects
   const [selectedSubjects, setSelectedSubjects] = useState<Set<string>>(new Set())
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
   const [showSelectedOnly, setShowSelectedOnly] = useState<boolean>(false)
