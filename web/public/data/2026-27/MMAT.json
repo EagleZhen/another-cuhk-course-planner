@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "MMAT",
     "subject_title": "Mathematics (TPg)",
-    "total_courses": 20
+    "total_courses": 21
   },
   "courses": [
     {
@@ -1057,6 +1057,51 @@
         "Participation": "10",
         "Test or quiz": "30"
       }
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5410",
+      "title": "Guided Studies I",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-S01-SEM (9878)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. NG Ming Ho",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "A project in pure or applied mathematics, either in research or in reviewing the literature of an advanced topic. Each section may be taken by an individual student or a team of two students. Topics selected should be beyond the content of MMAT5000. Prerequisite: permission of the instructor.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "STOT Course",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics",
+      "learning_outcomes": "Students are able to:\n• To search current literatures in specific areas of mathematics.\n• To appreciate current literatures through presentations and writings.",
+      "assessment_types": {}
     },
     {
       "subject": "MMAT",

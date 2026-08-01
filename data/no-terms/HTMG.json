@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "HTMG",
     "subject_title": "Hotel And Tourism Management",
-    "total_courses": 56
+    "total_courses": 63
   },
   "courses": [
     {
@@ -115,6 +115,32 @@
     },
     {
       "subject": "HTMG",
+      "course_code": "3519",
+      "title": "Air Transportation",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The commercial aviation business contributes significantly to the global economy in general and the hospitality and tourism industry in particular. Airlines generate direct financial opportunities to airports, aircraft manufacturers (OEMs), ground handling companies, flight catering operations, aviation related organizations, etc. Furthermore, the aviation industry also plays a key commercial role in the travel and tourism ecosystem, working closely with the hotel and restaurant sectors, the attractions, the travel intermediaries, the land and sea transport operators, plus many other tourism related businesses.\n\nThis course will provide an introductory overview of the commercial passenger airline and airport business, focusing on the management aspects of the businesses. The contents include aviation regulatory principles, airline alliances and cooperation, revenue management, loyalty management, distribution management, marketing, network planning issues, business aviation (private jet in Asia), airport and FBO management, intermodal transportation, and contemporary issues of the airline business.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Sch of Hotel & Tourism Mgt",
+      "academic_org": "Sch of Hotel & Tourism Mgt",
+      "learning_outcomes": "· gain a good understanding of the airline and airport industry;\n\n· know the contribution of airline and airport to tourism and the economy;\n\n· acquire a clear comprehension of the commercial management of airline passenger business;\n\n· attain necessary knowledge to participate in the future management of commercial and business aviation organizations.",
+      "course_syllabus": "1. Introduction to the aviation business\n2. Structure and economics of airlines\n3. Aviation regulations\n4. Commercial airline revenue management\n5. Commercial airline loyalty management\n6. Airline Passenger Marketing, social media\n7. Commercial airline distribution\n8. Commercial airline networking planning\n9. Airport management\n10. Intermodal passenger transportation\n11. Innovation in airline industry",
+      "assessment_types": {
+        "Examination": "30",
+        "Homework or assignment": "30",
+        "Presentation": "40"
+      },
+      "feedback_evaluation": "Class evaluation will be conducted at the end of the course",
+      "required_readings": "Wensveen, John. *Air Transportation: A Management Perspective.* 8th ed. Oxon: Routledge, 2015. Print.",
+      "recommended_readings": "Shaw, Stephen. *Airline: Marketing and Management*. 7th ed. New York: Routledge, 2016. Print.\n\nYoung, Seth and Alexander Wells. *Airport Planning and Management*. 7th ed. New York: McGraw-Hill, 2019. Print. (Older editions [2011, 2003, 2000, 1996, 1992, 1986] are written by Alexander Wells.)\n\nDoganis, Rigas. *Flying Off Course: The Economics of International Airlines*. 5th ed. London: Routledge, 2019. Print.\n\nGraham, Anne. *Managing Airports: An International Perspective*. 5th ed. Oxon: Routledge, 2018. Print."
+    },
+    {
+      "subject": "HTMG",
       "course_code": "3524",
       "title": "Hospitality and Real Estate Design Thinking",
       "credits": "3.00",
@@ -223,6 +249,34 @@
     },
     {
       "subject": "HTMG",
+      "course_code": "4060",
+      "title": "Advanced Real Estate Investments",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is a continuation course of HTMG3523 Introduction to Real Estate Investment. In this course, a review of the financial modelling techniques and how to apply them to analyze development projects will be covered. A particular topic will focus on the financial analysis of real estate development (the market that links the space market and the asset market in a dynamic real estate system). Developing real estate is a high risky investment, to determine a project’s viability; feasibility study must be carried out, which include a comprehensive analysis of the property development process from initial financial evaluation through construction to final sale. Students will use the acquired financial modelling skills and through the application of market research and intelligence to develop credible feasibility reports.",
+      "enrollment_requirement": "Prerequisite: HTMG3523",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Sch of Hotel & Tourism Mgt",
+      "academic_org": "Sch of Hotel & Tourism Mgt",
+      "learning_outcomes": "On successfully completing this course, students should be able to:\n• Demonstrate how to analyze and apply financial methods to forecast cash flows for property developments;\n• Demonstrate skills of assessing risk and return in development projects and to evaluate project viability;\n• Understand the economics of property developments, the process, the stages in the development process and the key actors involved;\n• Demonstrate capability to perform an effective pitch of commercial real estate transaction (application to concrete situation).\n• Critically analyze and evaluate development opportunities in real world business and discuss real world phenomena;\n• Understand and apply modern portfolio theory, the capital asset pricing model and portfolio performance measurement and real estate market efficiency to real estate investment analysis and management\n• Develop creative thinking, self-managed ability, team work spirit, analytical and communicative skills through class discussions and project presentations.",
+      "course_syllabus": "• Development feasibilities;\n• Development projects cash-flow models;\n• Buy-to-sale analysis;\n• Residual Valuation;\n• Modern Portfolio Theory\n• Capital Asset Pricing Model",
+      "assessment_types": {
+        "Attendance": "10",
+        "Homework or assignment": "20",
+        "Project": "30",
+        "Participation": "5",
+        "Selected response test or exam": "35"
+      },
+      "feedback_evaluation": "After each part of lectures, the instructor is going to have a review and get feedback from students. At the end of this course, the school will conduct a CTE among students",
+      "required_readings": "Commercial Real Estate Analysis and Investments, by Geltner, Miller, Clayton and Eichholtz, Cengage Learning; 2nd edition, 2007\n\nFinance for Real Estate Development, by Long, Charles, Urban Land Institute, 2011",
+      "recommended_readings": "Property Valuation and Analysis, by R.T.M Whipple, Reginald Thomas Milner:2nd edition, 2006"
+    },
+    {
+      "subject": "HTMG",
       "course_code": "4070",
       "title": "Services Marketing",
       "credits": "3.00",
@@ -327,6 +381,34 @@
       "feedback_evaluation": "Class evaluation will be conducted at the end of the course",
       "required_readings": "Edwards, M.R. (2019). Predictive HR Analytics: Mastering the HR Metric. 2nd edition. Kogan Page: US\n\nRequired textbook: Gary Dessler (2017). Human Resources Management, 15th edition. Global Edition. Florida International University. Pearson Education Limited.",
       "recommended_readings": "NIL"
+    },
+    {
+      "subject": "HTMG",
+      "course_code": "4200",
+      "title": "Strategic Brand Management for Hospitality Business",
+      "credits": "3.00",
+      "terms": [],
+      "description": "One of the most effective tools to differentiate services from competitors is an organization’s brand identity. Strong brands will transcend industries and provide an organization with one of its most valuable assets. Hence, strategic brand management is one of the hot marketing topics in recent years. Branding has also become an essential component of marketing strategy in the hotel industry. To blend the theory and practice of brand management, this course provides students with the knowledge and skills needed to develop, manage and promote the core values of an organization’s brand in competitive markets. Particular emphasis will be placed on the design of marketing programs to build brand equity in the services and hospitality industry. Students are expected to have developed a basic understanding of brand management concepts and principles through readings, case studies, and a course project for practical application and experiential learning.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Sch of Hotel & Tourism Mgt",
+      "academic_org": "Sch of Hotel & Tourism Mgt",
+      "learning_outcomes": "On completion of this course, students will be able to:\n1. explain the concepts and theories of brand management, including brand image, brand positioning, brand equity, brand extensions, brand relationships, and consumer responses to brand strategies, etc.;\n2. have a good knowledge on the strategies that business organizations use to develop, manage and promote the core values of their brands in competitive markets;\n3. apply the brand management concepts to analyse, understand and interpret brand management strategies used by the existing services and hospitality firms;\n4. work in a team to apply necessary concepts to design a new marketing program to build brand equity for hospitality brands.\n\nMeasurement of Learning Outcomes:\n1. Problem based continuous assessment requires students individually or in groups to explain the applications of concepts, theories and principles of brand management in real life problem situations.\n2. Mini case studies require students to analyse and interpret the brand management strategies for successful hospitality brands. Students in groups are expected to discuss the applications of relevant concepts and practices in real business case scenario.\n3. Class assignments are used to test students’ understanding of specific concepts and practices underlined by trade and academic articles.\n4. Final examination specifically requires students to apply knowledge and past learning in addressing the case and examination questions.",
+      "course_syllabus": "This course consists of presentation of text materials, discussion of current events in brand management, and application of the concepts and theories to real world situations through case analyses, and critique of recently published academic articles. Tactics and techniques for brand management cases will be discussed during class and students will learn how to apply concepts to solve brand building problems from an organization viewpoint. Particular emphasis will be placed on the design of marketing programs to build brand equity for hospitality brands. Students are expected to apply appropriate brand management concepts and strategies to design a marketing program for brand building. A course project will be emphasized for practical application and experiential learning.\n\nIndicative content including:\n1. Identifying and Establishing Brand Positioning and Values: concepts of customer-based brand equity and brand positioning.\n2. Planning and Implementing Brand Marketing Programs: choosing brand elements to build brand equity, designing marketing programs to build brand equity, and integrating marketing communications to build brand equity.\n3. Measuring and Interpreting Brand Performance: developing brand equity measurement, measuring sources of brand equity, and measuring outcomes of brand equity.\n4. Growing and Sustaining Brand Equity: designing and implementing branding strategies, introducing and naming new products and brand extensions.\n5. Managing Brands over Time: maintaining brand consistency and protecting sources of brand equity.",
+      "assessment_types": {
+        "Essays": "25",
+        "Lab reports": "20",
+        "Others": "10",
+        "Presentation": "5",
+        "Selected response test or exam": "40"
+      },
+      "feedback_evaluation": "Class evaluation will be conducted at the end of the course",
+      "required_readings": "Kevin Lane Keller (2008), Strategic Brand Management (3rd edition). NJ: Prentice Hall.",
+      "recommended_readings": "(1) Keller, K. L. 1993. Conceptualizing, measuring, managing customer-based brand equity, Journal of Marketing, 57 (1), 1-22.\n(2) Kim, W. G. 2008. Branding, brand equity and brand extensions. In Handbook of hospitality marketing management, ed. H. Oh and A. Pizam, 87-118. New York: Elsevier.\n(3) O’Neill, J. W. and A. S. Mattila, 2010. Hotel Brand Strategy. Cornell Hospitality Quarterly, 51 (1): 27-34.\n(4) Prasad, K., and C. Dev. 2000. Measuring hotel brand equity: A customer-centric framework for assessing performance. Cornell Hotel and Restaurant Administration Quarterly 41 (3): 22–31.\n(5) Siguaw, J. A., A. S. Mattila, and J. Austin. 1999. The Brand Personality Scale: An application for restaurants. Cornell Hotel and Restaurant Administration Quarterly 40 (June): 48-55.\n(6) Case Reading: “Logo Overhaul: Will Customers Still Answer the Siren Call of Starbucks?” 2011. Knowledge@Wharton (http://knowledge.wharton.upenn.edu/article.cfm?articleid=2703)."
     },
     {
       "subject": "HTMG",
@@ -497,6 +579,31 @@
       "credits": "1.00",
       "terms": [],
       "description": "This course will provide insights into the dynamics of airline management, including topics on airline organization, airline marketing and distribution networks, and/or airline catering operation and service management.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Sch of Hotel & Tourism Mgt",
+      "academic_org": "Sch of Hotel & Tourism Mgt",
+      "learning_outcomes": "Business concepts and functions\n- -Have an overview of the subject\n- -Provide students with insights and information on the current development of the subject\n- -Understand the components and processes involved in the subject\n\nAnalytical skills\n- -Able to analyze the trend of the subject\n- -Able to analyze the impact of related factors or stakeholders\n\nProfessional Skills\n- -Understand the skills required in the subject through insights from the current practices\n\nAttitude/Values\n- -Appreciate the current development of the subject and the effort devoted by the industry professionals in it",
+      "course_syllabus": "To be provided by course teacher during class.",
+      "assessment_types": {
+        "Others": "40",
+        "Presentation": "60"
+      },
+      "feedback_evaluation": "Class evaluation will be conducted at the end of the course",
+      "required_readings": "NIL",
+      "recommended_readings": "Subject to the recommendations by the executive instructor in charge."
+    },
+    {
+      "subject": "HTMG",
+      "course_code": "4504",
+      "title": "Theme Park Management",
+      "credits": "1.00",
+      "terms": [],
+      "description": "This course will cover areas such as opportunities and challenges facing the theme park industry.",
       "enrollment_requirement": "",
       "course_attributes": "",
       "academic_career": "Undergraduate",
@@ -917,6 +1024,31 @@
     },
     {
       "subject": "HTMG",
+      "course_code": "4527",
+      "title": "Event Planning and Management",
+      "credits": "1.00",
+      "terms": [],
+      "description": "The Meeting, Exhibition, Incentive, Convention and Exhibition (MICE) sector is important to the Hong Kong economy. It has gathered momentum in recent years. Through additional funding from the Hong Kong Government, the Hong Kong Tourism Board steps up MICE promotion by launching the “Meetings and Exhibitions Hong Kong” (MEHK) office. This course will expose students to the MICE industry from an event management perspective. The topics covered will include the importance of the MICE market to a hotel, facilities and resources needed to support MICE business, effective strategies and selling approaches to win MICE business, and how to coordinate among different departments and manage event business in the hotel.",
+      "enrollment_requirement": "Prerequisite: HTMG1010",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Sch of Hotel & Tourism Mgt",
+      "academic_org": "Sch of Hotel & Tourism Mgt",
+      "learning_outcomes": "Business concepts and functions\n- -Have an overview of the subject\n- -Provide students with insights and information on the current development of the subject\n- -Understand the components and processes involved in the subject\n\nAnalytical skills\n- -Able to analyze the trend of the subject\n- -Able to analyze the impact of related factors or stakeholders\n\nProfessional Skills\n- -Understand the skills required in the subject through insights from the current practices\n\nAttitude/Values\n- -Appreciate the current development of the subject and the effort devoted by the industry professionals in it",
+      "course_syllabus": "To be provided by course teacher during class.",
+      "assessment_types": {
+        "Others": "40",
+        "Presentation": "60"
+      },
+      "feedback_evaluation": "Class evaluation will be conducted at the end of the course",
+      "required_readings": "NIL",
+      "recommended_readings": "Subject to the recommendations by the executive instructor in charge."
+    },
+    {
+      "subject": "HTMG",
       "course_code": "4528",
       "title": "Developing a Competitive and Sustainable Exhibition Industry in Hong Kong",
       "credits": "1.00",
@@ -1095,6 +1227,33 @@
       "feedback_evaluation": "After each part of lectures, the instructor is going to have a review and get feedback from students. At the end of this course, the school will conduct a CTE among students",
       "required_readings": "Commercial Real Estate Analysis and Investments, by Geltner, Miller, Clayton and Eichholtz, Cengage Learning; 2nd edition, 2007",
       "recommended_readings": "Property Valuation and Analysis, by R.T.M Whipple, Reginald Thomas Milner:2nd edition, 2006\n\nJournals: (Asian) Asia Wall Street Journal, Asian Investor, Hong Kong Economic Journal, Asia Property, Journal of Property Investment & Finance, The Journal of Real Estate Finance and Economics, Briefings in Real Estate Finance, Real Estate Economics, Journal of Property Valuation and Investment"
+    },
+    {
+      "subject": "HTMG",
+      "course_code": "4536",
+      "title": "Specialty Tourism",
+      "credits": "1.00",
+      "terms": [],
+      "description": "International tourism has become easier, more affordable, and more personalized. The shift from mass tourism towards a more authentic experience is felt across the tourism horizon, not only in choosing where to go, but also how to travel and what products and services to consume. Specialty tourism emerges to provide customized tourism activities catering to the specific interests of groups and individuals. This course introduces theoretical concepts related to specialty tourism and real-world cases different destinations. This course is designed to keep abreast with the changing tourism landscape and will focus on one type of specialty tourism each time the course is offered. Possible themes include, but not limited to medical tourism, educational tourism, culinary tourism, shopping tourism, cultural tourism, and ecotourism. This course is opened to all CUHK undergraduate students. Students enrolled in this course shall commit to completing a series of tasks designed by the course instructor, including written reports, group projects and an overseas or local study tour, etc. Given the interdisciplinary nature of tourism research, the course address issues related to specialty tourism by combines perspectives from business, marketing, social psychology, consumer behavior, cultural and human geography, environmental sustainability, anthropology and social sciences.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Sch of Hotel & Tourism Mgt",
+      "academic_org": "Sch of Hotel & Tourism Mgt",
+      "learning_outcomes": "• Understand why and how tourists make travel decisions and the impact of their choices\n• Recognize the different characteristics, types of travelers and the spectrum of motivations\n• Analyses how destination attributes relates to its competitiveness and specialty tourism",
+      "course_syllabus": "Mode of Teaching and Learning\n• Classes are based on student participation, case analysis, guest lectures\n• This course may involve fieldtrips in or around Hong Kong\nLesson 1: Why do people travel?\n• Destination choice\n• Types of travelers (demographics, travel styles, age, gender)\n• Tourism behavior vs consumer behavior\n• The impact travelers have on a destination\nLesson 2: Why destination matters in specialty tourism?\n• Destination attributes, competitiveness and the rise of specialty tourism\n• Destination lifecycle and specialty tourism\nLesson 3: Specialty Tourism (subjected to annual revision)\n– A sample of possible lesson structures below –\nMedical Tourism\n• Globalization of Medicine: Outsourcing surgery\n• 3A’s: Affordability, Accessibly and Availability\n• Case study (1): Anchor Babies in Hong Kong\n• Case study (2): Thailand vs. Singapore\nEducational Tourism\n• Globalization of Education\n• How a destination represents acquiring new skills?\n• Case study (1): Singapore\n• Case study (2): Hong Kong\nCulinary Tourism\n• Food, Local Memories and Destination Identity\n• Food Production and Environmental Change\n• Case study (1): Seafood in Hong Kong\n• Case study (2): Night Markets in Taiwan\nShopping Tourism\n• Globalization of Consumption\n• Tourism and the Role of Duty-Free\n• Case study (1): Shopping in Hong Kong\n• Case study (2): Shopping in Japan\nEcotourism\n• Ecotourism: Why less is more? On social carrying capacity\n• Issues in keeping tourism sustainable\n• Case study (1): Hong Kong GeoPark\n• Case study (2): Birding at DMZ on the N/S Korean border\nCultural tourism\n• UNESCO World Heritage: Politics and branding\n• Identification, Site Management and Interpretation\n• Case study (1): Colonial heritage in Hong Kong and Macau\n• Case study (2): Little India Historic District in Singapore\nLesson 4: Project Presentation\n• Students will work on a group project and make a class presentations on a chosen product or service – related to the central specialty tourism theme",
+      "assessment_types": {
+        "Attendance": "10",
+        "Homework or assignment": "30",
+        "Project": "50",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "Class evaluation will be conducted at the end of the course",
+      "required_readings": "Assigned readings will be posted on blackboard to supplement class instruction. You will be expected to have read assigned readings prior to the class that will be discussing the topic.",
+      "recommended_readings": "Connell, J. (2006). Medical tourism: Sea, sun, sand, and … surgery. Tourism Management, 27, pp. 1093-1100.\nMcKercher, B. (2002). Towards a classification of cultural tourists. International Journal of Tourism Research, 4, pp. 29-38.\nPanchal, J. (2016). Singapore: International students’ stepping stone to the world. In: Pearce, P. and Wu M. ed., (2016). The world meets Asian tourists: bridging tourism theory and practice, 7, Bingley: Emerald, pp. 305-323.\nPearce, P. (2005). Tourism Behaviour: Themes and conceptual schemes. Clevedon: Channel View.\nQuan, S. and N. Wang. (2004). Towards a structural model of the tourist experience: an illustration from food experiences in tourism. Tourism Management, 25 (3), pp. 297–305.\nTimothy, D. (2005). Shopping tourism: Retailing and leisure. Clevedon: Channel View.\nTrauer, B. (2006). Conceptualizing Special Interest Tourism—Frameworks for Analysis. Tourism Management, 27(2), pp.183-200.\nWeaver, D. (2008). Ecotourism. Milton: John Wiley & Sons."
     },
     {
       "subject": "HTMG",
@@ -1441,6 +1600,31 @@
       "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
       "required_readings": "To be assigned by course teacher.",
       "recommended_readings": "To be assigned by course teacher."
+    },
+    {
+      "subject": "HTMG",
+      "course_code": "6210",
+      "title": "Research in Hospitality, Tourism and Real Estate",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed to acquaint students with research and writings regarding the current issues in service industries. Students are made aware of the contemporary issues and are willing to think about his/her solutions in a logical sequence. Seminars will cover a wide variety of subjects related to issues and opportunities in the organization, administration and evaluation of existing and challenging practices, concepts and theories in the management distinctive to that of hospitality, tourism and service. Emphasis will place on the identification of relevant interdisciplinary paradigms and theory and the evaluation of social science research. Seminar will also cover topics related to methodologies and techniques for analysis, reporting and critiquing hospitality issues using advanced concepts and quantitative methods in the scientific investigation of problems related to hospitality.",
+      "enrollment_requirement": "For students in MPhil-PhD Business Administration",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nSeminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing this course, students should have acquired the following professional skills:\n(1) Students will demonstrate comprehensive knowledge related to different theories and concepts in the field of Hospitality, Tourism, and Real Estate Research\n(2) Students will demonstrate the ability to define, identify, and evaluate important research questions in the field of Hospitality, Tourism, and Real Estate.\n(3) Students will apply analytical and quantitative skills to analyze and formulate business research problems in the field of Hospitality, Tourism, and Real Estate.\n(4) Students will demonstrate the ability to write a research paper in the field of Hospitality, Tourism, and Real Estate.",
+      "course_syllabus": "To be assigned by course teacher",
+      "assessment_types": {
+        "Essays": "50",
+        "Presentation": "50"
+      },
+      "feedback_evaluation": "Class evaluation will be conducted at the end of the course",
+      "required_readings": "Clark, M. A., Riley, M. J., Wilkie, E. and Wood, R.C. (2010). Researching and writing dissertations in hospitality and tourism. International Thomson Business Press, London.",
+      "recommended_readings": "Depending on the research topic, students are advised to read from the recommended list of journals:\nAnnuals of Tourism Research\nCornell Hospitality Quarterly\nInternational Journal of Hospitality Management\nJournal of Hospitality and Tourism Research\nJournal of Consumer Research\nJournal of Marketing\nJournal of Management\nAcademy of Management Journal\nReal Estate Economics\nJournal of Real Estate Finance and Economics\nJournal of Real Estate Research"
     },
     {
       "subject": "HTMG",

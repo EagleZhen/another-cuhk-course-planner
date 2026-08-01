@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "CSCI",
     "subject_title": "Computer Science",
-    "total_courses": 16
+    "total_courses": 24
   },
   "courses": [
     {
@@ -33,6 +33,83 @@
     },
     {
       "subject": "CSCI",
+      "course_code": "2740",
+      "title": "Competitive Programming",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces the data structures and algorithms useful in programming competitions and technical interviews. Students will learn efficient implementations of these data structures and algorithms as well as basic problem-solving skills for programming competitions and technical interviews. Topics include but are not limited to advanced data structures, advanced search algorithms, decomposition techniques, combinational games, basic computational geometry, and basic number theory.",
+      "enrollment_requirement": "Prerequisite: CSCI2100 or CSCI2520 or ESTR2102",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Implement basic algorithms and data structures useful in competitive programming\n2. Further learn advanced algorithms in competitive programming by themselves from online resources",
+      "course_syllabus": "Week 1: Basic C++ for Competitive Programming; Special Stacks and Queues\nWeek 2: Prefix Sum Arrays; Binary Indexed Trees\nWeek 3: Sparse Tables\nWeek 4: Segment Trees\nWeek 5: Binary Exponentiation\nWeek 6: Dynamic Programming Techniques\nWeek 7: Square-Root Decomposition; Mo's Algorithm\nWeek 8: Advanced Depth-First Search (e.g. Bridges)\nWeek 9: Tree Decomposition (e.g. Heavy-Light Decomposition)\nWeek 10: String Algorithms (e.g. KMP)\nWeek 11: Basic Computational Geometry; Basic Number Theory\nWeek 12: Combinatorial Games; Advanced Topics\nWeek 13: Mini-Competition",
+      "assessment_types": {
+        "Examination": "50",
+        "Homework or assignment": "50"
+      },
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
+      "required_readings": "-",
+      "recommended_readings": "1. Antti Laaksonen, “Guide to Competitive Programming: Learning and Improving Algorithms Through Contests”, Springer, 2nd edition, 2020\n2. Steven Halim, “Competitive Programming 3”, Lulu, 2013\n3. https://cp-algorithms.com/\n4. https://github.com/sahilbansal17/Get\\_Better\\_at\\_CP\\_in\\_2\\_Months"
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "2750",
+      "title": "Data Mining and Information Processing",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for students to learn the principles of data mining and information processing via a hands-on approach. The first half of the course focuses on the fundamentals of data collection and processing, including the mathematical foundation and the representation of audio and visual data. In the second half of the course, classical data mining methods will be introduced, along with their applications in datasets with meaningful physical interpretations. Students are advised to have a background in programming and a basic understanding of college-level mathematics.",
+      "enrollment_requirement": "Prerequisite: (ENGG1110 or ESTR1002) and (ENGG1120 or ESTR1005)\nNot for students who have taken CSCI3230 or ESTR3108 or CSCI3320",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. understand and explain the ideas of data mining and information processing;\n2. organize raw data into suitable format for further analysis;\n3. analyze data and extract information with traditional techniques and algorithms;\n4. implement some algorithms learned from the course to solve real-world problems.",
+      "course_syllabus": "Week 1: Course overview and a glimpse of topics\nWeek 2: Mathematics refresher\nWeek 3: Elementary optimization\nWeek 4: Data collection with physical signals\nWeek 5: Representation of audio and image data\nWeek 6: Blind source separation of audio and image data\nWeek 7: The perceptron\nWeek 8: Support vector machines\nWeek 9: The decision tree and probabilistic classifiers\nWeek 10: Pattern mining\nWeek 11: Centroid-based clustering\nWeek 12: Agglomerative clustering\nWeek 13: Advanced topics",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "15",
+        "Lab reports": "25",
+        "Test or quiz": "20"
+      },
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
+      "required_readings": "-",
+      "recommended_readings": "* Christopher M. Bishop, \"Pattern Recognition and Machine Learning,\" Springer 2006.\n* Simon Haykin, \"Neural Networks and Learning Machines\", Pearson, 3rd Edition, 2008.\n* Stephen Boyd and Lieven Vandenberghe, Introduction to Applied Linear Algebra – Vectors, Matrices, and Least Squares, Cambridge University Press, 2018.\n* M. J. Zaki and W. Meirna Jr., Data Mining and Machine Learning: Fundamental Concepts and Algorithm, Cambridge, 2020."
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "3220",
+      "title": "Algorithms for Bioinformatics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course describes some algorithms commonly used in contemporary bioinformatics. After a brief introduction to basic molecular biology and genetics, four main topics will be covered with corresponding lists of algorithms:\n1. Sequence alignment and assembly: dynamic programming for optimal sequence alignment, FASTA and BLAST for heuristic alignment of long sequences, tree-based methods for multiple sequence alignment, suffix-tree, suffix-array and Burrows-Wheeler Transform for short read alignment, and algorithms based on de Bruijn graphs for sequence assembly\n2. Statistical modeling: forward, backward, Viterbi and Baum-Welch algorithms for hidden Markov models, Gibbs sampling for sequence motif discovery, and Bayesian classifiers, logistic regression and expectation-maximization for data classification and clustering\n3. Phylogenetics: methods based on Jukes-Cantor and Kimura models for divergence time estimation, maximum parsimony, UPGMA, Neighbor-joining and maximum likelihood methods for phylogenetic tree reconstruction.\n4. High-throughput data analysis: Hierarchical clustering and k-means for data clustering, and algorithms for selected problems such as signal peak calling, detection of gene fusion, haplotype phasing.\nOther topics such as RNA secondary structure prediction may also be covered depending on the available time.",
+      "enrollment_requirement": "Not for students who have taken BMEG3102 or ESTR3110.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will be able to\n1. Explain the problems studied in both biological and computational terms.\n2. Explain the details of the studied algorithms.\n3. Apply the learned algorithms to solving both problems in bioinformatics and other domains.\n4. Study new algorithms proposed for the same problems.\n5. Understand contents of other classes in computational biology and bioinformatics.",
+      "course_syllabus": "This course describes some algorithms commonly used in contemporary bioinformatics. After a brief introduction to basic molecular biology and genetics, four main topics will be covered with corresponding lists of algorithms:\n1. Sequence alignment and assembly: dynamic programming for optimal sequence alignment, FASTA and BLAST for heuristic alignment of long sequences, tree-based methods for multiple sequence alignment, suffix-tree, suffix-array and Burrows-Wheeler Transform for short read alignment, and algorithms based on de Bruijn graphs for sequence assembly\n2. Statistical modeling: forward, backward, Viterbi and Baum-Welch algorithms for hidden Markov models, Gibbs sampling for sequence motif discovery, and Bayesian classifiers, logistic regression and expectation-maximization for data classification and clustering\n3. Phylogenetics: methods based on Jukes-Cantor and Kimura models for divergence time estimation, maximum parsimony, UPGMA, Neighbor-joining and maximum likelihood methods for phylogenetic tree reconstruction.\n4. High-throughput data analysis: Hierarchical clustering and k-means for data clustering, and algorithms for selected problems such as signal peak calling, detection of gene fusion, haplotype phasing.\nOther topics such as RNA secondary structure prediction may also be covered depending on the available time.",
+      "assessment_types": {
+        "Others": "35",
+        "Short answer test or exam": "65"
+      },
+      "feedback_evaluation": "1. Mid-term course evaluation\n2. Term-end course evaluation\n3. Students’ performance in their homework, the midterm exam and final exam\n4. Students’ performance and participation in tutorial sessions",
+      "required_readings": "-",
+      "recommended_readings": "1. Wing-Kin Sung, Algorithms in Bioinformatics: A Practical Introduction, Chapman & Hall, 2009 (and corresponding online materials at http://www.comp.nus.edu.sg/~ksung/algo\\_in\\_bioinfo/)\n2. Neil C. Jones and Pavel A. Pevzner, An Introduction to Bioinformatics Algorithms, MIT Press, 2004"
+    },
+    {
+      "subject": "CSCI",
       "course_code": "3270",
       "title": "Advanced Programming Laboratory",
       "credits": "2.00",
@@ -52,6 +129,31 @@
       "feedback_evaluation": "1. Midterm course evaluation\n2. Final course evaluation\n3. Discussion with the TA\n4. Monitor the course newsgroup and email",
       "required_readings": "-",
       "recommended_readings": "To be determined by the course teacher"
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "3280",
+      "title": "Introduction to Multimedia Systems",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course covers the design and implementation of modern multimedia systems. Topics include multimedia systems design, multimedia data representation, multimedia hardware and software, multimedia communication and networking, multimedia programming and multimedia information systems.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "1. Be able to understand the fundamental technologies used in modern multimedia systems;\n2. Be able to understand how different media are digitally represented;\n3. Be able to understand the popular audio, image, and video standards;\n4. Be able to understand the basic algorithms used in multimedia standards;\n5. Be able to know the capabilities and limitations of these technologies;\n6. Be able to work collaboratively on interesting multimedia project.",
+      "course_syllabus": "This course covers the design and implementation of modern multimedia systems. Topics include multimedia systems design, multimedia data representation, multimedia hardware and software, multimedia communication and networking, multimedia programming and multimedia information systems.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Others": "50"
+      },
+      "feedback_evaluation": "1. The course will be evaluated by course evaluation done by the students;\n2. Results of assignments;\n3. Results of project;\n4. Results of examination;",
+      "required_readings": "1. Fundamentals of Multimedia, by Ze-Nian Li, Mark S. Drew, Prentice Hall;\n2. Multimedia Communications: Applications, Networks, Protocols and Standards, by Fred Halsall, Addison Wesley;\n3. Networked Multimedia Systems, by Raghavan and Tripathi, Prentice Hall;\n4. Other supplementary reading will be determined by the course instructor;",
+      "recommended_readings": ""
     },
     {
       "subject": "CSCI",
@@ -77,6 +179,31 @@
       "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "-",
       "recommended_readings": "1. Computer Vision: The Modern Approach, Forsyth and Ponce, Prentice-Hall, 2002.\n2. Photography, 8th edition, London and Upton, Prentice Hall, 2004.\n3. Vision Science: Photons to Phenomenology, Stephen Palmer, The MIT Press, 1999.\n4. Digital Image Processing, 2nd edition, Gonzalez and Woods, Prentice-Hall, 2002.\n5. Multiple View Geometry in Computer Vision, Hartley & Zisserman, Cambridge University Press, 2004."
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "3310",
+      "title": "Mobile Computing and Applications Development",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims at introducing various development considerations in mobile applications. Topics include: Fundamental concepts in user interface design, mobile file systems, networking and security issues, energy saving consideration in mobile application development. Graphics programming on mobile devices such as OpenGL ES will also be discussed.",
+      "enrollment_requirement": "Pre-requisite: CSCI2100 or 2520 or ESTR2102\nNot for students who have taken IERG3842",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "Students will be able to:\n1. understand technical differences between mobile and desktop application development;\n2. appreciate various innovative designs in mobile applications;\n3. design and develop mobile applications.",
+      "course_syllabus": "This course aims at introducing various development considerations in mobile applications. Topics include: Fundamental concepts in user interface design, mobile file systems, networking and security issues, energy saving consideration in mobile application development. Graphics programming on mobile devices such as OpenGL ES will also be discussed.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Others": "60"
+      },
+      "feedback_evaluation": "1. Course evaluation by students.\n2. In-class observation and in-person discussion (in-class or out-class student consultation.)\n3. Email and newsgroup discussion.\n4. Results of assignments and examinations.",
+      "required_readings": "To be determined by the course teacher",
+      "recommended_readings": ""
     },
     {
       "subject": "CSCI",
@@ -231,6 +358,32 @@
     },
     {
       "subject": "CSCI",
+      "course_code": "5370",
+      "title": "Quantum Computing",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides an introduction to the following topics in quantum computation: 1. Models of quantum computation and communication; 2. Quantum algorithms and their limitations; 3. Other topics (quantum communication, quantum cryptography, quantum proofs, quantum error correction, quantum supremacy).",
+      "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science & Engineering; or\nFor undergraduate students in Computer Science (CSCIU & CSCIN) or Computer Engineering (CENGU & CENGN)",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will\n\n1. understand the power and limitations of quantum computation;\n2. be able to program a quantum computer;\n3. be able to use and modify existing quantum algorithms in computational applications.",
+      "course_syllabus": "This course provides an introduction to the following topics in quantum computation: 1. Models of quantum computation and communication; 2. Quantum algorithms and their limitations; 3. Other topics (quantum communication, quantum cryptography, quantum proofs, quantum error correction, quantum supremacy).",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Presentation": "40",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
+      "required_readings": "To be provided by course instructor.",
+      "recommended_readings": "1. Ronald de Wolf. Quantum computing: Lecture notes. https://homepages.cwi.nl/~rdewolf/qcnotes.pdf\n2. N. David Mermin. Quantum computer science: An introduction. Cambridge Univ. Press, 2007\n3. Michael A. Nielsen and Isaac R. Chuang. Quantum computation and quantum information. Cambridge Univ. Press, 2011\n4. Scott Aaronson. Quantum computing since Democritus. Cambridge Univ. Press, 2013"
+    },
+    {
+      "subject": "CSCI",
       "course_code": "5390",
       "title": "Advanced GPU Programming",
       "credits": "3.00",
@@ -254,6 +407,57 @@
       "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Reflection of teachers\n4. Question-and-answer sessions during class\n5. Student consultation during office hours or online",
       "required_readings": "To be provided by course teacher.",
       "recommended_readings": "1. Anthony A. Apodaca & Larry Gritz, “Advanced RenderMan: Creating CGI for Motion Pictures”, Morgan Kaufmann Publishers (2000)\n2. Steve Upstill, “The RenderMan Companion: A Programmer's Guide to Realistic Computer Graphics”, Addison Wesley, 1990.\n3. David S. Ebert, F. Kenton Musgrave, Darwyn Peachey, Ken Perlin, Steven Worley, “Texturing & Modeling: A Procedural Approach”, Third Edition, Morgan Kaufmann, 2002.\n4. Randima Fernando, “GPU Gems: Programming Techniques, Tips and Tricks for Real-Time Graphics”, Addison Wesley, 2004.\n5. Matt Pharr & Randima Fernando, “GPU Gems 2: Programming Techniques for High-Performance Graphics and General-Purpose Computation”, Addison Wesley, 2005.\n6. Hubert Nguyen, “GPU Gems 3”, Addison Wesley, 2007.\nTo keep the course materials updated, part of the lecture materials will also be compiled from the web or from difference sources."
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "5550",
+      "title": "Advanced File and Storage Systems",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to introduce important systems-level research topics in the design and implementation of practical file and storage systems. Topics include: (i) storage device organization (e.g., disk drives, disk arrays, RAID, solid state drives), (ii) file system design (e.g., log-structured file systems, distributed file systems), (iii) data availability (e.g., erasure coding techniques, data integrity protection), (iv) data consistency (e.g., journaling techniques), (v) data compression (e.g., deduplication), (vi) benchmarking (e.g., I/O metrics, benchmarking tools), etc. Depending on the current research trends, the course also discusses the latest applied storage topics, especially related to scalable and dependable big data management.\nAdvisory: Students are expected to have taken CSCI3150 or ESTR3102 or equivalent.",
+      "enrollment_requirement": "For undergraduate students in Computer Science (CSCIU and CSCIN) or Computer Engineering (CENGU and CENGN); or \nFor students in MSc Computer Science or MPhil-PhD Computer Science & Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Design, implement, evaluate, and deploy a practical storage system,\n2. identify the research trends in file and storage systems, and\n3. develop research skillsets in the area of file and storage systems.",
+      "course_syllabus": "This course aims to introduce important systems-level research topics in the design and implementation of practical file and storage systems. Topics include: (i) storage device organization (e.g., disk drives, disk arrays, RAID, solid state drives), (ii) file system design (e.g., log-structured file systems, distributed file systems), (iii) data availability (e.g., erasure coding techniques, data integrity protection), (iv) data consistency (e.g., journaling techniques), (v) data compression (e.g., deduplication), (vi) benchmarking (e.g., I/O metrics, benchmarking tools), etc. Depending on the current research trends, the course also discusses the latest applied storage topics, especially related to scalable and dependable big data management.",
+      "assessment_types": {
+        "Essay test or exam": "30",
+        "Others": "40",
+        "Presentation": "30"
+      },
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "Reference academic papers:\n1. C. Ruemmler and J. Wilkes. An Introduction to Disk Drive Modeling, IEEE Computer, 27(3):17-29, March 1994.\n2. B. Schroeder and G. Gibson. Disk failures in the real world: what does an MTTF of 1,000,000 hours mean to you? Proceedings of USENIX Conference File and Storage Technologies, 2007.\n3. M. Holland, G. A. Gibson, and D. P. Siewiorek. Architectures and Algorithms for On-Line Failure Recovery in Redundant Disk Arrays. ournal of Distributed and Parallel Databases, Vol. 2, No. 3, 1994.\n4. Chen, P. M., Lee, E. K, Gibson, G. A., Katz, R. H., Patterson, D. A. RAID: High-Performance, Reliable Secondary Storage. ACM Computing Surveys, 26(2):145-185, 1994.\n5. N. Agrawal, V. Prabhakaran, T. Wobber, J. D. Davis, M. Manasse, and R. Panigrahy. Design Tradeoffs for SSD\nPerformance. In Proceedings of USENIX Annual Technical Conference (ATC), 2008.\n6. M. Rosenblum and J. K. Ousterhout. The Design and Implementation of a Log-structured File System. ACM Transactions on Computer Systems, 10:26–52, 1992.\n7. S. Ghemawat, H. Gobioff, and S.-T. Leung The Google File System. Proceedings of ACM Symposium on Operating Systems Principles (SOSP), 2003.\n8. J. S. Plank. A tutorial on Reed-Solomon coding for fault-tolerance in RAID-like systems. Software, Practice & Experience, 27(9):995–1012, 1997.\n9. G, Sivathanu, C. P. Wright, and E. Zadok. Ensuring data integrity in storage: techniques and applications. Proceedings of the 2005 ACM workshop on Storage security and survivability, 2005.\n10. V. Prabhakaran, A. C. Arpaci-Dusseau, and R. H. Arpaci-Dusseau. Analysis and evolution of journaling file systems. Proceedings of the USENIX Annual Technical Conference (ATC), 2005.\n11. B. Zhu, K. Li, and H. Patterson. Avoiding the disk bottleneck in the data domain deduplication file system.\nProceedings of USENIX Conference File and Storage Technologies, 2008.\n\nReference book:\n12. D. Giampaolo. Practical File System Design with the Be File System. Morgan Kaufmann Publishers, 1999."
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "5600",
+      "title": "Advanced Topics in Distributed Systems",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to cover research topics on distributed systems. Topics including distributed time and global states, distributed coordination and consensus, P2P systems, distributed transactions and concurrency control, distributed replications and synchronization. Case studies about latest distributed systems such as Chord, Paxos and Spanner and research papers from top conferences will be discussed.\n\nAdvisory: Students are expected to have solid foundations on operating systems and database systems.",
+      "enrollment_requirement": "For students in MSc Computer Science or MPhil - PhD Computer Science & Engineering or UG Computer Science or UG Computer Engineering;Exclusion: CMSC5735",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Understand what kinds of distributed systems out there and their differences.\n2. Understand the technology behind distributed systems, such as distributed consensus and gossip protocol.\n3. Understand the applications of distributed systems in different domains.",
+      "course_syllabus": "This course aims to cover research topics on distributed systems. Topics including distributed time and global states, distributed coordination and consensus, P2P systems, distributed transactions and concurrency control, distributed replications and synchronization. Case studies about latest distributed systems such as Chord, Paxos and Spanner and research papers from top conferences will be discussed.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Homework or assignment": "50"
+      },
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
+      "required_readings": "1. Distributed Systems: Concepts and Design: George Coulouris, Jean Dollimore, Tim Kindberg, Gordon Blair. 5th edition, Addison-Wesley.\n2. Principles of Distributed Database Systems: Tamer Ozsu, Patrick Valduriez. Springer.\n3. Distributed Systems Reading List: https://dancres.github.io/Pages/",
+      "recommended_readings": ""
     },
     {
       "subject": "CSCI",

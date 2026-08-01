@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "MMAT",
     "subject_title": "Mathematics (TPg)",
-    "total_courses": 18
+    "total_courses": 21
   },
   "courses": [
     {
@@ -208,6 +208,32 @@
     },
     {
       "subject": "MMAT",
+      "course_code": "5220",
+      "title": "Complex Analysis and Its Applications",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed for the M.Sc. Programme in Mathematics. The course is intended to provide an introduction to the analysis and applications of analytic functions on the complex plane. Emphasis will be placed on the understanding and appreciation of the theory as well as its wide range of usage. It includes the study of integrals, residues, series expansion, and conformality of analytic functions; transforms and their use in differential equations.",
+      "enrollment_requirement": "For students in MSc Mathematics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics",
+      "learning_outcomes": "1. To learn the theory of single variable complex functions.\n2. To study and appreciate classical results such as Cauchy integral theorem, residue theorem, fundamental theorem of algebra and Picard’s Theorem.\n3. To prepare further study on subjects such as harmonic analysis and complex geometry.",
+      "course_syllabus": "The course is intended to provide an introduction to the analysis and applications of analytic functions on the complex plane. Emphasis will be placed on the understanding and appreciation of the theory as well as its wide range of usage. It includes the study of integrals, residues, series expansion, and conformality of analytic functions; transforms and their use in differential equations.",
+      "assessment_types": {
+        "Examination": "25",
+        "Homework or assignment": "25",
+        "Test or quiz": "50"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "Complex variables and applications (9th edition by Brown and Churchill)",
+      "recommended_readings": "* Complex Analysis (Elias Stein)\n* Complex Analysis: an introduction to the theory of analytic (Lars Ahlfors)"
+    },
+    {
+      "subject": "MMAT",
       "course_code": "5230",
       "title": "Mathematics for Logistics",
       "credits": "3.00",
@@ -334,25 +360,30 @@
     },
     {
       "subject": "MMAT",
-      "course_code": "5410",
-      "title": "Guided Studies I",
+      "course_code": "5396",
+      "title": "Mathematics of Multivariate Data",
       "credits": "3.00",
       "terms": [],
-      "description": "A project in pure or applied mathematics, either in research or in reviewing the literature of an advanced topic. Each section may be taken by an individual student or a team of two students. Topics selected should be beyond the content of MMAT5000. Prerequisite: permission of the instructor.",
+      "description": "This course introduces the mathematics of multivariate data analysis. The course builds on the concepts and skills developed in multivariate data analysis and methodology using R.",
       "enrollment_requirement": "For students in MSc Mathematics",
-      "course_attributes": "STOT Course",
+      "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
       "grading_basis": "Graded",
-      "component": "Seminar",
+      "component": "Lecture",
       "campus": "Main Campus",
       "academic_group": "Div of Mathematics",
       "academic_org": "Div of Mathematics",
-      "learning_outcomes": "Students are able to:\n• To search current literatures in specific areas of mathematics.\n• To appreciate current literatures through presentations and writings.",
-      "course_syllabus": "As advised by individual course teachers.",
-      "assessment_types": {},
-      "feedback_evaluation": "As advised by individual course teachers.",
-      "required_readings": "As advised by individual course teachers.",
-      "recommended_readings": "As advised by individual course teachers."
+      "learning_outcomes": "After the course, students should be able to tackle modern multivariate problems by:\n• selecting the appropriate methods and justifying your choices;\n• implementing these methods programmatically (using, say, the R programming language) and evaluating your results; and\n• explaining your results to a researcher outside of statistics.\n\n完成課程後，學生應能夠通過以下方式解決現代多變量問題：\n• 選擇適當的方法並證明您的選擇；\n• 使用編程方式（例如R編程語言）實施這些方法並評估您的結果；\n• 向統計學以外的研究人員解釋您的結果。",
+      "course_syllabus": "Topics include a review of some important concepts (likelihood, quadratic forms, random vectors and matrices, multiple regression and variable selection), an overview of classical multivariate statistics, multivariate regression, dimensionality reduction, discriminant analysis and classification. Additional topics will be selected from modern statistical learning methodology. This course also includes a scientific computation component.\n\n主題包括一些重要概念的回顧（似然性、二次型、隨機向量和矩陣、多重回歸和變量選擇）、經典多變量統計概述、多變量回歸、降維、判別分析和分類。其他主題將從現代統計學習方法中選擇。本課程還包括科學計算部分。",
+      "assessment_types": {
+        "Examination": "50",
+        "Homework or assignment": "10",
+        "Participation": "10",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\n\nEnd-term evaluation (mandatory)",
+      "required_readings": "1. Richard A. Johnson, Dean W. Wichern, Applied Multivariate Statistical Analysis (6th Edition), Pearson, 2015.\n2. Hardle Wolfgang, Leopold Simar. Applied multivariate statistical analysis. Heidelberg: Springer Berlin Heidelberg, 2012.\n3. Hastie Trevor, Robert Tibshirani, J. H. Friedman. The elements of statistical learning: Data mining, inference, and prediction. New York, NY: Springer New York, 2009.\n4. D. Mirman. Growth curve analysis and visualization using R. CRC Press, 2016.",
+      "recommended_readings": ""
     },
     {
       "subject": "MMAT",
@@ -419,6 +450,57 @@
       "feedback_evaluation": "As advised by individual course teachers.",
       "required_readings": "As advised by individual course teachers.",
       "recommended_readings": "As advised by individual course teachers."
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5520",
+      "title": "Differential Equation and Linear Algebra",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course is intended to provide an amalgamated treatment of Differential Equations and Linear Algebra. Emphasis will be placed on algebraic intuition and geometric visualization, together with illustrations of applications. (Not for undergraduate students, students in the MSc. Programme in Mathematics, and students who have taken MAT/MATH5011, 5012, 5031, 5032, 5051, 570S, 6xxx and 7xxx.)",
+      "enrollment_requirement": "For students in MSc Programme in Math Education.\nUndergraduate students, students in the MSc. Programme in Mathematics, and students who have taken MAT/MATH5011, 5012, 5031, 5032, 5051, 570S, 6xxx and 7xxx are not allowed to take the course.",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics",
+      "learning_outcomes": "1. To learn the basic concepts and theory in linear algebra.\n\n2. To learn the technique of solving ordinary differential equations of first and second order.\n\n3. To apply the theory in linear algebra to solve linear system of differential equations.",
+      "course_syllabus": "Topics includes matrices, determinant, inverse of matrices, first order ordinary differential equations, second order linear differential equations, eigenvalues and eigenvectors, diagonalization of matrices, Jordan normal forms, system of differential equations.",
+      "assessment_types": {
+        "Essay test or exam": "80",
+        "Others": "20"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\n\nEnd-term evaluation (mandatory)",
+      "required_readings": "Edwards & Penney, Differential Equations and Linear Algebra; Pearson Education International.",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "MMAT",
+      "course_code": "5530",
+      "title": "Finite Mathematics and Mathematical Programming",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course is intended to discuss mathematical methods frequently applied in managerial, business and social studies. It starts with a review of Linear Equations, then the main topics are selected from Linear Programming and Simplex Method, Counting and Probability, Game Theory, Basic Finance Mathematics, Mathematical Modelling. (Not for undergraduate students, students in the MSc. Programme in Mathematics, and students who have taken MAT/MATH5011, 5012, 5031, 5032, 5051, 570S, 6xxx and 7xxx.)",
+      "enrollment_requirement": "For students in MSc Mathematics Education",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mathematics",
+      "academic_org": "Div of Mathematics",
+      "learning_outcomes": "1. To learn basic concepts and algorithm related to elementary matrix algebra\n2. To learn how to apply elementary matrix algebra algorithms to Simple Method\n3. To learn elementary Linear Programming via (i) graphical method, (ii) Simplex Method\n4. To learn elementary concepts in 2 person game theory via graphical methods and extensions of 2-peson game theory.\n5. To learn elementary counting arguments preparing for discrete probability theory\n6. To learn concepts and basic computational methods in discrete probability theory\n7. To learn elementary notions in finance, e.g. simple Interest, compound Interest, annuity, future value.\n8. To learn some examples of real-applications of the above-mentioned topics, viz. examples in finance or social sciences.",
+      "course_syllabus": "As stated in the course description, the course syllabus will comprise selection from the list of learning outcomes above. Main focus of the course will be on two topics, viz. matrix algebra, their algorithms on one hand and counting and its application to probability on the other. As for financial mathematics, Game Theory and modeling --- these will be viewed as applications of the preceding two main topics.",
+      "assessment_types": {
+        "Examination": "50",
+        "Homework or assignment": "20",
+        "Test or quiz": "30"
+      },
+      "feedback_evaluation": "Mid-term evaluation (optional)\nEnd-term evaluation (mandatory)",
+      "required_readings": "Chosen note or typed notes by the instructor.",
+      "recommended_readings": "Ross, Sheldon: Topics in Discrete and Finite Mathematics."
     },
     {
       "subject": "MMAT",

@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "ESTR",
     "subject_title": "Courses for ELITE Stream",
-    "total_courses": 85
+    "total_courses": 90
   },
   "courses": [
     {
@@ -551,6 +551,33 @@
     },
     {
       "subject": "ESTR",
+      "course_code": "3200",
+      "title": "Microelectronic Devices and Circuits",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides the basic knowledge of semiconductor physics, including electrons and holes, energy band diagram, Fermi energy, intrinsic and doped semiconductors, drift and diffusion currents. The principles of P-N junctions, bipolar and MOS transistors will be explained. The device performance measures, namely current efficiency, transit frequency and intrinsic gain, will be introduced. Other topics covered include frequency response of transistor amplifiers, filters, feedback, stability, frequency compensation, and oscillators. This course includes mandatory laboratory modules.",
+      "enrollment_requirement": "Not for students who have taken ELEG3201. Pre-requisite: ELEG2202 or BMEG2300 or with the consent of the instructor.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Upon successful completion of the course, students will be able to:\n1. explain the operating principles of major semiconductor devices, namely, p-n junction diode, BJT transistor and MOS transistor\n2. evaluate the performance of a semiconductor device\n3. analyze a transistor circuit across different frequency ranges\n4. design a simple transistor circuit to meet given specifications\n5. explain the principle of feedback and the properties of different feedback topologies\n6. apply feedback in circuit design and perform stability analysis of a feedback circuit\n7. design simple oscillators\n8. carry out experiments on microelectronic circuits independently and analyze the experimental results",
+      "course_syllabus": "Semiconductor physics; Electrons and holes; Energy band diagram; Fermi Energy; Intrinsic and doped semiconductors; Drift and diffusion currents; Principles of P-N junctions; Bipolar and MOS transistors; Device performance measures: current efficiency, transit frequency, intrinsic gain; Frequency response of transistor amplifiers; Filters; Feedback; Stability; Frequency compensation; Oscillators.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "20",
+        "Lab reports": "20",
+        "Short answer test or exam": "20"
+      },
+      "feedback_evaluation": "Informal online contact:\nStudents can write their comments via email or newsgroup. Teaching assistants will follow up with the comments or pass the information to the course instructor if necessary.\n\nFace-to-face contact:\nStudents have chances to talk directly to the professor during the lab sessions. They can exchange opinions to make the course better suits the students’ needs.\n\nFaculty course questionnaire:\nAt the end of the course, students are required to provide feedback on different aspects related to teaching and learning of the course through a formal evaluation questionnaire.",
+      "required_readings": "N/A",
+      "recommended_readings": "Textbooks\n\n1. Jaeger and Blalock, Microelectronic Circuit Design, 3rd Edition, McGraw Hill, 2007.\n2. Sedra and Smith, Microelectronic Circuits (Oxford Series in Electrical & Computer Engineering), 5th Edition, Oxford, 2004.\n\nReferences\n\n1. Streetman and Banerjee, Solid-State Electronic Devices, 7th edition, Pearson, 2015\n2. Fonstad, Microelectronic Devices and Circuits, 2006 Electronic Edition."
+    },
+    {
+      "subject": "ESTR",
       "course_code": "3204",
       "title": "Principles of Semiconductor Devices",
       "credits": "3.00",
@@ -737,6 +764,32 @@
     },
     {
       "subject": "ESTR",
+      "course_code": "3302",
+      "title": "Networks: Technology, Economics, and Social Interactions",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces various networking technologies we use each day and the fundamental ideas behind them. Different from many \"theory-based\" networking courses, this course is organized around a list of intriguing questions about the technological, social, and economical aspects of modern networks. The course will broadly cover topics on wireless networks, Internet, social networks, and network economics. We will introduce various methodologies such as graph theory, optimization theory, game theory, and pricing theory. The intended audience of this course includes undergraduates with majors in Information Engineering, Computer Science and Engineering and Electronic Engineering. It is also suitable for interested undergraduate students from Mathematics, and other Social Science majors.\n\nAdvisory: Students are expected to have taken Advanced Engineering Math course covering multivariate calculus and linear algebra.",
+      "enrollment_requirement": "Not for students who have taken IERG3280.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. understand the core concepts and fundamental methodologies in the field of networking; and\n\n2. learn how to model and analyze emerging networking phenomenons.",
+      "course_syllabus": "This course introduces various networking technologies we use each day and the fundamental ideas behind them. Different from many \"theory-based\" networking courses, this course is organized around a list of intriguing questions about the technological, social, and economical aspects of modern networks. The course will broadly cover topics on wireless networks, Internet, social networks, and network economics. We will introduce various methodologies such as graph theory, optimization theory, game theory, and pricing theory. The intended audience of this course includes undergraduates with majors in Information Engineering, Computer Science and Engineering and Electronic Engineering. It is also suitable for interested undergraduate students from Mathematics, and other Social Science majors. The course syllabus may be updated from year to year.",
+      "assessment_types": {
+        "Essay test or exam": "30",
+        "Others": "20",
+        "Presentation": "50"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for\nstudents to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in\naddition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the\ninstructor directly.",
+      "required_readings": "To be provided by the course teacher(s) in the respective teaching term.",
+      "recommended_readings": "1. M. Chiang, \"Networks: Friends, Money, and Bytes\", Cambridge University Press, May 2012 (expected), together with its\ncompanion website http://www.network20q.com\n\n2. D. Easley and J. Kleinberg, \"Networks, Crowds, and Markets\", Cambridge University Press, 2010"
+    },
+    {
+      "subject": "ESTR",
       "course_code": "3304",
       "title": "Introduction to Stochastic Processes",
       "credits": "3.00",
@@ -812,6 +865,35 @@
       "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
       "required_readings": "To be provided by the course teacher(s) in the respective teaching term.",
       "recommended_readings": "(1) Joseph M. Dukert, \"Energy (Greenwood Guides to Business and Economics)\", December 2008, ABC-CLIO (ISBN: 0313348774)\n(2) Fred Bosselman, \"Energy, Economics and the Environment, 3d: 3rd Edition\", July 2010, Foundation Press. (ISBN: 1599417227)\n(3) Carol A. Dahl , \"International Energy Markets: Understanding Pricing, Policies and Profits\", April 2004, PennWell Corporation (ISBN:0878147993)\n(4) David JC Mackay, “Sustainable Energy Energy – without the hot air” UIT Cambridge, 2009."
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "3402",
+      "title": "Engineering Materials",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces fundamentals of materials including atomic bonding; crystal structures, defects; mechanical properties of materials, phase diagram; overview of metals, alloys, ceramics, polymers, semiconductors and composites; electrical, optical, magnetic, and thermal properties of materials; materials selection and design considerations for engineering technologies. Applications of materials to energy and environmental engineering, mechanical engineering, medical engineering, and others will be discussed.",
+      "enrollment_requirement": "Not for students who have taken ENER3030 or EEEN3030.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n(1) describe the basic structures and key properties of engineering materials;\n(2) select engineering materials for a given application purpose by evaluating their structure-property-performance relationship;\n(3) understand the functions of various analytical and material characterization tools in characterizing the properties of various engineering materials;\n(4) utilize various physical, chemical, and material techniques in the modeling, and performance evaluation of engineering materials for given engineering applications;\n(5) conduct various characterization instruments for analysis and design;\n(6) quantitatively evaluate the suitableness and the properties of various energy storage technologies for engineering applications;\n(7) design engineering materials upon given an application with desired performance and application specifications.",
+      "course_syllabus": "The details will be provided by the course instructor.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "8",
+        "Lab reports": "9",
+        "Presentation": "15",
+        "Report": "21",
+        "Short answer test or exam": "7"
+      },
+      "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
+      "required_readings": "Textbook: W. D. Callister Jr., D. G. Rethwisch, Materials Science and Engineering: An Introduction, John Wiley and Sons; 8th edition, 2010.",
+      "recommended_readings": "(1) D. S. Ginley and D. Cahen, Fundamentals of Materials for Energy and Environmental Sustainability. Cambridge, New York, Cambridge University Press, c2012.\n(2) M. J . Schulz, A. D . Kelkar, and M. J. Sundaresan, Nanoengineering of Structural, Functional and Smart Materials, CRC Press 2005."
     },
     {
       "subject": "ESTR",
@@ -1257,6 +1339,32 @@
       "feedback_evaluation": "The course will be evaluated annually with students’ feedback and evaluate with the impacts from the project AI Systems in Healthcare sector. The course will be continuously improved in the arrangement and course content based on the collected feedback.",
       "required_readings": "Relevant reading list will be provided by course teachers.",
       "recommended_readings": "Relevant reading list will be provided by course teachers."
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "4104",
+      "title": "Distributed and Parallel Computing",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces concepts, models, and implementations related to distributed and parallel computing. Topics include parallel and distributed programming, system architectures, synchronization, and concurrency control techniques.",
+      "enrollment_requirement": "Not for students who have taken CSCI4160. Pre-requisite: CSCI3150 or ESTR3102",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "1) Understand key distributed and parallel concepts including consistency, clock, commit, replication, synchronization, and consensus\n2) Hands-on programming experience in distributed and parallel programming\n3) Hands-on system experience in distributed systems and parallel hardware",
+      "course_syllabus": "This course introduces concepts, models, and implementations related to distributed and parallel computing. Topics include SIMD, OpenMP, GPGPU, MPI, Roofline Analysis, Amdahl's law, Parallel Algorithms, Time & Order, Consensus, Byzantine Fault, Replicated State Machine, Leader Election, Consistency Model.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "30",
+        "Project": "30"
+      },
+      "feedback_evaluation": "1. Course evaluation and questionnaire\n2. Results of assignments and examination\n3. Question-and-Answer sessions during class\n4. Student consultation during office hours or online",
+      "required_readings": "To be provided by the course teacher(s) in the respective teaching term.",
+      "recommended_readings": "1) Tanenbaum, Andrew, and Maarten van Steen. Distributed Systems: Principles and Paradigms. Upper Saddle River, NJ: Prentice Hall, 2002. ISBN: 9780130888938.\n2) Distributed Systems: Concepts and Design (5th Edition) 5th Edition by George Coulouris (Author), Jean Dollimore (Author), Tim Kindberg (Author), Gordon Blair (Author)\n3) An introduction to Parallel Programming. Peter Pacheco. Morgan Kaufmann."
     },
     {
       "subject": "ESTR",
@@ -1835,6 +1943,34 @@
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.",
       "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
       "recommended_readings": "1. Real World OCaml, <https://dev.realworldocaml.org/>\n2. Isaac Abraham. Get Programming with F#: A guide for .NET developers. 1st ed. Manning. 2018\n3. E-textbook of CS3110 of Cornell University. OCaml Programming: Correct + Efficient + Beautiful <https://cs3110.github.io/textbook/cover.html>\n4. Enrico Buonanno. Functional Programming in C#, Second Edition 2nd Edition. <https://www.amazon.com/Functional-Programming-Second-Enrico-Buonanno/dp/1617299820>"
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "4400",
+      "title": "Kinetic Energy Harvesting Devices and Systems",
+      "credits": "3.00",
+      "terms": [],
+      "description": "In this course, we will discuss kinetic energy harvesting devices and systems, from basic mechanisms to applications. The first half semester of this course will start with talking about the fundaments of kinetic energy harvesting, including mechanisms of electromagnetic, piezoelectric, triboelectric, electrostatic, and others. And then it will cover basic device designs and energy transfer; physics and circuit models; electromechanical modeling and analysis; simulation methods and practice; and interfacing circuits. The second half semester will cover the applications of kinetic energy harvesting in various situations, including power plants, wind turbine, vibrations, hydro system, ocean waves, body motions and others, and ends with discussions on kinetic energy harvesting technology in the future. The evaluation will be based on final project, midterm exam, homework, lab report, and participation in class.",
+      "enrollment_requirement": "Not for students who have taken ENER4010 or EEEN4010. Pre-requisite: MAEG3030 or with the consent of the course instructor.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n(1) understand the principles and prospective of kinetic energy harvesting technologies;\n(2) grasp the principles of different kinds of energy harvesters, their role in kinetic energy harvesting systems, their constraints, and application preferences;\n(3) develop models for analysis and optimization of kinetic energy harvesting systems;\n(4) experience the application oriented design, fabrication, and testing of kinetic energy harvesting devices;\n(5) explore applications on kinetic energy harvesting for making good use of the energy.",
+      "course_syllabus": "The details will be provided by the course instructor.",
+      "assessment_types": {
+        "Homework or assignment": "15",
+        "Lab reports": "5",
+        "Project": "35",
+        "Participation": "10",
+        "Short answer test or exam": "35"
+      },
+      "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
+      "required_readings": "To be provided by the course teacher(s) in the respective teaching term.",
+      "recommended_readings": "(1) Tom J. Kazmierski, Steve Beeby, Energy Harvesting Systems: Principles, Modeling and Applications, ISBN 978-1-4419-7565-2, Springer, 2011\n(2) Shashank Priya, Daniel J. Inman, Energy Harvesting Technologies, ISBN 978-0-387-76463-4, Springer, 2009\n(3) D. Spreemann and Y. Manoli, Electromagnetic Vibration Energy Harvesting Devices, ISBN 978-94-007-2944-5, Springer, 2012\n(4) A. Erturk, D. J. Inman, Piezoelectric Energy Harvesting, 978-11-199-9115-1 Wiley, 2011\n(5) Philippe Basset, Elena Blokhina, Dimitri Galayko, Electrostatic Kinetic Energy Harvesting, ISBN 978-1-84821-716-4, ISTE Ltd and John Wiley & Sons, Inc., 2016\n(6) Z.L. Wang, L. Lin, J. Chen, S. Niu, Y. Zi, Triboelectric Nanogenerators, ISBN 978-3-319-40038-9, Springer, 2016"
     },
     {
       "subject": "ESTR",

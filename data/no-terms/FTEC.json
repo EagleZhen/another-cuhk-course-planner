@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "FTEC",
     "subject_title": "Financial Technology",
-    "total_courses": 3
+    "total_courses": 7
   },
   "courses": [
     {
@@ -58,6 +58,60 @@
     },
     {
       "subject": "FTEC",
+      "course_code": "5560",
+      "title": "Topics in Financial Technology Innovations",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to provide students with the views of global, and in particular China and HK FinTech innovation landscape, including virtual banking and other business model innovation, associated opportunities and challenges. It covers topics including digital lending, digital payment, big data analysis application, FinTech partnership & incubation, Open API, digital product propositions, organizational design to support innovation. This is relevant for students who are interested to work in innovation-related departments in traditional institutions, FinTechs or intend to initiate a start-up. The course also covers the latest development in financial technology innovations and offers case studies.",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. outline the essence of FinTech innovation and different business model applications across myriad markets globally;\n2. understand towards the differences between virtual banking and traditional banking, FinTech and virtual banking, and the technological applications in different markets;\n3. design different virtual banking products with industry experts sharing first-hand experience and form good understanding on the regulatory and technological implications regarding virtual banking in global landscape; and\n4. create and spur innovation in different organizations.",
+      "course_syllabus": "Lesson 1: What is FinTech innovation?\n• Definition of innovation and impact to financial industry\n• Background on global FinTech trend and various vertical segments\n• Design-led thinking approach and customer-oriented mindset (essence: customer journey mapping and customer experience creation)\n• Difference between the West and the East\n• Introduction of the course assessment framework\n\nLesson 2: What is virtual banking v.s. traditional banking?\n• Difference between virtual banking and traditional (online) banking\n• In-class discussion\n• Introduction of global virtual (digital) banking market development\n• Background on global virtual banking landscape\n\nLesson 3: Is virtual banking a FinTech?\n• Introduction of virtual banking product offerings and value proposition\n• Case study of virtual banking: Monzo and KaokaoBank\n• FinTech: unbundle v.s. rebundle\n• Case study of “rebundle” FinTech: Revolut and Wealthfront\n• Introduction of essay paper (project work): identify 2 FinTechs who are in the same vertical segment (1 each for the West and the East), share views on their business model innovation similarities and differences; comment if this can be applied in Hong Kong and why\n\nLesson 4: FinTech business model innovations – virtual banking\n• Introduction of business model innovation\n• Virtual banking business model archetypes\n• Opportunities and challenges of virtual banking\n• Case study on virtual banks (in-class discussion)\n- Global : ING Direct and N26\n- China: PingAn Orange Bank, Webank and Mybank\n\nLesson 5: Virtual banking product offering – payment and lending\n• Introduction of digital payment development and impact to credit card\n- Guest speaker\n• Introduction of consumer finance and P2P development in China, difference with traditional bank lending\n• Application of big data analytics and machine learning technology\n- Guest speaker\n\nLesson 6: Virtual banking product offering – account and Open API\n• Introduction of HK remote account opening and impact to virtual banking\n- Guest speaker\n• Introduction of HK Open API initiative and comparison with global practices\n• Case study on Open API (in-class discussion)\n- UK : Starling marketplace, HSBC Connected Money\n- HK: ZhongAn, MoneyHero\n• Technology risk impact arising from Open API\n• Introduction of presentation (course work): identify a virtual bank that is launched in Hong Kong and analyze their business operating model, suggest plans on their iteration if you’re the management team\n\nLesson 7: Virtual banking - China and Hong Kong regulation landscape\n• Background of HKMA 7 initiatives under “a new era of smart banking”\n- Guest speaker\n• Background of China virtual banking regulation and landscape\n• What’s next for BATJ and traditional banks – TechFin\n• Potential of Greater Bay Area for HK virtual banking development\n\nLesson 8: Virtual banking - technology application\n• Introduction of AI, blockchain, cloud and data (ABCD)\n• Application of ABCD to virtual banking\n• Challenges and opportunities arising from ABCD\n- Guest speaker\n\nLesson 9: FinTech business model innovations - others\n• The rise of platforms – using technology, data and customer base to create new business model\n• Case study (in-class discussion)\n- China: Zhong An (insurance)\n- US: Amazon, Paypal and Square (platform lending)\n- Southeast Asia: Grab\n• What is blockchain and its applications in different markets\n- Guest speaker\n\nLesson 10: FinTech partnership & incubation\n• FinTech: friend or foe to traditional banking\n• Ecosystem and partnership – day in the life of a traditional bank\n• Opportunities and challenges to FinTech incubation\n- Guest speaker\n\nLesson 11: Organizational design to support innovation\n• Start up in a traditional banking v.s. start up in a virtual banking\n• Difference in strategy, decision making process and way of working\n- Guest speaker\n\nLesson 12: Presentation",
+      "assessment_types": {
+        "Attendance": "7",
+        "Essays": "35",
+        "Presentation": "50",
+        "Participation": "8"
+      },
+      "feedback_evaluation": "1. Course evaluation and questionnaire\n2. Question-and-answer sessions during class\n3. Student consultation during office hours or online",
+      "required_readings": "Details will be provided by the course instructor.",
+      "recommended_readings": "Details will be provided by the course instructor."
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5590",
+      "title": "Intelligent Automation - Robotic Process Automation (RPA) & Artificial Intelligence (AI)",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Intelligent Automation (IA) is software-based automation which executes business processes on behalf of knowledge workers with minimal human intervention. IA combines methods and various technologies, in particular, robotic process automation (RPA) and artificial intelligence. As the core and foundational technology of intelligent automation (IA), robotic process automation (RPA) has been described as a first step on the stairway of intelligent automation towards building digital workers. The aim of this course is to provide learners comprehensive coverage of intelligent automation – including RPA development skills and AI fundamentals– in the context of financial services. This course will build the capabilities of students to an advanced level and will enable participants to actively engage in the full lifecycle of “bot” development from assessment of automation opportunities through the building/deployment of functional automations. The course also introduces students to the latest industry developments in low-code artificial intelligence providing students with less technical backgrounds an opportunity to learn the skills to automate business processes without a need of a computer science background.\n\nCourse participants are expected to:\n1. Gain a clear understanding of the intelligent automation (RPA + AI) industry and benefits and understand the limits and constraints of process automation.\n2. Learn about the role of business analysis in the context of process automation implementation including: (a) how to conduct an automation opportunity assessment; (b) how to map the requirements and deliverables of a process automation project; (c) best practices during the Process Deep Dive stage including ways of compiling comprehensive process-related documentation; (d) testing strategies for an process automation solution; (e) how to conduct trainings and create a User Manual during Go-Live preparations; and (f) how to manage changes throughout the entire process automation development process.\n3. Understand the delivery methodology of process automation project/program management including: (a) steps of a process automation implementation, (b) choosing processes suitable for automation, (c) driving/managing process automation projects, and (d) raising intelligent automation awareness throughout an organization.\n4. Obtain a solid grasp of the technical skills required to create software robots.\n5. Be able to build and deploy software robots to automate a variety of manual tasks/process encountered in financial operations.",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "By the end of this course, student will:\n\n1. Have a comprehensive understanding of intelligent automation [robotic process automation (RPA) + artificial intelligence (AI)) within the context of financial service operations;\n2. Understand the role of business analysis in intelligent automation implementation;\n3. Be knowledgeable of and able to execute a delivery methodology for intelligent automation project/program management;\n4. Possess the technical skills pre-required to create software robots;\n5. Be capable to build and deploy software robots that can automate a variety of manual tasks/process encountered in financial operations.\n6. Have created a portfolio of fintech related “bots” that can be showcased to a potential employer.",
+      "course_syllabus": "Each week: 1.5 hr lecture + 1.5 hr practical, “hands-on” lab.\n\nWeek 01: (LEC) Introduction to Intelligent Automation | (Lab) Getting started: IA Tools Overview & Community + Support Platform, IDE setup |(Lab) Overview\nWeek 02: (LEC) Components Technologies & Basic Skills | (Lab) Editing and Debugging UI Flows + Variables [+ Lists], UI Elements & Images |(Lab) How to use low-code AI models\nWeek 03: (LEC) Tool Assessment & Selection | (Lab) Basic Structure Elements and Flow Control [conditional actions (if and Loop)] |(Lab)Pre-built Models: Business card reader, Text recognition, Receipt processing\nWeek 04: (LEC) Automation Opportunity Identification (AOA) | (Lab) Actions for UI Automation + Automating Standard Business (Biz) Apps (1of4) – [Excel automation] |(Lab) Pre-built Models: Invoice process, ID read, Key phrase extraction\nWeek 05: (LEC) AOA 2.0 – automating process discovery | (Lab)Automating Standard Biz Apps (2of4) – Application automation (Calculator and MS Word)|(Lab)Pre-built Models: Language detection, Sentiment analysis, Text translation\nWeek 06: (LEC) Process Automation & Process Excellence | (Lab) Automating Standard Biz Apps (3of4) – Outlook email and Browser automation|(Lab)Pre-built Models: Text generation, Category classification, Image Description\nWeek 07: (LEC) Bot Development with Agile/Scrum | (Lab) Automating Standard Biz Apps (4of4) – Web Scraping|(Lab)Custom models: Doc processing, Category classification , Entity extraction\nWeek 08: (LEC) Automation Center of Excellence (CoE) | (Lab)Desktop & Workstation Automation – [File handling]|(Lab)Custom models: Prediction, Object detection\nWeek 09: (LEC) Globalization of Intelligent Automation: China perspectives | (Lab) PDF data extraction |(Lab)Integration of low-code Generative AI Solutions\nWeek 10: (LEC) AI Fundamentals for Executives (“AI 101”) | (Lab) Exception Handling|(Lab)Introduction to low-code Agentic Workflows\nWeek 11: (LEC) Future Prospects (more AI, citizen dev & beyond…) | (Lab) E2E project: Process Automation Challenge\nDevelopment Best Practices\nWeek 12: Project Presentations + 15min Student Course Evaluation Period + “Last Minute Course Q&A” / Course Review\nWeek 13: FINAL EXAM",
+      "assessment_types": {
+        "Examination": "25",
+        "Lab reports": "25",
+        "Project": "25",
+        "Test or quiz": "25"
+      },
+      "feedback_evaluation": "Students' comments and feedback concerning the teaching and learning in the course are most welcome.\n\n1. Course questionnaire: Students are required to provide feedback on various aspects related to the teaching and learning of the course at the end of the term. Questionnaires are distributed and collected by tutors and returned to the department without any involvement of the course lecturer.\n\n2. Midterm feedback questionnaire: Students are asked to provide feedback on the course teaching as well as tutorials around the middle of the term in order to assist the course lecturer and tutor to improve on the teaching method to suit the class or some group of students.\n\n3. Individual contacts: Students are also welcome to provide feedback to the course lecturer right after each lecture, using email, direct phone call or office visits.",
+      "required_readings": "Course notes and reading resources will be provided by the instructor.",
+      "recommended_readings": "Instructor Provided Materials and Learning Community\n\nIntelligent Automation (Pascal Bornet et al, 2021)"
+    },
+    {
+      "subject": "FTEC",
       "course_code": "5650",
       "title": "Topics in International Fintech",
       "credits": "3.00",
@@ -81,6 +135,58 @@
       "feedback_evaluation": "Students' comments and feedback concerning the teaching and learning in the course are most welcome.\n1. Course questionnaire: Students are required to provide feedback on various aspects related to the teaching and learning of the course at the end of the term.\n\n2. Individual contacts: Students are also welcome to provide feedback to the course lecturer right after each lecture, using email, direct phone call or office visits.",
       "required_readings": "Instructor curated teaching materials & lecture notes.",
       "recommended_readings": "Instructor curated recommended reading and videos based on latest industry trends and professional practice."
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5670",
+      "title": "Financial Technology Entrepreneurship Field Trip",
+      "credits": "1.00",
+      "terms": [],
+      "description": "The course is designed to provide students with knowledge and experiences of entrepreneurship in real-life environment.\n\nStudents will participate in a week-long field-trip (e.g. in Silicon Valley, Crypto Valley or Singapore, etc.), to visit organisations on various FinTech domains for a close-up on the operation. Course learning activities include lectures/ seminars at universities/ companies, discussions with management of start-up companies, and site visits to enterprises, etc. Through these activities, students will be able to learn practical operational knowledge and experience from FinTech entrepreneurs in close distance.\n\nStudent should take part in a class group project, to present the research findings on FinTech entrepreneurship and the learning outcomes of the field trip",
+      "enrollment_requirement": "For students in MSc Financial Technology; or For students in PgD Financial Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Field Studies/Field-trip",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "By the end of this course, students will be able to\n1. Have a basic understanding of FinTech developments in the city/region of visit\n2. Learn from the entrepreneurs on how to pursue opportunities and leverage resources within the ecosystem\n3. Understand the regulatory framework of the city/region",
+      "course_syllabus": "5 days of visits to various FinTech companies and regulators in a city outside of Hong Kong",
+      "assessment_types": {
+        "Presentation": "30",
+        "Participation": "20",
+        "Report": "50"
+      },
+      "feedback_evaluation": "Students' comments and feedback concerning the teaching and learning in the course are most welcome.\n\n1. Course questionnaire: Students are required to provide feedback on various aspects related to the teaching and learning of the course at the end of the term. Questionnaires are distributed and collected by tutors and returned to the department without any involvement of the course lecturer.\n\n2. Individual contacts: Students are also welcome to provide feedback to the course lecturer right after each lecture, using email, direct phone call or office visits.",
+      "required_readings": "Course notes will be provided by the instructor.",
+      "recommended_readings": "Course notes will be provided by the instructor."
+    },
+    {
+      "subject": "FTEC",
+      "course_code": "5680",
+      "title": "AI Applications in FinTech",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Characteristics of financial data, patterns, and models, time-series representation and prediction. Limitations of classical system identification for prediction problems. Artificial Neural Networks (ANN) in AI: Recurrent and feedforward neural networks and their learning architectures: matrix computations and fast neural learning hardware realization. Reinforcement learning and dynamic programming. Integration of statistical techniques and neural learning, for applications in financial prediction, investment strategies and planning. Simulation of generative AI for potential applications and their evaluations. Exploring robo-advisors using generative AI with large language model (LLM) for enhancing wealth creation and investment outcomes.",
+      "enrollment_requirement": "For students in MSc Financial Technology or PgD Financial Technology;Good knowledge in linear algebra, probability, and calculus and familiarity with programming languages C or Python. Some acquaintance on using MATLAB and R is advantageous",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Engineering",
+      "academic_org": "Div of Engineering",
+      "learning_outcomes": "1. Understanding financial time series modeling and basic statistical knowledge for analysis, and estimation\n2. Learning basic MATLAB/PYTHON/R programming skill for linear model estimation and identification\n3. Understanding artificial neural network and learning schemes, including recurrent and feed-forward architectures, reinforcement learning and dynamic programming\n4. Learning MATLAB/PYTHON/R programming skill for neural networks construction and their simulation\n5. Understanding the current development of efficient hardware platforms for supporting large scale neural computation\n6. Simulations of generative AI for financial prediction, investment strategies and planning\n7. Exploring robo-advisors using generative AI with large language models (LLMs) for enhancing wealth creation and investment outcomes.",
+      "course_syllabus": "Week 1: Basic time series models for financial data and MATLAB/PYTHON/R programming\nWeek 2: Linear model estimation and identification, ARX/GARCH models for prediction and volatility estimation\nWeek 3: Introduction to artificial neural networks (ANN): Hopfield network, Hebbian learning, Boltzmann machines and their applications\nWeek 4: Different architectures of neural networks and basic learning algorithms\nWeek 5: Non-supervisory recurrent neural networks and programming\nWeek 6: Supervisory feedforward backpropagation networks and programming\nWeek 7: Reinforcement learning and dynamic programming planning\nWeek 8: Application study of using ANN for financial prediction\nWeek 9: Application study of using ANN for investment strategies\nWeek 10: Current development of efficient hardware platforms for supporting large scale neural computation\nWeek 11: The simulation of generative AI for applications\nWeek 12: Application study of robo-advisors using large language models and generative AI\nWeek 13: Project presentations",
+      "assessment_types": {
+        "Examination": "50",
+        "Homework or assignment": "25",
+        "Project": "25"
+      },
+      "feedback_evaluation": "1. Course questionnaire: Students are required to provide feedback on various aspects related to the teaching and learning of the course at the end of the term. Questionnaires are distributed and collected by tutors and returned to the department without any involvement of the course lecturer.\n\n2. Individual contacts: Students are also welcome to provide feedback to the course lecturer right after each lecture, using email, direct phone call or office visits.",
+      "required_readings": "Course notes will be provided by the teacher.",
+      "recommended_readings": "Course notes will be provided by the teacher."
     }
   ]
 }

@@ -3,9 +3,60 @@
     "schema_version": 1,
     "subject": "SEEM",
     "subject_title": "Systems Engineering & Engineering Management",
-    "total_courses": 7
+    "total_courses": 13
   },
   "courses": [
+    {
+      "subject": "SEEM",
+      "course_code": "3460",
+      "title": "Computer Processing Systems Concepts",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Principles of operating system functions. Introduction to linkers, loaders, memory management and process management. Performance analysis of scheduling algorithm. Applications based on systems such as UNIX, Cloud computing concepts and their evaluation and selection based on application needs.",
+      "enrollment_requirement": "Not for students who have taken ESTR3504. Prerequisite: CSCI1110 or CSCI1510 or ENGG1110 or ESTR1002 or with the approval of the course instructor.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "1. Able to understand how computer works\n\n2. Able to understand the basic principle of operating systems",
+      "course_syllabus": "According to the course teacher in the respective teaching term.",
+      "assessment_types": {
+        "Essay test or exam": "60",
+        "Others": "25",
+        "Selected response test or exam": "15"
+      },
+      "feedback_evaluation": "CTE exercise, class representatives, etc.",
+      "required_readings": "According to the course teacher in the respective teaching term.",
+      "recommended_readings": "Operating Systems Internals and Design Principles, William Stallings, Prentice Hall."
+    },
+    {
+      "subject": "SEEM",
+      "course_code": "3510",
+      "title": "Human-computer Interaction",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides an introduction to the fast evolving field of human computer interaction (HCI). HCI is a multidisciplinary subject concerning the design, implemen-tation and evaluation of interactive computing systems for human use, and the study of major phenomena surrounding them. We will provide a broad overview of the field, including the theory and principles underlying good designs, with an emphasis on the interface design process, development and evaluation. We will also sample some state-of-the-art technologies in HCI, such as speech recognition, haptics, virtual reality, software agents and computer supported cooperative work.",
+      "enrollment_requirement": "Not for students who have taken AIST3510",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Sys Engg & Engg Mgt",
+      "academic_org": "Dept of Sys Engg & Engg Mgt",
+      "learning_outcomes": "1. Acquiring the mathematical and engineering foundations that underlie human-computer interaction\n\n2. Appreciation of the use of other fields of knowledge in the interdisciplinary field of HCI, with the target to achieve a high degree of system usability",
+      "course_syllabus": "This course provides an introduction to the fast evolving field of human computer interaction (HCI). HCI is a multidisciplinary subject concerning the design, implemen-tation and evaluation of interactive computing systems for human use, and the study of major phenomena surrounding them. We will provide a broad overview of the field, including the theory and principles underlying good designs, with an emphasis on the interface design process, development and evaluation. We will also sample some state-of-the-art technologies in HCI, such as speech recognition, haptics, virtual reality, software agents and computer supported cooperative work.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Homework or assignment": "50"
+      },
+      "feedback_evaluation": "1. Quiz and examinations\n\n2. Course evaluation and questionnaire",
+      "required_readings": "1. Designing the User Interface: Strategies for Effective Human-Computer Interaction (6th Edition / May 3, 2016 / ISBN-13: 978-0134380384) Ben Shneiderman, Catherine Plaisant, Maxine Cohen, Steven Jacobs, Niklas Elmqvist, Nicholas Diakopoulos\n\nPearson Education\n\n2. Designing with the Mind in Mind: Simple Guide to Understanding User Interface Design Guidelines (2nd Edition / Feb 24,2014 / ISBN-13: 978-0124079144) Jeff Johnson Morgan Kaufmann",
+      "recommended_readings": ""
+    },
     {
       "subject": "SEEM",
       "course_code": "4670",
@@ -52,6 +103,59 @@
       "feedback_evaluation": "Feedback from students; CTE.",
       "required_readings": "Database System Concepts (6th edition)\nby Abraham Silberschatz, Henry F. Korth, and S. Sudarshan McGrew Hall, 2011",
       "recommended_readings": ""
+    },
+    {
+      "subject": "SEEM",
+      "course_code": "5020",
+      "title": "Algorithms for Big Data",
+      "credits": "3.00",
+      "terms": [],
+      "description": "In this course, we will focus on important topics to deal with massive datasets. The topics will cover basic tail bounds frequently used for approximation algorithm design, various sketches for efficient summarization of big data, similarity search techniques like LSH for large-scale data, and topics on dealing with matrix data and graph data. Next, we cover different models like the external memory model (for I/O algorithms), the MPC model (for distributed algorithms), the work-depth model (for shared-memory parallel algorithms), and the corresponding algorithms fitted to such modeling. Finally, some topics on sampling-based large-scale graph algorithm designs will be covered.",
+      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of System Erg & Erg Mgt",
+      "academic_org": "Div of System Erg & Erg Mgt",
+      "learning_outcomes": "1. To know various techniques when dealing with different types of data in the big data era\n2. To understand different models when analyzing big data algorithms\n3. To be able to apply the learned techniques and models to design algorithms for big data or their future research.",
+      "course_syllabus": "* Basic course topic, tail bounds.\n* Streaming algorithms topic 1: sampling and distinct element estimation\n* Streaming algorithms topic 2: CountMin sketch\n* Similarity search: Locality Sensitive Hashing\n* Dimension reduction topic 1: Johnson-Lindenstrauss transform\n* Dimension reduction topic 2: SVD\n* Matrix sketching\n* Graph sketching: Reachability and distance sketch\n* I/O algorithms: External memory model\n* Distributed computing: Massively Parallel Computing\n* Shared-memory Parallel: Work-depth model\n* Sampling-based large-scale graph algorithms topic 1: Approximate PageRank Computation\n* Sampling-based large-scale graph algorithms topic 2: Approximate Influence Maximization",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "20",
+        "Project": "40"
+      },
+      "feedback_evaluation": "* Piazza\n* Feedback from students, CTE.",
+      "required_readings": "According to the course teacher in the respective teaching term.",
+      "recommended_readings": "* The course teacher will provide papers on related topics in the class\n* The course teacher will also rely on his scribe notes"
+    },
+    {
+      "subject": "SEEM",
+      "course_code": "5030",
+      "title": "Generative Artificial Intelligence",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course aims at equipping students with an overview of latest generative AI (GenAI) technologies that generate various types of data, e.g., images, videos, audios, text, code, music and molecules, etc. that are profoundly impacting the industry and society. The course will provide a comprehensive understanding of the fundamental concepts and techniques behind GenAI, including generative models, probabilistic models, deep learning architectures, and self-supervised/unsupervised learning, etc. The advanced topics of large language models, conversational AI and mutli-modality generative AI will be further explored. Applications on speech and conversational data will be introduced to illustrate the concepts and techniques of GenAI. The ethical and social implications of GenAI will also be discussed in the course, so that students can critically analyze the impact of GenAI on society and propose ethical guidelines for its development and deployment. Ample opportunities will be provided to students to apply what they have learned in class through hands-on implementation and research paper on course projects. The course is suitable for students who have some background in machine learning, probability, statistics, and linear algebra.",
+      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management\nExclusion: AIST5030",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of System Erg & Erg Mgt",
+      "academic_org": "Div of System Erg & Erg Mgt",
+      "learning_outcomes": "Upon completion of this course, students would be able to:\n\n* Acquire a solid understanding of the principles and concepts underlying GenAI technologies that are profoundly impacting the industry and society;\n* Develop a strong foundation in GenAI, with practical skills for implementing and applying generative models to various domains;\n* Develop an awareness of the ethical and social implications associated with GenAI. Students will be able to critically analyze issues such as bias, fairness, privacy, and the responsible deployment of generative models;\n* Gain practical experience in planning and delivering a group project based on latest technologies.",
+      "course_syllabus": "1. Introduction to generative AI\n2. Deep learning for generative AI (Transformer, self-supervised learning, contrastive learning)\n3. Fundamentals of generative models (I) (Autoregressive models, seq2seq models)\n4. Fundamentals of generative models (II) (VAEs, GANs)\n5. Fundamentals of generative models (III) (Flow-based models, diffusion models)\n6. Language models and prompt engineering\n7. ChatGPT and conversational AI\n8. Generative AI in expressive speech generation\n9. Generative AI in audio generation and music composition\n10. Generative AI in image and video generation\n11. Ethical and social implications of generative AI\n12. Group presentation (I)\n13. Group presentation (II)",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Presentation": "20",
+        "Project": "15",
+        "Report": "35"
+      },
+      "feedback_evaluation": "Feedback from students, CTE.",
+      "required_readings": "As recommended by course teacher.",
+      "recommended_readings": "1. Ian Goodfellow, Yoshua Bengio and Aaron Courville (2016), Deep Learning, MIT Press\n2. Jurafsky Daniel, Martin James, Norvig Peter, Russell Stuart (2014), Speech and Language Processing, Pearson\n3. Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, and Illia Polosukhin (2017), Attention Is All You Need, Advances in Neural Information Processing Systems\n4. Jacob Einstein (2019), Introduction to Natural Language Processing, MIT Press\n5. Long Ouyang, et al., (2022), Training language models to follow instructions with human feedback, Advances in Neural Information Processing Systems\n6. Yang Song et. al., (2021), Score-Based Generative Modeling through Stochastic Differential Equations, International Conference on Learning Representation\n7. Aditya Grover and Stefano Ermon, (2018), Tutorial on Deep Generative Models, IJCAI-ECAI\n8. Jun-Yan Zhu, Taesung Park, Mihaela Rosca, Phillip Isola, and Ian Goodfellow, (2018), Tutorial on GANs. CVPR\n9. Shakir Mohamed and Danilo Rezende, (2017), Tutorial on Deep Generative Models. UAI"
     },
     {
       "subject": "SEEM",
@@ -131,6 +235,32 @@
     },
     {
       "subject": "SEEM",
+      "course_code": "5390",
+      "title": "Stochastic Optimization and Risk Management",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Stochastic optimization (SO) has been effective mathematical approach for decision making under uncertainty and risk management. This course introduces main mathematical models and underlying theory in SO. It begins with one-stage stochastic programming (SP) models and then moves on to two-stage recourse models and multistage dynamic SP models. Particular focuses will be given to SP problems with specific structures such as newsvendor problems, network capacity expansion problems and mathematical programs with equilibrium constraints. The course will also introduce various risk measures such as coherent risk measure, convex risk measure and monetary risk and discuss how stochastic optimization can be effectively used in risk management/optimization. Finally, the course will introduce new developments of SO including robust optimization distributionally robust optimization and preference robust optimization.",
+      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management;Pre-requisite: ENGG5501",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of System Erg & Erg Mgt",
+      "academic_org": "Div of System Erg & Erg Mgt",
+      "learning_outcomes": "1. To familiarize with various stochastic programming, robust optimization and risk management model.\n2. To understand the main computational methods and the underlying theory for solving stochastic and robust optimization problem.\n3. To understand various risk measures and risk management models.\n4. To be able to use the learned models and computational methods to solve practical application problems.",
+      "course_syllabus": "1. One-stage stochastic programming\n2. Two-stage stochastic programming\n3. Mathematical programs with equilibrium constraints\n4. Multistage stochastic programming\n5. Sample average approximation\n6. Expected utility theory\n7. Risk management\n8. Robust optimization\n9. Distributionally robust optimization\n10. Preference robust optimization",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "20",
+        "Project": "40"
+      },
+      "feedback_evaluation": "Feedbacks from students, CTE.",
+      "required_readings": "According to the course teacher in the respective teaching term.",
+      "recommended_readings": "A. Shapiro, D. Dentcheva and A. Ruszczynski, Lectures Notes on Stochastic Programming Modelling and Theory, SIAM, second edition, 2014.\nB. A. Ben-Tal, L. El Ghaoui and A. Nemirovski, Robust optimization, Princeton University Press, NJ, 2009.\nC. G. Pflug and W. Romich, Modelling, Measuring and Managing Risk, World Scientific, 2007."
+    },
+    {
+      "subject": "SEEM",
       "course_code": "5410",
       "title": "Optimal Control",
       "credits": "3.00",
@@ -153,6 +283,31 @@
       "feedback_evaluation": "Feedbacks from students; CTE.",
       "required_readings": "As recommended by course teacher.",
       "recommended_readings": "1. Lecture notes\n2. Dynamic Programming and Stochastic Control, Dimitri P. Bertsekas, 1976, Academic Press, New York\n3. Stochastic Optimal Control: The Discrete-Time Case, Dimitri P. Bertsekas and Steven E. Shreve, 1978, Academic Press, New York\n4. Stochastic Controls: Hamiltonian Systems and HJB Equations, Jiongmin Yong, Xun Yu Zhou, 1999, Springer, New York\n5. Controlled Markov Processes and Viscosity Solutions, Wendell H. Fleming and H. Mete Soner, 2006, Springer, USA"
+    },
+    {
+      "subject": "SEEM",
+      "course_code": "5570",
+      "title": "Numerical Methods in Finance",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course emphasizes the use of numerical methods for solving financial problems. The numerical methods include: binomial trees, Monte Carlo simulation, stochastic programming, linear/quadratic control models and semidefi nite programming techniques. Those techniques will be applied, among other things, to: option pricing, index tracking, portfolio optimization, interest rate models, and asset/liability management.",
+      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of System Erg & Erg Mgt",
+      "academic_org": "Div of System Erg & Erg Mgt",
+      "learning_outcomes": "1. Understanding basic techniques of binomial trees, Monte Carlo simulation, stochastic and semidefinite programming, linear and quadratic controls,\n2. Understanding the general principles of financial modeling,\n3. Be able to use the tools learned in the course to solve financial problems.",
+      "course_syllabus": "This course introduces several important numerical methods in finance. The focuses will be on Monte Carlo simulation, approximate dynamic programming and reinforcement learning, and their applications in financial engineering. If time allows, some traditional numerical methods such as finite difference and integral transformation will also be covered.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Others": "60"
+      },
+      "feedback_evaluation": "Feedback from students, CTE.",
+      "required_readings": "As recommended by course teacher.",
+      "recommended_readings": "As recommended by course teacher."
     },
     {
       "subject": "SEEM",

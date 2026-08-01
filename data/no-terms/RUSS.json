@@ -3,9 +3,37 @@
     "schema_version": 1,
     "subject": "RUSS",
     "subject_title": "Russian",
-    "total_courses": 3
+    "total_courses": 4
   },
   "courses": [
+    {
+      "subject": "RUSS",
+      "course_code": "2001",
+      "title": "Russian III",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to further enhance students’ communication skills in the four language domains listening, speaking, reading and writing. Students are expected to communicate confidently in a wider range of social interactions including more formal situations and simple professional contexts as well as reporting past events and sharing experience. At the end of this course, students will have completed a proficiency level comparable to level A1 of the Common European Framework of Reference for Languages (CEFR).",
+      "enrollment_requirement": "1.Not for students who have taken RUSS3000 or 3050\n2.Pre-requisite: RUSS2000 or 2050",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Classwork",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Linguistics & Mod Lang",
+      "academic_org": "Dept of Linguistics & Mod Lang",
+      "learning_outcomes": "After taking this course, students are expected to:\n• talk about daily situations related to shopping, ordering and paying in a restaurant, health issues.\n• use essential linguistic features of Russian such as plural forms of neuter and masculine nouns, accusative case for objects, instrumental case of nouns, the past tense and the future tense of verbs.",
+      "course_syllabus": "| **Lesson** | **Speech Acts** | **Grammar** | **Culture** |\n| --- | --- | --- | --- |\n| Unit 6.1, 6.2 | Describing your house. Explaining location of objects. | Imperative form of verbs. Construction “I have + event”. Plural nouns. Days of week. | Calling for home repair services. |\n| Unit 6.3 | Talking about your free time and ways to rest at home. | Verbs describing activities at home. The accusative case for objects. | Popular hobbies in Russia. |\n| Unit 7 | Talking about food and recipes. Ordering and paying in a restaurant. | The instrumental case in a construction “with something”. The future tense of verbs. | Inviting friends for dinner. |\n| Unit 8.1, 8.2 | Talking about health and lifestyle. Giving recommendations. | Personal pronouns with age. Construction “I had”. | Visiting a doctor |",
+      "assessment_types": {
+        "Essay test or exam": "30",
+        "Homework or assignment": "10",
+        "Presentation": "25",
+        "Participation": "10",
+        "Test or quiz": "25"
+      },
+      "feedback_evaluation": "Our language programme highly values students’ feedback and comments and is happy to use them for reflection on our teaching and improvement. Students are very welcome to provide comments and feedback on the course any time to their course teacher or the course level coordinator through email or in personal conversation. In addition, students’ feedbacks will be collected in the middle of the term through an open-end questionnaire and the teacher will discuss the feedbacks in class and make improvements if necessary. The course will also follow the university’s course evaluation exercise at the end of the term, and students’ feedbacks will be used for future course planning and teaching.",
+      "required_readings": "Textbook: Russkiy souvenir [Русский сувенир] (элементарный уровень) И. Мозелова, 2019. ISBN 978 – 5 – 88337 – 400 – 4. Textbooks are available at The Commercial Press Bookstore, on CUHK campus.",
+      "recommended_readings": "• Russian for everyone http://www.russianforeveryone.com/ (writing)\n• Russian lessons http://www.russianlessons.net/ (basic phrases)\n• Master Russian http://masterrussian.com/\n• Russian films http://www.bestrussiantv.com/free-russian-movies.aspx\n• Please refer to the Blackboard site for RUSS 1000 for further materials and updated information\n• Youtube / Russian in three minutes\n• Youtube / About Russian in Russian"
+    },
     {
       "subject": "RUSS",
       "course_code": "2050",

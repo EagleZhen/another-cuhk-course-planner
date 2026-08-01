@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "MBAC",
     "subject_title": "MBA Programmes",
-    "total_courses": 5
+    "total_courses": 6
   },
   "courses": [
     {
@@ -81,6 +81,33 @@
         "Essays": "20",
         "Others": "30",
         "Presentation": "50"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be assigned by course teacher",
+      "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "MBAC",
+      "course_code": "6100",
+      "title": "Current Topics in Business",
+      "credits": "1.50",
+      "terms": [],
+      "description": "This course provides students with an opportunity to further their knowledge in selected areas of business. Topics and issues of current and emerging interest are discussed and explored. Throughout this course, student initiative and participation in discussion and projects related to the selected topics will be emphasized.",
+      "enrollment_requirement": "For students in MBA; or JD/MBA Double Degree Programme; or MBA in Technology and Innovation",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Learning objectives for selected topics covered under this selected topic course will depend on the topic addressed-learning objectives. For each selected topic will be determined via reference to the programme learning goals.",
+      "course_syllabus": "To be formulated by course teacher",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "40",
+        "Presentation": "20",
+        "Short answer test or exam": "20"
       },
       "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
       "required_readings": "To be assigned by course teacher",

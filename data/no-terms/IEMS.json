@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "schema_version": 1,
+    "subject": "IEMS",
+    "subject_title": "Information Engineering (TPg)",
+    "total_courses": 3
+  },
+  "courses": [
+    {
+      "subject": "IEMS",
+      "course_code": "5730",
+      "title": "Big Data Systems and Information Processing",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to provide students an understanding in the operating principles and hands-on experience with mainstream Big Data Computing systems. Open-source platforms for Big Data processing and analytics would be discussed. Topics to be covered include:\n• Programming models and design patterns for mainstream Big Data computational frameworks ;• System Architecture and Resource Management for Data-center-scale Computing ;• System Architecture and Programming Interface of Distributed Big Data stores ; • High-level Big Data Query languages and their processing systems ;Advisory: This course contains substantial hands-on components which require solid background in programming and hands-on operating systems experience.",
+      "enrollment_requirement": "For all students in Engineering Faculty; Exclusion: ESTR4316 or IERG4330",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. Understand the mainstream parallel/ distributed programming models for industrial-strength big data processing platforms/ systems.\n\n2. Apply common design patterns to build applications for large-scale information processing using open-sourced, industrial-strength big data platforms.\n\n3. Understand the system architecture, operating principles and design trade-offs of industrial-strength big data processing platforms/ systems.",
+      "course_syllabus": "This course aims to provide students an understanding in the operating principles and hands-on experience with mainstream Big Data Computing systems. Open-source platforms for Big Data processing and analytics would be discussed. Topics to be covered include:\n\n• Programming models and design patterns for mainstream Big Data computational frameworks ;\n• System Architecture and Resource Management for Data-center-scale Computing ;\n• System Architecture and Programming Interface of Distributed Big Data stores ;\n• High-level Big Data Query languages and their processing systems ;",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Homework or assignment": "40",
+        "Project": "20"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "[LearnSpark] Learning Spark, by Holden Karau, Andy Konwinski, Patrick Wendell and Matei Zaharia, Publisher: O'Reilly Media, Feb 2015\n\n[Spark 1] Apache® Spark™ Analytics Made Simple, http://go.databricks.com/apache-spark-analytics-made-simple-databricks\n\n[Spark 2] Mastering Advanced Analytics with Apache Spark®, http://go.databricks.com/mastering-advanced-analytics-apache-spark\n\n[Spark 3] Lessons for Large-Scale Machine Learning Deployments on Apache Spark, http://go.databricks.com/large-scale-machine-learningdeployments-\n\nspark-databricks\n\n[Spark 4] Mastering Apache Spark 2.0, http://go.databricks.com/mastering-apache-spark-2.0\n\n[HadoopAppArch] Hadoop Application Architectures 1st Edition, by Mark Grover, Ted Malaska, Jonathan Seidman and Gwen Shapira, Publisher:\n\nO'Reilly Media, July 2015.\n\n[Hadoop] Hadoop: The Definitive Guide 4th Edition, by Tom White, published by Oreilly, April 2015.\n\n[StormApplied] Storm Applied, by Sean T. Allen, Matthew Jankowski and Peter Pathirana, Publisher: Manning, 2015\n\n[JLin] Data-Intensive Text Processing with MapReduce by Jimmy Lin and Chris Dyer, Morgan and Claypool Publishers, 2010, can be freely\n\ndownloaded from http://lintool.github.io/MapReduceAlgorithms/\n\n[DataIntensive] Designing Data-Intensive Applications: The Big Ideas behind Reliable, Scalable and Maintainable Systems, Preview Edition, by\n\nMartin Kleppmann, Publisher: O'Reilly Media, 1st Edition to be published in 2016.\n\n[BigData] Big Data: Principles and Best Practices of Scalable Realtime Data Systems, by Nathan Marz and James Warren, Publisher: Manning,\n\n2015\n\n[NoSQL] NoSQL Overview, Appendix A of the book titled \"Graph Databases\", by Ian Robinson, Jim Webber and Emil Eifrem (Can request a free\n\ncopy from http://graphdatabases.com)\n\n[MMDS] Mining of Massive Datasets (Download version 1.3) by Anand Rajaraman, Jeff Ullman and Jure Leskovec, Cambridge University Press.",
+      "recommended_readings": "[SparkAnalytics] Advanced Analytics with Spark, by Sandy Ryza, Uri Laserson, Sean Owen and Josh Wills, Publisher: O'Reilly Media, April 2015\n\n[DataAlgorithms] Data Algorithms: Recipes for Scaling Up with Hadoop and Spark, by Mahmoud Parsian, Publisher: O'Reilly Media, Aug 2015\n\n[HBase] HBase: The Definitive Guide, by Lars George, published by O'Reilly Media,.\n\n[CassandraBook] Cassandra: The Definitive Guide, by Eben Hewitt, published by O'Reilly Media,.\n\n[ZooKeeper] ZooKeeper: Distributed Process Coordination, by Flavio Junqueira and Benjamin Reed, published by O'Reilly Media, 2013\n\n[Pig] Programming Pig, by Alan Gates, published by O'Reilly Media\n\n[Hive] Programming Hive, by Edward Capriolo, Dean Wampler, Jason Rutherglen, published by O'Reilly Media,\n\n[OpenStackOp] OpenStack Operations Guide, published by O'Reilly Media, (current-version available online at:\n\nhttp://docs.openstack.org/openstack-ops/content )\n\n[MapReduce] Jeffrey Dean and Sanjay Ghemawat, “MapReduce: Simplified Data Processing on Large Clusters,” OSDI 2004.\n\n[GoogleFileSystem] Sanjay Ghemawat, Howard Gobioff and Shun-Tak Leung, “The Google File System,” ACM SOSP 2003.\n\n[MapReduceFamilySurvey2013] Sakr S, Liu A, Fayoumi A G. The family of mapreduce and large-scale data processing systems[J]. ACM Computing Surveys (CSUR), 2013.\n\n[YARN] V.K. Vavilapalli, A.C.Murthy, “Apache Hadoop YARN: Yet Another Resource Negotiator,” ACM Symposium on Cloud Computing (SoCC) 2013.\n\n[Mesos] B. Hindman et al, “Mesos: A Platform for Fine-Grained Resource Sharing in the Data Center”, NSDI 2011.\n\n[DRF] A. Ghodsi et al, “Dominant Resource Fairness: Fair Allocation of Multiple Resource Types,” NSDI 2011.\n\n[Borg] A. Verma, L. Pedrosa, “Large-scale cluster management at Google with Borg”, Eurosys 2015\n\n[Omega] M. Schwarzkopf, A. Konwinski, M.Abd-El-Malek, J. Wilkes, “Omega: flexible, scalable schedulers for large compute clusters,” Eurosys 2013\n\n[Sparrow] K. Ousterhout et al, “Sparrow: Distributed, Low Latency Scheduling”, ACM SOSP 2013\n\n[Apollo] E. Boutin et al, “Apollo: Scalable and Coordinated Scheduling for Cloud-Scale Computing”, OSDI 2014\n\n[Mercury] K. Karanasos et al, “Mercury: Hybrid Centralized and Distributed Scheduling in Large Shared Clusters”, Usenix ATC 2015\n\n[GraphLab1] Yucheng Low, Joseph Gonzalez et al, “GraphLab: A New Framework for Parallel Machine Learning,” UAI 2010.\n\n[PowerGraph] Joseph Gonzalez et al, “PowerGraph: Distributed Graph-Parallel Computation on Natural Graphs,” OSDI 2012.\n\n[GraphChi] Aapo Kyrola, Guy Blelloch, Carlos Guestrin, “GraphChi: Large-Scale Graph Computation on Just a PC,” OSDI 2012.\n\n[Storm@Twitter] Ankit Toshniwal et al, “Storm@Twitter,” ACM SIGMOD 2014.\n\n[PigLatin] Christopher Olston et al, “Pig Latin: A Not-So-Foreign Language for Data Processing,” ACM SIGMOD 2008.\n\n[Hive1] Ashish Thusoo et al, “Hive: a warehousing solution over a map-reduce framework,” VLDB 2009.\n\n[Hive2] Ashish Thusoo et al, \"Data warehousing and analytics infrastructure at facebook,” ACM SIGMOD 2010\n\n[Hive3] Ashish Thusoo et al, “Hive - A Petabyte Scale Data Warehouse Using Hadoop,” IEEE ICDE 2010.\n\n[HiveAdvances] Yin Huai et al, “Major Technical Advancements in Apache Hive,” ACM SIGMOD 2014.\n\n[Dryad] Michael Isard et al, \"Dryad: Distributed Data-Parallel Programs from Sequential Building Blocks,” Eurosys 2007.\n\n[DryadLINQ] Yuan Yu et al, “DryadLINQ: A System for General-Purpose Distributed Data-Parallel Computing Using a High-Level Language, “ OSDI 2008.\n\n[DryadLINQ2] Michael Isard, Yuan Yu, \"Distributed Data-Parallel Computing Using a High-Level Programming Language,” ACM SIGMOD 2009\n\n[Tez] Bikas Saha et al, \"Apache Tez: A Unifying Framework for Modeling and Building Data Processing Applications,” ACM SIGMOD 2015.\n\n[Dynamo] Giuseppe DeCandia et al, \"Dynamo: Amazon's Highly Available Key-value Store,\" ACM SOSP 2007.\n\n[BigTable] Fay Chang et al, “Bigtable: A Distributed Storage System for Structured Data,” OSDI 2006.\n\n[Cassandra] Avinash Lakshman, Prashant Malik, “Cassandra - A Decentralized Structured Storage System,” ACM SIGOPS Operating Systems Review, Apr 2010.\n\n[RealtimeHadoopFacebook] Dhruba Borthakur et al, “Apache Hadoop goes realtime at Facebook,” ACM SIGMOD 2011.\n\n[SparkRDD] Matei Zaharia et al, \"Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing,” NSDI 2012.\n\n[Spark] Matei Zaharia et al, “Fast and Interactive Analytics over Hadoop Data with Spark,” Usenix ;login Aug 2012.\n\n[Spark Streaming] Matei Zaharia et al, \"Discretized streams: Fault-tolerant streaming computation at scale,” ACM SOSP 2013.\n\n[SharkSQL] Reynold S. Xin et al, \"Shark: SQL and rich analytics at scale,” ACM SIGMOD 2013\n\n[SparkSQL] Michael Armbrust et al, “Spark SQL: Relational Data Processing in Spark,” ACM SIGMOD 2015.\n\n[GraphX] Joseph E. Gonzalez et al, \"GraphX: Graph Processing in a Distributed Dataflow Framework,” OSDI 2014.\n\n[SparkScaling] Michael Armburst et al, “Scaling Spark in the real world: performance and usability,” VLDB 2015.\n\n[MapReduceVsSpark] Juwei Shi et al, \"Clash of the Titans: MapReduce vs. Spark for Large Scale Data Analytics,\" VLDB 2015.\n\n[SparkMLbase] T. Kraska, A. Talwalkar, J.Duchi, R. Griffith, M. Franklin, M.I. Jordan, \"MLbase: A Distributed Machine Learning System,\" In Conference on Innovative Data Systems Research (CIDR), 2013.\n\n[SparkMLI] E. Sparks, A. Talwalkar, V. Smith, J. Kottalam, X. Pan, J. Gonzalez, J. Gonzalez, M. Franklin, M. I. Jordan, T. Kraska. MLI: An API for Distributed Machine Learning. In International Conference on Data Mining, 2013.\n\n[SparkMLlib] Xiangrui Meng et al, \"MLlib: Machine learning in Apache Spark,” arXiv:1505.06807, May 2015.\n\n[SparkNet] Philipp Moritz, Robert Nishihara, Ion Stoica, Michael Jordan, \"SparkNet: Training Deep Networks on Spark,” ICLR 2016.\n\n[Naiad] Derek G. Murray et al, \"Naiad: A Timely Dataflow System,” ACM SOSP 2013.\n\n[ZooKeeper1] P Hunt, M Konar, FP Junqueira, B Reed , “ZooKeeper: Wait-free Coordination for Internet-scale Systems,” Usenix ATC 2010.\n\n[ZAB1] Benjamin Reed, Flavio P. Junqueira, “A simple totally ordered broadcast protocol,” 2nd Workshop on Large-scale Distributed Systems and Middleware (LADIS), 2008.\n\n[ZAB2] F.P. Junqueira, B.C. Reed, M. Serafini, \"High-performance broadcast for primary-backup systems,” IEEE/IFIP DSN, 2011."
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5910",
+      "title": "Advanced Research and Development Project I",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Student will work independently under the supervision of a faculty member on a research project in Information Engineering. The topic and scope of the study is to be agreed between the student and the supervisor. A project report is required at the end of the course.",
+      "enrollment_requirement": "For students in MSc Information Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Gain advanced knowledge in the topic investigated and master the advanced concepts involved.\n\nPossess the competency, aptitude, and attitude in conducting rigorous engineering research.",
+      "course_syllabus": "Student will work independently under the supervision of a faculty member on a research project in Information Engineering. The topic and scope of the study is to be agreed between the student and the supervisor. A project report is required at the end of the course.",
+      "assessment_types": {},
+      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:\n\n1. Quality of the project report submitted by the student.\n\n2. Reflection of teachers (including evidence from assessment).",
+      "required_readings": "To be advised by course teacher",
+      "recommended_readings": "1) Literatures in the topic of investigation (to be assigned by the supervisor)\n\n2) Graduated School, The Chinese University of Hong Kong. \"Research & Thesis Writing\" (accessible from the GS platform)"
+    },
+    {
+      "subject": "IEMS",
+      "course_code": "5920",
+      "title": "Advanced Research and Development Project II",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Student will work independently under the supervison of a faculty member on a research project in Information Engineering. The topic and scope of the studyis to be agreed between the student and the supervisor. A project report is required at the end of the course.",
+      "enrollment_requirement": "For students in MSc Information Engineering;Pre-requisite: IEMS5910;Not for students who have taken IEMS5930",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Gain advanced knowledge in the topic investigated and master the advanced concepts involved.\n\nPossess the competency, aptitude, and attitude in conducting rigorous engineering research.",
+      "course_syllabus": "Student will work independently under the supervison of a faculty member on a research project in Information Engineering. The topic and scope of the studyis to be agreed between the student and the supervisor. A project report is required at the end of the course.",
+      "assessment_types": {
+        "Essays": "50",
+        "Presentation": "50"
+      },
+      "feedback_evaluation": "Students are welcome to express their comments and suggestions via the following formal and informal feedback channels:\n\n1. Quality of the project report submitted by the student.\n\n2. Reflection of teachers (including evidence from assessment).",
+      "required_readings": "Readings will be recommended by the supervisors.",
+      "recommended_readings": "1) Literatures in the topic of investigation (to be assigned by the supervisor)\n\n2) Graduated School, The Chinese University of Hong Kong. \"Research & Thesis Writing\" (accessible from the GS platform)"
+    }
+  ]
+}

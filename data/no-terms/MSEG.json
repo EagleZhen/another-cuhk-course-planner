@@ -3,9 +3,34 @@
     "schema_version": 1,
     "subject": "MSEG",
     "subject_title": "Materials Science & Engineering",
-    "total_courses": 1
+    "total_courses": 2
   },
   "courses": [
+    {
+      "subject": "MSEG",
+      "course_code": "5040",
+      "title": "Topics in Advanced Materials Research IV (Electron Microscopy: Principles, Techniques and Analysis)",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is intended to provide basics of electron microscopy. Topics include: group theory and basics of crystal symmetry; electron diffraction and interpretation of crystal symmetry; wave optics and imaging principle of electron microscopy; high-resolution transmission electron microscopy; analytical electron energy microscopy; and laboratory demonstration of specific topics.",
+      "enrollment_requirement": "For students in MPhil-PhD Materials Sci & Erg; For students in MPhil-PhD Physics; For students in MSc Physics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Material Science & Erg",
+      "academic_org": "Div of Material Science & Erg",
+      "learning_outcomes": "1. To master the principle of electron microscopes;\n2. To know the basic instrumentation of conventional electron microscope, and master the basic sample preparation methods;\n3. To master the basic knowledge of crystalline symmetry and group theory;\n4. To understand the theory of electron diffraction;\n5. To master the methods for the interpretation of crystal symmetry through electron diffraction patterns;\n6. To understand the principle of dark field/bright field imaging;\n7. To understand the theory of high-resolution electron microscopy;\n8. To master data analysis skill of high resolution electron microscopy images;\n9. To understanding energy dispersive x-ray, and master data analysis skills in identifying material composition;\n10. To understand electron energy loss spectroscopy method in identifying material chemical composition and electronic structures;\n11. To understand the state-of-the-art in situ techniques in monitoring dynamics of material structural/ compositional/ property changes;\n12. To analyze, judge and solve realistic problems and cases using combinational approaches (including diffraction pattern, dark field/bright field images, high resolution image, EDX, EELS, etc.);\n13. To develop an analytical mind towards materials characterization;\n14. To master basic experimental skills in using electron microscopy based techniques for practical material analysis projects.",
+      "course_syllabus": "Principles of electron scattering and basics of electron microscopy\nGroup theory and basics of crystal symmetry;\nElectron diffraction and crystal symmetry interpretation from the reciprocal space; Comparison with x-ray diffraction;\nWave optics and imaging principle of electron microscopy;\nTheory and interpretation of high-resolution electron microscopy;\nAnalytical electron energy microscopy techniques including energy dispersive x-ray (EDX), electron energy loss spectroscopy (EELS), and various state-of-the-art in situ microscopy techniques.",
+      "assessment_types": {
+        "Examination": "40",
+        "Others": "60"
+      },
+      "feedback_evaluation": "1. Send email to the teacher, give him a call, or come to his office, especially for issues that require immediate action;\n2. Express your views in the mid-term and term-end course evaluation;\n3. Express your views (or ask a student representative to help you convey the messages) in the staff-student consultation meeting held every year;\n4. Post a message on the forum of the course website.",
+      "required_readings": "Lecture notes",
+      "recommended_readings": "1. “Transmission Electron microscopy”, D. B. Williams and C. B. Carter, Plenum Press, New York and London\n2. “Electron Microscopy of Thin Crystals” By P. Hirsch et al., Krieger Publishing Company, Malabar, Florida\n3. “Transmission Electron Microscopy—Physics of image formation and microanalysis” L. Reimer, Springer-Verlag"
+    },
     {
       "subject": "MSEG",
       "course_code": "5080",

@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "THEO",
     "subject_title": "Theology",
-    "total_courses": 87
+    "total_courses": 88
   },
   "courses": [
     {
@@ -147,6 +147,67 @@
         "Essays": "40",
         "Homework or assignment": "40",
         "Presentation": "20"
+      }
+    },
+    {
+      "subject": "THEO",
+      "course_code": "1212",
+      "title": "Introduction to the New Testament",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9883)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Pres Chi-tung Yung MBldg LG201",
+                  "instructor": "Professor IP Hon Ho",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Pres Chi-tung Yung MBldg LG201",
+                  "instructor": "Professor IP Hon Ho",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Pres Chi-tung Yung MBldg LG201",
+                  "instructor": "Professor IP Hon Ho",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course is a survey of the New Testament Church, its life, faith and literature within the context of the Mediterranean world. During the course, students are expected to read and become familiar with the contents of the New Testament.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Cultural & Rel Studies",
+      "academic_org": "Dept of Cultural & Rel Studies",
+      "learning_outcomes": "A) Knowledge Outcome:\n\n- To give students a general understanding of the text of the New Testament, its methods of studies, its background and the issues involved.\n\nB) Attitude Outcomes:\n\n- To develop students’ appreciation of the New Testament text as well as the diversity of interpretation of it.\n\n- To develop students’ ability to have a critical, yet sympathetic understanding of the New Testament.\n\n- To develop students’ analytical mind in reading scholarly opinions.",
+      "assessment_types": {
+        "Essays": "50",
+        "Homework or assignment": "20",
+        "Report": "30"
       }
     },
     {
