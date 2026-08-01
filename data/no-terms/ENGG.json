@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "ENGG",
     "subject_title": "Courses offered by Fac of Erg",
-    "total_courses": 7
+    "total_courses": 8
   },
   "courses": [
     {
@@ -186,6 +186,33 @@
       "feedback_evaluation": "Wewelcome students' comments and feedback on the course. There are three mainchannels for collecting students' feedback.\n1. Course evaluation: A formal evaluation questionnaire conducted near the end ofthe course.\n2. Informal online contact\nStudentscan write their comments via email or newsgroup. The course instructor willfollow up with the comments or pass the information to the course instructor ifnecessary.\n3. Individual consulting\nStudents arewelcome to visit the course instructor during office hours. They can exchangeopinions to make the course better suits the students' needs.",
       "required_readings": "To be provided by the course teacher.",
       "recommended_readings": "1. G. P. Agrawal,\"Fiber-Optic Communication Systems\", Wiley, 4th Edition\n2. G. P. Agrawal,\"Nonlinear Fiber Optics\", Academic Press, 5th Edition"
+    },
+    {
+      "subject": "ENGG",
+      "course_code": "5404",
+      "title": "Micromachining and Microelectromechanical Systems",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides a broad overview of microfabrication and microelectromechanical systems. Topics include introduction to basic micromaching techniques such as photolithography; isotropic and anisotropic wet etching; dry etching; physical and chemical vapor deposition; electroplating; metrology; statistical design of experiments; MEMS release etching; stiction; and MEMS device testing. The course also reviews important microsensors, microactuators and microstructures. Topics include accelerometers; pressure sensor; optical switches; cantilever beams; thin-film stress test structures and bulk micromaching test structures. Lastly, the course introduces the fundamentals of central dogma of molecular biology; cell and tissue biology; and principles of transduction and measurements of molecules, cells and tissues.",
+      "enrollment_requirement": "For students in MSc BMEG and MAEG; or MPhil-PhD programmes under Faculty of Engineering; or \nFor undergraduate students in BMEG or MAEG;Not for students who have taken MAEG5750",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n(1) gain understanding with photolithography, isotropic and anisotropic wet etching, dry etching, physical and chemical vapor deposition, electroplating, MEMS release etching, stiction, and MEMS device testing;\n(2) articulate state-of-the-art MEMS technologies in observing, manipulation and measuring molecules, cells and tissues.",
+      "course_syllabus": "The details will be provided by the course instructor.",
+      "assessment_types": {
+        "Essay test or exam": "70",
+        "Homework or assignment": "15",
+        "Presentation": "5",
+        "Project": "10"
+      },
+      "feedback_evaluation": "By the end of the course, students should be able to\n\nFeedback from students can be collected *via* weekly tutorial sessions, online platform (Facebook and Moodle), and the mid-semester and end-of-semester course questionnaires. Students are encouraged to meet with the course instructors to exchange opinions for improving the quality of course.",
+      "required_readings": "The details will be provided by the course instructor.",
+      "recommended_readings": "- Mohamed Gad-el-Hak: MEMS Introduction and Fundamentals / 2nd edition, CRC Press\n\n- Mohamed Gad-el-Hak: MEMS Introduction and Fundamentals / 2nd edition, CRC Press.\n\n- Ho C.-M.: Micro/Nano Technology Systems for Biomedical Applications: Microfluidics, Optics, and Surface Chemistry. Oxford University Press.\n\n- Waite G.N., Waite L.R., et al.: Applied Cell and Molecular Biology for Engineers. McGraw-Hill Professional.\n\n- Chapters from multiple texts\n\n- Selected conference and journal papers"
     }
   ]
 }

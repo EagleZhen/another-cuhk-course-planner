@@ -309,6 +309,44 @@
               "class_attributes": "English only"
             }
           ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9876)",
+              "meetings": [
+                {
+                  "time": "Mo 6:45PM - 9:30PM",
+                  "location": "Esther Lee Bldg 207",
+                  "instructor": "Dr. HO Cheuk Yin",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 6:45PM - 9:30PM",
+                  "location": "Esther Lee Bldg 207",
+                  "instructor": "Dr. HO Cheuk Yin",
+                  "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
+                },
+                {
+                  "time": "Mo 6:45PM - 9:30PM",
+                  "location": "Esther Lee Bldg 207",
+                  "instructor": "Dr. HO Cheuk Yin",
+                  "dates": "12/4, 19/4, 26/4, 3/5"
+                }
+              ],
+              "availability": {
+                "capacity": "45",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "45",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
         }
       ],
       "description": "This course applies theories of macroeconomics to the real world, and will examine the roots and causes of recent Global Financial Crises, focusing on analyzing the current state of the Global Financial Market and mitigation measures that have been implemented in recent years.",
@@ -428,7 +466,7 @@
               "availability": {
                 "capacity": "50",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "6",
                 "waitlist_total": "0",
                 "available_seats": "50",
                 "status": "Open"

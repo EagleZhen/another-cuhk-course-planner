@@ -3,9 +3,35 @@
     "schema_version": 1,
     "subject": "IBBA",
     "subject_title": "Integrated BBA Programme",
-    "total_courses": 3
+    "total_courses": 6
   },
   "courses": [
+    {
+      "subject": "IBBA",
+      "course_code": "3010",
+      "title": "Issues in Business",
+      "credits": "2.00",
+      "terms": [],
+      "description": "This course provides an opportunity for students to integrate knowledge acquired from their business studies in generating a project/research study with the guidance of a teacher.",
+      "enrollment_requirement": "",
+      "course_attributes": "STOT Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nProject",
+      "campus": "Main Campus",
+      "academic_group": "Integrated BBA Pgm Comm",
+      "academic_org": "Integrated BBA Pgm Comm",
+      "learning_outcomes": "Upon completion of this course, students are expected to:\n\n•Understand the business environments, culture and challenges.\n•Develop a global mindset and cross-cultural sensitivity.\n•Demonstrate effective business communication and presentation skills.",
+      "course_syllabus": "This course provides an opportunity for students to integrate knowledge acquired from their business studies with real business issues by examining various business corporations.\n\nRemarks: The Assessment Type below is for reference only. For the specific assessment scheme, please refer to the course outline.",
+      "assessment_types": {
+        "Others": "30",
+        "Presentation": "30",
+        "Report": "40"
+      },
+      "feedback_evaluation": "Students can provide comments and feedback to faculty members via email or at meetings or any other measures as needed.",
+      "required_readings": "Nil",
+      "recommended_readings": "Nil"
+    },
     {
       "subject": "IBBA",
       "course_code": "3020",
@@ -55,6 +81,58 @@
         "Report": "40"
       },
       "feedback_evaluation": "Students can provide comments and feedback to faculty member via email or at meetings.",
+      "required_readings": "Nil",
+      "recommended_readings": "Nil"
+    },
+    {
+      "subject": "IBBA",
+      "course_code": "3032",
+      "title": "Corporate Project",
+      "credits": "2.00",
+      "terms": [],
+      "description": "This course bridges the gap between classroom and real business world and provides students with first-hand experience on real business problems. Corporate partners will work with CUHK Business School in providing lectures/ workshops and a corporate project for students to work with. Students will be required to work in a team of 4-5 under the guidance of faculty member. Each group will plan a project task and apply business knowledge, problem-solving and analytical skills to real business problems or issues of corporations. Students will be required to conduct a presentation to the corporations and submit reflection paper to faculty member at the end of the course.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Distinction/Pass/Failure",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Integrated BBA Pgm Comm",
+      "academic_org": "Integrated BBA Pgm Comm",
+      "learning_outcomes": "Upon completion of the course, students will: (1) acquire effective analytical and problem-solving skills that support them to make business decisions; (2) be able to integrate business knowledge in a business environment; (3) have specific knowledge in one or more functional areas of business management.",
+      "course_syllabus": "Corporate partners will work with CUHK Business School in providing lectures/ workshops and a corporate project for students to work with. Students will be required to work in a team of 4-5 under the guidance of faculty member. Each group will plan a project task and apply business knowledge, problem-solving and analytical skills to real business problems or issues of corporations. Students will be required to conduct a presentation to the corporations and submit reflection paper to faculty member at the end of the course.\n\nRemarks: The Assessment Type below is for reference only. For the specific assessment scheme, please refer to the course outline.",
+      "assessment_types": {
+        "Others": "30",
+        "Presentation": "30",
+        "Report": "40"
+      },
+      "feedback_evaluation": "Students can provide comments and feedback to faculty member via email or at meetings.",
+      "required_readings": "Nil",
+      "recommended_readings": "Nil"
+    },
+    {
+      "subject": "IBBA",
+      "course_code": "4010",
+      "title": "Issues in Asian Business",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides an opportunity for students to integrate knowledge acquired from their business studies in generating a project/research study on the business issues in Asia with the guidance of a teacher.",
+      "enrollment_requirement": "",
+      "course_attributes": "STOT Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Integrated BBA Pgm Comm",
+      "academic_org": "Integrated BBA Pgm Comm",
+      "learning_outcomes": "Upon completion of this course, students are expected to have:\n\n(1) effective business communication and presentation skills\n\n(2) a specific knowledge in one or more functional area of business management\n\n(3) the ability to propose strategies in a global environment",
+      "course_syllabus": "This course provides an opportunity for students to integrate knowledge acquired from their business studies with real business issues in Asia by examining various business corporations in Asian counties.\n\nRemarks: The Assessment Type below is for reference only. For the specfic assessment scheme, please refer to the course outline.",
+      "assessment_types": {
+        "Attendance": "20",
+        "Participation": "20",
+        "Report": "60"
+      },
+      "feedback_evaluation": "Students are welcomed to provide comments and feedback to the instructor via email and appointment.",
       "required_readings": "Nil",
       "recommended_readings": "Nil"
     },

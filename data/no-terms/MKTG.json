@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "MKTG",
     "subject_title": "Marketing",
-    "total_courses": 22
+    "total_courses": 28
   },
   "courses": [
     {
@@ -191,6 +191,57 @@
     },
     {
       "subject": "MKTG",
+      "course_code": "4200",
+      "title": "Behavioral Decision Making and Consumer Choice",
+      "credits": "3.00",
+      "terms": [],
+      "description": "We are all consumers. As consumers, we make decisions every day, from the trivial to the fundamental. Psychologists and behavioral scientists in the related fields have studied how people process information and make decisions individually and in a group. This course is devoted to understanding how a consumer decides and judges in daily consumption contexts. Topics to cover include mental blocks and fixations, decision heuristics, behavioral nudge, motivated reasoning, affective influences, group decision making, etc.. This course will help the students discover a series of serious yet often overlooked mistakes that most consumers would commit in various consumption contexts. At the same time, this course will also teach students how to correct these mistakes and how to utilize such knowledge in crafting marketing tactics (e.g., pricing, advertising) to influence consumers’ choice and behavior.",
+      "enrollment_requirement": "Prerequisite: MKTG2010",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Marketing",
+      "academic_org": "Dept of Marketing",
+      "learning_outcomes": "1. To help the students understand the nature, causes and managerial implications of consumer decision pitfalls.\n\n2. To teach the students how to correct mistakes that arise from the process and how to apply the knowledge to influence consumers' decisions.",
+      "course_syllabus": "1. Fundamental process in thinking and judgments: Sensation and perception and human judgments\n\n2. Higher level process in thinking and judgments: mental blocks and fixation versus creative solutions\n\n3. Heuristic approach to thinking\n\n4. Behavioral nudge and its applications in marketing contexts\n\n5. Motivated reasoning and judgments\n\n6. Affective influence and its implications in marketing contexts\n\n7. Groupthink, group polarization, and biases in group decisions\n\n8. Behavioral perspective on marketing strategy",
+      "assessment_types": {
+        "Essays": "30",
+        "Examination": "70"
+      },
+      "feedback_evaluation": "1. Course Teaching Evaluation (CTE) will be done at the end of the course.\n\n2. Collect information and feedback from students.\n\n3. Assess the achievement of learning goals by reviewing external examiner reports.",
+      "required_readings": "TBC",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "MKTG",
+      "course_code": "5015",
+      "title": "Organizational Marketing",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The major objectives of this course are to develop an understanding of the unique features, behaviour and problems of organizational marketing as compared to consumer marketing and to show how to apply the marketing managerial process (e.g., market segmentation, target market selection, development of the marketing mix) to the field of organizational marketing. The course is concerned with the application of modern marketing principles to organizational customers, including profit and non-profit organizations such as industrial buyers, government and social service institutions.",
+      "enrollment_requirement": "For students in MBA; or Full-time MBA; or MBA (Evening Mode); or MBA (Weekend Mode); or JD/MBA Double Degree Programme; or MSc Marketing",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "This course aims at providing students with both (1) conceptual understanding on what organizational marketing is and why it is so important in the contemporary business world and (2) hands-on practice in developing a realistic marketing plan for business-to-business firms (with focus on how to use marketing research for marketing planning purpose).\n\nUpon completion of this course, students are expected to have adequate knowledge and technical skills on marketing planning, implementation, evaluation and control for organizational marketing and be able to perform successfully as a business-to-business marketing manager.",
+      "course_syllabus": "1. Organizational Buying Behavior and Customer Relationship Management\n2. Strategic Marketing Planning and Environmental Analysis\n3. Target Market Strategy\n4. Positioning Research in Practice\n5. Marketing Mix Strategy: Product Strategy and Pricing Strategy\n6. Marketing Mix Strategy: Distribution Strategy\n7. Marketing Mix Strategy: Communication Strategy\n8. Evaluating Business Marketing Strategy and Performance\n9. International Application and Ethics in Organizational Marketing",
+      "assessment_types": {
+        "Others": "20",
+        "Presentation": "40",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "1. Course Teaching Evaluation (CTE) will be done at the end of the course.\n2. Collect information and feedback from students.",
+      "required_readings": "Business Marketing Management, 10th edition (2010), by Michael D. Hutt and Thomas W. Speh, South-Western.",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "MKTG",
       "course_code": "5016",
       "title": "Marketing in China",
       "credits": "3.00",
@@ -361,6 +412,28 @@
     },
     {
       "subject": "MKTG",
+      "course_code": "6025",
+      "title": "Seminar in Marketing",
+      "credits": "1.50",
+      "terms": [],
+      "description": "This course provides students with an opportunity to further their knowledge in selected areas in marketing such as internet marketing, business negotiation, bank marketing, telecommunication marketing, and the like. Topics and issues of current interest will be discussed as well. Throughout this series of seminars, students' initiation and participation in discussion and projects related to the selected topics will be emphasized. Owing to the specific nature of the course, topics to be discussed will vary from term to term.",
+      "enrollment_requirement": "For students in EMBA (Chinese)",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "On completion of the course, our students will: 1. understand the current trend and challenges in marketing; 2. learn a systematic approach to solve current marketing problems; and 3. demonstrate their problem solving ability through research, presentation and report writing.",
+      "course_syllabus": "To be assigned by course teacher",
+      "assessment_types": {},
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be assigned by course teacher",
+      "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "MKTG",
       "course_code": "6027",
       "title": "Marketing Engineering",
       "credits": "3.00",
@@ -435,6 +508,34 @@
       "feedback_evaluation": "In addition to the official CTE, the feedbacks and comments from the students as well as the companies will be collected throughout the course to assess if the learning goals are achieved.",
       "required_readings": "Class notes will be distributed during the lecture sessions.",
       "recommended_readings": "None"
+    },
+    {
+      "subject": "MKTG",
+      "course_code": "6153",
+      "title": "Advanced Seminar in Marketing - Behavioral Studies II",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This seminar covers major behavioral decision making related issues in behavioral marketing. It is focused on the selected current theory and research in areas of contemporary importance and relevance to behavioral decision making. Topics will vary over course offerings but may include heuristics and biases, prospect theory, mental accounting, preference construction, etc.",
+      "enrollment_requirement": "For students in MPhil-PhD Marketing",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Students will acquire an in-depth understanding of theoretical and empirical issues in the area and potential areas for further exploration.",
+      "course_syllabus": "1 Introduction to JDM & Prospect Theory\n\n2 Mental Accounting\n\n3 Heuristics and Biases I\n\n4 Heuristics and Biases II\n\n5 Context Effects and Reason Based Choice\n\n6 Intertemporal Choices\n\n7 Need and Motivation\n\n8 Goals\n\n9 Social Factors and Decision Making\n\n10 Satiation and consumption\n\n11 Scarcity\n\n12 Moral decision making\n\n有關學科綱要請參閱英文版本。",
+      "assessment_types": {
+        "Attendance": "10",
+        "Classwork": "10",
+        "Homework or assignment": "40",
+        "Project": "30",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.\n\n學科完結前學員需進行評估反饋。",
+      "required_readings": "Depending on the research topic, students are required to read from the recommended list of journals.\n\n學員需閲讀跟自己研究範疇相關的文獻。",
+      "recommended_readings": ""
     },
     {
       "subject": "MKTG",
@@ -536,6 +637,32 @@
     },
     {
       "subject": "MKTG",
+      "course_code": "6202",
+      "title": "Special Topics in Quantitative Marketing",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This seminar course reviews innovative quantitative techniques in both empirical and analytical aspects, and their applications in Marketing. Topics will vary over course offerings but can include new statistical models, machine learning and artificial intelligence, new analytical tools from decision science, economics and statistics, etc. The applications can include topics such as choice modeling, marketing-mix models, competitive marketing strategies, pricing, etc.",
+      "enrollment_requirement": "For students in MPhil-PhD Marketing",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing the course, students will be have a deeper knowledge of state of the art quantitative tools specialized in the field of marketing and its applications.\n\n有關學習成果請參閱英文版本。",
+      "course_syllabus": "Topics will vary over course offerings but can include new statistical models, machine learning and artificial intelligence, new analytical tools from decision science, economics and statistics, etc.\n有關學科綱要請參閱英文版本。",
+      "assessment_types": {
+        "Presentation": "30",
+        "Participation": "30",
+        "Report": "40"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.\n\n學科完結前學員需進行評估反饋。",
+      "required_readings": "There is no text. The course will be a mixture of lecture notes and discussion of specific journal papers.\n\n* 有關必需讀物請參閱英文版本。*",
+      "recommended_readings": "Depending on their research interest, students are required to read from a list of relevant journal papers."
+    },
+    {
+      "subject": "MKTG",
       "course_code": "7111",
       "title": "Independent Study",
       "credits": "3.00",
@@ -558,6 +685,33 @@
       "feedback_evaluation": "Information and feedback will be gathered from students.\n\n學員會與導師溝通反饋。",
       "required_readings": "Depending on their research interest, students are required to read from a list of relevant journal papers.\n\n學員需閲讀跟自己研究範疇相關的文獻。",
       "recommended_readings": ""
+    },
+    {
+      "subject": "MKTG",
+      "course_code": "7162",
+      "title": "Advanced Seminar in Marketing - Analytical Models",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This seminar course emphasizes on analytical modeling methods in marketing studies. It will cover a wide range of topics including consumer search models, marketing-mix models, competitive marketing strategies, behavioral industrial organization, and research advances in e-marketing. The course will also introduce some basic analytical tools from areas of decision science, economics, and statistics.",
+      "enrollment_requirement": "For students in MPhil-PhD Marketing; or MPhil-PhD Decisions, Operations and Technology; or MPhil-PhD Decision Sciences and Managerial Economics",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Advanced Seminar in Marketing-Analytical Models aims to explore analytical modeling techniques in marketing studies. By the end of this course, students should be able to master logic and basic tools in analytical modeling, understand how to implement them as well as how to interpret results. Understanding how to incorporate analytical tools with marketing research questions is the essence, while learning relevant analytical and quantitative methods is necessary for conducting rigorous marketing research.\n\n有關學習成果請參閱英文版本。",
+      "course_syllabus": "1. Pricing\n2. Product\n3. Distribution\n4. Sales Force\n5. Advertising\n6. Promotion 7. Behavioral IO\n\n有關學科綱要請參閱英文版本。",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "20",
+        "Presentation": "20",
+        "Participation": "20"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.\n\n學科完結前學員需進行評估反饋。",
+      "required_readings": "Depending on the research topic, students are required to read from a list of journal papers as assigned by the instructor.\n\n有關學員需閲讀跟自己研究範疇相關的文獻。",
+      "recommended_readings": "Tirole, J. (1988), The Theory of Industrial Organization, Cambridge: The MIT Press.\n\n有關推薦讀物請參閱英文版本。"
     }
   ]
 }

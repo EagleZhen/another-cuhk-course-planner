@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "IERG",
     "subject_title": "Information Engineering",
-    "total_courses": 16
+    "total_courses": 25
   },
   "courses": [
     {
@@ -30,6 +30,32 @@
     },
     {
       "subject": "IERG",
+      "course_code": "3280",
+      "title": "Networks: Technology, Economics, and Social Interactions",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces various networking technologies we use each day and the fundamental ideas behind them. Different from many \"theory-based\" networking courses, this course is organized around a list of intriguing questions about the technological, social, and economical aspects of modern networks. The course will broadly cover topics on wireless networks, Internet, social networks, and network economics. We will introduce various methodologies such as graph theory, optimization theory, game theory, and pricing theory. The intended audience of this course includes undergraduates with majors in Information Engineering, Computer Science and Engineering and Electronic Engineering. It is also suitable for interested undergraduate students from Mathematics, and other Social Science majors.\n\nAdvisory: Students are expected to have taken Advanced Engineering Math course covering multivariate calculus and linear algebra.",
+      "enrollment_requirement": "Not for students who have taken ESTR3302.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Information Engg",
+      "academic_org": "Dept of Information Engg",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. understand the core concepts and fundamental methodologies in the field of networking; and\n\n2. learn how to model and analyze emerging networking phenomenons.",
+      "course_syllabus": "This course introduces various networking technologies we use each day and the fundamental ideas behind them. Different from many \"theory-based\" networking courses, this course is organized around a list of intriguing questions about the technological, social, and economical aspects of modern networks. The course will broadly cover topics on wireless networks, Internet, social networks, and network economics. We will introduce various methodologies such as graph theory, optimization theory, game theory, and pricing theory. The intended audience of this course includes undergraduates with majors in Information Engineering, Computer Science and Engineering and Electronic Engineering. It is also suitable for interested undergraduate students from Mathematics, and other Social Science majors. The course syllabus may be updated from year to year.",
+      "assessment_types": {
+        "Essay test or exam": "30",
+        "Others": "20",
+        "Presentation": "50"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for\nstudents to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in\naddition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the\ninstructor directly.",
+      "required_readings": "-",
+      "recommended_readings": "1. M. Chiang, \"Networks: Friends, Money, and Bytes\", Cambridge University Press, May 2012 (expected), together with its\ncompanion website http://www.network20q.com\n\n2. D. Easley and J. Kleinberg, \"Networks, Crowds, and Markets\", Cambridge University Press, 2010"
+    },
+    {
+      "subject": "IERG",
       "course_code": "3300",
       "title": "Introduction to Stochastic Processes",
       "credits": "3.00",
@@ -52,6 +78,32 @@
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
       "required_readings": "-",
       "recommended_readings": "1. Sheldon M. Ross, \"Introduction to Probability Models\", 9th Edition, Elsevier Science\n2. Sheldon M. Ross, \"Stochastic Processes,\" 2nd edition, John Wiley & Sons Inc."
+    },
+    {
+      "subject": "IERG",
+      "course_code": "3840",
+      "title": "Web Application Development Project",
+      "credits": "1.00",
+      "terms": [],
+      "description": "This hands-on project-oriented lab introduces the fundamental concepts, architectures, tools, languages, and frameworks in web applications development and deployment. After a series of lectures that cover the fundamentals, students will self-learn via online resources a set of language/tool/framework to design and implement a web application in multiple phases. This lab emphasizes on educating our students the fundamentals and empowers them to acquire skills/knowledge of specific language/tool/framework via self-learning so that they can adapt and tackle the future technological advances through life-long learning.",
+      "enrollment_requirement": "Pre-requisite: CSCI2100 or ESTR2102.\nNot for students who have taken CSCI2720 or ESTR2106.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Distinction/Pass/Failure",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Information Engg",
+      "academic_org": "Dept of Information Engg",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. Demonstrate knowledge of the fundamental concepts in web applications development, including the role of programming language, development tool, and application framework.\n2. Analyze the tradeoffs between different programming languages, development tools, and application frameworks for a given web application scenario.\n3. Acquire knowledge via self-learning in a new language, tool, and framework for developing a new web application.\n4. Design and implement a web application using the chosen language, tool, and framework.\n5. Evaluate the web application and critique its limitations.",
+      "course_syllabus": "This hands-on project-oriented lab introduces the fundamental concepts, architectures, tools, languages, and frameworks in web applications development and deployment. After a series of lectures that cover the fundamentals, students will self-learn via online resources a set of language/tool/framework to design and implement a web application in multiple phases. This lab emphasizes on educating our students the fundamentals and empowers them to acquire skills/knowledge of specific language/tool/framework via self-learning so that they can adapt and tackle the future technological advances through life-long learning.",
+      "assessment_types": {
+        "Presentation": "20",
+        "Project": "60",
+        "Report": "20"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "There is no textbook. Lecture notes will be provided for the fundamental concepts. Online learning resources will be provided for students to self-learn the tools for the projects. Students are encouraged to seek out their own learning resources as well.",
+      "recommended_readings": "1. GeeksforGeeks, Web Development, online: <https://www.geeksforgeeks.org/web-development/>\n2. W3C, Web Development Roadmaps, online: <https://www.w3schools.com/whatis/>"
     },
     {
       "subject": "IERG",
@@ -129,6 +181,57 @@
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
       "required_readings": "There is no textbook that can satisfy the needs of this course. The course contents will be organized in the form of lecture notes, as well as a list of recommended readings.",
       "recommended_readings": "1. Real World OCaml, <https://dev.realworldocaml.org/>\n2. Isaac Abraham. Get Programming with F#: A guide for .NET developers. 1st ed. Manning. 2018\n3. E-textbook of CS3110 of Cornell University. OCaml Programming: Correct + Efficient + Beautiful <https://cs3110.github.io/textbook/cover.html>\n4. Enrico Buonanno. Functional Programming in C#, Second Edition 2nd Edition. <https://www.amazon.com/Functional-Programming-Second-Enrico-Buonanno/dp/1617299820>"
+    },
+    {
+      "subject": "IERG",
+      "course_code": "4330",
+      "title": "Programming Big Data Systems",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to provide students with the hands-on experience needed for a successful career in Big Data in the information technology industry. Many of the assignments will be completed on massive publicly available data sets giving them appropriate experience with the algorithms, mainstream platforms, and software tools needed to master programming for Big Data. The students will develop a solid background in provisioning, programming and applying Big Data systems and software.",
+      "enrollment_requirement": "Pre/Co-requisite: ENGG4030 or ESTR4300 or IERG4300.\nNot for students who have taken ESTR4316 or IEMS5730.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Information Engg",
+      "academic_org": "Dept of Information Engg",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. Understand the operating principles and be familiar with the tools to provision and manage data-center infrastructure at scale.\n2. Understand and apply design patterns when programming for mainstream Big Data computational frameworks.\n3. Understand the operating principles of different components and software tools in a Big Data processing stack.\n4. Design and develop Big Data processing/ analytic applications using common open-source platforms and software tools.",
+      "course_syllabus": "This course gives students a practical understanding of using open-source platforms and tools, e.g. those in the Apache Hadoop and Spark ecosystems, to perform Big Data processing and analytics. The focus is to provide hands-on training in managing, programming and applying Big Data platforms/ technologies. Topics to be covered include:\n\n- Provision and manage data-center infrastructure at scale using tools such as OpenStack and Mesos.\n- Design patterns, performance optimization and the implementation of common algorithms under mainstream computational frameworks/ abstractions such as Hadoop/MapReduce, Spark/RDD and Storm.\n- Programming for Big Data collection, ingestion, transformation and migration using tools such as Apache Flume, Sqoop, Pig and Avro.\n- Application programming/ interfacing with distributed Big Data stores such as Redis, Cassandra, MongoDB and HBase.\n- Programming for batched and real-time Big Data queries using systems such as Hive, Impala, BigQuery/Drill and Spark SQL.\n- Workflow coordination for Big Data Processing, e.g. using Oozie.\n- Performing complex analytics using application libraries/ engines such as Mahout, MLib and GraphCreate.\n\nThe course syllabus and the specific set of Big Data programming tools and platforms to be covered may be updated from year to year.",
+      "assessment_types": {
+        "Others": "60",
+        "Short answer test or exam": "40"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for\nstudents to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in\naddition to the numeric ratings.\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the\ninstructor directly.",
+      "required_readings": "1. Learning Spark, by Holden Karau, Andy Konwinsky, Patrick Wendell, Matei Zaharia, O'Reilly Media, 2015\n2. Hadoop: The Definitive Guide, 4th Edition, by Tom White, O'Reilly Media/Yahoo Press, 2015.\n3. Advanced Analytics with Spark: Patterns for Learning from Data at Scale, by Sandy Ryza, Uri Laserson, Sean Owen, Josh Wills, O’Reilly Media, 2015.",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "IERG",
+      "course_code": "4340",
+      "title": "Emerging Technologies in Information Engineering",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces emerging technologies in telecommunications and internet engineering. These new technologies are discussed and compared with conventional ones in terms of market demand, system requirements, design principles, applications, limitations and their impacts to society. The topics include telecommunication network infrastructure, advanced optical metro/access networks and wireless LTE technologies, fiber-wireless convergence, cloud/edge computing, software defined networking, network function virtualization, data center networking, smart automation systems, etc. The topics may vary. Case studies.",
+      "enrollment_requirement": "Not for students who have taken IEMS5717.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Information Engg",
+      "academic_org": "Dept of Information Engg",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. understand the principles of various emerging technologies\n2. assess and evaluate the emerging technologies under different system application scenarios.\n3. appraise the importance of ethical and societal impacts of the emerging technologies",
+      "course_syllabus": "This course introduces the emerging technologies in telecommunications and internet engineering. The market demand, system requirements, design principles, applications, limitations and their impacts to society, of the new technologies are discussed and compared with the conventional ones. The topics include telecommunication network infrastructure, advanced optical metro/access networks and wireless LTE technologies, fiber-wireless convergence, cloud/edge computing, software defined networking, network function virtualization, data center networking, smart automation systems, etc. The topics may vary. Case studies. The course syllabus may be updated from year to year.",
+      "assessment_types": {
+        "Essays": "20",
+        "Presentation": "30",
+        "Short answer test or exam": "50"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "-",
+      "recommended_readings": "1. William Stallings, Foundations of Modern Networking: SDN, NFV, QoE, IoT, and Cloud, Addison-Wesley, 2015.\n2. Martin Sauter, From GSM to LTE-Advanced: An Introduction to Mobile Networks and Mobile Broadband, 2014.\n3. Vincent Wong (Ed.), et al., Key Technologies for 5G Wireless Systems, Cambridge University Press, 2017."
     },
     {
       "subject": "IERG",
@@ -210,6 +313,31 @@
     },
     {
       "subject": "IERG",
+      "course_code": "5200",
+      "title": "Channel Coding and Modulation",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course covers classic and new channel coding, and related modulation schemes. Topics include Reed-Solomon codes, convolutional codes, concatenated codes, low-density parity-check (LDPC) codes, and optionally, OFDM, MIMO, and network coding.",
+      "enrollment_requirement": "For all students in Engineering Faculty;Exclusion: MATH4260 and IERG4200",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. understand the fundamentals of error control coding like minimum distance constraints, bounds on code sizes using\nsphere packing and similar arguments;\n\n2. learn the theory behind various code generation schemes: (i) linear block codes such as Hamming codes, Reed-Solomon codes, etc; (ii) concatenated codes, (iii) convolutional codes, etc.;\n\n3. understand various decoding algorithms such as sequenctial decoding, trellis decoding, Viterbi algorithm, etc.; and\n\n4. learn about more novel schemes like low-density parity-check (LDPC) codes and the associated iterative decoding\ntechniques.",
+      "course_syllabus": "This course covers classic and new channel coding, and related modulation schemes. Topics include Reed-Solomon codes, convolutional codes, concatenated codes, low-density parity-check (LDPC) codes, and optionally, OFDM, MIMO, and network coding.\nThe course syllabus may be updated from year to year.",
+      "assessment_types": {
+        "Essay test or exam": "80",
+        "Others": "20"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for\nstudents to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in\naddition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the\ninstructor directly.",
+      "required_readings": "To be advised by course teacher",
+      "recommended_readings": "R.E. Blahut, \"Algebraic Codes for Data Transmission,\" Cambridge University Press, Cambridge, 2003.\n\nD.J.C. Mackay, \"Information Theory, Inference, and Learning Algorithms,\" Cambridge University Press, 2003.\n\nS. Lin and D.J. Costello, Jr., \"Error Control Coding (2nd Edition),\" Prentice-Hall, 2004.\n\nT. Richardson and R. Urbanke, \"Modern Coding Theory,\" Cambridge University Press, 2008.\n\nR.M. Roth, \"Introduction to Coding Theory,\" Cambridge University Press, 2006."
+    },
+    {
+      "subject": "IERG",
       "course_code": "5290",
       "title": "Network Coding Theory",
       "credits": "3.00",
@@ -229,6 +357,31 @@
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for\nstudents to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in\naddition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the\ninstructor directly.",
       "required_readings": "To be provided by course instructor.",
       "recommended_readings": "1. R.W. Yeung, S-Y. R. Li, N. Cai & Z. Huang, “Network Coding Theory”, now Publishers, 2006."
+    },
+    {
+      "subject": "IERG",
+      "course_code": "5300",
+      "title": "Random Processes",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course starts with a review of probability theory (random variables, distributions, characteristic functions, limit theorems and notions of convergence, etc.). Then it introduces the definition and classifications of stochastic processes, and the basic concepts of stationary independent increments, martingales, Markov processes, stationary processes, renewal processes, point processes, et cetera. After that it covers in depth the discrete-time Markov chains (transition probability matrices, the Chapman-Kolmogorov equations, classification of states, recurrence, limit theorems, random walks, etc.), continuous-time Markov chains (Poisson processes, birth death processes, renewal processes, etc.), and martingales (supermartingales and submartingales, optional sampling/stopping theorem, etc.). This course will also cover applications of the random processes in areas such as queuing theory or stock markets. Some advanced topics may be included.\n\nAdvisory note: Students are expected to have a basic background in probability theory.",
+      "enrollment_requirement": "For all students in Engineering Faculty\nExclusion: ENGG5302 or SEEM5580",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. understand the concepts and principles in probability theory, Markov chain, Martingale, queuing theory.\n2. appreciate the role and function of probability models in various Engineering problem analysis.\n3. associate some key concepts with short mnemonic expressions so that the acquired knowledge can last a long time.\n4. use probability and random process as a tool and principled language in designing and evaluating systems with\nrandomness.",
+      "course_syllabus": "Review of probability theory:\na) Random variables, distributions, infinite families of random variables, characteristic functions.\nb) Limit theorems and notions of convergence.\n\nIntroduction to stochastic processes:\na) Definition and classifications of stochastic processes.\nb) Stationary independent increments, martingales, Markov processes, stationary processes, renewal processes, point processes.\n\nDiscrete-time Markov chains:\na) Transition probability matrices and the Chapman-Kolmogorov equations.\nb) Classification of states.\nc) Recurrence.\nd) Limit theorems for Markov chains.\ne) Random walks.\n\nContinuous-time Markov chains:\na) Poisson processes.\nb) Birth death Processes.\nc) Renewal processes.\n\nMartingales:\na) Definitions and examples.\nb) Supermartingales and submartingales.\nc) Optional sampling theorem.\n\nApplications in areas such as queuing theory or stock markets.",
+      "assessment_types": {
+        "Essay test or exam": "80",
+        "Homework or assignment": "20"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
+      "required_readings": "-",
+      "recommended_readings": "1. Bruce Hajek, “Random Processes for Engineers,” Cambridge University Press, 2015.\n2. Samuel Karlin and Howard M. Taylor, “A Second Course in Stochastic Processes,” Volume 2, Gulf Professional Publishing, 1981."
     },
     {
       "subject": "IERG",
@@ -255,6 +408,32 @@
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for\nstudents to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in\naddition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the\ninstructor directly.",
       "required_readings": "To be provided by course instructor.",
       "recommended_readings": "Recommended Texts/References:\n\n1. Dan Farmer, Wietse Venema, “Forensic Discovery”, Addison-Wesley\n\n2. Brian Carrier, “File System Forensic Analysis”, Addison-Wesley\n\n3. “Real Digital Forensics: Computer Security and Incident Response\", Addison-Wesley.\n\n4. Keith J. Jones, Richard Bejtlich, Curtis W.Rose, Andrew Hoog “Android Forensics\", Elsevier, Inc."
+    },
+    {
+      "subject": "IERG",
+      "course_code": "5400",
+      "title": "Theory of Probability",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course covers the following topics: Construction of measures, integration, transformation, product spaces, distributions, expectation, Borel-Cantelli lemmas, characteristic functions, weak convergence, independence, weak law of large numbers, strong law of large numbers, central limit theorem, conditional expectation, Markov chains, stopping times and renewal times, martingales, martingale convergence Theorems, Doob's decomposition theorem, up-crossing inequality, and Birkhoff's ergodic theorem. The focus will be on mathematical rigor and development of all the tools to prove the results formally.\n\nAdvisory: Students are expected to have basic background in probability and real analysis at undergraduate level.",
+      "enrollment_requirement": "For all students in Engineering Faculty\nExclusion: IERG6300",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n1. Understand the rigorous foundations of probability theory\n2. Apply certain standard techniques and arguments in their research problems",
+      "course_syllabus": "The course covers the following topics: Construction of measures, integration, transformation, product spaces, distributions, expectation, Borel-Cantelli lemmas, characteristic functions, weak convergence, independence, weak law of large numbers, strong law of large numbers, central limit theorem, conditional expectation, Markov chains, stopping times and renewal times, martingales, martingale convergence Theorems, Doob's decomposition theorem, up-crossing inequality, and Birkhoff's ergodic theorem. The focus will be on mathematical rigor and development of all the tools to prove the results formally.\nAdvisory: Students are expected to have basic background in probability and real analysis at undergraduate level.\nCourse Syllabus will be changed from year to year.",
+      "assessment_types": {
+        "Essays": "20",
+        "Essay test or exam": "50",
+        "Short answer test or exam": "30"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the instructor directly.",
+      "required_readings": "1. SRS Varadhan, \"Probability Theory\", AMS: Chapters 1, 2, 3.1-3.3, 3.6, 4.1-4.5,5.1-5.5, 6.1-6.2\n2. Durrett, \"Probability: Theory and Examples\", Duxbury Press: Chapters 1.6 – 1.7, 4.4 – 4.7, 6.2\n3. Lecture Notes in Class: loosely based on the above material",
+      "recommended_readings": "1. Cohn, \"Measure Theory\"\n2. Billingsley, \"Probability and Measure\""
     },
     {
       "subject": "IERG",
@@ -307,6 +486,31 @@
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for students to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in addition to the numeric ratings.\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the instructor directly.",
       "required_readings": "N/A",
       "recommended_readings": "1. Ian Goodfellow, Yoshua Bengio, Aaron Gourville, Deep Learning, the MIT Press, 2016.\n2. Christopher Bishop, Pattern Recognition and Machine Learning, Springer, 2007."
+    },
+    {
+      "subject": "IERG",
+      "course_code": "5590",
+      "title": "Advanced Topics in Blockchain",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course aims to cover advanced topics on blockchain. The focus will be on advanced topics like permissionless blockchain, Ethereum, smart contract, mining pool, permissioned blockchain, anonymity, new consensus, sidechain, ripple, offchain and lightning network.\n\nAdvisory: Students are expected to have solid foundations on operating systems and database systems.",
+      "enrollment_requirement": "For all students in Engineering Faculty;Exclusion: CSCI5590",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "At the end of the course of studies, students will have acquired the ability to\n1. Understand what most kinds of cryptocurrencies out there and what are the differences between them.\n2. Understand the advanced technology in blockchain.\n3. Understand the other potential applications of blockchain beyond cryptocurrency.",
+      "course_syllabus": "This course aims to cover advanced topics on blockchain. The focus will be on advanced topics like permissionless blockchain, Ethereum, smart contract, mining pool, permissioned blockchain, anonymity, new consensus, sidechain, ripple, offchain and lightning network.\nAdvisory: Students are expected to have solid foundations on operating systems and database systems.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Homework or assignment": "50"
+      },
+      "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
+      "required_readings": "To be advised by course teacher",
+      "recommended_readings": "1. Bitcoin and Cryptocurrency Technologies: A Comprehensive Introduction, by Arvind Narayanan, Joseph Bonneau, Edward Felten, Andrew Miller,\nSteven Goldfeder\n2. Research Perspectives and Challenges for Bitcoin and Cryptocurrencies, by Bonneau, Miller, Clark, Narayanan, Kroll and Felten\n3. Cryptocurrency Online Bibliography, maintained by Jeremy Clerk"
     },
     {
       "subject": "IERG",
@@ -384,6 +588,32 @@
       "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for\nstudents to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in\naddition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the\ninstructor directly.",
       "required_readings": "1. Network Information Theory by Abbas EI Gamal & Young-Han Kim, Cambridge University Press 2011",
       "recommended_readings": "1. Csiszar & Janos Korner, \"Information Theory\", Cambridge University Press, 2011"
+    },
+    {
+      "subject": "IERG",
+      "course_code": "6200",
+      "title": "Advanced Topics in Computer Networks",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course will introduce to the students advanced topics in Computer Networks. The detailed course contents may be changed from year to year depending on the current development.",
+      "enrollment_requirement": "For students in MPhil-PhD Information Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Information Engineering",
+      "academic_org": "Div of Information Engineering",
+      "learning_outcomes": "Upon successful completion of the course, the students will have acquired the ability to:\n\n1. understand the materials prescribed in the course description.",
+      "course_syllabus": "This course will introduce to the students advanced topics in Computer Networks. The detailed course contents may be changed from year to year depending on the current development.",
+      "assessment_types": {
+        "Homework or assignment": "30",
+        "Others": "30",
+        "Project": "40"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There are two course evaluations - one before the mid-term, and one at the end of the course. This is a formal channel for\nstudents to rate the teacher, the course, and the course tutors. Students can give specific comments or suggestions in\naddition to the numeric ratings.\n\n2. Students can provide feedbacks using informal channels, such as email, or simply by discussing with the tutors or the\ninstructor directly.",
+      "required_readings": "To be provided by course instructor.",
+      "recommended_readings": "To be provided by course instructor."
     },
     {
       "subject": "IERG",

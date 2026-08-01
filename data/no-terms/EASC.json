@@ -3,9 +3,34 @@
     "schema_version": 1,
     "subject": "EASC",
     "subject_title": "Earth and Atmospheric Sciences",
-    "total_courses": 24
+    "total_courses": 30
   },
   "courses": [
+    {
+      "subject": "EASC",
+      "course_code": "5001",
+      "title": "Research Frontiers in Earth & Atmospheric Sciences I",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Recent research methods, experimental, and computational techniques applied in Earth & Atmospheric Sciences. Topics extend over a diversity of research areas in Earth & Atmospheric Sciences, with a consistent theme that many of the operative processes are intertwined and advances in elucidating them hinge on the adoption of an interdisciplinary framework.",
+      "enrollment_requirement": "For students in MPhil-PhD Earth and Atmospheric Sciences",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Earth & Env Sci",
+      "academic_org": "Div of Earth & Env Sci",
+      "learning_outcomes": "1. Students will learn a broad working knowledge of the researches in Earth & Atmospheric Sciences.\n2. Students will get familiar with the literature in the researches in Earth & Atmospheric Sciences.\n3. Students will get familiar with the analytical and mathematical skills necessary in the researches.\n4. Students will develop ability to analyze and synthesize scientific data (observations and modeling) necessary in the researches\n5. Students will develop ability to communicate the results in the form of written reports, visual displays, and scientific presentations.",
+      "course_syllabus": "1. Introduction to the dynamics of the climate system\n2. Climate sensitivity and feedback mechansisms\n3. Climate change\n4. Surface energy balance and biogeophysical land-atmosphere interactions\n5. Global biogeochemical cycles and climate\n6. Interactions of ecosystems and agriculture with atmospheric chemistry and climate\n7. Advanced topics in the formation mechanisms and control strategy for tropospheric ozone\n8. Advanced topics in atmospheric gas-phase oxidation chemistry\n9. Advanced topics in sources, formation, and transformation of atmospheric aerosols",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Presentation": "50"
+      },
+      "feedback_evaluation": "1. Course evaluation: Tailored questionnaire to be answered by all students at the end of the course\n\n2. Discussion with students: view and suggestions will be gathered from students\n\n3. Reflection of teacher",
+      "required_readings": "Hartmann, Dennis L.: *Global Physical Climatology*, Second Edition, Elsevier, 2016\n\nBonan, Gordon: *Ecological Climatology: Concepts and Applications*, Second Edition, 2015.\n\nSeinfeld, J.H. and Pandis, S.N.: *Atmospheric Chemistry and Physics: From Air Pollution to Climate Change*, Third Edition, 2016.",
+      "recommended_readings": "Refer to the course syllabus distributed in the class."
+    },
     {
       "subject": "EASC",
       "course_code": "5002",
@@ -166,6 +191,31 @@
     },
     {
       "subject": "EASC",
+      "course_code": "5103",
+      "title": "Aerosol Physics and Chemistry",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Knowledge of aerosol physics and chemistry such as condensation and evaporation; thermodynamics; radiative, hygroscopic properties, and cloud formation potential of aerosols;Recent advances in aerosol physics and chemistry researches; Roles of atmospheric aerosols on the critical environmental issues such as air quality, tropospheric smog, and climate change, with focus on observations, laboratory measurements and modelling.",
+      "enrollment_requirement": "For students in MPhil-PhD Earth and Atmospheric Sciences",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Earth & Env Sci",
+      "academic_org": "Div of Earth & Env Sci",
+      "learning_outcomes": "1. Students will learn how various important atmospheric physical processes alter the composition and properties of atmospheric aerosols\n2. Students will learn how physical chemistry, spectroscopy, kinetics, and thermodynamics govern the chemical processes in atmospheric aerosols.\n3. Students will learn how to use laboratory measurements together with model stimulations to study the physical and chemical processes occurred in the aerosols.\n4. Students will learn how atmospheric processes govern the aerosol-cloud formation.\n5. Students will understand the interplay of observation, measurement, and theory in aerosol physics and chemistry.\n6. Students will learn the recent advance in aerosol sciences and the impacts of atmospheric aerosols on the key environmental issues such as acid rain, tropospheric smog, and climate change.",
+      "course_syllabus": "| Course content |\n| --- |\n| 1. Introduction to atmospheric aerosols |\n| 2. Gas-phase chemistry (A quick review) |\n| 3. Dynamics of a single aerosol particles |\n| 4. Thermodynamics of aerosols (deliquescence and crystallization) |\n| 5. Aerosol-cloud formation: Role of organic compounds |\n| 6. Condensation and evaporation of aerosols |\n| 7. Coagulation |\n| 8. Nucleation |\n| 9. Dry and Wet Deposition |\n| 10. Special topic: Heterogeneous oxidation of aerosols |",
+      "assessment_types": {
+        "Essay test or exam": "70",
+        "Presentation": "30"
+      },
+      "feedback_evaluation": "1. Course evaluation: Tailored questionnaire to be answered by all students at the end of the course\n\n2. Discussion with students: view and suggestions will be gathered from students\n\n3. Reflection of teacher",
+      "required_readings": "Seinfeld, J.H. and Pandis, S.N.: *Atmospheric Chemistry and Physics: From Air Pollution to Climate Change*, 2006.",
+      "recommended_readings": "Jacob, D.J.: *Introduction to Atmospheric Chemistry*, Princeton University Press, 1999."
+    },
+    {
+      "subject": "EASC",
       "course_code": "5104",
       "title": "General Circulation and Climate Models",
       "credits": "3.00",
@@ -214,6 +264,33 @@
       "feedback_evaluation": "* Course evaluation: Tailored questionnaire to be answered by all students at the end of the course; and\n* Reflection of teacher",
       "required_readings": "Climate Change 2013: The Physical Science Basis, The Working Group I contribution to the IPCC's Fifth Assessment Report (AR5)\nClimate Change 2014: Impacts, Adaptation, and Vulnerability, The Working Group II contribution to the IPCC's Fifth Assessment Report (AR5)",
       "recommended_readings": "Refer to the course syllabus distributed in the class."
+    },
+    {
+      "subject": "EASC",
+      "course_code": "5110",
+      "title": "Applied Geophysics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces concepts, principles, and applications of geophysical methods in environmental and engineering studies. It offers an overall survey of various geophysical methods for exploring the shallow subsurface. It provides the technical foundation needed to understand the use and limitations of gravity, seismic, ground penetrating radar, and electromagnetic methods. Demonstration of commonly used methods will be provided in the field along with tutorials of preliminary data analysis techniques. Technical papers published in leading applied geophysics journals will be discussed in reading groups.",
+      "enrollment_requirement": "For students in MPhil-PhD Earth and Atmospheric Sciences",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Earth & Env Sci",
+      "academic_org": "Div of Earth & Env Sci",
+      "learning_outcomes": "- Students will become familiar with applied geophysics methods, their principles, and their typical applications\n- Students will gain a solid understanding of physical properties of soil and rocks determining geophysical properties\n- Students will design and conduct geophysics field surveys, process, analyze, and interpret survey data using computer software\n- Students will understand the advantages and limitations of geophysical methods when applied to environmental and engineering studies\n- Students will critically understand and judge technical papers published in leading applied geophysics journals",
+      "course_syllabus": "* *Week 1** Introduction to Applied Geophysics. Applications in Hong Kong\n\n* *Week 2** Gravity Methods\n\n* *Week 3** Geomagnetic Methods\n\n* *Week 4** Introduction to seismic methods. Review of seismic waves\n\n* *Week 5** Seismic refraction\n\n* *Week 6** Seismic reflection\n\n* *Week 7** Ground penetrating radar: theory\n\n* *Week 8** Ground penetrating radar: field procedure and considerations\n\n* *Week 9** Lab: GPR instrument, common offset survey\n\n* *Week 10** Lab: GPR: common-mid point survey, Processing GPR CMP data\n\n* *Week 12** Time-domain EM\n\n* *Week 13** Nuclear Magnetic Resonance",
+      "assessment_types": {
+        "Homework or assignment": "40",
+        "Lab reports": "20",
+        "Presentation": "20",
+        "Short answer test or exam": "20"
+      },
+      "feedback_evaluation": "* Course evaluation – course questionnaire to be answered by all students at the end of the course.\n* Discussion with students – views and suggestions will be gathered regularly from students during tutorials.\n* Reflection of teacher.",
+      "required_readings": "Burger, H.R., A.F. Sheehan and R.H. Jones. (2006), Introduction to Applied Geophysics, Norton, 554 pp.",
+      "recommended_readings": "Reynolds, J. (2011), An introduction to Applied and Environmental Geophysics, Wiley-Blackwell. ISBN:978-0-471-485360."
     },
     {
       "subject": "EASC",
@@ -374,6 +451,85 @@
       "feedback_evaluation": "* Course evaluation: Tailored questionnaire to be answered by all students at the end of the course.\n* Students’ feedback collected via in-class survey or email",
       "required_readings": "* Turcotte, D.L. & Schubert, G. Geodynamics, 3rd Edition. Cambridge University Press, 623 pp., 2014.\n* Literatures refer to the course syllabus",
       "recommended_readings": "* Jaeger, J.C., Cook, N.G.W., & Zimmerman, R. Fundamentals of Rock Mechanics, 4th Edition. Wiley, 488 pp., 2007.\n* Gabriele Morra. Pythonic Geodynamics: Implementations for Fast Computing. Springer Cham, 227 pp., 2018."
+    },
+    {
+      "subject": "EASC",
+      "course_code": "5180",
+      "title": "Earthquake Source Physics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course focuses on the concepts and theory of earthquake source physics. The topics covered include seismic instrumentation, geophysical observations of earthquake source processes, kinematic source representation of earthquakes, dynamic rupture propagation of earthquakes, frictional properties of fault zones, and entire earthquake cycle. Methods and field practice of seismological survey will also be introduced.",
+      "enrollment_requirement": "For students in MPhil-PhD Earth and Atmospheric Sciences",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Earth & Env Sci",
+      "academic_org": "Div of Earth & Env Sci",
+      "learning_outcomes": "At the completion of this course, the students will be able to know about principles of earthquake source process and relevant observational data that can improve our understanding of earthquake source physics and preparation for seismic hazard. The students will also be trained with extensive computing exercises. The students will develop: 1) the ability to evaluate an issue critically based on evidence and scientific principle, 2) to acquire knowledge effectively by self-study and using information technology, and to work independently, 3) to work effectively in a team, and 4) to present information in a clear, concise and logical manner. The students also can acquire a responsible attitude in study and work, and have motivation for life-long learning.",
+      "course_syllabus": "- Overview of Earthquake Source Physics\n\n- Seismic Instrumentation\n\n* Foundations of seismometers\n* Evolution of seismometers and earthquake source study\n\n- Earthquake Source Kinematics\n\n* Source Representation Theorem\n* Point source\n* Finite fault\n\n- Stress Drop\n\n- Earthquake Source Dynamics\n\n* Friction law\n* Coseismic rupture process\n* Interseismic period\n\n- Aseismic slip and tremor",
+      "assessment_types": {
+        "Homework or assignment": "40",
+        "Project": "20",
+        "Report": "40"
+      },
+      "feedback_evaluation": "* Course evaluation: Tailored questionnaire to be answered by all students at the end of the course\n* Students’ feedback will be gathered directly via phone, email or regular mail\n* Reflection of the teacher",
+      "required_readings": "Refer to the course syllabus distributed in the class.",
+      "recommended_readings": "* *An Introduction to Seismology, Earthquakes, and Earth Structure, Wiley-Blackwell, ISBN** 978-0865420786, Seth Stein and Michael Wysession"
+    },
+    {
+      "subject": "EASC",
+      "course_code": "5210",
+      "title": "Land-Atmosphere Interactions and Boundary-Layer Meteorology",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces the physical, chemical and biological processes governing the exchange of energy, momentum, water and other chemical materials between the atmosphere and land surface, including a formal introduction into boundary-layer meteorology. Topics covered include the basic equations and concepts of heat, momentum and mass conservation and transfer at the land-atmosphere interface; soil physics and hydrometeorology; temperature, humidity and wind distribution in the atmospheric boundary layer; theories and observations of turbulence; stability and boundary-layer dynamics; biometeorology and ecophysiology of land plants; canopy and ecosystem exchange; and land use change and urbanization. Applications to weather phenomena, air pollution, forestry, agriculture and ecosystem management will be emphasized throughout.",
+      "enrollment_requirement": "For students in MPhil-PhD Earth and Atmospheric Sciences",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Earth & Env Sci",
+      "academic_org": "Div of Earth & Env Sci",
+      "learning_outcomes": "At the completion of this course, the students will be able to 1) Gain knowledge of physical and chemical processes of land-atmosphere interactions and boundary layer dynamics; and 2) Develop the skill and ability to understand climate variability related to land-atmosphere interactions. (Course Outcomes as related to Programme Learning Outcomes) -- The students will develop: 1) the ability to evaluate an issue critically based on evidence and scientific principle, 2) to acquire knowledge effectively by self-study and using information technology, and to work independently, 3) to work effectively in a team, and 4) to present information in a clear, concise and logical manner. The students also can acquire a responsible attitude in study and work, and have motivation for life-long learning.",
+      "course_syllabus": "Topics:\nIntroduction to land-atmosphere interactions; soil physics I: soil heat transfer and temperature dynamics\nHydrological cycle; soil physics II: water movement and infiltration; evapotranspiration; water balance\nSurface energy fluxes and balance; soil moisture and atmospheric boundary layer\nBasic Thermodynamic Relations and Moisture Content in Air\nStatic Stability & PBL Structure\nViscous Force and Fundamentals of Turbulence\nEddy Flux & Turbulent Kinetic Energy\nBasics on Closure Techniques\nMore on the Surface & Similarity Theory\nAerodynamic conductance; plant biophysics and ecophysiology\nPlant canopies; eddy covariance measurements\nUrban climatology; air pollution meteorology",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Homework or assignment": "30",
+        "Presentation": "10",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "1. Course evaluation: Tailored questionnaire to be answered by all students at the end of the course\n2. Discussion with students: view and suggestions will be gathered from students\n3. Reflection of teacher",
+      "required_readings": "- Bonan, G., 2016: Ecological Climatology: Concepts and Applications (3rd Edition). Cambridge University Press.\n- Arya, S. P., 2001: Introduction to Micrometeorology (2nd Edition). Academic Press.",
+      "recommended_readings": "- Stull, R. B., 1988: Introduction to Boundary Layer Meteorology. Kluwer Academic Publishers."
+    },
+    {
+      "subject": "EASC",
+      "course_code": "5220",
+      "title": "Tropical Meteorology",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces tropical atmospheric circulation and related air-sea coupling at a variety of spatial and temporal scales. The topics covered include the role of the tropics in the global energy and momentum balance, ITCZ, subtropical high, upper-level anticyclones, tropical ocean circulation, tropical weather, climate and atmosphere-ocean interaction phenomena including meso-scale convective systems, tropical waves, the Hadley and the Walker circulation, El Nino-Southern Oscillation, tropical cyclones, Madden Julian Oscillation, and monsoons.",
+      "enrollment_requirement": "For students in MPhil-PhD Earth and Atmospheric Sciences",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Earth & Env Sci",
+      "academic_org": "Div of Earth & Env Sci",
+      "learning_outcomes": "At the completion of this course, the students will be able to 1) Gain the knowledge of various tropical atmospheric motions, 2) Understand physical processes in the tropical atmosphere; and 3) Apply knowledge to understand tropical climate variability. The students will develop: 1) the ability to evaluate an issue critically based on evidence and scientific principle, 2) to acquire knowledge effectively by self-study and using information technology, and to work independently, 3) to work effectively in a team, and 4) to present information in a clear, concise and logical manner. The students also can acquire a responsible attitude in study and work, and have motivation for life-long learning.",
+      "course_syllabus": "* Radiativeand convection: Radiative Processes in the Tropics, Surface Energy Balance, Top of the Atmosphere Net Radiation Fluxes, Dry and Moist Stability, Moist Convection\n* General circulation in the tropics: Observed zonally averaged Tropical circulation, Theory of the Hadley Cell, Zonally asymmetric circulation features, seasonal variations, diurnal cycle, Observed aspects of the Intertropical Convergence Zone (ITCZ), ITCZ theory, Gill model, Heat lows, Tropical ocean circulation, ocean waves.\n* Monsoons: Deﬁnition, Differential Heating and the Monsoon, Key Elements of the Asian Summer and Winter Monsoon, Onset and Withdrawal, Breaks in the Indian Monsoon\n* El Nino and Southern Oscillation (ENSO): Observational aspect, air-sea interaction, Bjerknes feedback, teleconnection, ENSO modeling, Indian Ocean Dipole\n* Madden Julian Oscillation (MJO): Observational aspect, Theory of MJO, Westerly wind bursts, Connection with ENSO\n* Tropical Waves and Tropical Depressions (TD): Matsuno wave theory, convective coupled equatorial waves, easterly waves and TD-type disturbances, relationship with Tropical Cyclones (TC) genesis\n* TC: Structure, Genesis, dynamics of TC movement, and intensiﬁcation, modeling and forecasting\n* Tropical Squall Lines and Mesoscale Convective Systems (MCS): Observations of MCS and squall lines, dynamical aspects, Organization of Convection",
+      "assessment_types": {
+        "Homework or assignment": "50",
+        "Participation": "5",
+        "Selected response test or exam": "45"
+      },
+      "feedback_evaluation": "1. Course evaluation: Tailored questionnaire to be answered by all students at the end of the course\n2. Discussion with students: view and suggestions will be gathered from students\n3. Reflection of teacher",
+      "required_readings": "Krishnamurti, T.N., Stefanova, Lydia, Misra, Vasubandhu, 2013: Tropical Meteorology- An Introduction. Springer.",
+      "recommended_readings": "Hastenrath, S., 1991: Climate Dynamics of the Tropics. Updated Edition from Climate and Circulation of the Tropics. Springer, Kluwer Academic Publishers.\nWang, Bing, 2006: The Asian Monsoon. Springer Praxis Books (Environmental Sciences)."
     },
     {
       "subject": "EASC",

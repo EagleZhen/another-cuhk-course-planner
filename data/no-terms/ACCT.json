@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "ACCT",
     "subject_title": "Accountancy",
-    "total_courses": 26
+    "total_courses": 30
   },
   "courses": [
     {
@@ -52,6 +52,32 @@
       "assessment_types": {},
       "feedback_evaluation": "Revised course questionnaire\nTailored questionnaire\nReflection of teachers(including evidence from assessment)",
       "required_readings": "N/A",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "ACCT",
+      "course_code": "3004",
+      "title": "Accounting Practicum and Experiential Learning",
+      "credits": "2.00",
+      "terms": [],
+      "description": "This course is designed to provide students with professional knowledge and experiences in real-life business environment. Students are expected to link theoretical knowledge to business practices in a global context through practicum and various training programmes.",
+      "enrollment_requirement": "",
+      "course_attributes": "Experiential Learning Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Sch of Accountancy",
+      "academic_org": "Sch of Accountancy",
+      "learning_outcomes": "After completion of this course, students are expected to be able to:\nCLO1 integrate and apply theoretical knowledge and skills developed in various courses to real-world business\nCLO2 understand differences in culture and business styles of different regions\nCLO3 demonstrate good team skills and leadership ability\nCLO4 able to communicate effectively and efficiently in a professional way",
+      "course_syllabus": "Training programs and enrichment activities include: study trip, internship, case training workshops, leadership and team building workshops, mentorship program, community service, etc.",
+      "assessment_types": {
+        "Project": "40",
+        "Participation": "20",
+        "Report": "40"
+      },
+      "feedback_evaluation": "The course leader will meet students regularly and receive feedback from students during the whole training period. Course evaluation will be conducted at the end of the course.",
+      "required_readings": "Cases will be provided to students at the case training workshops whereas required reading is not applicable for other enrichment activities.",
       "recommended_readings": ""
     },
     {
@@ -314,6 +340,31 @@
       "feedback_evaluation": "Students are welcomed to provide comments and feedback to the instructor via email, appointment and the CTE exercise.",
       "required_readings": "Given the extensive scope of the subject and the continuing evolution of the capital markets no textbook is prescribed for this course. Students are however expected to read comprehensively on all aspects of securities law as published in the media, professional and academic journals.",
       "recommended_readings": "* **REFERENCE***:\n\n'Securities Law: Hong Kong SAR and People's Republic of China', LexisNexis, Hong Kong\n\n* **SOME USEFUL WEBSITES*** (Non exhaustive and non-exclusive)\n\nLegislation: <http://www.legislation.gov.hk/eng/home.htmm>\n\nCases: [www.hklii.org](http://www.hklii.org/)\n\n[http://legalref.judiciary.gov.hk](http://legalref.judiciary.gov.hk/)\n\nGeneral: <http://www.sfc.hk/web/EN/index.html>\n\n<http://www.hkma.gov.hk/eng/index.shtml>\n\n<https://www.hkex.com.hk/eng/index.htm>\n\n<http://www.fstb.gov.hk/fsb/aboutus/welcome/index.htm>\n\n[http://legco.gov.hk](http://legco.gov.hk/)\n\nhttps://webb-site.com"
+    },
+    {
+      "subject": "ACCT",
+      "course_code": "4252",
+      "title": "Corporate Insolvency and Restructuring",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course will examine the law and regulations relating to corporate restructuring and insolvency in Hong Kong. It will examine issues pertaining to receiverships and liquidations highlighting the role of the professional accountant in such administrations. A portion of the course will focus on transnational insolvency issues.",
+      "enrollment_requirement": "Prerequisites: ACCT3152",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Sch of Accountancy",
+      "academic_org": "Sch of Accountancy",
+      "learning_outcomes": "By the end of the course, students would be able to have\n(1) a better appreciation of the intricacies of corporate restruturing and insolvency\n(2) an insight into the highly pragmatic and vexed issues of forensic accounting, cross-border and transnational insolvencies.",
+      "course_syllabus": "This course will combine theory with practice in the examination of the issues confronting and of the options available to insolvent and financially distressed companies. Topics covered:\n(1) Philosophy of Insolvency Law\n(2) Conference on Corporate Rescue\n(3) Winding Up Regine in Hong Kong\n(4) Antecedent Transactions\n(5) Remuneration of Liquidators\n(6) Corporate Restructuring\n(7) Cross Border Insolvency\n(8) Transnational Insolvency\n(9) Forensic Accounting\n(10) Recent Developments in Insolvency Law",
+      "assessment_types": {
+        "Others": "50",
+        "Presentation": "50"
+      },
+      "feedback_evaluation": "Students are welcomed to provide comments and feedback to the instructor via email, appointment and the CTE exercise.",
+      "required_readings": "Briscoe S. & Booth C., Hong Kong Corporate Insolvency Manual (Second edition 2009)",
+      "recommended_readings": "Useful websites:\n\nLegislation: http://www.judiciary.gov.hk/tc/index/index.htm\nCases: www.hklii.org\nhttp://legalref.judiciary.gov.hk\nGeneral: http://www.oro.gov.hk\nhttp: //legco.gov.hk\nwww.ssrn.com\nhttp://law.bepress.com/repository\nhttp://scholar.google.com"
     },
     {
       "subject": "ACCT",
@@ -668,6 +719,58 @@
       "assessment_types": {
         "Essays": "75",
         "Presentation": "25"
+      },
+      "feedback_evaluation": "Mandatory course and teaching evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be provided by the course teacher",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "ACCT",
+      "course_code": "7190",
+      "title": "Research Methodology in Accounting",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course is designed to equip students with skills necessary for advanced research in accounting areas. Topics covered will include identification of research problems, development of research hypotheses, research design, data collection and processing, statistical tests, interpretation of results, and writing of research reports. Selected papers and topical research issues will also be discussed. The emphasis will be on the application of the research methods to solving accounting-related problems.",
+      "enrollment_requirement": "For students in MPhil-PhD Accountancy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "By completion of the course, students will be able to:\nL1: Master basic accounting research methodologies\nL2: Assess the validity of methodologies adopted by accounting research work\nL3: Determine the appropriate methodologies of various accounting research questions\nL4: Understand the main critiques for various accounting methodologies\nL5: Apply the main methodologies properly in own research questions.",
+      "course_syllabus": "1. Organizational Meeting and Introduction Modeling Information and its Use\n\n2. Basic Moral Hazard and Adverse Selection Problems\n\n3. Moral Hazard and Corporate Agency Costs\n\n4. Moral Hazard and Financing Constraint\n\n5. Moral Hazard and Monitoring in Teams\n\n6. Adverse Selection and Voluntary Disclosure\n\n7. Adverse Selection and Disclosure for Investment Eﬃciency\n\n8. Adverse Selection and Disclosure for Liquidity Eﬃciency",
+      "assessment_types": {
+        "Essays": "60",
+        "Homework or assignment": "30",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "Mandatory course and teaching evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be provided by the course teacher",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "ACCT",
+      "course_code": "7199",
+      "title": "Current Topics in Accounting Research",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course explores current topics in a specific area of accounting research. Through a combination of lectures and seminars, students discuss recent literature and academic works to enhance their knowledge and skill to conduct research in accounting utilizing tools and paradigms at the frontier of such technologies.",
+      "enrollment_requirement": "For students in MPhil-PhD Accountancy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "By completion of the course, students will be able to:\nL1: Master basic theoretical concepts in accounting research\nL2: Develop a good understanding of the evolution of accounting research\nL3: Assess the validity of research work\nL4: Critique accounting research by applying basic accounting theories\nL5: Develop basic understanding of the common methodologies used in accounting research",
+      "course_syllabus": "1. Research methodologies illustrated by classic papers in the theories of property rights and transaction costs\n\n2. Apply the theories and methodologies to topics including firm ownership and organizational structures, state owned firms, family firms, and corporate accounting. financing, and governance decisions",
+      "assessment_types": {
+        "Essays": "40",
+        "Homework or assignment": "40",
+        "Participation": "20"
       },
       "feedback_evaluation": "Mandatory course and teaching evaluation (CTE) is conducted at the end of the course.",
       "required_readings": "To be provided by the course teacher",

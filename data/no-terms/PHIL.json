@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "PHIL",
     "subject_title": "Philosophy",
-    "total_courses": 55
+    "total_courses": 70
   },
   "courses": [
     {
@@ -217,6 +217,58 @@
     },
     {
       "subject": "PHIL",
+      "course_code": "3253",
+      "title": "Practical Ethics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course examines a range of moral problems confronting individuals in today’s society, showing how philosophical thought can be brought to bear upon contemporary issues. Among the topics that may be discussed are theories of normative ethics, abortion, euthanasia, criminal punishment and the death penalty, the enforcement of morals, obligations to help poor nations, censorship, animal rights, deep ecology, and environmental issues.\n\nAdvisory to Majors: to be taken in year 2 or above.",
+      "enrollment_requirement": "Not for students who have taken UGEC2841",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Philosophy",
+      "academic_org": "Dept of Philosophy",
+      "learning_outcomes": "1. Understand the characteristics and value of ethical theories.\n\n2. Understand the characteristics and importance of some controversial and difficult ethical-social issues.\n\n3. Ability to apply normative ethics to the issues and form considered judgments concerning them.\n\n4. Ability to explain and assess different moral stances in a perspicuous, non-doctrinaire way.",
+      "course_syllabus": "This course examines a range of moral problems confronting individuals in today’s society, showing how philosophical thought can be brought to bear upon contemporary issues. Among the topics that may be discussed are theories of normative ethics, abortion, euthanasia, criminal punishment and the death penalty, the enforcement of morals, obligations to help poor nations, censorship, animal rights, deep ecology, and environmental issues.\n\n本科旨在分析現代社會的倫理道德問題，並藉此展示哲學學說與現代生活的相關性。討論題目包括：規範倫理學、墮胎、安樂死、刑罰與死刑、法律與道德的關係、國際援助的責任、言論管制、動物權益、深綠哲學、環境問題等。",
+      "assessment_types": {
+        "Essays": "60",
+        "Essay test or exam": "40"
+      },
+      "feedback_evaluation": "Teacher's reflections\n\nTutor's input\n\nDiscussion in tutorials and lectures",
+      "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
+      "recommended_readings": "The reading list will vary from semester to semester. It will generally include a selection of articles or book chapters from the books listed below and scholarly articles from journals and other sources.\n\n1. Kuhse, Helga and Peter Singer, Bioethics: An Anthology, Blackwell Publishers, 1999.\n\n2. LaFollette, Hugh, Ethics in Practice: Anthology, 2nd Edition, Blackwell Publishing, 2001.\n\n3. Mappes, Thomas A. and Jane S. Zembaty, Social Ethics, 6th Edition, Iowa: McGraw-Hill, 2002.\n\n4. Olen, Jeffrey and Vincent Barry, Applying Ethics, 8th Edition, Belmont: Wadsworth Publishing. 2004.\n\n5. Singer Peter, Practical Ethics, 2nd Edition, Cambridge: Cambridge University Press, 1993."
+    },
+    {
+      "subject": "PHIL",
+      "course_code": "3263",
+      "title": "Philosophical Problems and Computational Tools",
+      "credits": "3.00",
+      "terms": [],
+      "description": "In this digital age, philosophical inquiries can benefit from embracing powerful computational tools in their methodology. This course is an introduction to the use of computational tools in the investigation of philosophical problems and will focus on some prominent examples of leveraging computation tools in addressing philosophically significant issues. These examples may include (but are not limited to)\n• tools for data analysis in general (such as JASP) and corpus analysis in particular (such as Voyant), in connection with inquiries in the history of philosophy and in experimental philosophy\n• tools for agent-based modelling (such as NetLogo), in connection with inquiries in social epistemology and in moral and political philosophy\n• tools for probabilistic and causal modelling (such as Tetrad), in connection with inquiries in Bayesian epistemology and in general philosophy of science\n• tools for virtual reality (such as A-Frame), in connection with inquiries in traditional metaphysics and epistemology.\nSpecific tools to be introduced in this course and related philosophical topics to be discussed are likely to vary from semester to semester, but the core purpose of the course remains the same: to expose students to various ways computational tools can help with philosophical investigations and to give them hands-on experience in using the tools to address philosophically motivated problems. In addition to exploring the power of computational methods, this course will also help students understand their limitations.\n\nAdvisory to Majors: to be taken in year 2 or above.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Philosophy",
+      "academic_org": "Dept of Philosophy",
+      "learning_outcomes": "1. Identify and explain various ways philosophical inquiries can be enhanced by computational methods.\n\n2. Grasp and reproduce a prominent example of using computational tools in philosophical research.\n\n3. Demonstrate proficiency in using selected computational tools.\n\n4. Develop the ability to design and carry out a small-scale project with the aid of computational tools.\n\n5. Develop critical reflection about the benefits and limitations of computational methods.",
+      "course_syllabus": "This course is about the use of computational tools in the investigation of philosophical problems and will survey selected examples of leveraging computation tools in addressing philosophically significant issues. Specific examples may differ from semester to semester and instructor to instructor, but core areas will include:\n1. tools for data/text analysis, in connection with history of philosophy and/or experimental philosophy\n2. tools for agent-based modelling, in connection social epistemology and moral philosophy\n3. tools for probabilistic and causal modelling, in connection with inquiries in Bayesian epistemology and general philosophy of science\n\nIn addition, virtual reality and related tools are another likely though optional topic, as well as the use of generative AI and specifically large language models.",
+      "assessment_types": {
+        "Essays": "35",
+        "Presentation": "15",
+        "Participation": "20",
+        "Report": "30"
+      },
+      "feedback_evaluation": "Informal feedback by email, Midterm survey, and course evaluation at the end.",
+      "required_readings": "P. Grim, and D. Singer (2024) Computational Philosophy, *Stanford Encyclopedia of Philosophy*.\n\nAnd selected essays from\n\nL. Levenberg, T. Neilson, and D. Rheams (2018) *Research Methods for the Digital Humanities*. Springer.",
+      "recommended_readings": "J.M. Alexander (2007). *The Structural Evolution of Morality*. Cambridge: Cambridge University Press.\n\nC. Allen, and the InPho Group (2013). Cross-Cutting Categorization Schemes in the Digital Humanities. *Isis*, 104(3): 573-583\n\nC. Chalmers (2023). *Reality+: Virtual Worlds and the Problems of Philosophy*. Penguin.\n\nL. Chartrand (2022). Modeling and Corpus Methods in Experimental Philosophy. *Philosophy Compass*, 17(6).\n\nK. Dorst (2023). Rational Polarization. *Philosophical Review*, 132(3): 355-458.\n\nC. Glymour, and F. Wimberley (2007). Actual Causes and Thought Experiments. In J. K. Campbell, M. O’Rourke, & H. Silverstein (eds.) *Causation and Explanation*, pp. 4-43. Bradford.\n\nP. Grim, G. R. Mar, and P. St. Denis (1998). *The Philosophical Computer*. MIT Press.\n\nI. Hacking (2001). *An Introduction to Probability and Inductive Logic*. Cambridge University Press.\n\nC. H. Pence, and G. Ramsey (2018). How to Do Digital Philosophy of Science? *Philosophy of Science*, 85(5): 930-941.\n\nS. Scheller, C. Merdes, and S. Hartmann (2022). *Computational Modelling in Philosophy*. Synthese Topical Collection.\n\nP. Urbach, and C. Howson (1993). *Scientific Reasoning: The Bayesian Approach*. Open Court.\n\nP. Zhai (1998). *Get Real: A Philosophical Adventure in Virtual Reality*. Rowman & Littlefield.\n\nJ. Zhang (2013). A Comparison of Three Occam’s Razors for Markovian Causal Models. *British Journal for the Philosophy of Science*, 64(2): 423-448.\n\nK. Zollman (2007). The Communication Structure of Epistemic Communities. *Philosophy of Science*, 74(5), 574-587."
+    },
+    {
+      "subject": "PHIL",
       "course_code": "3333",
       "title": "Comparative Philosophy of Religion",
       "credits": "3.00",
@@ -266,6 +318,32 @@
       "feedback_evaluation": "Course evaluation should be relied on as an estimate as to how the course was received by the students. The course instructor should also assess the various ways in which the course was taught..",
       "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
       "recommended_readings": "1. John Austin, The Province of Jurisprudence Determined.\n\n2. H. L. A Hart, The Concept of Law.\n\n3. H. L. A. Hart, Law, Liberty and Morality.\n\n4. J. S. Mill, On Liberty.\n\n5. Patrick Devlin, The Enforcement of Morals.\n\n6. Antony Duff and David Garland, eds., A Reader on Punishment.\n\n7. Ronald Dworkin, Taking Rights Seriously.\n\n8. Ronald Dworkin, The Law’s Empire.\n\n9. Lon Fuller, The Morality of Law.\n\n10. Maureen Cain & Alan Hunt, eds., Marx and Engels on Law.\n\n11. G. A. Cohen, Karl Marx’s Theory of History: A Defence.\n\n12. Roberto Unger, The Critical Legal Studies Movement."
+    },
+    {
+      "subject": "PHIL",
+      "course_code": "3531",
+      "title": "Topics in Chinese Philosophy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course examines selected topics in Chinese philosophy. The specific content of the course varies from semester to semester. Offerings with different subtitles can be taken up for credit, up to a maximum of two times.\n\nAdvisory to Majors: to be taken in year 2 or above.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Philosophy",
+      "academic_org": "Dept of Philosophy",
+      "learning_outcomes": "1. Acquire knowledge of the selected topics of the course.\n\n2. Have a solid grasp of the philosophical issues of the selected topics of the course.\n\n3. Demonstrate familiarity with the primary/secondary source texts.\n\n4. Be able to articulate and defend a philosophical thesis of their own.",
+      "course_syllabus": "The course examines selected topics in Chinese philosophy. The specific content of the course varies from semester to semester. Offerings with different subtitles can be taken up for credit, up to a maximum of two times.\n\n本科探究中國哲學的某些課題。具體內容由授課老師決定。學生最多可修讀教授不同課題的相同科目及取得相關學分兩次。",
+      "assessment_types": {
+        "Essays": "60",
+        "Others": "10",
+        "Presentation": "30"
+      },
+      "feedback_evaluation": "Class discussion and tutorials to assess students' learning progress\n\nCourse evaluation",
+      "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
+      "recommended_readings": "The course reading list will vary from semester to semester, but will generally include several monographs and a selection of recent scholarly articles on issues related to the course topic."
     },
     {
       "subject": "PHIL",
@@ -348,6 +426,32 @@
     },
     {
       "subject": "PHIL",
+      "course_code": "3672",
+      "title": "Topics in Continental Philosophy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course examines selected topics in Continental European philosophy. The specific content of the course varies from semester to semester. Offerings with different subtitles can be taken up for credit, up to a maximum of two times.\n\nAdvisory to Majors: to be taken in year 2 or above.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Philosophy",
+      "academic_org": "Dept of Philosophy",
+      "learning_outcomes": "1. Understand the key concepts, major issues, and prominent positions in the selected topics of the course.\n\n2. Critically discuss and evaluate the major issues and positions in the topics.\n\n3. Demonstrate familiarity with the primary/secondary source texts.\n\n4. Demonstrate skills in argumentative discussion and in writing about issues in Continental philosophy.\n\n5. Demonstrate ability to articulate and defend one’s own philosophical theses with clarity.",
+      "course_syllabus": "This course examines selected topics in Continental European philosophy. The specific content of the course varies from semester to semester. Offerings with different subtitles can be taken up for credit, up to a maximum of two times.\n\n本科探究歐陸哲學的特定課題。具體內容由授課老師決定。學生最多可修讀教授不同課題的相同科目及取得相關學分兩次。",
+      "assessment_types": {
+        "Essays": "50",
+        "Essay test or exam": "25",
+        "Presentation": "25"
+      },
+      "feedback_evaluation": "Feedback from classroom discussion\n\nCourse questionnaire\n\nTeacher's reflections",
+      "required_readings": "To be specified by teacher from the respective list of recommended readings.",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "PHIL",
       "course_code": "3693",
       "title": "Topics in Political Philosophy",
       "credits": "3.00",
@@ -371,6 +475,32 @@
       "feedback_evaluation": "Feedback from lecture and tutorial discussions.\n\nTeaching evaluation.\n\nTeacher’s reflections.",
       "required_readings": "The course reading will depend on the topics selected.",
       "recommended_readings": ""
+    },
+    {
+      "subject": "PHIL",
+      "course_code": "3743",
+      "title": "Topics in Inter-Disciplinary Problems",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course deals with interdisciplinary problems related to philosophy and other subjects such as theology, anthropology, linguistics, psychology, biology, physics and computer science. The selection of topics can vary from semester to semester. Offerings with different subtitles can be taken up for credit, up to a maximum of two times.\n\nAdvisory to Majors: to be taken in year 2 or above.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Philosophy",
+      "academic_org": "Dept of Philosophy",
+      "learning_outcomes": "1. Acquire knowledge of the selected topics of the course.\n\n2. Have a solid grasp of the philosophical issues of the selected topics of the course.\n\n3. Demonstrate familiarity with the primary/secondary source texts.\n\n4. Be able to articulate and defend a philosophical thesis of their own.",
+      "course_syllabus": "The course deals with interdisciplinary problems related to philosophy and other subjects such as theology, anthropology, linguistics, psychology, biology, physics and computer science. The selection of topics can vary from semester to semester. Offerings with different subtitles can be taken up for credit, up to a maximum of two times.\n\n本科探討哲學的跨學科專題，相關學科可包括神學、人類學、語言學、心理學、生物學、物理學和計算機科學等。具體研討課題可每次不同。學生最多可修讀教授不同課題的相同科目及取得相關學分兩次。",
+      "assessment_types": {
+        "Essays": "50",
+        "Presentation": "30",
+        "Short answer test or exam": "20"
+      },
+      "feedback_evaluation": "Feedback from tutorials and classroom discussion\n\nCourse questionnaire\n\nTeacher's reflections",
+      "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
+      "recommended_readings": "The course reading will depend on the topics selected."
     },
     {
       "subject": "PHIL",
@@ -478,6 +608,33 @@
     },
     {
       "subject": "PHIL",
+      "course_code": "4121",
+      "title": "Chan Buddhism",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces Chan Buddhism from historical, philosophical, and textual approaches. With respect to historical developments, it will examine the transition of this tradition from India to China. With regard to philosophical and doctrinal aspects, it will explore the characteristics of Chinese Chan through a comparative study with Indian, Tibetan, and Japanese Buddhist traditions. Besides lectures, seminars will be arranged to read and discuss selected core texts.\n\nAdvisory to Majors: to be taken in year 2 or above.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Philosophy",
+      "academic_org": "Dept of Philosophy",
+      "learning_outcomes": "1. Acquire knowledge of Chan Buddhism against the general background of Indian, Chinese, Tibetan and Japanese Buddhism.\n\n2. Understand the perplexity of the central issues in Chan Buddhism that challenges our usual ways of approaching philosophy.\n\n3. Ability to work independently and critically on the primary and secondary sources in Chan Buddhism.\n\n4. Explore the relevant concepts and issues in their contemporary significance.",
+      "course_syllabus": "This course introduces Chan Buddhism from historical, philosophical, and textual approaches. With respect to historical developments, it will examine the transition of this tradition from India to China. With regard to philosophical and doctrinal aspects, it will explore the characteristics of Chinese Chan through a comparative study with Indian, Tibetan, and Japanese Buddhist traditions. Besides lectures, seminars will be arranged to read and discuss selected core texts.\n\n本科主要從歷史發展、哲學教義及文獻研讀三方面，來探討禪宗哲學的基本學說。此即從歷史發展看，了解襌學由印度傳至中國的過程中產生的變化；從哲學教義看，對比中國禪學與印度佛教、藏傳佛教和日本佛教，以求揭示其特色；並且在講解之外，研讀有關文獻。",
+      "assessment_types": {
+        "Essays": "30",
+        "Essay test or exam": "40",
+        "Others": "10",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "Feedbacks from individual students through personal contact\n\nCourse evaluation",
+      "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
+      "recommended_readings": "1. 忽滑谷快天，《禅學思想史》郭敏俊譯, vol. 1 印度部；vols. 2-5 中國部（台北: 大千出版社, 民國92 [2003] ）\n\n2. 印順，《中國禪宗史》（台北：正聞，1971）\n\n3. 杜繼文，《中國禪宗通史》（南京：江蘇古籍，1993）\n\n4. 龔雋，《禪學發微》（台北：新文豐，2002）\n\n5. 柳田聖山，《禪與中國》（台北：桂冠，1992）\n\n6. 道元，《正法眼藏》何燕生譯注 （北京: 宗敎文化出版社, 2003）\n\n7. 中華電子佛典：http://www.cbeta.org/ 大正藏佛典可上網下載\n\n8. Abe, Masao, Zen and Western thought, edited by William R. LaFleur; foreword by John Hick. Honolulu: University of Hawaii Press, 1985. （中譯：《禪與西方思想》阿部正雄著; 王雷泉 張汝倫譯，臺北: 桂冠圖書殳份有限公司, 1992）\n\n9. Dumoulin, Heinrich. Zen Buddhism: a history; translated by James W. Heisig and Paul Knitter. Vol. 1. India and China; vol. 2. Japan. New York: Macmillan Publishing Company, c1988-\n\n10. Faure, Bernard. Chan insights and oversights: an epistemological critique of the Chan tradition. Princeton, New Jersey: Princeton University Press, c1993.\n\n11. Lai, Whalen and Lewis R. Lancaster, eds. Early Ch'an in China and Tibet. Berkeley, Calif.: Asian Humanities Press, 1983.\n\n12. Olson, Carl. Zen and the art of postmodern philosophy: two paths of liberation from the representational mode of thinking. Albany: State University of New York Press, c2000.\n\n13. Suzuki, D. T. (1970) Essays in Zen Buddhism. London: Rider.\n\n14. Wright, Dale S. Philosophical meditations on Zen Buddhism. Cambridge: Cambridge University Press, 1998."
+    },
+    {
+      "subject": "PHIL",
       "course_code": "4131",
       "title": "Song Neo-Confucian Philosophy",
       "credits": "3.00",
@@ -579,6 +736,109 @@
       "feedback_evaluation": "Feedback from tutorials and classroom discussion\n\nCourse evaluation\n\nTeacher's reflections",
       "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
       "recommended_readings": "A. Kant's Works:\n\n1. Kant, I., Kant's gesammelte Schriften, ed. Berlin-Brandenburgische Akademie der Wissenschaften, 29 vols. Berlin: Walter de Gruyter, 1900–.\n\n2. Kant, I., The Cambridge Edition of the Works of Immanuel Kant, ed. Paul Guyer and Allen W. Wood. Cambridge: Cambridge University Press, 1992–.\n\n3. 康德，《康德著作全集》，李秋零主編。北京：中國人民出版社，2004–。\n\n4. Kant's Critique of Pure Reason (transl.) Norman Kemp Smith (London: McMillan), Web version: http://humanum.arts.cuhk.edu.hk/Philosophy/Kant/cpr/ )\n\nB. Secondary Literature:\n\n1. Allison, Henry E. Kant's Theory of Freedom. Cambridge: Cambridge University Press, 1990.\n\n2. Allison, Henry E. Kant's Theory of Taste: A Reading of the Critique of Aesthetic Judgment. Cambridge: Cambridge University Press, 2001.\n\n3. Allison, Henry E., Custom and Reason in Hume: A Kantian Reading of the First Book of the Treatise. New York: Oxford University Press, 2008.\n\n4. Allison, Henry E., Idealism and Freedom: Essays on Kant's Theoretical and Practical Philosophy. Cambridge: Cambridge University Press, 1996.\n\n5. Allison, Henry E., Kant's Transcendental Idealism: An Interpretation and Defense, rev. and enl. ed. New Haven: Yale University Press, 2004.\n\n6. Ameriks, Karl, Interpreting Kant's Critiques. Oxford: Clarendon Press, 2003.\n\n7. Ameriks, Karl, Kant and the Fate of Autonomy: Problems in the Appropriation of the Critical Philosophy. Cambridge: Cambridge University Press, 2000.\n\n8. Beck, Lewis White, A Commentary on Kant's Critique of Practical Reason. Chicago: University of Chicago Press, 1960.\n\n9. Beck, Lewis White. Kant Studies Today. La Salle, Ill.: Open Court, 1969.\n\n10. Bennett, Jonathan F., Kant's Analytic. Cambridge: Cambridge University Press, 1966.\n\n11. Bennett, Jonathan F., Kant's Dialectic. Cambridge: Cambridge University Press, 1974.\n\n12. Bohman, James, and Lutz-Bachmann, Matthias eds., Perpetual Peace: Essays on Kant’s Cosmopolitan Ideal. Cambridge, Mass.: MIT Press, 1997.\n\n13. Brook, Andrew, Kant and the Mind. Cambridge: Cambridge University Press, 1994.\n\n14. Caygill, Howard, A Kant Dictionary. Oxford: Blackwell, 1995.\n\n15. Ellis, Elisabeth, Kant's Politics: Provisional Theory for an Uncertain World. New Haven: Yale University Press, 2005.\n\n16. Ellis, Elisabeth, Provisional Politics: Kantian Arguments in Policy Context. New Haven: Yale University Press, 2008.\n\n17. Förster, Eckart, ed., Kant's Transcendental Deductions: The Three Critiques and the Opus Postumum. Stanford: Stanford University Press, 1989.\n\n18. Ginsborg, Hannah, The Role of Taste in Kant's Theory of Cognition (New York and London: Garland Publishing Company, 1990.\n\n19. Giovanni, George di, Freedom and Religion in Kant and His Immediate Successors: The Vocation of Humankind, 1774-1800. New York: Cambridge University Press, 2005.\n\n20. Glock, Hans-Johann ed., Strawson and Kant. New York: Oxford University Press, 2003.\n\n21. Guyer, Paul ed., Kant's Critique of the Power of Judgment Critical Essays. Lanham Md.: Rowman & Littlefield Publishers, 2003.\n\n22. Guyer, Paul, ed., The Cambridge Companion to Kant and Modern Philosophy. Cambridge: Cambridge University Press, 2006.\n\n23. Guyer, Paul, ed., The Cambridge Companion to Kant. Cambridge: Cambridge University Press, 1992.\n\n24. Guyer, Paul, Kant and the Claims of Knowledge. Cambridge: Cambridge University Press, 1987.\n\n25. Guyer, Paul, Kant and the Claims of Taste. New York: Cambridge University Press, 1997.\n\n26. Guyer, Paul, Kant on Freedom, Law, and Happiness. New York: Cambridge University Press, 2000.\n\n27. Guyer, Paul, Kant's Groundwork of the Metaphysics of Morals: Critical Essays. Lanham Md.: Rowman & Littlefield Publishers, 1997.\n\n28. Guyer, Paul, Kant's System of Nature and Freedom: Selected Essays. New York: Oxford University Press, 2005.\n\n29. Guyer, Paul, Knowledge, Reason, and Taste: Kant's Response to Hume. Princeton: Princeton University Press, 2008.\n\n30. Höffe, Otfried, Immanuel Kant, trans. Marshall Farrier. Albany: State University of New York Press, 1994.\n\n31. Höffe, Otfried, Kant's Cosmopolitan Theory of Law and Peace, trans by Alexandra Newton. New York: Cambridge University Press, 2006.\n\n32. Kemp Smith, Norman, A Commentary to Kant's ‘Critique of Pure Reason’. London: MacMillan, 1930.\n\n33. Kitcher, Patricia, Kant's Transcendental Psychology. Oxford: Oxford University Press, 1990.\n\n34. Kuehn, Manfred, Kant: A Biography. New York: Cambridge UP, 2001.\n\n35. Langton, Rae, Kantian Humility: Our Ignorance of Things in Themselves. Oxford: Oxford University Press, 1998.\n\n36. Paton, Herbert James, Kant's Metaphysic of Experience: A Commentary on the First Half of the Kritik der reinen Vernunft, 2 vols. London: George Allen & Unwin, 1936.\n\n37. Paton, Herbert James, The Categorical Imperative: A Study in Kant's Moral Philosophy. London: Hutchinson, 1958.\n\n38. Scruton, Roger, Kant: A Very Short Introduction, rev. ed. Oxford: Oxford UP, 2001.\n\n39. Sedgwick, Sally S. ed., The Reception of Kant's Critical Philosophy: Fichte, Schelling, and Hegel. New York: Cambridge University Press, 2000.\n\n40. Strawson, Peter F., The Bounds of Sense: An Essay on Kant's Critique of Pure Reason. London: Methuen, 1966.\n\n41. Westphal, Kenneth R., Kant's Transcendental Proof of Realism. Cambridge: Cambridge University Press, 2004.\n\n42. Wood, Allen W., Kant's Rational Theology. Cornell University Press, 2009.\n\n43. Wood, Allen W., Kant's Ethical Thought. New York: Cambridge University Press, 1999.\n\n44. 勞思光，《康德知識論要義新編》，關子尹編。香港：中文大學出版社，2001。\n\n45. 包姆嘉特納(Hans Michael Baumgartner)，《康德「純粹理性批判」導讀》，李明輝譯。臺北：聯經出版事業公司，1988。"
+    },
+    {
+      "subject": "PHIL",
+      "course_code": "4242",
+      "title": "German Idealism",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course deals with the German philosophical development after Kant. Topics may include: Fichte’s science of knowledge, Schelling’s philosophy of nature, and Hegel’s logic and phenomenology of spirit.\n\nAdvisory to Majors: to be taken in year 2 or above.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Philosophy",
+      "academic_org": "Dept of Philosophy",
+      "learning_outcomes": "1. Demonstrate familiarity with the main ideas and theories of the German idealists.\n\n2. In their papers, students should also demonstrate the ability to understand the works of the German idealists, to identify a significant problem in their philosophy and formulate and defend a thesis of their own concerning the problem.",
+      "course_syllabus": "This course deals with the German philosophical development after Kant. Topics may include: Fichte’s science of knowledge, Schelling’s philosophy of nature, and Hegel’s logic and phenomenology of spirit.\n\n本科旨在討論康德以後的德國哲學的發展。探討課題可包括：費希特之知識學、謝林之自然哲學、黑格爾之邏輯學及精神現象學等。",
+      "assessment_types": {
+        "Essays": "50",
+        "Presentation": "30",
+        "Short answer test or exam": "20"
+      },
+      "feedback_evaluation": "Course questionnaire\n\nTeacher's reflections",
+      "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
+      "recommended_readings": "Introduction:\n\n1. Pinkard, T., German Philosophy 1760-1860: The Legacy of Idealism, Cambridge: Cambridge University Press 2002.\n\nGerman Idealism:\n\n1. Ameriks, K. ed., The Cambridge Companion to German Idealism, Cambridge: Cambridge University Press, 2001.\n\n2. Behler, E., ed., Philosophy of German Idealism, New York: Continuum, 1987.\n\n3. Beiser, F. C., The Fate of Reason: German Philosophy from Kant to Fichte, Cambridge: Cambridge University Press, 1987.\n\n4. Bubner, R., The Innovations of Idealism, trans. Nicholas Walker, Cambridge/New York: Cambridge University Press, 2003.\n\n5. Bubner, R., ed., German Idealist Philosophy, London: Penguin, 1997.\n\n6. Henrich, D., Between Kant and Hegel: Lectures on German idealism, ed. David S. Pacini, Cambridge, Mass.: Harvard University Press, 2003.\n\n7. Sedgwick, S., ed., The Reception of Kant's Critical Philosophy: Fichte, Schelling, and Hegel, Cambridge: Cambridge University Press, 2000.\n\n8. Solomon, R. C./Higgins, K. M., ed., The Age of German Idealism, London/New York: Routledge, 1993.\n\nFichte:\n\n1. Breazeale, D./Rockmore, T., Fichte: Historical Context/Contemporary Controversies, Atlantic Highlands, NJ: Humanities Press, 1993.\n\n2. Henrich, D., \"Fichte's Original Insight,\" trans. D. Lachterman, in Contemporary German Philosophy 1: 15-52, 1982.\n\n3. Neuhouser, F., Fichte's Theory of Subjectivity, Cambridge University Press, 1990.\n\nSchelling:\n\n1. Bowie, A., Schelling and Modern European Philosophy: An Introduction, London: Routledge, 1993.\n\n2. Marx, W., The Philosophy of F.W.J. Schelling: History, System, Freedom, Bloomington: Indiana University Press, 1984.\n\n3. Snow, D. E., Schelling and the End of Idealism, Albany: SUNY Press, 1996.\n\n4. Tilliette, X., Schelling: Introduction to the System of Freedom, New Haven: Yale University Press, 1983.\n\nHegel:\n\n1. Beiser, F. C., The Cambridge Companion to Hegel, Cambridge University Press, 1993.\n\n2. Forster, M. N., Hegel's Idea of a Phenomenology of Spirit, Chicago: University of Chicago Press, 1998.\n\n3. Gadamer, H.-G., Hegel's Dialectic: Five Hermeneutical Studies, trans. P. C. Smith, New Haven: Yale University Press, 1976.\n\n4. Houlgate, S., Freedom, Truth and History: An Introduction to Hegel's Philosophy, London/New York: Routledge, 1991.\n\n5. McCumber, J., The Company of Words: Hegel, Language, and Systematic Philosophy, Northwestern: Northwestern University Press, 1993.\n\n6. Pinkard, T., Hegel's Phenomenology: The Sociality of Reason, Cambridge: Cambridge: Cambridge University Press, 1996.\n\n7. Pippin, R. B., Hegel's Idealism: The Satisfactions of Self-Consciousness, Cambridge: Cambridge University Press, 1989.\n\n8. Rockmore, T., Before and After Hegel: A Historical Introduction to Hegel's Thought, Indianapolis, IN: Hackett Pub. Co., 2003.\n\n9. Solomon, R. C., In the Spirit of Hegel: A Study of G.W.F. Hegel's Phenomenology of Spirit, Oxford: Oxford University Press, 1985.\n\n10. Taylor, C., Hegel, Cambridge: Cambridge University Press, 1975."
+    },
+    {
+      "subject": "PHIL",
+      "course_code": "4272",
+      "title": "Phenomenology",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is a general introduction to phenomenology and the phenomenological movement. The method, basic concepts and issues of Husserl’s phenomenology of the consciousness and Heidegger’s phenomenology of Dasein will be discussed. The existential phenomenology of Sartre will also be introduced.\n\nAdvisory to Majors: to be taken in year 2 or above.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Philosophy",
+      "academic_org": "Dept of Philosophy",
+      "learning_outcomes": "1. Understand the historical and cultural conditions of the birth of the phenomenological movement.\n\n2. Understand phenomenology’s innovation in terms of the idea and method of philosophy within the Western philosophical tradition.\n\n3. Grasp the contribution of phenomenology in the understanding of the human condition.\n\n4. Develop critical view on the phenomenological movement itself.\n\n5. Grasp the potential of phenomenology in promoting intercultural understanding.\n\n6. Enhanced ability to research independently on the issues taught.",
+      "course_syllabus": "This course is a general introduction to phenomenology and the phenomenological movement. The method, basic concepts and issues of Husserl’s phenomenology of the consciousness and Heidegger’s phenomenology of Dasein will be discussed. The existential phenomenology of Sartre will also be introduced.\n\n本科旨在介紹現象學之方法和基本概念，與現象學運動之發展。主要探討胡塞爾之意識現象學和海德格的此在現象學；同時亦會介紹沙特的存在現象學。",
+      "assessment_types": {
+        "Essays": "30",
+        "Essay test or exam": "45",
+        "Presentation": "25"
+      },
+      "feedback_evaluation": "1. Teacher's observations of class discussion during lectures and tutorials\n\n2. Out-of-class contact and discussions with students\n\n3. Input from tutors\n\n4. Course evaluation",
+      "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
+      "recommended_readings": "A. The basic works of Husserl, Heidegger, Sartre and other phenomenologists\n\n1. The Phenomenology Reader, Dermot Moran (ed.) (New York & London: Routledge, 2002).\n\n2. 《面對實事本身──現象學經典文選》，倪梁康主編（北京：東方出版社，2000）。\n\n3. The Essential Husserl: Basic Writings in Transcendental Phenomenology, Don Welton (ed.) (Bloomington & Indianapolis: Indiana University Press, 1999).\n\n4. 《胡塞爾選集》（上、下），倪梁康選編（上海：三聯，1997）。\n\n5. “Philosophy as Rigorous Science”, in E. Husserl, Phenomenology and the Crisis of Philosophy, Eng. trans. Q. Lauer (New York: Harper & Row, 1965), pp. 71-147.\n\n6. a. Husserl, Edmund. Ideas Pertaining to a Pure Phenomenology and to a Phenomenological Philosophy, First Book, General Introduction to a Pure Phenomenology, Eng. trans. by F. Kersten (The Hague: M. Nijhoff, 1982).\n\nb. Husserl, Edmund. Ideas. General Introduction to Pure Phenomenology, Eng. trans. Boyce Gibson (New York & London: Collier Macmillan Publishers, 1931, 1962).\n\nc. 胡塞爾：《純粹現象學通論˙純粹現象學和現象學哲學的觀念，第一卷》，李幼蒸譯，北京：商務﹐1995。\n\n7. a. Husserl, Edmund. Logical Investigations, Vol. 1 & 2, Eng. Trans. J. N. Findlay, London: Routledge & Kegan Paul, 1970.\n\nb. 胡塞爾：《邏輯研究》，第一、二卷，倪梁康譯（上海：上海譯文出版社，1994-99）; 台北：時報文化，1994-99。\n\n8. a. Husserl, Edmund. Cartesian Meditations. An Introduction to Phenomenology, Eng. trans. D. Cairns (The Hague: M. Nijhoff), 1960.\n\nb. 胡塞爾：《笛卡兒式的沉思》，張廷國譯（北京：中國城市出版社，2002）。\n\n9. a. Husserl, Edmund. The Crisis of European Sciences and Transcendental Phenomenology, Eng. trans. D. Carr (Evanston: Northwestern University Press, 1970).\n\nb. 胡塞爾：《歐洲科學的危機與超越論的現象學》，胡塞爾著，王炳文譯（北京：商務印書館，2001）。\n\n10. 《生活世界現象學》，胡塞爾著，黑爾德編，倪梁康、張廷國譯（上海：上海譯文出版社，2002）。\n\n11. 《現象學的方法》，胡塞爾著，黑爾德編，倪梁康譯（上海：上海譯文出版社，1994）。\n\n12. Heidegger, Martin. Basic Writings, ed. D. F. Krell, revised ed. (London: Routledge, 1994).\n\n13. 《海德格爾選集》（上、下），孫周興選編，上海：三聯，1996。\n\n14. a. Martin Heidegger, Being and Time, Eng. trans. J. Macquarrie & E. Robinson (New York: SCM Press, 1962).\n\nb. 海德格爾：《存在與時間》，陳嘉映、王慶節合譯（北京：三聯﹐1987）。\n\n15. a. Sartre, Jean-Paul. Being and Nothingness, Eng. trans. H. E. Barnes (New York: Washington Square Press, 1966).\n\nb. 薩特：《存在與虛無》，陳宣良等譯（北京：三聯，1987）。\n\n16. a. Sartre, Jean-Paul. The transcendence of the ego, Eng. trans. Andrew Brown (London & New York: Routledge, 2004).\n\nb. 薩特：《自我的超越性》，杜小真譯（北京：商務印書館，2001）。\n\n17. Sartre, Jean-Paul. The imaginary: a phenomenological psychology of the imagination, new Eng. trans. Jonathan Webber (London & New York: Routledge, 2004).\n\n18. 薩特：《薩特哲學論文集》，潘培慶、湯永寬、魏金聲等譯（合肥：安徽文藝出版社，1998）。\n\nB. Other selected references\n\n1. a. Spielgelberg, H. The Phenomenological Movement: An Historical Introduction (The Hague: M. Nijhoff, 3rd ed., 1982).\n\nb.《現象學運動》，赫伯特•施皮格伯格著，王炳文、張金言譯（北京：商務，1995）。\n\n2. Thevenaz, P. What is Phenomenology? and other Essays, Eng. trans. J. Edie (Chicago: Quadrangle Books, 1962).\n\n3. Ricoeur, P. Husserl: An Analysis of his Phenomenology, Eng. trans. L. Embree (Evanston: Northwestern University Press, 1967).\n\n4. Lyotard, J.-F. Phenomenology, Eng. trans. Brian Beakley (Albany: State University of New York Press, 1991).\n\n5. Levinas, E. Discovering Existence with Husserl, Eng. trans. R. A. Cohen & M. B. Smith (Evanston: Northwestern University Press, 1998).\n\n6. Kockelmans, J. J. A First Introduction to Husserl‘s Phenomenology (Pittsburgh: Duquesne University Press, 1967).\n\n7. Elveton, R. O. (ed.) The Phenomenology of Husserl. Selected Critical Readings (Chicago: Quadrangle Books, 1970).\n\n8. Natanson, M. Edmund Husserl: Philosopher of Infinite Tasks (Evanston: Northwestern University Press, 1973).\n\n9. Elliston, F. & McCormick, P. (ed.), Husserl: Expositions & Appraisals (Notre Dame: University of Notre Dame Press, 1977).\n\n10. Richardson, W. J. Heidegger: Through Phenomenology to Thought (The Hague: M. Nijhoff, 1963).\n\n11. a. Biemel, Walter. Martin Heidegger: An Illustrated Study, Eng. trans. J. L. Mehta (London : Routledge and Kegan Paul, 1976).\n\nb. 《海德格爾》，比梅爾著，劉鑫、劉英譯 (北京：商務，1996)。\n\n12. Murray, M. Heidegger and Modern Philosophy: Critical Essays (New Haven: Yale University Press, 1978).\n\n13. a. Moran, D. Introduction to Phenomenology (London & New York: Routledge, 2000).\n\nb.《現象學導論》，德穆•莫倫著，蔡錚雲譯（台北：桂冠，2005）。\n\n14. Macann, C. Four Phenomenological Philosophers. Husserl, Heidegger, Sartre, Merleau-Ponty (London & New York: Routledge, 1993).\n\n15. Embree, L. etc. (ed.) Encyclopedia of Phenomenology, Dordrecht/Boston/London: Kluwer Academic Publisher, 1997.\n\n16. Kearney, R. (ed.) Twentieth-Century Continental Philosophy (Routledge History of Philosophy, Vol. VIII, London & New York: Routledge, 1994)."
+    },
+    {
+      "subject": "PHIL",
+      "course_code": "4282",
+      "title": "Hermeneutics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course examines the major problems and issues of hermeneutics and their development. Topics studied may include: the hermeneutic question of Schleiermacher and Dilthey; the contribution of Heidegger’s fundamental ontology to hermeneutics; Gadamer’s establishment of philosophical hermeneutics; Ricoeur’s development of hermeneutics.\n\nAdvisory to Majors: to be taken in year 2 or above.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Philosophy",
+      "academic_org": "Dept of Philosophy",
+      "learning_outcomes": "1. Understand the conditions giving raise to hermeneutics as a philosophical discipline and its development in the 20th century.\n\n2. Grasp the basic concepts and philosophical issues discussed by various hermeneutical philosophers.\n\n3. Acquire a critical view on the doctrines put forward by hermeneutical philosophers.\n\n4. Enhanced ability to research independently on the issues taught.",
+      "course_syllabus": "This course examines the major problems and issues of hermeneutics and their development. Topics studied may include: the hermeneutic question of Schleiermacher and Dilthey; the contribution of Heidegger’s fundamental ontology to hermeneutics; Gadamer’s establishment of philosophical hermeneutics; Ricoeur’s development of hermeneutics.\n\n本科旨在介紹解釋學之基本理論及其發展，探討的課題可包括：施萊爾馬和狄爾泰的解釋學問題；海德格的基本存有論對解釋學的貢獻；伽達默爾哲學解釋學的建立；利科的解釋學等。",
+      "assessment_types": {
+        "Essays": "80",
+        "Presentation": "20"
+      },
+      "feedback_evaluation": "Course questionnaire\n\nTeacher's reflections",
+      "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
+      "recommended_readings": "The course reading will include selected works on the relevant topics in philosophical hermeneutics from that of Schleiermacher to that of Paul Ricoeur."
+    },
+    {
+      "subject": "PHIL",
+      "course_code": "4292",
+      "title": "Contemporary Anglo-American Philosophy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The course discusses major issues, theories, and figures in contemporary Anglo-American philosophy. Topics may include: philosophy of language, epistemology, mind and consciousness, ethics, moral psychology, and political philosophy.\n\nAdvisory to Majors: to be taken in year 2 or above.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Philosophy",
+      "academic_org": "Dept of Philosophy",
+      "learning_outcomes": "1. Demonstrate familiarity with a range of problems, concepts, and theories in contemporary Anglo-American philosophy pertaining to the specific topic of the course in a particular semester.\n\n2. In their papers, students should also demonstrate the ability to identify a significant philosophical problem and formulate and defend a thesis of their own concerning it.",
+      "course_syllabus": "The course discusses major issues, theories, and figures in contemporary Anglo-American philosophy. Topics may include: philosophy of language, epistemology, mind and consciousness, ethics, moral psychology, and political philosophy.\n\n本科旨在研究當代英美哲學重要課題、理論及人物，課題可包括：語言哲學、知識論、心靈與意識、倫理學、道德心理學及政治哲學。",
+      "assessment_types": {
+        "Essays": "25",
+        "Essay test or exam": "50",
+        "Presentation": "25"
+      },
+      "feedback_evaluation": "Course questionnaire\n\nTeacher's reflections",
+      "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
+      "recommended_readings": "The course reading list will vary from semester to semester, but will generally include one or more broad introductions to the specific topic, several in-depth books in the field, and a selection of recent scholarly articles."
     },
     {
       "subject": "PHIL",
@@ -761,6 +1021,32 @@
       "feedback_evaluation": "Class discussion to assess students' learning process\n\nCourse evaluation\n\nTeacher's reflections",
       "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
       "recommended_readings": "1. 中華書局編輯部編：《法家著作選讀》，北京：中華書局，1974。\n\n2. 王曉波：《先秦法家思想史論》，台北：聯經，1991。\n\n3. 侯家駒：《先秦法家統制經濟思想》，台北：聯經，1985。\n\n4. 熊十力：《韓非子評論》，台北：學生書局，1984再版。\n\n5. 容肇祖編：《韓非子年表》，北京：北京圖書出版社，1999。\n\n6. 鄭良樹：《韓非之著述及思想》，台北：學生書局，1993。\n\n7. 王邦雄：《韓非子的哲學》，台北：東大圖書，1977。\n\n8. Burton Watson trans., Han Fei Tzu : Basic writings, New York: Columbia University Press, 1964.\n\n9. Benjamin I. Schwartz, The World of Thought in Ancient China, Cambridge: Harvard University press, 1985.\n\n10. A. C. Graham, Disputers of Tao: Philosophical Argument in Ancient China, Chicago and La Salle, Illinois: Open Court, 1989."
+    },
+    {
+      "subject": "PHIL",
+      "course_code": "4381",
+      "title": "Seminar on Eastern Philosophy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This is a seminar course devoted to an in-depth examination of the selected topics in Eastern philosophy. The specific content varies from semester to semester. Offerings with different subtitles can be taken for credit, up to a maximum of two times.\n\nAdvisory to Majors: to be taken in year 3 or above.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Philosophy",
+      "academic_org": "Dept of Philosophy",
+      "learning_outcomes": "1. Gain competence in explaining and evaluating the key concepts and theories addressed in the course.\n\n2. Demonstrate familiarity with the primary and secondary source texts in the syllabus.\n\n3. Engage in in-depth discussion on the selected topics of the course.\n\n4. Demonstrate ability to articulate and defend one’s own philosophical theses with clarity.\n\n5. Demonstrate consolidated skills in expository and argument writing.",
+      "course_syllabus": "This is a seminar course devoted to an in-depth examination of the selected topics in Eastern philosophy. The specific content varies from semester to semester. Offerings with different subtitles can be taken for credit, up to a maximum of two times.\n\n本科以小組討論形式深入探究東方哲學的某些課題。具體內容由授課老師決定。學生最多可修讀教授不同課題的相同科目及取得相關學分兩次。",
+      "assessment_types": {
+        "Essays": "50",
+        "Others": "20",
+        "Presentation": "30"
+      },
+      "feedback_evaluation": "Feedback from individual students through personal contact\n\nCourse evaluation",
+      "required_readings": "The course reading list will vary from semester to semester, but will generally include several monographs and a selection of recent scholarly articles on issues concerned in the course topics.",
+      "recommended_readings": ""
     },
     {
       "subject": "PHIL",
@@ -1119,6 +1405,31 @@
     },
     {
       "subject": "PHIL",
+      "course_code": "5541",
+      "title": "Topics in Eastern Philosophy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed to provide a comprehensive understanding of Indian philosophy. The contents include: the background of Indian philosophy; Vedic Religion and Philosophy; Non-Vedic Schools (Materialism, Jainism, Buddhism); Nyaya; Vaisesika; Sankhya; Yoga; Mimamsa; Vedanta; Contemporary Indian Philosophy.",
+      "enrollment_requirement": "For students in MA Philosophy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Philosophy",
+      "academic_org": "Div of Philosophy",
+      "learning_outcomes": "1. Acquire knowledge of the selected topics of the course.\n2. Have a solid grasp of the philosophical issues of the selected topics of the course.\n3. Demonstrate familiarity with the primary/secondary source texts.\n4. Be able to articulate and defend a philosophical thesis on their own.",
+      "course_syllabus": "This course is designed to provide a comprehensive understanding of Indian philosophy. The contents include: the background of Indian philosophy; Vedic Religion and Philosophy; Non-Vedic Schools (Materialism, Jainism, Buddhism); Nyaya; Vaisesika; Sankhya; Yoga; Mimamsa; Vedanta; Contemporary Indian Philosophy.",
+      "assessment_types": {
+        "Essays": "60",
+        "Others": "40"
+      },
+      "feedback_evaluation": "Course questionnaire\nTeacher's reflections",
+      "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
+      "recommended_readings": "The course reading list will vary from semester to semester, but will generally include several monographs and a selection of recent scholarly articles on issues related to the course topic."
+    },
+    {
+      "subject": "PHIL",
       "course_code": "5542",
       "title": "Philosophy and Conceptual Analysis",
       "credits": "3.00",
@@ -1159,6 +1470,31 @@
       "academic_org": "Div of Philosophy",
       "learning_outcomes": "1. Understand contemporary human conditions from a philosophical point of view.\n2. Develop own critical views on the meanings and values of life.\n3. Research further the issues taught.\n4. Learn how to reason and argue cogently in group discussions and debates.",
       "course_syllabus": "This course focuses on the existential problems of the human condition from a comparative philosophical perspective. Original texts on philosophies of life, death, love and desire from classical and contemporary Western as well as Chinese philosophical tradition will be discussed. Thinkers will include Plato, Aristotle, Freud, Heidegger, Sartre, Levinas, Lacan, Zhungzi, Sung and Ming Confucians, etc.",
+      "assessment_types": {
+        "Essays": "60",
+        "Others": "40"
+      },
+      "feedback_evaluation": "Course questionnaire\nTeacher's reflections",
+      "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
+      "recommended_readings": "The course reading list will vary from semester to semester, but will generally include several monographs and a selection of recent scholarly articles on issues related to the course topic."
+    },
+    {
+      "subject": "PHIL",
+      "course_code": "5551",
+      "title": "Topics in Comparative Philosophy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed to provide a comparative approach to the rich philosophical traditions of the East and West. Topics discussed may vary from year to year and may include such areas as religion, ethics, and mind. The course may be repeated for credit.",
+      "enrollment_requirement": "For students in MA Philosophy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Philosophy",
+      "academic_org": "Div of Philosophy",
+      "learning_outcomes": "1. Identify and articulate some major problems and issues in the comparative Philosophy.\n2. Demonstrate a solid grasp of the issues discussed.\n3. Analyze and critically interpret some historical significant texts in Western philosophy.\n4. Demonstrate an enhance ability to conduct independent research on the topics covered and related issues.",
+      "course_syllabus": "This course is designed to provide a comparative approach to the rich philosophical traditions of the East and West. Topics discussed may vary from year to year and may include such areas as religion, ethics, and mind. The course may be repeated for credit.",
       "assessment_types": {
         "Essays": "60",
         "Others": "40"
@@ -1266,6 +1602,31 @@
       "feedback_evaluation": "Course questionnaire\nTeacher's reflections",
       "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
       "recommended_readings": "The course reading list will vary from semester to semester, but will generally include several monographs and a selection of recent scholarly articles on issues related to the course topic."
+    },
+    {
+      "subject": "PHIL",
+      "course_code": "5583",
+      "title": "Issues in Practical Philosophy",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course studies problems, issues and themes related to Practical Philosophy in the broad sense of the term. Themes or issues studied may vary from year to year and may include such themes as \"Philosophy and Public World\", \"Philosophy and the Quest for the Ideal Society\", \"Law and Society\" etc. This course can be taken twice.",
+      "enrollment_requirement": "For Student of MA in Philosophy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Philosophy",
+      "academic_org": "Div of Philosophy",
+      "learning_outcomes": "1. Acquire knowledge of the selected topic of the course.\n2. Have a solid grasp of the philosophical issues of the selected topic of the course.\n3. Demonstrate familiarity with the primary/secondary source texts.\n4. Be able to articulate and defend a philosophical thesis of their own.",
+      "course_syllabus": "This course studies problems, issues and themes related to Practical Philosophy in the broad sense of the term. Themes or issues studied may vary from year to year and may include such themes as \"Philosophy and Public World\", \"Philosophy and the Quest for the Ideal Society\", \"Law and Society\" etc. This course can be taken twice.",
+      "assessment_types": {
+        "Essays": "60",
+        "Others": "40"
+      },
+      "feedback_evaluation": "Course questionnaire\nTeacher's reflections",
+      "required_readings": "A required reading list will be provided according to the selected topic taught.",
+      "recommended_readings": "A recommended reading list will be provided according to the selected topic taught."
     },
     {
       "subject": "PHIL",
@@ -1421,6 +1782,32 @@
       "feedback_evaluation": "To pay attention to students response in classroom teaching.\nTo encourage students to present their feelings and suggestions both in and outside classroom.\nTo encourage students to express their ideas and questions about the course in CUForum.\nTo encourage students to state their impressions and suggestion in final exam for bonus marks.\nTo collect students feedback through the University feedback exercise.",
       "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
       "recommended_readings": "Depending on varied specific topics."
+    },
+    {
+      "subject": "PHIL",
+      "course_code": "8102",
+      "title": "Thesis Guidance II",
+      "credits": "1.00",
+      "terms": [],
+      "description": "After the PhD qualifying exam, Part-time PhD Candidates or PhD Candidates without an MPhil degree are required to meet his/her supervisor regularly to discuss the progress of thesis research and writing. This course is taught individually and can be taken twice.",
+      "enrollment_requirement": "For Student of PhD in Philosophy",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Philosophy",
+      "academic_org": "Div of Philosophy",
+      "learning_outcomes": "1. Further demonstrated progress in research plan through regular contact with the supervisor.\n2. Further production of a research paper that leads to the writing of the dissertation.",
+      "course_syllabus": "After the PhD qualifying exam, Part-time PhD Candidates or PhD Candidates without an MPhil degree are required to meet his/her supervisor regularly to discuss the progress of thesis research and writing. This course is taught individually and can be taken twice.",
+      "assessment_types": {
+        "Essays": "50",
+        "Others": "25",
+        "Presentation": "25"
+      },
+      "feedback_evaluation": "1. Students are welcome to give feedback on the course at any time. They can do so by communication to the teacher or the tutor in class or during tutorials, or via email and the eLearning platform.\n2. As with all courses in the Philosophy Department, students evaluate the course through a survey and written comments at the end of the term.",
+      "required_readings": "To be specified by teacher from within the respective list of recommended readings.",
+      "recommended_readings": "The course reading list will vary from semester to semester, but will generally include several monographs and a selection of recent scholarly articles on issues related to the course topic."
     }
   ]
 }

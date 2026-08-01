@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "STAT",
     "subject_title": "Statistics",
-    "total_courses": 10
+    "total_courses": 11
   },
   "courses": [
     {
@@ -32,6 +32,32 @@
       "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n\n1. Mid-term course evaluation and term-end course evaluation\n\n2. Student-staff consultative committee meeting(s).",
       "required_readings": "1) Bernard Rosner (2016). Fundamentals of Biostatistics. 8th edition. Chapter 7 to chapter 14.",
       "recommended_readings": "1) Fred L. Ramsey and Daniel W. Schafer. (2013). The Statistical Sleuth: A Course in Methods of Data Analysis. 3rd Edition. Duxbury and Thomson Learning.\n\n2) Myra L. Samuels and Jeffrey A. Witmer. (2003). Statistics for the Life Sciences. 3rd Edition. Pearson."
+    },
+    {
+      "subject": "STAT",
+      "course_code": "4004",
+      "title": "Actuarial Science",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course covers the basic principles of life contingencies, which is a science for life insurance. Topics include life tables, annuities, assurances, net and gross premiums, reserve, and multiple life theory.",
+      "enrollment_requirement": "Not for students who have taken or register concurrently for FINA3220.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Stat and Data Sci",
+      "academic_org": "Dept of Stat and Data Sci",
+      "learning_outcomes": "Upon completion of the course, students should be able to\n\n(1) understand the characteristics of various basic insurance products and premium calculations;\n(2) design insurance products that satisfy needs; and\n\n(3) tackle Exams FM and LTAM offered by the Society of Actuaries.",
+      "course_syllabus": "This course deals with the calculations of the premiums of various basic life insurance products. Since the premiums are the expected present values of some future payments, the calculations depend on the occurrence of some random events and interest earned till the events occurred. Theories of interest and probability are essential in this course. We will discuss measurements of interest, survival probability and life table, introduction of basic insurance plans, life annuities and level premium in this course.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Homework or assignment": "15",
+        "Short answer test or exam": "35"
+      },
+      "feedback_evaluation": "Comments and feedback can be made via the following channel(s):\n\n1. Mid-term course evaluation and term-end course evaluation\n\n2. Student-staff consultative committee meeting(s).",
+      "required_readings": "",
+      "recommended_readings": "1. Kellison, S.G. (1991), The Theory of Interest, 2nd Edition, Irwin/McGraw-Hill: Boston.\n\n2. Bowers, N. L. Jr., Gerber, H.U., Hichman, J.C., Jones, D.A. and C.A. Nesbitt (1997), Actuarial Mathematics, 2nd Ed. The Society of Actuaries."
     },
     {
       "subject": "STAT",

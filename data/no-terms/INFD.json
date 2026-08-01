@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "INFD",
     "subject_title": "Infectious Diseases",
-    "total_courses": 7
+    "total_courses": 8
   },
   "courses": [
     {
@@ -105,6 +105,31 @@
       "feedback_evaluation": "Please refer to the course outline provided by course teacher",
       "required_readings": "Please refer to the course outline provided by course teacher",
       "recommended_readings": "Please refer to the course outline provided by course teacher"
+    },
+    {
+      "subject": "INFD",
+      "course_code": "5007",
+      "title": "Application of Geographic Information System in Public Health",
+      "credits": "2.00",
+      "terms": [],
+      "description": "\"Geographical information system (GIS), integrating cartography, statistical analysis, and database technology, has been widely applied in the study of public health, for example, disease surveillance, risk assessment, and decision making for public health practices. This course aims to offer a general introduction to GIS, including basic concepts, methodologies, and applications of GIS in public health issues.\n\nNo special prerequisite for this course. Class size can NOT be larger than 40.\"",
+      "enrollment_requirement": "For TPg students in Master of Public Health / Postgraduate Diploma in Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "Through this course students are able to:\n1. understand the principle and importance of GIS in public health research;\n2. develop a concept understanding of basic GIS in geocoding;\n3. conduct basic geostatistical analyses of geo-referenced data of public health and disease mapping in practice;",
+      "course_syllabus": "| **Introduction** 1. What is geographical information system (GIS); 2. GIS application in public health; 3. Project arrangement |\n| --- |\n| **Understanding spatial data for public health and mapping health information** 1. Characteristics and examples of spatial data; 2. Where to access spatial data? *3. Coordinate systems, projections, and transformation;* |\n| **Lab tutorial 1** 1. Getting QGIS started; 2. Importing spatial data to QGIS; 3. Mapping health information in QGIS |\n| **Locating health information** 1. Geocoding; 2. Generating spatial data in QGIS; 3. Mapping and cartography |\n| **Spatial analysis** 1. Data exploration: query 2. Overlay operation 3. Neighbourhood operation 4. Network analysis |\n| **Lab tutorial 2** 1. Spatial data editing in QGIS; 2. Performing spatial analyses; 3. Results interpretation |\n| **Starting a GIS project** 1. Key things to consider for setting up a GIS project; 2. Introduction to GIS Software available and online resources; 3. More about applications 4. Q&A |",
+      "assessment_types": {
+        "Classwork": "30",
+        "Presentation": "70"
+      },
+      "feedback_evaluation": "CTE",
+      "required_readings": "Ellen Cromley & Sara McLafferty. (2011). *GIS and Public Health* (2nd ed.). New York; London: Guilford Press.",
+      "recommended_readings": "| Longley, P. (2011). *Geographic information systems & science* (3rd ed.). Hoboken, NJ: Wiley. |\n| --- |"
     },
     {
       "subject": "INFD",

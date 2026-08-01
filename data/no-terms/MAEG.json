@@ -3,9 +3,31 @@
     "schema_version": 1,
     "subject": "MAEG",
     "subject_title": "Mechanical & Automation Engineering",
-    "total_courses": 4
+    "total_courses": 7
   },
   "courses": [
+    {
+      "subject": "MAEG",
+      "course_code": "2602",
+      "title": "Engineering Practicum",
+      "credits": "1.00",
+      "terms": [],
+      "description": "The course combines activities designed to develop employability with the knowledge and skills gained through attending workshops or seminars. Successful completion of the course will provide students with the employability skills required for transition to the world of work. Students who have attended certain industrial and professional workshops or seminars required by the MAEG programme may be able to count these towards the course.",
+      "enrollment_requirement": "Not for students who have taken ENGG2602.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Pass (P)/Fail (U)",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Mech & Automation Engg",
+      "academic_org": "Dept of Mech & Automation Engg",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n\n(1) have hands-on skills of engineering practice;\n(2) understand the value of practical engineering skills and experiences.",
+      "course_syllabus": "The details will be provided by the course instructor.",
+      "assessment_types": {},
+      "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
+      "required_readings": "",
+      "recommended_readings": ""
+    },
     {
       "subject": "MAEG",
       "course_code": "2910",
@@ -56,6 +78,59 @@
       "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
       "required_readings": "The details will be provided by the course instructor.",
       "recommended_readings": "The details will be provided by the course instructor."
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5070",
+      "title": "Nonlinear Control Systems",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course consists of two parts. The first part is analysis of nonlinear systems, which includes state space description of nonlinear control systems, phase plane analysis of second order dynamic systems, Lyapunov ‘s stability theory such as Lyapunov’s first method, second method, Barbalat’s lemma, and total stability. The second part is design of nonlinear control systems, which includes Jacobian linearization, feedback linearization, sliding mode control, and backstepping method.",
+      "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n(1) identify peculiar nonlinear phenomena such as chaos, bifurcation, limit cycles, etc.;\n(2) use classical nonlinear analysis tools such as the phase plane method and Poincare theory to study two dimensional systems;\n(3) master advanced Lyaponov theory to analyze the stability property of both autonomous and non-autonomous nonlinear systems;\n(4) select and apply some modern nonlinear control analysis and design methods such as backstepping method, feedback linearization method, and sliding mode method to design nonlinear control laws for nonlinear control systems.",
+      "course_syllabus": "The details will be provided by the course instructor.",
+      "assessment_types": {
+        "Essay test or exam": "70",
+        "Homework or assignment": "30"
+      },
+      "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
+      "required_readings": "The details will be provided by the course instructor.",
+      "recommended_readings": "1. J.J. Slotine and W. Li, Applied Nonlinear Control, Prentice Hall Englewood Cliffs, 1991.\n2. A. Isidori, Nonlinear Control Systems, third edition, 1995, Springer-Verlag.\n3. Hasssan K. Khalil, Nonlinear Systems, second edition, 1996, Prentice-Hall.\n4. Gene F. Franklin, et al, Feedback Control of Dynamic Systems, third edition, Addison Wesley Publishing Co., 1994.\n5. Richard C. Dorf and Robert H. Bishop, Modern Control Systems, 7th edition, Addison-Wesley, 1995."
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5110",
+      "title": "Quantum Control and Quantum Information",
+      "credits": "3.00",
+      "terms": [],
+      "description": "The field of quantum information science includes quantum control and quantum information. It is a new area of inter-disciplinary research involving physicists, computer scientists, mathematicians and engineers. The course is an introduction to this rapidly expanding field. It covers basic quantum mechanics including quantum entanglement and quantum measurement; the modeling and control of quantum mechanical systems; quantum error correction; quantum communication and quantum information theory.",
+      "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n(1) understand basic quantum mechanics;\n(2) understand principles of quantum control;\n(3) understand principles of quantum information.\n\nThis course contributes to the following MAEG Programme Learning Outcomes:\n(1) M1: An ability to apply knowledge of engineering sciences and mathematics to the discipline of mechanical and automation engineering;\n(2) M3: An ability to design a system, component, or process to meet desired needs within social, environmental and technical constraints;\n(3) M5: An ability to identify, formulate, and solve engineering problems;\n(4) M10: An ability to recognize the need for and to engage in life-long learning;\n(5) M11: An ability to use the techniques, skills and tools to practice in the mechanical and automation engineering discipline.",
+      "course_syllabus": "The details will be provided by the course instructor.",
+      "assessment_types": {
+        "Homework or assignment": "25",
+        "Presentation": "10",
+        "Project": "20",
+        "Report": "20",
+        "Short answer test or exam": "25"
+      },
+      "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
+      "required_readings": "The details will be provided by the course instructor.",
+      "recommended_readings": "(1) M.A. Nielsen and I.L.Chuang, Quantum Information and Quantum Computation, (Cambridge University Press)\n(2000).\n(2) Kurt Jacobs, Quantum measurement Theory and its applications, (Cambridge University Press) (2014).\n(3) D.J. Griffiths: Introduction to Quantum Mechanics.\n(4) D. D'Alessandro: Introduction to Quantum Control and Dynamics."
     },
     {
       "subject": "MAEG",

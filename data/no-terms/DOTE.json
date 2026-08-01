@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "DOTE",
     "subject_title": "Department of Decisions, Operations and Technology",
-    "total_courses": 32
+    "total_courses": 36
   },
   "courses": [
     {
@@ -83,6 +83,32 @@
       "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course",
       "required_readings": "To be assigned by the course teacher",
       "recommended_readings": "To be assigned by the course teacher"
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "3011",
+      "title": "Behavioral Economics and Business Decisions",
+      "credits": "3.00",
+      "terms": [],
+      "description": "Building on booming evidence in psychology and economics suggesting that individuals' behaviors deviate from the standard economic theory systematically, behavioral economics becomes a fast growing field. In this course, we will provide a broad overview of the modern advances in behavioral economics and the insights gained from incorporating psychology into economic modeling to understand how the psychological factors affect individuals' decision making, and show the business implications of those psychologically richer models, specifically on the strategies of areas including but not limited to consumer decision, investment and competition strategy of the firm, pricing practice, management decision, marketing and advertising, finance and insurance market.",
+      "enrollment_requirement": "Pre-requisite: DSME1030/DOTE1030 or equivalent course",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Decis, Oper & Tech",
+      "academic_org": "Dept of Decis, Oper & Tech",
+      "learning_outcomes": "After completing this course, students should be able to:\n(1) Understand and master some basic analytical tools in behavioral economics;\n(2) Understand an interesting set of insights about the ways that human psychology affects economic decision making;\n(3) Read and communicate the content of a simple research paper efficiently;\n(4) Apply the behavioral economic approach to make better business decisions for consumers, competitors, firm managers and governments.",
+      "course_syllabus": "(1) Introduction and The Fundamentals of Behavioral Economics\n• From Homo Economicus to Homo Sapiens\n• Rationality and Irrational Behaviors\n• Some Facts in Psychology\n(2) Reference-dependence and Loss-Aversion\n• Endowment Effect and Applications: Housing Market, Labor Supply and Finance\n• Mental Accounting Theory and Sunk Cost Effect\n• Loss-Aversion and Equity Premium Puzzle\n(3) Preferences over Risk and Uncertainty\n• Expected and Non-expected Utility Theory\n• Ellsberg Paradox and Allais Paradox\n• Prospect Theory and Applications: Finance, Labor Supply, Consumer Behavior and Insurance\n(4) Time-inconsistency and Self-Control\n• Time-Inconsistent Preferences and The Multi-Selves Approach\n• Beta-Delta Framework and Applications: Self-Control Problem\n• Imperfect Will-Power and Material Foundations\n(5) Social Preferences\n• Social Preference Theories\n• Lab and Field Evidence: Charity, Cooperation and Reciprocity\n(6) Behavioral Game Theory and Experiment\n• Theory and Experiment of Strategic Interaction\n• Game Theory with Bounded Rationality\n(7) Other Topics in Behavioral Economics\n• Other Topics and Advances in Behavioral Economics",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Presentation": "40",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course",
+      "required_readings": "Camerer C., G. Loewenstein and M. Rabin. Advances in Behavioral Economics, Princeton University Press",
+      "recommended_readings": "Ariely, D. Predictably Irrational: The Hidden Forces That Shape Our Decisions, Harper Collins.\nBaumeister, R. and J. Tierney. Willpower: Why Self-Control is the Secret to Success, Penguin Books.\nBlundell, Whitney K. Newey, and Torsten Persson, eds., Cambridge and New York: Cambridge University Press.\nCamerer, C. \"Behavioral Economics,\" in Advances in Economics and Econometrics: Theory and Applications, Ninth World Congress, Volume 2, Richard Blundell, Whitney Newey, and Torsten Persson (Cambridge University Press), 181-214.\nKahneman, D. Thinking, Fast and Slow, Penguin Books.\nRubinstein, A. Modeling Bounded Rationality, MIT Press.\nThaler, R. The Winner's Curse: Paradoxes and Anomalies of Economic Life, Princeton University Press."
     },
     {
       "subject": "DOTE",
@@ -433,6 +459,32 @@
     },
     {
       "subject": "DOTE",
+      "course_code": "5600",
+      "title": "AI and Big Data Strategies",
+      "credits": "1.50",
+      "terms": [],
+      "description": "The course brings insight and expertise to leveraging artificial intelligence and big data in business so students can harness the power of analytics and gain a true business advantage. Based on a practical framework with supporting methodology and hands-on exercises, this course helps identify where and how AI and big data can help entrepreneurs transform their businesses. Students will learn how to exploit new sources of customer, product, and operational data, coupled with advanced analytics and data science, to optimize key processes, uncover monetization opportunities, and create new sources of competitive differentiation.",
+      "enrollment_requirement": "For students in EMBA (Chinese)",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Students will be able to:\n\n1. gain insight and expertise to leveraging artificial intelligence and big data in business\n2. understand how AI and big data can help entrepreneurs transform their businesses\n3. learn advanced analytics and data science, to optimize key processes, uncover monetization opportunities, and create new sources of competitive differentiation",
+      "course_syllabus": "1. The power of analytics and how to gain a true business advantage\n2. A practical framework with supporting methodology and hands-on exercises\n3. How to exploit new sources of customer, product, and operational data, coupled with advanced analytics and data science\n4. How to optimize key processes, uncover monetization opportunities, and create new sources of competitive differentiation",
+      "assessment_types": {
+        "Classwork": "30",
+        "Discussion": "40",
+        "Examination": "30"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of course.",
+      "required_readings": "To be assigned by course teacher",
+      "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "DOTE",
       "course_code": "5870",
       "title": "Aviation Revenue Management",
       "credits": "3.00",
@@ -477,6 +529,31 @@
       "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
       "required_readings": "To be assigned by the course teacher.",
       "recommended_readings": "To be assigned by the course teacher."
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "6350",
+      "title": "Financial Data Modeling and Analysis",
+      "credits": "1.50",
+      "terms": [],
+      "description": "This course is designed to cover mathematical and statistical/econometric techniques to financial issues, i.e. regression, time-series methods, forecasting models and simulation in financial applications. It shows students how to apply such techniques in the context of finance. For example, discussion of a number of distributions pays special attention to heavy tail, skewness and other distribution features with regard to financial return analysis. Time-series analyses aim to explain the important influence of time-dependence in making economical predictions. Regression models cover CAPM as well as multifactor models to connote the cross-section relations among financial returns. GARCH and other volatility models introduce the related applications in risk management context. The course involves extensive use of real data examples and hands-on examples.",
+      "enrollment_requirement": "For students in MBA in Finance (40087); or MBA in Finance (40324)",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "Students will:\n- understand the basic econometric principles in analyzing business data;\n- be able to apply mathematical and statistical / econometric techniques to business and financial issues.",
+      "course_syllabus": "The course covers the following topics:\nTopic 1. Data Modeling and Analysis\n- Readings: Chapter 4, Why heavy tail? Readings: Minsky (1986); Taleb (2010)\n- Readings: Chapters 5-7\nTopic 2. Time Series Models\n- Readings: Chapters 9, 10\n- Trading strategies; Readings: Conrad and Kaul, Lo and Mackinlay\nTopic 3. Regression Models\n- Readings: Chapters 12, 13, 14, 15, 16, & 17, Carhart\nTopic 4. Volatility modeling and VaR\n- Readings: Chapters 18, 19",
+      "assessment_types": {
+        "Essay test or exam": "30",
+        "Others": "70"
+      },
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "Statistics and Data Analysis for Financial Engineering by David Ruppert, Springer.",
+      "recommended_readings": "• Nassim Taleb, The Black Swan: The Impact of the Highly Improbable, Random House.\n• Campbell, Lo and MacKinlay, The Econometrics of Financial Markets, Princeton University Press.\n• Hyman Minsky, Stabilizing an Unstable Economy, McGraw-Hill.\n• Peter Bernstein, Against the Gods: The Remarkable Story of Risk, Wiley.\n• William H. Greene, Econometric Analysis, Prentice Hall.\n• Carhart, On Persistence in Mutual Fund Performance, Journal of Finance 52, 57-82.\n• Conrad and Kaul, An Anatomy of Trading Strategies, Review of Financial Studies 11, 489-519.\n• Lo and MacKinlay, When Are Contrarian Profits Due to Market Overreaction? Review of Financial Studies, 3, 175-205."
     },
     {
       "subject": "DOTE",
@@ -611,6 +688,28 @@
       "academic_org": "Div of Business Administration",
       "learning_outcomes": "After completion of the seminar course , students are expected:\n1. To be familiar with the literature in their own research area;\n2. To be able to perform review of the most recent literature;\n3. To be able to develop new research topics;\n4. To be better prepared for thesis writing in a scientific way.",
       "course_syllabus": "Please refer to the course outline to be distributed by teacher.",
+      "assessment_types": {},
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be assigned by course teacher",
+      "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "DOTE",
+      "course_code": "6622",
+      "title": "Advanced MIS Research Seminar",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides students with a broad-based exposure to research in MIS and its research methodologies, including survey, case study, experimental design, and field work. Various theories used in MIS research will also be discussed to provide students with background on approaches to theory building and theory testing. Seminal MIS articles will be reviewed to orient students to the emergence of MIS discipline and its research tradition and trend.",
+      "enrollment_requirement": "For students in MPhil-PhD Decision Sciences & Managerial Economics; or MPhil-PhD Decisions, Operations and Technology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "1. Possess relevant knowledge and skills in academic research\n2. Able to propose intelligent and insightful research questions, along with their proposed research methods\n3. Understand and able to apply varied research methodologies and techniques to MIS research\n4. Possess the ability and experience in critiquing academic research works\n5. Able to prepare and present IS research proposals for research grants",
+      "course_syllabus": "Markets, organizations, and individuals use a wide variety of structures to co-ordinate resource production and allocation. Dramatic changes in information technology (IT) and business activities are forcing firms to come up with new ways of organizing work. Similarly, new types of digital information goods, much lower search costs, innovative ways of doing marketing, management, finance and human resource all lead to the disruption of old business models and creation of new ones.\nThis course uses economic theory to investigate the roles of information and technology in the existing diversity of organizations and markets and in enabling the creating of new organizational forms. The class is designed for PhD students in management, economics, information technology, marketing, operations management, organizational behavior and related disciplines. For economists, this class offers the opportunity to apply economic tools to understand how information technology and information in general affect organizations and markets. For non-economists, this class offers an exposure to fundamental ideas in the economics of information, organizations, and markets. This course covers quantitative research methodologies in Economics of IS. It consists of three components: Methodology, Economics of IS Research Topics, and Writing and Publishing. The main goal is to prepare PhD students to produce publication quality research using tools from information economics.\nWe will cultivate a culture of collaborative learning. In particular, in this seminar class, students come prepared to engage in thoughtful discussions of the materials. Students are asked to write informal, short memos prior to several of the classes. These memos will generally be responses to some questions or issues we pose prior to each class. In addition, each student will be asked to present at least one of the research papers as part of the class discussion.",
       "assessment_types": {},
       "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
       "required_readings": "To be assigned by course teacher",
