@@ -18,7 +18,7 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 
 ## Enrollment Lifecycle
 
-Sync (`syncCart` in [courseUtils.ts](../../web/src/lib/courseUtils.ts)) reconciles the restored cart whenever a term becomes active with a complete catalog. An enrollment is in one of three states:
+Sync (`syncCart` in [courseUtils.ts](../../web/src/lib/courseUtils.ts)) reconciles a restored cart once per term and scrape when its complete catalog is ready. An enrollment is in one of three states:
 
 | State | When | Consequences |
 | --- | --- | --- |
