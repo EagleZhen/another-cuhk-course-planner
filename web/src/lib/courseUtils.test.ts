@@ -16,6 +16,7 @@ import {
   checkSectionConflict,
   hasConflictFreeEnrollment,
   pruneReplacedTombstones,
+  syncCart,
   syncEnrollment,
   isEnrollmentOpen,
 } from './courseUtils'
@@ -310,6 +311,61 @@ describe('syncEnrollment', () => {
       invalidReason: 'Course no longer available',
       lastSynced: syncedAt,
     })
+  })
+})
+
+describe('syncCart', () => {
+  const syncedAt = new Date('2026-07-18T12:00:00.000Z')
+  const section = makeSection({ id: 'lec' })
+  const enrollment: CourseEnrollment = {
+    courseId: 'CSCI3100',
+    course: makeCourse([section]),
+    selectedSections: [section],
+    color: 'bg-blue-500',
+    isVisible: true,
+  }
+
+  it('leaves an empty cart untouched', () => {
+    const enrollments: CourseEnrollment[] = []
+
+    expect(syncCart(enrollments, [makeCourse([section])], 'Term 1', syncedAt)).toBe(enrollments)
+  })
+
+  it('leaves the cart untouched when the catalog has no courses for the term', () => {
+    const enrollments = [enrollment]
+    const otherTermCourse = makeCourse([section], 'Term 2')
+
+    expect(syncCart(enrollments, [otherTermCourse], 'Term 1', syncedAt)).toBe(enrollments)
+  })
+
+  it('marks a course unavailable in this term when the catalog covers the term', () => {
+    const enrolledCourseInAnotherTerm = makeCourse([section], 'Term 2')
+    const termCoverageCourse: InternalCourse = {
+      ...makeCourse([], 'Term 1'),
+      subject: 'MATH',
+      courseCode: '1010',
+    }
+
+    expect(
+      syncCart(
+        [enrollment],
+        [enrolledCourseInAnotherTerm, termCoverageCourse],
+        'Term 1',
+        syncedAt
+      )[0]
+    ).toMatchObject({
+      isInvalid: true,
+      invalidReason: 'Course no longer available',
+      lastSynced: syncedAt,
+    })
+  })
+
+  it('is idempotent across repeated syncs', () => {
+    const freshCourse = makeCourse([section])
+    const first = syncCart([enrollment], [freshCourse], 'Term 1', syncedAt)
+    const second = syncCart(first, [freshCourse], 'Term 1', syncedAt)
+
+    expect(second).toEqual(first)
   })
 })
 
