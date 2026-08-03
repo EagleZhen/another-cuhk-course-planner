@@ -80,7 +80,7 @@ Conflict detection is a two-step model:
 
 The main UI surfaces are:
 
-- [CourseSearch](components/course-search.md): data loading, search/filtering, course cards, and section selection before adding to the planner
+- [CourseSearch](components/course-search.md): search/filtering, course cards, and section selection before adding to the planner
 - [WeeklyCalendar](components/weekly-calendar.md): visual timetable, conflict display, screenshots, ICS export, and ICS undo
 - [ShoppingCart](components/shopping-cart.md): enrolled courses, section cycling, visibility toggles, and remove/update actions
 
