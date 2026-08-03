@@ -80,6 +80,8 @@ function storedSchedule() {
   }
 }
 
+// syncCart skips a term no course in the catalog offers, so Term 2 needs a course of
+// its own for a test whose enrolled course only exists in Term 1.
 const termCoverageCourse = {
   subject: 'ACCT',
   course_code: '9999',
