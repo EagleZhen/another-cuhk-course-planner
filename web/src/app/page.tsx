@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo, useEffect, useRef, useCallback } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 
 // Proper hydration handling without suppressing warnings
 import CourseSearch from '@/components/CourseSearch'
@@ -19,7 +19,7 @@ import {
   sortSectionsByPriority,
   updateExistingEnrollment,
   pruneReplacedTombstones,
-  syncEnrollment,
+  syncCart,
   extractAcademicYearCode,
   readStoredEnrollments,
   recordSeenChanges,
@@ -60,7 +60,7 @@ export default function Home() {
   const [courseEnrollments, setCourseEnrollments] = useState<CourseEnrollment[]>([])
   const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())
   const [selectedEnrollment, setSelectedEnrollment] = useState<string | null>(null)
-  const [lastSyncTimestamp, setLastSyncTimestamp] = useState<Date | null>(null)
+  const [restoredTerm, setRestoredTerm] = useState<string | null>(null)
   // TODO(#146): rename to reflect these are toggled subject filters, not selected subjects
   const [selectedSubjects, setSelectedSubjects] = useState<Set<string>>(new Set())
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
@@ -75,7 +75,7 @@ export default function Home() {
   const [subjectFiltersByTerm, setSubjectFiltersByTerm] = useState<Map<string, Set<string>>>(
     new Map()
   )
-  const syncedCatalogYearsRef = useRef<Set<string>>(new Set())
+  const syncedKeysRef = useRef<Set<string>>(new Set())
 
   // Track hydration status and session start
   useEffect(() => {
@@ -150,6 +150,8 @@ export default function Home() {
       localStorage.removeItem(`schedule_${currentTerm}`)
       setCourseEnrollments([])
       setSelectedSubjects(new Set())
+    } finally {
+      setRestoredTerm(currentTerm)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- subjectFiltersByTerm would cause infinite loop
   }, [currentTerm, isHydrated])
@@ -478,62 +480,19 @@ export default function Home() {
     setSelectedSections(newSectionsMap)
   }
 
-  // Handle data updates from CourseSearch - sync enrollments against fresh data
-  const handleDataUpdate = useCallback(
-    (timestamp: Date, allFreshCourses?: InternalCourse[]) => {
-      console.debug(`Course data loaded from: ${timestamp.toLocaleString()}`)
-
-      // Background sync: Update existing enrollments with fresh data
-      // Use callback form to avoid dependency on courseEnrollments
-      setCourseEnrollments((currentEnrollments) => {
-        // Length, not just presence: syncing against an empty catalog would mark every
-        // enrollment "no longer available" rather than leaving the cart alone.
-        if (!allFreshCourses?.length || currentEnrollments.length === 0) {
-          return currentEnrollments // No changes needed
-        }
-
-        // Prevent duplicate syncs for same timestamp
-        if (
-          lastSyncTimestamp &&
-          Math.abs(timestamp.getTime() - lastSyncTimestamp.getTime()) < 1000
-        ) {
-          console.debug('Skipping duplicate sync (< 1 second apart)')
-          return currentEnrollments
-        }
-
-        console.debug('Background syncing shopping cart with fresh course data...')
-
-        const syncedEnrollments = currentEnrollments.map((enrollment) =>
-          syncEnrollment(enrollment, allFreshCourses, currentTerm, timestamp)
-        )
-
-        // Log sync results
-        const invalidCount = syncedEnrollments.filter((e) => e.isInvalid).length
-        if (invalidCount > 0) {
-          console.warn(`⚠️ ${invalidCount} enrollments have invalid data`)
-        } else {
-          console.debug(`Successfully synced ${syncedEnrollments.length} enrollments`)
-        }
-
-        // This setState and the logs above sit inside the updater, so StrictMode double-invokes them
-        // TODO(#172): move them out to an effect
-        setLastSyncTimestamp(timestamp)
-
-        return syncedEnrollments
-      })
-    },
-    [currentTerm, lastSyncTimestamp]
-  ) // Add lastSyncTimestamp to dependencies
-
-  // Preserve the existing once-per-fetched-year sync until step 3 keys it by term and scrape time.
   useEffect(() => {
-    if (catalog.status !== 'ready' || syncedCatalogYearsRef.current.has(catalog.year)) return
+    if (catalog.status !== 'ready' || !catalog.scrapedAt || restoredTerm !== currentTerm) return
 
-    syncedCatalogYearsRef.current.add(catalog.year)
-    if (catalog.scrapedAt) {
-      handleDataUpdate(catalog.scrapedAt, catalog.courses)
-    }
-  }, [catalog.status, catalog.year, catalog.scrapedAt, catalog.courses, handleDataUpdate])
+    const scrapedAt = catalog.scrapedAt
+    const key = `${currentTerm}|${scrapedAt.toISOString()}`
+    if (syncedKeysRef.current.has(key)) return
+    syncedKeysRef.current.add(key)
+
+    console.debug(`Syncing ${currentTerm} cart with catalog from ${scrapedAt.toISOString()}`)
+    setCourseEnrollments((enrollments) =>
+      syncCart(enrollments, catalog.courses, currentTerm, scrapedAt)
+    )
+  }, [currentTerm, restoredTerm, catalog.status, catalog.scrapedAt, catalog.courses])
 
   return (
     <div className="min-h-screen bg-gray-50">

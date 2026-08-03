@@ -65,7 +65,7 @@ export function useCourseCatalog(year: string): CourseCatalog {
 
   useEffect(() => {
     if (courseCacheRef.current.has(year)) {
-      console.log(`${year} data already loaded this session, skipping reload`)
+      console.log(`Using cached ${year} course catalog`)
       return
     }
 
