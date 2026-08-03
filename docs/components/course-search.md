@@ -8,7 +8,7 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 
 ## Data Loading
 
-- The page owns [`useCourseCatalog`](../../web/src/hooks/useCourseCatalog.ts) and passes its result to `CourseSearch`. Subjects load and validate in parallel; archived years load on demand and are cached separately. Incomplete loads can retry when that year becomes active again.
+- A year's subjects all load in parallel so search stays local and instant within it. The live year loads at startup; an archived year is fetched only when first opened, so the live year never pays for years no one visits. Complete loads are cached per year; an incomplete one retries when that year next becomes active. Implemented in [`useCourseCatalog`](../../web/src/hooks/useCourseCatalog.ts).
 - **Mobile first visit:** loading waits for the `NOTICE_IMAGE_LOADED_EVENT` window event so the `MobileDesktopNotice` preview image isn't starved by the course-data download (~4MB compressed on the wire, ~40MB of JSON after decompression). The notice dispatches it on image load, image error, and dismissal — loading must never hang on a missing dispatch. Constants live in [constants.ts](../../web/src/lib/constants.ts).
 - The loading UI deliberately shows no remaining-time estimate: parallel request timing is too noisy to predict honestly.
 

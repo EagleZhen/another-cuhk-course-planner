@@ -58,13 +58,15 @@ function createLoadingCatalog(year: string, total = 0): CourseCatalog {
 
 export function useCourseCatalog(year: string): CourseCatalog {
   const [catalogsByYear, setCatalogsByYear] = useState<Map<string, CourseCatalog>>(() => new Map())
-  const courseCacheRef = useRef<Map<string, InternalCourse[]>>(new Map())
+  // Years whose catalog is complete. The courses themselves live in catalogsByYear;
+  // this only answers "already fetched?" without adding that state to the effect's deps.
+  const completeYearsRef = useRef<Set<string>>(new Set())
   const loadingYearsRef = useRef<Set<string>>(new Set())
   const availableSubjects = useMemo(() => getSubjectCodesForYear(year), [year])
   const initialCatalog = useMemo(() => createLoadingCatalog(year), [year])
 
   useEffect(() => {
-    if (courseCacheRef.current.has(year)) {
+    if (completeYearsRef.current.has(year)) {
       console.log(`Using cached ${year} course catalog`)
       return
     }
@@ -217,9 +219,9 @@ export function useCourseCatalog(year: string): CourseCatalog {
           successCount === 0 ? 'empty' : failedSubjectCount > 0 ? 'partial' : 'ready'
 
         if (status === 'ready') {
-          courseCacheRef.current.set(year, allCoursesData)
+          completeYearsRef.current.add(year)
         } else {
-          courseCacheRef.current.delete(year)
+          completeYearsRef.current.delete(year)
         }
 
         setCatalogsByYear((current) => {
@@ -237,7 +239,7 @@ export function useCourseCatalog(year: string): CourseCatalog {
         })
       } catch (error) {
         console.error('Failed to load course data:', error)
-        courseCacheRef.current.delete(year)
+        completeYearsRef.current.delete(year)
         setCatalogsByYear((current) => {
           const next = new Map(current)
           next.set(year, {
