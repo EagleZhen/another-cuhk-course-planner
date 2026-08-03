@@ -59,18 +59,11 @@ import {
 } from '@/lib/courseFilters'
 import { ChipFilterRow } from '@/components/ChipFilterRow'
 import { DAYS, DAY_COMBINATIONS, type WeekDay } from '@/lib/calendarConfig'
-import { transformExternalCourseData } from '@/lib/validation'
-import { SCRAPED_AT_BY_YEAR } from '@/lib/generated/scrape-times'
 import ReactMarkdown from 'react-markdown'
 import { analytics } from '@/lib/analytics'
 import { getSubjectCodesForYear } from '@/lib/subjectUtils'
-import {
-  MOBILE_BREAKPOINT,
-  NOTICE_STORAGE_KEY,
-  NOTICE_VERSION,
-  NOTICE_IMAGE_LOADED_EVENT,
-  CURRENT_ACADEMIC_YEAR,
-} from '@/lib/constants'
+import { CURRENT_ACADEMIC_YEAR } from '@/lib/constants'
+import { useCourseCatalog } from '@/hooks/useCourseCatalog'
 import { TermSelector } from '@/components/TermSelector'
 import { CuhkLibraryImageIcon } from '@/components/icons/CuhkLibraryImageIcon'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
@@ -264,25 +257,31 @@ export default function CourseSearch({
     }
   }, [onSearchControlReady])
 
-  const [loading, setLoading] = useState(true)
-  const [loadingProgress, setLoadingProgress] = useState({
-    loaded: 0,
-    total: 0,
-    currentSubject: '',
-  })
-  const [loadedBytes, setLoadedBytes] = useState(0)
-  const [allCourses, setAllCourses] = useState<InternalCourse[]>([])
   const firstCourseCardRef = useRef<HTMLDivElement>(null) // Ref to first course card for scrolling
-  const [hasDataLoaded, setHasDataLoaded] = useState(false)
 
   // Academic year of the selected term; drives which year's data we load and list.
   const selectedYear = extractAcademicYearCode(currentTerm)
   const isArchivedYear = selectedYear !== CURRENT_ACADEMIC_YEAR
   const availableSubjects = useMemo(() => getSubjectCodesForYear(selectedYear), [selectedYear])
-  // Years whose data is already fetched this session (each loads at most once).
-  const loadedYearsRef = useRef<Set<string>>(new Set())
-  const [failedSubjectCount, setFailedSubjectCount] = useState(0)
+  const catalog = useCourseCatalog(selectedYear)
+  const allCourses = catalog.courses
+  const loading = catalog.status === 'loading'
+  const hasDataLoaded = catalog.status !== 'loading'
+  const loadingProgress = catalog.progress
+  const loadedBytes = catalog.loadedBytes
+  const failedSubjectCount = catalog.failedSubjectCount
+  const notifiedCatalogYearsRef = useRef<Set<string>>(new Set())
   const [shuffleTrigger, setShuffleTrigger] = useState(0) // Counter to trigger shuffle
+
+  // Temporary compatibility adapter for page.tsx. Catalog ownership moves there in step 2.
+  useEffect(() => {
+    if (catalog.status !== 'ready' || notifiedCatalogYearsRef.current.has(catalog.year)) return
+
+    notifiedCatalogYearsRef.current.add(catalog.year)
+    if (catalog.scrapedAt) {
+      onDataUpdate?.(catalog.scrapedAt, catalog.courses)
+    }
+  }, [catalog.status, catalog.year, catalog.scrapedAt, catalog.courses, onDataUpdate])
 
   // Removed global state - CourseCard now manages its own state
 
@@ -447,212 +446,6 @@ export default function CourseSearch({
         currentLocalSelections.get(enrolledSection.sectionType) !== enrolledSection.id
     )
   }
-
-  // Load the selected year's data: eagerly for the current year on mount, then
-  // lazily whenever the user switches to an archived year not yet fetched.
-  useEffect(() => {
-    // Each year loads at most once per session.
-    if (loadedYearsRef.current.has(selectedYear)) {
-      console.log(`${selectedYear} data already loaded this session, skipping reload`)
-      return
-    }
-
-    const loadCourseData = async () => {
-      // Claim the year up front so a concurrent re-invocation (e.g. React
-      // StrictMode's double-mounted effect) short-circuits at the guard above
-      // instead of fetching and appending the same year twice.
-      loadedYearsRef.current.add(selectedYear)
-      setLoading(true)
-
-      // Performance tracking
-      const startTime = performance.now()
-      const subjectLoadTimes: { subject: string; time: number; size: number }[] = []
-      let totalDataSize = 0
-
-      try {
-        // 🚀 Load ALL subjects - using single source of truth from lib/generated/subjects.ts
-        // Automatically excludes exemption codes (EX_*, X*)
-        setLoadingProgress({
-          loaded: 0,
-          total: 1,
-          currentSubject: 'Preparing complete subject list...',
-        })
-
-        setLoadingProgress({
-          loaded: 0,
-          total: availableSubjects.length,
-          currentSubject: 'Starting parallel load...',
-        })
-
-        const allCoursesData: InternalCourse[] = []
-
-        console.log(
-          `Loading ${availableSubjects.length} subjects in parallel (exemption codes excluded)...`
-        )
-
-        // 🔥 PARALLEL LOADING: Fire ALL requests simultaneously!
-        const allPromises = availableSubjects.map(async (subject) => {
-          const subjectStartTime = performance.now()
-
-          try {
-            const response = await fetch(`/data/${selectedYear}/${subject}.json`)
-            if (response.ok) {
-              const rawData = await response.json()
-              const subjectEndTime = performance.now()
-
-              // Calculate approximate data size (rough estimate)
-              const dataSize = JSON.stringify(rawData).length
-              const loadTime = subjectEndTime - subjectStartTime
-
-              // Update progress as each request completes
-              setLoadingProgress((prev) => ({
-                loaded: prev.loaded + 1,
-                total: prev.total,
-                currentSubject: `${subject} (${Math.round(loadTime)}ms) - ${prev.loaded + 1}/${prev.total}`,
-              }))
-              setLoadedBytes((prev) => prev + dataSize)
-
-              // Validate data structure
-              if (rawData.courses && Array.isArray(rawData.courses)) {
-                const transformedData = transformExternalCourseData(rawData)
-                console.debug(
-                  `${subject.padEnd(4)}: ${transformedData.courses.length.toString().padStart(5)} courses, ${Math.round(
-                    dataSize / 1024
-                  )
-                    .toString()
-                    .padStart(5)}KB, ${Math.round(loadTime).toString().padStart(5)}ms`
-                )
-
-                return {
-                  subject,
-                  courses: transformedData.courses,
-                  loadTime: Math.round(loadTime),
-                  dataSize: Math.round(dataSize / 1024),
-                  success: true,
-                }
-              } else {
-                console.warn(`Invalid data structure in ${subject}.json`)
-                setLoadingProgress((prev) => ({ ...prev, loaded: prev.loaded + 1 }))
-                return { subject, success: false, error: 'Invalid data structure' }
-              }
-            } else {
-              console.warn(`Failed to load ${subject}.json: ${response.status}`)
-              setLoadingProgress((prev) => ({ ...prev, loaded: prev.loaded + 1 }))
-              return { subject, success: false, error: `HTTP ${response.status}` }
-            }
-          } catch (error) {
-            console.warn(`Failed to load ${subject} data:`, error)
-            setLoadingProgress((prev) => ({ ...prev, loaded: prev.loaded + 1 }))
-            return { subject, success: false, error: String(error) }
-          }
-        })
-
-        // Wait for ALL requests to complete
-        const results = await Promise.all(allPromises)
-
-        // Process successful results
-        results.forEach((result) => {
-          if (result.success && result.courses) {
-            allCoursesData.push(...result.courses)
-            subjectLoadTimes.push({
-              subject: result.subject,
-              time: result.loadTime || 0,
-              size: result.dataSize || 0,
-            })
-          } else {
-            subjectLoadTimes.push({
-              subject: result.subject,
-              time: 0,
-              size: 0,
-            })
-          }
-        })
-
-        const successCount = results.filter((r) => r.success).length
-        totalDataSize = subjectLoadTimes.reduce((sum, s) => sum + s.size * 1024, 0)
-
-        // Total load time (also reported to analytics below)
-        const totalLoadTime = performance.now() - startTime
-
-        console.log(
-          `Loaded ${allCoursesData.length} total courses from ${successCount}/${availableSubjects.length} subjects`
-        )
-
-        const validTimes = subjectLoadTimes.filter((s) => s.time > 0)
-
-        // Send performance metrics to PostHog
-        const slowest =
-          validTimes.length > 0
-            ? validTimes.reduce((max, s) => (s.time > max.time ? s : max))
-            : null
-        analytics.courseDataLoaded({
-          totalLoadTimeMs: Math.round(totalLoadTime),
-          subjectCount: availableSubjects.length,
-          successCount,
-          failedCount: availableSubjects.length - successCount,
-          totalSizeKb: Math.round(totalDataSize / 1024),
-          slowestSubject: slowest?.subject ?? '',
-          slowestTimeMs: slowest?.time ?? 0,
-          avgTimeMs:
-            validTimes.length > 0
-              ? Math.round(validTimes.reduce((sum, s) => sum + s.time, 0) / validTimes.length)
-              : 0,
-        })
-
-        if (successCount === 0) {
-          console.error(
-            `❌ No course data could be loaded - check that /data/${selectedYear}/ files exist`
-          )
-        }
-
-        const failed = availableSubjects.length - successCount
-        if (failed > 0) {
-          setFailedSubjectCount(failed)
-        }
-
-        // Accumulate across years so archived years stay loaded once fetched.
-        setAllCourses((prev) => [...prev, ...allCoursesData])
-        setHasDataLoaded(true) // At least one year's data is now available
-        setLoading(false)
-
-        // Hands the parent fresh course data to sync the cart against, but only from a
-        // complete load: courses of a subject that failed to fetch are indistinguishable
-        // from courses CUHK dropped, and the cart would tombstone them.
-        const scrapedAt = SCRAPED_AT_BY_YEAR[selectedYear]
-        if (failed === 0 && scrapedAt) {
-          onDataUpdate?.(new Date(scrapedAt), allCoursesData)
-        }
-      } catch (error) {
-        console.error('Failed to load course data:', error)
-        loadedYearsRef.current.delete(selectedYear) // released so the year can retry
-        setLoading(false)
-      } finally {
-        setLoadingProgress({ loaded: 0, total: 0, currentSubject: '' })
-      }
-    }
-
-    // Check if mobile notice is showing - if so, wait for image to load first
-    const isMobile = window.innerWidth < MOBILE_BREAKPOINT
-    const seenVersion = localStorage.getItem(NOTICE_STORAGE_KEY)
-    const shouldWaitForImage = isMobile && seenVersion !== NOTICE_VERSION
-
-    if (shouldWaitForImage) {
-      // Mobile notice is showing - wait for image load event
-      // Event dispatched by: MobileDesktopNotice.tsx when preview image finishes loading
-      const handleImageLoaded = () => {
-        loadCourseData()
-      }
-
-      window.addEventListener(NOTICE_IMAGE_LOADED_EVENT, handleImageLoaded, { once: true })
-
-      // Cleanup listener if component unmounts before event fires
-      return () => {
-        window.removeEventListener(NOTICE_IMAGE_LOADED_EVENT, handleImageLoaded)
-      }
-    } else {
-      loadCourseData()
-    }
-  }, [onDataUpdate, selectedYear, availableSubjects]) // Re-run to load a newly selected year
 
   // Run the pure filter off the main thread, then apply presentation (limit).
   // Order comes from `courses` (filtering preserves it), so the caller controls shuffle by
@@ -935,7 +728,7 @@ export default function CourseSearch({
                   onTermChange={onTermChange}
                 />
               </div>
-              {SCRAPED_AT_BY_YEAR[selectedYear] && (
+              {catalog.scrapedAt && (
                 <>
                   <div className="flex items-center gap-1.5">
                     <AlertTriangle className="w-3 h-3 text-orange-500 flex-shrink-0" />
@@ -951,8 +744,8 @@ export default function CourseSearch({
                           data detectors look for, and it would wrap non-temporal placeholder
                           text. dateTime carries the instant for machines and screen readers. */}
                       {mounted ? (
-                        <time dateTime={SCRAPED_AT_BY_YEAR[selectedYear]}>
-                          {formatSyncTimestamp(new Date(SCRAPED_AT_BY_YEAR[selectedYear]))}
+                        <time dateTime={catalog.scrapedAt.toISOString()}>
+                          {formatSyncTimestamp(catalog.scrapedAt)}
                         </time>
                       ) : (
                         'Loading…'
