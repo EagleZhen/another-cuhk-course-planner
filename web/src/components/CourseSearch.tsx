@@ -33,7 +33,6 @@ import {
   cuhkLibrarySearchAndOpen,
   getDayIndex,
   getAggregateSeatInfo,
-  extractAcademicYearCode,
   isVisibleAndValid,
 } from '@/lib/courseUtils'
 import { ACADEMIC_CAREERS } from '@/lib/types'
@@ -63,7 +62,7 @@ import ReactMarkdown from 'react-markdown'
 import { analytics } from '@/lib/analytics'
 import { getSubjectCodesForYear } from '@/lib/subjectUtils'
 import { CURRENT_ACADEMIC_YEAR } from '@/lib/constants'
-import { useCourseCatalog } from '@/hooks/useCourseCatalog'
+import type { CourseCatalog } from '@/hooks/useCourseCatalog'
 import { TermSelector } from '@/components/TermSelector'
 import { CuhkLibraryImageIcon } from '@/components/icons/CuhkLibraryImageIcon'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
@@ -72,6 +71,7 @@ import { MeetingRowCard } from '@/components/MeetingRowCard'
 // Using clean internal types only
 
 interface CourseSearchProps {
+  catalog: CourseCatalog
   courseEnrollments: CourseEnrollment[]
   currentTerm: string
   availableTerms?: string[]
@@ -90,7 +90,6 @@ interface CourseSearchProps {
   onSearchControlReady?: (
     setSearchTerm: (term: string, fromCourseDetails?: boolean) => void
   ) => void
-  onDataUpdate?: (timestamp: Date, allCourses?: InternalCourse[]) => void // Callback when data is loaded
   onAvailableSubjectsUpdate?: (subjects: string[]) => void // Callback when subjects are discovered
   onClearSubjects?: () => void
 }
@@ -118,6 +117,7 @@ function shuffledCopy<T>(items: T[]): T[] {
 }
 
 export default function CourseSearch({
+  catalog,
   courseEnrollments,
   currentTerm,
   availableTerms = [],
@@ -129,7 +129,6 @@ export default function CourseSearch({
   onSelectedSectionsChange,
   onScrollToCart,
   onSearchControlReady,
-  onDataUpdate,
   onAvailableSubjectsUpdate,
   onClearSubjects,
 }: CourseSearchProps) {
@@ -260,28 +259,16 @@ export default function CourseSearch({
   const firstCourseCardRef = useRef<HTMLDivElement>(null) // Ref to first course card for scrolling
 
   // Academic year of the selected term; drives which year's data we load and list.
-  const selectedYear = extractAcademicYearCode(currentTerm)
+  const selectedYear = catalog.year
   const isArchivedYear = selectedYear !== CURRENT_ACADEMIC_YEAR
   const availableSubjects = useMemo(() => getSubjectCodesForYear(selectedYear), [selectedYear])
-  const catalog = useCourseCatalog(selectedYear)
   const allCourses = catalog.courses
   const loading = catalog.status === 'loading'
   const hasDataLoaded = catalog.status !== 'loading'
   const loadingProgress = catalog.progress
   const loadedBytes = catalog.loadedBytes
   const failedSubjectCount = catalog.failedSubjectCount
-  const notifiedCatalogYearsRef = useRef<Set<string>>(new Set())
   const [shuffleTrigger, setShuffleTrigger] = useState(0) // Counter to trigger shuffle
-
-  // Temporary compatibility adapter for page.tsx. Catalog ownership moves there in step 2.
-  useEffect(() => {
-    if (catalog.status !== 'ready' || notifiedCatalogYearsRef.current.has(catalog.year)) return
-
-    notifiedCatalogYearsRef.current.add(catalog.year)
-    if (catalog.scrapedAt) {
-      onDataUpdate?.(catalog.scrapedAt, catalog.courses)
-    }
-  }, [catalog.status, catalog.year, catalog.scrapedAt, catalog.courses, onDataUpdate])
 
   // Removed global state - CourseCard now manages its own state
 

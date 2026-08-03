@@ -42,6 +42,7 @@ Important invariants:
 [page.tsx](../web/src/app/page.tsx) owns global planner state:
 
 - current term
+- course catalog and its per-year loading state
 - selected subjects
 - enrolled courses and selected sections
 - visibility, conflict, and invalid-course state

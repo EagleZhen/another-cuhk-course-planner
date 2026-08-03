@@ -37,6 +37,7 @@ import { analytics } from '@/lib/analytics'
 import { getSubjectTitle } from '@/lib/subjectUtils'
 import { TERMS_BY_YEAR } from '@/lib/generated/terms'
 import { SCHEDULE_DATA_VERSION, DEFAULT_CURRENT_TERM, CURRENT_ACADEMIC_YEAR } from '@/lib/constants'
+import { useCourseCatalog } from '@/hooks/useCourseCatalog'
 
 // Color assignment is now handled in courseUtils.ts
 
@@ -51,8 +52,10 @@ export default function Home() {
 
   // Current term state
   const [currentTerm, setCurrentTerm] = useState(DEFAULT_CURRENT_TERM)
+  const selectedYear = extractAcademicYearCode(currentTerm)
+  const catalog = useCourseCatalog(selectedYear)
   // Archived = any year other than the live one; its data is a frozen snapshot.
-  const isArchivedYear = extractAcademicYearCode(currentTerm) !== CURRENT_ACADEMIC_YEAR
+  const isArchivedYear = selectedYear !== CURRENT_ACADEMIC_YEAR
 
   const [courseEnrollments, setCourseEnrollments] = useState<CourseEnrollment[]>([])
   const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())
@@ -72,6 +75,7 @@ export default function Home() {
   const [subjectFiltersByTerm, setSubjectFiltersByTerm] = useState<Map<string, Set<string>>>(
     new Map()
   )
+  const syncedCatalogYearsRef = useRef<Set<string>>(new Set())
 
   // Track hydration status and session start
   useEffect(() => {
@@ -521,6 +525,16 @@ export default function Home() {
     [currentTerm, lastSyncTimestamp]
   ) // Add lastSyncTimestamp to dependencies
 
+  // Preserve the existing once-per-fetched-year sync until step 3 keys it by term and scrape time.
+  useEffect(() => {
+    if (catalog.status !== 'ready' || syncedCatalogYearsRef.current.has(catalog.year)) return
+
+    syncedCatalogYearsRef.current.add(catalog.year)
+    if (catalog.scrapedAt) {
+      handleDataUpdate(catalog.scrapedAt, catalog.courses)
+    }
+  }, [catalog.status, catalog.year, catalog.scrapedAt, catalog.courses, handleDataUpdate])
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Data source disclaimer — swapped out for the reference-mode bar on archived years */}
@@ -722,6 +736,7 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <CourseSearch
+                catalog={catalog}
                 onAddCourse={handleAddCourse} // Event handler prop
                 onRemoveCourse={handleRemoveCourse} // Event handler prop
                 courseEnrollments={courseEnrollments} // Data prop / State prop
@@ -734,7 +749,6 @@ export default function Home() {
                 onSearchControlReady={(setSearchTerm) => {
                   setSearchTermRef.current = setSearchTerm
                 }} // Callback to get search control
-                onDataUpdate={handleDataUpdate} // Data freshness callback
                 selectedSubjects={selectedSubjects} // Subject filter state
                 onClearSubjects={() => setSelectedSubjects(new Set())}
                 onAvailableSubjectsUpdate={setAvailableSubjects} // Available subjects callback
