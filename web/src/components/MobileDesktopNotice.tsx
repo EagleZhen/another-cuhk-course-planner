@@ -68,7 +68,7 @@ export default function MobileDesktopNotice() {
   }, [])
 
   // Mark this version seen and close. Fires NOTICE_IMAGE_LOADED_EVENT so course data
-  // loads even if the preview image never did (see CourseSearch's load-order coupling).
+  // loads even if the preview image never did (see useCourseCatalog's load-order coupling).
   const closeNotice = () => {
     localStorage.setItem(NOTICE_STORAGE_KEY, NOTICE_VERSION)
     setShowNotice(false)
@@ -167,7 +167,7 @@ export default function MobileDesktopNotice() {
               onLoad={() => {
                 setImageLoaded(true)
                 // Dispatch event to signal image is ready
-                // Listened by: CourseSearch.tsx (delays data loading until image loads)
+                // Listened to by useCourseCatalog (delays data loading until the image loads).
                 window.dispatchEvent(new Event(NOTICE_IMAGE_LOADED_EVENT))
               }}
               onError={() => {

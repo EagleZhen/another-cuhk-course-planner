@@ -42,6 +42,7 @@ Important invariants:
 [page.tsx](../web/src/app/page.tsx) owns global planner state:
 
 - current term
+- course catalog and its per-year loading state
 - selected subjects
 - enrolled courses and selected sections
 - visibility, conflict, and invalid-course state
@@ -52,7 +53,7 @@ Schedules are stored per term using `schedule_${currentTerm}` keys. The state is
 
 Restore migrates known `SCHEDULE_DATA_VERSION`s forward via `readStoredEnrollments` in [courseUtils.ts](../web/src/lib/courseUtils.ts) rather than wiping on every schema change; only unknown or newer versions clear the cart.
 
-When fresh course data loads, existing enrollments are synchronized instead of silently deleted. Missing courses or sections are marked invalid so the user can see what changed.
+Each `(term, scrape time)` pair is synchronized only after that term's cart is restored and its complete catalog is ready. Missing courses or sections are marked invalid instead of silently deleted, so the user can see what changed.
 
 ## Domain Logic
 

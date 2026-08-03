@@ -553,6 +553,23 @@ export function syncEnrollment(
   )
 }
 
+/** Reconcile a term's cart only when the catalog contains data for that term. */
+export function syncCart(
+  enrollments: CourseEnrollment[],
+  courses: InternalCourse[],
+  term: string,
+  syncedAt: Date
+): CourseEnrollment[] {
+  if (
+    enrollments.length === 0 ||
+    !courses.some((course) => course.terms.some((courseTerm) => courseTerm.termName === term))
+  ) {
+    return enrollments
+  }
+
+  return enrollments.map((enrollment) => syncEnrollment(enrollment, courses, term, syncedAt))
+}
+
 // JSON.stringify writes Dates as ISO strings; revive them here so the rest of the app
 // only ever sees Date. Keep this in sync with any future Date field on CourseEnrollment.
 function reviveEnrollmentDates(enrollments: CourseEnrollment[]): CourseEnrollment[] {
