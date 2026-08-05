@@ -2581,10 +2581,10 @@
       "assessment_types": {
         "Attendance": "5",
         "Homework or assignment": "40",
-        "Participation": "5",
         "Online discussion or forum": "10",
         "Presentation": "5",
-        "Project": "35"
+        "Project": "35",
+        "Participation": "5"
       }
     },
     {
@@ -4259,10 +4259,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "0",
+                "enrolled": "34",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "65",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4452,10 +4452,10 @@
               ],
               "availability": {
                 "capacity": "15",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "14",
                 "status": "Open"
               },
               "class_attributes": "English only"

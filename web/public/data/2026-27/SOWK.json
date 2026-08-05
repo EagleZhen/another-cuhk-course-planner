@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "SOWK",
     "subject_title": "Social Work",
-    "total_courses": 83
+    "total_courses": 84
   },
   "courses": [
     {
@@ -1312,6 +1312,54 @@
     },
     {
       "subject": "SOWK",
+      "course_code": "2100",
+      "title": "Service-learning Online Course",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "AX01-WBL (10124)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Mr WONG Kon Chi",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "This online course aims to provide students with an overview of Service-Learning (S-L), including its definition, its relevant concepts and theories, and its implications for the good of society and enhancement of personal development. Through different online materials and interactive exercises, students can learn how to assess the needs of different communities, define objectives, design service projects creatively, implement the projects to meet these needs, and develop methods to evaluate the outcomes. Students will be encouraged to reflect on how the knowledge and skills that they have acquired in their own disciplines may facilitate the development of S-L projects. It is designed in the form of self-paced e-Learning modules which can be taken as a standalone prerequisite to students’ self-initiated service projects.",
+      "enrollment_requirement": "",
+      "course_attributes": "Service Learning Course\nVirtual Teaching & Learning Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Pass (P)/Fail (U)",
+      "component": "Web-enhanced Teaching",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Social Work",
+      "academic_org": "Dept of Social Work",
+      "learning_outcomes": "After completing this online course, students will be able to:\n\n1. Understand the concepts and value of S-L for the society and their personal development;\n2. Apply the skills of communicating with various vulnerable communities;\n3. Analyze the theories on assessing the needs of communities;\n4. Apply the concepts of designing, planning, implementing and evaluating innovative service projects meeting the needs of the targeted communities; and\n5. Reflect and integrate S-L with knowledge and skills acquired in their own disciplines.",
+      "assessment_types": {
+        "Online discussion or forum": "40",
+        "Test or quiz": "60"
+      }
+    },
+    {
+      "subject": "SOWK",
       "course_code": "2110",
       "title": "Human Behaviour and the Social Environment",
       "credits": "3.00",
@@ -2302,18 +2350,6 @@
             {
               "section": "-T04-TUT (6623)",
               "meetings": [
-                {
-                  "time": "Tu 12:30PM - 2:15PM",
-                  "location": "T.C. Cheng Bldg 109",
-                  "instructor": "Dr. LAW Yee Man, \nMr. IP Man Chun",
-                  "dates": "3/11"
-                },
-                {
-                  "time": "Tu 12:30PM - 2:15PM",
-                  "location": "T.C. Cheng Bldg 109",
-                  "instructor": "Dr. LAW Yee Man, \nMr. IP Man Chun",
-                  "dates": "17/11"
-                },
                 {
                   "time": "We 4:30PM - 6:15PM",
                   "location": "T.C. Cheng Bldg 108",
@@ -4961,10 +4997,10 @@
               ],
               "availability": {
                 "capacity": "62",
-                "enrolled": "48",
+                "enrolled": "49",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -5059,10 +5095,10 @@
               ],
               "availability": {
                 "capacity": "67",
-                "enrolled": "57",
+                "enrolled": "65",
                 "waitlist_capacity": "8",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -5114,11 +5150,11 @@
               ],
               "availability": {
                 "capacity": "67",
-                "enrolled": "57",
+                "enrolled": "67",
                 "waitlist_capacity": "8",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
+                "waitlist_total": "5",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Putonghua and English"
             }
@@ -5169,10 +5205,10 @@
               ],
               "availability": {
                 "capacity": "67",
-                "enrolled": "49",
+                "enrolled": "55",
                 "waitlist_capacity": "8",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5224,11 +5260,11 @@
               ],
               "availability": {
                 "capacity": "67",
-                "enrolled": "48",
+                "enrolled": "67",
                 "waitlist_capacity": "8",
-                "waitlist_total": "0",
-                "available_seats": "19",
-                "status": "Open"
+                "waitlist_total": "3",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese, English and Putonghua"
             }
@@ -5274,10 +5310,10 @@
               ],
               "availability": {
                 "capacity": "71",
-                "enrolled": "66",
+                "enrolled": "69",
                 "waitlist_capacity": "8",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -5312,11 +5348,11 @@
               ],
               "availability": {
                 "capacity": "72",
-                "enrolled": "69",
+                "enrolled": "72",
                 "waitlist_capacity": "8",
-                "waitlist_total": "0",
-                "available_seats": "3",
-                "status": "Open"
+                "waitlist_total": "2",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -5419,10 +5455,10 @@
               ],
               "availability": {
                 "capacity": "62",
-                "enrolled": "42",
+                "enrolled": "43",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6170,11 +6206,11 @@
               ],
               "availability": {
                 "capacity": "67",
-                "enrolled": "57",
+                "enrolled": "67",
                 "waitlist_capacity": "8",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
+                "waitlist_total": "7",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Putonghua and English"
             }
@@ -6225,7 +6261,7 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "Cantonese and English"
             },
             {
               "section": "AT01-TUT (1218)",
@@ -6233,25 +6269,25 @@
                 {
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "T.C. Cheng Bldg 205",
-                  "instructor": "Professor KONG Dexia",
+                  "instructor": "Staff",
                   "dates": "25/9"
                 },
                 {
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "T.C. Cheng Bldg 205",
-                  "instructor": "Professor KONG Dexia",
+                  "instructor": "Staff",
                   "dates": "9/10"
                 },
                 {
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "T.C. Cheng Bldg 205",
-                  "instructor": "Professor KONG Dexia",
+                  "instructor": "Staff",
                   "dates": "23/10"
                 },
                 {
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "T.C. Cheng Bldg 205",
-                  "instructor": "Professor KONG Dexia",
+                  "instructor": "Staff",
                   "dates": "6/11"
                 }
               ],
@@ -6263,7 +6299,7 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "Cantonese and English"
             },
             {
               "section": "AT02-TUT (2399)",
@@ -6347,25 +6383,25 @@
                 {
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "T.C. Cheng Bldg 108",
-                  "instructor": "Dr. LAW Yee Man",
+                  "instructor": "Staff",
                   "dates": "25/9"
                 },
                 {
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "T.C. Cheng Bldg 108",
-                  "instructor": "Dr. LAW Yee Man",
+                  "instructor": "Staff",
                   "dates": "9/10"
                 },
                 {
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "T.C. Cheng Bldg 108",
-                  "instructor": "Dr. LAW Yee Man",
+                  "instructor": "Staff",
                   "dates": "23/10"
                 },
                 {
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "T.C. Cheng Bldg 108",
-                  "instructor": "Dr. LAW Yee Man",
+                  "instructor": "Staff",
                   "dates": "6/11"
                 }
               ],
@@ -6607,10 +6643,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "56",
+                "enrolled": "62",
                 "waitlist_capacity": "8",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -8099,11 +8135,11 @@
               ],
               "availability": {
                 "capacity": "19",
-                "enrolled": "14",
+                "enrolled": "19",
                 "waitlist_capacity": "5",
-                "waitlist_total": "0",
-                "available_seats": "5",
-                "status": "Open"
+                "waitlist_total": "2",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese, English and Putonghua"
             },
@@ -8125,11 +8161,11 @@
               ],
               "availability": {
                 "capacity": "19",
-                "enrolled": "14",
+                "enrolled": "19",
                 "waitlist_capacity": "5",
                 "waitlist_total": "0",
-                "available_seats": "5",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -8151,10 +8187,10 @@
               ],
               "availability": {
                 "capacity": "19",
-                "enrolled": "14",
+                "enrolled": "16",
                 "waitlist_capacity": "5",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -8171,11 +8207,11 @@
               ],
               "availability": {
                 "capacity": "19",
-                "enrolled": "14",
+                "enrolled": "19",
                 "waitlist_capacity": "5",
-                "waitlist_total": "0",
-                "available_seats": "5",
-                "status": "Open"
+                "waitlist_total": "5",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese, English and Putonghua"
             }
@@ -8232,11 +8268,11 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "56",
+                "enrolled": "65",
                 "waitlist_capacity": "8",
-                "waitlist_total": "0",
-                "available_seats": "9",
-                "status": "Open"
+                "waitlist_total": "6",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese, English and Putonghua"
             }
@@ -8286,11 +8322,11 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "56",
+                "enrolled": "65",
                 "waitlist_capacity": "8",
-                "waitlist_total": "0",
-                "available_seats": "9",
-                "status": "Open"
+                "waitlist_total": "3",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese and English"
             }
@@ -8341,10 +8377,10 @@
               ],
               "availability": {
                 "capacity": "62",
-                "enrolled": "0",
+                "enrolled": "38",
                 "waitlist_capacity": "8",
                 "waitlist_total": "0",
-                "available_seats": "62",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -8609,10 +8645,10 @@
               ],
               "availability": {
                 "capacity": "62",
-                "enrolled": "0",
+                "enrolled": "35",
                 "waitlist_capacity": "8",
                 "waitlist_total": "0",
-                "available_seats": "62",
+                "available_seats": "27",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8641,11 +8677,11 @@
               ],
               "availability": {
                 "capacity": "62",
-                "enrolled": "0",
+                "enrolled": "62",
                 "waitlist_capacity": "8",
-                "waitlist_total": "0",
-                "available_seats": "62",
-                "status": "Open"
+                "waitlist_total": "8",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Putonghua and English"
             },
@@ -8673,13 +8709,13 @@
               ],
               "availability": {
                 "capacity": "62",
-                "enrolled": "0",
+                "enrolled": "29",
                 "waitlist_capacity": "8",
                 "waitlist_total": "0",
-                "available_seats": "62",
+                "available_seats": "33",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "Cantonese and English"
             }
           ]
         }
@@ -8862,10 +8898,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "62",
+                "enrolled": "63",
                 "waitlist_capacity": "8",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "Putonghua and English"
@@ -8917,11 +8953,11 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "11",
+                "enrolled": "35",
                 "waitlist_capacity": "8",
-                "waitlist_total": "0",
-                "available_seats": "24",
-                "status": "Open"
+                "waitlist_total": "8",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Can, change to Eng if needed"
             }
@@ -9005,11 +9041,11 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "30",
+                "enrolled": "35",
                 "waitlist_capacity": "8",
-                "waitlist_total": "0",
-                "available_seats": "5",
-                "status": "Open"
+                "waitlist_total": "8",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Can, change to Eng if needed"
             }
@@ -9254,11 +9290,11 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "0",
+                "enrolled": "40",
                 "waitlist_capacity": "8",
-                "waitlist_total": "0",
-                "available_seats": "40",
-                "status": "Open"
+                "waitlist_total": "8",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -9274,11 +9310,11 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "30",
                 "waitlist_capacity": "8",
-                "waitlist_total": "0",
-                "available_seats": "30",
-                "status": "Open"
+                "waitlist_total": "8",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -9404,11 +9440,11 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "2",
+                "enrolled": "30",
                 "waitlist_capacity": "8",
-                "waitlist_total": "0",
-                "available_seats": "28",
-                "status": "Open"
+                "waitlist_total": "8",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -9430,10 +9466,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "0",
+                "enrolled": "35",
                 "waitlist_capacity": "8",
                 "waitlist_total": "0",
-                "available_seats": "40",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -9480,10 +9516,10 @@
               ],
               "availability": {
                 "capacity": "62",
-                "enrolled": "0",
+                "enrolled": "55",
                 "waitlist_capacity": "8",
                 "waitlist_total": "0",
-                "available_seats": "62",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -9616,10 +9652,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "0",
+                "enrolled": "14",
                 "waitlist_capacity": "8",
                 "waitlist_total": "0",
-                "available_seats": "40",
+                "available_seats": "26",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -9870,10 +9906,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "63",
+                "enrolled": "64",
                 "waitlist_capacity": "5",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -10187,10 +10223,10 @@
               ],
               "availability": {
                 "capacity": "64",
-                "enrolled": "48",
+                "enrolled": "52",
                 "waitlist_capacity": "8",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -10388,11 +10424,11 @@
               ],
               "availability": {
                 "capacity": "67",
-                "enrolled": "56",
+                "enrolled": "67",
                 "waitlist_capacity": "8",
-                "waitlist_total": "0",
-                "available_seats": "11",
-                "status": "Open"
+                "waitlist_total": "2",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese, English and Putonghua"
             }

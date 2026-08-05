@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "BMEG",
     "subject_title": "Biomedical Engineering",
-    "total_courses": 11
+    "total_courses": 12
   },
   "courses": [
     {
@@ -296,6 +296,31 @@
       },
       "feedback_evaluation": "We welcome students' comments and feedback on the course. There are four main channels for collecting students' feedback.\n1. Tutorial: Tutorial is held every week, in which students can pass their feedback and problem about the course to the teaching assistants.\n2. Informal online contact: Students can write their comments via email or newsgroup. Teaching assistants will follow up with the comments or pass the information to the course instructor if necessary.\n3. Individual consulting: Students are welcome to visit the course instructor during office hours. They can exchange opinions to make the course better suits the students' needs.\n4. Faculty course questionnaire: At the end of the course, students are required to provide feedback on different aspects related to teaching and learning of the course through a formal evaluation questionnaire.",
       "required_readings": "BME\n\nNovartis Foundation. Tissue Engineering of Cartilage and Bone. Wiley. ISBN: 978-0470844816",
+      "recommended_readings": "Relevant reading list will be provided by course teachers."
+    },
+    {
+      "subject": "BMEG",
+      "course_code": "5730",
+      "title": "Medical Devices and Sensor Networks",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces the origins of physiological signals, the mechanisms of bioelectrical, biochemical, biophysical, and biophotonic sensors. It covers the principles of wearable medical devices for homecare and mobile health care system. Students will learn features of body sensor networks (BSN), security issues for BSN, multi-sensor data fusion for BSN, wearable and implantable sensor integration, wearable devices and sensors for monitoring, diagnosis, therapy, spots, etc. and applications of medical devices, biosensors, and BSN.",
+      "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemistry & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Biomedical Engineering",
+      "academic_org": "Div of Biomedical Engineering",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n1. Able to know the major categories of medical devices;\n2. Able to understand the working principles of selected state-of-the-art medical devices; and\n3. Able to acquire the know-how on setting up a body sensor network for health applications.",
+      "course_syllabus": "The details will be provided by the course instructor.",
+      "assessment_types": {
+        "Essay test or exam": "60",
+        "Presentation": "40"
+      },
+      "feedback_evaluation": "All standard evaluations at the midterm and the end term, as well as informal feedbacks collected through interactions between instructor and students, tutors and tutees, etc. will be carefully reviewed for the purpose of continued improvements.",
+      "required_readings": "Relevant reading list will be provided by course teachers.",
       "recommended_readings": "Relevant reading list will be provided by course teachers."
     }
   ]

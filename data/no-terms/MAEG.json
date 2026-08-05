@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "MAEG",
     "subject_title": "Mechanical & Automation Engineering",
-    "total_courses": 7
+    "total_courses": 9
   },
   "courses": [
     {
@@ -131,6 +131,59 @@
       "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
       "required_readings": "The details will be provided by the course instructor.",
       "recommended_readings": "(1) M.A. Nielsen and I.L.Chuang, Quantum Information and Quantum Computation, (Cambridge University Press)\n(2000).\n(2) Kurt Jacobs, Quantum measurement Theory and its applications, (Cambridge University Press) (2014).\n(3) D.J. Griffiths: Introduction to Quantum Mechanics.\n(4) D. D'Alessandro: Introduction to Quantum Control and Dynamics."
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5720",
+      "title": "Computer Vision in Practice",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides a hands-on introduction to computer vision, focusing on practical applications and real-world challenges. Students will explore key concepts such as image processing, feature extraction, object detection, segmentation, and deep learning-based vision models, etc. Through coding assignments and projects, students will implement and optimize vision algorithms. The course emphasizes practical problem-solving, deployment considerations, and the integration of vision systems into real-world applications.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n\n1. To understand core concepts by explaining fundamental principles of computer vision, such as image processing, feature extraction, convolutional neural networks, etc.;\n2. To implement and optimize vision models e.g. using OpenCV, PyTorch, and deep learning frameworks, to develop accurate and efficient applications;\n3. To work with real-world data by preprocessing, augmenting, and evaluating image datasets for training and testing vision models; and\n4. To critically analyze and improve models by assessing the strengths and limitations of different vision techniques and optimizing them based on performance metrics.",
+      "course_syllabus": "The details will be provided by the course instructor.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Presentation": "15",
+        "Project": "35"
+      },
+      "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
+      "required_readings": "The details will be provided by the course instructor.",
+      "recommended_readings": "The details will be provided by the course instructor."
+    },
+    {
+      "subject": "MAEG",
+      "course_code": "5745",
+      "title": "Mechatronic Systems",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course provides an in-depth exploration of mechatronic systems, emphasizing the integration of mechanical, electronic, and computer engineering principles. Students will engage in practical projects to design, build, and optimize mechatronic systems, incorporating advanced techniques such as AI and computational intelligence. The course covers physical system modeling, sensors and actuators, data acquisition, microcontrollers, control system design, and system integration. Through case studies and hands-on projects, students will develop the skills necessary to innovate and lead in the field of mechatronics.",
+      "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Mechan & Automation Erg",
+      "academic_org": "Div of Mechan & Automation Erg",
+      "learning_outcomes": "Upon completion of the course, students should have achieved the following outcomes:\n\n1. An ability to analyze the principles of actuators, sensors, electronics, and hardware components in the integration and application of mechatronic systems;\n2. An ability to design, build, program, and troubleshoot mechatronic systems, and implement AI techniques to optimize the performance and functionality of mechatronic systems;\n3. An ability to develop innovative solutions to complex engineering challenges using interdisciplinary approaches; and\n4. An ability to work competently as individuals and as members of a small team to present project results.",
+      "course_syllabus": "* Physical System Modeling and Analysis\n* Measurement and Manipulation Principles\n* Sensors and Actuators\n* Data Acquisition and Conversion\n* Microcontrollers and Interface\n* Control System Design and Tuning\n* AI Techniques in Mechatronics\n* Case Studies in System Integration\n* Course Project, Project Management and Teamwork",
+      "assessment_types": {
+        "Classwork": "10",
+        "Essay test or exam": "30",
+        "Homework or assignment": "30",
+        "Project": "30"
+      },
+      "feedback_evaluation": "The course will be evaluated by course evaluation done by students.",
+      "required_readings": "The details will be provided by the course instructor.",
+      "recommended_readings": "1. Introduction to Mechatronics and Measurement Systems, by David G. Alciatore and Michael B. Histand (5th Edition), McGraw-Hill, ISBN: 9781259892349 or 9781260816440c2012.\n2. Handbook of AI-Based Mechatronics Systems and Smart Solutions in Industrial Automation (1st Edition, ISBN 9781032614359); Edited by Pushpalatha Naveenkumar, Vandana Sharma, Gunapriya D., Azween Abdullah, and Ahmed A. Elngar, CRC Press, 2025."
     },
     {
       "subject": "MAEG",

@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "MUSC",
     "subject_title": "Music",
-    "total_courses": 122
+    "total_courses": 123
   },
   "courses": [
     {
@@ -4195,6 +4195,52 @@
       "credits": "3.00",
       "terms": [
         {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "A-LEC (10109)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHOW Man Ying",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "B-LEC (10110)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LEE Wan Ki Wendy",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        },
+        {
           "term_code": "2430",
           "term_name": "2026-27 Term 2",
           "schedule": [
@@ -4326,10 +4372,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "0",
+                "enrolled": "12",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -5287,7 +5333,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Miss IP Wing Wun",
                   "dates": "07/09/2026 - 30/11/2026"
                 }
               ],
@@ -5307,7 +5353,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Professor CHOW Man Ying",
                   "dates": "07/09/2026 - 30/11/2026"
                 }
               ],
@@ -5327,16 +5373,16 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Dr. POON Kiu Tung",
                   "dates": "07/09/2026 - 30/11/2026"
                 }
               ],
               "availability": {
-                "capacity": "1",
+                "capacity": "2",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -5347,7 +5393,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Professor LI Ka Chi",
                   "dates": "07/09/2026 - 30/11/2026"
                 }
               ],
@@ -5367,7 +5413,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Professor LEE Wan Ki Wendy",
                   "dates": "07/09/2026 - 30/11/2026"
                 }
               ],
@@ -5462,7 +5508,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Miss IP Wing Wun",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -5482,7 +5528,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Professor CHOW Man Ying",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -5502,16 +5548,16 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Dr. POON Kiu Tung",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
               "availability": {
-                "capacity": "1",
+                "capacity": "2",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -5522,7 +5568,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Professor LI Ka Chi",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -5542,7 +5588,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Professor LEE Wan Ki Wendy",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -5641,6 +5687,71 @@
     },
     {
       "subject": "MUSC",
+      "course_code": "4623",
+      "title": "Senior Research Project II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "A-LEC (9879)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHOW Man Ying",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "B-LEC (9880)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LEE Wan Ki Wendy",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "This course forms the second of a two-part course for capstone research projects in Music. Students will complete an extended independent research project under the supervision of a Music faculty member. The topic, contents, and other particulars of the project are to be determined in consultation with the Supervisor.",
+      "enrollment_requirement": "Pre-requisite: MUSC4613",
+      "course_attributes": "Capstone Course\nSTOT Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Music",
+      "academic_org": "Dept of Music",
+      "learning_outcomes": "Completion of an independent research project that:\n\n1. Shows evidence of analytical and critical thinking, clarity of expression, and research organization;\n2. Demonstrates a thorough understanding of issues, concepts and/or repertoire related to the project;\n3. Applies appropriate scholarly methodologies related to the respective project;\n4. Uses an appropriate format to present the research outcomes.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "MUSC",
       "course_code": "4813",
       "title": "Senior Thesis I",
       "credits": "3.00",
@@ -5651,6 +5762,26 @@
           "schedule": [
             {
               "section": "A-LEC (8045)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LIAO Yvonne",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "B-LEC (8024)",
               "meetings": [
                 {
                   "time": "TBA",
@@ -5670,7 +5801,27 @@
               "class_attributes": "Cantonese and English"
             },
             {
-              "section": "B-LEC (8024)",
+              "section": "C-LEC (10111)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Adam Joseph KIELMAN",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "D-LEC (10112)",
               "meetings": [
                 {
                   "time": "TBA",
@@ -5720,6 +5871,26 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
+                  "instructor": "Professor LIAO Yvonne",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "3",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "B-LEC (8014)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
                   "instructor": "Staff",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
@@ -5735,7 +5906,27 @@
               "class_attributes": "Cantonese and English"
             },
             {
-              "section": "B-LEC (8014)",
+              "section": "C-LEC (9881)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Adam Joseph KIELMAN",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "D-LEC (9882)",
               "meetings": [
                 {
                   "time": "TBA",
@@ -5862,10 +6053,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "0",
+                "enrolled": "37",
                 "waitlist_capacity": "99",
                 "waitlist_total": "0",
-                "available_seats": "40",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only"
@@ -5922,11 +6113,11 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "0",
+                "enrolled": "40",
                 "waitlist_capacity": "99",
-                "waitlist_total": "0",
-                "available_seats": "40",
-                "status": "Open"
+                "waitlist_total": "1",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese and English"
             }
@@ -5977,11 +6168,11 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "0",
+                "enrolled": "40",
                 "waitlist_capacity": "99",
-                "waitlist_total": "0",
-                "available_seats": "40",
-                "status": "Open"
+                "waitlist_total": "6",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             }
@@ -6032,11 +6223,11 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "0",
+                "enrolled": "40",
                 "waitlist_capacity": "99",
-                "waitlist_total": "0",
-                "available_seats": "40",
-                "status": "Open"
+                "waitlist_total": "23",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese and English"
             }
@@ -6136,11 +6327,11 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "0",
+                "enrolled": "35",
                 "waitlist_capacity": "99",
-                "waitlist_total": "0",
-                "available_seats": "35",
-                "status": "Open"
+                "waitlist_total": "14",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": ""
             }
@@ -6197,10 +6388,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "0",
+                "enrolled": "25",
                 "waitlist_capacity": "99",
                 "waitlist_total": "0",
-                "available_seats": "35",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6252,10 +6443,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "0",
+                "enrolled": "28",
                 "waitlist_capacity": "99",
                 "waitlist_total": "0",
-                "available_seats": "40",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6300,11 +6491,11 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "0",
+                "enrolled": "40",
                 "waitlist_capacity": "99",
-                "waitlist_total": "0",
-                "available_seats": "40",
-                "status": "Open"
+                "waitlist_total": "2",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese and English"
             }
@@ -6355,11 +6546,11 @@
               ],
               "availability": {
                 "capacity": "8",
-                "enrolled": "0",
+                "enrolled": "8",
                 "waitlist_capacity": "99",
-                "waitlist_total": "0",
-                "available_seats": "8",
-                "status": "Open"
+                "waitlist_total": "6",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese only"
             },
@@ -6381,11 +6572,11 @@
               ],
               "availability": {
                 "capacity": "8",
-                "enrolled": "0",
+                "enrolled": "8",
                 "waitlist_capacity": "99",
-                "waitlist_total": "0",
-                "available_seats": "8",
-                "status": "Open"
+                "waitlist_total": "22",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese only"
             }
@@ -6436,11 +6627,11 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "0",
+                "enrolled": "40",
                 "waitlist_capacity": "99",
-                "waitlist_total": "0",
-                "available_seats": "40",
-                "status": "Open"
+                "waitlist_total": "12",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese and English"
             }
@@ -6487,11 +6678,11 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "0",
+                "enrolled": "25",
                 "waitlist_capacity": "99",
-                "waitlist_total": "0",
-                "available_seats": "25",
-                "status": "Open"
+                "waitlist_total": "24",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese and English"
             }
@@ -6543,11 +6734,11 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "0",
+                "enrolled": "40",
                 "waitlist_capacity": "99",
-                "waitlist_total": "0",
-                "available_seats": "40",
-                "status": "Open"
+                "waitlist_total": "19",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese and English"
             }
@@ -6593,10 +6784,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6658,10 +6849,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6749,10 +6940,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6769,10 +6960,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6809,10 +7000,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6849,10 +7040,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6875,10 +7066,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6895,10 +7086,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6935,10 +7126,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6975,10 +7166,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
