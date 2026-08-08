@@ -29,7 +29,7 @@
               "availability": {
                 "capacity": "50",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "50",
                 "status": "Open"
@@ -178,7 +178,7 @@
               "availability": {
                 "capacity": "50",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "50",
                 "status": "Open"
@@ -204,7 +204,7 @@
               "availability": {
                 "capacity": "50",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "50",
                 "status": "Open"
@@ -630,7 +630,7 @@
               "availability": {
                 "capacity": "50",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "50",
                 "status": "Open"
@@ -650,7 +650,7 @@
               "availability": {
                 "capacity": "50",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "50",
                 "status": "Open"
@@ -2540,10 +2540,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "15",
+                "enrolled": "19",
                 "waitlist_capacity": "2",
                 "waitlist_total": "0",
-                "available_seats": "45",
+                "available_seats": "41",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2560,10 +2560,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "15",
+                "enrolled": "19",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "45",
+                "available_seats": "41",
                 "status": "Open"
               },
               "class_attributes": "English only"

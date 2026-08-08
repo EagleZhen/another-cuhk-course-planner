@@ -35,7 +35,7 @@
               "availability": {
                 "capacity": "30",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "30",
                 "status": "Open"
@@ -224,7 +224,7 @@
               "availability": {
                 "capacity": "28",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "28",
                 "status": "Open"
@@ -276,10 +276,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
+                "enrolled": "29",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "55",
+                "available_seats": "26",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -406,10 +406,10 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
+                "enrolled": "29",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "45",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -530,14 +530,32 @@
                   "location": "Yasumoto Int'l Acad Park 506",
                   "instructor": "Ms. TANG Elizabeth",
                   "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10"
+                },
+                {
+                  "time": "Th 8:30AM - 11:15AM",
+                  "location": "Ho Tim Building G6",
+                  "instructor": "Ms. TANG Elizabeth",
+                  "dates": "10/9, 17/9, 24/9"
+                },
+                {
+                  "time": "Th 8:30AM - 11:15AM",
+                  "location": "Ho Tim Building G6",
+                  "instructor": "Ms. TANG Elizabeth",
+                  "dates": "8/10, 15/10, 22/10, 29/10"
+                },
+                {
+                  "time": "Tu 8:30AM - 11:15AM",
+                  "location": "Ho Tim Building G6",
+                  "instructor": "Ms. TANG Elizabeth",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10"
                 }
               ],
               "availability": {
-                "capacity": "30",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
+                "capacity": "28",
+                "enrolled": "21",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -588,10 +606,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
+                "enrolled": "37",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "55",
+                "available_seats": "18",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -713,7 +731,7 @@
               "availability": {
                 "capacity": "30",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "30",
                 "status": "Open"
@@ -823,17 +841,17 @@
               "meetings": [
                 {
                   "time": "We 10:30AM - 1:15PM",
-                  "location": "Chen Kou Bun Bldg UG04",
+                  "location": "Ho Tim Building B5",
                   "instructor": "Dr. CHAN Hoi Sze Cecilia",
                   "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
                 }
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
+                "enrolled": "35",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "45",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -890,10 +908,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
+                "enrolled": "36",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "14",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -954,10 +972,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
+                "enrolled": "21",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "40",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -1006,10 +1024,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "1",
-                "waitlist_capacity": "0",
+                "enrolled": "13",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "49",
+                "available_seats": "37",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"

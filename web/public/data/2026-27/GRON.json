@@ -90,7 +90,7 @@
               "availability": {
                 "capacity": "33",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "33",
                 "status": "Open"
@@ -110,7 +110,7 @@
               "availability": {
                 "capacity": "17",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "17",
                 "status": "Open"
@@ -130,7 +130,7 @@
               "availability": {
                 "capacity": "17",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "17",
                 "status": "Open"
@@ -252,7 +252,7 @@
               "availability": {
                 "capacity": "33",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "33",
                 "status": "Open"
@@ -307,7 +307,7 @@
               "availability": {
                 "capacity": "66",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "66",
                 "status": "Open"
@@ -474,20 +474,20 @@
               "section": "--LEC (5756)",
               "meetings": [
                 {
-                  "time": "Tu 2:30PM - 5:15PM",
-                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "William M W Mong Eng Bldg 706",
                   "instructor": "Miss LAI Hoi Ki",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
-                  "time": "Tu 2:30PM - 5:15PM",
-                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "William M W Mong Eng Bldg 706",
                   "instructor": "Miss LAI Hoi Ki",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
-                  "time": "Tu 2:30PM - 5:15PM",
-                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "William M W Mong Eng Bldg 706",
                   "instructor": "Miss LAI Hoi Ki",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }

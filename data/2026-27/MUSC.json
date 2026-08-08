@@ -35,7 +35,7 @@
               "availability": {
                 "capacity": "72",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "72",
                 "status": "Open"
@@ -94,7 +94,7 @@
               "availability": {
                 "capacity": "40",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "40",
                 "status": "Open"
@@ -724,7 +724,7 @@
               "availability": {
                 "capacity": "30",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "30",
                 "status": "Open"
@@ -846,7 +846,7 @@
               "availability": {
                 "capacity": "30",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "30",
                 "status": "Open"
@@ -1060,7 +1060,7 @@
               "availability": {
                 "capacity": "40",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "40",
                 "status": "Open"
@@ -1107,19 +1107,19 @@
                 {
                   "time": "We 4:30PM - 6:15PM",
                   "location": "Hui Yeung Shing Bldg LG04",
-                  "instructor": "Staff",
+                  "instructor": "Dr. WONG Chun Wai",
                   "dates": "13/1, 20/1, 27/1, 3/2"
                 },
                 {
                   "time": "We 4:30PM - 6:15PM",
                   "location": "Hui Yeung Shing Bldg LG04",
-                  "instructor": "Staff",
+                  "instructor": "Dr. WONG Chun Wai",
                   "dates": "17/2, 24/2, 3/3"
                 },
                 {
                   "time": "We 4:30PM - 6:15PM",
                   "location": "Hui Yeung Shing Bldg LG04",
-                  "instructor": "Staff",
+                  "instructor": "Dr. WONG Chun Wai",
                   "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
                 }
               ],
@@ -1186,7 +1186,7 @@
               "availability": {
                 "capacity": "40",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "40",
                 "status": "Open"
@@ -1816,7 +1816,7 @@
               "availability": {
                 "capacity": "30",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "30",
                 "status": "Open"
@@ -1938,7 +1938,7 @@
               "availability": {
                 "capacity": "30",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "30",
                 "status": "Open"
@@ -2145,20 +2145,20 @@
                 {
                   "time": "Mo 2:30PM - 4:15PM",
                   "location": "Hui Yeung Shing Bldg LG04",
-                  "instructor": "Staff",
+                  "instructor": "Dr. WONG Chun Wai",
                   "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
                 },
                 {
                   "time": "Mo 2:30PM - 4:15PM",
                   "location": "Hui Yeung Shing Bldg LG04",
-                  "instructor": "Staff",
+                  "instructor": "Dr. WONG Chun Wai",
                   "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
                 }
               ],
               "availability": {
                 "capacity": "40",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "40",
                 "status": "Open"
@@ -2470,19 +2470,19 @@
                 {
                   "time": "We 2:30PM - 4:15PM",
                   "location": "Hui Yeung Shing Bldg LG04",
-                  "instructor": "Staff",
+                  "instructor": "Professor WONG Hei Yin",
                   "dates": "13/1, 20/1, 27/1, 3/2"
                 },
                 {
                   "time": "We 2:30PM - 4:15PM",
                   "location": "Hui Yeung Shing Bldg LG04",
-                  "instructor": "Staff",
+                  "instructor": "Professor WONG Hei Yin",
                   "dates": "17/2, 24/2, 3/3"
                 },
                 {
                   "time": "We 2:30PM - 4:15PM",
                   "location": "Hui Yeung Shing Bldg LG04",
-                  "instructor": "Staff",
+                  "instructor": "Professor WONG Hei Yin",
                   "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
                 }
               ],
@@ -2548,7 +2548,7 @@
               "availability": {
                 "capacity": "40",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "40",
                 "status": "Open"
@@ -2595,14 +2595,14 @@
                 {
                   "time": "We 11:30AM - 1:15PM",
                   "location": "Hui Yeung Shing Bldg LG04",
-                  "instructor": "Staff",
+                  "instructor": "Professor WONG Hei Yin",
                   "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
                 }
               ],
               "availability": {
                 "capacity": "40",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "40",
                 "status": "Open"
@@ -2801,7 +2801,7 @@
               "availability": {
                 "capacity": "30",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "30",
                 "status": "Open"
@@ -3431,7 +3431,7 @@
               "availability": {
                 "capacity": "30",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "30",
                 "status": "Open"
@@ -3553,7 +3553,7 @@
               "availability": {
                 "capacity": "30",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "30",
                 "status": "Open"
@@ -3767,7 +3767,7 @@
               "availability": {
                 "capacity": "15",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "15",
                 "status": "Open"
@@ -3821,7 +3821,7 @@
               "availability": {
                 "capacity": "15",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "15",
                 "status": "Open"
@@ -3882,7 +3882,7 @@
               "availability": {
                 "capacity": "15",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "15",
                 "status": "Open"
@@ -3928,25 +3928,25 @@
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Hui Yeung Shing Bldg 101",
-                  "instructor": "Staff",
+                  "instructor": "Dr. WONG Chun Wai",
                   "dates": "11/1, 18/1, 25/1, 1/2"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Hui Yeung Shing Bldg 101",
-                  "instructor": "Staff",
+                  "instructor": "Dr. WONG Chun Wai",
                   "dates": "15/2, 22/2, 1/3"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Hui Yeung Shing Bldg 101",
-                  "instructor": "Staff",
+                  "instructor": "Dr. WONG Chun Wai",
                   "dates": "15/3, 22/3"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Hui Yeung Shing Bldg 101",
-                  "instructor": "Staff",
+                  "instructor": "Dr. WONG Chun Wai",
                   "dates": "12/4, 19/4"
                 }
               ],
@@ -3999,19 +3999,19 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Dr. WONG Chun Wai",
                   "dates": "07/09/2026 - 30/11/2026"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "Hui Yeung Shing Bldg 101",
-                  "instructor": "Staff",
+                  "instructor": "Dr. WONG Chun Wai",
                   "dates": "10/9, 17/9, 24/9"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "Hui Yeung Shing Bldg 101",
-                  "instructor": "Staff",
+                  "instructor": "Dr. WONG Chun Wai",
                   "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
                 }
               ],
@@ -4147,7 +4147,7 @@
               "availability": {
                 "capacity": "10",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "10",
                 "status": "Open"
@@ -4336,7 +4336,7 @@
               "availability": {
                 "capacity": "20",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "20",
                 "status": "Open"
@@ -4752,7 +4752,7 @@
               "availability": {
                 "capacity": "30",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "30",
                 "status": "Open"
@@ -5333,7 +5333,7 @@
               "availability": {
                 "capacity": "30",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "30",
                 "status": "Open"
@@ -5455,7 +5455,7 @@
               "availability": {
                 "capacity": "30",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "30",
                 "status": "Open"
@@ -5833,7 +5833,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Professor LIAO Yvonne",
                   "dates": "07/09/2026 - 30/11/2026"
                 }
               ],
@@ -6012,7 +6012,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Staff",
+                  "instructor": "Professor LIAO Yvonne",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -6481,11 +6481,11 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "37",
+                "enrolled": "40",
                 "waitlist_capacity": "99",
                 "waitlist_total": "0",
-                "available_seats": "3",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "Cantonese only"
             }
@@ -6547,7 +6547,7 @@
                 "capacity": "40",
                 "enrolled": "40",
                 "waitlist_capacity": "99",
-                "waitlist_total": "1",
+                "waitlist_total": "3",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -6606,7 +6606,7 @@
                 "capacity": "40",
                 "enrolled": "40",
                 "waitlist_capacity": "99",
-                "waitlist_total": "6",
+                "waitlist_total": "7",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -6665,7 +6665,7 @@
                 "capacity": "40",
                 "enrolled": "40",
                 "waitlist_capacity": "99",
-                "waitlist_total": "23",
+                "waitlist_total": "25",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -6840,10 +6840,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "25",
+                "enrolled": "30",
                 "waitlist_capacity": "99",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6899,10 +6899,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "28",
+                "enrolled": "32",
                 "waitlist_capacity": "99",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -6953,7 +6953,7 @@
                 "capacity": "40",
                 "enrolled": "40",
                 "waitlist_capacity": "99",
-                "waitlist_total": "2",
+                "waitlist_total": "3",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -7012,7 +7012,7 @@
                 "capacity": "8",
                 "enrolled": "8",
                 "waitlist_capacity": "99",
-                "waitlist_total": "6",
+                "waitlist_total": "7",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -7038,7 +7038,7 @@
                 "capacity": "8",
                 "enrolled": "8",
                 "waitlist_capacity": "99",
-                "waitlist_total": "22",
+                "waitlist_total": "21",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -7152,7 +7152,7 @@
                 "capacity": "25",
                 "enrolled": "25",
                 "waitlist_capacity": "99",
-                "waitlist_total": "24",
+                "waitlist_total": "26",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -7212,7 +7212,7 @@
                 "capacity": "40",
                 "enrolled": "40",
                 "waitlist_capacity": "99",
-                "waitlist_total": "19",
+                "waitlist_total": "22",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -7264,10 +7264,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "2",
+                "enrolled": "4",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "28",
+                "available_seats": "26",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -7313,10 +7313,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -7359,10 +7359,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -7379,10 +7379,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -7428,10 +7428,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "1",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -7448,10 +7448,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "1",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -7508,10 +7508,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7554,10 +7554,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "1",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -7574,10 +7574,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "1",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -7634,10 +7634,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "English only"
