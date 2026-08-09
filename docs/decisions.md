@@ -109,6 +109,14 @@ Why it fits:
 - the only lever Cloudflare's build system respects for this
 - pinned to Node 24 (Active LTS, supported to April 2028), not Cloudflare's aging default (22) or a contributor's local version, which can silently drift onto an already-EOL release
 
+## Hold ESLint At v9
+
+ESLint v10 removed `context.getFilename()`, which `eslint-plugin-react` still calls, so `npm run lint` crashes outright. The plugin has no v10-compatible release, and `eslint-config-next` depends on it anyway — its own `eslint: >=9.0.0` peer range overpromises.
+
+Decision: hold `eslint` at `^9` in [web/package.json](../web/package.json).
+
+Lift once `eslint-config-next` ships a v10-compatible `eslint-plugin-react`. Dependabot keeps proposing the major regardless; CI now fails it.
+
 ## Strip Unrendered Fields At Publish
 
 Scraped course data carries fields the app doesn't render (`course_syllabus`, required/recommended readings, feedback) — some with base64-embedded images. Serving them cost roughly two-thirds of the gzipped transfer for data no one sees (~12MB → ~4MB on the wire as of mid-2026; both figures grow with each added year of data).
