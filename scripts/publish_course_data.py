@@ -369,6 +369,29 @@ def format_duration(minutes: float) -> str:
         return f"{hours} hours {remaining_minutes:.1f} minutes"
 
 
+def report_scrape_summary(progress_data: Optional[Dict]) -> None:
+    """Print the one-line summary of the scrape the publish is based on."""
+    if not progress_data:
+        return
+
+    stats = calculate_scraping_statistics(progress_data)
+    if not stats:
+        return
+
+    log_data = progress_data.get("scraping_log", {})
+    started_at = log_data.get("started_at")
+    # Fall back to an undated line when the scrape log has no usable start time.
+    when = "data"
+    if isinstance(started_at, str) and started_at:
+        hk_time = datetime.fromisoformat(started_at).astimezone(HONG_KONG_TZ)
+        when = f"at {hk_time.strftime('%Y-%m-%d %H:%M HKT')}"
+
+    print(
+        f"Scraped {when}: {log_data.get('completed', 0)} subjects, "
+        f"{stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
+    )
+
+
 class ConsoleLogger:
     """Captures console output to both terminal and file"""
 
@@ -411,25 +434,8 @@ def main():
             print("DRY RUN MODE - No files will be copied")
             print()
 
-        # Load progress data (one-line summary)
         progress_data = load_scraping_progress()
-        if progress_data:
-            log_data = progress_data.get("scraping_log", {})
-            stats = calculate_scraping_statistics(progress_data)
-            if stats:
-                # Convert UTC timestamp to HK timezone
-                started_at_str = log_data.get("started_at")
-                if isinstance(started_at_str, str) and started_at_str:
-                    utc_time = datetime.fromisoformat(started_at_str)
-                    hk_time = utc_time.astimezone(HONG_KONG_TZ)
-                    time_str = hk_time.strftime("%Y-%m-%d %H:%M HKT")
-                    print(
-                        f"Scraped at {time_str}: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
-                    )
-                else:
-                    print(
-                        f"Scraped data: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
-                    )
+        report_scrape_summary(progress_data)
 
         # Discover and validate every source year before changing any output.
         source_years = year_dirs(Path(SOURCE_DATA_DIR))

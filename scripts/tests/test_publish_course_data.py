@@ -133,6 +133,45 @@ def test_copy_commit_title_lists_only_years_from_latest_scrape(monkeypatch, caps
     assert f"Commit title copied: {expected}" in capsys.readouterr().err
 
 
+def _progress(**scraping_log):
+    scraping_log.setdefault(
+        "subjects",
+        {
+            "CSCI": {"status": "completed", "duration_minutes": 2.5, "courses_scraped": 1234},
+            "MATH": {"status": "completed", "duration_minutes": 1.0, "courses_scraped": 66},
+            "PHYS": {"status": "failed"},
+        },
+    )
+    return {"scraping_log": scraping_log}
+
+
+def test_report_scrape_summary_states_start_time_in_hong_kong_time(capsys):
+    publish_course_data.report_scrape_summary(
+        _progress(completed=2, failed=1, started_at="2026-08-07T12:30:00+00:00")
+    )
+
+    assert capsys.readouterr().out == (
+        "Scraped at 2026-08-07 20:30 HKT: 2 subjects, 1,300 courses, 1 failed\n"
+    )
+
+
+@pytest.mark.parametrize("started_at", [None, "", 12345])
+def test_report_scrape_summary_falls_back_when_start_time_is_unusable(started_at, capsys):
+    # An undated line still reports the counts rather than dropping the summary.
+    publish_course_data.report_scrape_summary(
+        _progress(completed=2, failed=1, started_at=started_at)
+    )
+
+    assert capsys.readouterr().out == "Scraped data: 2 subjects, 1,300 courses, 1 failed\n"
+
+
+@pytest.mark.parametrize("progress_data", [None, {"other": 1}, {"scraping_log": {"completed": 2}}])
+def test_report_scrape_summary_stays_silent_without_per_subject_stats(progress_data, capsys):
+    publish_course_data.report_scrape_summary(progress_data)
+
+    assert capsys.readouterr().out == ""
+
+
 def test_publish_regenerates_changed_manifests(tmp_path, monkeypatch, capsys):
     source_dir, published_dir, generated_dir = _configure_publisher(tmp_path, monkeypatch)
     _write_course_file(source_dir)
