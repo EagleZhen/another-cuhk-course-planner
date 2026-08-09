@@ -31,12 +31,18 @@ jobs:
           cache: npm
           cache-dependency-path: web/package-lock.json
 
-      - run: npm ci
+      - id: install
+        run: npm ci
 
-      # Kept separate so the log names which check failed.
+      # Separate steps so the log names which check failed, and each one runs even
+      # after an earlier failure so a single run reports every problem. Skipped if
+      # the install itself failed, where all three would just fail on a missing binary.
       - run: npm run typecheck
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
       - run: npm run lint
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
       - run: npm run test
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
 
   python:
     name: python (pytest)
