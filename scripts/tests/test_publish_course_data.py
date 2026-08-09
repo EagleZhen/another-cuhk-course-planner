@@ -172,6 +172,41 @@ def test_report_scrape_summary_stays_silent_without_per_subject_stats(progress_d
     assert capsys.readouterr().out == ""
 
 
+def _terms(*term_names):
+    return render_terms_module({"2025-26": list(term_names)})
+
+
+def test_report_term_manifest_changes_lists_added_and_removed_terms(monkeypatch, capsys):
+    monkeypatch.setattr(publish_course_data, "TERMS_FILE", "generated/terms.ts")
+
+    publish_course_data.report_term_manifest_changes(
+        _terms("2025-26 Term 1", "2025-26 Term 2"), _terms("2025-26 Term 2", "2025-26 Term 3")
+    )
+
+    assert capsys.readouterr().out == (
+        "\u26a0\ufe0f  Terms manifest changed:\n"
+        "   Added: 2025-26 Term 3\n"
+        "   Removed: 2025-26 Term 1\n"
+        "   Review the Git diff and commit generated/terms.ts.\n"
+        "\n"
+    )
+
+
+def test_report_term_manifest_changes_skips_the_diff_without_a_previous_manifest(
+    monkeypatch, capsys
+):
+    # Every term would read as "added", which is noise rather than a reviewable change.
+    monkeypatch.setattr(publish_course_data, "TERMS_FILE", "generated/terms.ts")
+
+    publish_course_data.report_term_manifest_changes("", _terms("2025-26 Term 1"))
+
+    assert capsys.readouterr().out == (
+        "\u26a0\ufe0f  Terms manifest changed:\n"
+        "   Review the Git diff and commit generated/terms.ts.\n"
+        "\n"
+    )
+
+
 def test_publish_regenerates_changed_manifests(tmp_path, monkeypatch, capsys):
     source_dir, published_dir, generated_dir = _configure_publisher(tmp_path, monkeypatch)
     _write_course_file(source_dir)

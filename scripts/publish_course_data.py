@@ -392,6 +392,48 @@ def report_scrape_summary(progress_data: Optional[Dict]) -> None:
     )
 
 
+def report_subject_manifest_changes(old_content: str, new_content: str) -> None:
+    """Print how the subjects manifest changed, so it can be reviewed before committing."""
+    print("⚠️  Subjects manifest changed:")
+    changes = diff_subject_manifest(old_content, new_content)
+    if changes is None:
+        print("   Details unavailable; review the generated diff.")
+    else:
+        for year in sorted(changes.by_year):
+            year_changes = changes.by_year[year]
+            if year_changes.added:
+                print(
+                    f"   [{year}] Added ({len(year_changes.added)}): "
+                    f"{', '.join(sorted(year_changes.added))}"
+                )
+            if year_changes.removed:
+                print(
+                    f"   [{year}] Removed ({len(year_changes.removed)}): "
+                    f"{', '.join(sorted(year_changes.removed))}"
+                )
+        if changes.changed_titles:
+            print(
+                f"   Titles changed ({len(changes.changed_titles)}): "
+                f"{', '.join(sorted(changes.changed_titles))}"
+            )
+    print(f"   Review the Git diff and commit {Path(SUBJECTS_FILE).as_posix()}.")
+    print()
+
+
+def report_term_manifest_changes(old_content: str, new_content: str) -> None:
+    """Print how the terms manifest changed, so it can be reviewed before committing."""
+    print("⚠️  Terms manifest changed:")
+    # No previous file means every term reads as new; the diff would be noise.
+    if old_content:
+        added, removed = diff_term_names(old_content, new_content)
+        if added:
+            print(f"   Added: {', '.join(sorted(added))}")
+        if removed:
+            print(f"   Removed: {', '.join(sorted(removed))}")
+    print(f"   Review the Git diff and commit {Path(TERMS_FILE).as_posix()}.")
+    print()
+
+
 class ConsoleLogger:
     """Captures console output to both terminal and file"""
 
@@ -514,44 +556,13 @@ def main():
             SUBJECTS_FILE, new_subjects_content, dry_run
         )
         if subjects_changed:
-            print("⚠️  Subjects manifest changed:")
-            subject_changes = diff_subject_manifest(old_subjects_content, new_subjects_content)
-            if subject_changes is None:
-                print("   Details unavailable; review the generated diff.")
-            else:
-                for year in sorted(subject_changes.by_year):
-                    year_changes = subject_changes.by_year[year]
-                    if year_changes.added:
-                        print(
-                            f"   [{year}] Added ({len(year_changes.added)}): "
-                            f"{', '.join(sorted(year_changes.added))}"
-                        )
-                    if year_changes.removed:
-                        print(
-                            f"   [{year}] Removed ({len(year_changes.removed)}): "
-                            f"{', '.join(sorted(year_changes.removed))}"
-                        )
-                if subject_changes.changed_titles:
-                    print(
-                        f"   Titles changed ({len(subject_changes.changed_titles)}): "
-                        f"{', '.join(sorted(subject_changes.changed_titles))}"
-                    )
-            print(f"   Review the Git diff and commit {Path(SUBJECTS_FILE).as_posix()}.")
-            print()
+            report_subject_manifest_changes(old_subjects_content, new_subjects_content)
 
         old_terms_content, terms_changed = update_generated_file(
             TERMS_FILE, new_terms_content, dry_run
         )
         if terms_changed:
-            print("⚠️  Terms manifest changed:")
-            if old_terms_content:
-                added, removed = diff_term_names(old_terms_content, new_terms_content)
-                if added:
-                    print(f"   Added: {', '.join(sorted(added))}")
-                if removed:
-                    print(f"   Removed: {', '.join(sorted(removed))}")
-            print(f"   Review the Git diff and commit {Path(TERMS_FILE).as_posix()}.")
-            print()
+            report_term_manifest_changes(old_terms_content, new_terms_content)
 
         # Written even when empty, so the module always reflects the data just published
         # rather than leaving times behind from an earlier run. No "changed" warning:
