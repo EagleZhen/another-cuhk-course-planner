@@ -44,7 +44,8 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - uses: astral-sh/setup-uv@v9
+      # No bare major tag is published for this action, so pin the exact release.
+      - uses: astral-sh/setup-uv@v9.0.0
         with:
           enable-cache: true
           # cuhk_scraper imports ddddocr/onnxruntime at module load, so the test
