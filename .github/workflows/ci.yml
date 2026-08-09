@@ -1,0 +1,59 @@
+# Runs the checks pre-commit does not: pytest, vitest, typecheck, and lint.
+# Two ecosystems, so two independent jobs — a Python failure should not hide a web one.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# A new push supersedes the previous run for the same ref.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  web:
+    name: web (typecheck, lint, test)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: web/.nvmrc
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - run: npm ci
+
+      # Kept separate so the log names which check failed.
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run test
+
+  python:
+    name: python (pytest)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v9
+        with:
+          enable-cache: true
+          # cuhk_scraper imports ddddocr/onnxruntime at module load, so the test
+          # run pulls the full dependency set — worth caching.
+          cache-dependency-glob: uv.lock
+
+      # Matches the version the lockfile and local venv resolve to.
+      - run: uv python install 3.12
+
+      - run: uv sync --locked
+
+      - run: uv run pytest
