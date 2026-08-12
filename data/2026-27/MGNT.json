@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "MGNT",
     "subject_title": "Management",
-    "total_courses": 73
+    "total_courses": 72
   },
   "courses": [
     {
@@ -92,10 +92,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "0",
+                "enrolled": "2",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "70",
+                "available_seats": "68",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -158,10 +158,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "0",
+                "enrolled": "7",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "70",
+                "available_seats": "63",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -184,10 +184,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "0",
+                "enrolled": "2",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "70",
+                "available_seats": "68",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -204,10 +204,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "0",
+                "enrolled": "10",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "70",
+                "available_seats": "60",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -998,10 +998,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "0",
+                "enrolled": "67",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "70",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1018,11 +1018,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "0",
+                "enrolled": "70",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "70",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },
@@ -1038,11 +1038,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "0",
+                "enrolled": "70",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "70",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },
@@ -1058,10 +1058,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "0",
+                "enrolled": "68",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "70",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3118,10 +3118,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "0",
+                "enrolled": "10",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "40",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3243,10 +3243,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "0",
+                "enrolled": "8",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "55",
+                "available_seats": "47",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3988,38 +3988,6 @@
       "credits": "1.50",
       "terms": [
         {
-          "term_code": "2430",
-          "term_name": "2026-27 Term 2",
-          "schedule": [
-            {
-              "section": "G-LEC (2456)",
-              "meetings": [
-                {
-                  "time": "We 2:30PM - 5:15PM",
-                  "location": "TBA",
-                  "instructor": "Professor CHARM Ka Ieong",
-                  "dates": "6/1, 13/1, 20/1, 27/1, 3/2"
-                },
-                {
-                  "time": "We 2:30PM - 5:15PM",
-                  "location": "TBA",
-                  "instructor": "Professor CHARM Ka Ieong",
-                  "dates": "17/2, 24/2"
-                }
-              ],
-              "availability": {
-                "capacity": "70",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "70",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        },
-        {
           "term_code": "2440",
           "term_name": "2026-27 Term 3",
           "schedule": [
@@ -4072,66 +4040,6 @@
       "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
       "required_readings": "Required Case Studies\n- DBS: SMU816-PDF-ENG https://hbsp.harvard.edu/product/SMU816-PDF-ENG?Ntt=digital+transformation&itemFindingMethod=Search\n- 2Stitch Fix: INSEAD\\_IN1630-PDF-ENG https://hbsp.harvard.edu/product/IN1630-PDF-ENG?Ntt=stitch+Fix&itemFindingMethod=Search\n- Lemonade: HBS\\_520020-PDF-ENG https://hbsp.harvard.edu/product/520020-PDF-ENG?Ntt=lemonade&itemFindingMethod=Search",
       "recommended_readings": "- Sunil, G. (2018). Driving digital strategy: a guide to reimagining your business. Boston, MA: Harvard Business Review Press\n- Burn, Paul. (2020). Corporate Entrepreneurship and Innovation. London, UK: Macmillan International"
-    },
-    {
-      "subject": "MGNT",
-      "course_code": "5533",
-      "title": "Entrepreneusrship and Strategic Renewal",
-      "credits": "1.50",
-      "terms": [
-        {
-          "term_code": "2440",
-          "term_name": "2026-27 Term 3",
-          "schedule": [
-            {
-              "section": "G-LEC (1109)",
-              "meetings": [
-                {
-                  "time": "Fr 9:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 304",
-                  "instructor": "Professor FONG Chi Wai Alex",
-                  "dates": "19/3"
-                },
-                {
-                  "time": "Fr 9:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 304",
-                  "instructor": "Professor FONG Chi Wai Alex",
-                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5"
-                }
-              ],
-              "availability": {
-                "capacity": "65",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "65",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
-      "description": "This course aims at providing a solid ground to students interested in entrepreneurship and strategic renewal processes of the firms. In a world of innovations that keep accelerating change, formulating path-breaking innovation strategy and organizational transformation to remain competitive is an increasing imperative. Sustained competitiveness often requires entrepreneurial initiatives in startup, growing, mature or declining organizations with the purpose of instilling a strategic orientation for dynamic capabilities and competitive advantages. This course will offer fundamental concepts, models, and best practices of entrepreneurship and strategic renewal of different organizational types, at different stages of organization life span, and across different industries and countries. Emphasis will be placed on entrepreneurial opportunity recognition, organizational diagnosis, design and alignment, as well as the execution of organizational transformation and renewal.",
-      "enrollment_requirement": "For students in MSc in Management; or MBA in Technology and Innovation",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Business Administration",
-      "academic_org": "Div of Business Administration",
-      "learning_outcomes": "After completing this course, the students are expected to:\n1. understand entrepreneurship and strategic renewal concepts, models, and best practices\n2. lead entrepreneurial and strategic renewal initiatives with confidence to cope with dynamic environments\n3. develop knowledge and skills for executing entrepreneurial pursuit and organizational renewal for change\n4. develop an entrepreneurial and change mindset for sustainability in a dynamic and complex business environment",
-      "course_syllabus": "To be assigned by course teacher",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "20",
-        "Presentation": "20",
-        "Project": "20"
-      },
-      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
-      "required_readings": "To be assigned by course teacher",
-      "recommended_readings": "To be assigned by course teacher"
     },
     {
       "subject": "MGNT",
@@ -4962,12 +4870,12 @@
                 }
               ],
               "availability": {
-                "capacity": "70",
+                "capacity": "60",
                 "enrolled": "63",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "7",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             }
@@ -5301,37 +5209,37 @@
               "section": "V-LEC (1010)",
               "meetings": [
                 {
-                  "time": "Fr 7:00PM - 9:30PM",
+                  "time": "Fr 7:00PM - 10:00PM",
                   "location": "Yasumoto Int'l Acad Park 402",
                   "instructor": "Professor WANG Jian",
                   "dates": "11/9, 18/9"
                 },
                 {
-                  "time": "Th 7:00PM - 9:30PM",
+                  "time": "Th 7:00PM - 10:00PM",
                   "location": "Cheng Yu Tung Building LT4",
                   "instructor": "Professor WANG Jian",
                   "dates": "24/9"
                 },
                 {
-                  "time": "Fr 7:00PM - 9:30PM",
+                  "time": "Fr 7:00PM - 10:00PM",
                   "location": "Yasumoto Int'l Acad Park 402",
                   "instructor": "Professor WANG Jian",
                   "dates": "2/10, 9/10, 16/10"
                 },
                 {
-                  "time": "We 9:30AM - 9:30PM",
+                  "time": "We 9:30AM - 5:30PM",
                   "location": "No Room Required",
                   "instructor": "Professor WANG Jian",
                   "dates": "21/10"
                 },
                 {
-                  "time": "Th 9:30AM - 9:30PM",
+                  "time": "Th 9:30AM - 5:30PM",
                   "location": "No Room Required",
                   "instructor": "Professor WANG Jian",
                   "dates": "22/10"
                 },
                 {
-                  "time": "Fr 9:30AM - 9:30PM",
+                  "time": "Fr 9:30AM - 5:30PM",
                   "location": "No Room Required",
                   "instructor": "Professor WANG Jian",
                   "dates": "23/10"
@@ -5496,13 +5404,19 @@
               "meetings": [
                 {
                   "time": "Su 2:00PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "Yasumoto Int'l Acad Park LT5",
                   "instructor": "Professor CHENG Chi Yeung",
-                  "dates": "13/9, 20/9, 27/9, 4/10, 11/10"
+                  "dates": "13/9"
                 },
                 {
                   "time": "Su 2:00PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor CHENG Chi Yeung",
+                  "dates": "20/9, 27/9, 4/10, 11/10"
+                },
+                {
+                  "time": "Su 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
                   "instructor": "Professor CHENG Chi Yeung",
                   "dates": "25/10, 1/11, 8/11, 15/11, 22/11, 29/11"
                 }

@@ -1721,10 +1721,10 @@
               ],
               "availability": {
                 "capacity": "500",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
+                "enrolled": "1",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "500",
+                "available_seats": "499",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2141,11 +2141,11 @@
               ],
               "availability": {
                 "capacity": "16",
-                "enrolled": "0",
+                "enrolled": "16",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -2161,11 +2161,11 @@
               ],
               "availability": {
                 "capacity": "16",
-                "enrolled": "0",
+                "enrolled": "16",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -2181,11 +2181,11 @@
               ],
               "availability": {
                 "capacity": "16",
-                "enrolled": "0",
+                "enrolled": "16",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -2201,11 +2201,11 @@
               ],
               "availability": {
                 "capacity": "16",
-                "enrolled": "16",
+                "enrolled": "15",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -2221,11 +2221,11 @@
               ],
               "availability": {
                 "capacity": "16",
-                "enrolled": "16",
+                "enrolled": "15",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -2241,11 +2241,11 @@
               ],
               "availability": {
                 "capacity": "16",
-                "enrolled": "16",
+                "enrolled": "15",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "Cantonese and English"
             },

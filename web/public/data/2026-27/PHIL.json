@@ -3806,10 +3806,10 @@
                 }
               ],
               "availability": {
-                "capacity": "30",
-                "enrolled": "30",
+                "capacity": "38",
+                "enrolled": "38",
                 "waitlist_capacity": "13",
-                "waitlist_total": "13",
+                "waitlist_total": "5",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -4861,6 +4861,26 @@
                 "status": "Closed"
               },
               "class_attributes": "Cantonese, English and Putonghua"
+            },
+            {
+              "section": "QM01-TMC (9885)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor Saulius Haroldas GENIUSAS",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
             }
           ]
         }
@@ -5503,6 +5523,26 @@
                 "status": "Closed"
               },
               "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "SM01-TMC (10139)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor David CHAI",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua and English"
             }
           ]
         },
@@ -5751,7 +5791,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Professor Hayden Sean Alexander KEE",
+                  "instructor": "Professor David CHAI, \nProfessor HUANG Yong",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -5924,6 +5964,26 @@
                 "status": "Closed"
               },
               "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "SM01-TMC (9886)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor David CHAI",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua and English"
             }
           ]
         }

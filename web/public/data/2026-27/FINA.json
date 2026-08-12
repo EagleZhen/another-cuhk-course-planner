@@ -34,10 +34,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "0",
+                "enrolled": "33",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "80",
+                "available_seats": "47",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -86,10 +86,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "80",
+                "available_seats": "79",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -606,10 +606,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "0",
+                "enrolled": "51",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1009,10 +1009,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "0",
+                "enrolled": "20",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "70",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1437,10 +1437,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "33",
+                "enrolled": "34",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "37",
+                "available_seats": "36",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1718,10 +1718,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "0",
+                "enrolled": "53",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "70",
+                "available_seats": "17",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1915,10 +1915,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "0",
+                "enrolled": "53",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2030,10 +2030,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "0",
+                "enrolled": "45",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2097,10 +2097,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "0",
+                "enrolled": "48",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3122,11 +3122,11 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "30",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             }
@@ -4066,44 +4066,6 @@
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "55",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        },
-        {
-          "term_code": "2440",
-          "term_name": "2026-27 Term 3",
-          "schedule": [
-            {
-              "section": "G-LEC (1123)",
-              "meetings": [
-                {
-                  "time": "Sa 9:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 301",
-                  "instructor": "Mr. LIU Chun Wai",
-                  "dates": "20/3"
-                },
-                {
-                  "time": "Sa 9:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 301",
-                  "instructor": "Mr. LIU Chun Wai",
-                  "dates": "3/4, 10/4, 17/4, 24/4"
-                },
-                {
-                  "time": "Sa 9:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 301",
-                  "instructor": "Mr. LIU Chun Wai",
-                  "dates": "8/5, 15/5"
-                }
-              ],
-              "availability": {
-                "capacity": "70",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "70",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7096,21 +7058,27 @@
               "meetings": [
                 {
                   "time": "Su 2:00PM - 5:15PM",
-                  "location": "TBA",
-                  "instructor": "Professor CHEW Seen Meng",
-                  "dates": "13/9, 20/9, 27/9, 4/10, 11/10"
-                },
-                {
-                  "time": "Su 2:00PM - 5:15PM",
-                  "location": "TBA",
-                  "instructor": "Professor CHEW Seen Meng",
-                  "dates": "25/10, 1/11, 8/11, 15/11, 22/11"
-                },
-                {
-                  "time": "Su 2:00PM - 5:15PM",
                   "location": "Cheng Yu Tung Building 410",
                   "instructor": "Professor CHEW Seen Meng",
                   "dates": "29/11"
+                },
+                {
+                  "time": "Su 2:00PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT8",
+                  "instructor": "Professor CHEW Seen Meng",
+                  "dates": "13/9"
+                },
+                {
+                  "time": "Su 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor CHEW Seen Meng",
+                  "dates": "20/9, 27/9, 4/10, 11/10"
+                },
+                {
+                  "time": "Su 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor CHEW Seen Meng",
+                  "dates": "25/10, 1/11, 8/11, 15/11, 22/11"
                 }
               ],
               "availability": {
@@ -7541,10 +7509,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7779,10 +7747,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "0",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "18",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -10577,11 +10545,11 @@
                 }
               ],
               "availability": {
-                "capacity": "50",
+                "capacity": "70",
                 "enrolled": "26",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "24",
+                "available_seats": "44",
                 "status": "Open"
               },
               "class_attributes": "English only"
