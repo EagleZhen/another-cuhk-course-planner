@@ -48,6 +48,7 @@ def _write_course_file(
     subject="AAAA",
     subject_title="Subject A",
     term_name="2025-26 Term 1",
+    extra_course_fields=None,
 ):
     year_dir = source_dir / "2025-26"
     year_dir.mkdir(parents=True, exist_ok=True)
@@ -65,6 +66,7 @@ def _write_course_file(
                 "title": "Course A",
                 "credits": "3.00",
                 "terms": [{"term_name": term_name}],
+                **(extra_course_fields or {}),
             }
         ],
     }
@@ -174,6 +176,25 @@ def test_report_scrape_summary_stays_silent_without_per_subject_stats(progress_d
 
 def _terms(*term_names):
     return render_terms_module({"2025-26": list(term_names)})
+
+
+def test_publish_strips_unrendered_fields_but_leaves_the_source_intact(tmp_path, monkeypatch):
+    # These fields carry base64 images and are never rendered; shipping them roughly
+    # tripled the gzipped payload. data/ stays complete so a field can be republished.
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    stripped = {field: "payload" for field in publish_course_data.STRIPPED_COURSE_FIELDS}
+    _write_course_file(source_dir, extra_course_fields={**stripped, "description": "kept"})
+
+    publish_course_data.main()
+
+    published = json.loads((published_dir / "2025-26" / "AAAA.json").read_text())["courses"][0]
+    assert not [f for f in publish_course_data.STRIPPED_COURSE_FIELDS if f in published]
+    assert published["description"] == "kept"
+
+    source = json.loads((source_dir / "2025-26" / "AAAA.json").read_text())["courses"][0]
+    assert [f for f in publish_course_data.STRIPPED_COURSE_FIELDS if f in source] == list(
+        publish_course_data.STRIPPED_COURSE_FIELDS
+    )
 
 
 def test_report_term_manifest_changes_lists_added_and_removed_terms(monkeypatch, capsys):

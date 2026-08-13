@@ -434,6 +434,26 @@ def report_term_manifest_changes(old_content: str, new_content: str) -> None:
     print()
 
 
+def copy_published_files(copy_plan: List[Tuple[str, str]], dry_run: bool) -> int:
+    """Copy each planned file, stripping unrendered fields. Returns how many were copied."""
+    copied_count = 0
+    for source_path, dest_path in copy_plan:
+        try:
+            if not dry_run:
+                os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                with open(source_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                for course in data.get("courses", []):
+                    for field in STRIPPED_COURSE_FIELDS:
+                        course.pop(field, None)
+                save_json_with_newline(dest_path, data)
+            copied_count += 1
+        # One unreadable or unwritable file must not abort the rest of the publish.
+        except Exception as e:
+            print(f"❌ Failed to copy {os.path.basename(source_path)}: {e}")
+    return copied_count
+
+
 class ConsoleLogger:
     """Captures console output to both terminal and file"""
 
@@ -572,20 +592,7 @@ def main():
 
         # Copy files, stripping unused fields, into web/public/data/<year>/.
         print()
-        copied_count = 0
-        for source_path, dest_path in copy_plan:
-            try:
-                if not dry_run:
-                    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
-                    with open(source_path, "r", encoding="utf-8") as f:
-                        data = json.load(f)
-                    for course in data.get("courses", []):
-                        for field in STRIPPED_COURSE_FIELDS:
-                            course.pop(field, None)
-                    save_json_with_newline(dest_path, data)
-                copied_count += 1
-            except Exception as e:
-                print(f"❌ Failed to copy {os.path.basename(source_path)}: {e}")
+        copied_count = copy_published_files(copy_plan, dry_run)
 
         # Publishing summary
         print("Publishing Summary:")
