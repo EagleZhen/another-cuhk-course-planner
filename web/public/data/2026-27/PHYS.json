@@ -2913,12 +2913,6 @@
               "section": "--LEC (9682)",
               "meetings": [
                 {
-                  "time": "Tu 10:30AM - 12:15PM",
-                  "location": "Fung King Hey Bldg Swire Hall2",
-                  "instructor": "Professor ONG Hock Chun Daniel",
-                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
-                },
-                {
                   "time": "Th 4:30PM - 5:15PM",
                   "location": "Science Centre L2",
                   "instructor": "Professor ONG Hock Chun Daniel",
@@ -2929,14 +2923,32 @@
                   "location": "Science Centre L2",
                   "instructor": "Professor ONG Hock Chun Daniel",
                   "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
+                },
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Humanities Building 11",
+                  "instructor": "Professor ONG Hock Chun Daniel",
+                  "dates": "8/9, 15/9, 22/9"
+                },
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Humanities Building 11",
+                  "instructor": "Professor ONG Hock Chun Daniel",
+                  "dates": "6/10, 13/10, 20/10, 27/10"
+                },
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Humanities Building 11",
+                  "instructor": "Professor ONG Hock Chun Daniel",
+                  "dates": "10/11, 17/11, 24/11, 1/12"
                 }
               ],
               "availability": {
-                "capacity": "100",
+                "capacity": "80",
                 "enrolled": "1",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "99",
+                "available_seats": "79",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3597,10 +3609,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "7",
+                "enrolled": "8",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -12067,10 +12079,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "7",
+                "enrolled": "8",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "33",
+                "available_seats": "32",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -12087,10 +12099,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "7",
+                "enrolled": "8",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "33",
+                "available_seats": "32",
                 "status": "Open"
               },
               "class_attributes": "English only"

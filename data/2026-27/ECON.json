@@ -170,10 +170,10 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "90",
+                "available_seats": "89",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -630,10 +630,10 @@
               ],
               "availability": {
                 "capacity": "130",
-                "enrolled": "0",
+                "enrolled": "34",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "130",
+                "available_seats": "96",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1361,10 +1361,10 @@
               ],
               "availability": {
                 "capacity": "110",
-                "enrolled": "0",
+                "enrolled": "5",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "110",
+                "available_seats": "105",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3593,29 +3593,16 @@
           "schedule": [
             {
               "section": "--LEC (5182)",
-              "meetings": [
-                {
-                  "time": "Mo 2:30PM - 5:15PM",
-                  "location": "Esther Lee Bldg 308",
-                  "instructor": "Staff",
-                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-                },
-                {
-                  "time": "Mo 2:30PM - 5:15PM",
-                  "location": "Esther Lee Bldg 308",
-                  "instructor": "Staff",
-                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
-                }
-              ],
+              "meetings": [],
               "availability": {
-                "capacity": "40",
-                "enrolled": "0",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "40",
-                "status": "Open"
+                "capacity": "",
+                "enrolled": "",
+                "waitlist_capacity": "",
+                "waitlist_total": "",
+                "available_seats": "",
+                "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": ""
             }
           ]
         }
@@ -4068,10 +4055,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "12",
+                "enrolled": "16",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "28",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4121,10 +4108,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "73",
+                "enrolled": "74",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "7",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4153,10 +4140,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "71",
+                "enrolled": "73",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4205,10 +4192,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "72",
+                "enrolled": "76",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4263,10 +4250,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "55",
+                "enrolled": "53",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4315,10 +4302,10 @@
               ],
               "availability": {
                 "capacity": "28",
-                "enrolled": "14",
+                "enrolled": "17",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "11",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4368,10 +4355,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "72",
+                "enrolled": "73",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4388,10 +4375,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "71",
+                "enrolled": "73",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4428,10 +4415,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "72",
+                "enrolled": "76",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4480,10 +4467,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "55",
+                "enrolled": "53",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4539,10 +4526,10 @@
               ],
               "availability": {
                 "capacity": "28",
-                "enrolled": "13",
+                "enrolled": "16",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4604,10 +4591,10 @@
               ],
               "availability": {
                 "capacity": "28",
-                "enrolled": "12",
+                "enrolled": "16",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4687,10 +4674,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "15",
+                "enrolled": "20",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4769,10 +4756,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "70",
+                "enrolled": "71",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4819,10 +4806,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "71",
+                "enrolled": "73",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4919,10 +4906,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "72",
+                "enrolled": "76",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -4983,10 +4970,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "56",
+                "enrolled": "54",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "11",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -5035,10 +5022,10 @@
               ],
               "availability": {
                 "capacity": "28",
-                "enrolled": "12",
+                "enrolled": "18",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -5100,10 +5087,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "70",
+                "enrolled": "71",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -5120,10 +5107,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "71",
+                "enrolled": "73",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -5172,10 +5159,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "72",
+                "enrolled": "76",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -5224,10 +5211,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "55",
+                "enrolled": "53",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -5549,10 +5536,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "72",
+                "enrolled": "73",
                 "waitlist_capacity": "30",
                 "waitlist_total": "0",
-                "available_seats": "28",
+                "available_seats": "27",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -5803,10 +5790,10 @@
               ],
               "availability": {
                 "capacity": "140",
-                "enrolled": "119",
+                "enrolled": "121",
                 "waitlist_capacity": "30",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -6071,7 +6058,7 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "80",
+                "enrolled": "81",
                 "waitlist_capacity": "30",
                 "waitlist_total": "30",
                 "available_seats": "0",
@@ -6286,10 +6273,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "25",
+                "enrolled": "26",
                 "waitlist_capacity": "30",
                 "waitlist_total": "0",
-                "available_seats": "75",
+                "available_seats": "74",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -6345,10 +6332,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "30",
+                "enrolled": "31",
                 "waitlist_capacity": "30",
                 "waitlist_total": "0",
-                "available_seats": "70",
+                "available_seats": "69",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -6654,10 +6641,10 @@
               ],
               "availability": {
                 "capacity": "95",
-                "enrolled": "90",
+                "enrolled": "91",
                 "waitlist_capacity": "30",
                 "waitlist_total": "30",
-                "available_seats": "5",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -6714,10 +6701,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "75",
+                "enrolled": "79",
                 "waitlist_capacity": "30",
                 "waitlist_total": "18",
-                "available_seats": "5",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -7010,10 +6997,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "12",
+                "enrolled": "18",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -7036,10 +7023,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "14",
+                "enrolled": "18",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -7085,10 +7072,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "30",
+                "enrolled": "34",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "40",
+                "available_seats": "36",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
@@ -7117,10 +7104,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "14",
+                "enrolled": "18",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only\nAll Face-to-Face Teaching"
