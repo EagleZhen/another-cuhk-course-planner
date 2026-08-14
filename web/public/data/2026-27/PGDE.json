@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "PGDE",
     "subject_title": "PgD Education",
-    "total_courses": 85
+    "total_courses": 84
   },
   "courses": [
     {
@@ -967,10 +967,10 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "24",
+                "enrolled": "23",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": ""
@@ -3844,61 +3844,6 @@
         "Essays": "30",
         "Lab reports": "50",
         "Presentation": "20"
-      }
-    },
-    {
-      "subject": "PGDE",
-      "course_code": "5174",
-      "title": "Global Dialogues on Education for Sustainable Development in the Secondary School Curriculum",
-      "credits": "1.50 - 2.00",
-      "terms": [
-        {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "H-LEC (9985)",
-              "meetings": [
-                {
-                  "time": "Sa 8:30AM - 10:15AM",
-                  "location": "Hui Yeung Shing Bldg G05",
-                  "instructor": "Dr. WAN Wai Yan",
-                  "dates": "12/9, 19/9"
-                },
-                {
-                  "time": "Sa 8:30AM - 10:15AM",
-                  "location": "Hui Yeung Shing Bldg G05",
-                  "instructor": "Dr. WAN Wai Yan",
-                  "dates": "3/10, 10/10, 17/10, 24/10, 31/10, 7/11, 14/11, 21/11, 28/11, 5/12"
-                }
-              ],
-              "availability": {
-                "capacity": "65",
-                "enrolled": "4",
-                "waitlist_capacity": "99",
-                "waitlist_total": "0",
-                "available_seats": "61",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese and English"
-            }
-          ]
-        }
-      ],
-      "description": "This course aims to foster a deep understanding of self and transform how students perceive themselves and navigate the world in relation to Education for Sustainable Development (ESD) issues within the context of secondary schools. Throughout the course, students will have the opportunity to connect, communicate, and interact with “global peers” from around the world through engaging in “global dialogues.” These dialogues will facilitate the gathering of scholars and students from diverse regions to share their experiences and perspectives on ESD. By building a network of individuals passionate about ESD, participants will gain access to a rich body of comparative information and knowledge about current and emerging issues in sustainable development education in secondary school settings.",
-      "enrollment_requirement": "For PGDE students only",
-      "course_attributes": "Cantonese only",
-      "academic_career": "Postgraduate - PGDE",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "PGDE Prog Comm",
-      "academic_org": "PGDE Prog Comm",
-      "learning_outcomes": "By the end of the course, students will be able to:\n\n1. Understand the principles of global dialogue and its significance in ESD (Knowledge)\n2. Evaluate and propose effective learning and teaching strategies for ESD in secondary schools (Knowledge)\n3. Explain and analyze key concepts related to education for sustainable development, including UNESCO Global Citizenship Education and the Global Goals for Sustainable Development (Knowledge)\n4. Engage in open dialogues with “global peers” and facilitate discussions that enhance collective learning (Skill)\n5. Practice active listening, articulate thoughts openly, and demonstrate respect for diverse viewpoints (Skill)\n6. Cultivate self-awareness and remain open-minded towards the perspectives of “global peers” (Attitude)",
-      "assessment_types": {
-        "Presentation": "40",
-        "Project": "40",
-        "Report": "20"
       }
     },
     {
