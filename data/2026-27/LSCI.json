@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "LSCI",
     "subject_title": "Life Sciences Courses",
-    "total_courses": 59
+    "total_courses": 60
   },
   "courses": [
     {
@@ -28,10 +28,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "0",
+                "enrolled": "6",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "100",
+                "available_seats": "94",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -241,10 +241,10 @@
               ],
               "availability": {
                 "capacity": "56",
-                "enrolled": "19",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "37",
+                "available_seats": "34",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -261,10 +261,10 @@
               ],
               "availability": {
                 "capacity": "56",
-                "enrolled": "20",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "36",
+                "available_seats": "34",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1340,6 +1340,59 @@
       "feedback_evaluation": "Feedback from course evaluation\nDiscussion with students\nSelf reflection of teacher(s)\nFeedback from Visiting Committee and regular programme reviews",
       "required_readings": "Nil.",
       "recommended_readings": "1. Fred H. Wilt and Sarah Hake (2004) Principles of Developmental Biology, 1st Edition, W.W. Norton& Company, New York and London\n2. Scott F. Gilbert (2006) Developmental Biology, 8th Edition, Sinauer Associates, Inc. USA\n3. Lewis Wolpert (2007) Principles of Development, 3rd Edition, Oxford University Press"
+    },
+    {
+      "subject": "LSCI",
+      "course_code": "5523",
+      "title": "Global Change Biology",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (10142)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor Shelby Eileen MC SHARRY MC ILROY",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "The aim of this course is to introduce students to the ways in which environmental change affects biodiversity from organisms to ecosystems. Using this foundation, we will explore core responses of species and build up to the more complex responses of communities and ecosystems. This course will further students’ understanding of experimental research with a focus on how researchers evaluate current anthropogenic stressors and predict future ecological trajectories. Topics may include, but are not limited to, the contributions that human population growth and globalization have made to increases in greenhouse gases and associated climate change, biological invasions, land degradation, disease, and, ultimately, impacts on biological systems.",
+      "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken BIOL4230",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Division of Life Sciences",
+      "academic_org": "Division of Life Sciences",
+      "learning_outcomes": "Upon successful completion of the course students should:\n\n- Have a basic understanding of large-scale environmental changes on earth; be able to compare and contrast causes of historical and contemporary changes in climate.\n\n- Be able to synthesize factors that influence core species responses and describe how contemporary human impacts are altering species distributions, abundance, and evolution.\n\nBe able to evaluate how global change can disrupt species interactions and to summarize the factors that contribute to ecosystem collapse and ecosystem resilience.",
+      "course_syllabus": "I. Introduction – understanding the Earth system\n1. The Earth system and natural/historical drivers and patterns of change (both in terms of climate, and biological responses)\n2. Major features of present/future climate, including human-driven change (scenarios, models, validation, projections)\n3. Approaches to monitor current and anticipate future biological change\n\nII. The core responses of organisms to altered conditions\n1. Range shifts and the global redistribution of species\n2. Phenotypic plasticity and mechanisms of acclimation\n3. Adaptive responses to environmental stressors\n4. Assessments of species vulnerability and extinction risk\n\nIII. The complex responses of ecosystems to human-driven change\n1. Community responses – e.g. alteration of species interactions; composition and diversity; parasites and pathogens\n2. Ecosystem change – e.g. regime shifts; changes in net primary productivity, respiration, net ecosystem productivity, and nutrient cycling\n\nIV. The human aspect\n1. Biodiversity and Society - understanding ecosystem services and valuations\n2. Implications for conservation (adaptation of strategies, connectivity and landscape management, species management)\n3. International policy (international climate policy, mitigation, carbon sinks and sources, assessing risks and designing solutions)",
+      "assessment_types": {
+        "Classwork": "30",
+        "Examination": "40",
+        "Project": "30"
+      },
+      "feedback_evaluation": "1. Feedback from course evaluation\n2. Discussion with students\n3. Self reflection of teacher(s)\n4. Feedback from Visiting Committee & regular program reviews",
+      "required_readings": "Nil.",
+      "recommended_readings": "There is no textbook required, however the course draws heavily from:\n\n* Global Change Biology; Erica Bree Rosenblum; Oxford University Press.* Examples from the primary research literature are also used throughout the course with full citations included."
     },
     {
       "subject": "LSCI",
