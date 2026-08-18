@@ -448,10 +448,10 @@
               ],
               "availability": {
                 "capacity": "54",
-                "enrolled": "32",
+                "enrolled": "34",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -468,10 +468,10 @@
               ],
               "availability": {
                 "capacity": "54",
-                "enrolled": "32",
+                "enrolled": "34",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -522,10 +522,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "34",
+                "enrolled": "48",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "21",
+                "waitlist_total": "1",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -542,10 +542,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "34",
+                "enrolled": "48",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "21",
+                "waitlist_total": "1",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1956,10 +1956,10 @@
                 }
               ],
               "availability": {
-                "capacity": "60",
-                "enrolled": "60",
+                "capacity": "65",
+                "enrolled": "65",
                 "waitlist_capacity": "50",
-                "waitlist_total": "31",
+                "waitlist_total": "26",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -2458,10 +2458,10 @@
                 }
               ],
               "availability": {
-                "capacity": "80",
-                "enrolled": "116",
+                "capacity": "120",
+                "enrolled": "120",
                 "waitlist_capacity": "60",
-                "waitlist_total": "11",
+                "waitlist_total": "7",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -2562,10 +2562,130 @@
               ],
               "availability": {
                 "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AJ01-PRJ (10148)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHAN Chun Kwong",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
                 "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "49",
+                "available_seats": "14",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BJ01-PRJ (10147)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. LEUNG Kwai Sun",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CJ01-PRJ (10149)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DJ01-PRJ (10150)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "EJ01-PRJ (10151)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Xixin",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FJ01-PRJ (10152)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN He",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2607,7 +2727,21 @@
                   "location": "No Room Required",
                   "instructor": "Professor CHAN Chun Kwong",
                   "dates": "11/01/2027 - 19/04/2027"
-                },
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "AJ01-PRJ (9892)",
+              "meetings": [
                 {
                   "time": "TBA",
                   "location": "No Room Required",
@@ -2616,11 +2750,111 @@
                 }
               ],
               "availability": {
-                "capacity": "50",
+                "capacity": "15",
                 "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "49",
+                "available_seats": "14",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BJ01-PRJ (9893)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. LEUNG Kwai Sun",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CJ01-PRJ (9894)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. HAN Dongkun",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "3",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "7",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DJ01-PRJ (9895)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor PAN Jialin",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "EJ01-PRJ (9896)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor WU Xixin",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FJ01-PRJ (9897)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN He",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only"

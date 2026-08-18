@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "FINA",
     "subject_title": "Finance",
-    "total_courses": 109
+    "total_courses": 112
   },
   "courses": [
     {
@@ -34,10 +34,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "38",
+                "enrolled": "49",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "42",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -60,10 +60,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "50",
+                "enrolled": "51",
                 "waitlist_capacity": "999",
-                "waitlist_total": "3",
-                "available_seats": "30",
+                "waitlist_total": "10",
+                "available_seats": "29",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -86,10 +86,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "10",
+                "enrolled": "23",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "70",
+                "available_seats": "57",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -738,10 +738,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "10",
+                "enrolled": "14",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "70",
+                "available_seats": "66",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -787,11 +787,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "36",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "34",
-                "status": "Open"
+                "waitlist_total": "1",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             },
@@ -807,11 +807,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "44",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "26",
-                "status": "Open"
+                "waitlist_total": "10",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             },
@@ -833,11 +833,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "29",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "41",
-                "status": "Open"
+                "waitlist_total": "9",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             }
@@ -989,11 +989,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "43",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "27",
-                "status": "Open"
+                "waitlist_total": "8",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             },
@@ -1009,11 +1009,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "62",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "8",
-                "status": "Open"
+                "waitlist_total": "4",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             },
@@ -1035,10 +1035,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "41",
+                "enrolled": "66",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1190,11 +1190,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "44",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "26",
-                "status": "Open"
+                "waitlist_total": "10",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             },
@@ -1216,11 +1216,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "29",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "41",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },
@@ -1236,11 +1236,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "30",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "40",
-                "status": "Open"
+                "waitlist_total": "11",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             }
@@ -1437,11 +1437,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "60",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
+                "waitlist_total": "1",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             },
@@ -1457,10 +1457,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "8",
+                "enrolled": "33",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "52",
+                "available_seats": "27",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1483,11 +1483,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "20",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "50",
-                "status": "Open"
+                "waitlist_total": "5",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             },
@@ -1503,10 +1503,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "15",
+                "enrolled": "52",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "55",
+                "available_seats": "18",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1523,11 +1523,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "17",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "53",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             }
@@ -1720,7 +1720,7 @@
                 "capacity": "70",
                 "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "10",
+                "waitlist_total": "11",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -1738,10 +1738,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "37",
+                "enrolled": "48",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "33",
+                "available_seats": "22",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1915,11 +1915,11 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "59",
+                "enrolled": "60",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             }
@@ -2097,10 +2097,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "53",
+                "enrolled": "56",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "7",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2376,10 +2376,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "24",
+                "enrolled": "36",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "36",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2424,11 +2424,11 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "39",
+                "enrolled": "60",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "21",
-                "status": "Open"
+                "waitlist_total": "5",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             }
@@ -2475,7 +2475,7 @@
                 "capacity": "20",
                 "enrolled": "20",
                 "waitlist_capacity": "999",
-                "waitlist_total": "14",
+                "waitlist_total": "18",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -2495,7 +2495,7 @@
                 "capacity": "20",
                 "enrolled": "20",
                 "waitlist_capacity": "999",
-                "waitlist_total": "14",
+                "waitlist_total": "24",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -2611,10 +2611,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "8",
+                "enrolled": "15",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "52",
+                "available_seats": "45",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2631,10 +2631,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "13",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "47",
+                "available_seats": "38",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2771,10 +2771,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "23",
+                "enrolled": "29",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "21",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2828,11 +2828,11 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "52",
+                "enrolled": "65",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "13",
-                "status": "Open"
+                "waitlist_total": "3",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             },
@@ -2854,10 +2854,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "24",
+                "enrolled": "48",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "41",
+                "available_seats": "17",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3072,10 +3072,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "32",
+                "enrolled": "41",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "33",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3239,10 +3239,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "23",
+                "enrolled": "32",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "37",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3289,10 +3289,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "35",
+                "enrolled": "40",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "25",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3344,10 +3344,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "49",
+                "enrolled": "53",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3591,7 +3591,7 @@
                 "capacity": "45",
                 "enrolled": "45",
                 "waitlist_capacity": "999",
-                "waitlist_total": "19",
+                "waitlist_total": "20",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -3639,10 +3639,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "33",
+                "enrolled": "34",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "21",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3749,13 +3749,7 @@
                 },
                 {
                   "time": "Th 9:30AM - 12:45PM",
-                  "location": "TBA",
-                  "instructor": "Dr. AU YEUNG Chau Kin",
-                  "dates": "10/9"
-                },
-                {
-                  "time": "Th 9:30AM - 12:45PM",
-                  "location": "TBA",
+                  "location": "Town Centre Emerald Room",
                   "instructor": "Dr. AU YEUNG Chau Kin",
                   "dates": "15/10"
                 }
@@ -9659,15 +9653,51 @@
               "meetings": [
                 {
                   "time": "We 2:30PM - 5:15PM",
-                  "location": "Humanities Building 12",
+                  "location": "Chung Chi College Lib CK TSE",
                   "instructor": "Professor LIU Ruixuan",
-                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10"
+                  "dates": "4/11"
                 },
                 {
                   "time": "We 2:30PM - 5:15PM",
                   "location": "Chung Chi College Lib CK TSE",
                   "instructor": "Professor LIU Ruixuan",
-                  "dates": "4/11, 11/11, 18/11, 25/11"
+                  "dates": "25/11"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Humanities Building 12",
+                  "instructor": "Professor LIU Ruixuan",
+                  "dates": "30/9"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Humanities Building 12",
+                  "instructor": "Professor LIU Ruixuan",
+                  "dates": "21/10, 28/10"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 201",
+                  "instructor": "Professor LIU Ruixuan",
+                  "dates": "11/11"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT5",
+                  "instructor": "Professor LIU Ruixuan",
+                  "dates": "18/11"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 410",
+                  "instructor": "Professor LIU Ruixuan",
+                  "dates": "9/9, 16/9, 23/9"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 410",
+                  "instructor": "Professor LIU Ruixuan",
+                  "dates": "7/10, 14/10"
                 }
               ],
               "availability": {
@@ -9714,27 +9744,33 @@
               "meetings": [
                 {
                   "time": "Mo 2:30PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "Yasumoto Int'l Acad Park 201",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "2/11, 9/11, 16/11"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 410",
                   "instructor": "Dr. KOT Hung Wan",
                   "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-                },
-                {
-                  "time": "Mo 2:30PM - 5:15PM",
-                  "location": "TBA",
-                  "instructor": "Dr. KOT Hung Wan",
-                  "dates": "26/10, 2/11, 9/11"
-                },
-                {
-                  "time": "Mo 2:30PM - 5:15PM",
-                  "location": "Esther Lee Bldg LT2",
-                  "instructor": "Dr. KOT Hung Wan",
-                  "dates": "16/11"
                 },
                 {
                   "time": "Mo 2:30PM - 5:15PM",
                   "location": "Cheng Yu Tung Building LT5",
                   "instructor": "Dr. KOT Hung Wan",
                   "dates": "23/11, 30/11"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Esther Lee Bldg LT2",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "30/11"
+                },
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT2",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "26/10"
                 }
               ],
               "availability": {
@@ -10767,6 +10803,219 @@
         "Homework or assignment": "20",
         "Test or quiz": "20"
       }
+    },
+    {
+      "subject": "FINA",
+      "course_code": "8003",
+      "title": "Thesis Research",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "-M01-TMC (10144)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor YAO Chen",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "5",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-M01-TMC (9889)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor YAO Chen",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "6",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "14",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "To monitor students' progress in thesis and research.",
+      "enrollment_requirement": "For students in MPhil-PhD Finance",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "The goal of this course is to monitor students’ progress in thesis and research. Upon completing this course, students will develop a skill to summarize the essential ingredients of a paper in a concise way, to develop an original research topic, and to empirically execute the idea using what they have learned in other seminar courses.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "FINA",
+      "course_code": "8006",
+      "title": "Thesis Research",
+      "credits": "6.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "-M01-TMC (10145)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor YAO Chen",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "9",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "11",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-M01-TMC (9890)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor YAO Chen",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "9",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "11",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "To monitor students' progress in thesis and research.",
+      "enrollment_requirement": "For students in MPhil-PhD Finance",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "The goal of this course is to monitor students’ progress in thesis and research. Upon completing this course, students will develop a skill to summarize the essential ingredients of a paper in a concise way, to develop an original research topic, and to empirically execute the idea using what they have learned in other seminar courses.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "FINA",
+      "course_code": "8012",
+      "title": "Thesis Research",
+      "credits": "12.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "-M01-TMC (10146)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor YAO Chen",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "10",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-M01-TMC (9891)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor YAO Chen",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "9",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "11",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "To monitor students' progress in thesis and research.",
+      "enrollment_requirement": "For students in MPhil-PhD Finance",
+      "course_attributes": "Zero Billing Factor",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Thesis Monitoring Course",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "The goal of this course is to monitor students' progress in thesis and research. Upon completing this course, students will develop a skill to summarize the essential ingredients of a paper in a concise way, to develop an original research topic, and to empirically execute the idea using what they have learned in other seminar courses.",
+      "assessment_types": {}
     }
   ]
 }
