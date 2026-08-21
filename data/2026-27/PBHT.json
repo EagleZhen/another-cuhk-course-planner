@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "PBHT",
     "subject_title": "Public Heatlh (TPg)",
-    "total_courses": 7
+    "total_courses": 8
   },
   "courses": [
     {
@@ -263,8 +263,8 @@
     {
       "subject": "PBHT",
       "course_code": "5901",
-      "title": "Exchange Study",
-      "credits": "1.50",
+      "title": "International Exchange Study",
+      "credits": "1.00",
       "terms": [
         {
           "term_code": "2450",
@@ -317,11 +317,11 @@
           ]
         }
       ],
-      "description": "Students enrolled in public health courses during their summer or winter terms in other universities can seek unit credits for their studies towards their MPH degree. Approval made on a case-by-case basis by the Concentration Coordinator after discussion with Curriculum Coordinator.",
-      "enrollment_requirement": "For Master of Public Health and MSc Health Services Management students",
+      "description": "Public Health in Action in The Association of Southeast Asian Nations (ASEAN): Field study of Brunei Darussalam’s healthcare system, disease prevention and control strategies",
+      "enrollment_requirement": "For students in Master of Public Health and MSc Epidemiology & Biostatistics",
       "course_attributes": "",
       "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
+      "grading_basis": "Pass/Not Pass",
       "component": "Independent Study",
       "campus": "Main Campus",
       "academic_group": "Div of Public Health",
@@ -335,6 +335,59 @@
       "feedback_evaluation": "CTE",
       "required_readings": "https://www.who.int/countries/brn\n\nhttps://www.oecd.org/en/publications/health-at-a-glance-asia-pacific-2024\\_51fed7e9-en.html\n\n[https://www.who.int/westernpacific/our-work/resources/data](http://documents.wfp.org/stellent/groups/public/documents/ena/wfp258655.pdf)",
       "recommended_readings": "Brunei PPKK, MOH, SHENA, BDFA, JPMC webpages:\n\n<https://ppkk.gov.bn/SitePages/Home.aspx>\n\n<https://moh.gov.bn/>\n\n<https://jpmcbrunei.com/>\n\n<https://shena.gov.bn/>\n\nhttps://bdfa.gov.bn/"
+    },
+    {
+      "subject": "PBHT",
+      "course_code": "6801",
+      "title": "Global Experiential Learning",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2450",
+          "term_name": "2026-27 Summer Session",
+          "schedule": [
+            {
+              "section": "--LEC (1166)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor TUN Hein Min",
+                  "dates": "17/05/2027 - 02/08/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Short-term internships at international organisations: Experiential learning by participating field activities",
+      "enrollment_requirement": "For students in Master of Public Health",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Pass/Not Pass",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Public Health",
+      "academic_org": "Div of Public Health",
+      "learning_outcomes": "1. Observe the organisation and delivery of public health related programme and projects in Asia-Pacific region.\n2. Supplement their academic knowledge with a practical work experience in a field related to the work of hosting organization.\n3. Assist in relevant fields in connection to the hosting organization’s strategic framework and to UN Sustainable Development Goals.\n4. Participate in high-level discussion on how intersectoral collaboration supports including cross-agency coordination in infectious disease control, One Health, and food safety regulation.\n5. Reflect on lessons learned and how insights from Brunei’s public health strategies can inform public health practice in the region.",
+      "course_syllabus": "| 1. Understanding of organizational mandates and programmes |\n| --- |\n| 2. Organizational assignments |\n| 3. Health Promotion, Food Safety & One Health |",
+      "assessment_types": {
+        "Internship or practicum": "30",
+        "Presentation": "40",
+        "Report": "30"
+      },
+      "feedback_evaluation": "CTE",
+      "required_readings": "To be confirmed by course coordinator",
+      "recommended_readings": "To be confirmed by course coordinator"
     },
     {
       "subject": "PBHT",
