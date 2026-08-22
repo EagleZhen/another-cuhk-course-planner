@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "GLEF",
     "subject_title": "Global Economics and Finance",
-    "total_courses": 6
+    "total_courses": 7
   },
   "courses": [
     {
@@ -28,10 +28,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "44",
+                "enrolled": "45",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -295,6 +295,195 @@
       "feedback_evaluation": "Course and teaching evaluation at end of course\nInformal feedback channels throughout the course (face-to-face, email, WebCT)\nDepartmental Retreat\nProgramme Review",
       "required_readings": "1. Glenn Hubbard, Money, the Financial System and Economy, 6th Edition, Addison Wesley, 2007\n2. Howard Davies and David Green, Global Financial Regulation, Polity, 2008",
       "recommended_readings": "1. Basel II: International Convergence of Capital Measurement and Capital Standards: A Revised Framework - Comprehensive Version, Bank of International Settlement, 2006\n2. Macro-Prudential Regulation, World Bank, 2009"
+    },
+    {
+      "subject": "GLEF",
+      "course_code": "4070",
+      "title": "Internship Experience in Global Economics and Finance",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "AP01-PRA (10181)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "BP01-PRA (10182)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "CP01-PRA (10183)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "DP01-PRA (10184)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "EP01-PRA (10185)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "FP01-PRA (10186)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "GP01-PRA (10187)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "HP01-PRA (10188)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. KOT Hung Wan",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Students are encouraged to explore opportunities of internship to fit their own specific learning needs. However, all self-selected internship must comply with the course requirements, and subject to the approval of GLEF Programme.\n\nStudents will be assessed by the course instructor afterwards.",
+      "enrollment_requirement": "Pre-requisite(s): at least 3 GLEF courses at 3000 or above level",
+      "course_attributes": "Capstone Course\nInternship",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Global Economics & Finance PC",
+      "academic_org": "Global Economics & Finance PC",
+      "learning_outcomes": "Students will be able to integrate theoretical knowledge and problem solving skills in a real world environment.",
+      "course_syllabus": "Students are encouraged to explore opportunities of internship to fit their own specific learning needs. However, all self-selected internship must comply with the course requirements, and subject to the approval of GLEF Programme.\n\nStudents will be assessed by the course instructor afterwards.",
+      "assessment_types": {},
+      "feedback_evaluation": "The course will NOT employ the University’s Courses and Teaching Evaluation (CTE) as evaluation tool and reflection collected from individual student would be collated instead to see the effectiveness of the course in delivery of learning outcomes.",
+      "required_readings": "To be confirmed by the teacher.",
+      "recommended_readings": ""
     },
     {
       "subject": "GLEF",
