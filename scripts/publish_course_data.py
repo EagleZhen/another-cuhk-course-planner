@@ -17,9 +17,10 @@ import json
 import os
 import shutil
 import sys
+from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Tuple
+from typing import Dict, Iterable, Iterator, List, NamedTuple, Optional, Tuple
 from zoneinfo import ZoneInfo
 
 import pyperclip
@@ -252,6 +253,60 @@ def categorize_year_files(
     return files_to_copy, blocking_failures, empty_codes
 
 
+class PublishPlan(NamedTuple):
+    """What to copy where, plus whether validation found a blocking problem."""
+
+    copy_plan: List[Tuple[str, str]]  # (source_path, dest_path)
+    files_by_year: Dict[str, List[Path]]
+    blocked: bool
+
+
+def build_publish_plan(source_years: List[Path], progress_data: Optional[Dict]) -> PublishPlan:
+    """Validate every source year and build the copy plan.
+
+    Every year is checked even after one fails, so a single run reports all problems.
+    A blocked year contributes nothing to the plan.
+    """
+    copy_plan: List[Tuple[str, str]] = []
+    files_by_year: Dict[str, List[Path]] = {}
+    blocked = False
+
+    for year_path in source_years:
+        year = year_path.name
+        course_files, unexpected_files, total_json_files = find_course_files(str(year_path))
+
+        print(f"[{year}] source files: {total_json_files}, selected: {len(course_files)}")
+        if unexpected_files:
+            print(f"   Skipped unexpected filenames: {', '.join(unexpected_files)}")
+        if not course_files:
+            print(f"❌ [{year}] no course files found")
+            blocked = True
+            continue
+
+        files_to_copy, blocking_failures, empty_codes = categorize_year_files(
+            course_files, progress_data
+        )
+        if empty_codes:
+            print(
+                f"   Subjects with no courses ({len(empty_codes)}): "
+                f"{', '.join(sorted(empty_codes))}"
+            )
+        if blocking_failures:
+            print(f"   ⚠️ Files with issues ({len(blocking_failures)}):")
+            for file_path, issues in blocking_failures:
+                code = os.path.splitext(os.path.basename(file_path))[0]
+                print(f"      - {code}: {', '.join(issues)}")
+            blocked = True
+            continue
+
+        files_by_year[year] = [Path(file_path) for file_path in files_to_copy]
+        dest_dir = os.path.join(PUBLISHED_DATA_DIR, year)
+        for file_path in files_to_copy:
+            copy_plan.append((file_path, os.path.join(dest_dir, os.path.basename(file_path))))
+
+    return PublishPlan(copy_plan, files_by_year, blocked)
+
+
 def collect_scrape_times(years: Iterable[str]) -> Dict[str, str]:
     """Each year's scrape time, read from the directory the scraper stamped.
 
@@ -355,6 +410,7 @@ def calculate_scraping_statistics(progress_data: Optional[Dict]) -> Optional[Dic
     }
 
 
+# TODO(#272): dead - no caller anywhere; delete rather than build on it
 def format_duration(minutes: float) -> str:
     """Format duration in a human-readable way"""
     if minutes < 60:
@@ -367,6 +423,105 @@ def format_duration(minutes: float) -> str:
         return f"{hours} hour {remaining_minutes:.1f} minutes"
     else:
         return f"{hours} hours {remaining_minutes:.1f} minutes"
+
+
+def report_scrape_summary(progress_data: Optional[Dict]) -> None:
+    """Print the one-line summary of the scrape the publish is based on."""
+    if not progress_data:
+        return
+
+    stats = calculate_scraping_statistics(progress_data)
+    if not stats:
+        return
+
+    log_data = progress_data.get("scraping_log", {})
+    # TODO(#264): dead branch - the scraper writes started_at_utc, never started_at
+    started_at = log_data.get("started_at")
+    # Fall back to an undated line when the log carries no start time at all.
+    when = "data"
+    if isinstance(started_at, str) and started_at:
+        hk_time = datetime.fromisoformat(started_at).astimezone(HONG_KONG_TZ)
+        when = f"at {hk_time.strftime('%Y-%m-%d %H:%M HKT')}"
+
+    print(
+        f"Scraped {when}: {log_data.get('completed', 0)} subjects, "
+        f"{stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
+    )
+
+
+def report_subject_manifest_changes(old_content: str, new_content: str) -> None:
+    """Print how the subjects manifest changed, so it can be reviewed before committing."""
+    print("⚠️  Subjects manifest changed:")
+    changes = diff_subject_manifest(old_content, new_content)
+    if changes is None:
+        print("   Details unavailable; review the generated diff.")
+    else:
+        for year in sorted(changes.by_year):
+            year_changes = changes.by_year[year]
+            if year_changes.added:
+                print(
+                    f"   [{year}] Added ({len(year_changes.added)}): "
+                    f"{', '.join(sorted(year_changes.added))}"
+                )
+            if year_changes.removed:
+                print(
+                    f"   [{year}] Removed ({len(year_changes.removed)}): "
+                    f"{', '.join(sorted(year_changes.removed))}"
+                )
+        if changes.changed_titles:
+            print(
+                f"   Titles changed ({len(changes.changed_titles)}): "
+                f"{', '.join(sorted(changes.changed_titles))}"
+            )
+    print(f"   Review the Git diff and commit {Path(SUBJECTS_FILE).as_posix()}.")
+    print()
+
+
+def report_term_manifest_changes(old_content: str, new_content: str) -> None:
+    """Print how the terms manifest changed, so it can be reviewed before committing."""
+    print("⚠️  Terms manifest changed:")
+    # No previous file means every term reads as new; the diff would be noise.
+    if old_content:
+        added, removed = diff_term_names(old_content, new_content)
+        if added:
+            print(f"   Added: {', '.join(sorted(added))}")
+        if removed:
+            print(f"   Removed: {', '.join(sorted(removed))}")
+    print(f"   Review the Git diff and commit {Path(TERMS_FILE).as_posix()}.")
+    print()
+
+
+def copy_published_files(copy_plan: List[Tuple[str, str]], dry_run: bool) -> int:
+    """Copy each planned file, stripping unrendered fields. Returns how many were copied."""
+    copied_count = 0
+    for source_path, dest_path in copy_plan:
+        try:
+            if not dry_run:
+                os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                with open(source_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                for course in data.get("courses", []):
+                    for field in STRIPPED_COURSE_FIELDS:
+                        course.pop(field, None)
+                save_json_with_newline(dest_path, data)
+            copied_count += 1
+        # One unreadable or unwritable file must not abort the rest of the publish.
+        except Exception as e:
+            print(f"❌ Failed to copy {os.path.basename(source_path)}: {e}")
+    return copied_count
+
+
+def report_publish_summary(
+    copied_count: int, planned_count: int, published_root: str, dry_run: bool
+) -> None:
+    """Print what was, or would have been, published."""
+    print("Publishing Summary:")
+    if dry_run:
+        print(f"   Would publish: {copied_count}/{planned_count} files")
+        print("   DRY RUN - No files actually copied")
+    else:
+        print(f"   ✅ Published: {copied_count}/{planned_count} files")
+        print(f"   Destination: {published_root}/<year>/")
 
 
 class ConsoleLogger:
@@ -388,119 +543,83 @@ class ConsoleLogger:
         self.log_file.close()
 
 
-# TODO(#154): extract each phase into a named helper so this reads as a sequence of steps
-def main():
-    # Generate log filename with timestamp
+@contextmanager
+def publish_logging() -> Iterator[Tuple[str, str]]:
+    """Tee stdout to a timestamped log, then mirror it to the latest-log path.
+
+    Yields both paths so the run can report where its output went.
+    """
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-
-    # Create verbose publish log directory
     os.makedirs(PUBLISH_LOG_DIR, exist_ok=True)
+    timestamped_log = os.path.join(PUBLISH_LOG_DIR, f"publish_{timestamp}.log")
+    latest_log = LATEST_PUBLISH_LOG
 
-    # Create timestamped log file
-    timestamped_publish_log = os.path.join(PUBLISH_LOG_DIR, f"publish_{timestamp}.log")
-    latest_publish_log = LATEST_PUBLISH_LOG
-
-    # Set up console logging (write to timestamped file)
-    logger = ConsoleLogger(timestamped_publish_log)
+    logger = ConsoleLogger(timestamped_log)
     sys.stdout = logger
-
     try:
-        # Check for dry-run flag
+        yield timestamped_log, latest_log
+    finally:
+        sys.stdout = logger.terminal
+        logger.close()
+        # Mirroring is best effort: a publish that already ran must not fail here.
+        try:
+            shutil.copy2(timestamped_log, latest_log)
+        except Exception as e:
+            print(f"⚠️ Warning: Could not create latest log: {e}")
+
+
+def main():
+    """Publish scraped course data to the web app.
+
+    One linear pass with three abort points: no source years, validation blocked, and
+    nothing to publish. Every write happens after the last gate, so an aborted run leaves
+    the published data and the generated manifests exactly as they were.
+    """
+    with publish_logging() as (timestamped_publish_log, latest_publish_log):
         dry_run = "--dry-run" in sys.argv
         if dry_run:
             print("DRY RUN MODE - No files will be copied")
             print()
 
-        # Load progress data (one-line summary)
+        # 1. Report the scrape this publish is based on.
         progress_data = load_scraping_progress()
-        if progress_data:
-            log_data = progress_data.get("scraping_log", {})
-            stats = calculate_scraping_statistics(progress_data)
-            if stats:
-                # Convert UTC timestamp to HK timezone
-                started_at_str = log_data.get("started_at")
-                if isinstance(started_at_str, str) and started_at_str:
-                    utc_time = datetime.fromisoformat(started_at_str)
-                    hk_time = utc_time.astimezone(HONG_KONG_TZ)
-                    time_str = hk_time.strftime("%Y-%m-%d %H:%M HKT")
-                    print(
-                        f"Scraped at {time_str}: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
-                    )
-                else:
-                    print(
-                        f"Scraped data: {log_data.get('completed', 0)} subjects, {stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
-                    )
+        report_scrape_summary(progress_data)
 
-        # Discover and validate every source year before changing any output.
+        # 2. Validate every source year and plan the copy. The gates below are the last
+        # point at which nothing has been written yet.
         source_years = year_dirs(Path(SOURCE_DATA_DIR))
         if not source_years:
             print("❌ No source year directories (data/<year>/) found")
             return
 
-        # Validate each year, building a (source, destination) copy plan. Abort if
-        # any file has blocking issues, but check every year first so all problems
-        # are reported in one run.
-        copy_plan: List[Tuple[str, str]] = []  # (source_path, dest_path)
-        publishable_files_by_year: Dict[str, List[Path]] = {}
-        blocked = False
-
-        for year_path in source_years:
-            year = year_path.name
-            course_files, unexpected_files, total_json_files = find_course_files(str(year_path))
-
-            print(f"[{year}] source files: {total_json_files}, selected: {len(course_files)}")
-            if unexpected_files:
-                print(f"   Skipped unexpected filenames: {', '.join(unexpected_files)}")
-            if not course_files:
-                print(f"❌ [{year}] no course files found")
-                blocked = True
-                continue
-
-            files_to_copy, blocking_failures, empty_codes = categorize_year_files(
-                course_files, progress_data
-            )
-            if empty_codes:
-                print(
-                    f"   Subjects with no courses ({len(empty_codes)}): "
-                    f"{', '.join(sorted(empty_codes))}"
-                )
-            if blocking_failures:
-                print(f"   ⚠️ Files with issues ({len(blocking_failures)}):")
-                for file_path, issues in blocking_failures:
-                    code = os.path.splitext(os.path.basename(file_path))[0]
-                    print(f"      - {code}: {', '.join(issues)}")
-                blocked = True
-                continue
-
-            publishable_files_by_year[year] = [Path(file_path) for file_path in files_to_copy]
-            dest_dir = os.path.join(PUBLISHED_DATA_DIR, year)
-            for file_path in files_to_copy:
-                copy_plan.append((file_path, os.path.join(dest_dir, os.path.basename(file_path))))
+        plan = build_publish_plan(source_years, progress_data)
 
         print()
-        if blocked:
+        if plan.blocked:
             print("❌ Publishing aborted due to validation issues.")
             print("   Fix the source data, then run this script again.")
             sys.exit(1)
 
-        if not copy_plan:
+        if not plan.copy_plan:
             print("❌ No files to publish")
             return
 
         published_root = Path(PUBLISHED_DATA_DIR).as_posix()
         if dry_run:
-            print(f"Dry run: would publish {len(copy_plan)} files under {published_root}/<year>/")
+            print(
+                f"Dry run: would publish {len(plan.copy_plan)} files under {published_root}/<year>/"
+            )
         else:
-            print(f"Publishing {len(copy_plan)} files under {published_root}/<year>/")
+            print(f"Publishing {len(plan.copy_plan)} files under {published_root}/<year>/")
 
-        # Render the subject and term manifests before writing either one, and run the
-        # whole block after every validation gate, so a failed publish leaves the
-        # generated files untouched.
-        subjects_by_year, subject_titles = collect_subjects_from_files(publishable_files_by_year)
+        # 3. Regenerate the frontend manifests from the plan, not the source tree, so they
+        # describe exactly what ships. Both are rendered before either is written, so a
+        # rendering failure cannot leave the pair half-updated.
+        subjects_by_year, subject_titles = collect_subjects_from_files(plan.files_by_year)
         new_subjects_content = render_subjects_module(subjects_by_year, subject_titles)
 
         terms_by_year = collect_terms_from_files(
-            filepath for filepaths in publishable_files_by_year.values() for filepath in filepaths
+            filepath for filepaths in plan.files_by_year.values() for filepath in filepaths
         )
         new_terms_content = render_terms_module(terms_by_year)
 
@@ -508,76 +627,27 @@ def main():
             SUBJECTS_FILE, new_subjects_content, dry_run
         )
         if subjects_changed:
-            print("⚠️  Subjects manifest changed:")
-            subject_changes = diff_subject_manifest(old_subjects_content, new_subjects_content)
-            if subject_changes is None:
-                print("   Details unavailable; review the generated diff.")
-            else:
-                for year in sorted(subject_changes.by_year):
-                    year_changes = subject_changes.by_year[year]
-                    if year_changes.added:
-                        print(
-                            f"   [{year}] Added ({len(year_changes.added)}): "
-                            f"{', '.join(sorted(year_changes.added))}"
-                        )
-                    if year_changes.removed:
-                        print(
-                            f"   [{year}] Removed ({len(year_changes.removed)}): "
-                            f"{', '.join(sorted(year_changes.removed))}"
-                        )
-                if subject_changes.changed_titles:
-                    print(
-                        f"   Titles changed ({len(subject_changes.changed_titles)}): "
-                        f"{', '.join(sorted(subject_changes.changed_titles))}"
-                    )
-            print(f"   Review the Git diff and commit {Path(SUBJECTS_FILE).as_posix()}.")
-            print()
+            report_subject_manifest_changes(old_subjects_content, new_subjects_content)
 
         old_terms_content, terms_changed = update_generated_file(
             TERMS_FILE, new_terms_content, dry_run
         )
         if terms_changed:
-            print("⚠️  Terms manifest changed:")
-            if old_terms_content:
-                added, removed = diff_term_names(old_terms_content, new_terms_content)
-                if added:
-                    print(f"   Added: {', '.join(sorted(added))}")
-                if removed:
-                    print(f"   Removed: {', '.join(sorted(removed))}")
-            print(f"   Review the Git diff and commit {Path(TERMS_FILE).as_posix()}.")
-            print()
+            report_term_manifest_changes(old_terms_content, new_terms_content)
 
         # Written even when empty, so the module always reflects the data just published
         # rather than leaving times behind from an earlier run. No "changed" warning:
         # these move with every scrape by design.
-        scrape_times = collect_scrape_times(publishable_files_by_year)
+        scrape_times = collect_scrape_times(plan.files_by_year)
         update_generated_file(SCRAPE_TIMES_FILE, render_scrape_times_module(scrape_times), dry_run)
 
-        # Copy files, stripping unused fields, into web/public/data/<year>/.
+        # 4. Copy the data files into web/public/data/<year>/, stripping fields the app
+        # never renders.
         print()
-        copied_count = 0
-        for source_path, dest_path in copy_plan:
-            try:
-                if not dry_run:
-                    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
-                    with open(source_path, "r", encoding="utf-8") as f:
-                        data = json.load(f)
-                    for course in data.get("courses", []):
-                        for field in STRIPPED_COURSE_FIELDS:
-                            course.pop(field, None)
-                    save_json_with_newline(dest_path, data)
-                copied_count += 1
-            except Exception as e:
-                print(f"❌ Failed to copy {os.path.basename(source_path)}: {e}")
+        copied_count = copy_published_files(plan.copy_plan, dry_run)
 
-        # Publishing summary
-        print("Publishing Summary:")
-        if not dry_run:
-            print(f"   ✅ Published: {copied_count}/{len(copy_plan)} files")
-            print(f"   Destination: {published_root}/<year>/")
-        else:
-            print(f"   Would publish: {copied_count}/{len(copy_plan)} files")
-            print("   DRY RUN - No files actually copied")
+        # 5. Report the outcome, and hand over a commit title for the data change.
+        report_publish_summary(copied_count, len(plan.copy_plan), published_root, dry_run)
 
         print()
         print("Logs saved to:")
@@ -585,17 +655,6 @@ def main():
         print(f"   {Path(latest_publish_log).as_posix()}")
 
         copy_commit_title(scrape_times)
-
-    finally:
-        # Restore original stdout and close log file
-        sys.stdout = logger.terminal
-        logger.close()
-
-        # Copy timestamped log to latest log for quick reference
-        try:
-            shutil.copy2(timestamped_publish_log, latest_publish_log)
-        except Exception as e:
-            print(f"⚠️ Warning: Could not create latest log: {e}")
 
 
 if __name__ == "__main__":

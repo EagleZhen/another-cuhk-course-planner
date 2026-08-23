@@ -291,6 +291,7 @@ class ScrapingProgressTracker:
         }
 
         # Update totals
+        # TODO(#264): counts every subject in the file, not this run (same in fail_subject)
         log = self.progress_data["scraping_log"]
         log["completed"] = len(
             [s for s in log["subjects"].values() if s.get("status") == "completed"]
@@ -347,6 +348,7 @@ class ScrapingProgressTracker:
     def print_summary(self):
         """Print current progress summary"""
         log = self.progress_data["scraping_log"]
+        # TODO(#264): should be log["total_subjects"] - this counts every subject ever scraped
         total = len(log["subjects"])
         completed = log.get("completed", 0)
         failed = log.get("failed", 0)

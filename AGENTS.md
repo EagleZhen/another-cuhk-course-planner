@@ -26,4 +26,6 @@ Run checks proportional to the change. Avoid full scrapes or full builds unless 
 
 `TODO(#N):` marks deferred work with a filed issue; a bare `TODO:` is an unfiled note. When editing near one, mention it, and propose the fix if it is small or blocking — as its own commit, never folded into the current diff. Don't act unasked.
 
+When filing an issue for deferred work, add the marker in the same change, at every site a future editor would have to understand it from. Skip it when the issue is repo-wide rather than localized — a marker on each of a hundred call sites is noise, not a pointer.
+
 Remove the marker when closing its issue (grep for its number). Pointers to closed issues train readers to ignore markers.

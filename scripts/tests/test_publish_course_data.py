@@ -1,5 +1,7 @@
 import json
 import os
+import sys
+from pathlib import Path
 
 import publish_course_data
 import pytest
@@ -48,8 +50,10 @@ def _write_course_file(
     subject="AAAA",
     subject_title="Subject A",
     term_name="2025-26 Term 1",
+    extra_course_fields=None,
+    year="2025-26",
 ):
-    year_dir = source_dir / "2025-26"
+    year_dir = source_dir / year
     year_dir.mkdir(parents=True, exist_ok=True)
     data = {
         "metadata": {
@@ -65,6 +69,7 @@ def _write_course_file(
                 "title": "Course A",
                 "credits": "3.00",
                 "terms": [{"term_name": term_name}],
+                **(extra_course_fields or {}),
             }
         ],
     }
@@ -131,6 +136,204 @@ def test_copy_commit_title_lists_only_years_from_latest_scrape(monkeypatch, caps
     expected = "chore(data): update 2025-26, 2026-27 courses (2026-07-21 23:05 HKT)"
     assert copied_titles == [expected]
     assert f"Commit title copied: {expected}" in capsys.readouterr().err
+
+
+def _progress(**scraping_log):
+    scraping_log.setdefault(
+        "subjects",
+        {
+            "CSCI": {"status": "completed", "duration_minutes": 2.5, "courses_scraped": 1234},
+            "MATH": {"status": "completed", "duration_minutes": 1.0, "courses_scraped": 66},
+            "PHYS": {"status": "failed"},
+        },
+    )
+    return {"scraping_log": scraping_log}
+
+
+def test_report_scrape_summary_states_start_time_in_hong_kong_time(capsys):
+    publish_course_data.report_scrape_summary(
+        _progress(completed=2, failed=1, started_at="2026-08-07T12:30:00+00:00")
+    )
+
+    assert capsys.readouterr().out == (
+        "Scraped at 2026-08-07 20:30 HKT: 2 subjects, 1,300 courses, 1 failed\n"
+    )
+
+
+@pytest.mark.parametrize("started_at", [None, "", 12345])
+def test_report_scrape_summary_falls_back_when_start_time_is_unusable(started_at, capsys):
+    # An undated line still reports the counts rather than dropping the summary.
+    publish_course_data.report_scrape_summary(
+        _progress(completed=2, failed=1, started_at=started_at)
+    )
+
+    assert capsys.readouterr().out == "Scraped data: 2 subjects, 1,300 courses, 1 failed\n"
+
+
+@pytest.mark.parametrize("progress_data", [None, {"other": 1}, {"scraping_log": {"completed": 2}}])
+def test_report_scrape_summary_stays_silent_without_per_subject_stats(progress_data, capsys):
+    publish_course_data.report_scrape_summary(progress_data)
+
+    assert capsys.readouterr().out == ""
+
+
+def _terms(*term_names):
+    return render_terms_module({"2025-26": list(term_names)})
+
+
+def test_publish_summary_reports_the_shortfall_when_a_file_fails_to_copy(
+    tmp_path, monkeypatch, capsys
+):
+    # A failed file must not abort the publish, but the count has to show the gap -
+    # it is the only signal that the published data is incomplete.
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir, filename="AAAA.json", subject="AAAA")
+    _write_course_file(source_dir, filename="BBBB.json", subject="BBBB")
+
+    real_save = publish_course_data.save_json_with_newline
+
+    def save(dest_path, data):
+        if "BBBB" in str(dest_path):
+            raise OSError("disk full")
+        return real_save(dest_path, data)
+
+    monkeypatch.setattr(publish_course_data, "save_json_with_newline", save)
+
+    publish_course_data.main()
+
+    out = capsys.readouterr().out
+    assert "\u274c Failed to copy BBBB.json: disk full" in out
+    assert "Published: 1/2 files" in out
+    assert (published_dir / "2025-26" / "AAAA.json").exists()
+    assert not (published_dir / "2025-26" / "BBBB.json").exists()
+
+
+def _configure_logging(tmp_path, monkeypatch):
+    monkeypatch.setattr(publish_course_data, "PUBLISH_LOG_DIR", str(tmp_path / "publish"))
+    monkeypatch.setattr(publish_course_data, "LATEST_PUBLISH_LOG", str(tmp_path / "latest.log"))
+
+
+def test_publish_logging_mirrors_the_run_log_to_the_latest_log(tmp_path, monkeypatch):
+    _configure_logging(tmp_path, monkeypatch)
+    before = sys.stdout
+
+    with publish_course_data.publish_logging() as (timestamped_log, latest_log):
+        assert sys.stdout is not before
+        print("published something")
+
+    assert sys.stdout is before
+    assert "published something" in Path(timestamped_log).read_text()
+    assert Path(latest_log).read_text() == Path(timestamped_log).read_text()
+
+
+def test_publish_logging_restores_stdout_when_the_publish_aborts(tmp_path, monkeypatch):
+    # An aborted publish must not leave stdout pointing at a closed log file.
+    _configure_logging(tmp_path, monkeypatch)
+    before = sys.stdout
+
+    with pytest.raises(SystemExit):
+        with publish_course_data.publish_logging() as (_, latest_log):
+            sys.exit(1)
+
+    assert sys.stdout is before
+    assert Path(latest_log).exists()
+    print("still writable")
+
+
+def test_publish_logging_warns_but_survives_an_unwritable_latest_log(tmp_path, monkeypatch, capsys):
+    _configure_logging(tmp_path, monkeypatch)
+    monkeypatch.setattr(
+        publish_course_data, "LATEST_PUBLISH_LOG", str(tmp_path / "missing" / "latest.log")
+    )
+
+    with publish_course_data.publish_logging():
+        print("published something")
+
+    assert "\u26a0\ufe0f Warning: Could not create latest log:" in capsys.readouterr().out
+
+
+def test_build_publish_plan_checks_every_year_before_blocking(tmp_path, monkeypatch, capsys):
+    # One run must surface every problem, rather than making the user fix and rerun
+    # year by year. A blocked year contributes nothing, but later years are still checked.
+    source_dir, _, _ = _configure_publisher(tmp_path, monkeypatch)
+    (source_dir / "2025-26").mkdir(parents=True)  # no course files at all
+
+    _write_course_file(source_dir, year="2026-27", filename="BBBB.json", subject="BBBB")
+    unversioned = source_dir / "2026-27" / "BBBB.json"
+    data = json.loads(unversioned.read_text())
+    del data["metadata"]["schema_version"]
+    unversioned.write_text(json.dumps(data))
+
+    _write_course_file(
+        source_dir,
+        year="2027-28",
+        filename="CCCC.json",
+        subject="CCCC",
+        term_name="2027-28 Term 1",
+    )
+
+    plan = publish_course_data.build_publish_plan(
+        [source_dir / "2025-26", source_dir / "2026-27", source_dir / "2027-28"], None
+    )
+
+    out = capsys.readouterr().out
+    assert "[2025-26] no course files found" in out
+    assert "Schema version" in out, "stopped before checking the second bad year"
+    assert "[2027-28] source files:" in out, "stopped before checking the last year"
+
+    assert plan.blocked
+    assert list(plan.files_by_year) == ["2027-28"]
+    assert [os.path.basename(source) for source, _ in plan.copy_plan] == ["CCCC.json"]
+
+
+def test_publish_strips_unrendered_fields_but_leaves_the_source_intact(tmp_path, monkeypatch):
+    # These fields carry base64 images and are never rendered; shipping them roughly
+    # tripled the gzipped payload. data/ stays complete so a field can be republished.
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    stripped = {field: "payload" for field in publish_course_data.STRIPPED_COURSE_FIELDS}
+    _write_course_file(source_dir, extra_course_fields={**stripped, "description": "kept"})
+
+    publish_course_data.main()
+
+    published = json.loads((published_dir / "2025-26" / "AAAA.json").read_text())["courses"][0]
+    assert not [f for f in publish_course_data.STRIPPED_COURSE_FIELDS if f in published]
+    assert published["description"] == "kept"
+
+    source = json.loads((source_dir / "2025-26" / "AAAA.json").read_text())["courses"][0]
+    assert [f for f in publish_course_data.STRIPPED_COURSE_FIELDS if f in source] == list(
+        publish_course_data.STRIPPED_COURSE_FIELDS
+    )
+
+
+def test_report_term_manifest_changes_lists_added_and_removed_terms(monkeypatch, capsys):
+    monkeypatch.setattr(publish_course_data, "TERMS_FILE", "generated/terms.ts")
+
+    publish_course_data.report_term_manifest_changes(
+        _terms("2025-26 Term 1", "2025-26 Term 2"), _terms("2025-26 Term 2", "2025-26 Term 3")
+    )
+
+    assert capsys.readouterr().out == (
+        "\u26a0\ufe0f  Terms manifest changed:\n"
+        "   Added: 2025-26 Term 3\n"
+        "   Removed: 2025-26 Term 1\n"
+        "   Review the Git diff and commit generated/terms.ts.\n"
+        "\n"
+    )
+
+
+def test_report_term_manifest_changes_skips_the_diff_without_a_previous_manifest(
+    monkeypatch, capsys
+):
+    # Every term would read as "added", which is noise rather than a reviewable change.
+    monkeypatch.setattr(publish_course_data, "TERMS_FILE", "generated/terms.ts")
+
+    publish_course_data.report_term_manifest_changes("", _terms("2025-26 Term 1"))
+
+    assert capsys.readouterr().out == (
+        "\u26a0\ufe0f  Terms manifest changed:\n"
+        "   Review the Git diff and commit generated/terms.ts.\n"
+        "\n"
+    )
 
 
 def test_publish_regenerates_changed_manifests(tmp_path, monkeypatch, capsys):
