@@ -17,9 +17,10 @@ import json
 import os
 import shutil
 import sys
+from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Tuple
+from typing import Dict, Iterable, Iterator, List, Optional, Tuple
 from zoneinfo import ZoneInfo
 
 import pyperclip
@@ -486,23 +487,34 @@ class ConsoleLogger:
         self.log_file.close()
 
 
+@contextmanager
+def publish_logging() -> Iterator[Tuple[str, str]]:
+    """Tee stdout to a timestamped log, then mirror it to the latest-log path.
+
+    Yields both paths so the run can report where its output went.
+    """
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    os.makedirs(PUBLISH_LOG_DIR, exist_ok=True)
+    timestamped_log = os.path.join(PUBLISH_LOG_DIR, f"publish_{timestamp}.log")
+    latest_log = LATEST_PUBLISH_LOG
+
+    logger = ConsoleLogger(timestamped_log)
+    sys.stdout = logger
+    try:
+        yield timestamped_log, latest_log
+    finally:
+        sys.stdout = logger.terminal
+        logger.close()
+        # Mirroring is best effort: a publish that already ran must not fail here.
+        try:
+            shutil.copy2(timestamped_log, latest_log)
+        except Exception as e:
+            print(f"⚠️ Warning: Could not create latest log: {e}")
+
+
 # TODO(#154): extract each phase into a named helper so this reads as a sequence of steps
 def main():
-    # Generate log filename with timestamp
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-
-    # Create verbose publish log directory
-    os.makedirs(PUBLISH_LOG_DIR, exist_ok=True)
-
-    # Create timestamped log file
-    timestamped_publish_log = os.path.join(PUBLISH_LOG_DIR, f"publish_{timestamp}.log")
-    latest_publish_log = LATEST_PUBLISH_LOG
-
-    # Set up console logging (write to timestamped file)
-    logger = ConsoleLogger(timestamped_publish_log)
-    sys.stdout = logger
-
-    try:
+    with publish_logging() as (timestamped_publish_log, latest_publish_log):
         # Check for dry-run flag
         dry_run = "--dry-run" in sys.argv
         if dry_run:
@@ -615,17 +627,6 @@ def main():
         print(f"   {Path(latest_publish_log).as_posix()}")
 
         copy_commit_title(scrape_times)
-
-    finally:
-        # Restore original stdout and close log file
-        sys.stdout = logger.terminal
-        logger.close()
-
-        # Copy timestamped log to latest log for quick reference
-        try:
-            shutil.copy2(timestamped_publish_log, latest_publish_log)
-        except Exception as e:
-            print(f"⚠️ Warning: Could not create latest log: {e}")
 
 
 if __name__ == "__main__":

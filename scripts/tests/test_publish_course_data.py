@@ -1,5 +1,7 @@
 import json
 import os
+import sys
+from pathlib import Path
 
 import publish_course_data
 import pytest
@@ -203,6 +205,50 @@ def test_publish_summary_reports_the_shortfall_when_a_file_fails_to_copy(
     assert "Published: 1/2 files" in out
     assert (published_dir / "2025-26" / "AAAA.json").exists()
     assert not (published_dir / "2025-26" / "BBBB.json").exists()
+
+
+def _configure_logging(tmp_path, monkeypatch):
+    monkeypatch.setattr(publish_course_data, "PUBLISH_LOG_DIR", str(tmp_path / "publish"))
+    monkeypatch.setattr(publish_course_data, "LATEST_PUBLISH_LOG", str(tmp_path / "latest.log"))
+
+
+def test_publish_logging_mirrors_the_run_log_to_the_latest_log(tmp_path, monkeypatch):
+    _configure_logging(tmp_path, monkeypatch)
+    before = sys.stdout
+
+    with publish_course_data.publish_logging() as (timestamped_log, latest_log):
+        assert sys.stdout is not before
+        print("published something")
+
+    assert sys.stdout is before
+    assert "published something" in Path(timestamped_log).read_text()
+    assert Path(latest_log).read_text() == Path(timestamped_log).read_text()
+
+
+def test_publish_logging_restores_stdout_when_the_publish_aborts(tmp_path, monkeypatch):
+    # An aborted publish must not leave stdout pointing at a closed log file.
+    _configure_logging(tmp_path, monkeypatch)
+    before = sys.stdout
+
+    with pytest.raises(SystemExit):
+        with publish_course_data.publish_logging() as (_, latest_log):
+            sys.exit(1)
+
+    assert sys.stdout is before
+    assert Path(latest_log).exists()
+    print("still writable")
+
+
+def test_publish_logging_warns_but_survives_an_unwritable_latest_log(tmp_path, monkeypatch, capsys):
+    _configure_logging(tmp_path, monkeypatch)
+    monkeypatch.setattr(
+        publish_course_data, "LATEST_PUBLISH_LOG", str(tmp_path / "missing" / "latest.log")
+    )
+
+    with publish_course_data.publish_logging():
+        print("published something")
+
+    assert "\u26a0\ufe0f Warning: Could not create latest log:" in capsys.readouterr().out
 
 
 def test_publish_strips_unrendered_fields_but_leaves_the_source_intact(tmp_path, monkeypatch):
