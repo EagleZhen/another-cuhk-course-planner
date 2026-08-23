@@ -20,7 +20,7 @@ import sys
 from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Iterable, Iterator, List, Optional, Tuple
+from typing import Dict, Iterable, Iterator, List, NamedTuple, Optional, Tuple
 from zoneinfo import ZoneInfo
 
 import pyperclip
@@ -251,6 +251,60 @@ def categorize_year_files(
             files_to_copy.append(file_path)
 
     return files_to_copy, blocking_failures, empty_codes
+
+
+class PublishPlan(NamedTuple):
+    """What to copy where, plus whether validation found a blocking problem."""
+
+    copy_plan: List[Tuple[str, str]]  # (source_path, dest_path)
+    files_by_year: Dict[str, List[Path]]
+    blocked: bool
+
+
+def build_publish_plan(source_years: List[Path], progress_data: Optional[Dict]) -> PublishPlan:
+    """Validate every source year and build the copy plan.
+
+    Every year is checked even after one fails, so a single run reports all problems.
+    A blocked year contributes nothing to the plan.
+    """
+    copy_plan: List[Tuple[str, str]] = []
+    files_by_year: Dict[str, List[Path]] = {}
+    blocked = False
+
+    for year_path in source_years:
+        year = year_path.name
+        course_files, unexpected_files, total_json_files = find_course_files(str(year_path))
+
+        print(f"[{year}] source files: {total_json_files}, selected: {len(course_files)}")
+        if unexpected_files:
+            print(f"   Skipped unexpected filenames: {', '.join(unexpected_files)}")
+        if not course_files:
+            print(f"❌ [{year}] no course files found")
+            blocked = True
+            continue
+
+        files_to_copy, blocking_failures, empty_codes = categorize_year_files(
+            course_files, progress_data
+        )
+        if empty_codes:
+            print(
+                f"   Subjects with no courses ({len(empty_codes)}): "
+                f"{', '.join(sorted(empty_codes))}"
+            )
+        if blocking_failures:
+            print(f"   ⚠️ Files with issues ({len(blocking_failures)}):")
+            for file_path, issues in blocking_failures:
+                code = os.path.splitext(os.path.basename(file_path))[0]
+                print(f"      - {code}: {', '.join(issues)}")
+            blocked = True
+            continue
+
+        files_by_year[year] = [Path(file_path) for file_path in files_to_copy]
+        dest_dir = os.path.join(PUBLISHED_DATA_DIR, year)
+        for file_path in files_to_copy:
+            copy_plan.append((file_path, os.path.join(dest_dir, os.path.basename(file_path))))
+
+    return PublishPlan(copy_plan, files_by_year, blocked)
 
 
 def collect_scrape_times(years: Iterable[str]) -> Dict[str, str]:
@@ -512,7 +566,6 @@ def publish_logging() -> Iterator[Tuple[str, str]]:
             print(f"⚠️ Warning: Could not create latest log: {e}")
 
 
-# TODO(#154): extract each phase into a named helper so this reads as a sequence of steps
 def main():
     with publish_logging() as (timestamped_publish_log, latest_publish_log):
         # Check for dry-run flag
@@ -530,45 +583,9 @@ def main():
             print("❌ No source year directories (data/<year>/) found")
             return
 
-        # Validate each year, building a (source, destination) copy plan. Abort if
-        # any file has blocking issues, but check every year first so all problems
-        # are reported in one run.
-        copy_plan: List[Tuple[str, str]] = []  # (source_path, dest_path)
-        publishable_files_by_year: Dict[str, List[Path]] = {}
-        blocked = False
-
-        for year_path in source_years:
-            year = year_path.name
-            course_files, unexpected_files, total_json_files = find_course_files(str(year_path))
-
-            print(f"[{year}] source files: {total_json_files}, selected: {len(course_files)}")
-            if unexpected_files:
-                print(f"   Skipped unexpected filenames: {', '.join(unexpected_files)}")
-            if not course_files:
-                print(f"❌ [{year}] no course files found")
-                blocked = True
-                continue
-
-            files_to_copy, blocking_failures, empty_codes = categorize_year_files(
-                course_files, progress_data
-            )
-            if empty_codes:
-                print(
-                    f"   Subjects with no courses ({len(empty_codes)}): "
-                    f"{', '.join(sorted(empty_codes))}"
-                )
-            if blocking_failures:
-                print(f"   ⚠️ Files with issues ({len(blocking_failures)}):")
-                for file_path, issues in blocking_failures:
-                    code = os.path.splitext(os.path.basename(file_path))[0]
-                    print(f"      - {code}: {', '.join(issues)}")
-                blocked = True
-                continue
-
-            publishable_files_by_year[year] = [Path(file_path) for file_path in files_to_copy]
-            dest_dir = os.path.join(PUBLISHED_DATA_DIR, year)
-            for file_path in files_to_copy:
-                copy_plan.append((file_path, os.path.join(dest_dir, os.path.basename(file_path))))
+        copy_plan, publishable_files_by_year, blocked = build_publish_plan(
+            source_years, progress_data
+        )
 
         print()
         if blocked:

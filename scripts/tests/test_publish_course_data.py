@@ -51,8 +51,9 @@ def _write_course_file(
     subject_title="Subject A",
     term_name="2025-26 Term 1",
     extra_course_fields=None,
+    year="2025-26",
 ):
-    year_dir = source_dir / "2025-26"
+    year_dir = source_dir / year
     year_dir.mkdir(parents=True, exist_ok=True)
     data = {
         "metadata": {
@@ -249,6 +250,40 @@ def test_publish_logging_warns_but_survives_an_unwritable_latest_log(tmp_path, m
         print("published something")
 
     assert "\u26a0\ufe0f Warning: Could not create latest log:" in capsys.readouterr().out
+
+
+def test_build_publish_plan_checks_every_year_before_blocking(tmp_path, monkeypatch, capsys):
+    # One run must surface every problem, rather than making the user fix and rerun
+    # year by year. A blocked year contributes nothing, but later years are still checked.
+    source_dir, _, _ = _configure_publisher(tmp_path, monkeypatch)
+    (source_dir / "2025-26").mkdir(parents=True)  # no course files at all
+
+    _write_course_file(source_dir, year="2026-27", filename="BBBB.json", subject="BBBB")
+    unversioned = source_dir / "2026-27" / "BBBB.json"
+    data = json.loads(unversioned.read_text())
+    del data["metadata"]["schema_version"]
+    unversioned.write_text(json.dumps(data))
+
+    _write_course_file(
+        source_dir,
+        year="2027-28",
+        filename="CCCC.json",
+        subject="CCCC",
+        term_name="2027-28 Term 1",
+    )
+
+    plan = publish_course_data.build_publish_plan(
+        [source_dir / "2025-26", source_dir / "2026-27", source_dir / "2027-28"], None
+    )
+
+    out = capsys.readouterr().out
+    assert "[2025-26] no course files found" in out
+    assert "Schema version" in out, "stopped before checking the second bad year"
+    assert "[2027-28] source files:" in out, "stopped before checking the last year"
+
+    assert plan.blocked
+    assert list(plan.files_by_year) == ["2027-28"]
+    assert [os.path.basename(source) for source, _ in plan.copy_plan] == ["CCCC.json"]
 
 
 def test_publish_strips_unrendered_fields_but_leaves_the_source_intact(tmp_path, monkeypatch):
