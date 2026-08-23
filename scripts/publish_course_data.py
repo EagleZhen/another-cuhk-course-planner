@@ -434,6 +434,7 @@ def report_scrape_summary(progress_data: Optional[Dict]) -> None:
         return
 
     log_data = progress_data.get("scraping_log", {})
+    # TODO(#264): dead branch - the scraper writes started_at_utc, never started_at
     started_at = log_data.get("started_at")
     # Fall back to an undated line when the scrape log has no usable start time.
     when = "data"
