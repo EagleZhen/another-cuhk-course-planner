@@ -410,6 +410,7 @@ def calculate_scraping_statistics(progress_data: Optional[Dict]) -> Optional[Dic
     }
 
 
+# TODO(#272): dead - no caller anywhere; delete rather than build on it
 def format_duration(minutes: float) -> str:
     """Format duration in a human-readable way"""
     if minutes < 60:
@@ -436,7 +437,7 @@ def report_scrape_summary(progress_data: Optional[Dict]) -> None:
     log_data = progress_data.get("scraping_log", {})
     # TODO(#264): dead branch - the scraper writes started_at_utc, never started_at
     started_at = log_data.get("started_at")
-    # Fall back to an undated line when the scrape log has no usable start time.
+    # Fall back to an undated line when the log carries no start time at all.
     when = "data"
     if isinstance(started_at, str) and started_at:
         hk_time = datetime.fromisoformat(started_at).astimezone(HONG_KONG_TZ)
@@ -591,34 +592,34 @@ def main():
             print("❌ No source year directories (data/<year>/) found")
             return
 
-        copy_plan, publishable_files_by_year, blocked = build_publish_plan(
-            source_years, progress_data
-        )
+        plan = build_publish_plan(source_years, progress_data)
 
         print()
-        if blocked:
+        if plan.blocked:
             print("❌ Publishing aborted due to validation issues.")
             print("   Fix the source data, then run this script again.")
             sys.exit(1)
 
-        if not copy_plan:
+        if not plan.copy_plan:
             print("❌ No files to publish")
             return
 
         published_root = Path(PUBLISHED_DATA_DIR).as_posix()
         if dry_run:
-            print(f"Dry run: would publish {len(copy_plan)} files under {published_root}/<year>/")
+            print(
+                f"Dry run: would publish {len(plan.copy_plan)} files under {published_root}/<year>/"
+            )
         else:
-            print(f"Publishing {len(copy_plan)} files under {published_root}/<year>/")
+            print(f"Publishing {len(plan.copy_plan)} files under {published_root}/<year>/")
 
         # 3. Regenerate the frontend manifests from the plan, not the source tree, so they
         # describe exactly what ships. Both are rendered before either is written, so a
         # rendering failure cannot leave the pair half-updated.
-        subjects_by_year, subject_titles = collect_subjects_from_files(publishable_files_by_year)
+        subjects_by_year, subject_titles = collect_subjects_from_files(plan.files_by_year)
         new_subjects_content = render_subjects_module(subjects_by_year, subject_titles)
 
         terms_by_year = collect_terms_from_files(
-            filepath for filepaths in publishable_files_by_year.values() for filepath in filepaths
+            filepath for filepaths in plan.files_by_year.values() for filepath in filepaths
         )
         new_terms_content = render_terms_module(terms_by_year)
 
@@ -637,16 +638,16 @@ def main():
         # Written even when empty, so the module always reflects the data just published
         # rather than leaving times behind from an earlier run. No "changed" warning:
         # these move with every scrape by design.
-        scrape_times = collect_scrape_times(publishable_files_by_year)
+        scrape_times = collect_scrape_times(plan.files_by_year)
         update_generated_file(SCRAPE_TIMES_FILE, render_scrape_times_module(scrape_times), dry_run)
 
         # 4. Copy the data files into web/public/data/<year>/, stripping fields the app
         # never renders.
         print()
-        copied_count = copy_published_files(copy_plan, dry_run)
+        copied_count = copy_published_files(plan.copy_plan, dry_run)
 
         # 5. Report the outcome, and hand over a commit title for the data change.
-        report_publish_summary(copied_count, len(copy_plan), published_root, dry_run)
+        report_publish_summary(copied_count, len(plan.copy_plan), published_root, dry_run)
 
         print()
         print("Logs saved to:")
