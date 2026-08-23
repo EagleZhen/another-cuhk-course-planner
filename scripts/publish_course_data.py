@@ -567,17 +567,24 @@ def publish_logging() -> Iterator[Tuple[str, str]]:
 
 
 def main():
+    """Publish scraped course data to the web app.
+
+    One linear pass with three abort points: no source years, validation blocked, and
+    nothing to publish. Every write happens after the last gate, so an aborted run leaves
+    the published data and the generated manifests exactly as they were.
+    """
     with publish_logging() as (timestamped_publish_log, latest_publish_log):
-        # Check for dry-run flag
         dry_run = "--dry-run" in sys.argv
         if dry_run:
             print("DRY RUN MODE - No files will be copied")
             print()
 
+        # 1. Report the scrape this publish is based on.
         progress_data = load_scraping_progress()
         report_scrape_summary(progress_data)
 
-        # Discover and validate every source year before changing any output.
+        # 2. Validate every source year and plan the copy. The gates below are the last
+        # point at which nothing has been written yet.
         source_years = year_dirs(Path(SOURCE_DATA_DIR))
         if not source_years:
             print("❌ No source year directories (data/<year>/) found")
@@ -603,9 +610,9 @@ def main():
         else:
             print(f"Publishing {len(copy_plan)} files under {published_root}/<year>/")
 
-        # Render the subject and term manifests before writing either one, and run the
-        # whole block after every validation gate, so a failed publish leaves the
-        # generated files untouched.
+        # 3. Regenerate the frontend manifests from the plan, not the source tree, so they
+        # describe exactly what ships. Both are rendered before either is written, so a
+        # rendering failure cannot leave the pair half-updated.
         subjects_by_year, subject_titles = collect_subjects_from_files(publishable_files_by_year)
         new_subjects_content = render_subjects_module(subjects_by_year, subject_titles)
 
@@ -632,10 +639,12 @@ def main():
         scrape_times = collect_scrape_times(publishable_files_by_year)
         update_generated_file(SCRAPE_TIMES_FILE, render_scrape_times_module(scrape_times), dry_run)
 
-        # Copy files, stripping unused fields, into web/public/data/<year>/.
+        # 4. Copy the data files into web/public/data/<year>/, stripping fields the app
+        # never renders.
         print()
         copied_count = copy_published_files(copy_plan, dry_run)
 
+        # 5. Report the outcome, and hand over a commit title for the data change.
         report_publish_summary(copied_count, len(copy_plan), published_root, dry_run)
 
         print()
