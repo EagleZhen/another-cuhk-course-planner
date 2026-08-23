@@ -178,6 +178,33 @@ def _terms(*term_names):
     return render_terms_module({"2025-26": list(term_names)})
 
 
+def test_publish_summary_reports_the_shortfall_when_a_file_fails_to_copy(
+    tmp_path, monkeypatch, capsys
+):
+    # A failed file must not abort the publish, but the count has to show the gap -
+    # it is the only signal that the published data is incomplete.
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir, filename="AAAA.json", subject="AAAA")
+    _write_course_file(source_dir, filename="BBBB.json", subject="BBBB")
+
+    real_save = publish_course_data.save_json_with_newline
+
+    def save(dest_path, data):
+        if "BBBB" in str(dest_path):
+            raise OSError("disk full")
+        return real_save(dest_path, data)
+
+    monkeypatch.setattr(publish_course_data, "save_json_with_newline", save)
+
+    publish_course_data.main()
+
+    out = capsys.readouterr().out
+    assert "\u274c Failed to copy BBBB.json: disk full" in out
+    assert "Published: 1/2 files" in out
+    assert (published_dir / "2025-26" / "AAAA.json").exists()
+    assert not (published_dir / "2025-26" / "BBBB.json").exists()
+
+
 def test_publish_strips_unrendered_fields_but_leaves_the_source_intact(tmp_path, monkeypatch):
     # These fields carry base64 images and are never rendered; shipping them roughly
     # tripled the gzipped payload. data/ stays complete so a field can be republished.

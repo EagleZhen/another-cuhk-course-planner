@@ -454,6 +454,19 @@ def copy_published_files(copy_plan: List[Tuple[str, str]], dry_run: bool) -> int
     return copied_count
 
 
+def report_publish_summary(
+    copied_count: int, planned_count: int, published_root: str, dry_run: bool
+) -> None:
+    """Print what was, or would have been, published."""
+    print("Publishing Summary:")
+    if dry_run:
+        print(f"   Would publish: {copied_count}/{planned_count} files")
+        print("   DRY RUN - No files actually copied")
+    else:
+        print(f"   ✅ Published: {copied_count}/{planned_count} files")
+        print(f"   Destination: {published_root}/<year>/")
+
+
 class ConsoleLogger:
     """Captures console output to both terminal and file"""
 
@@ -594,14 +607,7 @@ def main():
         print()
         copied_count = copy_published_files(copy_plan, dry_run)
 
-        # Publishing summary
-        print("Publishing Summary:")
-        if not dry_run:
-            print(f"   ✅ Published: {copied_count}/{len(copy_plan)} files")
-            print(f"   Destination: {published_root}/<year>/")
-        else:
-            print(f"   Would publish: {copied_count}/{len(copy_plan)} files")
-            print("   DRY RUN - No files actually copied")
+        report_publish_summary(copied_count, len(copy_plan), published_root, dry_run)
 
         print()
         print("Logs saved to:")
