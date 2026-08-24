@@ -162,7 +162,7 @@ class ScrapingProgressTracker:
         # Load existing subject data if progress file exists
         if os.path.exists(self.progress_file):
             try:
-                with open(self.progress_file, "r", encoding="utf-8") as f:
+                with open(self.progress_file, encoding="utf-8") as f:
                     data = json.load(f)
 
                 # Preserve existing subject data (so we don't lose completed subjects)

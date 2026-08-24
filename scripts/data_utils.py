@@ -14,7 +14,7 @@ import json
 import re
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
@@ -331,7 +331,7 @@ def utc_now_iso() -> str:
         >>> utc_now_iso()  # Different time
         '2025-08-17T15:45:22.987654+00:00'
     """
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def utc_to_hkt() -> str:
@@ -344,7 +344,7 @@ def utc_to_hkt() -> str:
         >>> utc_to_hkt()
         '2025-08-17 22:32:15 HK'
     """
-    utc_now = datetime.now(timezone.utc)
+    utc_now = datetime.now(UTC)
     hk_tz = ZoneInfo("Asia/Hong_Kong")
     hk_time = utc_now.astimezone(hk_tz)
     return hk_time.strftime("%Y-%m-%d %H:%M:%S HK")
@@ -474,9 +474,9 @@ def calculate_duration_seconds(started_at_iso: str) -> int | None:
         int | None: Duration in seconds, or None if timestamp is invalid
 
     Examples:
-        >>> import datetime, timezone
-        >>> now = datetime.datetime.now(timezone.utc)
-        >>> past = (now - datetime.timedelta(hours=1)).isoformat()
+        >>> from datetime import UTC, datetime, timedelta
+        >>> now = datetime.now(UTC)
+        >>> past = (now - timedelta(hours=1)).isoformat()
         >>> duration = calculate_duration_seconds(past)
         >>> 3500 <= duration <= 3700  # ~1 hour (allowing for execution time)
         True
@@ -486,7 +486,7 @@ def calculate_duration_seconds(started_at_iso: str) -> int | None:
     """
     try:
         started_time = datetime.fromisoformat(started_at_iso.replace("Z", "+00:00"))
-        current_time = datetime.now(timezone.utc)
+        current_time = datetime.now(UTC)
         duration = current_time - started_time
         return int(duration.total_seconds())
     except (ValueError, TypeError):
@@ -576,7 +576,7 @@ def collect_subjects_from_files(
     for year, filepaths in sorted(files_by_year.items()):
         codes = []
         for filepath in sorted(filepaths):
-            with open(filepath, "r", encoding="utf-8") as f:
+            with open(filepath, encoding="utf-8") as f:
                 data = json.load(f)
 
             subject = data["metadata"]["subject"]
@@ -766,7 +766,7 @@ def collect_terms_from_files(filepaths: Iterable[Path]) -> dict[str, list[str]]:
     """Collect distinct term names from explicit course files, grouped by year."""
     names_by_year: dict[str, set] = {}
     for filepath in sorted(filepaths):
-        with open(filepath, "r", encoding="utf-8") as f:
+        with open(filepath, encoding="utf-8") as f:
             data = json.load(f)
         for course in data.get("courses", []):
             for term in course.get("terms", []):

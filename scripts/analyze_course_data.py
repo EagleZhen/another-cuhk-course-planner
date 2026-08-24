@@ -29,7 +29,7 @@ def load_subject_data(data_directory: str = "data") -> dict[str, any]:
 
     for file_path in json_files:
         try:
-            with open(file_path, "r", encoding="utf-8") as f:
+            with open(file_path, encoding="utf-8") as f:
                 data = json.load(f)
 
             # A subject can span multiple year dirs, with the same course appearing in

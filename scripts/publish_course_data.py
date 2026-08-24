@@ -94,7 +94,7 @@ def load_scraping_progress() -> dict | None:
         return None
 
     try:
-        with open(SCRAPING_PROGRESS_FILE, "r", encoding="utf-8") as f:
+        with open(SCRAPING_PROGRESS_FILE, encoding="utf-8") as f:
             return json.load(f)
     except Exception as e:
         print(f"❌ Error reading scraping_progress.json: {e}")
@@ -111,7 +111,7 @@ def validate_course_file(
     issues = []
 
     try:
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, encoding="utf-8") as f:
             data = json.load(f)
     except Exception as e:
         return False, [f"Failed to parse JSON: {e}"]
@@ -499,7 +499,7 @@ def copy_published_files(copy_plan: list[tuple[str, str]], dry_run: bool) -> int
         try:
             if not dry_run:
                 os.makedirs(os.path.dirname(dest_path), exist_ok=True)
-                with open(source_path, "r", encoding="utf-8") as f:
+                with open(source_path, encoding="utf-8") as f:
                     data = json.load(f)
                 for course in data.get("courses", []):
                     for field in STRIPPED_COURSE_FIELDS:
