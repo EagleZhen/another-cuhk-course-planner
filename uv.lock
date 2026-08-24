@@ -24,19 +24,19 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "beautifulsoup4", specifier = ">=4.14.2,<5.0.0" },
-    { name = "ddddocr", specifier = ">=1.5.6,<2.0.0" },
-    { name = "markdownify", specifier = ">=1.2.0,<2.0.0" },
+    { name = "beautifulsoup4", specifier = ">=4.14.2" },
+    { name = "ddddocr", specifier = ">=1.5.6" },
+    { name = "markdownify", specifier = ">=1.2.0" },
     { name = "pyperclip", specifier = ">=1.11.0" },
-    { name = "requests", specifier = ">=2.33.0,<3.0.0" },
+    { name = "requests", specifier = ">=2.33.0" },
     { name = "tzdata", specifier = ">=2025.2" },
 ]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "pre-commit", specifier = ">=4.3.0,<5.0.0" },
+    { name = "pre-commit", specifier = ">=4.3.0" },
     { name = "pytest", specifier = ">=9.1.1" },
-    { name = "ruff", specifier = ">=0.16.4,<0.17.0" },
+    { name = "ruff", specifier = ">=0.16.4" },
 ]
 
 [[package]]

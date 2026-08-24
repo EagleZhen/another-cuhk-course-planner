@@ -9,12 +9,12 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.12",
 ]
+# No upper caps: uv.lock is the pin and CI is the gate. See docs/decisions.md.
 dependencies = [
-    "beautifulsoup4>=4.14.2,<5.0.0",
-    "markdownify>=1.2.0,<2.0.0",
-    "ddddocr>=1.5.6,<2.0.0",
-    "requests>=2.33.0,<3.0.0",
-    # No upper cap: tzdata is calendar-versioned IANA data with no API, so any cap just expires.
+    "beautifulsoup4>=4.14.2",
+    "markdownify>=1.2.0",
+    "ddddocr>=1.5.6",
+    "requests>=2.33.0",
     "tzdata>=2025.2",
     "pyperclip>=1.11.0",
 ]
@@ -24,8 +24,8 @@ package = false
 
 [dependency-groups]
 dev = [
-    "ruff>=0.16.4,<0.17.0",
-    "pre-commit>=4.3.0,<5.0.0",
+    "ruff>=0.16.4",
+    "pre-commit>=4.3.0",
     "pytest>=9.1.1",
 ]
 

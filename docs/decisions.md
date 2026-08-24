@@ -119,6 +119,14 @@ Decision: hold `eslint` at `^9` in [web/package.json](../web/package.json).
 
 Lift once `eslint-config-next` ships a v10-compatible `eslint-plugin-react`. Dependabot keeps proposing the major regardless; CI now fails it.
 
+## Leave Python Dependencies Uncapped
+
+Dependabot updates `uv.lock` within an upper cap but never proposes widening one, so a capped release arrives as silence — `<2026.0` blocked every 2026 `tzdata` release.
+
+Decision: no upper caps in [pyproject.toml](../pyproject.toml). `uv.lock` pins exact versions and CI runs ruff and pytest on every pull request, so a major arrives as a PR to review rather than as nothing at all.
+
+This is an application (`package = false`); a library, whose caps become its consumers' problem, would weigh it differently.
+
 ## Strip Unrendered Fields At Publish
 
 Scraped course data carries fields the app doesn't render (`course_syllabus`, required/recommended readings, feedback) — some with base64-embedded images. Serving them cost roughly two-thirds of the gzipped transfer for data no one sees (~12MB → ~4MB on the wire as of mid-2026; both figures grow with each added year of data).
