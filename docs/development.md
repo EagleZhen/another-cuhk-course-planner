@@ -165,10 +165,11 @@ For routine web changes, `npm run typecheck` and `npm run lint` are usually the 
 
 Run these from the repository root:
 
-| Command                               | Purpose                   |
-| ------------------------------------- | ------------------------- |
-| `uv run ruff check scripts/`          | Lint the Python scripts.  |
-| `uv run ruff format --check scripts/` | Verify Python formatting. |
-| `uv run pytest`                       | Run the Python tests.     |
+| Command                               | Purpose                               |
+| ------------------------------------- | ------------------------------------- |
+| `uv run ruff check scripts/`          | Lint the Python scripts.              |
+| `uv run ruff format --check scripts/` | Verify Python formatting.             |
+| `uv run pytest`                       | Run the Python tests.                 |
+| `npm run format:check`                | Verify Prettier formatting repo-wide. |
 
 CI runs all of these except `npm run build` on every pull request, so pre-commit is a convenience rather than the only gate.
