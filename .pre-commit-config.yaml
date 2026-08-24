@@ -1,21 +1,17 @@
 repos:
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.4
-    hooks:
-      - id: ruff
-        args: [--fix]
-        files: '^scripts/.*\.py$'
-      - id: ruff-format
-        files: '^scripts/.*\.py$'
-
-  - repo: https://github.com/PyCQA/isort
-    rev: 7.0.0
-    hooks:
-      - id: isort
-        files: '^scripts/.*\.py$'
-
+  # Ruff and Prettier run from the project's lockfiles, so pre-commit, CI, and the editor share one version.
   - repo: local
     hooks:
+      - id: ruff
+        name: ruff
+        entry: uv run ruff check --fix
+        language: system
+        files: '^scripts/.*\.py$'
+      - id: ruff-format
+        name: ruff format
+        entry: uv run ruff format
+        language: system
+        files: '^scripts/.*\.py$'
       - id: prettier
         name: prettier
         entry: npx --no-install prettier --write

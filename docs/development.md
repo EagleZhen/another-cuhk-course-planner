@@ -77,7 +77,7 @@ git commit
     ↓
 pre-commit
     ├─ Prettier: supported staged JS/TS/JSON/YAML/CSS/Markdown
-    ├─ Ruff/Ruff format/isort: scripts/*.py
+    ├─ Ruff/Ruff format: scripts/*.py
     └─ Basic hygiene: JSON/YAML validity, merge conflicts, whitespace, EOF
 ```
 

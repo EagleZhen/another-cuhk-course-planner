@@ -12,11 +12,12 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
-    "beautifulsoup4 (>=4.14.2,<5.0.0)",
-    "markdownify (>=1.2.0,<2.0.0)",
-    "ddddocr (>=1.5.6,<2.0.0)",
+    "beautifulsoup4>=4.14.2,<5.0.0",
+    "markdownify>=1.2.0,<2.0.0",
+    "ddddocr>=1.5.6,<2.0.0",
     "requests>=2.33.0,<3.0.0",
-    "tzdata (>=2025.2,<2026.0)",
+    # No upper cap: tzdata is calendar-versioned IANA data with no API, so any cap just expires.
+    "tzdata>=2025.2",
     "pyperclip>=1.11.0",
 ]
 
@@ -25,9 +26,8 @@ package = false
 
 [dependency-groups]
 dev = [
-    "ruff (>=0.14.4,<0.15.0)",
-    "pre-commit (>=4.3.0,<5.0.0)",
-    "isort (>=7.0.0,<8.0.0)",
+    "ruff>=0.16.4,<0.17.0",
+    "pre-commit>=4.3.0,<5.0.0",
     "pytest>=9.1.1",
 ]
 
@@ -35,16 +35,16 @@ dev = [
 line-length = 100
 target-version = "py310"
 
+[tool.ruff.lint]
+# Pinned rather than extend-select: ruff widens its defaults between releases, and 0.16 added ~180 findings here. E4/E7/E9/F were the old defaults; "I" is ruff's isort.
+select = ["E4", "E7", "E9", "F", "I"]
+
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
 line-ending = "lf"
 skip-magic-trailing-comma = false
 docstring-code-format = true
-
-[tool.isort]
-profile = "black"
-line_length = 100
 
 [tool.pytest.ini_options]
 # scripts/ modules import each other by bare name (they run with scripts/ on the
