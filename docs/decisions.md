@@ -109,7 +109,7 @@ Why it fits:
 - the only lever Cloudflare's build system respects for this
 - pinned to Node 24 (Active LTS, supported to April 2028), not Cloudflare's aging default (22) or a contributor's local version, which can silently drift onto an already-EOL release
 
-Keeping it current is manual: no Dependabot ecosystem reads `.nvmrc`, and `engines` is a constraint Dependabot consumes rather than maintains. Bump it by hand when a new 24.x LTS lands.
+Dependabot cannot see `.nvmrc`, so bump it by hand when a new 24.x LTS lands.
 
 ## Hold ESLint At v9
 
@@ -118,6 +118,14 @@ ESLint v10 removed `context.getFilename()`, which `eslint-plugin-react` still ca
 Decision: hold `eslint` at `^9` in [web/package.json](../web/package.json).
 
 Lift once `eslint-config-next` ships a v10-compatible `eslint-plugin-react`. Dependabot keeps proposing the major regardless; CI now fails it.
+
+## Leave Python Dependencies Uncapped
+
+Dependabot updates `uv.lock` within an upper cap but never proposes widening one, so a capped release arrives as silence — `<2026.0` blocked every 2026 `tzdata` release.
+
+Decision: no upper caps on dependencies in [pyproject.toml](../pyproject.toml). `uv.lock` pins exact versions and CI runs ruff and pytest on every pull request, so a major arrives as a PR to review rather than as nothing at all.
+
+This is an application (`package = false`); a library, whose caps become its consumers' problem, would weigh it differently.
 
 ## Strip Unrendered Fields At Publish
 
