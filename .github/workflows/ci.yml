@@ -1,5 +1,5 @@
 # The enforcing gate. Pre-commit runs some of these locally, but it is opt-in, sees only staged files, and any commit can bypass it with `git commit --no-verify`.
-# Two ecosystems, so two independent jobs — a Python failure should not hide a web one.
+# Independent jobs, so one ecosystem's failure does not hide another's. Formatting is its own job because Prettier spans both and lives in the root package.
 name: CI
 
 on:
@@ -71,3 +71,19 @@ jobs:
         if: ${{ !cancelled() && steps.sync.outcome == 'success' }}
       - run: uv run pytest
         if: ${{ !cancelled() && steps.sync.outcome == 'success' }}
+
+  format:
+    name: format (prettier)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: web/.nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - run: npm ci
+
+      - run: npm run format:check
