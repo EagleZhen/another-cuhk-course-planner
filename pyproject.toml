@@ -32,6 +32,8 @@ dev = [
 [tool.ruff]
 line-length = 100
 target-version = "py312"
+# Vendored and archived paths; the other .prettierignore entries hold no Python or Markdown.
+extend-exclude = ["lab", "docs/archived", ".agents", ".claude"]
 
 [tool.ruff.lint]
 # Pinned rather than extend-select: ruff widens its defaults between releases, and 0.16 added ~180 findings here. E4/E7/E9/F were the old defaults; "I" is ruff's isort.
