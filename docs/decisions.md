@@ -109,6 +109,8 @@ Why it fits:
 - the only lever Cloudflare's build system respects for this
 - pinned to Node 24 (Active LTS, supported to April 2028), not Cloudflare's aging default (22) or a contributor's local version, which can silently drift onto an already-EOL release
 
+Keeping it current is manual: no Dependabot ecosystem reads `.nvmrc`, and `engines` is a constraint Dependabot consumes rather than maintains. Bump it by hand when a new 24.x LTS lands.
+
 ## Hold ESLint At v9
 
 ESLint v10 removed `context.getFilename()`, which `eslint-plugin-react` still calls, so `npm run lint` crashes outright. The plugin has no v10-compatible release, and `eslint-config-next` depends on it anyway — its own `eslint: >=9.0.0` peer range overpromises.
