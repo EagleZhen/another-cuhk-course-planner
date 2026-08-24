@@ -16,7 +16,8 @@ dependencies = [
     "markdownify (>=1.2.0,<2.0.0)",
     "ddddocr (>=1.5.6,<2.0.0)",
     "requests>=2.33.0,<3.0.0",
-    "tzdata (>=2025.2,<2026.0)",
+    # No upper cap: tzdata is calendar-versioned IANA data with no API, so any cap just expires.
+    "tzdata>=2025.2",
     "pyperclip>=1.11.0",
 ]
 
