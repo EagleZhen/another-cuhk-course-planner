@@ -123,7 +123,7 @@ Lift once `eslint-config-next` ships a v10-compatible `eslint-plugin-react`. Dep
 
 Dependabot updates `uv.lock` within an upper cap but never proposes widening one, so a capped release arrives as silence — `<2026.0` blocked every 2026 `tzdata` release.
 
-Decision: no upper caps in [pyproject.toml](../pyproject.toml). `uv.lock` pins exact versions and CI runs ruff and pytest on every pull request, so a major arrives as a PR to review rather than as nothing at all.
+Decision: no upper caps on dependencies in [pyproject.toml](../pyproject.toml). `uv.lock` pins exact versions and CI runs ruff and pytest on every pull request, so a major arrives as a PR to review rather than as nothing at all.
 
 This is an application (`package = false`); a library, whose caps become its consumers' problem, would weigh it differently.
 

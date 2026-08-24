@@ -33,7 +33,7 @@ For normal UI development, you usually only need existing published data and `np
 
 ## Prerequisites
 
-- Python 3.12.2 is the currently tested version. `pyproject.toml` allows Python 3.10 to 3.12, but not every allowed version is actively tested.
+- Python 3.12, the only version allowed and tested. `ddddocr` pulls `onnxruntime`, which publishes no source distribution, so unlisted versions fail to install rather than degrade.
 - [uv](https://docs.astral.sh/uv/getting-started/installation/)
 - Node.js matching `web/.nvmrc` (the version Cloudflare Pages actually builds with; `engines.node` is a wider, non-enforced range), and npm. Version managers that read `.nvmrc` (`nvm`, `fnm`) can switch automatically.
 
