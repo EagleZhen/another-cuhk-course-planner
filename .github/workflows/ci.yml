@@ -1,4 +1,4 @@
-# Runs the checks pre-commit does not: pytest, vitest, typecheck, and lint.
+# The enforcing gate. Pre-commit runs some of these locally, but it is opt-in, sees only staged files, and any commit can bypass it with `git commit --no-verify`.
 # Two ecosystems, so two independent jobs — a Python failure should not hide a web one.
 name: CI
 
@@ -45,7 +45,7 @@ jobs:
         if: ${{ !cancelled() && steps.install.outcome == 'success' }}
 
   python:
-    name: python (pytest)
+    name: python (lint, format, test)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -61,6 +61,13 @@ jobs:
       # Matches the version the lockfile and local venv resolve to.
       - run: uv python install 3.12
 
-      - run: uv sync --locked
+      - id: sync
+        run: uv sync --locked
 
+      # Scoped to scripts/ to match the pre-commit hook; lab/ is excluded there too.
+      - run: uv run ruff check scripts/
+        if: ${{ !cancelled() && steps.sync.outcome == 'success' }}
+      - run: uv run ruff format --check scripts/
+        if: ${{ !cancelled() && steps.sync.outcome == 'success' }}
       - run: uv run pytest
+        if: ${{ !cancelled() && steps.sync.outcome == 'success' }}

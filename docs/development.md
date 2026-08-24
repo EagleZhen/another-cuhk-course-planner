@@ -162,3 +162,13 @@ Run these from `web/`:
 | `npm run build`     | Verify the production build.                           |
 
 For routine web changes, `npm run typecheck` and `npm run lint` are usually the lightweight checks. Run `npm run build` before deployment or when changing Next.js config, routing, static generation, metadata, or other build-sensitive behavior.
+
+Run these from the repository root:
+
+| Command                               | Purpose                   |
+| ------------------------------------- | ------------------------- |
+| `uv run ruff check scripts/`          | Lint the Python scripts.  |
+| `uv run ruff format --check scripts/` | Verify Python formatting. |
+| `uv run pytest`                       | Run the Python tests.     |
+
+CI runs all of these except `npm run build` on every pull request, so pre-commit is a convenience rather than the only gate.
