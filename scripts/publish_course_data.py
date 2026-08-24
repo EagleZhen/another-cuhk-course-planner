@@ -17,10 +17,11 @@ import json
 import os
 import shutil
 import sys
+from collections.abc import Iterable, Iterator
 from contextlib import contextmanager
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Iterable, Iterator, List, NamedTuple, Optional, Tuple
+from typing import NamedTuple
 from zoneinfo import ZoneInfo
 
 import pyperclip
@@ -73,7 +74,7 @@ HONG_KONG_TZ = ZoneInfo("Asia/Hong_Kong")
 
 def update_generated_file(
     file_path: str | Path, new_content: str, dry_run: bool
-) -> Tuple[str, bool]:
+) -> tuple[str, bool]:
     """Return the previous content and whether it changed, writing only when needed."""
     path = Path(file_path)
     old_content = path.read_text("utf-8") if path.exists() else ""
@@ -86,14 +87,14 @@ def update_generated_file(
     return old_content, changed
 
 
-def load_scraping_progress() -> Optional[Dict]:
+def load_scraping_progress() -> dict | None:
     """Load scraping progress data for validation"""
     if not os.path.exists(SCRAPING_PROGRESS_FILE):
         print("⚠️ No scraping_progress.json found - validation will be limited")
         return None
 
     try:
-        with open(SCRAPING_PROGRESS_FILE, "r", encoding="utf-8") as f:
+        with open(SCRAPING_PROGRESS_FILE, encoding="utf-8") as f:
             return json.load(f)
     except Exception as e:
         print(f"❌ Error reading scraping_progress.json: {e}")
@@ -101,8 +102,8 @@ def load_scraping_progress() -> Optional[Dict]:
 
 
 def validate_course_file(
-    file_path: str, subject_code: str, progress_data: Optional[Dict]
-) -> Tuple[bool, List[str]]:
+    file_path: str, subject_code: str, progress_data: dict | None
+) -> tuple[bool, list[str]]:
     """
     Validate a course JSON file
     Returns (is_valid, list_of_issues)
@@ -110,7 +111,7 @@ def validate_course_file(
     issues = []
 
     try:
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, encoding="utf-8") as f:
             data = json.load(f)
     except Exception as e:
         return False, [f"Failed to parse JSON: {e}"]
@@ -196,7 +197,7 @@ def validate_course_file(
     return len(issues) == 0, issues
 
 
-def find_course_files(year_dir: str) -> Tuple[List[str], List[str], int]:
+def find_course_files(year_dir: str) -> tuple[list[str], list[str], int]:
     """
     Find all course JSON files in a data/<year>/ directory.
     Validates file naming and warns about unexpected files
@@ -221,16 +222,16 @@ def find_course_files(year_dir: str) -> Tuple[List[str], List[str], int]:
 
 
 def categorize_year_files(
-    course_files: List[str], progress_data: Optional[Dict]
-) -> Tuple[List[str], List[Tuple[str, List[str]]], List[str]]:
+    course_files: list[str], progress_data: dict | None
+) -> tuple[list[str], list[tuple[str, list[str]]], list[str]]:
     """Validate each file in a year. Returns (files_to_copy, blocking_failures, empty_codes):
     - files_to_copy: valid files plus subjects whose only issue is having no courses
     - blocking_failures: (file, non-empty issues) that must abort publishing
     - empty_codes: subject codes with no courses (for reporting)
     """
-    files_to_copy: List[str] = []
-    blocking_failures: List[Tuple[str, List[str]]] = []
-    empty_codes: List[str] = []
+    files_to_copy: list[str] = []
+    blocking_failures: list[tuple[str, list[str]]] = []
+    empty_codes: list[str] = []
 
     for file_path in course_files:
         subject_code = os.path.splitext(os.path.basename(file_path))[0]
@@ -256,19 +257,19 @@ def categorize_year_files(
 class PublishPlan(NamedTuple):
     """What to copy where, plus whether validation found a blocking problem."""
 
-    copy_plan: List[Tuple[str, str]]  # (source_path, dest_path)
-    files_by_year: Dict[str, List[Path]]
+    copy_plan: list[tuple[str, str]]  # (source_path, dest_path)
+    files_by_year: dict[str, list[Path]]
     blocked: bool
 
 
-def build_publish_plan(source_years: List[Path], progress_data: Optional[Dict]) -> PublishPlan:
+def build_publish_plan(source_years: list[Path], progress_data: dict | None) -> PublishPlan:
     """Validate every source year and build the copy plan.
 
     Every year is checked even after one fails, so a single run reports all problems.
     A blocked year contributes nothing to the plan.
     """
-    copy_plan: List[Tuple[str, str]] = []
-    files_by_year: Dict[str, List[Path]] = {}
+    copy_plan: list[tuple[str, str]] = []
+    files_by_year: dict[str, list[Path]] = {}
     blocked = False
 
     for year_path in source_years:
@@ -307,7 +308,7 @@ def build_publish_plan(source_years: List[Path], progress_data: Optional[Dict]) 
     return PublishPlan(copy_plan, files_by_year, blocked)
 
 
-def collect_scrape_times(years: Iterable[str]) -> Dict[str, str]:
+def collect_scrape_times(years: Iterable[str]) -> dict[str, str]:
     """Each year's scrape time, read from the directory the scraper stamped.
 
     A year with no stamp is left out, so the app shows no sync time for it rather
@@ -321,7 +322,7 @@ def collect_scrape_times(years: Iterable[str]) -> Dict[str, str]:
     return times
 
 
-def copy_commit_title(scrape_times: Dict[str, str]) -> None:
+def copy_commit_title(scrape_times: dict[str, str]) -> None:
     """Put the commit title for this run on the clipboard, ready to paste.
 
     List only years stamped by the newest full scrape. Older source years remain
@@ -352,7 +353,7 @@ def copy_commit_title(scrape_times: Dict[str, str]) -> None:
         print(f"\nClipboard unavailable. Commit title: {title}", file=sys.stderr)
 
 
-def calculate_scraping_statistics(progress_data: Optional[Dict]) -> Optional[Dict]:
+def calculate_scraping_statistics(progress_data: dict | None) -> dict | None:
     """Calculate detailed scraping statistics"""
     if not progress_data or "scraping_log" not in progress_data:
         return None
@@ -425,7 +426,7 @@ def format_duration(minutes: float) -> str:
         return f"{hours} hours {remaining_minutes:.1f} minutes"
 
 
-def report_scrape_summary(progress_data: Optional[Dict]) -> None:
+def report_scrape_summary(progress_data: dict | None) -> None:
     """Print the one-line summary of the scrape the publish is based on."""
     if not progress_data:
         return
@@ -491,14 +492,14 @@ def report_term_manifest_changes(old_content: str, new_content: str) -> None:
     print()
 
 
-def copy_published_files(copy_plan: List[Tuple[str, str]], dry_run: bool) -> int:
+def copy_published_files(copy_plan: list[tuple[str, str]], dry_run: bool) -> int:
     """Copy each planned file, stripping unrendered fields. Returns how many were copied."""
     copied_count = 0
     for source_path, dest_path in copy_plan:
         try:
             if not dry_run:
                 os.makedirs(os.path.dirname(dest_path), exist_ok=True)
-                with open(source_path, "r", encoding="utf-8") as f:
+                with open(source_path, encoding="utf-8") as f:
                     data = json.load(f)
                 for course in data.get("courses", []):
                     for field in STRIPPED_COURSE_FIELDS:
@@ -544,7 +545,7 @@ class ConsoleLogger:
 
 
 @contextmanager
-def publish_logging() -> Iterator[Tuple[str, str]]:
+def publish_logging() -> Iterator[tuple[str, str]]:
     """Tee stdout to a timestamped log, then mirror it to the latest-log path.
 
     Yields both paths so the run can report where its output went.

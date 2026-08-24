@@ -6,7 +6,7 @@ import time
 from dataclasses import asdict, dataclass, field
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 import ddddocr
 import onnxruntime
@@ -49,7 +49,7 @@ class ScrapingConfig:
     """Configuration for testing vs production scraping"""
 
     # Testing defaults - safe for development
-    max_courses_per_subject: Optional[int] = 3  # None = unlimited
+    max_courses_per_subject: int | None = 3  # None = unlimited
     save_debug_files: bool = True  # Save HTML files for debugging
     save_debug_on_error: bool = True  # Always save HTML when parsing fails
     debug_html_directory: str = DEBUG_HTML_DIR  # Separate from JSON results
@@ -97,9 +97,9 @@ class TermInfo:
 
     term_code: str  # e.g., "2390"
     term_name: str  # e.g., "2025-26 Term 2"
-    schedule: List[Dict]  # List of sections with detailed availability/meetings
+    schedule: list[dict]  # List of sections with detailed availability/meetings
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> dict:
         return asdict(self)
 
 
@@ -111,7 +111,7 @@ class Course:
     course_code: str
     title: str
     credits: str
-    terms: List[TermInfo]  # List of terms this course is offered
+    terms: list[TermInfo]  # List of terms this course is offered
     postback_target: str = ""  # For getting detailed info
 
     # Additional course details
@@ -131,14 +131,14 @@ class Course:
     # Course Outcome details (optional, scraped from Course Outcome page)
     learning_outcomes: str = ""  # Learning objectives and outcomes
     course_syllabus: str = ""  # Course syllabus (might be same as description)
-    assessment_types: Dict[str, str] = field(
+    assessment_types: dict[str, str] = field(
         default_factory=dict
     )  # {"Presentation": "20", "Project": "30", ...}
     feedback_evaluation: str = ""  # Feedback for evaluation
     required_readings: str = ""  # Required reading materials
     recommended_readings: str = ""  # Recommended reading materials
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> dict:
         data = asdict(self)
         # Remove postback_target from exported data
         data.pop("postback_target", None)
@@ -155,14 +155,14 @@ class ScrapingProgressTracker:
         self.logger = logger
         self.progress_data = self._load_progress()
 
-    def _load_progress(self) -> Dict:
+    def _load_progress(self) -> dict:
         """Load existing subject data but start fresh session tracking"""
         existing_subjects = {}
 
         # Load existing subject data if progress file exists
         if os.path.exists(self.progress_file):
             try:
-                with open(self.progress_file, "r", encoding="utf-8") as f:
+                with open(self.progress_file, encoding="utf-8") as f:
                     data = json.load(f)
 
                 # Preserve existing subject data (so we don't lose completed subjects)
@@ -275,7 +275,7 @@ class ScrapingProgressTracker:
         courses_count: int,
         output_file: str,
         duration_minutes: float,
-        config_info: Dict,
+        config_info: dict,
     ):
         """Mark subject as completed"""
         subjects = self.progress_data["scraping_log"]["subjects"]
@@ -326,7 +326,7 @@ class ScrapingProgressTracker:
         self._save_progress()
         self.logger.error(f"Failed {subject} (attempt {retry_count}): {error_message}")
 
-    def get_failed_subjects(self) -> List[str]:
+    def get_failed_subjects(self) -> list[str]:
         """Get list of failed subjects for summary/retry purposes"""
         subjects = self.progress_data["scraping_log"]["subjects"]
         return [subject for subject, data in subjects.items() if data.get("status") == "failed"]
@@ -366,13 +366,13 @@ class ScrapingProgressTracker:
 class CuhkScraper:
     """Simplified CUHK course scraper"""
 
-    def __init__(self, config: Optional[ScrapingConfig] = None):
+    def __init__(self, config: ScrapingConfig | None = None):
         self.session = requests.Session()
         self.logger = logging.getLogger(__name__)
         self.base_url = (
             "http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
         )
-        self.progress_tracker: Optional[ScrapingProgressTracker] = None
+        self.progress_tracker: ScrapingProgressTracker | None = None
 
         # Primary configuration for this scraper instance
         self.config = config or ScrapingConfig()
@@ -381,9 +381,9 @@ class CuhkScraper:
         self._setup_file_logging()
 
         # Context management - eliminates parameter propagation (kept for debugging context)
-        self.current_config: Optional[ScrapingConfig] = None
-        self.current_course_context: Optional[Dict] = None
-        self.subject_titles_cache: Dict[str, str] = {}  # Cache for subject code -> title mapping
+        self.current_config: ScrapingConfig | None = None
+        self.current_course_context: dict | None = None
+        self.subject_titles_cache: dict[str, str] = {}  # Cache for subject code -> title mapping
 
         # Suppress ONNX warnings
         onnxruntime.set_default_logger_severity(3)
@@ -508,7 +508,7 @@ class CuhkScraper:
         self.logger.info(f"📝 File logging initialized: {log_filename}")
         return log_filename
 
-    def _set_context(self, config: ScrapingConfig, course: Optional[Course] = None):
+    def _set_context(self, config: ScrapingConfig, course: Course | None = None):
         """Set current scraping context to eliminate parameter propagation"""
         self.current_config = config
         if course:
@@ -517,7 +517,7 @@ class CuhkScraper:
                 "course_code": course.course_code,
             }
 
-    def _extract_asp_hidden_fields(self, soup: BeautifulSoup) -> Dict[str, str]:
+    def _extract_asp_hidden_fields(self, soup: BeautifulSoup) -> dict[str, str]:
         """
         Extract ASP.NET hidden form fields (ViewState, EventValidation, etc.)
 
@@ -560,7 +560,7 @@ class CuhkScraper:
                 f.write(content)
             self.logger.info(f"Saved debug HTML: {debug_path}")
 
-    def _solve_captcha(self, image_bytes: bytes) -> Optional[str]:
+    def _solve_captcha(self, image_bytes: bytes) -> str | None:
         """Solve captcha using ddddocr"""
         try:
             # ddddocr.classification() returns a string, but type checker doesn't know this
@@ -668,7 +668,7 @@ class CuhkScraper:
             "error_message": "Results table exists but content unclear",
         }
 
-    def get_subjects_from_live_site(self) -> List[str]:
+    def get_subjects_from_live_site(self) -> list[str]:
         """Extract subject codes from live website"""
         try:
             response = self._robust_request("GET", self.base_url)
@@ -693,7 +693,7 @@ class CuhkScraper:
             self.logger.error(f"Error getting subjects from live site: {e}")
             return []
 
-    def get_subjects_with_titles_from_live_site(self) -> List[Dict[str, str]]:
+    def get_subjects_with_titles_from_live_site(self) -> list[dict[str, str]]:
         """Extract subject codes and titles from live website"""
         try:
             response = self._robust_request("GET", self.base_url)
@@ -718,7 +718,7 @@ class CuhkScraper:
             self.logger.error(f"❌ Error getting subjects with titles: {e}")
             return []
 
-    def scrape_subject(self, subject_code: str) -> List[Course]:
+    def scrape_subject(self, subject_code: str) -> list[Course]:
         """Scrape courses for a specific subject"""
         # Set context for this subject
         self._set_context(self.config)
@@ -844,7 +844,7 @@ class CuhkScraper:
 
         return []
 
-    def _extract_form_data(self, soup: BeautifulSoup) -> Dict[str, str]:
+    def _extract_form_data(self, soup: BeautifulSoup) -> dict[str, str]:
         """Extract necessary form data from the page"""
         # Get ViewState and other ASP.NET form fields
         form_data = self._extract_asp_hidden_fields(soup)
@@ -880,7 +880,7 @@ class CuhkScraper:
 
         return form_data
 
-    def _parse_course_results(self, html: str, get_details: bool = False) -> List[Course]:
+    def _parse_course_results(self, html: str, get_details: bool = False) -> list[Course]:
         """Parse course results from HTML response"""
         soup = BeautifulSoup(html, "html.parser")
         courses = []
@@ -946,7 +946,7 @@ class CuhkScraper:
         self.logger.info(f"Parsed {len(courses)} courses from results table")
         return courses
 
-    def get_course_details(self, course: Course, current_html: str) -> Optional[Course]:
+    def get_course_details(self, course: Course, current_html: str) -> Course | None:
         """Get detailed course information by simulating postback with retry for validation failures"""
         if not course.postback_target:
             self.logger.warning(f"No postback target for course {course.course_code}")
@@ -1076,7 +1076,7 @@ class CuhkScraper:
 
     def _scrape_term_details(
         self, html: str, base_course: Course, term_code: str, term_name: str
-    ) -> Optional[TermInfo]:
+    ) -> TermInfo | None:
         """Scrape details for a specific term"""
         try:
             soup = BeautifulSoup(html, "html.parser")
@@ -1347,7 +1347,7 @@ class CuhkScraper:
         term_code: str = "",
         term_name: str = "Unknown Term",
         get_enrollment_details: bool = False,
-    ) -> Optional[TermInfo]:
+    ) -> TermInfo | None:
         """Create TermInfo from HTML with optional term metadata"""
         if get_enrollment_details:
             # Use detailed section parsing with enrollment data
@@ -1418,7 +1418,7 @@ class CuhkScraper:
 
     def _get_section_enrollment_details(
         self, postback_target: str, current_html: str, section_name: str
-    ) -> Optional[dict]:
+    ) -> dict | None:
         """Click into a section to get detailed enrollment information"""
         try:
             # Extract postback parameters from the JavaScript call
@@ -1466,7 +1466,7 @@ class CuhkScraper:
 
         return None
 
-    def _parse_class_details(self, html: str, section_name: str) -> Optional[dict]:
+    def _parse_class_details(self, html: str, section_name: str) -> dict | None:
         """Parse class details page to extract section info with enrollment data"""
         soup = BeautifulSoup(html, "html.parser")
 
@@ -1565,11 +1565,11 @@ class CuhkScraper:
 
         return availability
 
-    def _parse_current_term_info(self, html: str) -> Optional[TermInfo]:
+    def _parse_current_term_info(self, html: str) -> TermInfo | None:
         """Parse term info when no dropdown is available"""
         return self._create_term_info(html)
 
-    def _parse_term_info(self, html: str, term_code: str, term_name: str) -> Optional[TermInfo]:
+    def _parse_term_info(self, html: str, term_code: str, term_name: str) -> TermInfo | None:
         """Parse term-specific information from HTML"""
         return self._create_term_info(
             html, term_code, term_name, self.config.get_enrollment_details
@@ -1793,12 +1793,12 @@ class CuhkScraper:
 
         self.logger.info(f"Course Outcome parsed for {course.course_code}")
 
-    def _parse_assessment_table(self, table: Optional[Tag]) -> Dict[str, str]:
+    def _parse_assessment_table(self, table: Tag | None) -> dict[str, str]:
         """Parse assessment types table and return as key-value pairs"""
         if not table:
             return {}
 
-        assessment_types: Dict[str, str] = {}
+        assessment_types: dict[str, str] = {}
 
         try:
             # Find all data rows (skip header row)
@@ -1819,8 +1819,8 @@ class CuhkScraper:
         return assessment_types
 
     def scrape_all_subjects(
-        self, subjects: List[str], full_catalog: bool = False
-    ) -> Dict[str, Any]:
+        self, subjects: list[str], full_catalog: bool = False
+    ) -> dict[str, Any]:
         """Memory-safe scraping with immediate saves, progress tracking, and memory cleanup.
 
         full_catalog marks a run over every subject CUHK offers, which is what lets it
@@ -1950,7 +1950,7 @@ class CuhkScraper:
         }
 
     def _write_scrape_times(
-        self, saved_files: Dict[str, List[str]], scraped_at: str, full_catalog: bool
+        self, saved_files: dict[str, list[str]], scraped_at: str, full_catalog: bool
     ) -> None:
         """Stamp every directory this run wrote with when the run started.
 
@@ -1972,8 +1972,8 @@ class CuhkScraper:
         self.logger.info(f"🕒 Stamped {len(directories)} directories with {scraped_at}")
 
     def _save_subject_immediately(
-        self, subject: str, courses: List[Course], config: ScrapingConfig
-    ) -> Optional[List[str]]:
+        self, subject: str, courses: list[Course], config: ScrapingConfig
+    ) -> list[str] | None:
         """Save single subject immediately to prevent data loss.
 
         Writes one file per academic year plus the no-terms bucket
@@ -2040,7 +2040,7 @@ class CuhkScraper:
             self.logger.error(f"💥 SAVE FAILED for {subject}: {e}")
             return None
 
-    def _export_per_subject(self, data: Dict[str, List[Course]], config: ScrapingConfig) -> str:
+    def _export_per_subject(self, data: dict[str, list[Course]], config: ScrapingConfig) -> str:
         """Export each subject to its own JSON file"""
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         exported_files = []

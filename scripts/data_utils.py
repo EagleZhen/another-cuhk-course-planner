@@ -12,10 +12,11 @@ TODO(#153): split scrape vs. publish utilities.
 
 import json
 import re
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Iterable, Mapping, Optional, Tuple
+from typing import Any
 from zoneinfo import ZoneInfo
 
 from bs4 import BeautifulSoup, Comment, Tag
@@ -256,7 +257,7 @@ def html_to_plain_text(html_content: str) -> str:
     return cleaned_text.strip()
 
 
-def html_to_clean_markdown(html_content: str) -> Tuple[str, bool]:
+def html_to_clean_markdown(html_content: str) -> tuple[str, bool]:
     """
     Convert HTML to clean markdown using robust preprocessing.
 
@@ -330,7 +331,7 @@ def utc_now_iso() -> str:
         >>> utc_now_iso()  # Different time
         '2025-08-17T15:45:22.987654+00:00'
     """
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def utc_to_hkt() -> str:
@@ -343,7 +344,7 @@ def utc_to_hkt() -> str:
         >>> utc_to_hkt()
         '2025-08-17 22:32:15 HK'
     """
-    utc_now = datetime.now(timezone.utc)
+    utc_now = datetime.now(UTC)
     hk_tz = ZoneInfo("Asia/Hong_Kong")
     hk_time = utc_now.astimezone(hk_tz)
     return hk_time.strftime("%Y-%m-%d %H:%M:%S HK")
@@ -460,7 +461,7 @@ def parse_enrollment_status_from_image(img_src: str) -> str:
         return "Unknown"
 
 
-def calculate_duration_seconds(started_at_iso: str) -> Optional[int]:
+def calculate_duration_seconds(started_at_iso: str) -> int | None:
     """Calculate duration in seconds from ISO timestamp to now
 
     Calculates the time difference between a given ISO timestamp and the current UTC time.
@@ -470,12 +471,12 @@ def calculate_duration_seconds(started_at_iso: str) -> Optional[int]:
         started_at_iso: ISO 8601 formatted timestamp string with timezone info
 
     Returns:
-        Optional[int]: Duration in seconds, or None if timestamp is invalid
+        int | None: Duration in seconds, or None if timestamp is invalid
 
     Examples:
-        >>> import datetime, timezone
-        >>> now = datetime.datetime.now(timezone.utc)
-        >>> past = (now - datetime.timedelta(hours=1)).isoformat()
+        >>> from datetime import UTC, datetime, timedelta
+        >>> now = datetime.now(UTC)
+        >>> past = (now - timedelta(hours=1)).isoformat()
         >>> duration = calculate_duration_seconds(past)
         >>> 3500 <= duration <= 3700  # ~1 hour (allowing for execution time)
         True
@@ -485,7 +486,7 @@ def calculate_duration_seconds(started_at_iso: str) -> Optional[int]:
     """
     try:
         started_time = datetime.fromisoformat(started_at_iso.replace("Z", "+00:00"))
-        current_time = datetime.now(timezone.utc)
+        current_time = datetime.now(UTC)
         duration = current_time - started_time
         return int(duration.total_seconds())
     except (ValueError, TypeError):
@@ -547,7 +548,7 @@ def save_json_with_newline(filepath: str, data: Any) -> None:
         f.write("\n")
 
 
-def get_academic_year(term_name: str) -> Optional[str]:
+def get_academic_year(term_name: str) -> str | None:
     """Extract the academic year label from a term name for year-partitioning.
 
     Mirrors ``getAcademicYear`` in web/src/lib/courseUtils.ts. Returns the
@@ -566,7 +567,7 @@ def year_dirs(data_root: Path) -> list[Path]:
 
 def collect_subjects_from_files(
     files_by_year: Mapping[str, Iterable[Path]],
-) -> Tuple[dict[str, list[str]], dict[str, str]]:
+) -> tuple[dict[str, list[str]], dict[str, str]]:
     """Collect year-scoped subjects from an explicit set of course files."""
     subjects_by_year: dict[str, list[str]] = {}
     subject_titles: dict[str, str] = {}
@@ -575,7 +576,7 @@ def collect_subjects_from_files(
     for year, filepaths in sorted(files_by_year.items()):
         codes = []
         for filepath in sorted(filepaths):
-            with open(filepath, "r", encoding="utf-8") as f:
+            with open(filepath, encoding="utf-8") as f:
                 data = json.load(f)
 
             subject = data["metadata"]["subject"]
@@ -598,7 +599,7 @@ def subject_files(directory: Path) -> list[Path]:
     return sorted(path for path in Path(directory).glob("*.json") if is_subject_file(path))
 
 
-def collect_subjects(data_root: Path) -> Tuple[dict[str, list[str]], dict[str, str]]:
+def collect_subjects(data_root: Path) -> tuple[dict[str, list[str]], dict[str, str]]:
     """Collect year-scoped subject codes and their latest titles from scraped data."""
     files_by_year = {year_dir.name: subject_files(year_dir) for year_dir in year_dirs(data_root)}
     return collect_subjects_from_files(files_by_year)
@@ -648,10 +649,10 @@ class SubjectManifestChanges:
 
 def _parse_subject_manifest(
     content: str,
-) -> Optional[Tuple[dict[str, set[str]], dict[str, str]]]:
+) -> tuple[dict[str, set[str]], dict[str, str]] | None:
     """Parse the deterministic subject module for non-blocking change diagnostics."""
 
-    def object_body(export_name: str) -> Optional[str]:
+    def object_body(export_name: str) -> str | None:
         match = re.search(
             rf"export const {export_name}:[^=]+=\s*{{(?P<body>.*?)\n}} as const",
             content,
@@ -693,7 +694,7 @@ def _parse_subject_manifest(
     return subjects_by_year, subject_titles
 
 
-def diff_subject_manifest(old_content: str, new_content: str) -> Optional[SubjectManifestChanges]:
+def diff_subject_manifest(old_content: str, new_content: str) -> SubjectManifestChanges | None:
     """Return structured subject changes, or None when either manifest is unreadable."""
     old_manifest = _parse_subject_manifest(old_content)
     new_manifest = _parse_subject_manifest(new_content)
@@ -717,13 +718,13 @@ def diff_subject_manifest(old_content: str, new_content: str) -> Optional[Subjec
     return SubjectManifestChanges(by_year=by_year, changed_titles=changed_titles)
 
 
-def partition_subject_by_year(subject_data: dict) -> dict[Optional[str], dict]:
+def partition_subject_by_year(subject_data: dict) -> dict[str | None, dict]:
     """Split a subject's courses into per-year ``subject_data`` slices, keyed by
     academic year ("2025-26"). A course spanning years appears in each with only
     that year's terms; courses with no terms go under the key ``None``.
     """
     metadata = subject_data.get("metadata", {})
-    courses_by_year: dict[Optional[str], list] = {}
+    courses_by_year: dict[str | None, list] = {}
 
     for course in subject_data.get("courses", []):
         terms = course.get("terms", [])
@@ -731,7 +732,7 @@ def partition_subject_by_year(subject_data: dict) -> dict[Optional[str], dict]:
             courses_by_year.setdefault(None, []).append(course)
             continue
 
-        terms_by_year: dict[Optional[str], list] = {}
+        terms_by_year: dict[str | None, list] = {}
         for term in terms:
             year = get_academic_year(term.get("term_name", ""))
             terms_by_year.setdefault(year, []).append(term)
@@ -765,7 +766,7 @@ def collect_terms_from_files(filepaths: Iterable[Path]) -> dict[str, list[str]]:
     """Collect distinct term names from explicit course files, grouped by year."""
     names_by_year: dict[str, set] = {}
     for filepath in sorted(filepaths):
-        with open(filepath, "r", encoding="utf-8") as f:
+        with open(filepath, encoding="utf-8") as f:
             data = json.load(f)
         for course in data.get("courses", []):
             for term in course.get("terms", []):
@@ -823,7 +824,7 @@ def render_scrape_times_module(scraped_at_by_year: Mapping[str, str]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def diff_term_names(old_content: str, new_content: str) -> Tuple[set, set]:
+def diff_term_names(old_content: str, new_content: str) -> tuple[set, set]:
     """Compare two rendered terms.ts contents by their quoted term-name strings.
     Returns (added, removed) term name sets, for a publish-time change warning.
     """
