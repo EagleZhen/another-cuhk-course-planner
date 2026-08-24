@@ -10,5 +10,5 @@
   // publish step fails with "No such module node:stream" without this flag.
   // (This file is the source of truth, so omitting it disables the flag.)
   "compatibility_flags": ["nodejs_compat"],
-  "pages_build_output_dir": "out"
+  "pages_build_output_dir": "out",
 }
