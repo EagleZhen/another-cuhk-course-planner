@@ -16,10 +16,9 @@ import os
 import re
 from collections import Counter
 from datetime import datetime
-from typing import Dict, Tuple
 
 
-def load_subject_data(data_directory: str = "data") -> Dict[str, any]:
+def load_subject_data(data_directory: str = "data") -> dict[str, any]:
     """Load all subject JSON files from data directory"""
     subjects_data = {}
 
@@ -57,7 +56,7 @@ def load_subject_data(data_directory: str = "data") -> Dict[str, any]:
     return subjects_data
 
 
-def extract_section_types(subjects_data: Dict[str, any]) -> Tuple[Dict[str, int], Dict[str, Dict]]:
+def extract_section_types(subjects_data: dict[str, any]) -> tuple[dict[str, int], dict[str, dict]]:
     """Extract core section types and their frequencies with examples"""
     section_types = Counter()  # Core types like LEC, TUT, LAB
     section_examples = {}  # Examples for each core type
@@ -97,7 +96,7 @@ def extract_section_types(subjects_data: Dict[str, any]) -> Tuple[Dict[str, int]
     return dict(section_types), section_examples
 
 
-def parse_time_string(time_str: str) -> Tuple[int, int, int, int]:
+def parse_time_string(time_str: str) -> tuple[int, int, int, int]:
     """
     Parse time string and return (start_hour, start_min, end_hour, end_min)
     Examples: "Th 9:30AM - 12:15PM", "Mo Tu Th Fr 09:30 - 10:15"
@@ -145,7 +144,7 @@ def parse_time_string(time_str: str) -> Tuple[int, int, int, int]:
     return (-1, -1, -1, -1)
 
 
-def analyze_time_ranges(subjects_data: Dict[str, any]) -> Dict[str, any]:
+def analyze_time_ranges(subjects_data: dict[str, any]) -> dict[str, any]:
     """Analyze earliest and latest class times with course examples"""
     all_times = []
     earliest_start = (24, 0)  # (hour, minute)
@@ -213,7 +212,7 @@ def analyze_time_ranges(subjects_data: Dict[str, any]) -> Dict[str, any]:
     }
 
 
-def analyze_hourly_distribution(subjects_data: Dict[str, any]) -> Dict[str, any]:
+def analyze_hourly_distribution(subjects_data: dict[str, any]) -> dict[str, any]:
     """Analyze how many sections are active in each hour of the day"""
     # Track sections active in each hour (0-23)
     hourly_counts = [0] * 24
@@ -316,7 +315,7 @@ def analyze_hourly_distribution(subjects_data: Dict[str, any]) -> Dict[str, any]
     }
 
 
-def analyze_course_attributes(subjects_data: Dict[str, any]) -> Dict[str, any]:
+def analyze_course_attributes(subjects_data: dict[str, any]) -> dict[str, any]:
     """Analyze course and class attributes for insights with examples"""
     course_attributes = Counter()
     class_attributes = Counter()
@@ -384,7 +383,7 @@ def analyze_course_attributes(subjects_data: Dict[str, any]) -> Dict[str, any]:
     }
 
 
-def generate_subject_summary(subjects_data: Dict[str, any]) -> Dict[str, any]:
+def generate_subject_summary(subjects_data: dict[str, any]) -> dict[str, any]:
     """Generate summary statistics by subject"""
     subject_stats = {}
 
@@ -415,7 +414,7 @@ def generate_subject_summary(subjects_data: Dict[str, any]) -> Dict[str, any]:
     return subject_stats
 
 
-def analyze_enrollment_requirements(subjects_data: Dict[str, any]) -> Dict[str, any]:
+def analyze_enrollment_requirements(subjects_data: dict[str, any]) -> dict[str, any]:
     """Analyze enrollment requirements to identify course dependency patterns"""
     requirements = Counter()
     requirement_examples = {}
@@ -520,7 +519,7 @@ def save_analysis_results(console_output: str, timestamp: str):
     print(f"📁 Results saved to: {txt_filename}")
 
 
-def analyze_weekend_courses(subjects_data: Dict[str, any]) -> Dict[str, any]:
+def analyze_weekend_courses(subjects_data: dict[str, any]) -> dict[str, any]:
     """Analyze courses that have classes on weekends (Saturday/Sunday)"""
     weekend_courses = []
     weekend_sections_count = 0
@@ -591,7 +590,7 @@ def analyze_weekend_courses(subjects_data: Dict[str, any]) -> Dict[str, any]:
     }
 
 
-def analyze_class_vs_course_attributes(subjects_data: Dict[str, any]) -> Dict[str, any]:
+def analyze_class_vs_course_attributes(subjects_data: dict[str, any]) -> dict[str, any]:
     """Analyze relationship between class_attributes and course_attributes"""
     print("🧪 CLASS vs COURSE ATTRIBUTES ANALYSIS")
     print("-" * 50)
