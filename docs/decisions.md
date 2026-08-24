@@ -109,7 +109,7 @@ Why it fits:
 - the only lever Cloudflare's build system respects for this
 - pinned to Node 24 (Active LTS, supported to April 2028), not Cloudflare's aging default (22) or a contributor's local version, which can silently drift onto an already-EOL release
 
-Keeping it current is manual: no Dependabot ecosystem reads `.nvmrc`, and `engines` is a constraint Dependabot consumes rather than maintains. Bump it by hand when a new 24.x LTS lands.
+Dependabot cannot see `.nvmrc`, so bump it by hand when a new 24.x LTS lands.
 
 ## Hold ESLint At v9
 
