@@ -37,3 +37,15 @@ updates:
         update-types:
           - minor
           - patch
+
+  - package-ecosystem: uv # scraper and Python tooling
+    directory: /
+    schedule:
+      interval: weekly
+    labels:
+      - dependencies
+    groups:
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
