@@ -12,9 +12,9 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
-    "beautifulsoup4 (>=4.14.2,<5.0.0)",
-    "markdownify (>=1.2.0,<2.0.0)",
-    "ddddocr (>=1.5.6,<2.0.0)",
+    "beautifulsoup4>=4.14.2,<5.0.0",
+    "markdownify>=1.2.0,<2.0.0",
+    "ddddocr>=1.5.6,<2.0.0",
     "requests>=2.33.0,<3.0.0",
     # No upper cap: tzdata is calendar-versioned IANA data with no API, so any cap just expires.
     "tzdata>=2025.2",
@@ -27,7 +27,7 @@ package = false
 [dependency-groups]
 dev = [
     "ruff>=0.16.4,<0.17.0",
-    "pre-commit (>=4.3.0,<5.0.0)",
+    "pre-commit>=4.3.0,<5.0.0",
     "pytest>=9.1.1",
 ]
 
