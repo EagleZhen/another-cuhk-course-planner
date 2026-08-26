@@ -417,7 +417,7 @@ class CuhkScraper:
         Note:
             Retries infinitely for network issues (ConnectionError, Timeout, ConnectionResetError, server errors)
             Pre-loads response content to catch connection drops during response reading
-            Does not retry for client errors (4xx)
+            Raises client errors (4xx) so the caller can redo the unit instead of repeating the request
         """
         # Set default timeout if not provided
         if "timeout" not in kwargs:
@@ -458,16 +458,21 @@ class CuhkScraper:
                 time.sleep(wait_time)
 
             except HTTPError as e:
-                if e.response.status_code in [502, 503, 504]:  # Server errors - retry
+                # An HTTPError can carry no response; dereferencing it would replace the
+                # original error with an AttributeError.
+                status = e.response.status_code if e.response is not None else None
+                if status in [502, 503, 504]:  # Server errors - retry
                     attempt += 1
                     wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # Exponential backoff, max 60s
                     self.logger.warning(
-                        f"🔧 Server error {e.response.status_code} (attempt {attempt}), retrying in {wait_time}s"
+                        f"🔧 Server error {status} (attempt {attempt}), retrying in {wait_time}s"
                     )
                     time.sleep(wait_time)
                 else:
-                    # Don't retry client errors (4xx) or other server errors
-                    self.logger.error(f"❌ HTTP error {e.response.status_code}: {e}")
+                    # Repeating an identical 4xx won't help — it usually means stale
+                    # session or form state, which only the caller can rebuild by redoing
+                    # the whole unit. Escalate rather than hammer the same request.
+                    self.logger.error(f"❌ HTTP error {status}: {e}")
                     raise
 
     def _setup_file_logging(
