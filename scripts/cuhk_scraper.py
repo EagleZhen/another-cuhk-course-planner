@@ -694,29 +694,26 @@ class CuhkScraper:
             return []
 
     def get_subjects_with_titles_from_live_site(self) -> list[dict[str, str]]:
-        """Extract subject codes and titles from live website"""
-        try:
-            response = self._robust_request("GET", self.base_url)
-            soup = BeautifulSoup(response.text, "html.parser")
-            select = soup.find("select", {"name": "ddl_subject"})
+        """Extract subject codes and titles from live website.
 
-            if not select:
-                self.logger.error("Could not find subject dropdown on live site")
-                return []
+        Raises rather than returning nothing: an empty result would title every subject
+        with its own code, and the run would look fine.
+        """
+        response = self._robust_request("GET", self.base_url)
+        soup = BeautifulSoup(response.text, "html.parser")
+        select = soup.find("select", {"name": "ddl_subject"})
+        if not select:
+            raise ValueError("Subject dropdown (ddl_subject) missing from the live site")
 
-            subjects = []
-            for option in select.find_all("option"):
-                value = option.get("value", "").strip()
-                text = option.get_text().strip()
-                if value and text:  # Skip empty options
-                    subjects.append({"code": value, "title": text})
+        subjects = []
+        for option in select.find_all("option"):
+            value = option.get("value", "").strip()
+            text = option.get_text().strip()
+            if value and text:  # Skip empty options
+                subjects.append({"code": value, "title": text})
 
-            self.logger.info(f"📋 Found {len(subjects)} subjects with titles from live site")
-            return subjects
-
-        except Exception as e:
-            self.logger.error(f"❌ Error getting subjects with titles: {e}")
-            return []
+        self.logger.info(f"📋 Found {len(subjects)} subjects with titles from live site")
+        return subjects
 
     def scrape_subject(self, subject_code: str) -> list[Course]:
         """Scrape courses for a specific subject"""
@@ -1974,10 +1971,9 @@ class CuhkScraper:
         an empty subject), or None on failure.
         """
         try:
-            # Get subject title from cache (fetched at start of production scraping)
-            subject_title = self.subject_titles_cache.get(
-                subject, subject
-            )  # Fallback to code if title not found
+            # No fallback to the code: the app already renders one at display time, where
+            # it can't be mistaken for scraped data.
+            subject_title = self.subject_titles_cache.get(subject, "")
 
             # Remove subject code prefix from title for cleaner display (e.g., "UGEC - Society and Culture" → "Society and Culture")
             if " - " in subject_title:

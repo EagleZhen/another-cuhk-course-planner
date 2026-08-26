@@ -272,9 +272,12 @@ def test_course_list_shortfall_is_reported(page):
     assert CuhkScraper._parse_course_results(_live_scraper(), NO_RECORDS_PAGE) == []
 
 
+MAX_RETRIES = 2  # enough to exhaust the loop quickly; production uses 10
+
+
 def _subject_scraper(page):
     return _live_scraper(
-        config=ScrapingConfig(max_retries=2, get_details=False),
+        config=ScrapingConfig(max_retries=MAX_RETRIES, get_details=False),
         progress_tracker=None,
         _set_context=lambda *a, **k: None,
         _extract_form_data=lambda soup: {},
@@ -288,8 +291,33 @@ def test_exhausted_subject_raises_while_an_empty_subject_completes(monkeypatch):
     # Every attempt rejected: returning [] here would be read as "this subject has no
     # courses" and the run would report success.
     rejected = '<span id="lbl_error" class="errorLabel">Invalid Verification Code</span>'
-    with pytest.raises(RuntimeError, match="2 attempts"):
+    with pytest.raises(RuntimeError, match=f"{MAX_RETRIES} attempts"):
         CuhkScraper.scrape_subject(_subject_scraper(rejected), "TEST")
 
     # A subject CUHK really has nothing for still succeeds with no courses.
     assert CuhkScraper.scrape_subject(_subject_scraper(NO_RECORDS_PAGE), "TEST") == []
+
+
+def test_missing_titles_abort_the_run_rather_than_titling_every_subject_with_its_code():
+    # An empty title list is not "no titles" — it would name every subject after itself,
+    # and the scrape would look successful.
+    with pytest.raises(ValueError):
+        CuhkScraper.get_subjects_with_titles_from_live_site(
+            _live_scraper(_robust_request=lambda *a, **k: SimpleNamespace(text=DETAIL_HTML))
+        )
+
+    page = '<select name="ddl_subject"><option value="TEST">TEST - Test Subject</option></select>'
+    assert CuhkScraper.get_subjects_with_titles_from_live_site(
+        _live_scraper(_robust_request=lambda *a, **k: SimpleNamespace(text=page))
+    ) == [{"code": "TEST", "title": "TEST - Test Subject"}]
+
+
+def test_unknown_subject_title_is_recorded_empty_not_as_the_code(tmp_path):
+    # getSubjectTitle in the web app already falls back to the code at render time, and
+    # an empty string is falsy there — so this renders identically without a guess
+    # sitting in the committed data.
+    scraper = SimpleNamespace(subject_titles_cache={}, logger=logging.getLogger("test"))
+    _save(scraper, [_course("1000", ["2025-26 Term 1"])], tmp_path)
+
+    metadata = json.loads((tmp_path / "2025-26" / "TEST.json").read_text())["metadata"]
+    assert metadata["subject_title"] == ""
