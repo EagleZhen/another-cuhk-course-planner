@@ -998,7 +998,7 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "70",
+                "enrolled": "71",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -3138,19 +3138,19 @@
                 {
                   "time": "We 10:30AM - 1:15PM",
                   "location": "Wong Foo Yuan Bldg UG02",
-                  "instructor": "Professor LI Wendong, \nProfessor WANG Jian",
+                  "instructor": "Professor LI Wendong",
                   "dates": "13/1, 20/1, 27/1, 3/2"
                 },
                 {
                   "time": "We 10:30AM - 1:15PM",
                   "location": "Wong Foo Yuan Bldg UG02",
-                  "instructor": "Professor LI Wendong, \nProfessor WANG Jian",
+                  "instructor": "Professor LI Wendong",
                   "dates": "17/2, 24/2, 3/3"
                 },
                 {
                   "time": "We 10:30AM - 1:15PM",
                   "location": "Wong Foo Yuan Bldg UG02",
-                  "instructor": "Professor LI Wendong, \nProfessor WANG Jian",
+                  "instructor": "Professor LI Wendong",
                   "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
                 }
               ],
@@ -3500,6 +3500,12 @@
               "section": "G-LEC (2470)",
               "meetings": [
                 {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor WAN William Piu",
+                  "dates": "3/10"
+                },
+                {
                   "time": "Th 6:30PM - 9:15PM",
                   "location": "Sino Building UG06",
                   "instructor": "Professor WAN William Piu",
@@ -3509,7 +3515,13 @@
                   "time": "Th 6:30PM - 9:15PM",
                   "location": "Sino Building UG06",
                   "instructor": "Professor WAN William Piu",
-                  "dates": "8/10, 15/10, 22/10, 29/10"
+                  "dates": "8/10, 15/10"
+                },
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Professor WAN William Piu",
+                  "dates": "29/10"
                 }
               ],
               "availability": {

@@ -3396,10 +3396,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "0",
+                "enrolled": "19",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "100",
+                "available_seats": "81",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4082,7 +4082,13 @@
                   "time": "Fr 10:30AM - 1:15PM",
                   "location": "Wu Ho Man Yuen Bldg 408",
                   "instructor": "Professor HE Jiapeng, \nProfessor KANG Ya",
-                  "dates": "9/10, 16/10, 23/10, 30/10"
+                  "dates": "9/10, 16/10, 23/10"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor HE Jiapeng, \nProfessor KANG Ya",
+                  "dates": "31/10"
                 }
               ],
               "availability": {
@@ -4108,7 +4114,13 @@
                   "time": "Th 1:30PM - 4:15PM",
                   "location": "Esther Lee Bldg LT4",
                   "instructor": "Professor HE Jiapeng, \nProfessor KANG Ya",
-                  "dates": "8/10, 15/10, 22/10, 29/10"
+                  "dates": "8/10, 15/10, 22/10"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT3",
+                  "instructor": "Professor HE Jiapeng, \nProfessor KANG Ya",
+                  "dates": "31/10"
                 }
               ],
               "availability": {
@@ -6671,7 +6683,7 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "61",
+                "enrolled": "64",
                 "waitlist_capacity": "15",
                 "waitlist_total": "0",
                 "available_seats": "0",
