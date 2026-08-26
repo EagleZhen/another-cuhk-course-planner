@@ -880,8 +880,8 @@ class CuhkScraper:
 
         return form_data
 
-    def _parse_course_results(self, html: str, get_details: bool = False) -> list[Course]:
-        """Parse course results from HTML response"""
+    def _parse_course_results(self, html: str) -> list[Course]:
+        """Parse the subject's list page into Course stubs: code, title, postback target."""
         soup = BeautifulSoup(html, "html.parser")
         courses = []
 
