@@ -1,10 +1,17 @@
 import json
 import logging
+import time
 from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
-from cuhk_scraper import Course, CuhkScraper, ScrapingProgressTracker, TermInfo
+from cuhk_scraper import (
+    Course,
+    CuhkScraper,
+    ScrapingConfig,
+    ScrapingProgressTracker,
+    TermInfo,
+)
 from data_utils import SCHEMA_VERSION
 
 
@@ -144,3 +151,86 @@ def test_never_scraped_subject_omits_last_scraped(tracker):
     # timestamp, and a null would have to be special-cased everywhere downstream.
     tracker.fail_subject("TEST", "boom")
     assert "last_scraped" not in _entry(tracker, "TEST")
+
+
+# Each case below is one distinction: did this come back empty because it is empty, or
+# because something broke?
+
+DETAIL_HTML = '<span id="uc_course_lbl_course">TEST 1000 - Course 1000</span>'
+TERM_OPTIONS = {"2390": "2025-26 Term 2", "2410": "2026-27 Term 1"}
+
+
+def _term_page(selected):
+    options = "".join(
+        f'<option value="{code}"{' selected="selected"' if code == selected else ""}>{name}</option>'
+        for code, name in TERM_OPTIONS.items()
+    )
+    return f'{DETAIL_HTML}<select id="uc_course_ddl_class_term">{options}</select>'
+
+
+def _boom(*args, **kwargs):
+    raise ConnectionError("network is down")
+
+
+def _live_scraper(**overrides):
+    """A CuhkScraper with no __init__ — the real one loads OCR models and opens log files."""
+    scraper = CuhkScraper.__new__(CuhkScraper)
+    scraper.logger = logging.getLogger("test")
+    scraper.base_url = "http://test.invalid"
+    scraper.config = ScrapingConfig(get_course_outcome=False, get_enrollment_details=False)
+    scraper.current_config = None  # keeps _save_debug_html a no-op
+    scraper.current_course_context = None
+    scraper._robust_request = _boom
+    for name, value in overrides.items():
+        setattr(scraper, name, value)
+    return scraper
+
+
+def test_broken_term_retries_while_an_empty_term_is_kept(monkeypatch):
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+
+    # Switching to the unselected term needs a request; failing it re-scrapes the course
+    # rather than losing a term.
+    with pytest.raises(ConnectionError):
+        CuhkScraper._get_course_details_with_term_selection(
+            _live_scraper(), _term_page(selected="2390"), _course("1000", [])
+        )
+
+    # A page with no sections is a real empty term and still gets a TermInfo. Dropping the
+    # unselected option leaves nothing that needs a request.
+    page = _term_page(selected="2390").replace('<option value="2410">2026-27 Term 1</option>', "")
+    course = CuhkScraper._get_course_details_with_term_selection(
+        _live_scraper(), page, _course("1000", [])
+    )
+    assert [(t.term_name, t.schedule) for t in course.terms] == [("2025-26 Term 2", [])]
+
+
+SECTION_TABLE = (
+    '<table id="uc_course_gv_sched"><tr class="normalGridViewRowStyle">'
+    "<td><a href=\"javascript:__doPostBack('uc_course$gv_sched$ctl02$lkbtn','')\">"
+    "-- LEC (1234)</a></td><td>Mo 10:30</td></tr></table>"
+)
+
+
+def test_broken_section_retries_while_a_term_without_sections_stays_empty():
+    with pytest.raises(ConnectionError):
+        CuhkScraper._parse_schedule_with_enrollment_details(_live_scraper(), SECTION_TABLE)
+
+    # No schedule table is a term nobody is teaching, and needs no request to say so.
+    assert CuhkScraper._parse_schedule_with_enrollment_details(_live_scraper(), DETAIL_HTML) == (
+        [],
+        set(),
+    )
+
+
+def test_permanent_outcome_failure_is_recorded_once_per_course():
+    # An unrelated failure re-scrapes the course, reaching the same permanent failure.
+    scraper = _live_scraper()
+    for _ in range(3):
+        CuhkScraper._track_failed_course_outcome(scraper, "TEST", "1000", "system_error_permanent")
+    CuhkScraper._track_failed_course_outcome(scraper, "TEST", "1000", "other_reason")
+
+    assert [f["reason"] for f in scraper._failed_course_outcomes] == [
+        "system_error_permanent",
+        "other_reason",
+    ]

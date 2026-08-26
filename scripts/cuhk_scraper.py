@@ -1036,26 +1036,20 @@ class CuhkScraper:
             f"Found {len(available_terms)} terms for {base_course.course_code}: {[name for _, name in available_terms]}"
         )
 
-        # Scrape details for each term
+        # A failure propagates to get_course_details, which re-scrapes the course: a
+        # dropped term is indistinguishable from one CUHK stopped offering.
         all_term_info = []
         for i, (term_code, term_name) in enumerate(available_terms):
-            try:
-                self.logger.info(
-                    f"Scraping term {i + 1}/{len(available_terms)}: {term_name} for {base_course.course_code}"
-                )
-                term_info = self._scrape_term_details(html, base_course, term_code, term_name)
-                if term_info:
-                    all_term_info.append(term_info)
+            self.logger.info(
+                f"Scraping term {i + 1}/{len(available_terms)}: {term_name} for {base_course.course_code}"
+            )
+            term_info = self._scrape_term_details(html, base_course, term_code, term_name)
+            if term_info:
+                all_term_info.append(term_info)
 
-                # Be polite to server between terms
-                if i < len(available_terms) - 1:
-                    time.sleep(1)
-
-            except Exception as e:
-                self.logger.warning(
-                    f"Failed to scrape {term_name} for {base_course.course_code}: {e}"
-                )
-                continue
+            # Be polite to server between terms
+            if i < len(available_terms) - 1:
+                time.sleep(1)
 
         base_course.terms = all_term_info
 
@@ -1078,65 +1072,58 @@ class CuhkScraper:
         self, html: str, base_course: Course, term_code: str, term_name: str
     ) -> TermInfo | None:
         """Scrape details for a specific term"""
-        try:
+        soup = BeautifulSoup(html, "html.parser")
+
+        # The caller reached here by finding this dropdown in the same HTML.
+        term_select = soup.find("select", {"id": "uc_course_ddl_class_term"})
+        current_selected = (
+            term_select.find("option", {"selected": "selected"}) if term_select else None
+        )
+        is_current_term = current_selected and current_selected.get("value") == term_code
+
+        # If not current term, switch to it
+        if not is_current_term:
+            self.logger.info(f"Switching to {term_name} for {base_course.course_code}")
+
+            # Prepare postback for term change
+            form_data = self._extract_asp_hidden_fields(soup)
+            form_data["uc_course$ddl_class_term"] = term_code
+            form_data["__EVENTTARGET"] = "uc_course$ddl_class_term"
+            form_data["__EVENTARGUMENT"] = ""
+
+            # Submit term change
+            response = self._robust_request("POST", self.base_url, data=form_data)
+            html = response.text
             soup = BeautifulSoup(html, "html.parser")
 
-            # Check if this term is already selected
-            term_select = soup.find("select", {"id": "uc_course_ddl_class_term"})
-            current_selected = term_select.find("option", {"selected": "selected"})
-            is_current_term = current_selected and current_selected.get("value") == term_code
+        # Check "Show sections" button - click only if enabled
+        show_sections_btn = soup.find("input", {"id": "uc_course_btn_class_section"})
+        if show_sections_btn:
+            # Check if button is disabled
+            is_disabled = show_sections_btn.get("disabled") is not None
 
-            # If not current term, switch to it
-            if not is_current_term:
-                self.logger.info(f"Switching to {term_name} for {base_course.course_code}")
+            if not is_disabled:
+                self.logger.info(f"Clicking 'Show sections' for {term_name}")
 
-                # Prepare postback for term change
+                # Prepare postback for showing sections
                 form_data = self._extract_asp_hidden_fields(soup)
+                form_data["uc_course$btn_class_section"] = "Show sections"
                 form_data["uc_course$ddl_class_term"] = term_code
-                form_data["__EVENTTARGET"] = "uc_course$ddl_class_term"
-                form_data["__EVENTARGUMENT"] = ""
 
-                # Submit term change
+                # Submit show sections
                 response = self._robust_request("POST", self.base_url, data=form_data)
                 html = response.text
-                soup = BeautifulSoup(html, "html.parser")
+            else:
+                self.logger.info(
+                    f"'Show sections' button disabled for {term_name} - sections should already be visible"
+                )
 
-            # Check "Show sections" button - click only if enabled
-            show_sections_btn = soup.find("input", {"id": "uc_course_btn_class_section"})
-            if show_sections_btn:
-                # Check if button is disabled
-                is_disabled = show_sections_btn.get("disabled") is not None
+            # Save debug file for the sections HTML (already visible if the button was disabled)
+            filename = f"sections_{base_course.subject}_{base_course.course_code}_{term_name.replace(' ', '_').replace('-', '_')}.html"
+            self._save_debug_html(html, filename)
 
-                if not is_disabled:
-                    self.logger.info(f"Clicking 'Show sections' for {term_name}")
-
-                    # Prepare postback for showing sections
-                    form_data = self._extract_asp_hidden_fields(soup)
-                    form_data["uc_course$btn_class_section"] = "Show sections"
-                    form_data["uc_course$ddl_class_term"] = term_code
-
-                    # Submit show sections
-                    response = self._robust_request("POST", self.base_url, data=form_data)
-                    html = response.text
-
-                    # Save debug file for sections HTML (using smart saving)
-                    filename = f"sections_{base_course.subject}_{base_course.course_code}_{term_name.replace(' ', '_').replace('-', '_')}.html"
-                    self._save_debug_html(html, filename)
-                else:
-                    self.logger.info(
-                        f"'Show sections' button disabled for {term_name} - sections should already be visible"
-                    )
-
-                    # Save debug file for current page (sections should be already visible)
-                    filename = f"sections_{base_course.subject}_{base_course.course_code}_{term_name.replace(' ', '_').replace('-', '_')}.html"
-                    self._save_debug_html(html, filename)
-
-            # Parse the term-specific information
-            return self._parse_term_info(html, term_code, term_name)
-
-        except Exception as e:
-            self.logger.error(f"Error scraping term {term_name}: {e}")
-            return None
+        # Parse the term-specific information
+        return self._parse_term_info(html, term_code, term_name)
 
     def _extract_course_header_info(self, soup: BeautifulSoup) -> tuple[str, str] | None:
         """
@@ -1420,51 +1407,43 @@ class CuhkScraper:
         self, postback_target: str, current_html: str, section_name: str
     ) -> dict | None:
         """Click into a section to get detailed enrollment information"""
-        try:
-            # Extract postback parameters from the JavaScript call
-            if "javascript:__doPostBack(" in postback_target:
-                # Parse the postback parameters
-                # Format: javascript:__doPostBack('uc_course$gv_sched$ctl02$lkbtn_class_section','')
-                start = postback_target.find("'") + 1
-                end = postback_target.find("'", start)
-                event_target = postback_target[start:end] if start > 0 and end > start else ""
-
-                if not event_target:
-                    self.logger.warning(f"Could not parse postback target: {postback_target}")
-                    return None
-
-                soup = BeautifulSoup(current_html, "html.parser")
-
-                # Prepare postback for section enrollment details
-                form_data = self._extract_asp_hidden_fields(soup)
-                form_data["__EVENTTARGET"] = event_target
-                form_data["__EVENTARGUMENT"] = ""
-
-                # Submit the postback to get class details
-                response = self._robust_request("POST", self.base_url, data=form_data)
-                class_details_html = response.text
-
-                # Save debug file for class details HTML (using smart saving)
-                clean_section = (
-                    section_name.replace("(", "")
-                    .replace(")", "")
-                    .replace(" ", "_")
-                    .replace("-", "")
-                )
-                if self.current_course_context:
-                    subject = self.current_course_context["subject"]
-                    course_code = self.current_course_context["course_code"]
-                    filename = f"class_details_{subject}_{course_code}_{clean_section}.html"
-                    self._save_debug_html(class_details_html, filename)
-
-                # Parse the class details page
-                return self._parse_class_details(class_details_html, section_name)
-
-        except Exception as e:
-            self.logger.error(f"Error getting section enrollment details: {e}")
+        # Extract postback parameters from the JavaScript call
+        if "javascript:__doPostBack(" not in postback_target:
             return None
 
-        return None
+        # Parse the postback parameters
+        # Format: javascript:__doPostBack('uc_course$gv_sched$ctl02$lkbtn_class_section','')
+        start = postback_target.find("'") + 1
+        end = postback_target.find("'", start)
+        event_target = postback_target[start:end] if start > 0 and end > start else ""
+
+        if not event_target:
+            self.logger.warning(f"Could not parse postback target: {postback_target}")
+            return None
+
+        soup = BeautifulSoup(current_html, "html.parser")
+
+        # Prepare postback for section enrollment details
+        form_data = self._extract_asp_hidden_fields(soup)
+        form_data["__EVENTTARGET"] = event_target
+        form_data["__EVENTARGUMENT"] = ""
+
+        # Submit the postback to get class details
+        response = self._robust_request("POST", self.base_url, data=form_data)
+        class_details_html = response.text
+
+        # Save debug file for class details HTML (using smart saving)
+        clean_section = (
+            section_name.replace("(", "").replace(")", "").replace(" ", "_").replace("-", "")
+        )
+        if self.current_course_context:
+            subject = self.current_course_context["subject"]
+            course_code = self.current_course_context["course_code"]
+            filename = f"class_details_{subject}_{course_code}_{clean_section}.html"
+            self._save_debug_html(class_details_html, filename)
+
+        # Parse the class details page
+        return self._parse_class_details(class_details_html, section_name)
 
     def _parse_class_details(self, html: str, section_name: str) -> dict | None:
         """Parse class details page to extract section info with enrollment data"""
@@ -1702,6 +1681,13 @@ class CuhkScraper:
         """Track failed course outcomes for potential retry"""
         if not hasattr(self, "_failed_course_outcomes"):
             self._failed_course_outcomes = []
+
+        # An unrelated failure re-scrapes the whole course, so this can be reached again.
+        if any(
+            (f["subject"], f["course_code"], f["reason"]) == (subject, course_code, reason)
+            for f in self._failed_course_outcomes
+        ):
+            return
 
         self._failed_course_outcomes.append(
             {
