@@ -1049,7 +1049,7 @@ class CuhkScraper:
 
             # Be polite to server between terms
             if i < len(available_terms) - 1:
-                time.sleep(1)
+                time.sleep(self.config.request_delay)
 
         base_course.terms = all_term_info
 
