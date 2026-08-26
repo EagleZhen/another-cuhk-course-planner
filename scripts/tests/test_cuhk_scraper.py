@@ -266,10 +266,10 @@ def test_course_list_shortfall_is_reported(page):
     # A row that fails to parse leaves no course to name or re-fetch, so the gap between
     # what the page offered and what we produced is the only thing there is to report.
     with pytest.raises(ValueError):
-        CuhkScraper._parse_course_results(_live_scraper(), page)
+        CuhkScraper._parse_course_list(_live_scraper(), page)
 
-    assert len(CuhkScraper._parse_course_results(_live_scraper(), _list_page(_row("1000")))) == 1
-    assert CuhkScraper._parse_course_results(_live_scraper(), NO_RECORDS_PAGE) == []
+    assert len(CuhkScraper._parse_course_list(_live_scraper(), _list_page(_row("1000")))) == 1
+    assert CuhkScraper._parse_course_list(_live_scraper(), NO_RECORDS_PAGE) == []
 
 
 MAX_RETRIES = 2  # enough to exhaust the loop quickly; production uses 10

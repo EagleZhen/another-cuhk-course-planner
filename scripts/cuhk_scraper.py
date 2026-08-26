@@ -764,7 +764,7 @@ class CuhkScraper:
                 )
 
                 # Parse results
-                courses = self._parse_course_results(response.text)
+                courses = self._parse_course_list(response.text)
 
                 # Set the subject for all courses
                 for course in courses:
@@ -886,7 +886,7 @@ class CuhkScraper:
 
         return form_data
 
-    def _parse_course_results(self, html: str) -> list[Course]:
+    def _parse_course_list(self, html: str) -> list[Course]:
         """Parse the subject's list page into Course stubs: code, title, postback target."""
         soup = BeautifulSoup(html, "html.parser")
         courses = []
