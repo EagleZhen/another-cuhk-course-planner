@@ -151,7 +151,9 @@ Outcome pages pass validation when they:
 
 Course code/title validation is intentionally not repeated on outcome pages, because the detail page is authoritative.
 
-Network errors and HTTP 502/503/504 responses retry with exponential backoff. Course-detail validation failures also retry, because malformed HTML can be transient. This can loop for a long time if the upstream format changes in a permanent way.
+Failures retry rather than resolving to empty data, because empty is what a legitimately empty subject, term, or section returns. Network errors and HTTP 502/503/504 retry inside the request; a course whose details, terms, or sections fail is re-scraped whole; a subject retries `max_retries` times and is then recorded as failed. The first two are unbounded, so a permanent upstream format change loops rather than stopping.
+
+A failed subject blocks publishing, which names it and stops before writing anything. Re-scrape that subject and publish again.
 
 ## Debugging
 

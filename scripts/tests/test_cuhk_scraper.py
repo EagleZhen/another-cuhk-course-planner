@@ -234,3 +234,62 @@ def test_permanent_outcome_failure_is_recorded_once_per_course():
         "system_error_permanent",
         "other_reason",
     ]
+
+
+def _row(code, *, title=True):
+    title_link = f'<a id="gv_detail_ctl02_lbtn_course_title">Course {code}</a>' if title else ""
+    return (
+        '<tr class="normalGridViewRowStyle">'
+        f'<td><a id="gv_detail_ctl02_lbtn_course_nbr" '
+        f"href=\"javascript:__doPostBack('gv_detail$ctl02$lbtn_course_nbr','')\">{code}</a></td>"
+        f"<td>{title_link}</td></tr>"
+    )
+
+
+def _list_page(body):
+    return f'<table id="gv_detail"><tr class="normalGridViewHeaderStyle"><td>Course Nbr</td></tr>{body}</table>'
+
+
+NO_RECORDS_PAGE = _list_page(
+    '<tr class="normalGridViewEmptyDataRowStyle"><td>No record found</td></tr>'
+)
+
+
+@pytest.mark.parametrize(
+    "page",
+    [
+        pytest.param(DETAIL_HTML, id="table missing"),
+        pytest.param(_list_page(_row("1000") + _row("2000", title=False)), id="row lost"),
+    ],
+)
+def test_course_list_shortfall_is_reported(page):
+    # A row that fails to parse leaves no course to name or re-fetch, so the gap between
+    # what the page offered and what we produced is the only thing there is to report.
+    with pytest.raises(ValueError):
+        CuhkScraper._parse_course_results(_live_scraper(), page)
+
+    assert len(CuhkScraper._parse_course_results(_live_scraper(), _list_page(_row("1000")))) == 1
+    assert CuhkScraper._parse_course_results(_live_scraper(), NO_RECORDS_PAGE) == []
+
+
+def _subject_scraper(page):
+    return _live_scraper(
+        config=ScrapingConfig(max_retries=2, get_details=False),
+        progress_tracker=None,
+        _set_context=lambda *a, **k: None,
+        _extract_form_data=lambda soup: {},
+        _robust_request=lambda *a, **k: SimpleNamespace(text=page),
+    )
+
+
+def test_exhausted_subject_raises_while_an_empty_subject_completes(monkeypatch):
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+
+    # Every attempt rejected: returning [] here would be read as "this subject has no
+    # courses" and the run would report success.
+    rejected = '<span id="lbl_error" class="errorLabel">Invalid Verification Code</span>'
+    with pytest.raises(RuntimeError, match="2 attempts"):
+        CuhkScraper.scrape_subject(_subject_scraper(rejected), "TEST")
+
+    # A subject CUHK really has nothing for still succeeds with no courses.
+    assert CuhkScraper.scrape_subject(_subject_scraper(NO_RECORDS_PAGE), "TEST") == []

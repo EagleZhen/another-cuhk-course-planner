@@ -260,6 +260,7 @@ class PublishPlan(NamedTuple):
     copy_plan: list[tuple[str, str]]  # (source_path, dest_path)
     files_by_year: dict[str, list[Path]]
     blocked: bool
+    blocked_subjects: list[str]  # subject codes to re-scrape, named in the abort message
 
 
 def build_publish_plan(source_years: list[Path], progress_data: dict | None) -> PublishPlan:
@@ -271,6 +272,7 @@ def build_publish_plan(source_years: list[Path], progress_data: dict | None) -> 
     copy_plan: list[tuple[str, str]] = []
     files_by_year: dict[str, list[Path]] = {}
     blocked = False
+    blocked_subjects: set[str] = set()
 
     for year_path in source_years:
         year = year_path.name
@@ -296,6 +298,7 @@ def build_publish_plan(source_years: list[Path], progress_data: dict | None) -> 
             print(f"   ⚠️ Files with issues ({len(blocking_failures)}):")
             for file_path, issues in blocking_failures:
                 code = os.path.splitext(os.path.basename(file_path))[0]
+                blocked_subjects.add(code)
                 print(f"      - {code}: {', '.join(issues)}")
             blocked = True
             continue
@@ -305,7 +308,7 @@ def build_publish_plan(source_years: list[Path], progress_data: dict | None) -> 
         for file_path in files_to_copy:
             copy_plan.append((file_path, os.path.join(dest_dir, os.path.basename(file_path))))
 
-    return PublishPlan(copy_plan, files_by_year, blocked)
+    return PublishPlan(copy_plan, files_by_year, blocked, sorted(blocked_subjects))
 
 
 def collect_scrape_times(years: Iterable[str]) -> dict[str, str]:
@@ -597,8 +600,15 @@ def main():
 
         print()
         if plan.blocked:
-            print("❌ Publishing aborted due to validation issues.")
-            print("   Fix the source data, then run this script again.")
+            # Publishing what passed would leave the manifests describing a catalog the
+            # app doesn't have. Publish is manual, so someone is here to fix it.
+            print("❌ Publishing aborted: the scraped data is incomplete (reasons above).")
+            if plan.blocked_subjects:
+                subjects = ",".join(plan.blocked_subjects)
+                print("   Re-scrape, then run this script again:")
+                print(f"      uv run python scripts/scrape_all_subjects.py {subjects}")
+            else:
+                print("   Fix the source data, then run this script again.")
             sys.exit(1)
 
         if not plan.copy_plan:

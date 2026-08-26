@@ -842,7 +842,11 @@ class CuhkScraper:
                 if attempt < self.config.max_retries - 1:
                     time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
 
-        return []
+        # Returning [] here would be indistinguishable from a subject with no courses,
+        # and the caller would record the subject as completed.
+        raise RuntimeError(
+            f"{subject_code}: no usable results after {self.config.max_retries} attempts"
+        )
 
     def _extract_form_data(self, soup: BeautifulSoup) -> dict[str, str]:
         """Extract necessary form data from the page"""
@@ -887,19 +891,16 @@ class CuhkScraper:
 
         # Look for the specific course results table
         course_table = soup.find("table", {"id": "gv_detail"})
-
         if not course_table:
-            self.logger.warning("Could not find course results table (gv_detail)")
-            return []
+            raise ValueError("Course list table (gv_detail) missing from the results page")
 
-        # Get all course rows, skip header
-        rows = course_table.find_all("tr")
-        if len(rows) < 2:
-            self.logger.warning("No course data rows found")
-            return []
+        # Data rows only, which skips the header and the "No record found" row: an empty
+        # subject has to count zero, not one.
+        data_rows = course_table.find_all(
+            "tr", class_=["normalGridViewRowStyle", "normalGridViewAlternatingRowStyle"]
+        )
 
-        # Skip header row, parse data rows
-        for row in rows[1:]:
+        for row in data_rows:
             try:
                 cells = row.find_all("td")
 
@@ -942,6 +943,12 @@ class CuhkScraper:
             except Exception as e:
                 self.logger.warning(f"Error parsing course row: {e}")
                 continue
+
+        # The page offered these rows, so a shortfall is a row we lost, not a course CUHK
+        # stopped listing. Counting is the only granularity available: a row that fails to
+        # parse leaves no course to name or re-fetch on its own.
+        if len(courses) != len(data_rows):
+            raise ValueError(f"Parsed {len(courses)} courses from {len(data_rows)} course rows")
 
         self.logger.info(f"Parsed {len(courses)} courses from results table")
         return courses
