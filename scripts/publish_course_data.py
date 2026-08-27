@@ -33,6 +33,7 @@ from data_utils import (
     diff_subject_manifest,
     diff_term_names,
     is_subject_file,
+    parse_iso_timestamp,
     render_scrape_times_module,
     render_subjects_module,
     render_terms_module,
@@ -355,12 +356,14 @@ def copy_commit_title(scrape_times: dict[str, str]) -> None:
     Writes to stderr, which isn't teed into the publish log, so the committed
     log stays free of clipboard chatter either way.
     """
-    if not scrape_times:
+    parsed_times = {
+        year: parsed
+        for year, scraped_at in scrape_times.items()
+        if (parsed := parse_iso_timestamp(scraped_at))
+    }
+    if not parsed_times:
         return
 
-    parsed_times = {
-        year: datetime.fromisoformat(scraped_at) for year, scraped_at in scrape_times.items()
-    }
     latest = max(parsed_times.values())
     years = ", ".join(
         sorted(year for year, scraped_at in parsed_times.items() if scraped_at == latest)
@@ -377,8 +380,8 @@ def copy_commit_title(scrape_times: dict[str, str]) -> None:
         print(f"\nClipboard unavailable. Commit title: {title}", file=sys.stderr)
 
 
-def calculate_scraping_statistics(progress_data: dict | None) -> dict | None:
-    """Calculate detailed scraping statistics"""
+def summarize_subject_registry(progress_data: dict | None) -> dict | None:
+    """Summarize every subject in the registry, which describes what sits in data/"""
     if not progress_data or "subjects" not in progress_data:
         return None
 
@@ -446,22 +449,26 @@ def format_duration(minutes: float) -> str:
         return f"{hours} hours {remaining_minutes:.1f} minutes"
 
 
-def report_scrape_summary(progress_data: dict | None) -> None:
-    """Print the one-line summary of the scrape the publish is based on."""
-    if not progress_data:
-        return
+def report_scrape_summary(progress_data: dict | None, scrape_times: dict[str, str]) -> None:
+    """Print the one-line summary of the scrape the publish is based on.
 
-    stats = calculate_scraping_statistics(progress_data)
+    The counts cover the whole scrape corpus in data/, so they exceed the number of
+    published files: no-terms/ holds courses that belong to no year directory.
+    """
+    stats = summarize_subject_registry(progress_data)
     if not stats:
         return
 
-    # TODO(#264): dead branch - the scraper never writes these keys
-    started_at = progress_data.get("started_at")
-    # Fall back to an undated line when the log carries no start time at all.
-    when = "data"
-    if isinstance(started_at, str) and started_at:
-        hk_time = datetime.fromisoformat(started_at).astimezone(HONG_KONG_TZ)
-        when = f"at {hk_time.strftime('%Y-%m-%d %H:%M HKT')}"
+    # The stamp the app shows as "Last Data Sync" and the commit title carries, so all
+    # three report one time by construction rather than three that nearly agree.
+    scraped_at = max(
+        (parsed for parsed in map(parse_iso_timestamp, scrape_times.values()) if parsed),
+        default=None,
+    )
+    # An unstamped corpus still reports its counts, undated.
+    when = (
+        f"as of {scraped_at.astimezone(HONG_KONG_TZ):%Y-%m-%d %H:%M HKT}" if scraped_at else "data"
+    )
 
     print(
         f"Scraped {when}: {stats['completed_subjects']} subjects, "
@@ -602,16 +609,16 @@ def main():
             print()
 
         # 1. Report the scrape this publish is based on.
-        progress_data = load_scraping_progress()
-        report_scrape_summary(progress_data)
-
-        # 2. Validate every source year and plan the copy. The gates below are the last
-        # point at which nothing has been written yet.
         source_years = year_dirs(Path(SOURCE_DATA_DIR))
         if not source_years:
             print("❌ No source year directories (data/<year>/) found")
             return
 
+        progress_data = load_scraping_progress()
+        report_scrape_summary(progress_data, collect_scrape_times(y.name for y in source_years))
+
+        # 2. Validate every source year and plan the copy. The gates below are the last
+        # point at which nothing has been written yet.
         plan = build_publish_plan(source_years, progress_data)
 
         print()
