@@ -240,7 +240,6 @@ class ScrapingProgressTracker:
             "completed_courses": [],  # Track completed course codes
             "last_course_completed": "",
             "last_progress_update": utc_now_iso(),
-            "retry_count": previous.get("retry_count", 0),
         }
         # Carry forward when the subject last succeeded: the file it wrote is still on
         # disk, so the entry should keep saying when that data is from.
@@ -299,7 +298,6 @@ class ScrapingProgressTracker:
             "output_file": output_file,
             "duration_minutes": round(duration_minutes, 2),
             "config": config_info,
-            "retry_count": subjects.get(subject, {}).get("retry_count", 0),
         }
 
         self._subject_statuses[subject] = "completed"
@@ -312,13 +310,10 @@ class ScrapingProgressTracker:
         """Mark subject as failed"""
         subjects = self.progress_data["subjects"]
         current_data = subjects.get(subject, {})
-        retry_count = current_data.get("retry_count", 0) + 1
-
         subjects[subject] = {
             "status": "failed",
             "last_attempt": utc_now_iso(),
             "error": str(error_message)[:200],  # Limit error message length
-            "retry_count": retry_count,
             "courses_scraped": current_data.get("courses_scraped", 0),
         }
         # See start_subject: a failed attempt must not erase the last success.
@@ -327,7 +322,7 @@ class ScrapingProgressTracker:
 
         self._subject_statuses[subject] = "failed"
         self._save_progress()
-        self.logger.error(f"Failed {subject} (attempt {retry_count}): {error_message}")
+        self.logger.error(f"Failed {subject}: {error_message}")
 
     def finish_run(self):
         """Mark the run finished

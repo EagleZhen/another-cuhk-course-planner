@@ -315,7 +315,7 @@ def test_a_subject_that_failed_before_writing_any_file_still_blocks(tmp_path, mo
         {
             "subjects": {
                 "AAAA": {"status": "completed", "courses_count": 1, "courses_scraped": 1},
-                "ZZZZ": {"status": "failed", "retry_count": 3},
+                "ZZZZ": {"status": "failed"},
             }
         },
     )
