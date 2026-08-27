@@ -286,6 +286,50 @@ def test_build_publish_plan_checks_every_year_before_blocking(tmp_path, monkeypa
     assert [os.path.basename(source) for source, _ in plan.copy_plan] == ["CCCC.json"]
 
 
+def test_a_failed_subject_blocks_the_publish_and_is_named(tmp_path, monkeypatch):
+    # A failed scrape leaves the previous run's file in place, so the progress status is
+    # the only thing saying that file no longer describes the subject.
+    source_dir, _, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir)
+
+    def _plan(status):
+        subject = {"status": status, "courses_count": 1, "courses_scraped": 1}
+        return publish_course_data.build_publish_plan(
+            [source_dir / "2025-26"], {"scraping_log": {"subjects": {"AAAA": subject}}}
+        )
+
+    blocked = _plan("failed")
+    assert blocked.blocked
+    assert blocked.blocked_subjects == ["AAAA"]
+    assert blocked.copy_plan == []
+
+    ok = _plan("completed")
+    assert not ok.blocked
+    assert not ok.blocked_subjects
+    assert [os.path.basename(source) for source, _ in ok.copy_plan] == ["AAAA.json"]
+
+
+def test_a_subject_that_failed_before_writing_any_file_still_blocks(tmp_path, monkeypatch):
+    # A first-ever failure writes no file, so nothing on disk carries it.
+    source_dir, _, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir)  # AAAA scraped fine and has a file
+
+    plan = publish_course_data.build_publish_plan(
+        [source_dir / "2025-26"],
+        {
+            "scraping_log": {
+                "subjects": {
+                    "AAAA": {"status": "completed", "courses_count": 1, "courses_scraped": 1},
+                    "ZZZZ": {"status": "failed", "retry_count": 3},
+                }
+            }
+        },
+    )
+
+    assert plan.blocked
+    assert plan.blocked_subjects == ["ZZZZ"]
+
+
 def test_publish_strips_unrendered_fields_but_leaves_the_source_intact(tmp_path, monkeypatch):
     # These fields carry base64 images and are never rendered; shipping them roughly
     # tripled the gzipped payload. data/ stays complete so a field can be republished.

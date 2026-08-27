@@ -101,12 +101,17 @@ def load_scraping_progress() -> dict | None:
         return None
 
 
-def validate_course_file(
-    file_path: str, subject_code: str, progress_data: dict | None
-) -> tuple[bool, list[str]]:
+def subject_code_of(file_path: str) -> str:
+    """Course filenames are <subject>.json."""
+    return os.path.splitext(os.path.basename(file_path))[0]
+
+
+def validate_course_file(file_path: str, subject_code: str) -> tuple[bool, list[str]]:
     """
     Validate a course JSON file
     Returns (is_valid, list_of_issues)
+
+    File scope only; the scrape's own record is validate_scrape_progress.
     """
     issues = []
 
@@ -149,34 +154,6 @@ def validate_course_file(
     if actual_count == 0:
         issues.append(EMPTY_COURSES_ISSUE)
 
-    # Validate against progress data if available
-    if (
-        progress_data
-        and "scraping_log" in progress_data
-        and "subjects" in progress_data["scraping_log"]
-    ):
-        subject_progress = progress_data["scraping_log"]["subjects"].get(subject_code)
-        if subject_progress:
-            # Check completion status
-            if subject_progress.get("status") != "completed":
-                issues.append(
-                    f"Subject status is '{subject_progress.get('status')}', not 'completed'"
-                )
-
-            # Check the scrape's own count consistency
-            expected_count = subject_progress.get("courses_count", 0)
-            scraped_count_progress = subject_progress.get("courses_scraped", 0)
-
-            if expected_count != scraped_count_progress:
-                issues.append(
-                    f"Progress mismatch: expected {expected_count}, scraped {scraped_count_progress}"
-                )
-
-            # Note: no file-vs-progress count check here. progress_data counts a full
-            # flat scrape, while a published file now holds only one year's slice of a
-            # subject (data/<year>/), so the two legitimately differ. A per-year check
-            # returns when the scraper records progress per year.
-
     # Check course structure (sample a few courses)
     for i, course in enumerate(courses[:3]):  # Check first 3 courses
         if not isinstance(course, dict):
@@ -195,6 +172,39 @@ def validate_course_file(
             )
 
     return len(issues) == 0, issues
+
+
+def validate_scrape_progress(progress_data: dict | None) -> dict[str, list[str]]:
+    """Issues by subject code, from what the scrape recorded.
+
+    Reads the progress log, not the files on disk: a subject that failed before writing
+    anything has no file to carry the failure.
+
+    No file-vs-progress count check — progress counts a whole scrape, a published file
+    holds one year's slice, so the two legitimately differ.
+    """
+    if not progress_data:
+        return {}
+
+    subjects = progress_data.get("scraping_log", {}).get("subjects", {})
+    issues_by_subject: dict[str, list[str]] = {}
+
+    for subject_code, subject_progress in subjects.items():
+        status = subject_progress.get("status")
+        if status != "completed":
+            # An unfinished scrape leaves counts half-written, so they say nothing here.
+            issues_by_subject[subject_code] = [f"Subject status is '{status}', not 'completed'"]
+            continue
+
+        # Check the scrape's own count consistency
+        expected_count = subject_progress.get("courses_count", 0)
+        scraped_count = subject_progress.get("courses_scraped", 0)
+        if expected_count != scraped_count:
+            issues_by_subject[subject_code] = [
+                f"Progress mismatch: expected {expected_count}, scraped {scraped_count}"
+            ]
+
+    return issues_by_subject
 
 
 def find_course_files(year_dir: str) -> tuple[list[str], list[str], int]:
@@ -222,7 +232,7 @@ def find_course_files(year_dir: str) -> tuple[list[str], list[str], int]:
 
 
 def categorize_year_files(
-    course_files: list[str], progress_data: dict | None
+    course_files: list[str],
 ) -> tuple[list[str], list[tuple[str, list[str]]], list[str]]:
     """Validate each file in a year. Returns (files_to_copy, blocking_failures, empty_codes):
     - files_to_copy: valid files plus subjects whose only issue is having no courses
@@ -234,8 +244,8 @@ def categorize_year_files(
     empty_codes: list[str] = []
 
     for file_path in course_files:
-        subject_code = os.path.splitext(os.path.basename(file_path))[0]
-        is_valid, issues = validate_course_file(file_path, subject_code, progress_data)
+        subject_code = subject_code_of(file_path)
+        is_valid, issues = validate_course_file(file_path, subject_code)
 
         if is_valid:
             files_to_copy.append(file_path)
@@ -260,17 +270,27 @@ class PublishPlan(NamedTuple):
     copy_plan: list[tuple[str, str]]  # (source_path, dest_path)
     files_by_year: dict[str, list[Path]]
     blocked: bool
+    blocked_subjects: list[str]  # subject codes to re-scrape, named in the abort message
 
 
 def build_publish_plan(source_years: list[Path], progress_data: dict | None) -> PublishPlan:
-    """Validate every source year and build the copy plan.
+    """Validate the scrape and every source year, then build the copy plan.
 
     Every year is checked even after one fails, so a single run reports all problems.
-    A blocked year contributes nothing to the plan.
+    A blocked year contributes nothing to the plan, and neither does a blocked subject.
     """
     copy_plan: list[tuple[str, str]] = []
     files_by_year: dict[str, list[Path]] = {}
     blocked = False
+    blocked_subjects: set[str] = set()
+
+    progress_issues = validate_scrape_progress(progress_data)
+    if progress_issues:
+        print(f"⚠️ Subjects the scrape did not complete ({len(progress_issues)}):")
+        for subject_code, issues in sorted(progress_issues.items()):
+            print(f"      - {subject_code}: {', '.join(issues)}")
+        blocked_subjects.update(progress_issues)
+        blocked = True
 
     for year_path in source_years:
         year = year_path.name
@@ -284,9 +304,7 @@ def build_publish_plan(source_years: list[Path], progress_data: dict | None) -> 
             blocked = True
             continue
 
-        files_to_copy, blocking_failures, empty_codes = categorize_year_files(
-            course_files, progress_data
-        )
+        files_to_copy, blocking_failures, empty_codes = categorize_year_files(course_files)
         if empty_codes:
             print(
                 f"   Subjects with no courses ({len(empty_codes)}): "
@@ -295,17 +313,23 @@ def build_publish_plan(source_years: list[Path], progress_data: dict | None) -> 
         if blocking_failures:
             print(f"   ⚠️ Files with issues ({len(blocking_failures)}):")
             for file_path, issues in blocking_failures:
-                code = os.path.splitext(os.path.basename(file_path))[0]
+                code = subject_code_of(file_path)
+                blocked_subjects.add(code)
                 print(f"      - {code}: {', '.join(issues)}")
             blocked = True
             continue
 
+        files_to_copy = [
+            file_path
+            for file_path in files_to_copy
+            if subject_code_of(file_path) not in progress_issues
+        ]
         files_by_year[year] = [Path(file_path) for file_path in files_to_copy]
         dest_dir = os.path.join(PUBLISHED_DATA_DIR, year)
         for file_path in files_to_copy:
             copy_plan.append((file_path, os.path.join(dest_dir, os.path.basename(file_path))))
 
-    return PublishPlan(copy_plan, files_by_year, blocked)
+    return PublishPlan(copy_plan, files_by_year, blocked, sorted(blocked_subjects))
 
 
 def collect_scrape_times(years: Iterable[str]) -> dict[str, str]:
@@ -597,8 +621,15 @@ def main():
 
         print()
         if plan.blocked:
-            print("❌ Publishing aborted due to validation issues.")
-            print("   Fix the source data, then run this script again.")
+            # Publishing what passed would leave the manifests describing a catalog the
+            # app doesn't have. Publish is manual, so someone is here to fix it.
+            print("❌ Publishing aborted: the scraped data is incomplete (reasons above).")
+            if plan.blocked_subjects:
+                subjects = ",".join(plan.blocked_subjects)
+                print("   Re-scrape, then run this script again:")
+                print(f"      uv run python scripts/scrape_all_subjects.py {subjects}")
+            else:
+                print("   Fix the source data, then run this script again.")
             sys.exit(1)
 
         if not plan.copy_plan:

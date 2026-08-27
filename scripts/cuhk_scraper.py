@@ -54,7 +54,10 @@ class ScrapingConfig:
     save_debug_on_error: bool = True  # Always save HTML when parsing fails
     debug_html_directory: str = DEBUG_HTML_DIR  # Separate from JSON results
     request_delay: float = 2.0
-    max_retries: int = 5
+    max_subject_attempts: int = 5
+    # Transient corruption clears on the next attempt; this many identical parse failures
+    # means the page shape changed and no amount of retrying will parse it.
+    max_course_attempts: int = 5
     output_mode: str = "single_file"  # "single_file" or "per_subject"
     output_directory: str = SCRAPER_OUTPUTS_DIR  # testing default
     track_progress: bool = False  # Progress tracking for production
@@ -78,7 +81,7 @@ class ScrapingConfig:
             save_debug_on_error=True,  # Only save HTML on parsing errors
             debug_html_directory=DEBUG_HTML_DIR,  # Separate debug folder
             request_delay=1.0,
-            max_retries=10,
+            max_subject_attempts=10,
             output_mode="per_subject",  # Per-subject files for production
             output_directory=SOURCE_DATA_DIR,  # Production data directory
             track_progress=True,  # Enable progress tracking
@@ -415,9 +418,9 @@ class CuhkScraper:
             Response object
 
         Note:
-            Retries infinitely for network issues (ConnectionError, Timeout, ConnectionResetError, server errors)
-            Pre-loads response content to catch connection drops during response reading
-            Does not retry for client errors (4xx)
+            Retries network issues (ConnectionError, Timeout, ConnectionResetError) and
+            HTTP 502/503/504 forever, pre-loading the body so a drop while reading it counts
+            Raises every other HTTP status for the caller to redo the unit
         """
         # Set default timeout if not provided
         if "timeout" not in kwargs:
@@ -458,16 +461,21 @@ class CuhkScraper:
                 time.sleep(wait_time)
 
             except HTTPError as e:
-                if e.response.status_code in [502, 503, 504]:  # Server errors - retry
+                # An HTTPError can carry no response; dereferencing it would replace the
+                # original error with an AttributeError.
+                status = e.response.status_code if e.response is not None else None
+                if status in [502, 503, 504]:  # Server errors - retry
                     attempt += 1
                     wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # Exponential backoff, max 60s
                     self.logger.warning(
-                        f"🔧 Server error {e.response.status_code} (attempt {attempt}), retrying in {wait_time}s"
+                        f"🔧 Server error {status} (attempt {attempt}), retrying in {wait_time}s"
                     )
                     time.sleep(wait_time)
                 else:
-                    # Don't retry client errors (4xx) or other server errors
-                    self.logger.error(f"❌ HTTP error {e.response.status_code}: {e}")
+                    # Repeating an identical 4xx won't help — it usually means stale
+                    # session or form state, which only the caller can rebuild by redoing
+                    # the whole unit. Escalate rather than hammer the same request.
+                    self.logger.error(f"❌ HTTP error {status}: {e}")
                     raise
 
     def _setup_file_logging(
@@ -669,61 +677,39 @@ class CuhkScraper:
         }
 
     def get_subjects_from_live_site(self) -> list[str]:
-        """Extract subject codes from live website"""
-        try:
-            response = self._robust_request("GET", self.base_url)
-
-            soup = BeautifulSoup(response.text, "html.parser")
-            select = soup.find("select", {"name": "ddl_subject"})
-
-            if not select:
-                self.logger.error("Could not find subject dropdown on live site")
-                return []
-
-            subjects = []
-            for option in select.find_all("option"):
-                value = option.get("value", "").strip()
-                if value:  # Skip empty option
-                    subjects.append(value)
-
-            self.logger.info(f"Found {len(subjects)} subjects from live site")
-            return subjects
-
-        except Exception as e:
-            self.logger.error(f"Error getting subjects from live site: {e}")
-            return []
+        """Subject codes from the live website. Raises like the titled fetch it delegates to."""
+        return [subject["code"] for subject in self.get_subjects_with_titles_from_live_site()]
 
     def get_subjects_with_titles_from_live_site(self) -> list[dict[str, str]]:
-        """Extract subject codes and titles from live website"""
-        try:
-            response = self._robust_request("GET", self.base_url)
-            soup = BeautifulSoup(response.text, "html.parser")
-            select = soup.find("select", {"name": "ddl_subject"})
+        """Extract subject codes and titles from live website.
 
-            if not select:
-                self.logger.error("Could not find subject dropdown on live site")
-                return []
+        Raises rather than returning nothing: an empty result would blank every subject
+        title, and the run would look fine.
+        """
+        response = self._robust_request("GET", self.base_url)
+        soup = BeautifulSoup(response.text, "html.parser")
+        select = soup.find("select", {"name": "ddl_subject"})
+        if not select:
+            raise ValueError("Subject dropdown (ddl_subject) missing from the live site")
 
-            subjects = []
-            for option in select.find_all("option"):
-                value = option.get("value", "").strip()
-                text = option.get_text().strip()
-                if value and text:  # Skip empty options
-                    subjects.append({"code": value, "title": text})
+        subjects = []
+        for option in select.find_all("option"):
+            value = option.get("value", "").strip()
+            text = option.get_text().strip()
+            if value and text:  # Skip empty options
+                subjects.append({"code": value, "title": text})
+        if not subjects:
+            raise ValueError("Subject dropdown (ddl_subject) held no titled subjects")
 
-            self.logger.info(f"📋 Found {len(subjects)} subjects with titles from live site")
-            return subjects
-
-        except Exception as e:
-            self.logger.error(f"❌ Error getting subjects with titles: {e}")
-            return []
+        self.logger.info(f"📋 Found {len(subjects)} subjects with titles from live site")
+        return subjects
 
     def scrape_subject(self, subject_code: str) -> list[Course]:
         """Scrape courses for a specific subject"""
         # Set context for this subject
         self._set_context(self.config)
 
-        for attempt in range(self.config.max_retries):
+        for attempt in range(self.config.max_subject_attempts):
             try:
                 self.logger.info(f"📋 Scraping {subject_code}, attempt {attempt + 1}")
 
@@ -747,7 +733,7 @@ class CuhkScraper:
                         f"{validation['result_type']} - {validation.get('error_message', 'Unknown')}"
                     )
                     # Continue to next attempt
-                    if attempt < self.config.max_retries - 1:
+                    if attempt < self.config.max_subject_attempts - 1:
                         time.sleep(1)  # Brief delay before retry
                     continue
 
@@ -762,7 +748,7 @@ class CuhkScraper:
                 )
 
                 # Parse results
-                courses = self._parse_course_results(response.text)
+                courses = self._parse_course_list(response.text)
 
                 # Set the subject for all courses
                 for course in courses:
@@ -834,15 +820,19 @@ class CuhkScraper:
 
                 # If we reach here, something unexpected happened - retry
                 self.logger.warning(f"⚠️ Unexpected validation result: {validation['result_type']}")
-                if attempt < self.config.max_retries - 1:
+                if attempt < self.config.max_subject_attempts - 1:
                     time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
 
             except Exception as e:
                 self.logger.error(f"Attempt {attempt + 1} failed for {subject_code}: {e}")
-                if attempt < self.config.max_retries - 1:
+                if attempt < self.config.max_subject_attempts - 1:
                     time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
 
-        return []
+        # Returning [] here would be indistinguishable from a subject with no courses,
+        # and the caller would record the subject as completed.
+        raise RuntimeError(
+            f"{subject_code}: no usable results after {self.config.max_subject_attempts} attempts"
+        )
 
     def _extract_form_data(self, soup: BeautifulSoup) -> dict[str, str]:
         """Extract necessary form data from the page"""
@@ -880,26 +870,23 @@ class CuhkScraper:
 
         return form_data
 
-    def _parse_course_results(self, html: str, get_details: bool = False) -> list[Course]:
-        """Parse course results from HTML response"""
+    def _parse_course_list(self, html: str) -> list[Course]:
+        """Parse the subject's list page into Course stubs: code, title, postback target."""
         soup = BeautifulSoup(html, "html.parser")
         courses = []
 
         # Look for the specific course results table
         course_table = soup.find("table", {"id": "gv_detail"})
-
         if not course_table:
-            self.logger.warning("Could not find course results table (gv_detail)")
-            return []
+            raise ValueError("Course list table (gv_detail) missing from the results page")
 
-        # Get all course rows, skip header
-        rows = course_table.find_all("tr")
-        if len(rows) < 2:
-            self.logger.warning("No course data rows found")
-            return []
+        # Data rows only, which skips the header and the "No record found" row: an empty
+        # subject has to count zero, not one.
+        data_rows = course_table.find_all(
+            "tr", class_=["normalGridViewRowStyle", "normalGridViewAlternatingRowStyle"]
+        )
 
-        # Skip header row, parse data rows
-        for row in rows[1:]:
+        for row in data_rows:
             try:
                 cells = row.find_all("td")
 
@@ -943,6 +930,12 @@ class CuhkScraper:
                 self.logger.warning(f"Error parsing course row: {e}")
                 continue
 
+        # The page offered these rows, so a shortfall is a row we lost, not a course CUHK
+        # stopped listing. Counting is the only granularity available: a row that fails to
+        # parse leaves no course to name or re-fetch on its own.
+        if len(courses) != len(data_rows):
+            raise ValueError(f"Parsed {len(courses)} courses from {len(data_rows)} course rows")
+
         self.logger.info(f"Parsed {len(courses)} courses from results table")
         return courses
 
@@ -954,7 +947,7 @@ class CuhkScraper:
 
         # TODO: Extract retry logic if we add more retry sites (see _robust_request for similar pattern)
         attempt = 0
-        while True:  # Infinite retry for transient errors
+        while True:
             try:
                 soup = BeautifulSoup(current_html, "html.parser")
 
@@ -980,9 +973,13 @@ class CuhkScraper:
 
                 return detailed_course
 
+            # Giving up fails the subject, which blocks publishing and names it. Looping
+            # here instead would strand every subject after this one.
             except ValueError as e:
-                # Validation error (corrupted HTML, missing buttons, etc.) - retry infinitely
+                # Validation error (corrupted HTML, missing buttons, etc.)
                 attempt += 1
+                if attempt >= self.config.max_course_attempts:
+                    raise
                 wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # Same backoff as _robust_request
                 self.logger.warning(
                     f"⚠️ Course details validation failed for {course.course_code} "
@@ -994,6 +991,8 @@ class CuhkScraper:
             except Exception as e:
                 # Unexpected error - also retry (could be parsing error from bad HTML)
                 attempt += 1
+                if attempt >= self.config.max_course_attempts:
+                    raise
                 wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
                 self.logger.error(
                     f"❌ Unexpected error getting course details for {course.course_code} "
@@ -1036,26 +1035,20 @@ class CuhkScraper:
             f"Found {len(available_terms)} terms for {base_course.course_code}: {[name for _, name in available_terms]}"
         )
 
-        # Scrape details for each term
+        # A failure propagates to get_course_details, which re-scrapes the course: a
+        # dropped term is indistinguishable from one CUHK stopped offering.
         all_term_info = []
         for i, (term_code, term_name) in enumerate(available_terms):
-            try:
-                self.logger.info(
-                    f"Scraping term {i + 1}/{len(available_terms)}: {term_name} for {base_course.course_code}"
-                )
-                term_info = self._scrape_term_details(html, base_course, term_code, term_name)
-                if term_info:
-                    all_term_info.append(term_info)
+            self.logger.info(
+                f"Scraping term {i + 1}/{len(available_terms)}: {term_name} for {base_course.course_code}"
+            )
+            term_info = self._scrape_term_details(html, base_course, term_code, term_name)
+            if term_info:
+                all_term_info.append(term_info)
 
-                # Be polite to server between terms
-                if i < len(available_terms) - 1:
-                    time.sleep(1)
-
-            except Exception as e:
-                self.logger.warning(
-                    f"Failed to scrape {term_name} for {base_course.course_code}: {e}"
-                )
-                continue
+            # Be polite to server between terms
+            if i < len(available_terms) - 1:
+                time.sleep(self.config.request_delay)
 
         base_course.terms = all_term_info
 
@@ -1078,65 +1071,58 @@ class CuhkScraper:
         self, html: str, base_course: Course, term_code: str, term_name: str
     ) -> TermInfo | None:
         """Scrape details for a specific term"""
-        try:
+        soup = BeautifulSoup(html, "html.parser")
+
+        # The caller reached here by finding this dropdown in the same HTML.
+        term_select = soup.find("select", {"id": "uc_course_ddl_class_term"})
+        current_selected = (
+            term_select.find("option", {"selected": "selected"}) if term_select else None
+        )
+        is_current_term = current_selected and current_selected.get("value") == term_code
+
+        # If not current term, switch to it
+        if not is_current_term:
+            self.logger.info(f"Switching to {term_name} for {base_course.course_code}")
+
+            # Prepare postback for term change
+            form_data = self._extract_asp_hidden_fields(soup)
+            form_data["uc_course$ddl_class_term"] = term_code
+            form_data["__EVENTTARGET"] = "uc_course$ddl_class_term"
+            form_data["__EVENTARGUMENT"] = ""
+
+            # Submit term change
+            response = self._robust_request("POST", self.base_url, data=form_data)
+            html = response.text
             soup = BeautifulSoup(html, "html.parser")
 
-            # Check if this term is already selected
-            term_select = soup.find("select", {"id": "uc_course_ddl_class_term"})
-            current_selected = term_select.find("option", {"selected": "selected"})
-            is_current_term = current_selected and current_selected.get("value") == term_code
+        # Check "Show sections" button - click only if enabled
+        show_sections_btn = soup.find("input", {"id": "uc_course_btn_class_section"})
+        if show_sections_btn:
+            # Check if button is disabled
+            is_disabled = show_sections_btn.get("disabled") is not None
 
-            # If not current term, switch to it
-            if not is_current_term:
-                self.logger.info(f"Switching to {term_name} for {base_course.course_code}")
+            if not is_disabled:
+                self.logger.info(f"Clicking 'Show sections' for {term_name}")
 
-                # Prepare postback for term change
+                # Prepare postback for showing sections
                 form_data = self._extract_asp_hidden_fields(soup)
+                form_data["uc_course$btn_class_section"] = "Show sections"
                 form_data["uc_course$ddl_class_term"] = term_code
-                form_data["__EVENTTARGET"] = "uc_course$ddl_class_term"
-                form_data["__EVENTARGUMENT"] = ""
 
-                # Submit term change
+                # Submit show sections
                 response = self._robust_request("POST", self.base_url, data=form_data)
                 html = response.text
-                soup = BeautifulSoup(html, "html.parser")
+            else:
+                self.logger.info(
+                    f"'Show sections' button disabled for {term_name} - sections should already be visible"
+                )
 
-            # Check "Show sections" button - click only if enabled
-            show_sections_btn = soup.find("input", {"id": "uc_course_btn_class_section"})
-            if show_sections_btn:
-                # Check if button is disabled
-                is_disabled = show_sections_btn.get("disabled") is not None
+            # Save debug file for the sections HTML (already visible if the button was disabled)
+            filename = f"sections_{base_course.subject}_{base_course.course_code}_{term_name.replace(' ', '_').replace('-', '_')}.html"
+            self._save_debug_html(html, filename)
 
-                if not is_disabled:
-                    self.logger.info(f"Clicking 'Show sections' for {term_name}")
-
-                    # Prepare postback for showing sections
-                    form_data = self._extract_asp_hidden_fields(soup)
-                    form_data["uc_course$btn_class_section"] = "Show sections"
-                    form_data["uc_course$ddl_class_term"] = term_code
-
-                    # Submit show sections
-                    response = self._robust_request("POST", self.base_url, data=form_data)
-                    html = response.text
-
-                    # Save debug file for sections HTML (using smart saving)
-                    filename = f"sections_{base_course.subject}_{base_course.course_code}_{term_name.replace(' ', '_').replace('-', '_')}.html"
-                    self._save_debug_html(html, filename)
-                else:
-                    self.logger.info(
-                        f"'Show sections' button disabled for {term_name} - sections should already be visible"
-                    )
-
-                    # Save debug file for current page (sections should be already visible)
-                    filename = f"sections_{base_course.subject}_{base_course.course_code}_{term_name.replace(' ', '_').replace('-', '_')}.html"
-                    self._save_debug_html(html, filename)
-
-            # Parse the term-specific information
-            return self._parse_term_info(html, term_code, term_name)
-
-        except Exception as e:
-            self.logger.error(f"Error scraping term {term_name}: {e}")
-            return None
+        # Parse the term-specific information
+        return self._parse_term_info(html, term_code, term_name)
 
     def _extract_course_header_info(self, soup: BeautifulSoup) -> tuple[str, str] | None:
         """
@@ -1420,51 +1406,43 @@ class CuhkScraper:
         self, postback_target: str, current_html: str, section_name: str
     ) -> dict | None:
         """Click into a section to get detailed enrollment information"""
-        try:
-            # Extract postback parameters from the JavaScript call
-            if "javascript:__doPostBack(" in postback_target:
-                # Parse the postback parameters
-                # Format: javascript:__doPostBack('uc_course$gv_sched$ctl02$lkbtn_class_section','')
-                start = postback_target.find("'") + 1
-                end = postback_target.find("'", start)
-                event_target = postback_target[start:end] if start > 0 and end > start else ""
-
-                if not event_target:
-                    self.logger.warning(f"Could not parse postback target: {postback_target}")
-                    return None
-
-                soup = BeautifulSoup(current_html, "html.parser")
-
-                # Prepare postback for section enrollment details
-                form_data = self._extract_asp_hidden_fields(soup)
-                form_data["__EVENTTARGET"] = event_target
-                form_data["__EVENTARGUMENT"] = ""
-
-                # Submit the postback to get class details
-                response = self._robust_request("POST", self.base_url, data=form_data)
-                class_details_html = response.text
-
-                # Save debug file for class details HTML (using smart saving)
-                clean_section = (
-                    section_name.replace("(", "")
-                    .replace(")", "")
-                    .replace(" ", "_")
-                    .replace("-", "")
-                )
-                if self.current_course_context:
-                    subject = self.current_course_context["subject"]
-                    course_code = self.current_course_context["course_code"]
-                    filename = f"class_details_{subject}_{course_code}_{clean_section}.html"
-                    self._save_debug_html(class_details_html, filename)
-
-                # Parse the class details page
-                return self._parse_class_details(class_details_html, section_name)
-
-        except Exception as e:
-            self.logger.error(f"Error getting section enrollment details: {e}")
+        # Extract postback parameters from the JavaScript call
+        if "javascript:__doPostBack(" not in postback_target:
             return None
 
-        return None
+        # Parse the postback parameters
+        # Format: javascript:__doPostBack('uc_course$gv_sched$ctl02$lkbtn_class_section','')
+        start = postback_target.find("'") + 1
+        end = postback_target.find("'", start)
+        event_target = postback_target[start:end] if start > 0 and end > start else ""
+
+        if not event_target:
+            self.logger.warning(f"Could not parse postback target: {postback_target}")
+            return None
+
+        soup = BeautifulSoup(current_html, "html.parser")
+
+        # Prepare postback for section enrollment details
+        form_data = self._extract_asp_hidden_fields(soup)
+        form_data["__EVENTTARGET"] = event_target
+        form_data["__EVENTARGUMENT"] = ""
+
+        # Submit the postback to get class details
+        response = self._robust_request("POST", self.base_url, data=form_data)
+        class_details_html = response.text
+
+        # Save debug file for class details HTML (using smart saving)
+        clean_section = (
+            section_name.replace("(", "").replace(")", "").replace(" ", "_").replace("-", "")
+        )
+        if self.current_course_context:
+            subject = self.current_course_context["subject"]
+            course_code = self.current_course_context["course_code"]
+            filename = f"class_details_{subject}_{course_code}_{clean_section}.html"
+            self._save_debug_html(class_details_html, filename)
+
+        # Parse the class details page
+        return self._parse_class_details(class_details_html, section_name)
 
     def _parse_class_details(self, html: str, section_name: str) -> dict | None:
         """Parse class details page to extract section info with enrollment data"""
@@ -1702,6 +1680,13 @@ class CuhkScraper:
         """Track failed course outcomes for potential retry"""
         if not hasattr(self, "_failed_course_outcomes"):
             self._failed_course_outcomes = []
+
+        # An unrelated failure re-scrapes the whole course, so this can be reached again.
+        if any(
+            (f["subject"], f["course_code"], f["reason"]) == (subject, course_code, reason)
+            for f in self._failed_course_outcomes
+        ):
+            return
 
         self._failed_course_outcomes.append(
             {
@@ -1981,10 +1966,9 @@ class CuhkScraper:
         an empty subject), or None on failure.
         """
         try:
-            # Get subject title from cache (fetched at start of production scraping)
-            subject_title = self.subject_titles_cache.get(
-                subject, subject
-            )  # Fallback to code if title not found
+            # No fallback to the code: the app already renders one at display time, where
+            # it can't be mistaken for scraped data.
+            subject_title = self.subject_titles_cache.get(subject, "")
 
             # Remove subject code prefix from title for cleaner display (e.g., "UGEC - Society and Culture" → "Society and Culture")
             if " - " in subject_title:
@@ -2092,11 +2076,6 @@ def main():
     # Get subjects from live website
     print("Getting subjects from live website...")
     subjects = scraper.get_subjects_from_live_site()
-
-    if not subjects:
-        print("Could not get subjects from live website")
-        return
-
     print(f"Found {len(subjects)} subjects: {subjects[:10]}...")  # Show first 10
 
     # Test with just CSCI first

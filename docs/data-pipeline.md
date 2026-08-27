@@ -151,7 +151,17 @@ Outcome pages pass validation when they:
 
 Course code/title validation is intentionally not repeated on outcome pages, because the detail page is authoritative.
 
-Network errors and HTTP 502/503/504 responses retry with exponential backoff. Course-detail validation failures also retry, because malformed HTML can be transient. This can loop for a long time if the upstream format changes in a permanent way.
+Failures retry rather than resolving to empty data, because empty is what a legitimately empty subject, term, or section returns. Each scope retries by redoing the whole unit below it:
+
+| Scope | Retries on | Limit | When it runs out |
+| --- | --- | --- | --- |
+| Request | network errors, HTTP 502/503/504 | unbounded | other statuses raise to the course |
+| Course | anything raised while fetching or parsing a course page | `max_course_attempts` (5) | costs the subject one attempt |
+| Subject | any course failure, restarting from the course list | `max_subject_attempts` (10) | records the subject failed, run moves on |
+
+So a run finishes even when subjects fail, rather than stalling on one course. A failed subject blocks publishing, which names it and stops before writing anything. Re-scrape that subject and publish again.
+
+CUHK's own system-error pages are permanent and never retried — see [System Error Pages](#system-error-pages).
 
 ## Debugging
 
