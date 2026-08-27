@@ -815,10 +815,6 @@ class CuhkScraper:
                                     f"💾 Progress saved: {subject_code} - {courses_completed}/{len(courses_to_detail)} courses completed"
                                 )
 
-                        # Be polite to the server
-                        if i < len(courses_to_detail) - 1:
-                            time.sleep(self.config.request_delay)
-
                     # Add remaining courses without details for complete list (if limited)
                     if self.config.max_courses_per_subject is not None:
                         detailed_courses.extend(courses[self.config.max_courses_per_subject :])
@@ -1061,10 +1057,6 @@ class CuhkScraper:
             term_info = self._scrape_term_details(html, base_course, term_code, term_name)
             if term_info:
                 all_term_info.append(term_info)
-
-            # Be polite to server between terms
-            if i < len(available_terms) - 1:
-                time.sleep(self.config.request_delay)
 
         base_course.terms = all_term_info
 
@@ -1921,10 +1913,6 @@ class CuhkScraper:
 
                 # Clean up even on failure
                 gc.collect()
-
-            # Be polite to the server
-            if i < len(subjects) - 1:
-                time.sleep(self.config.request_delay)
 
         self._write_scrape_times(saved_files, run_started_at, full_catalog)
 
