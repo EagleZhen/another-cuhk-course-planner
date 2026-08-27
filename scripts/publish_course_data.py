@@ -187,6 +187,8 @@ def validate_scrape_progress(progress_data: dict | None) -> dict[str, list[str]]
     if not progress_data:
         return {}
 
+    # TODO(#290): nothing prunes the registry, so a subject CUHK drops keeps whatever
+    # status it last recorded — a stale `failed` blocks every publish.
     return {
         subject_code: [f"Subject status is '{status}', not 'completed'"]
         for subject_code, subject_progress in progress_data.get("subjects", {}).items()
