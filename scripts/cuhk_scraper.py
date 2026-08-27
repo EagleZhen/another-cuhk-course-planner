@@ -55,6 +55,9 @@ class ScrapingConfig:
     debug_html_directory: str = DEBUG_HTML_DIR  # Separate from JSON results
     request_delay: float = 2.0
     max_retries: int = 5
+    # Transient corruption clears on the next attempt; this many identical parse failures
+    # means the page shape changed and no amount of retrying will parse it.
+    max_course_attempts: int = 5
     output_mode: str = "single_file"  # "single_file" or "per_subject"
     output_directory: str = SCRAPER_OUTPUTS_DIR  # testing default
     track_progress: bool = False  # Progress tracking for production
@@ -944,7 +947,7 @@ class CuhkScraper:
 
         # TODO: Extract retry logic if we add more retry sites (see _robust_request for similar pattern)
         attempt = 0
-        while True:  # Infinite retry for transient errors
+        while True:
             try:
                 soup = BeautifulSoup(current_html, "html.parser")
 
@@ -970,9 +973,13 @@ class CuhkScraper:
 
                 return detailed_course
 
+            # Giving up fails the subject, which blocks publishing and names it. Looping
+            # here instead would strand every subject after this one.
             except ValueError as e:
-                # Validation error (corrupted HTML, missing buttons, etc.) - retry infinitely
+                # Validation error (corrupted HTML, missing buttons, etc.)
                 attempt += 1
+                if attempt >= self.config.max_course_attempts:
+                    raise
                 wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # Same backoff as _robust_request
                 self.logger.warning(
                     f"⚠️ Course details validation failed for {course.course_code} "
@@ -984,6 +991,8 @@ class CuhkScraper:
             except Exception as e:
                 # Unexpected error - also retry (could be parsing error from bad HTML)
                 attempt += 1
+                if attempt >= self.config.max_course_attempts:
+                    raise
                 wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
                 self.logger.error(
                     f"❌ Unexpected error getting course details for {course.course_code} "

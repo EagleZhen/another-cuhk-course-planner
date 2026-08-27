@@ -298,6 +298,18 @@ def test_exhausted_subject_raises_while_an_empty_subject_completes(monkeypatch):
     assert CuhkScraper.scrape_subject(_subject_scraper(NO_RECORDS_PAGE), "TEST") == []
 
 
+def test_a_course_that_never_parses_gives_up_instead_of_looping(monkeypatch):
+    # Retrying forever would strand every subject queued behind this one. Giving up fails
+    # the subject, which blocks publishing and names it.
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+    scraper = _live_scraper(_robust_request=lambda *a, **k: SimpleNamespace(text="<html></html>"))
+    course = _course("1000", [])
+    course.postback_target = "target"
+
+    with pytest.raises(ValueError):
+        CuhkScraper.get_course_details(scraper, course, DETAIL_HTML)
+
+
 def test_missing_titles_abort_the_run_rather_than_blanking_every_subject_title():
     # An empty title list is not "no titles" — it would blank every subject title, and the
     # scrape would look successful.
