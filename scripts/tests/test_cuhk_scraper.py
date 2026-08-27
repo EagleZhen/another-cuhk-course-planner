@@ -313,6 +313,15 @@ def test_missing_titles_abort_the_run_rather_than_blanking_every_subject_title()
         _live_scraper(_robust_request=lambda *a, **k: SimpleNamespace(text=page))
     ) == [{"code": "TEST", "title": "TEST - Test Subject"}]
 
+    # The code-only fetch delegates here, so it aborts on the same pages.
+    assert CuhkScraper.get_subjects_from_live_site(
+        _live_scraper(_robust_request=lambda *a, **k: SimpleNamespace(text=page))
+    ) == ["TEST"]
+    with pytest.raises(ValueError):
+        CuhkScraper.get_subjects_from_live_site(
+            _live_scraper(_robust_request=lambda *a, **k: SimpleNamespace(text=empty))
+        )
+
 
 def test_unknown_subject_title_is_recorded_empty_not_as_the_code(tmp_path):
     # getSubjectTitle in the web app already falls back to the code at render time, and

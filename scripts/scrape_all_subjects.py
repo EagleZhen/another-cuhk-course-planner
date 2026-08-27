@@ -45,11 +45,6 @@ def main():
             # Production mode: scrape all subjects from live website
             logger.info("Getting subjects from live website...")
             subjects = scraper.get_subjects_from_live_site()
-
-            if not subjects:
-                logger.error("Could not get subjects from live website")
-                return
-
             logger.info(
                 f"Found {len(subjects)} subjects: {subjects[:10]}{'...' if len(subjects) > 10 else ''}"
             )

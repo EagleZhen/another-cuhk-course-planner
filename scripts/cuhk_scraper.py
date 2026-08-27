@@ -674,29 +674,8 @@ class CuhkScraper:
         }
 
     def get_subjects_from_live_site(self) -> list[str]:
-        """Extract subject codes from live website"""
-        try:
-            response = self._robust_request("GET", self.base_url)
-
-            soup = BeautifulSoup(response.text, "html.parser")
-            select = soup.find("select", {"name": "ddl_subject"})
-
-            if not select:
-                self.logger.error("Could not find subject dropdown on live site")
-                return []
-
-            subjects = []
-            for option in select.find_all("option"):
-                value = option.get("value", "").strip()
-                if value:  # Skip empty option
-                    subjects.append(value)
-
-            self.logger.info(f"Found {len(subjects)} subjects from live site")
-            return subjects
-
-        except Exception as e:
-            self.logger.error(f"Error getting subjects from live site: {e}")
-            return []
+        """Subject codes from the live website. Raises like the titled fetch it delegates to."""
+        return [subject["code"] for subject in self.get_subjects_with_titles_from_live_site()]
 
     def get_subjects_with_titles_from_live_site(self) -> list[dict[str, str]]:
         """Extract subject codes and titles from live website.
@@ -2088,11 +2067,6 @@ def main():
     # Get subjects from live website
     print("Getting subjects from live website...")
     subjects = scraper.get_subjects_from_live_site()
-
-    if not subjects:
-        print("Could not get subjects from live website")
-        return
-
     print(f"Found {len(subjects)} subjects: {subjects[:10]}...")  # Show first 10
 
     # Test with just CSCI first
