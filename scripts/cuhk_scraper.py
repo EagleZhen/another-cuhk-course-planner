@@ -219,9 +219,11 @@ class ScrapingProgressTracker:
             if dir_path:  # Only create directory if path contains a directory
                 os.makedirs(dir_path, exist_ok=True)
 
+            # Sorted here rather than via json.dump(sort_keys=True), which would sort
+            # recursively and alphabetize latest_run's fields too.
+            subjects = dict(sorted(self.progress_data["subjects"].items()))
             save_json_with_newline(
-                self.progress_file,
-                {"latest_run": self._run_block(), "subjects": self.progress_data["subjects"]},
+                self.progress_file, {"latest_run": self._run_block(), "subjects": subjects}
             )
 
             self.logger.debug(f"💾 Progress saved to {self.progress_file}")

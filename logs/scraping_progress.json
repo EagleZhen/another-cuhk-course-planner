@@ -65,6 +65,19 @@
         "max_courses": null
       }
     },
+    "AISC": {
+      "status": "completed",
+      "last_scraped": "2026-08-27T04:40:07.471760+00:00",
+      "courses_count": 6,
+      "courses_scraped": 6,
+      "output_file": "data/2026-27/AISC.json",
+      "duration_minutes": 0.2,
+      "config": {
+        "get_details": true,
+        "get_enrollment_details": true,
+        "max_courses": null
+      }
+    },
     "AIST": {
       "status": "completed",
       "last_scraped": "2026-08-27T04:41:43.226331+00:00",
@@ -72,6 +85,19 @@
       "courses_scraped": 23,
       "output_file": "data/2026-27/AIST.json, data/no-terms/AIST.json",
       "duration_minutes": 1.58,
+      "config": {
+        "get_details": true,
+        "get_enrollment_details": true,
+        "max_courses": null
+      }
+    },
+    "AMSC": {
+      "status": "completed",
+      "last_scraped": "2026-08-27T04:42:05.473650+00:00",
+      "courses_count": 11,
+      "courses_scraped": 11,
+      "output_file": "data/2026-27/AMSC.json",
+      "duration_minutes": 0.35,
       "config": {
         "get_details": true,
         "get_enrollment_details": true,
@@ -741,6 +767,19 @@
         "max_courses": null
       }
     },
+    "CSAT": {
+      "status": "completed",
+      "last_scraped": "2026-08-27T05:59:28.258537+00:00",
+      "courses_count": 5,
+      "courses_scraped": 5,
+      "output_file": "data/2026-27/CSAT.json, data/no-terms/CSAT.json",
+      "duration_minutes": 0.19,
+      "config": {
+        "get_details": true,
+        "get_enrollment_details": true,
+        "max_courses": null
+      }
+    },
     "CSCI": {
       "status": "completed",
       "last_scraped": "2026-08-27T06:05:10.715808+00:00",
@@ -813,6 +852,19 @@
       "courses_scraped": 29,
       "output_file": "data/2026-27/DBAC.json, data/no-terms/DBAC.json",
       "duration_minutes": 1.16,
+      "config": {
+        "get_details": true,
+        "get_enrollment_details": true,
+        "max_courses": null
+      }
+    },
+    "DIPL": {
+      "status": "completed",
+      "last_scraped": "2026-08-27T06:16:10.451085+00:00",
+      "courses_count": 9,
+      "courses_scraped": 9,
+      "output_file": "data/2026-27/DIPL.json, data/no-terms/DIPL.json",
+      "duration_minutes": 0.3,
       "config": {
         "get_details": true,
         "get_enrollment_details": true,
@@ -1729,6 +1781,19 @@
         "max_courses": null
       }
     },
+    "HMSH": {
+      "status": "completed",
+      "last_scraped": "2026-08-27T08:05:05.778376+00:00",
+      "courses_count": 0,
+      "courses_scraped": 0,
+      "output_file": "(no file — empty subject)",
+      "duration_minutes": 0.01,
+      "config": {
+        "get_details": true,
+        "get_enrollment_details": true,
+        "max_courses": null
+      }
+    },
     "HPSB": {
       "status": "completed",
       "last_scraped": "2026-08-27T08:05:17.450696+00:00",
@@ -1814,6 +1879,19 @@
       "courses_scraped": 7,
       "output_file": "data/no-terms/IBBA.json, data/2026-27/IBBA.json",
       "duration_minutes": 0.25,
+      "config": {
+        "get_details": true,
+        "get_enrollment_details": true,
+        "max_courses": null
+      }
+    },
+    "ICMS": {
+      "status": "completed",
+      "last_scraped": "2026-08-27T08:12:36.806832+00:00",
+      "courses_count": 13,
+      "courses_scraped": 13,
+      "output_file": "data/2026-27/ICMS.json, data/no-terms/ICMS.json",
+      "duration_minutes": 0.64,
       "config": {
         "get_details": true,
         "get_enrollment_details": true,
@@ -1918,6 +1996,19 @@
       "courses_scraped": 19,
       "output_file": "data/2026-27/KORE.json, data/no-terms/KORE.json",
       "duration_minutes": 0.88,
+      "config": {
+        "get_details": true,
+        "get_enrollment_details": true,
+        "max_courses": null
+      }
+    },
+    "LARC": {
+      "status": "completed",
+      "last_scraped": "2026-08-27T08:26:02.061125+00:00",
+      "courses_count": 11,
+      "courses_scraped": 11,
+      "output_file": "data/2026-27/LARC.json, data/no-terms/LARC.json",
+      "duration_minutes": 0.33,
       "config": {
         "get_details": true,
         "get_enrollment_details": true,
@@ -2925,6 +3016,19 @@
         "max_courses": null
       }
     },
+    "SDUP": {
+      "status": "completed",
+      "last_scraped": "2026-08-27T10:45:44.660002+00:00",
+      "courses_count": 13,
+      "courses_scraped": 13,
+      "output_file": "data/2026-27/SDUP.json, data/no-terms/SDUP.json",
+      "duration_minutes": 0.45,
+      "config": {
+        "get_details": true,
+        "get_enrollment_details": true,
+        "max_courses": null
+      }
+    },
     "SEEM": {
       "status": "completed",
       "last_scraped": "2026-08-27T10:48:47.651245+00:00",
@@ -3413,110 +3517,6 @@
       "courses_scraped": 0,
       "output_file": "(no file — empty subject)",
       "duration_minutes": 0.06,
-      "config": {
-        "get_details": true,
-        "get_enrollment_details": true,
-        "max_courses": null
-      }
-    },
-    "AISC": {
-      "status": "completed",
-      "last_scraped": "2026-08-27T04:40:07.471760+00:00",
-      "courses_count": 6,
-      "courses_scraped": 6,
-      "output_file": "data/2026-27/AISC.json",
-      "duration_minutes": 0.2,
-      "config": {
-        "get_details": true,
-        "get_enrollment_details": true,
-        "max_courses": null
-      }
-    },
-    "AMSC": {
-      "status": "completed",
-      "last_scraped": "2026-08-27T04:42:05.473650+00:00",
-      "courses_count": 11,
-      "courses_scraped": 11,
-      "output_file": "data/2026-27/AMSC.json",
-      "duration_minutes": 0.35,
-      "config": {
-        "get_details": true,
-        "get_enrollment_details": true,
-        "max_courses": null
-      }
-    },
-    "CSAT": {
-      "status": "completed",
-      "last_scraped": "2026-08-27T05:59:28.258537+00:00",
-      "courses_count": 5,
-      "courses_scraped": 5,
-      "output_file": "data/2026-27/CSAT.json, data/no-terms/CSAT.json",
-      "duration_minutes": 0.19,
-      "config": {
-        "get_details": true,
-        "get_enrollment_details": true,
-        "max_courses": null
-      }
-    },
-    "DIPL": {
-      "status": "completed",
-      "last_scraped": "2026-08-27T06:16:10.451085+00:00",
-      "courses_count": 9,
-      "courses_scraped": 9,
-      "output_file": "data/2026-27/DIPL.json, data/no-terms/DIPL.json",
-      "duration_minutes": 0.3,
-      "config": {
-        "get_details": true,
-        "get_enrollment_details": true,
-        "max_courses": null
-      }
-    },
-    "HMSH": {
-      "status": "completed",
-      "last_scraped": "2026-08-27T08:05:05.778376+00:00",
-      "courses_count": 0,
-      "courses_scraped": 0,
-      "output_file": "(no file — empty subject)",
-      "duration_minutes": 0.01,
-      "config": {
-        "get_details": true,
-        "get_enrollment_details": true,
-        "max_courses": null
-      }
-    },
-    "ICMS": {
-      "status": "completed",
-      "last_scraped": "2026-08-27T08:12:36.806832+00:00",
-      "courses_count": 13,
-      "courses_scraped": 13,
-      "output_file": "data/2026-27/ICMS.json, data/no-terms/ICMS.json",
-      "duration_minutes": 0.64,
-      "config": {
-        "get_details": true,
-        "get_enrollment_details": true,
-        "max_courses": null
-      }
-    },
-    "LARC": {
-      "status": "completed",
-      "last_scraped": "2026-08-27T08:26:02.061125+00:00",
-      "courses_count": 11,
-      "courses_scraped": 11,
-      "output_file": "data/2026-27/LARC.json, data/no-terms/LARC.json",
-      "duration_minutes": 0.33,
-      "config": {
-        "get_details": true,
-        "get_enrollment_details": true,
-        "max_courses": null
-      }
-    },
-    "SDUP": {
-      "status": "completed",
-      "last_scraped": "2026-08-27T10:45:44.660002+00:00",
-      "courses_count": 13,
-      "courses_scraped": 13,
-      "output_file": "data/2026-27/SDUP.json, data/no-terms/SDUP.json",
-      "duration_minutes": 0.45,
       "config": {
         "get_details": true,
         "get_enrollment_details": true,

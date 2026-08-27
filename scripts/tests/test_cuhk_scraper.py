@@ -215,6 +215,21 @@ def test_finish_run_is_what_marks_a_run_completed(tracker):
     assert _saved(tracker)["latest_run"]["status"] == "completed"
 
 
+def test_registry_stays_sorted_as_subjects_are_added(tmp_path):
+    # Key order otherwise records scrape history: a subject CUHK adds later lands at the
+    # end and stays there, so the file drifts out of order one addition at a time.
+    tracker = _tracker(tmp_path / "progress.json", ["MATH", "AAAA"])
+    tracker.complete_subject("MATH", 1, "data/MATH.json", 1.0, {})
+    tracker.complete_subject("AAAA", 1, "data/AAAA.json", 1.0, {})
+
+    saved = _saved(tracker)
+    assert list(saved["subjects"]) == ["AAAA", "MATH"]
+
+    # The other half: sorting recursively would alphabetize the run block, whose field
+    # order is authored for a reader.
+    assert list(saved["latest_run"])[:3] == ["started_at", "last_updated", "duration"]
+
+
 def test_run_summary_reaches_the_log_file(tmp_path, caplog):
     # A 7-hour background run is the case that needs this: the summary is the part worth
     # keeping, and print() never reaches logs/scrape/.
