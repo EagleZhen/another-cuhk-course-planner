@@ -53,7 +53,7 @@ class ScrapingConfig:
     save_debug_files: bool = True  # Save HTML files for debugging
     save_debug_on_error: bool = True  # Always save HTML when parsing fails
     debug_html_directory: str = DEBUG_HTML_DIR  # Separate from JSON results
-    request_delay: float = 2.0
+    request_delay: float = 1.0  # Interval between HTTP requests
     max_subject_attempts: int = 5
     # Transient corruption clears on the next attempt; this many identical parse failures
     # means the page shape changed and no amount of retrying will parse it.
@@ -80,7 +80,7 @@ class ScrapingConfig:
             save_debug_files=False,  # No debug files in production
             save_debug_on_error=True,  # Only save HTML on parsing errors
             debug_html_directory=DEBUG_HTML_DIR,  # Separate debug folder
-            request_delay=1.0,
+            request_delay=0.8,  # ~9 h per year of terms
             max_subject_attempts=10,
             output_mode="per_subject",  # Per-subject files for production
             output_directory=SOURCE_DATA_DIR,  # Production data directory
