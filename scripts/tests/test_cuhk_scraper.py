@@ -121,13 +121,21 @@ def test_dropped_year_keeps_its_scrape_time(scraper, tmp_path):
     assert (tmp_path / "2026-27" / "_scraped_at.txt").read_text() == "2027-01-01T00:00:00+00:00\n"
 
 
+def _tracker(progress_file, run_subjects):
+    return ScrapingProgressTracker(str(progress_file), logging.getLogger("test"), run_subjects)
+
+
 @pytest.fixture
 def tracker(tmp_path):
-    return ScrapingProgressTracker(str(tmp_path / "progress.json"), logging.getLogger("test"))
+    return _tracker(tmp_path / "progress.json", ["TEST"])
 
 
 def _entry(tracker, subject):
     return tracker.progress_data["scraping_log"]["subjects"][subject]
+
+
+def _saved(tracker):
+    return json.loads(Path(tracker.progress_file).read_text(encoding="utf-8"))["scraping_log"]
 
 
 def test_last_scraped_survives_retry_and_failure(tracker):
@@ -145,6 +153,66 @@ def test_last_scraped_survives_retry_and_failure(tracker):
     # The publisher reads the file, not the tracker.
     saved = json.loads(Path(tracker.progress_file).read_text(encoding="utf-8"))
     assert saved["scraping_log"]["subjects"]["TEST"]["last_scraped"] == completed_at
+
+
+# `latest_run` reports this run; `subjects` is the cumulative registry. Every test below
+# is one way those two must not be confused.
+
+
+def test_run_counters_cover_only_this_run(tmp_path):
+    # Retrying one subject is the normal workflow, and its summary must describe the
+    # retry rather than everything ever scraped.
+    progress_file = tmp_path / "progress.json"
+    first = _tracker(progress_file, ["AAAA", "BBBB", "CCCC"])
+    for subject in ("AAAA", "BBBB", "CCCC"):
+        first.complete_subject(subject, 1, f"data/{subject}.json", 1.0, {})
+
+    retry = _tracker(progress_file, ["BBBB"])
+    retry.complete_subject("BBBB", 2, "data/BBBB.json", 1.0, {})
+
+    run = _saved(retry)["latest_run"]
+    assert (run["subjects_total"], run["subjects_completed"]) == (1, 1)
+
+    # The subjects it skipped are still on disk, so their entries survive untouched.
+    registry = _saved(retry)["subjects"]
+    assert sorted(registry) == ["AAAA", "BBBB", "CCCC"]
+    assert registry["AAAA"]["courses_count"] == 1
+
+
+def test_run_counters_split_completed_from_failed(tmp_path):
+    tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB", "CCCC"])
+    tracker.complete_subject("AAAA", 1, "data/AAAA.json", 1.0, {})
+    tracker.complete_subject("BBBB", 1, "data/BBBB.json", 1.0, {})
+    tracker.fail_subject("CCCC", "boom")
+
+    run = _saved(tracker)["latest_run"]
+    assert (run["subjects_completed"], run["subjects_failed"]) == (2, 1)
+    assert tracker.get_failed_subjects() == ["CCCC"]
+
+
+def test_run_counters_ignore_what_an_earlier_run_completed(tmp_path):
+    # Mid-run the registry still reports last run's successes. Counting those would show
+    # a run finished before it started work.
+    progress_file = tmp_path / "progress.json"
+    first = _tracker(progress_file, ["AAAA", "BBBB"])
+    for subject in ("AAAA", "BBBB"):
+        first.complete_subject(subject, 1, f"data/{subject}.json", 1.0, {})
+
+    second = _tracker(progress_file, ["AAAA", "BBBB"])
+    second.start_subject("AAAA")
+
+    run = _saved(second)["latest_run"]
+    assert (run["subjects_total"], run["subjects_completed"]) == (2, 0)
+
+
+def test_finish_run_is_what_marks_a_run_completed(tracker):
+    # A killed run can never write its own ending, so "in_progress" has to survive
+    # everything except finish_run().
+    tracker.complete_subject("TEST", 1, "data/TEST.json", 1.0, {})
+    assert _saved(tracker)["latest_run"]["status"] == "in_progress"
+
+    tracker.finish_run()
+    assert _saved(tracker)["latest_run"]["status"] == "completed"
 
 
 def test_never_scraped_subject_omits_last_scraped(tracker):

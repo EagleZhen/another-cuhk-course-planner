@@ -40,7 +40,20 @@ Production scraping uses `ScrapingConfig.for_production()`:
 - tracks progress in [logs/scraping_progress.json](../logs/scraping_progress.json)
 - writes verbose logs to [logs/scrape/](../logs/scrape/)
 
-The scrape log timestamp uses the local machine timezone, normally HKT/UTC+8 for this project environment.
+Log filenames in [logs/scrape/](../logs/scrape/) use the machine timezone, normally HKT/UTC+8 for this project environment.
+
+### Progress Log
+
+[scraping_progress.json](../logs/scraping_progress.json) answers two questions from two places:
+
+- `latest_run` describes the run that wrote it, counting only the subjects that run covered — so a one-subject retry reports 1, not the whole catalog. It is written for a human and never read back, hence HKT timestamps and no machine-readable copies.
+- `subjects` is the cumulative registry of what sits in [data/](../data/), keyed by subject code, so it keeps entries for subjects the run never visited.
+
+`status` stays `in_progress` until the run ends, so a killed run never reaches `completed` — `last_updated` tells the two apart.
+
+```bash
+jq '.scraping_log.latest_run' logs/scraping_progress.json
+```
 
 Scripts that write JSON output use `save_json_with_newline()` in [scripts/data_utils.py](../scripts/data_utils.py) for consistent formatting (2-space indent, trailing newline) and clean diffs.
 
