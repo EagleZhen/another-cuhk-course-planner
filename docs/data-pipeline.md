@@ -163,6 +163,14 @@ So a run finishes even when subjects fail, rather than stalling on one course. A
 
 CUHK's own system-error pages are permanent and never retried — see [System Error Pages](#system-error-pages).
 
+### Request Pacing
+
+Every request, retries included, waits its turn in `_robust_request`; `request_delay` is that interval and the only thing pacing a healthy run. Runtime follows from it — roughly requests × interval, plus whatever retry backoff adds; [scraping_progress.json](../logs/scraping_progress.json) records what the last run took.
+
+The production 0.8s is a judgement call, not a derived number: slow enough that the load stays light to the official server, fast enough that a full run fits the window it is given. Retune it against the last run's duration.
+
+When in doubt, go slower. The catalog is public but captcha-gated, so visible bulk traffic invites the registry to harden it — a tougher captcha, a WAF, an auth wall. Any of those ends this scraper for good and leaves the site worse for everyone using it. A run that takes an extra three hours costs nothing by comparison.
+
 ## Debugging
 
 Check the latest scrape log and progress metadata:

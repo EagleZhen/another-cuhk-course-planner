@@ -13,6 +13,7 @@ from cuhk_scraper import (
     TermInfo,
 )
 from data_utils import SCHEMA_VERSION
+from requests.exceptions import ConnectionError as RequestsConnectionError
 
 
 def _course(code, term_names):
@@ -346,6 +347,88 @@ def test_missing_titles_abort_the_run_rather_than_blanking_every_subject_title()
         CuhkScraper.get_subjects_from_live_site(
             _live_scraper(_robust_request=lambda *a, **k: SimpleNamespace(text=empty))
         )
+
+
+REQUEST_DELAY = 0.5
+
+
+def _fake_clock(monkeypatch):
+    """Time only moves when a stub sleeps or answers, so pacing is measured, not waited out."""
+    clock = SimpleNamespace(now=0.0, sleeps=[])
+
+    def sleep(seconds):
+        clock.sleeps.append(seconds)
+        clock.now += seconds
+
+    monkeypatch.setattr(time, "monotonic", lambda: clock.now)
+    monkeypatch.setattr(time, "sleep", sleep)
+    return clock
+
+
+def _paced_scraper(get, delay=REQUEST_DELAY):
+    return _live_scraper(
+        config=ScrapingConfig(request_delay=delay),
+        session=SimpleNamespace(get=get),
+        _request_timeout=(10, 30),
+    )
+
+
+def _responder(clock, takes=0.0):
+    def get(*args, **kwargs):
+        clock.now += takes
+        return SimpleNamespace(raise_for_status=lambda: None, content=b"")
+
+    return get
+
+
+def test_requests_are_paced_and_the_first_one_is_not_delayed(monkeypatch):
+    # request_delay is the entire rate limit — nothing else spaces requests out.
+    clock = _fake_clock(monkeypatch)
+    scraper = _paced_scraper(_responder(clock))
+
+    CuhkScraper._robust_request(scraper, "GET", "http://test.invalid")
+    CuhkScraper._robust_request(scraper, "GET", "http://test.invalid")
+
+    assert clock.sleeps == [REQUEST_DELAY]
+
+
+def test_time_spent_on_a_request_counts_toward_the_interval(monkeypatch):
+    # Sleeping a flat request_delay instead would stack on the round-trip, roughly doubling
+    # a full run.
+    clock = _fake_clock(monkeypatch)
+    scraper = _paced_scraper(_responder(clock, takes=0.4))
+
+    CuhkScraper._robust_request(scraper, "GET", "http://test.invalid")
+    CuhkScraper._robust_request(scraper, "GET", "http://test.invalid")
+
+    assert clock.sleeps == [pytest.approx(REQUEST_DELAY - 0.4)]
+
+    # A response slower than the interval leaves nothing to wait for.
+    clock.sleeps.clear()
+    scraper = _paced_scraper(_responder(clock, takes=REQUEST_DELAY + 0.1))
+
+    CuhkScraper._robust_request(scraper, "GET", "http://test.invalid")
+    CuhkScraper._robust_request(scraper, "GET", "http://test.invalid")
+
+    assert clock.sleeps == []
+
+
+def test_a_retry_waits_its_turn_like_any_other_request(monkeypatch):
+    # Pacing lives inside the retry loop. The interval here exceeds the 1 s first backoff,
+    # which would otherwise cover the wait and hide a limiter that skips retries.
+    clock = _fake_clock(monkeypatch)
+    answers = [RequestsConnectionError("network is down"), None]
+
+    def get(*args, **kwargs):
+        answer = answers.pop(0)
+        if answer is not None:
+            raise answer
+        return SimpleNamespace(raise_for_status=lambda: None, content=b"")
+
+    CuhkScraper._robust_request(_paced_scraper(get, delay=3.0), "GET", "http://test.invalid")
+
+    assert clock.sleeps == [1.0, 2.0]  # backoff, then the rest of the interval
+    assert answers == []
 
 
 def test_unknown_subject_title_is_recorded_empty_not_as_the_code(tmp_path):

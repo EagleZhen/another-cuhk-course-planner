@@ -53,7 +53,8 @@ class ScrapingConfig:
     save_debug_files: bool = True  # Save HTML files for debugging
     save_debug_on_error: bool = True  # Always save HTML when parsing fails
     debug_html_directory: str = DEBUG_HTML_DIR  # Separate from JSON results
-    request_delay: float = 2.0
+    # Seconds between every request, retries included. Production uses 0.8; going much lower invites hardening (tougher captcha, a WAF) that breaks this scraper permanently — nobody wins. Rationale: "Request Pacing" in docs/data-pipeline.md.
+    request_delay: float = 1.0
     max_subject_attempts: int = 5
     # Transient corruption clears on the next attempt; this many identical parse failures
     # means the page shape changed and no amount of retrying will parse it.
@@ -80,7 +81,7 @@ class ScrapingConfig:
             save_debug_files=False,  # No debug files in production
             save_debug_on_error=True,  # Only save HTML on parsing errors
             debug_html_directory=DEBUG_HTML_DIR,  # Separate debug folder
-            request_delay=1.0,
+            request_delay=0.8,  # ~9h for a full scrape at today's catalog size
             max_subject_attempts=10,
             output_mode="per_subject",  # Per-subject files for production
             output_directory=SOURCE_DATA_DIR,  # Production data directory
@@ -369,6 +370,9 @@ class ScrapingProgressTracker:
 class CuhkScraper:
     """Simplified CUHK course scraper"""
 
+    # Class-level so every instance starts unpaced — including test doubles, which are built with __new__ and never run __init__.
+    _last_request_at: float | None = None
+
     def __init__(self, config: ScrapingConfig | None = None):
         self.session = requests.Session()
         self.logger = logging.getLogger(__name__)
@@ -405,6 +409,18 @@ class CuhkScraper:
         # Network resilience settings
         self._request_timeout = (10, 30)  # (connect, read) timeouts in seconds
 
+    def _wait_for_request_slot(self) -> None:
+        """Hold requests to one per `request_delay` seconds.
+
+        Sleeps only the remainder, so time already spent on the previous request counts
+        toward the interval instead of stacking on top of it.
+        """
+        if self._last_request_at is not None:
+            remaining = self.config.request_delay - (time.monotonic() - self._last_request_at)
+            if remaining > 0:
+                time.sleep(remaining)
+        self._last_request_at = time.monotonic()
+
     def _robust_request(self, method: str, url: str, **kwargs) -> requests.Response:
         """
         Robust HTTP request with infinite retry for network issues
@@ -428,6 +444,7 @@ class CuhkScraper:
 
         attempt = 0
         while True:
+            self._wait_for_request_slot()
             try:
                 # Make the request
                 if method.upper() == "GET":
@@ -799,10 +816,6 @@ class CuhkScraper:
                                     f"💾 Progress saved: {subject_code} - {courses_completed}/{len(courses_to_detail)} courses completed"
                                 )
 
-                        # Be polite to the server
-                        if i < len(courses_to_detail) - 1:
-                            time.sleep(self.config.request_delay)
-
                     # Add remaining courses without details for complete list (if limited)
                     if self.config.max_courses_per_subject is not None:
                         detailed_courses.extend(courses[self.config.max_courses_per_subject :])
@@ -1045,10 +1058,6 @@ class CuhkScraper:
             term_info = self._scrape_term_details(html, base_course, term_code, term_name)
             if term_info:
                 all_term_info.append(term_info)
-
-            # Be polite to server between terms
-            if i < len(available_terms) - 1:
-                time.sleep(self.config.request_delay)
 
         base_course.terms = all_term_info
 
@@ -1905,10 +1914,6 @@ class CuhkScraper:
 
                 # Clean up even on failure
                 gc.collect()
-
-            # Be polite to the server
-            if i < len(subjects) - 1:
-                time.sleep(self.config.request_delay)
 
         self._write_scrape_times(saved_files, run_started_at, full_catalog)
 
