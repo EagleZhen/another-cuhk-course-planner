@@ -80,7 +80,7 @@ class ScrapingConfig:
             save_debug_files=False,  # No debug files in production
             save_debug_on_error=True,  # Only save HTML on parsing errors
             debug_html_directory=DEBUG_HTML_DIR,  # Separate debug folder
-            request_delay=0.8,  # ~9 h per year of terms
+            request_delay=0.8,  # ~9h for a full scrape at today's catalog size
             max_subject_attempts=10,
             output_mode="per_subject",  # Per-subject files for production
             output_directory=SOURCE_DATA_DIR,  # Production data directory
