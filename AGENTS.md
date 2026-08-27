@@ -22,6 +22,8 @@ When writing or editing docs, verify each claim against the current implementati
 
 When changing code, check whether a doc in `docs/` describes the affected behavior and update it in the same change.
 
+When a change adds a limit or threshold, test both sides: that it stops past the limit, and that normal work still happens below it. A one-sided test stays green against a badly wrong limit. Confirm each new test fails with the change undone.
+
 Run checks proportional to the change. Avoid full scrapes or full builds unless they are relevant, requested, or needed.
 
 `TODO(#N):` marks deferred work with a filed issue; a bare `TODO:` is an unfiled note. When editing near one, mention it, and propose the fix if it is small or blocking — as its own commit, never folded into the current diff. Don't act unasked.
