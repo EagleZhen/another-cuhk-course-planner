@@ -53,7 +53,8 @@ class ScrapingConfig:
     save_debug_files: bool = True  # Save HTML files for debugging
     save_debug_on_error: bool = True  # Always save HTML when parsing fails
     debug_html_directory: str = DEBUG_HTML_DIR  # Separate from JSON results
-    request_delay: float = 1.0  # Interval between HTTP requests
+    # Seconds between every request, retries included. Production uses 0.8; going much lower invites hardening (tougher captcha, a WAF) that breaks this scraper permanently — nobody wins. Rationale: "Request Pacing" in docs/data-pipeline.md.
+    request_delay: float = 1.0
     max_subject_attempts: int = 5
     # Transient corruption clears on the next attempt; this many identical parse failures
     # means the page shape changed and no amount of retrying will parse it.
