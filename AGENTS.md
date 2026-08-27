@@ -24,6 +24,14 @@ When changing code, check whether a doc in `docs/` describes the affected behavi
 
 When a change adds a limit or threshold, test both sides: that it stops past the limit, and that normal work still happens below it. A one-sided test stays green against a badly wrong limit. Confirm each new test fails with the change undone.
 
+Build a producer only together with its consumer. A computed value nothing reads hides that the feature was never finished, and a validation that cannot fail is the same thing wearing a safety vest.
+
+Where one module hands data to another, test the seam with the real producer. Hand-building the input tests the consumer against a fiction, and stays green while the two drift apart.
+
+Tolerate malformed values from outside our control — scraped HTML, a hand-edited file — but let a missing key from our own output raise. Degrading quietly on what we wrote ourselves hides the break for months.
+
+Name a function for the scope it operates on, and fix the name in the change that notices the gap. A wrong name outlives whoever still remembers which half was right.
+
 Run checks proportional to the change. Avoid full scrapes or full builds unless they are relevant, requested, or needed.
 
 `TODO(#N):` marks deferred work with a filed issue; a bare `TODO:` is an unfiled note. When editing near one, mention it, and propose the fix if it is small or blocking — as its own commit, never folded into the current diff. Don't act unasked.
