@@ -138,8 +138,8 @@ def test_copy_commit_title_lists_only_years_from_latest_scrape(monkeypatch, caps
     assert f"Commit title copied: {expected}" in capsys.readouterr().err
 
 
-def _progress(**scraping_log):
-    scraping_log.setdefault(
+def _progress(**progress):
+    progress.setdefault(
         "subjects",
         {
             "CSCI": {"status": "completed", "duration_minutes": 2.5, "courses_scraped": 1234},
@@ -147,13 +147,11 @@ def _progress(**scraping_log):
             "PHYS": {"status": "failed"},
         },
     )
-    return {"scraping_log": scraping_log}
+    return progress
 
 
 def test_report_scrape_summary_states_start_time_in_hong_kong_time(capsys):
-    publish_course_data.report_scrape_summary(
-        _progress(completed=2, failed=1, started_at="2026-08-07T12:30:00+00:00")
-    )
+    publish_course_data.report_scrape_summary(_progress(started_at="2026-08-07T12:30:00+00:00"))
 
     assert capsys.readouterr().out == (
         "Scraped at 2026-08-07 20:30 HKT: 2 subjects, 1,300 courses, 1 failed\n"
@@ -163,14 +161,12 @@ def test_report_scrape_summary_states_start_time_in_hong_kong_time(capsys):
 @pytest.mark.parametrize("started_at", [None, "", 12345])
 def test_report_scrape_summary_falls_back_when_start_time_is_unusable(started_at, capsys):
     # An undated line still reports the counts rather than dropping the summary.
-    publish_course_data.report_scrape_summary(
-        _progress(completed=2, failed=1, started_at=started_at)
-    )
+    publish_course_data.report_scrape_summary(_progress(started_at=started_at))
 
     assert capsys.readouterr().out == "Scraped data: 2 subjects, 1,300 courses, 1 failed\n"
 
 
-@pytest.mark.parametrize("progress_data", [None, {"other": 1}, {"scraping_log": {"completed": 2}}])
+@pytest.mark.parametrize("progress_data", [None, {"other": 1}, {"latest_run": {}}])
 def test_report_scrape_summary_stays_silent_without_per_subject_stats(progress_data, capsys):
     publish_course_data.report_scrape_summary(progress_data)
 
@@ -295,7 +291,7 @@ def test_a_failed_subject_blocks_the_publish_and_is_named(tmp_path, monkeypatch)
     def _plan(status):
         subject = {"status": status, "courses_count": 1, "courses_scraped": 1}
         return publish_course_data.build_publish_plan(
-            [source_dir / "2025-26"], {"scraping_log": {"subjects": {"AAAA": subject}}}
+            [source_dir / "2025-26"], {"subjects": {"AAAA": subject}}
         )
 
     blocked = _plan("failed")
@@ -317,11 +313,9 @@ def test_a_subject_that_failed_before_writing_any_file_still_blocks(tmp_path, mo
     plan = publish_course_data.build_publish_plan(
         [source_dir / "2025-26"],
         {
-            "scraping_log": {
-                "subjects": {
-                    "AAAA": {"status": "completed", "courses_count": 1, "courses_scraped": 1},
-                    "ZZZZ": {"status": "failed", "retry_count": 3},
-                }
+            "subjects": {
+                "AAAA": {"status": "completed", "courses_count": 1, "courses_scraped": 1},
+                "ZZZZ": {"status": "failed", "retry_count": 3},
             }
         },
     )

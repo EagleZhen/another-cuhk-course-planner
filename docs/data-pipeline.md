@@ -52,7 +52,7 @@ Log filenames in [logs/scrape/](../logs/scrape/) use the machine timezone, norma
 `status` stays `in_progress` until the run ends, so a killed run never reaches `completed` — `last_updated` tells the two apart.
 
 ```bash
-jq '.scraping_log.latest_run' logs/scraping_progress.json
+jq '.latest_run' logs/scraping_progress.json
 ```
 
 Scripts that write JSON output use `save_json_with_newline()` in [scripts/data_utils.py](../scripts/data_utils.py) for consistent formatting (2-space indent, trailing newline) and clean diffs.
@@ -190,7 +190,7 @@ Check the latest scrape log and progress metadata:
 
 ```bash
 ls -t logs/scrape/scrape_*.log | head -1
-cat logs/scraping_progress.json | jq '.scraping_log.subjects.CSCI'
+jq '.subjects.CSCI' logs/scraping_progress.json
 ```
 
 Review [failed course outcomes](../logs/failed_course_outcomes.txt):

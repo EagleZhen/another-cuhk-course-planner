@@ -131,11 +131,11 @@ def tracker(tmp_path):
 
 
 def _entry(tracker, subject):
-    return tracker.progress_data["scraping_log"]["subjects"][subject]
+    return tracker.progress_data["subjects"][subject]
 
 
 def _saved(tracker):
-    return json.loads(Path(tracker.progress_file).read_text(encoding="utf-8"))["scraping_log"]
+    return json.loads(Path(tracker.progress_file).read_text(encoding="utf-8"))
 
 
 def test_last_scraped_survives_retry_and_failure(tracker):
@@ -152,7 +152,7 @@ def test_last_scraped_survives_retry_and_failure(tracker):
 
     # The publisher reads the file, not the tracker.
     saved = json.loads(Path(tracker.progress_file).read_text(encoding="utf-8"))
-    assert saved["scraping_log"]["subjects"]["TEST"]["last_scraped"] == completed_at
+    assert saved["subjects"]["TEST"]["last_scraped"] == completed_at
 
 
 # `latest_run` reports this run; `subjects` is the cumulative registry. Every test below

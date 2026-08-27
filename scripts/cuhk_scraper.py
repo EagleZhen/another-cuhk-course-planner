@@ -180,8 +180,8 @@ class ScrapingProgressTracker:
                     data = json.load(f)
 
                 # Preserve existing subject data (so we don't lose completed subjects)
-                if "scraping_log" in data and "subjects" in data["scraping_log"]:
-                    existing_subjects = data["scraping_log"]["subjects"]
+                if "subjects" in data:
+                    existing_subjects = data["subjects"]
                     self.logger.info(
                         f"Preserved data for {len(existing_subjects)} existing subjects"
                     )
@@ -189,7 +189,7 @@ class ScrapingProgressTracker:
             except Exception as e:
                 self.logger.warning(f"Could not load progress file: {e}, starting with fresh run")
 
-        return {"scraping_log": {"subjects": existing_subjects}}
+        return {"subjects": existing_subjects}
 
     def _run_block(self) -> dict:
         """Render this run's dashboard
@@ -221,12 +221,7 @@ class ScrapingProgressTracker:
 
             save_json_with_newline(
                 self.progress_file,
-                {
-                    "scraping_log": {
-                        "latest_run": self._run_block(),
-                        "subjects": self.progress_data["scraping_log"]["subjects"],
-                    }
-                },
+                {"latest_run": self._run_block(), "subjects": self.progress_data["subjects"]},
             )
 
             self.logger.debug(f"💾 Progress saved to {self.progress_file}")
@@ -235,7 +230,7 @@ class ScrapingProgressTracker:
 
     def start_subject(self, subject: str, estimated_courses: int = 0):
         """Mark subject as started"""
-        subjects = self.progress_data["scraping_log"]["subjects"]
+        subjects = self.progress_data["subjects"]
         previous = subjects.get(subject, {})
         subjects[subject] = {
             "status": "in_progress",
@@ -256,7 +251,7 @@ class ScrapingProgressTracker:
 
     def update_course_progress(self, subject: str, course_code: str, total_courses_scraped: int):
         """Update progress for a specific course completion"""
-        subjects = self.progress_data["scraping_log"]["subjects"]
+        subjects = self.progress_data["subjects"]
         if subject in subjects and subjects[subject].get("status") == "in_progress":
             subject_data = subjects[subject]
             subject_data["courses_scraped"] = total_courses_scraped
@@ -295,7 +290,7 @@ class ScrapingProgressTracker:
         config_info: dict,
     ):
         """Mark subject as completed"""
-        subjects = self.progress_data["scraping_log"]["subjects"]
+        subjects = self.progress_data["subjects"]
         subjects[subject] = {
             "status": "completed",
             "last_scraped": utc_now_iso(),
@@ -315,7 +310,7 @@ class ScrapingProgressTracker:
 
     def fail_subject(self, subject: str, error_message: str):
         """Mark subject as failed"""
-        subjects = self.progress_data["scraping_log"]["subjects"]
+        subjects = self.progress_data["subjects"]
         current_data = subjects.get(subject, {})
         retry_count = current_data.get("retry_count", 0) + 1
 
@@ -349,7 +344,7 @@ class ScrapingProgressTracker:
 
     def get_progress_percentage(self, subject: str) -> float:
         """Get completion percentage for a subject"""
-        subjects = self.progress_data["scraping_log"]["subjects"]
+        subjects = self.progress_data["subjects"]
         if subject not in subjects:
             return 0.0
 
@@ -2068,13 +2063,8 @@ class CuhkScraper:
             self.logger.info(f"Exported {subject} ({len(courses)} courses) to {filename}")
 
             # Update progress tracker with output file path
-            if (
-                self.progress_tracker
-                and subject in self.progress_tracker.progress_data["scraping_log"]["subjects"]
-            ):
-                subject_progress = self.progress_tracker.progress_data["scraping_log"]["subjects"][
-                    subject
-                ]
+            if self.progress_tracker and subject in self.progress_tracker.progress_data["subjects"]:
+                subject_progress = self.progress_tracker.progress_data["subjects"][subject]
                 if subject_progress.get("status") == "completed":
                     subject_progress["output_file"] = filename
                     self.progress_tracker._save_progress()

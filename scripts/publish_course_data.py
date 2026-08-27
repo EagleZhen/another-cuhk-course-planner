@@ -186,7 +186,7 @@ def validate_scrape_progress(progress_data: dict | None) -> dict[str, list[str]]
     if not progress_data:
         return {}
 
-    subjects = progress_data.get("scraping_log", {}).get("subjects", {})
+    subjects = progress_data.get("subjects", {})
     issues_by_subject: dict[str, list[str]] = {}
 
     for subject_code, subject_progress in subjects.items():
@@ -379,11 +379,7 @@ def copy_commit_title(scrape_times: dict[str, str]) -> None:
 
 def calculate_scraping_statistics(progress_data: dict | None) -> dict | None:
     """Calculate detailed scraping statistics"""
-    if not progress_data or "scraping_log" not in progress_data:
-        return None
-
-    scraping_log = progress_data["scraping_log"]
-    if "subjects" not in scraping_log:
+    if not progress_data or "subjects" not in progress_data:
         return None
 
     total_minutes = 0
@@ -395,7 +391,7 @@ def calculate_scraping_statistics(progress_data: dict | None) -> dict | None:
     min_time = float("inf")
     max_time = 0
 
-    for subject_code, subject_data in scraping_log["subjects"].items():
+    for subject_code, subject_data in progress_data["subjects"].items():
         status = subject_data.get("status")
         duration = subject_data.get("duration_minutes", 0)
         courses_count = subject_data.get("courses_scraped", 0)
@@ -459,9 +455,8 @@ def report_scrape_summary(progress_data: dict | None) -> None:
     if not stats:
         return
 
-    log_data = progress_data.get("scraping_log", {})
-    # TODO(#264): dead branch - the scraper writes started_at_utc, never started_at
-    started_at = log_data.get("started_at")
+    # TODO(#264): dead branch - the scraper never writes these keys
+    started_at = progress_data.get("started_at")
     # Fall back to an undated line when the log carries no start time at all.
     when = "data"
     if isinstance(started_at, str) and started_at:
@@ -469,8 +464,8 @@ def report_scrape_summary(progress_data: dict | None) -> None:
         when = f"at {hk_time.strftime('%Y-%m-%d %H:%M HKT')}"
 
     print(
-        f"Scraped {when}: {log_data.get('completed', 0)} subjects, "
-        f"{stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
+        f"Scraped {when}: {stats['completed_subjects']} subjects, "
+        f"{stats['total_courses']:,} courses, {stats['failed_subjects']} failed"
     )
 
 
