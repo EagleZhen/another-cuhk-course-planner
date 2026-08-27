@@ -215,6 +215,23 @@ def test_finish_run_is_what_marks_a_run_completed(tracker):
     assert _saved(tracker)["latest_run"]["status"] == "completed"
 
 
+def test_run_summary_reaches_the_log_file(tmp_path, caplog):
+    # A 7-hour background run is the case that needs this: the summary is the part worth
+    # keeping, and print() never reaches logs/scrape/.
+    tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB"])
+    tracker.complete_subject("AAAA", 1, "data/AAAA.json", 1.0, {})
+    tracker.fail_subject("BBBB", "boom")
+
+    with caplog.at_level(logging.INFO):
+        tracker.log_summary()
+
+    summary = caplog.records[-1].message
+    assert "Total subjects: 2" in summary
+    assert "Completed: 1" in summary
+    assert "Failed: 1" in summary
+    assert "Failed subjects: BBBB" in summary
+
+
 def test_never_scraped_subject_omits_last_scraped(tracker):
     # Absent, not null: publishing must be able to tell "never scraped" from a real
     # timestamp, and a null would have to be special-cased everywhere downstream.

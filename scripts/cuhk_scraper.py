@@ -195,7 +195,7 @@ class ScrapingProgressTracker:
         """Render this run's dashboard
 
         Written for a human and never read back, which is why it carries HKT timestamps
-        and no machine-readable siblings. `print_summary` renders the same dict, so the
+        and no machine-readable siblings. `log_summary` renders the same dict, so the
         file and the console cannot disagree.
         """
         subject_statuses = list(self._subject_statuses.values())
@@ -351,21 +351,26 @@ class ScrapingProgressTracker:
             return min(100.0, (courses_scraped / estimated_courses) * 100)
         return 0.0
 
-    def print_summary(self):
-        """Print this run's progress summary"""
+    def log_summary(self):
+        """Log this run's summary
+
+        One multi-line message, so the block takes a single log prefix rather than one
+        per line.
+        """
         run = self._run_block()
-        total = run["subjects_total"]
-        completed = run["subjects_completed"]
-        failed = run["subjects_failed"]
+        lines = [
+            "=== SCRAPING PROGRESS SUMMARY ===",
+            f"Total subjects: {run['subjects_total']}",
+            f"Completed: {run['subjects_completed']}",
+            f"Failed: {run['subjects_failed']}",
+            f"Duration: {run['duration']}",
+        ]
 
-        print("\n=== SCRAPING PROGRESS SUMMARY ===")
-        print(f"Total subjects: {total}")
-        print(f"Completed: {completed}")
-        print(f"Failed: {failed}")
-        print(f"Progress: {completed / max(total, 1) * 100:.1f}%")
+        failed_subjects = self.get_failed_subjects()
+        if failed_subjects:
+            lines.append(f"Failed subjects: {', '.join(failed_subjects)}")
 
-        if failed > 0:
-            print(f"\nFailed subjects: {', '.join(self.get_failed_subjects())}")
+        self.logger.info("\n".join(lines))
 
 
 class CuhkScraper:
@@ -1919,10 +1924,10 @@ class CuhkScraper:
 
         self._write_scrape_times(saved_files, run_started_at, full_catalog)
 
-        # Print progress summary if tracking enabled
+        # Report this run if tracking enabled
         if self.progress_tracker:
             self.progress_tracker.finish_run()
-            self.progress_tracker.print_summary()
+            self.progress_tracker.log_summary()
 
         # Index file generation removed - frontend loads individual JSON files directly
 
