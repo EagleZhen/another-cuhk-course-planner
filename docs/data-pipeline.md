@@ -157,7 +157,7 @@ Failures retry rather than resolving to empty data, because empty is what a legi
 | --- | --- | --- | --- |
 | Request | network errors, HTTP 502/503/504 | unbounded | other statuses raise to the course |
 | Course | anything raised while fetching or parsing a course page | `max_course_attempts` (5) | costs the subject one attempt |
-| Subject | any course failure, restarting from the course list | `max_retries` (10) | records the subject failed, run moves on |
+| Subject | any course failure, restarting from the course list | `max_subject_attempts` (10) | records the subject failed, run moves on |
 
 So a run finishes even when subjects fail, rather than stalling on one course. A failed subject blocks publishing, which names it and stops before writing anything. Re-scrape that subject and publish again.
 

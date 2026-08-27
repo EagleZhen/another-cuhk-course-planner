@@ -272,12 +272,12 @@ def test_course_list_shortfall_is_reported(page):
     assert CuhkScraper._parse_course_list(_live_scraper(), NO_RECORDS_PAGE) == []
 
 
-MAX_RETRIES = 2  # enough to exhaust the loop quickly; production uses 10
+MAX_SUBJECT_ATTEMPTS = 2  # enough to exhaust the loop quickly; production uses 10
 
 
 def _subject_scraper(page):
     return _live_scraper(
-        config=ScrapingConfig(max_retries=MAX_RETRIES, get_details=False),
+        config=ScrapingConfig(max_subject_attempts=MAX_SUBJECT_ATTEMPTS, get_details=False),
         progress_tracker=None,
         _set_context=lambda *a, **k: None,
         _extract_form_data=lambda soup: {},
@@ -291,7 +291,7 @@ def test_exhausted_subject_raises_while_an_empty_subject_completes(monkeypatch):
     # Every attempt rejected: returning [] here would be read as "this subject has no
     # courses" and the run would report success.
     rejected = '<span id="lbl_error" class="errorLabel">Invalid Verification Code</span>'
-    with pytest.raises(RuntimeError, match=f"{MAX_RETRIES} attempts"):
+    with pytest.raises(RuntimeError, match=f"{MAX_SUBJECT_ATTEMPTS} attempts"):
         CuhkScraper.scrape_subject(_subject_scraper(rejected), "TEST")
 
     # A subject CUHK really has nothing for still succeeds with no courses.

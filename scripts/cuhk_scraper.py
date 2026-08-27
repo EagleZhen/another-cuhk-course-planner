@@ -54,7 +54,7 @@ class ScrapingConfig:
     save_debug_on_error: bool = True  # Always save HTML when parsing fails
     debug_html_directory: str = DEBUG_HTML_DIR  # Separate from JSON results
     request_delay: float = 2.0
-    max_retries: int = 5
+    max_subject_attempts: int = 5
     # Transient corruption clears on the next attempt; this many identical parse failures
     # means the page shape changed and no amount of retrying will parse it.
     max_course_attempts: int = 5
@@ -81,7 +81,7 @@ class ScrapingConfig:
             save_debug_on_error=True,  # Only save HTML on parsing errors
             debug_html_directory=DEBUG_HTML_DIR,  # Separate debug folder
             request_delay=1.0,
-            max_retries=10,
+            max_subject_attempts=10,
             output_mode="per_subject",  # Per-subject files for production
             output_directory=SOURCE_DATA_DIR,  # Production data directory
             track_progress=True,  # Enable progress tracking
@@ -709,7 +709,7 @@ class CuhkScraper:
         # Set context for this subject
         self._set_context(self.config)
 
-        for attempt in range(self.config.max_retries):
+        for attempt in range(self.config.max_subject_attempts):
             try:
                 self.logger.info(f"📋 Scraping {subject_code}, attempt {attempt + 1}")
 
@@ -733,7 +733,7 @@ class CuhkScraper:
                         f"{validation['result_type']} - {validation.get('error_message', 'Unknown')}"
                     )
                     # Continue to next attempt
-                    if attempt < self.config.max_retries - 1:
+                    if attempt < self.config.max_subject_attempts - 1:
                         time.sleep(1)  # Brief delay before retry
                     continue
 
@@ -820,18 +820,18 @@ class CuhkScraper:
 
                 # If we reach here, something unexpected happened - retry
                 self.logger.warning(f"⚠️ Unexpected validation result: {validation['result_type']}")
-                if attempt < self.config.max_retries - 1:
+                if attempt < self.config.max_subject_attempts - 1:
                     time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
 
             except Exception as e:
                 self.logger.error(f"Attempt {attempt + 1} failed for {subject_code}: {e}")
-                if attempt < self.config.max_retries - 1:
+                if attempt < self.config.max_subject_attempts - 1:
                     time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
 
         # Returning [] here would be indistinguishable from a subject with no courses,
         # and the caller would record the subject as completed.
         raise RuntimeError(
-            f"{subject_code}: no usable results after {self.config.max_retries} attempts"
+            f"{subject_code}: no usable results after {self.config.max_subject_attempts} attempts"
         )
 
     def _extract_form_data(self, soup: BeautifulSoup) -> dict[str, str]:
