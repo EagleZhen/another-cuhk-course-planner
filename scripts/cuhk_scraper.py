@@ -369,7 +369,7 @@ class ScrapingProgressTracker:
 class CuhkScraper:
     """Simplified CUHK course scraper"""
 
-    # Class-level: test doubles are built with __new__ and never run __init__.
+    # Class-level so every instance starts unpaced — including test doubles, which are built with __new__ and never run __init__.
     _last_request_at: float | None = None
 
     def __init__(self, config: ScrapingConfig | None = None):
