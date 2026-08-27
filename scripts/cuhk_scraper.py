@@ -415,9 +415,9 @@ class CuhkScraper:
             Response object
 
         Note:
-            Retries infinitely for network issues (ConnectionError, Timeout, ConnectionResetError, server errors)
-            Pre-loads response content to catch connection drops during response reading
-            Raises client errors (4xx) so the caller can redo the unit instead of repeating the request
+            Retries network issues (ConnectionError, Timeout, ConnectionResetError) and
+            HTTP 502/503/504 forever, pre-loading the body so a drop while reading it counts
+            Raises every other HTTP status for the caller to redo the unit
         """
         # Set default timeout if not provided
         if "timeout" not in kwargs:
