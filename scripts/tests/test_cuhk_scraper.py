@@ -310,6 +310,19 @@ def test_a_course_that_never_parses_gives_up_instead_of_looping(monkeypatch):
         CuhkScraper.get_course_details(scraper, course, DETAIL_HTML)
 
 
+def test_a_course_that_parses_on_a_later_attempt_still_succeeds(monkeypatch):
+    # The cap must only stop failures that never resolve. Transient corruption clears on
+    # a re-fetch, and that course still has to come back rather than failing the subject.
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+    pages = ["<html></html>", "<html></html>", DETAIL_HTML]
+    scraper = _live_scraper(_robust_request=lambda *a, **k: SimpleNamespace(text=pages.pop(0)))
+    course = _course("1000", [])
+    course.postback_target = "target"
+
+    assert CuhkScraper.get_course_details(scraper, course, DETAIL_HTML) is course
+    assert pages == []  # took all three attempts
+
+
 def test_missing_titles_abort_the_run_rather_than_blanking_every_subject_title():
     # An empty title list is not "no titles" — it would blank every subject title, and the
     # scrape would look successful.
