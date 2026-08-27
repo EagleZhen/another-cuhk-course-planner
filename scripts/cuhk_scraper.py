@@ -369,6 +369,9 @@ class ScrapingProgressTracker:
 class CuhkScraper:
     """Simplified CUHK course scraper"""
 
+    # Class-level: test doubles are built with __new__ and never run __init__.
+    _last_request_at: float | None = None
+
     def __init__(self, config: ScrapingConfig | None = None):
         self.session = requests.Session()
         self.logger = logging.getLogger(__name__)
@@ -405,6 +408,18 @@ class CuhkScraper:
         # Network resilience settings
         self._request_timeout = (10, 30)  # (connect, read) timeouts in seconds
 
+    def _wait_for_request_slot(self) -> None:
+        """Hold requests to one per `request_delay` seconds.
+
+        Sleeps only the remainder, so time already spent on the previous request counts
+        toward the interval instead of stacking on top of it.
+        """
+        if self._last_request_at is not None:
+            remaining = self.config.request_delay - (time.monotonic() - self._last_request_at)
+            if remaining > 0:
+                time.sleep(remaining)
+        self._last_request_at = time.monotonic()
+
     def _robust_request(self, method: str, url: str, **kwargs) -> requests.Response:
         """
         Robust HTTP request with infinite retry for network issues
@@ -428,6 +443,7 @@ class CuhkScraper:
 
         attempt = 0
         while True:
+            self._wait_for_request_slot()
             try:
                 # Make the request
                 if method.upper() == "GET":
