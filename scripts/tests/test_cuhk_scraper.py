@@ -200,6 +200,31 @@ def test_finish_run_is_what_marks_a_run_completed(tracker):
     assert _saved(tracker)["latest_run"]["status"] == "completed"
 
 
+def test_a_run_reports_what_its_loop_actually_did(tmp_path):
+    # The only cover for the wiring in scrape_all_subjects: the tracker's arguments and
+    # the finish_run() that ends the run. Both network calls are stubbed, so this stays
+    # off the live site.
+    scraper = CuhkScraper.__new__(CuhkScraper)
+    scraper.logger = logging.getLogger("test")
+    scraper.config = ScrapingConfig(
+        track_progress=True,
+        output_directory=str(tmp_path / "data"),
+        progress_file=str(tmp_path / "progress.json"),
+    )
+    scraper.progress_tracker = None
+    scraper.get_subjects_with_titles_from_live_site = lambda: []
+    scraper.scrape_subject = lambda subject: _boom() if subject == "BBBB" else []
+    scraper._save_subject_immediately = lambda subject, courses, config: []
+    scraper._report_course_outcome_failures = lambda: None
+
+    CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB"])
+
+    run = json.loads((tmp_path / "progress.json").read_text(encoding="utf-8"))["latest_run"]
+    assert run["subjects_total"] == 2
+    assert (run["subjects_completed"], run["subjects_failed"]) == (1, 1)
+    assert run["status"] == "completed"
+
+
 def test_run_config_is_recorded_once_for_the_run(tmp_path):
     # Identical in all 271 entries, because it is a fact about the run: what the numbers
     # were produced under, not something that varies per subject.
