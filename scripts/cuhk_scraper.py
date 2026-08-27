@@ -303,7 +303,6 @@ class ScrapingProgressTracker:
         subjects[subject] = {
             "status": "completed",
             "courses_count": courses_count,
-            "courses_scraped": courses_count,
             "output_file": output_file,
         }
 

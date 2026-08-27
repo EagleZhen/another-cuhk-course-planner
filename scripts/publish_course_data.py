@@ -187,25 +187,11 @@ def validate_scrape_progress(progress_data: dict | None) -> dict[str, list[str]]
     if not progress_data:
         return {}
 
-    subjects = progress_data.get("subjects", {})
-    issues_by_subject: dict[str, list[str]] = {}
-
-    for subject_code, subject_progress in subjects.items():
-        status = subject_progress.get("status")
-        if status != "completed":
-            # An unfinished scrape leaves counts half-written, so they say nothing here.
-            issues_by_subject[subject_code] = [f"Subject status is '{status}', not 'completed'"]
-            continue
-
-        # Check the scrape's own count consistency
-        expected_count = subject_progress.get("courses_count", 0)
-        scraped_count = subject_progress.get("courses_scraped", 0)
-        if expected_count != scraped_count:
-            issues_by_subject[subject_code] = [
-                f"Progress mismatch: expected {expected_count}, scraped {scraped_count}"
-            ]
-
-    return issues_by_subject
+    return {
+        subject_code: [f"Subject status is '{status}', not 'completed'"]
+        for subject_code, subject_progress in progress_data.get("subjects", {}).items()
+        if (status := subject_progress.get("status")) != "completed"
+    }
 
 
 def find_course_files(year_dir: str) -> tuple[list[str], list[str], int]:
@@ -393,7 +379,7 @@ def summarize_subject_registry(progress_data: dict | None) -> dict | None:
         status = subject_data.get("status")
         if status == "completed":
             completed_subjects += 1
-            total_courses += subject_data.get("courses_scraped", 0)
+            total_courses += subject_data.get("courses_count", 0)
         elif status == "failed":
             failed_subjects += 1
 

@@ -144,8 +144,8 @@ def _progress(**progress):
     progress.setdefault(
         "subjects",
         {
-            "CSCI": {"status": "completed", "courses_scraped": 1234},
-            "MATH": {"status": "completed", "courses_scraped": 66},
+            "CSCI": {"status": "completed", "courses_count": 1234},
+            "MATH": {"status": "completed", "courses_count": 66},
             "PHYS": {"status": "failed"},
         },
     )
@@ -316,7 +316,7 @@ def test_a_failed_subject_blocks_the_publish_and_is_named(tmp_path, monkeypatch)
     _write_course_file(source_dir)
 
     def _plan(status):
-        subject = {"status": status, "courses_count": 1, "courses_scraped": 1}
+        subject = {"status": status, "courses_count": 1}
         return publish_course_data.build_publish_plan(
             [source_dir / "2025-26"], {"subjects": {"AAAA": subject}}
         )
@@ -341,7 +341,7 @@ def test_a_subject_that_failed_before_writing_any_file_still_blocks(tmp_path, mo
         [source_dir / "2025-26"],
         {
             "subjects": {
-                "AAAA": {"status": "completed", "courses_count": 1, "courses_scraped": 1},
+                "AAAA": {"status": "completed", "courses_count": 1},
                 "ZZZZ": {"status": "failed"},
             }
         },
