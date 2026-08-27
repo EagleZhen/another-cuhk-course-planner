@@ -190,20 +190,19 @@ def validate_scrape_progress(progress_data: dict | None) -> dict[str, list[str]]
     issues_by_subject: dict[str, list[str]] = {}
 
     for subject_code, subject_progress in subjects.items():
-        issues = []
-
         status = subject_progress.get("status")
         if status != "completed":
-            issues.append(f"Subject status is '{status}', not 'completed'")
+            # An unfinished scrape leaves counts half-written, so they say nothing here.
+            issues_by_subject[subject_code] = [f"Subject status is '{status}', not 'completed'"]
+            continue
 
         # Check the scrape's own count consistency
         expected_count = subject_progress.get("courses_count", 0)
         scraped_count = subject_progress.get("courses_scraped", 0)
         if expected_count != scraped_count:
-            issues.append(f"Progress mismatch: expected {expected_count}, scraped {scraped_count}")
-
-        if issues:
-            issues_by_subject[subject_code] = issues
+            issues_by_subject[subject_code] = [
+                f"Progress mismatch: expected {expected_count}, scraped {scraped_count}"
+            ]
 
     return issues_by_subject
 
