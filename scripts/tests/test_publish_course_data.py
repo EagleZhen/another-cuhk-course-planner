@@ -6,7 +6,7 @@ from pathlib import Path
 
 import publish_course_data
 import pytest
-from cuhk_scraper import ScrapingProgressTracker
+from cuhk_scraper import ScrapingConfig, ScrapingProgressTracker
 from data_utils import (
     SCHEMA_VERSION,
     render_scrape_times_module,
@@ -184,8 +184,10 @@ def test_report_scrape_summary_reads_what_the_scraper_actually_writes(tmp_path, 
     # Hand-built progress dicts kept a dead branch green for months. This one drives the
     # real tracker, so a renamed key breaks the test rather than the header.
     progress_file = tmp_path / "progress.json"
-    tracker = ScrapingProgressTracker(str(progress_file), logging.getLogger("test"), ["AAAA"])
-    tracker.complete_subject("AAAA", 7, "data/2025-26/AAAA.json", 1.0, {})
+    tracker = ScrapingProgressTracker(
+        str(progress_file), logging.getLogger("test"), ["AAAA"], ScrapingConfig()
+    )
+    tracker.complete_subject("AAAA", 7, "data/2025-26/AAAA.json", 1.0)
     tracker.finish_run()
 
     publish_course_data.report_scrape_summary(

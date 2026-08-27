@@ -158,11 +158,18 @@ class ScrapingProgressTracker:
     registry of what is on disk, and outlives any single run.
     """
 
-    def __init__(self, progress_file: str, logger: logging.Logger, run_subjects: list[str]):
+    def __init__(
+        self,
+        progress_file: str,
+        logger: logging.Logger,
+        run_subjects: list[str],
+        config: "ScrapingConfig",
+    ):
         self.progress_file = progress_file
         self.logger = logger
         # Run state: never loaded from the file, so it can only describe this run.
         self.run_subjects = run_subjects
+        self.config = config
         self._started_at = utc_to_hkt()
         self._started_monotonic = time.monotonic()
         self._run_status = "in_progress"
@@ -209,6 +216,13 @@ class ScrapingProgressTracker:
             "subjects_total": len(self.run_subjects),
             "subjects_completed": subject_statuses.count("completed"),
             "subjects_failed": subject_statuses.count("failed"),
+            # What the numbers above were produced under: a run that skipped details or
+            # capped courses per subject explains data that looks thin.
+            "config": {
+                "get_details": self.config.get_details,
+                "get_enrollment_details": self.config.get_enrollment_details,
+                "max_courses": self.config.max_courses_per_subject,
+            },
         }
 
     def _save_progress(self):
@@ -283,7 +297,6 @@ class ScrapingProgressTracker:
         courses_count: int,
         output_file: str,
         duration_minutes: float,
-        config_info: dict,
     ):
         """Mark subject as completed"""
         subjects = self.progress_data["subjects"]
@@ -292,7 +305,6 @@ class ScrapingProgressTracker:
             "courses_count": courses_count,
             "courses_scraped": courses_count,
             "output_file": output_file,
-            "config": config_info,
         }
 
         self._subject_statuses[subject] = "completed"
@@ -1840,7 +1852,7 @@ class CuhkScraper:
         # Initialize progress tracker if enabled
         if self.config.track_progress:
             self.progress_tracker = ScrapingProgressTracker(
-                self.config.progress_file, self.logger, subjects
+                self.config.progress_file, self.logger, subjects, self.config
             )
             self.logger.info(f"📊 Progress tracking enabled: {self.config.progress_file}")
 
@@ -1870,17 +1882,8 @@ class CuhkScraper:
                     # Calculate duration and mark as completed in progress tracker
                     duration_minutes = (time.time() - start_time) / 60
                     if self.progress_tracker:
-                        config_info = {
-                            "get_details": self.config.get_details,
-                            "get_enrollment_details": self.config.get_enrollment_details,
-                            "max_courses": self.config.max_courses_per_subject,
-                        }
                         self.progress_tracker.complete_subject(
-                            subject,
-                            len(courses or []),
-                            saved_display,
-                            duration_minutes,
-                            config_info,
+                            subject, len(courses or []), saved_display, duration_minutes
                         )
 
                     # Use different message for empty vs populated subjects
