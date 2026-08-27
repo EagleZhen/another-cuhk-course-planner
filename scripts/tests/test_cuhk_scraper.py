@@ -300,8 +300,7 @@ def test_exhausted_subject_raises_while_an_empty_subject_completes(monkeypatch):
 
 def test_missing_titles_abort_the_run_rather_than_blanking_every_subject_title():
     # An empty title list is not "no titles" — it would blank every subject title, and the
-    # scrape would look successful. Both a missing dropdown and one holding nothing usable
-    # produce it.
+    # scrape would look successful.
     empty = '<select name="ddl_subject"><option value="">Select a subject</option></select>'
     for page in (DETAIL_HTML, empty):
         with pytest.raises(ValueError):
