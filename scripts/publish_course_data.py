@@ -385,52 +385,22 @@ def summarize_subject_registry(progress_data: dict | None) -> dict | None:
     if not progress_data or "subjects" not in progress_data:
         return None
 
-    total_minutes = 0
     completed_subjects = 0
     failed_subjects = 0
     total_courses = 0
-    fastest_subject = None
-    slowest_subject = None
-    min_time = float("inf")
-    max_time = 0
 
-    for subject_code, subject_data in progress_data["subjects"].items():
+    for subject_data in progress_data["subjects"].values():
         status = subject_data.get("status")
-        duration = subject_data.get("duration_minutes", 0)
-        courses_count = subject_data.get("courses_scraped", 0)
-
         if status == "completed":
             completed_subjects += 1
-            total_courses += courses_count
-
-            if duration > 0:
-                total_minutes += duration
-
-                # Track fastest/slowest subjects
-                if duration < min_time:
-                    min_time = duration
-                    fastest_subject = (subject_code, duration, courses_count)
-
-                if duration > max_time:
-                    max_time = duration
-                    slowest_subject = (subject_code, duration, courses_count)
-
+            total_courses += subject_data.get("courses_scraped", 0)
         elif status == "failed":
             failed_subjects += 1
 
-    # Calculate average time per course
-    avg_time_per_course = total_minutes / total_courses if total_courses > 0 else 0
-    avg_time_per_subject = total_minutes / completed_subjects if completed_subjects > 0 else 0
-
     return {
-        "total_minutes": total_minutes,
         "completed_subjects": completed_subjects,
         "failed_subjects": failed_subjects,
         "total_courses": total_courses,
-        "avg_time_per_course": avg_time_per_course,
-        "avg_time_per_subject": avg_time_per_subject,
-        "fastest_subject": fastest_subject,
-        "slowest_subject": slowest_subject,
     }
 
 

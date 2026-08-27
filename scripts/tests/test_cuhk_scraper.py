@@ -138,23 +138,6 @@ def _saved(tracker):
     return json.loads(Path(tracker.progress_file).read_text(encoding="utf-8"))
 
 
-def test_last_scraped_survives_retry_and_failure(tracker):
-    # The subject's data file outlives a failed re-scrape, so the log should keep
-    # reporting when that data is from.
-    tracker.complete_subject("TEST", 5, "data/2025-26/TEST.json", 1.0, {})
-    completed_at = _entry(tracker, "TEST")["last_scraped"]
-
-    tracker.start_subject("TEST")
-    assert _entry(tracker, "TEST")["last_scraped"] == completed_at
-
-    tracker.fail_subject("TEST", "boom")
-    assert _entry(tracker, "TEST")["last_scraped"] == completed_at
-
-    # The publisher reads the file, not the tracker.
-    saved = json.loads(Path(tracker.progress_file).read_text(encoding="utf-8"))
-    assert saved["subjects"]["TEST"]["last_scraped"] == completed_at
-
-
 # `latest_run` reports this run; `subjects` is the cumulative registry. Every test below
 # is one way those two must not be confused.
 
@@ -245,13 +228,6 @@ def test_run_summary_reaches_the_log_file(tmp_path, caplog):
     assert "Completed: 1" in summary
     assert "Failed: 1" in summary
     assert "Failed subjects: BBBB" in summary
-
-
-def test_never_scraped_subject_omits_last_scraped(tracker):
-    # Absent, not null: publishing must be able to tell "never scraped" from a real
-    # timestamp, and a null would have to be special-cased everywhere downstream.
-    tracker.fail_subject("TEST", "boom")
-    assert "last_scraped" not in _entry(tracker, "TEST")
 
 
 # Each case below is one distinction: did this come back empty because it is empty, or

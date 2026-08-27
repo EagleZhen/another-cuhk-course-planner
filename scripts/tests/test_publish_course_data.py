@@ -144,8 +144,8 @@ def _progress(**progress):
     progress.setdefault(
         "subjects",
         {
-            "CSCI": {"status": "completed", "duration_minutes": 2.5, "courses_scraped": 1234},
-            "MATH": {"status": "completed", "duration_minutes": 1.0, "courses_scraped": 66},
+            "CSCI": {"status": "completed", "courses_scraped": 1234},
+            "MATH": {"status": "completed", "courses_scraped": 66},
             "PHYS": {"status": "failed"},
         },
     )

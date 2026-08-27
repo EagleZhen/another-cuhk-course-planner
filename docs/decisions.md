@@ -170,7 +170,7 @@ Decision: drop the per-file timestamp. A full scrape writes `data/<dir>/_scraped
 Why it fits:
 
 - one timestamp per directory instead of ~900 per scrape, so a data diff shows course changes
-- **per directory, not per subject**: a scrape only writes the years CUHK still serves, so a dropped year's timestamp freezes with its data. Anything derived from per-subject times (`last_scraped`, or the run's start) keeps advancing instead, because those subjects are still scraped for the live year — it would advertise frozen data as fresh
+- **per directory, not per subject**: a scrape only writes the years CUHK still serves, so a dropped year's timestamp freezes with its data. Anything derived from per-subject times, or from the run's start, keeps advancing instead, because those subjects are still scraped for the live year — it would advertise frozen data as fresh
 - full runs only: a partial scrape can't speak for the subjects it never touched, so it leaves the stamps alone and stays pessimistic
 - a build-time constant, not another fetch: data and code deploy together, and the app already generates `subjects.ts` / `terms.ts` this way. The module stays purely derived, so deleting `generated/` and re-publishing round-trips
 

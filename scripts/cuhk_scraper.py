@@ -233,7 +233,6 @@ class ScrapingProgressTracker:
     def start_subject(self, subject: str, estimated_courses: int = 0):
         """Mark subject as started"""
         subjects = self.progress_data["subjects"]
-        previous = subjects.get(subject, {})
         subjects[subject] = {
             "status": "in_progress",
             "started_at": utc_now_iso(),
@@ -243,10 +242,6 @@ class ScrapingProgressTracker:
             "last_course_completed": "",
             "last_progress_update": utc_now_iso(),
         }
-        # Carry forward when the subject last succeeded: the file it wrote is still on
-        # disk, so the entry should keep saying when that data is from.
-        if "last_scraped" in previous:
-            subjects[subject]["last_scraped"] = previous["last_scraped"]
         self._save_progress()
         self.logger.info(f"🚀 Started scraping {subject}")
 
@@ -294,11 +289,9 @@ class ScrapingProgressTracker:
         subjects = self.progress_data["subjects"]
         subjects[subject] = {
             "status": "completed",
-            "last_scraped": utc_now_iso(),
             "courses_count": courses_count,
             "courses_scraped": courses_count,
             "output_file": output_file,
-            "duration_minutes": round(duration_minutes, 2),
             "config": config_info,
         }
 
@@ -318,9 +311,6 @@ class ScrapingProgressTracker:
             "error": str(error_message)[:200],  # Limit error message length
             "courses_scraped": current_data.get("courses_scraped", 0),
         }
-        # See start_subject: a failed attempt must not erase the last success.
-        if "last_scraped" in current_data:
-            subjects[subject]["last_scraped"] = current_data["last_scraped"]
 
         self._subject_statuses[subject] = "failed"
         self._save_progress()
