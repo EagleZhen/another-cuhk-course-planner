@@ -298,13 +298,16 @@ def test_exhausted_subject_raises_while_an_empty_subject_completes(monkeypatch):
     assert CuhkScraper.scrape_subject(_subject_scraper(NO_RECORDS_PAGE), "TEST") == []
 
 
-def test_missing_titles_abort_the_run_rather_than_titling_every_subject_with_its_code():
-    # An empty title list is not "no titles" — it would name every subject after itself,
-    # and the scrape would look successful.
-    with pytest.raises(ValueError):
-        CuhkScraper.get_subjects_with_titles_from_live_site(
-            _live_scraper(_robust_request=lambda *a, **k: SimpleNamespace(text=DETAIL_HTML))
-        )
+def test_missing_titles_abort_the_run_rather_than_blanking_every_subject_title():
+    # An empty title list is not "no titles" — it would blank every subject title, and the
+    # scrape would look successful. Both a missing dropdown and one holding nothing usable
+    # produce it.
+    empty = '<select name="ddl_subject"><option value="">Select a subject</option></select>'
+    for page in (DETAIL_HTML, empty):
+        with pytest.raises(ValueError):
+            CuhkScraper.get_subjects_with_titles_from_live_site(
+                _live_scraper(_robust_request=lambda *a, **k: SimpleNamespace(text=page))
+            )
 
     page = '<select name="ddl_subject"><option value="TEST">TEST - Test Subject</option></select>'
     assert CuhkScraper.get_subjects_with_titles_from_live_site(

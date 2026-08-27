@@ -701,8 +701,8 @@ class CuhkScraper:
     def get_subjects_with_titles_from_live_site(self) -> list[dict[str, str]]:
         """Extract subject codes and titles from live website.
 
-        Raises rather than returning nothing: an empty result would title every subject
-        with its own code, and the run would look fine.
+        Raises rather than returning nothing: an empty result would blank every subject
+        title, and the run would look fine.
         """
         response = self._robust_request("GET", self.base_url)
         soup = BeautifulSoup(response.text, "html.parser")
@@ -716,6 +716,8 @@ class CuhkScraper:
             text = option.get_text().strip()
             if value and text:  # Skip empty options
                 subjects.append({"code": value, "title": text})
+        if not subjects:
+            raise ValueError("Subject dropdown (ddl_subject) held no titled subjects")
 
         self.logger.info(f"📋 Found {len(subjects)} subjects with titles from live site")
         return subjects
