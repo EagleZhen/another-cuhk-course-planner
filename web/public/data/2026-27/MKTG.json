@@ -100,10 +100,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "58",
+                "enrolled": "67",
                 "waitlist_capacity": "999",
                 "waitlist_total": "10",
-                "available_seats": "12",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -126,10 +126,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "32",
+                "enrolled": "39",
                 "waitlist_capacity": "999",
                 "waitlist_total": "6",
-                "available_seats": "38",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -792,9 +792,9 @@
       "assessment_types": {
         "Attendance": "0",
         "Essay test or exam": "0",
+        "Participation": "0",
         "Homework or assignment": "0",
-        "Project": "0",
-        "Participation": "0"
+        "Project": "0"
       }
     },
     {
