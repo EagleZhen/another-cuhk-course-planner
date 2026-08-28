@@ -142,7 +142,7 @@ CUHK sometimes returns a system-error page for course outcomes:
 
 - [System error sample](<../lab/scraper/samples/webpages/System error.html>)
 
-Retrying never clears these — CUHK's data for the course is malformed, so the fix has to come from ITSC. A full scrape lists them in `logs/failed_course_outcomes.txt`.
+Retrying never clears these — CUHK's data for the course is malformed, so the fix has to come from ITSC. `logs/failed_course_outcomes.txt` lists them.
 
 ### Incomplete Or Alternate Pages
 
@@ -193,7 +193,7 @@ ls -t logs/scrape/scrape_*.log | head -1
 jq '.subjects.CSCI' logs/scraping_progress.json
 ```
 
-Check for outstanding outcome failures. The file exists only while a full scrape is still hitting them, so no file means none:
+Check for outstanding outcome failures — no file means none:
 
 ```bash
 cat logs/failed_course_outcomes.txt 2>/dev/null || echo "none outstanding"
