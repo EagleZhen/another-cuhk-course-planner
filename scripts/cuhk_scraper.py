@@ -78,7 +78,7 @@ class ScrapingConfig:
         return cls(
             max_courses_per_subject=None,  # No limit
             save_debug_files=False,  # No debug files in production
-            save_debug_on_error=True,  # Only save HTML on parsing errors
+            save_debug_on_error=True,  # TODO(#292): dead - production saves nothing, errors included
             debug_html_directory=DEBUG_HTML_DIR,  # Separate debug folder
             request_delay=0.8,  # ~9h for a full scrape at today's catalog size
             max_subject_attempts=10,
@@ -202,8 +202,8 @@ class ScrapingProgressTracker:
         """Render this run's dashboard
 
         Written for a human and never read back, which is why it carries HKT timestamps
-        and no machine-readable siblings. `log_summary` renders the same dict, so the
-        file and the console cannot disagree.
+        and no machine-readable siblings. `log_summary` renders it too, so the counts on
+        the console come from this one source; its timestamps are rendered per call.
         """
         subject_statuses = list(self._subject_statuses.values())
         return {
@@ -579,7 +579,7 @@ class CuhkScraper:
         if not self.current_config:
             return
 
-        # Save if explicitly enabled or on error
+        # TODO(#292): no caller passes force_save, so the second half never fires
         should_save = self.current_config.save_debug_files or (
             force_save and self.current_config.save_debug_on_error
         )
@@ -1624,6 +1624,7 @@ class CuhkScraper:
             self._track_failed_course_outcome(
                 course.subject, course.course_code, "system_error_permanent"
             )
+            # TODO(#292): silent in production - needs force_save=True to reach disk
             self._save_debug_html(
                 response.text,
                 f"course_outcome_{course.subject}_{course.course_code}_SYSTEM_ERROR.html",
