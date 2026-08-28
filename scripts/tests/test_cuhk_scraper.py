@@ -295,7 +295,9 @@ def _live_scraper(**overrides):
     scraper.logger = logging.getLogger("test")
     scraper.base_url = "http://test.invalid"
     scraper.config = ScrapingConfig(get_course_outcome=False, get_enrollment_details=False)
-    scraper.current_config = None  # keeps _save_debug_html a no-op
+    # Not disabled via current_config: _set_context re-enables it mid-scrape, littering
+    # debug HTML into whatever directory the suite ran from.
+    scraper._save_debug_html = lambda *a, **k: None
     scraper.current_course_context = None
     scraper._robust_request = _boom
     for name, value in overrides.items():
@@ -396,7 +398,6 @@ def _subject_scraper(page):
     return _live_scraper(
         config=ScrapingConfig(max_subject_attempts=MAX_SUBJECT_ATTEMPTS, get_details=False),
         progress_tracker=None,
-        _set_context=lambda *a, **k: None,
         _extract_form_data=lambda soup: {},
         _robust_request=lambda *a, **k: SimpleNamespace(text=page),
     )
