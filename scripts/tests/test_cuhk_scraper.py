@@ -4,6 +4,7 @@ import time
 from pathlib import Path
 from types import SimpleNamespace
 
+import cuhk_scraper
 import pytest
 from cuhk_scraper import (
     Course,
@@ -360,6 +361,40 @@ def test_permanent_outcome_failure_is_recorded_once_per_course():
         "system_error_permanent",
         "other_reason",
     ]
+
+
+def _report_outcome_failures(monkeypatch, tmp_path, failures):
+    report = tmp_path / "failed_course_outcomes.txt"
+    monkeypatch.setattr(cuhk_scraper, "FAILED_COURSE_OUTCOMES_FILE", str(report))
+    scraper = _live_scraper()
+    for subject, code in failures:
+        CuhkScraper._track_failed_course_outcome(scraper, subject, code, "system_error_permanent")
+    CuhkScraper._report_course_outcome_failures(scraper)
+    return report
+
+
+def test_a_run_with_failures_writes_the_report(monkeypatch, tmp_path):
+    report = _report_outcome_failures(monkeypatch, tmp_path, [("TEST", "1000")])
+
+    assert "TEST1000 - system_error_permanent" in report.read_text()
+
+
+def test_a_clean_run_removes_a_previous_run_s_report(monkeypatch, tmp_path):
+    # The file is committed, so a leftover reads as this run's result — one from June sat
+    # in the repo for months looking current.
+    report = tmp_path / "failed_course_outcomes.txt"
+    report.write_text("COMM5962 - system_error_permanent (2026-06-27T08:59:13+00:00)\n")
+
+    _report_outcome_failures(monkeypatch, tmp_path, [])
+
+    assert not report.exists()
+
+
+def test_a_clean_run_survives_having_no_report_to_remove(monkeypatch, tmp_path):
+    report = tmp_path / "nonexistent" / "failed_course_outcomes.txt"
+    monkeypatch.setattr(cuhk_scraper, "FAILED_COURSE_OUTCOMES_FILE", str(report))
+
+    CuhkScraper._report_course_outcome_failures(_live_scraper())  # must not raise
 
 
 def _row(code, *, title=True):

@@ -1741,9 +1741,14 @@ class CuhkScraper:
         self.logger.info(f"📝 Tracked failed course outcome: {subject}{course_code} ({reason})")
 
     def _report_course_outcome_failures(self):
-        """Report failed course outcomes at end of scraping for manual retry"""
+        """Report failed course outcomes at end of scraping for manual retry
+
+        The report file is committed, so it has to describe the run that just finished.
+        Leaving a clean run's file alone kept one from June looking current for months.
+        """
         if not hasattr(self, "_failed_course_outcomes") or not self._failed_course_outcomes:
             self.logger.info("✅ All course outcomes scraped successfully")
+            Path(FAILED_COURSE_OUTCOMES_FILE).unlink(missing_ok=True)
             return
 
         failure_count = len(self._failed_course_outcomes)
@@ -1766,6 +1771,9 @@ class CuhkScraper:
         self.logger.info("   • Wait 1-2 hours for CUHK server recovery")
         self.logger.info("   • Manually retry failed courses during stable server periods")
         self.logger.info("   • These courses currently have empty course outcome data")
+        self.logger.info(
+            f"   • The page each one returned is already saved in {self.config.debug_html_directory}"
+        )
 
         # Save failure details to file for easy retry
         failure_file = FAILED_COURSE_OUTCOMES_FILE
