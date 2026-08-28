@@ -550,6 +550,26 @@ OUTCOME_BUTTON_HTML = '<input id="btn_course_outcome" name="btn_course_outcome" 
 SYSTEM_ERROR_PAGE = "<html><title>System error</title></html>"
 
 
+def test_a_course_keeps_the_last_page_served_not_the_last_attempt(monkeypatch, tmp_path):
+    # Resetting `response` per attempt would save nothing here.
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+    scraper, course = _failing_scraper(tmp_path, "")
+    served = ["<html>served once</html>"]
+
+    def _one_page_then_a_stale_session(*args, **kwargs):
+        if served:
+            return SimpleNamespace(text=served.pop())
+        raise HTTPError("403 Forbidden")
+
+    scraper._robust_request = _one_page_then_a_stale_session
+
+    with pytest.raises(HTTPError):
+        CuhkScraper.get_course_details(scraper, course, DETAIL_HTML)
+
+    failed = tmp_path / "course_details_TEST_1000_FAILED.html"
+    assert failed.read_text() == "<html>served once</html>"
+
+
 def test_a_permanent_system_error_keeps_the_outcome_page(tmp_path):
     # Nothing retries a permanent system error, so this page is the only evidence that the
     # outcome is missing rather than genuinely empty.

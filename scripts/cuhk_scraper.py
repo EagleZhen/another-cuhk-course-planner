@@ -962,12 +962,11 @@ class CuhkScraper:
         return courses
 
     def _keep_failed_course_page(self, response, course: Course) -> None:
-        """Save the page that made this course fail for good.
+        """Save the last page CUHK served for this course.
 
-        Retries are exhausted, so the subject fails and the publish blocks on it. This is
-        the only copy of what CUHK actually served. `response` is None when no attempt got
-        that far — a 4xx escalates out of `_robust_request` without one, which is what a
-        stale session looks like.
+        Not reset per attempt on purpose: when the final attempt dies before getting a
+        response, an earlier page is the only evidence left. None when no attempt got
+        that far — a 4xx escalates out of `_robust_request` without one.
         """
         if response is None:
             return
