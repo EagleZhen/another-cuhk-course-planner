@@ -78,7 +78,7 @@ class ScrapingConfig:
         return cls(
             max_courses_per_subject=None,  # No limit
             save_debug_files=False,  # No debug files in production
-            save_debug_on_error=True,  # Only save HTML on parsing errors
+            save_debug_on_error=True,  # Keep the page behind a failure, nothing else
             debug_html_directory=DEBUG_HTML_DIR,  # Separate debug folder
             request_delay=0.8,  # ~9h for a full scrape at today's catalog size
             max_subject_attempts=10,
@@ -202,8 +202,8 @@ class ScrapingProgressTracker:
         """Render this run's dashboard
 
         Written for a human and never read back, which is why it carries HKT timestamps
-        and no machine-readable siblings. `log_summary` renders the same dict, so the
-        file and the console cannot disagree.
+        and no machine-readable siblings. `log_summary` renders it too, so the counts on
+        the console come from this one source; its timestamps are rendered per call.
         """
         subject_statuses = list(self._subject_statuses.values())
         return {
@@ -579,7 +579,7 @@ class CuhkScraper:
         if not self.current_config:
             return
 
-        # Save if explicitly enabled or on error
+        # Save if explicitly enabled, or when the caller is keeping a failure
         should_save = self.current_config.save_debug_files or (
             force_save and self.current_config.save_debug_on_error
         )
@@ -961,6 +961,22 @@ class CuhkScraper:
         self.logger.info(f"Parsed {len(courses)} courses from results table")
         return courses
 
+    def _keep_failed_course_page(self, response, course: Course) -> None:
+        """Save the last page CUHK served for this course.
+
+        Not reset per attempt on purpose: when the final attempt dies before getting a
+        response, an earlier page is the only evidence left. None when no attempt got
+        that far — a 4xx escalates out of `_robust_request` without one.
+        """
+        if response is None:
+            return
+        self._set_context(self.config, course)
+        self._save_debug_html(
+            response.text,
+            f"course_details_{course.subject}_{course.course_code}_FAILED.html",
+            force_save=True,
+        )
+
     def get_course_details(self, course: Course, current_html: str) -> Course | None:
         """Get detailed course information by simulating postback with retry for validation failures"""
         if not course.postback_target:
@@ -969,6 +985,7 @@ class CuhkScraper:
 
         # TODO: Extract retry logic if we add more retry sites (see _robust_request for similar pattern)
         attempt = 0
+        response = None
         while True:
             try:
                 soup = BeautifulSoup(current_html, "html.parser")
@@ -1001,6 +1018,7 @@ class CuhkScraper:
                 # Validation error (corrupted HTML, missing buttons, etc.)
                 attempt += 1
                 if attempt >= self.config.max_course_attempts:
+                    self._keep_failed_course_page(response, course)
                     raise
                 wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # Same backoff as _robust_request
                 self.logger.warning(
@@ -1014,6 +1032,7 @@ class CuhkScraper:
                 # Unexpected error - also retry (could be parsing error from bad HTML)
                 attempt += 1
                 if attempt >= self.config.max_course_attempts:
+                    self._keep_failed_course_page(response, course)
                     raise
                 wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
                 self.logger.error(
@@ -1624,9 +1643,12 @@ class CuhkScraper:
             self._track_failed_course_outcome(
                 course.subject, course.course_code, "system_error_permanent"
             )
+            # Kept like an exhausted course: nothing retries this, so the page is the only
+            # evidence the outcome is missing rather than empty.
             self._save_debug_html(
                 response.text,
                 f"course_outcome_{course.subject}_{course.course_code}_SYSTEM_ERROR.html",
+                force_save=True,
             )
             return  # Don't retry system errors - they're permanent (malformed data in CUHK database)
 
@@ -1637,10 +1659,15 @@ class CuhkScraper:
 
         # Validate response structure before parsing
         if not self._validate_course_outcome_response(response.text, course):
-            # Invalid outcome page = transient corruption
+            # The retry loop saves the details page, which looks healthy — this is the one
+            # that failed. Left behind even when a retry succeeds: a file records that CUHK
+            # hiccuped, where tracking would report a failure the retry cleared (#80).
+            self._save_debug_html(
+                response.text,
+                f"course_outcome_{course.subject}_{course.course_code}_INVALID.html",
+                force_save=True,
+            )
             # Raise ValueError to trigger retry in get_course_details()
-            # NOTE: Do NOT track here - retry loop may succeed, so tracking before giving up
-            # would falsely report a failure even when the course eventually recovers. (#80)
             raise ValueError(f"Invalid course outcome page structure for {course.course_code}")
 
         # Parse Course Outcome page only if validation passes
@@ -1717,10 +1744,19 @@ class CuhkScraper:
 
         self.logger.info(f"📝 Tracked failed course outcome: {subject}{course_code} ({reason})")
 
-    def _report_course_outcome_failures(self):
-        """Report failed course outcomes at end of scraping for manual retry"""
+    def _report_course_outcome_failures(self, covered_every_subject: bool):
+        """Report course outcomes CUHK serves a system error for
+
+        Only a run that reached every subject rewrites the report file: one that skipped
+        or lost a subject cannot say whether that subject's courses are still failing.
+        The console block still names whatever this run hit.
+        """
         if not hasattr(self, "_failed_course_outcomes") or not self._failed_course_outcomes:
+            if not covered_every_subject:
+                self.logger.info("✅ No outcome failures in the subjects this run reached")
+                return
             self.logger.info("✅ All course outcomes scraped successfully")
+            Path(FAILED_COURSE_OUTCOMES_FILE).unlink(missing_ok=True)
             return
 
         failure_count = len(self._failed_course_outcomes)
@@ -1740,15 +1776,23 @@ class CuhkScraper:
             self.logger.info(f"📋 {reason.upper()}: {', '.join(courses)}")
 
         self.logger.info("\n💡 RECOMMENDATION:")
-        self.logger.info("   • Wait 1-2 hours for CUHK server recovery")
-        self.logger.info("   • Manually retry failed courses during stable server periods")
-        self.logger.info("   • These courses currently have empty course outcome data")
+        self.logger.info("   • Retrying will not help - CUHK's data for these courses is malformed")
+        self.logger.info("   • Report them to ITSC; only an upstream fix clears this")
+        self.logger.info("   • Until then these courses carry empty course outcome data")
+        self.logger.info(
+            f"   • The page each one returned is already saved in {self.config.debug_html_directory}"
+        )
 
-        # Save failure details to file for easy retry
+        if not covered_every_subject:
+            self.logger.info("\n🎯 Run did not reach every subject: leaving the report file alone")
+            self.logger.info(f"{'=' * 60}")
+            return
+
+        # The list outlives the terminal: an upstream fix can take weeks.
         failure_file = FAILED_COURSE_OUTCOMES_FILE
         os.makedirs(os.path.dirname(failure_file), exist_ok=True)
         with open(failure_file, "w") as f:
-            f.write("# Failed Course Outcomes - Manual Retry Needed\n")
+            f.write("# Failed Course Outcomes - Needs an Upstream Fix from ITSC\n")
             f.write(f"# Generated: {utc_now_iso()}\n\n")
             for failure in self._failed_course_outcomes:
                 f.write(
@@ -1925,8 +1969,9 @@ class CuhkScraper:
 
         # Index file generation removed - frontend loads individual JSON files directly
 
-        # Report course outcome failures for manual retry
-        self._report_course_outcome_failures()
+        # Report course outcomes CUHK is serving a system error for. A subject that failed
+        # never reached its courses, so this run cannot vouch for them either.
+        self._report_course_outcome_failures(full_catalog and not failed_subjects)
 
         # Final summary
         self.logger.info("🎉 SCRAPING COMPLETED!")

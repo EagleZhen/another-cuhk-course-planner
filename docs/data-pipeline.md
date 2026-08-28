@@ -142,7 +142,7 @@ CUHK sometimes returns a system-error page for course outcomes:
 
 - [System error sample](<../lab/scraper/samples/webpages/System error.html>)
 
-These are treated as permanent outcome failures and recorded in [logs/failed_course_outcomes.txt](../logs/failed_course_outcomes.txt) for review.
+Retrying never clears these — CUHK's data for the course is malformed, so the fix has to come from ITSC. `logs/failed_course_outcomes.txt` lists them.
 
 ### Incomplete Or Alternate Pages
 
@@ -193,13 +193,23 @@ ls -t logs/scrape/scrape_*.log | head -1
 jq '.subjects.CSCI' logs/scraping_progress.json
 ```
 
-Review [failed course outcomes](../logs/failed_course_outcomes.txt):
+Check for outstanding outcome failures — no file means none:
 
 ```bash
-cat logs/failed_course_outcomes.txt
+cat logs/failed_course_outcomes.txt 2>/dev/null || echo "none outstanding"
 ```
 
-Enable debug HTML saving while investigating parser behavior:
+Only a scrape that reached every subject rewrites it — a partial run, or one that lost a subject, leaves the list alone rather than speaking for what it never saw.
+
+A production scrape already keeps the page behind each failure, so look for one before reproducing it:
+
+| File                  | Written when                                                            |
+| --------------------- | ----------------------------------------------------------------------- |
+| `*_FAILED.html`       | a course exhausted `max_course_attempts`                                |
+| `*_SYSTEM_ERROR.html` | CUHK's outcome page is malformed for good                               |
+| `*_INVALID.html`      | an outcome page failed validation — kept even if a retry then succeeded |
+
+To keep every page instead, while investigating parser behavior:
 
 ```python
 config = ScrapingConfig.for_production()
@@ -207,7 +217,7 @@ config.save_debug_files = True
 scraper = CuhkScraper(config)
 ```
 
-Debug HTML is saved to [lab/scraper/outputs/debug_html/](../lab/scraper/outputs/debug_html/).
+Debug HTML is saved to [lab/scraper/outputs/debug_html/](../lab/scraper/outputs/debug_html/), which `.gitignore` covers only at the repository root — the path is relative, so run the scraper from the root or the files land somewhere untracked.
 
 ## See Also
 
