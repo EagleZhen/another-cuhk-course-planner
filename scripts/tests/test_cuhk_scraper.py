@@ -589,6 +589,36 @@ def test_a_course_keeps_the_last_page_served_not_the_last_attempt(monkeypatch, t
     assert failed.read_text() == "<html>served once</html>"
 
 
+# Not a system error - fails validation on the title check instead.
+WRONG_PAGE = '<html><div class="titleNormal">Course Catalog</div></html>'
+
+
+def test_an_invalid_outcome_page_is_kept(tmp_path):
+    # Otherwise a course that gives up here leaves only the healthy-looking details page.
+    scraper, course = _failing_scraper(tmp_path, WRONG_PAGE)
+    scraper._set_context(scraper.config)
+
+    with pytest.raises(ValueError, match="Invalid course outcome page"):
+        CuhkScraper._scrape_course_outcome(scraper, OUTCOME_BUTTON_HTML, course)
+
+    kept = tmp_path / "course_outcome_TEST_1000_INVALID.html"
+    assert kept.read_text() == WRONG_PAGE
+
+
+def test_a_valid_outcome_page_keeps_nothing(tmp_path):
+    # The other side: no file per course that parsed fine.
+    valid = (
+        '<html><div class="titleNormal">Course Outcome</div>'
+        '<td class="reverseHeaderStyle">Learning Outcome</td></html>'
+    )
+    scraper, course = _failing_scraper(tmp_path, valid)
+    scraper._set_context(scraper.config)
+
+    CuhkScraper._scrape_course_outcome(scraper, OUTCOME_BUTTON_HTML, course)
+
+    assert list(tmp_path.iterdir()) == []
+
+
 def test_a_permanent_system_error_keeps_the_outcome_page(tmp_path):
     # Nothing retries a permanent system error, so this page is the only evidence that the
     # outcome is missing rather than genuinely empty.

@@ -1659,10 +1659,15 @@ class CuhkScraper:
 
         # Validate response structure before parsing
         if not self._validate_course_outcome_response(response.text, course):
-            # Invalid outcome page = transient corruption
+            # The retry loop saves the details page, which looks healthy — this is the one
+            # that failed. Left behind even when a retry succeeds: a file records that CUHK
+            # hiccuped, where tracking would report a failure the retry cleared (#80).
+            self._save_debug_html(
+                response.text,
+                f"course_outcome_{course.subject}_{course.course_code}_INVALID.html",
+                force_save=True,
+            )
             # Raise ValueError to trigger retry in get_course_details()
-            # NOTE: Do NOT track here - retry loop may succeed, so tracking before giving up
-            # would falsely report a failure even when the course eventually recovers. (#80)
             raise ValueError(f"Invalid course outcome page structure for {course.course_code}")
 
         # Parse Course Outcome page only if validation passes
