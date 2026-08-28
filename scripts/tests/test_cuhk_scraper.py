@@ -121,37 +121,153 @@ def test_dropped_year_keeps_its_scrape_time(scraper, tmp_path):
     assert (tmp_path / "2026-27" / "_scraped_at.txt").read_text() == "2027-01-01T00:00:00+00:00\n"
 
 
+def _tracker(progress_file, run_subjects, config=None):
+    return ScrapingProgressTracker(
+        str(progress_file), logging.getLogger("test"), run_subjects, config or ScrapingConfig()
+    )
+
+
 @pytest.fixture
 def tracker(tmp_path):
-    return ScrapingProgressTracker(str(tmp_path / "progress.json"), logging.getLogger("test"))
+    return _tracker(tmp_path / "progress.json", ["TEST"])
 
 
 def _entry(tracker, subject):
-    return tracker.progress_data["scraping_log"]["subjects"][subject]
+    return tracker.progress_data["subjects"][subject]
 
 
-def test_last_scraped_survives_retry_and_failure(tracker):
-    # The subject's data file outlives a failed re-scrape, so the log should keep
-    # reporting when that data is from.
-    tracker.complete_subject("TEST", 5, "data/2025-26/TEST.json", 1.0, {})
-    completed_at = _entry(tracker, "TEST")["last_scraped"]
-
-    tracker.start_subject("TEST")
-    assert _entry(tracker, "TEST")["last_scraped"] == completed_at
-
-    tracker.fail_subject("TEST", "boom")
-    assert _entry(tracker, "TEST")["last_scraped"] == completed_at
-
-    # The publisher reads the file, not the tracker.
-    saved = json.loads(Path(tracker.progress_file).read_text(encoding="utf-8"))
-    assert saved["scraping_log"]["subjects"]["TEST"]["last_scraped"] == completed_at
+def _saved(tracker):
+    return json.loads(Path(tracker.progress_file).read_text(encoding="utf-8"))
 
 
-def test_never_scraped_subject_omits_last_scraped(tracker):
-    # Absent, not null: publishing must be able to tell "never scraped" from a real
-    # timestamp, and a null would have to be special-cased everywhere downstream.
-    tracker.fail_subject("TEST", "boom")
-    assert "last_scraped" not in _entry(tracker, "TEST")
+# `latest_run` reports this run; `subjects` is the cumulative registry. Every test below
+# is one way those two must not be confused.
+
+
+def test_run_counters_cover_only_this_run(tmp_path):
+    # Retrying one subject is the normal workflow, and its summary must describe the
+    # retry rather than everything ever scraped.
+    progress_file = tmp_path / "progress.json"
+    first = _tracker(progress_file, ["AAAA", "BBBB", "CCCC"])
+    for subject in ("AAAA", "BBBB", "CCCC"):
+        first.complete_subject(subject, 1, f"data/{subject}.json", 1.0)
+
+    retry = _tracker(progress_file, ["BBBB"])
+    retry.complete_subject("BBBB", 2, "data/BBBB.json", 1.0)
+
+    run = _saved(retry)["latest_run"]
+    assert (run["subjects_total"], run["subjects_completed"]) == (1, 1)
+
+    # The subjects it skipped are still on disk, so their entries survive untouched.
+    registry = _saved(retry)["subjects"]
+    assert sorted(registry) == ["AAAA", "BBBB", "CCCC"]
+    assert registry["AAAA"]["courses_count"] == 1
+
+
+def test_run_counters_split_completed_from_failed(tmp_path):
+    tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB", "CCCC"])
+    tracker.complete_subject("AAAA", 1, "data/AAAA.json", 1.0)
+    tracker.complete_subject("BBBB", 1, "data/BBBB.json", 1.0)
+    tracker.fail_subject("CCCC", "boom")
+
+    run = _saved(tracker)["latest_run"]
+    assert (run["subjects_completed"], run["subjects_failed"]) == (2, 1)
+    assert tracker.get_failed_subjects() == ["CCCC"]
+
+
+def test_run_counters_ignore_what_an_earlier_run_completed(tmp_path):
+    # Mid-run the registry still reports last run's successes. Counting those would show
+    # a run finished before it started work.
+    progress_file = tmp_path / "progress.json"
+    first = _tracker(progress_file, ["AAAA", "BBBB"])
+    for subject in ("AAAA", "BBBB"):
+        first.complete_subject(subject, 1, f"data/{subject}.json", 1.0)
+
+    second = _tracker(progress_file, ["AAAA", "BBBB"])
+    second.start_subject("AAAA")
+
+    run = _saved(second)["latest_run"]
+    assert (run["subjects_total"], run["subjects_completed"]) == (2, 0)
+
+
+def test_finish_run_is_what_marks_a_run_completed(tracker):
+    # A killed run can never write its own ending, so "in_progress" has to survive
+    # everything except finish_run().
+    tracker.complete_subject("TEST", 1, "data/TEST.json", 1.0)
+    assert _saved(tracker)["latest_run"]["status"] == "in_progress"
+
+    tracker.finish_run()
+    assert _saved(tracker)["latest_run"]["status"] == "completed"
+
+
+def test_a_run_reports_what_its_loop_actually_did(tmp_path):
+    # The only cover for the wiring in scrape_all_subjects: the tracker's arguments and
+    # the finish_run() that ends the run. Both network calls are stubbed, so this stays
+    # off the live site.
+    scraper = CuhkScraper.__new__(CuhkScraper)
+    scraper.logger = logging.getLogger("test")
+    scraper.config = ScrapingConfig(
+        track_progress=True,
+        output_directory=str(tmp_path / "data"),
+        progress_file=str(tmp_path / "progress.json"),
+    )
+    scraper.progress_tracker = None
+    scraper.get_subjects_with_titles_from_live_site = lambda: []
+    scraper.scrape_subject = lambda subject: _boom() if subject == "BBBB" else []
+    scraper._save_subject_immediately = lambda subject, courses, config: []
+    scraper._report_course_outcome_failures = lambda: None
+
+    CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB"])
+
+    run = json.loads((tmp_path / "progress.json").read_text(encoding="utf-8"))["latest_run"]
+    assert run["subjects_total"] == 2
+    assert (run["subjects_completed"], run["subjects_failed"]) == (1, 1)
+    assert run["status"] == "completed"
+
+
+def test_run_config_is_recorded_once_for_the_run(tmp_path):
+    # Identical in all 271 entries, because it is a fact about the run: what the numbers
+    # were produced under, not something that varies per subject.
+    tracker = _tracker(
+        tmp_path / "progress.json", ["AAAA"], ScrapingConfig(max_courses_per_subject=5)
+    )
+    tracker.complete_subject("AAAA", 1, "data/AAAA.json", 1.0)
+
+    saved = _saved(tracker)
+    assert saved["latest_run"]["config"]["max_courses"] == 5
+    assert "config" not in saved["subjects"]["AAAA"]
+
+
+def test_registry_stays_sorted_as_subjects_are_added(tmp_path):
+    # Key order otherwise records scrape history: a subject CUHK adds later lands at the
+    # end and stays there, so the file drifts out of order one addition at a time.
+    tracker = _tracker(tmp_path / "progress.json", ["MATH", "AAAA"])
+    tracker.complete_subject("MATH", 1, "data/MATH.json", 1.0)
+    tracker.complete_subject("AAAA", 1, "data/AAAA.json", 1.0)
+
+    saved = _saved(tracker)
+    assert list(saved["subjects"]) == ["AAAA", "MATH"]
+
+    # The other half: sorting recursively would alphabetize the run block, whose field
+    # order is authored for a reader.
+    assert list(saved["latest_run"])[:3] == ["started_at", "last_updated", "duration"]
+
+
+def test_run_summary_reaches_the_log_file(tmp_path, caplog):
+    # A 7-hour background run is the case that needs this: the summary is the part worth
+    # keeping, and print() never reaches logs/scrape/.
+    tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB"])
+    tracker.complete_subject("AAAA", 1, "data/AAAA.json", 1.0)
+    tracker.fail_subject("BBBB", "boom")
+
+    with caplog.at_level(logging.INFO):
+        tracker.log_summary()
+
+    summary = caplog.records[-1].message
+    assert "Total subjects: 2" in summary
+    assert "Completed: 1" in summary
+    assert "Failed: 1" in summary
+    assert "Failed subjects: BBBB" in summary
 
 
 # Each case below is one distinction: did this come back empty because it is empty, or
@@ -179,7 +295,9 @@ def _live_scraper(**overrides):
     scraper.logger = logging.getLogger("test")
     scraper.base_url = "http://test.invalid"
     scraper.config = ScrapingConfig(get_course_outcome=False, get_enrollment_details=False)
-    scraper.current_config = None  # keeps _save_debug_html a no-op
+    # Not disabled via current_config: _set_context re-enables it mid-scrape, littering
+    # debug HTML into whatever directory the suite ran from.
+    scraper._save_debug_html = lambda *a, **k: None
     scraper.current_course_context = None
     scraper._robust_request = _boom
     for name, value in overrides.items():
@@ -280,7 +398,6 @@ def _subject_scraper(page):
     return _live_scraper(
         config=ScrapingConfig(max_subject_attempts=MAX_SUBJECT_ATTEMPTS, get_details=False),
         progress_tracker=None,
-        _set_context=lambda *a, **k: None,
         _extract_form_data=lambda soup: {},
         _robust_request=lambda *a, **k: SimpleNamespace(text=page),
     )

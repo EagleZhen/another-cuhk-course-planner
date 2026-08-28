@@ -33,6 +33,7 @@ from data_utils import (
     diff_subject_manifest,
     diff_term_names,
     is_subject_file,
+    parse_iso_timestamp,
     render_scrape_times_module,
     render_subjects_module,
     render_terms_module,
@@ -186,25 +187,13 @@ def validate_scrape_progress(progress_data: dict | None) -> dict[str, list[str]]
     if not progress_data:
         return {}
 
-    subjects = progress_data.get("scraping_log", {}).get("subjects", {})
-    issues_by_subject: dict[str, list[str]] = {}
-
-    for subject_code, subject_progress in subjects.items():
-        status = subject_progress.get("status")
-        if status != "completed":
-            # An unfinished scrape leaves counts half-written, so they say nothing here.
-            issues_by_subject[subject_code] = [f"Subject status is '{status}', not 'completed'"]
-            continue
-
-        # Check the scrape's own count consistency
-        expected_count = subject_progress.get("courses_count", 0)
-        scraped_count = subject_progress.get("courses_scraped", 0)
-        if expected_count != scraped_count:
-            issues_by_subject[subject_code] = [
-                f"Progress mismatch: expected {expected_count}, scraped {scraped_count}"
-            ]
-
-    return issues_by_subject
+    # TODO(#290): nothing prunes the registry, so a subject CUHK drops keeps whatever
+    # status it last recorded — a stale `failed` blocks every publish.
+    return {
+        subject_code: [f"Subject status is '{status}', not 'completed'"]
+        for subject_code, subject_progress in progress_data.get("subjects", {}).items()
+        if (status := subject_progress.get("status")) != "completed"
+    }
 
 
 def find_course_files(year_dir: str) -> tuple[list[str], list[str], int]:
@@ -355,12 +344,14 @@ def copy_commit_title(scrape_times: dict[str, str]) -> None:
     Writes to stderr, which isn't teed into the publish log, so the committed
     log stays free of clipboard chatter either way.
     """
-    if not scrape_times:
+    parsed_times = {
+        year: parsed
+        for year, scraped_at in scrape_times.items()
+        if (parsed := parse_iso_timestamp(scraped_at))
+    }
+    if not parsed_times:
         return
 
-    parsed_times = {
-        year: datetime.fromisoformat(scraped_at) for year, scraped_at in scrape_times.items()
-    }
     latest = max(parsed_times.values())
     years = ", ".join(
         sorted(year for year, scraped_at in parsed_times.items() if scraped_at == latest)
@@ -377,61 +368,27 @@ def copy_commit_title(scrape_times: dict[str, str]) -> None:
         print(f"\nClipboard unavailable. Commit title: {title}", file=sys.stderr)
 
 
-def calculate_scraping_statistics(progress_data: dict | None) -> dict | None:
-    """Calculate detailed scraping statistics"""
-    if not progress_data or "scraping_log" not in progress_data:
+def summarize_subject_registry(progress_data: dict | None) -> dict | None:
+    """Summarize every subject in the registry, which describes what sits in data/"""
+    if not progress_data or "subjects" not in progress_data:
         return None
 
-    scraping_log = progress_data["scraping_log"]
-    if "subjects" not in scraping_log:
-        return None
-
-    total_minutes = 0
     completed_subjects = 0
     failed_subjects = 0
     total_courses = 0
-    fastest_subject = None
-    slowest_subject = None
-    min_time = float("inf")
-    max_time = 0
 
-    for subject_code, subject_data in scraping_log["subjects"].items():
+    for subject_data in progress_data["subjects"].values():
         status = subject_data.get("status")
-        duration = subject_data.get("duration_minutes", 0)
-        courses_count = subject_data.get("courses_scraped", 0)
-
         if status == "completed":
             completed_subjects += 1
-            total_courses += courses_count
-
-            if duration > 0:
-                total_minutes += duration
-
-                # Track fastest/slowest subjects
-                if duration < min_time:
-                    min_time = duration
-                    fastest_subject = (subject_code, duration, courses_count)
-
-                if duration > max_time:
-                    max_time = duration
-                    slowest_subject = (subject_code, duration, courses_count)
-
+            total_courses += subject_data.get("courses_count", 0)
         elif status == "failed":
             failed_subjects += 1
 
-    # Calculate average time per course
-    avg_time_per_course = total_minutes / total_courses if total_courses > 0 else 0
-    avg_time_per_subject = total_minutes / completed_subjects if completed_subjects > 0 else 0
-
     return {
-        "total_minutes": total_minutes,
         "completed_subjects": completed_subjects,
         "failed_subjects": failed_subjects,
         "total_courses": total_courses,
-        "avg_time_per_course": avg_time_per_course,
-        "avg_time_per_subject": avg_time_per_subject,
-        "fastest_subject": fastest_subject,
-        "slowest_subject": slowest_subject,
     }
 
 
@@ -450,27 +407,30 @@ def format_duration(minutes: float) -> str:
         return f"{hours} hours {remaining_minutes:.1f} minutes"
 
 
-def report_scrape_summary(progress_data: dict | None) -> None:
-    """Print the one-line summary of the scrape the publish is based on."""
-    if not progress_data:
-        return
+def report_scrape_summary(progress_data: dict | None, scrape_times: dict[str, str]) -> None:
+    """Print the one-line summary of the scrape the publish is based on.
 
-    stats = calculate_scraping_statistics(progress_data)
+    The counts cover the whole scrape corpus in data/, so they exceed the number of
+    published files: no-terms/ holds courses that belong to no year directory.
+    """
+    stats = summarize_subject_registry(progress_data)
     if not stats:
         return
 
-    log_data = progress_data.get("scraping_log", {})
-    # TODO(#264): dead branch - the scraper writes started_at_utc, never started_at
-    started_at = log_data.get("started_at")
-    # Fall back to an undated line when the log carries no start time at all.
-    when = "data"
-    if isinstance(started_at, str) and started_at:
-        hk_time = datetime.fromisoformat(started_at).astimezone(HONG_KONG_TZ)
-        when = f"at {hk_time.strftime('%Y-%m-%d %H:%M HKT')}"
+    # The stamp the app shows as "Last Data Sync" and the commit title carries, so all
+    # three report one time by construction rather than three that nearly agree.
+    scraped_at = max(
+        (parsed for parsed in map(parse_iso_timestamp, scrape_times.values()) if parsed),
+        default=None,
+    )
+    # An unstamped corpus still reports its counts, undated.
+    when = (
+        f"as of {scraped_at.astimezone(HONG_KONG_TZ):%Y-%m-%d %H:%M HKT}" if scraped_at else "data"
+    )
 
     print(
-        f"Scraped {when}: {log_data.get('completed', 0)} subjects, "
-        f"{stats['total_courses']:,} courses, {log_data.get('failed', 0)} failed"
+        f"Scraped {when}: {stats['completed_subjects']} subjects, "
+        f"{stats['total_courses']:,} courses, {stats['failed_subjects']} failed"
     )
 
 
@@ -607,16 +567,16 @@ def main():
             print()
 
         # 1. Report the scrape this publish is based on.
-        progress_data = load_scraping_progress()
-        report_scrape_summary(progress_data)
-
-        # 2. Validate every source year and plan the copy. The gates below are the last
-        # point at which nothing has been written yet.
         source_years = year_dirs(Path(SOURCE_DATA_DIR))
         if not source_years:
             print("❌ No source year directories (data/<year>/) found")
             return
 
+        progress_data = load_scraping_progress()
+        report_scrape_summary(progress_data, collect_scrape_times(y.name for y in source_years))
+
+        # 2. Validate every source year and plan the copy. The gates below are the last
+        # point at which nothing has been written yet.
         plan = build_publish_plan(source_years, progress_data)
 
         print()

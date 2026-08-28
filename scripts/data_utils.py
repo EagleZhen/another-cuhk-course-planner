@@ -461,36 +461,28 @@ def parse_enrollment_status_from_image(img_src: str) -> str:
         return "Unknown"
 
 
-def calculate_duration_seconds(started_at_iso: str) -> int | None:
-    """Calculate duration in seconds from ISO timestamp to now
+def parse_iso_timestamp(value: str) -> datetime | None:
+    """Parse an ISO 8601 timestamp, tolerating a trailing `Z`
 
-    Calculates the time difference between a given ISO timestamp and the current UTC time.
-    Useful for progress tracking, performance measurement, and duration calculations.
-
-    Args:
-        started_at_iso: ISO 8601 formatted timestamp string with timezone info
-
-    Returns:
-        int | None: Duration in seconds, or None if timestamp is invalid
+    Returns None for anything unparseable, and for a stamp with no UTC offset: these
+    come from files a human can edit. A naive datetime is worse than none — `astimezone`
+    reads it as the publisher's local time, and comparing it with a stamped sibling raises.
 
     Examples:
-        >>> from datetime import UTC, datetime, timedelta
-        >>> now = datetime.now(UTC)
-        >>> past = (now - timedelta(hours=1)).isoformat()
-        >>> duration = calculate_duration_seconds(past)
-        >>> 3500 <= duration <= 3700  # ~1 hour (allowing for execution time)
+        >>> parse_iso_timestamp("2026-08-25T15:54:38Z").isoformat()
+        '2026-08-25T15:54:38+00:00'
+
+        >>> parse_iso_timestamp("2026-08-25T15:54:38") is None
         True
 
-        >>> calculate_duration_seconds("invalid-timestamp")
-        None
+        >>> parse_iso_timestamp("not a timestamp") is None
+        True
     """
     try:
-        started_time = datetime.fromisoformat(started_at_iso.replace("Z", "+00:00"))
-        current_time = datetime.now(UTC)
-        duration = current_time - started_time
-        return int(duration.total_seconds())
-    except (ValueError, TypeError):
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except (AttributeError, ValueError):
         return None
+    return parsed if parsed.tzinfo else None
 
 
 def format_duration_human(seconds: int) -> str:

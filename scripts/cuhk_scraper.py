@@ -16,7 +16,6 @@ from data_utils import (
     NO_TERMS_DIR,
     SCHEMA_VERSION,
     SCRAPE_TIME_FILENAME,
-    calculate_duration_seconds,
     clean_class_attributes,
     clean_html_text,
     format_duration_human,
@@ -152,15 +151,33 @@ class Course:
 
 
 class ScrapingProgressTracker:
-    """Tracks scraping progress for production runs with resume capability"""
+    """Tracks scraping progress for production runs with resume capability
 
-    def __init__(self, progress_file: str, logger: logging.Logger):
+    The progress file answers two questions from two sources. `latest_run` reports what
+    this run did, and comes only from run state held here. `subjects` is the cumulative
+    registry of what is on disk, and outlives any single run.
+    """
+
+    def __init__(
+        self,
+        progress_file: str,
+        logger: logging.Logger,
+        run_subjects: list[str],
+        config: "ScrapingConfig",
+    ):
         self.progress_file = progress_file
         self.logger = logger
+        # Run state: never loaded from the file, so it can only describe this run.
+        self.run_subjects = run_subjects
+        self.config = config
+        self._started_at = utc_to_hkt()
+        self._started_monotonic = time.monotonic()
+        self._run_status = "in_progress"
+        self._subject_statuses: dict[str, str] = {}
         self.progress_data = self._load_progress()
 
     def _load_progress(self) -> dict:
-        """Load existing subject data but start fresh session tracking"""
+        """Load the subject registry; run state is always fresh"""
         existing_subjects = {}
 
         # Load existing subject data if progress file exists
@@ -170,29 +187,42 @@ class ScrapingProgressTracker:
                     data = json.load(f)
 
                 # Preserve existing subject data (so we don't lose completed subjects)
-                if "scraping_log" in data and "subjects" in data["scraping_log"]:
-                    existing_subjects = data["scraping_log"]["subjects"]
+                if "subjects" in data:
+                    existing_subjects = data["subjects"]
                     self.logger.info(
                         f"Preserved data for {len(existing_subjects)} existing subjects"
                     )
 
             except Exception as e:
-                self.logger.warning(
-                    f"Could not load progress file: {e}, starting with fresh session"
-                )
+                self.logger.warning(f"Could not load progress file: {e}, starting with fresh run")
 
-        # Always start with fresh session tracking, but preserve existing subject data
+        return {"subjects": existing_subjects}
+
+    def _run_block(self) -> dict:
+        """Render this run's dashboard
+
+        Written for a human and never read back, which is why it carries HKT timestamps
+        and no machine-readable siblings. `log_summary` renders the same dict, so the
+        file and the console cannot disagree.
+        """
+        subject_statuses = list(self._subject_statuses.values())
         return {
-            "scraping_log": {
-                "started_at_hkt": utc_to_hkt(),  # Fresh session start time (HK timezone - PRIMARY)
-                "started_at_utc": utc_now_iso(),  # Fresh session start time (UTC ISO - for machine processing)
-                "last_updated": utc_now_iso(),  # Fresh session activity
-                "duration_human": "0 seconds",  # Fresh session duration
-                "total_subjects": 0,  # Will be set by scrape_all_subjects
-                "completed": 0,  # Fresh counts for current session
-                "failed": 0,  # Fresh counts for current session
-                "subjects": existing_subjects,  # Preserve existing subject data
-            }
+            "started_at": self._started_at,
+            "last_updated": utc_to_hkt(),
+            "duration": format_duration_human(int(time.monotonic() - self._started_monotonic)),
+            # A process cannot record its own death, so "in_progress" means running or
+            # crashed; `last_updated` is what separates the two.
+            "status": self._run_status,
+            "subjects_total": len(self.run_subjects),
+            "subjects_completed": subject_statuses.count("completed"),
+            "subjects_failed": subject_statuses.count("failed"),
+            # What the numbers above were produced under: a run that skipped details or
+            # capped courses per subject explains data that looks thin.
+            "config": {
+                "get_details": self.config.get_details,
+                "get_enrollment_details": self.config.get_enrollment_details,
+                "max_courses": self.config.max_courses_per_subject,
+            },
         }
 
     def _save_progress(self):
@@ -203,18 +233,12 @@ class ScrapingProgressTracker:
             if dir_path:  # Only create directory if path contains a directory
                 os.makedirs(dir_path, exist_ok=True)
 
-            self.progress_data["scraping_log"]["last_updated"] = utc_now_iso()
-
-            # Calculate and include current session duration for real-time monitoring
-            if "started_at_utc" in self.progress_data["scraping_log"]:
-                started_at = self.progress_data["scraping_log"]["started_at_utc"]
-                duration_seconds = calculate_duration_seconds(started_at)
-                if duration_seconds is not None:
-                    self.progress_data["scraping_log"]["duration_human"] = format_duration_human(
-                        duration_seconds
-                    )
-
-            save_json_with_newline(self.progress_file, self.progress_data)
+            # Sorted here rather than via json.dump(sort_keys=True), which would sort
+            # recursively and alphabetize latest_run's fields too.
+            subjects = dict(sorted(self.progress_data["subjects"].items()))
+            save_json_with_newline(
+                self.progress_file, {"latest_run": self._run_block(), "subjects": subjects}
+            )
 
             self.logger.debug(f"💾 Progress saved to {self.progress_file}")
         except Exception as e:
@@ -222,8 +246,7 @@ class ScrapingProgressTracker:
 
     def start_subject(self, subject: str, estimated_courses: int = 0):
         """Mark subject as started"""
-        subjects = self.progress_data["scraping_log"]["subjects"]
-        previous = subjects.get(subject, {})
+        subjects = self.progress_data["subjects"]
         subjects[subject] = {
             "status": "in_progress",
             "started_at": utc_now_iso(),
@@ -232,18 +255,13 @@ class ScrapingProgressTracker:
             "completed_courses": [],  # Track completed course codes
             "last_course_completed": "",
             "last_progress_update": utc_now_iso(),
-            "retry_count": previous.get("retry_count", 0),
         }
-        # Carry forward when the subject last succeeded: the file it wrote is still on
-        # disk, so the entry should keep saying when that data is from.
-        if "last_scraped" in previous:
-            subjects[subject]["last_scraped"] = previous["last_scraped"]
         self._save_progress()
         self.logger.info(f"🚀 Started scraping {subject}")
 
     def update_course_progress(self, subject: str, course_code: str, total_courses_scraped: int):
         """Update progress for a specific course completion"""
-        subjects = self.progress_data["scraping_log"]["subjects"]
+        subjects = self.progress_data["subjects"]
         if subject in subjects and subjects[subject].get("status") == "in_progress":
             subject_data = subjects[subject]
             subject_data["courses_scraped"] = total_courses_scraped
@@ -279,28 +297,16 @@ class ScrapingProgressTracker:
         courses_count: int,
         output_file: str,
         duration_minutes: float,
-        config_info: dict,
     ):
         """Mark subject as completed"""
-        subjects = self.progress_data["scraping_log"]["subjects"]
+        subjects = self.progress_data["subjects"]
         subjects[subject] = {
             "status": "completed",
-            "last_scraped": utc_now_iso(),
             "courses_count": courses_count,
-            "courses_scraped": courses_count,
             "output_file": output_file,
-            "duration_minutes": round(duration_minutes, 2),
-            "config": config_info,
-            "retry_count": subjects.get(subject, {}).get("retry_count", 0),
         }
 
-        # Update totals
-        # TODO(#264): counts every subject in the file, not this run (same in fail_subject)
-        log = self.progress_data["scraping_log"]
-        log["completed"] = len(
-            [s for s in log["subjects"].values() if s.get("status") == "completed"]
-        )
-
+        self._subject_statuses[subject] = "completed"
         self._save_progress()
         self.logger.info(
             f"✅ Completed {subject}: {courses_count} courses in {duration_minutes:.1f} minutes"
@@ -308,36 +314,35 @@ class ScrapingProgressTracker:
 
     def fail_subject(self, subject: str, error_message: str):
         """Mark subject as failed"""
-        subjects = self.progress_data["scraping_log"]["subjects"]
+        subjects = self.progress_data["subjects"]
         current_data = subjects.get(subject, {})
-        retry_count = current_data.get("retry_count", 0) + 1
-
         subjects[subject] = {
             "status": "failed",
             "last_attempt": utc_now_iso(),
             "error": str(error_message)[:200],  # Limit error message length
-            "retry_count": retry_count,
             "courses_scraped": current_data.get("courses_scraped", 0),
         }
-        # See start_subject: a failed attempt must not erase the last success.
-        if "last_scraped" in current_data:
-            subjects[subject]["last_scraped"] = current_data["last_scraped"]
 
-        # Update totals
-        log = self.progress_data["scraping_log"]
-        log["failed"] = len([s for s in log["subjects"].values() if s.get("status") == "failed"])
-
+        self._subject_statuses[subject] = "failed"
         self._save_progress()
-        self.logger.error(f"Failed {subject} (attempt {retry_count}): {error_message}")
+        self.logger.error(f"Failed {subject}: {error_message}")
+
+    def finish_run(self):
+        """Mark the run finished
+
+        Nothing else writes `status`, so an interrupted or killed run correctly leaves it
+        at "in_progress".
+        """
+        self._run_status = "completed"
+        self._save_progress()
 
     def get_failed_subjects(self) -> list[str]:
-        """Get list of failed subjects for summary/retry purposes"""
-        subjects = self.progress_data["scraping_log"]["subjects"]
-        return [subject for subject, data in subjects.items() if data.get("status") == "failed"]
+        """Get the subjects this run failed, for summary/retry purposes"""
+        return [subject for subject, status in self._subject_statuses.items() if status == "failed"]
 
     def get_progress_percentage(self, subject: str) -> float:
         """Get completion percentage for a subject"""
-        subjects = self.progress_data["scraping_log"]["subjects"]
+        subjects = self.progress_data["subjects"]
         if subject not in subjects:
             return 0.0
 
@@ -349,22 +354,26 @@ class ScrapingProgressTracker:
             return min(100.0, (courses_scraped / estimated_courses) * 100)
         return 0.0
 
-    def print_summary(self):
-        """Print current progress summary"""
-        log = self.progress_data["scraping_log"]
-        # TODO(#264): should be log["total_subjects"] - this counts every subject ever scraped
-        total = len(log["subjects"])
-        completed = log.get("completed", 0)
-        failed = log.get("failed", 0)
+    def log_summary(self):
+        """Log this run's summary
 
-        print("\n=== SCRAPING PROGRESS SUMMARY ===")
-        print(f"Total subjects: {total}")
-        print(f"Completed: {completed}")
-        print(f"Failed: {failed}")
-        print(f"Progress: {completed / max(total, 1) * 100:.1f}%")
+        One multi-line message, so the block takes a single log prefix rather than one
+        per line.
+        """
+        run = self._run_block()
+        lines = [
+            "=== SCRAPING PROGRESS SUMMARY ===",
+            f"Total subjects: {run['subjects_total']}",
+            f"Completed: {run['subjects_completed']}",
+            f"Failed: {run['subjects_failed']}",
+            f"Duration: {run['duration']}",
+        ]
 
-        if failed > 0:
-            print(f"\nFailed subjects: {', '.join(self.get_failed_subjects())}")
+        failed_subjects = self.get_failed_subjects()
+        if failed_subjects:
+            lines.append(f"Failed subjects: {', '.join(failed_subjects)}")
+
+        self.logger.info("\n".join(lines))
 
 
 class CuhkScraper:
@@ -1841,8 +1850,9 @@ class CuhkScraper:
 
         # Initialize progress tracker if enabled
         if self.config.track_progress:
-            self.progress_tracker = ScrapingProgressTracker(self.config.progress_file, self.logger)
-            self.progress_tracker.progress_data["scraping_log"]["total_subjects"] = len(subjects)
+            self.progress_tracker = ScrapingProgressTracker(
+                self.config.progress_file, self.logger, subjects, self.config
+            )
             self.logger.info(f"📊 Progress tracking enabled: {self.config.progress_file}")
 
         completed_subjects = []
@@ -1871,17 +1881,8 @@ class CuhkScraper:
                     # Calculate duration and mark as completed in progress tracker
                     duration_minutes = (time.time() - start_time) / 60
                     if self.progress_tracker:
-                        config_info = {
-                            "get_details": self.config.get_details,
-                            "get_enrollment_details": self.config.get_enrollment_details,
-                            "max_courses": self.config.max_courses_per_subject,
-                        }
                         self.progress_tracker.complete_subject(
-                            subject,
-                            len(courses or []),
-                            saved_display,
-                            duration_minutes,
-                            config_info,
+                            subject, len(courses or []), saved_display, duration_minutes
                         )
 
                     # Use different message for empty vs populated subjects
@@ -1917,9 +1918,10 @@ class CuhkScraper:
 
         self._write_scrape_times(saved_files, run_started_at, full_catalog)
 
-        # Print progress summary if tracking enabled
+        # Report this run if tracking enabled
         if self.progress_tracker:
-            self.progress_tracker.print_summary()
+            self.progress_tracker.finish_run()
+            self.progress_tracker.log_summary()
 
         # Index file generation removed - frontend loads individual JSON files directly
 
@@ -2055,13 +2057,8 @@ class CuhkScraper:
             self.logger.info(f"Exported {subject} ({len(courses)} courses) to {filename}")
 
             # Update progress tracker with output file path
-            if (
-                self.progress_tracker
-                and subject in self.progress_tracker.progress_data["scraping_log"]["subjects"]
-            ):
-                subject_progress = self.progress_tracker.progress_data["scraping_log"]["subjects"][
-                    subject
-                ]
+            if self.progress_tracker and subject in self.progress_tracker.progress_data["subjects"]:
+                subject_progress = self.progress_tracker.progress_data["subjects"][subject]
                 if subject_progress.get("status") == "completed":
                     subject_progress["output_file"] = filename
                     self.progress_tracker._save_progress()

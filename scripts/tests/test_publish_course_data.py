@@ -1,10 +1,12 @@
 import json
+import logging
 import os
 import sys
 from pathlib import Path
 
 import publish_course_data
 import pytest
+from cuhk_scraper import ScrapingConfig, ScrapingProgressTracker
 from data_utils import (
     SCHEMA_VERSION,
     render_scrape_times_module,
@@ -138,43 +140,77 @@ def test_copy_commit_title_lists_only_years_from_latest_scrape(monkeypatch, caps
     assert f"Commit title copied: {expected}" in capsys.readouterr().err
 
 
-def _progress(**scraping_log):
-    scraping_log.setdefault(
+def _progress(**progress):
+    progress.setdefault(
         "subjects",
         {
-            "CSCI": {"status": "completed", "duration_minutes": 2.5, "courses_scraped": 1234},
-            "MATH": {"status": "completed", "duration_minutes": 1.0, "courses_scraped": 66},
+            "CSCI": {"status": "completed", "courses_count": 1234},
+            "MATH": {"status": "completed", "courses_count": 66},
             "PHYS": {"status": "failed"},
         },
     )
-    return {"scraping_log": scraping_log}
+    return progress
 
 
-def test_report_scrape_summary_states_start_time_in_hong_kong_time(capsys):
+def test_report_scrape_summary_dates_the_line_from_the_newest_year_stamp(capsys):
+    # The publish header, the commit title and the app's "Last Data Sync" all read these
+    # stamps, so they cannot drift apart.
     publish_course_data.report_scrape_summary(
-        _progress(completed=2, failed=1, started_at="2026-08-07T12:30:00+00:00")
+        _progress(),
+        {"2025-26": "2026-08-07T12:30:00+00:00", "2026-27": "2026-08-07T13:00:00+00:00"},
     )
 
     assert capsys.readouterr().out == (
-        "Scraped at 2026-08-07 20:30 HKT: 2 subjects, 1,300 courses, 1 failed\n"
+        "Scraped as of 2026-08-07 21:00 HKT: 2 subjects, 1,300 courses, 1 failed\n"
     )
 
 
-@pytest.mark.parametrize("started_at", [None, "", 12345])
-def test_report_scrape_summary_falls_back_when_start_time_is_unusable(started_at, capsys):
-    # An undated line still reports the counts rather than dropping the summary.
+def test_report_scrape_summary_dates_the_line_past_a_hand_edited_stamp(capsys):
+    # An offsetless stamp used to abort the publish — comparing it with a stamped sibling
+    # raises. That year is skipped instead.
     publish_course_data.report_scrape_summary(
-        _progress(completed=2, failed=1, started_at=started_at)
+        _progress(),
+        {"2025-26": "2026-08-07T12:30:00", "2026-27": "2026-08-07T13:00:00+00:00"},
     )
+
+    assert capsys.readouterr().out == (
+        "Scraped as of 2026-08-07 21:00 HKT: 2 subjects, 1,300 courses, 1 failed\n"
+    )
+
+
+@pytest.mark.parametrize("scrape_times", [{}, {"2025-26": "not a timestamp"}])
+def test_report_scrape_summary_falls_back_when_no_stamp_is_usable(scrape_times, capsys):
+    # An undated line still reports the counts rather than dropping the summary.
+    publish_course_data.report_scrape_summary(_progress(), scrape_times)
 
     assert capsys.readouterr().out == "Scraped data: 2 subjects, 1,300 courses, 1 failed\n"
 
 
-@pytest.mark.parametrize("progress_data", [None, {"other": 1}, {"scraping_log": {"completed": 2}}])
+@pytest.mark.parametrize("progress_data", [None, {"other": 1}, {"latest_run": {}}])
 def test_report_scrape_summary_stays_silent_without_per_subject_stats(progress_data, capsys):
-    publish_course_data.report_scrape_summary(progress_data)
+    publish_course_data.report_scrape_summary(progress_data, {})
 
     assert capsys.readouterr().out == ""
+
+
+def test_report_scrape_summary_reads_what_the_scraper_actually_writes(tmp_path, capsys):
+    # Hand-built progress dicts kept a dead branch green for months. This one drives the
+    # real tracker, so a renamed key breaks the test rather than the header.
+    progress_file = tmp_path / "progress.json"
+    tracker = ScrapingProgressTracker(
+        str(progress_file), logging.getLogger("test"), ["AAAA"], ScrapingConfig()
+    )
+    tracker.complete_subject("AAAA", 7, "data/2025-26/AAAA.json", 1.0)
+    tracker.finish_run()
+
+    publish_course_data.report_scrape_summary(
+        json.loads(progress_file.read_text(encoding="utf-8")),
+        {"2025-26": "2026-08-07T12:30:00+00:00"},
+    )
+
+    assert capsys.readouterr().out == (
+        "Scraped as of 2026-08-07 20:30 HKT: 1 subjects, 7 courses, 0 failed\n"
+    )
 
 
 def _terms(*term_names):
@@ -293,9 +329,9 @@ def test_a_failed_subject_blocks_the_publish_and_is_named(tmp_path, monkeypatch)
     _write_course_file(source_dir)
 
     def _plan(status):
-        subject = {"status": status, "courses_count": 1, "courses_scraped": 1}
+        subject = {"status": status, "courses_count": 1}
         return publish_course_data.build_publish_plan(
-            [source_dir / "2025-26"], {"scraping_log": {"subjects": {"AAAA": subject}}}
+            [source_dir / "2025-26"], {"subjects": {"AAAA": subject}}
         )
 
     blocked = _plan("failed")
@@ -317,11 +353,9 @@ def test_a_subject_that_failed_before_writing_any_file_still_blocks(tmp_path, mo
     plan = publish_course_data.build_publish_plan(
         [source_dir / "2025-26"],
         {
-            "scraping_log": {
-                "subjects": {
-                    "AAAA": {"status": "completed", "courses_count": 1, "courses_scraped": 1},
-                    "ZZZZ": {"status": "failed", "retry_count": 3},
-                }
+            "subjects": {
+                "AAAA": {"status": "completed", "courses_count": 1},
+                "ZZZZ": {"status": "failed"},
             }
         },
     )

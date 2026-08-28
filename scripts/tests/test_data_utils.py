@@ -1,5 +1,5 @@
 import json
-from datetime import datetime, timedelta
+from datetime import UTC, datetime, timedelta
 
 import data_utils
 import pytest
@@ -10,6 +10,7 @@ from data_utils import (
     collect_terms_from_files,
     diff_term_names,
     get_academic_year,
+    parse_iso_timestamp,
     partition_subject_by_year,
     render_scrape_times_module,
     render_subjects_module,
@@ -22,6 +23,27 @@ def test_utc_now_iso_returns_aware_utc_timestamp():
     timestamp = datetime.fromisoformat(utc_now_iso())
 
     assert timestamp.utcoffset() == timedelta(0)
+
+
+@pytest.mark.parametrize(
+    "value",
+    ["2026-08-25T15:54:38+00:00", "2026-08-25T15:54:38Z", "2026-08-25T23:54:38+08:00"],
+)
+def test_parse_iso_timestamp_keeps_a_stamp_that_carries_its_offset(value):
+    assert parse_iso_timestamp(value) == datetime(2026, 8, 25, 15, 54, 38, tzinfo=UTC)
+
+
+@pytest.mark.parametrize(
+    "value", ["2026-08-25T15:54:38", "2026-08-25", "not a timestamp", "", None]
+)
+def test_parse_iso_timestamp_rejects_a_stamp_without_an_offset(value):
+    # A naive datetime reads as the publisher's local time, and raises against a stamped sibling.
+    assert parse_iso_timestamp(value) is None
+
+
+def test_parse_iso_timestamp_accepts_what_the_scraper_stamps():
+    # The offset rule is only safe while our own producer keeps writing one.
+    assert parse_iso_timestamp(utc_now_iso()) is not None
 
 
 @pytest.mark.parametrize(
