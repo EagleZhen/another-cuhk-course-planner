@@ -78,7 +78,7 @@ class ScrapingConfig:
         return cls(
             max_courses_per_subject=None,  # No limit
             save_debug_files=False,  # No debug files in production
-            save_debug_on_error=True,  # Keep only the pages that failed for good
+            save_debug_on_error=True,  # Keep the page behind a failure, nothing else
             debug_html_directory=DEBUG_HTML_DIR,  # Separate debug folder
             request_delay=0.8,  # ~9h for a full scrape at today's catalog size
             max_subject_attempts=10,

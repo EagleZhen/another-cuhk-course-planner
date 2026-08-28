@@ -201,7 +201,13 @@ cat logs/failed_course_outcomes.txt 2>/dev/null || echo "none outstanding"
 
 Only a scrape that reached every subject rewrites it — a partial run, or one that lost a subject, leaves the list alone rather than speaking for what it never saw.
 
-A production scrape already keeps the two pages nothing retries — a course that exhausted `max_course_attempts` (`*_FAILED.html`) and a permanent course-outcome system error (`*_SYSTEM_ERROR.html`) — so check for those before reproducing a failure.
+A production scrape already keeps the page behind each failure, so look for one before reproducing it:
+
+| File                  | Written when                                                            |
+| --------------------- | ----------------------------------------------------------------------- |
+| `*_FAILED.html`       | a course exhausted `max_course_attempts`                                |
+| `*_SYSTEM_ERROR.html` | CUHK's outcome page is malformed for good                               |
+| `*_INVALID.html`      | an outcome page failed validation — kept even if a retry then succeeded |
 
 To keep every page instead, while investigating parser behavior:
 
