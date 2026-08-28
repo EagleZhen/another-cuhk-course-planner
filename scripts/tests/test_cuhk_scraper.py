@@ -217,7 +217,7 @@ def test_a_run_reports_what_its_loop_actually_did(tmp_path):
     scraper.get_subjects_with_titles_from_live_site = lambda: []
     scraper.scrape_subject = lambda subject: _boom() if subject == "BBBB" else []
     scraper._save_subject_immediately = lambda subject, courses, config: []
-    scraper._report_course_outcome_failures = lambda: None
+    scraper._report_course_outcome_failures = lambda *a: None
 
     CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB"])
 
@@ -363,38 +363,53 @@ def test_permanent_outcome_failure_is_recorded_once_per_course():
     ]
 
 
-def _report_outcome_failures(monkeypatch, tmp_path, failures):
+STALE_REPORT = "COMM5962 - system_error_permanent (2026-06-27T08:59:13+00:00)\n"
+
+
+def _report_outcome_failures(monkeypatch, tmp_path, failures, *, full_catalog=True):
     report = tmp_path / "failed_course_outcomes.txt"
     monkeypatch.setattr(cuhk_scraper, "FAILED_COURSE_OUTCOMES_FILE", str(report))
     scraper = _live_scraper()
     for subject, code in failures:
         CuhkScraper._track_failed_course_outcome(scraper, subject, code, "system_error_permanent")
-    CuhkScraper._report_course_outcome_failures(scraper)
+    CuhkScraper._report_course_outcome_failures(scraper, full_catalog)
     return report
 
 
-def test_a_run_with_failures_writes_the_report(monkeypatch, tmp_path):
+def test_a_full_run_with_failures_writes_the_report(monkeypatch, tmp_path):
     report = _report_outcome_failures(monkeypatch, tmp_path, [("TEST", "1000")])
 
     assert "TEST1000 - system_error_permanent" in report.read_text()
 
 
-def test_a_clean_run_removes_a_previous_run_s_report(monkeypatch, tmp_path):
+def test_a_clean_full_run_removes_a_previous_run_s_report(monkeypatch, tmp_path):
     # The file is committed, so a leftover reads as this run's result — one from June sat
     # in the repo for months looking current.
     report = tmp_path / "failed_course_outcomes.txt"
-    report.write_text("COMM5962 - system_error_permanent (2026-06-27T08:59:13+00:00)\n")
+    report.write_text(STALE_REPORT)
 
     _report_outcome_failures(monkeypatch, tmp_path, [])
 
     assert not report.exists()
 
 
+@pytest.mark.parametrize("failures", [[], [("PHED", "1370")]], ids=["clean", "with failures"])
+def test_a_partial_run_leaves_the_report_alone(monkeypatch, tmp_path, failures):
+    # Re-scraping one subject is how you check whether ITSC fixed it. That run knows
+    # nothing about the other subjects listed, so it must not speak for them.
+    report = tmp_path / "failed_course_outcomes.txt"
+    report.write_text(STALE_REPORT)
+
+    _report_outcome_failures(monkeypatch, tmp_path, failures, full_catalog=False)
+
+    assert report.read_text() == STALE_REPORT
+
+
 def test_a_clean_run_survives_having_no_report_to_remove(monkeypatch, tmp_path):
     report = tmp_path / "nonexistent" / "failed_course_outcomes.txt"
     monkeypatch.setattr(cuhk_scraper, "FAILED_COURSE_OUTCOMES_FILE", str(report))
 
-    CuhkScraper._report_course_outcome_failures(_live_scraper())  # must not raise
+    CuhkScraper._report_course_outcome_failures(_live_scraper(), True)  # must not raise
 
 
 def _row(code, *, title=True):

@@ -1740,15 +1740,17 @@ class CuhkScraper:
 
         self.logger.info(f"📝 Tracked failed course outcome: {subject}{course_code} ({reason})")
 
-    def _report_course_outcome_failures(self):
-        """Report failed course outcomes at end of scraping for manual retry
+    def _report_course_outcome_failures(self, full_catalog: bool):
+        """Report course outcomes CUHK serves a system error for
 
-        The report file is committed, so it has to describe the run that just finished.
-        Leaving a clean run's file alone kept one from June looking current for months.
+        Only a full run rewrites the report file, for the same reason `_write_scrape_times`
+        skips a partial one: a few subjects cannot speak for the ones the run never visited.
+        The console block still names whatever this run hit.
         """
         if not hasattr(self, "_failed_course_outcomes") or not self._failed_course_outcomes:
             self.logger.info("✅ All course outcomes scraped successfully")
-            Path(FAILED_COURSE_OUTCOMES_FILE).unlink(missing_ok=True)
+            if full_catalog:
+                Path(FAILED_COURSE_OUTCOMES_FILE).unlink(missing_ok=True)
             return
 
         failure_count = len(self._failed_course_outcomes)
@@ -1768,18 +1770,23 @@ class CuhkScraper:
             self.logger.info(f"📋 {reason.upper()}: {', '.join(courses)}")
 
         self.logger.info("\n💡 RECOMMENDATION:")
-        self.logger.info("   • Wait 1-2 hours for CUHK server recovery")
-        self.logger.info("   • Manually retry failed courses during stable server periods")
-        self.logger.info("   • These courses currently have empty course outcome data")
+        self.logger.info("   • Retrying will not help - CUHK's data for these courses is malformed")
+        self.logger.info("   • Report them to ITSC; only an upstream fix clears this")
+        self.logger.info("   • Until then these courses carry empty course outcome data")
         self.logger.info(
             f"   • The page each one returned is already saved in {self.config.debug_html_directory}"
         )
 
-        # Save failure details to file for easy retry
+        if not full_catalog:
+            self.logger.info("\n🎯 Partial scrape: leaving the report file untouched")
+            self.logger.info(f"{'=' * 60}")
+            return
+
+        # The list outlives the terminal: an upstream fix can take weeks.
         failure_file = FAILED_COURSE_OUTCOMES_FILE
         os.makedirs(os.path.dirname(failure_file), exist_ok=True)
         with open(failure_file, "w") as f:
-            f.write("# Failed Course Outcomes - Manual Retry Needed\n")
+            f.write("# Failed Course Outcomes - Needs an Upstream Fix from ITSC\n")
             f.write(f"# Generated: {utc_now_iso()}\n\n")
             for failure in self._failed_course_outcomes:
                 f.write(
@@ -1956,8 +1963,8 @@ class CuhkScraper:
 
         # Index file generation removed - frontend loads individual JSON files directly
 
-        # Report course outcome failures for manual retry
-        self._report_course_outcome_failures()
+        # Report course outcomes CUHK is serving a system error for
+        self._report_course_outcome_failures(full_catalog)
 
         # Final summary
         self.logger.info("🎉 SCRAPING COMPLETED!")
