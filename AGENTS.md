@@ -22,8 +22,6 @@ Tolerate malformed values from outside our control — scraped HTML, a hand-edit
 
 Name a function for the scope it operates on, and fix the name in the change that notices the gap. A wrong name outlives whoever still remembers which half was right.
 
-Before a run rewrites a file that outlives it — each `_scraped_at.txt`, the outcome report — check the run reached everything that file describes. Being asked to scrape everything is not the same as having done it, and a subject that died mid-run turns the rewrite into a false all-clear.
-
 For generated or tool-managed files, prefer commands over manual edits.
 
 ### Tests and Checks
