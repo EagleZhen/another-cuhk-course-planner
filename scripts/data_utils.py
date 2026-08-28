@@ -464,19 +464,25 @@ def parse_enrollment_status_from_image(img_src: str) -> str:
 def parse_iso_timestamp(value: str) -> datetime | None:
     """Parse an ISO 8601 timestamp, tolerating a trailing `Z`
 
-    Returns None for anything unparseable: these come from files a human can edit.
+    Returns None for anything unparseable, and for a stamp with no UTC offset: these
+    come from files a human can edit. A naive datetime is worse than none — `astimezone`
+    reads it as the publisher's local time, and comparing it with a stamped sibling raises.
 
     Examples:
         >>> parse_iso_timestamp("2026-08-25T15:54:38Z").isoformat()
         '2026-08-25T15:54:38+00:00'
 
+        >>> parse_iso_timestamp("2026-08-25T15:54:38") is None
+        True
+
         >>> parse_iso_timestamp("not a timestamp") is None
         True
     """
     try:
-        return datetime.fromisoformat(value.replace("Z", "+00:00"))
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
     except (AttributeError, ValueError):
         return None
+    return parsed if parsed.tzinfo else None
 
 
 def format_duration_human(seconds: int) -> str:

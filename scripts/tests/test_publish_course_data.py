@@ -165,6 +165,19 @@ def test_report_scrape_summary_dates_the_line_from_the_newest_year_stamp(capsys)
     )
 
 
+def test_report_scrape_summary_dates_the_line_past_a_hand_edited_stamp(capsys):
+    # An offsetless stamp used to abort the publish — comparing it with a stamped sibling
+    # raises. That year is skipped instead.
+    publish_course_data.report_scrape_summary(
+        _progress(),
+        {"2025-26": "2026-08-07T12:30:00", "2026-27": "2026-08-07T13:00:00+00:00"},
+    )
+
+    assert capsys.readouterr().out == (
+        "Scraped as of 2026-08-07 21:00 HKT: 2 subjects, 1,300 courses, 1 failed\n"
+    )
+
+
 @pytest.mark.parametrize("scrape_times", [{}, {"2025-26": "not a timestamp"}])
 def test_report_scrape_summary_falls_back_when_no_stamp_is_usable(scrape_times, capsys):
     # An undated line still reports the counts rather than dropping the summary.
