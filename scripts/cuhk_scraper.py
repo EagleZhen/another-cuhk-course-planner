@@ -1739,17 +1739,19 @@ class CuhkScraper:
 
         self.logger.info(f"📝 Tracked failed course outcome: {subject}{course_code} ({reason})")
 
-    def _report_course_outcome_failures(self, full_catalog: bool):
+    def _report_course_outcome_failures(self, covered_every_subject: bool):
         """Report course outcomes CUHK serves a system error for
 
-        Only a full run rewrites the report file, for the same reason `_write_scrape_times`
-        skips a partial one: a few subjects cannot speak for the ones the run never visited.
+        Only a run that reached every subject rewrites the report file: one that skipped
+        or lost a subject cannot say whether that subject's courses are still failing.
         The console block still names whatever this run hit.
         """
         if not hasattr(self, "_failed_course_outcomes") or not self._failed_course_outcomes:
+            if not covered_every_subject:
+                self.logger.info("✅ No outcome failures in the subjects this run reached")
+                return
             self.logger.info("✅ All course outcomes scraped successfully")
-            if full_catalog:
-                Path(FAILED_COURSE_OUTCOMES_FILE).unlink(missing_ok=True)
+            Path(FAILED_COURSE_OUTCOMES_FILE).unlink(missing_ok=True)
             return
 
         failure_count = len(self._failed_course_outcomes)
@@ -1776,8 +1778,8 @@ class CuhkScraper:
             f"   • The page each one returned is already saved in {self.config.debug_html_directory}"
         )
 
-        if not full_catalog:
-            self.logger.info("\n🎯 Partial scrape: leaving the report file untouched")
+        if not covered_every_subject:
+            self.logger.info("\n🎯 Run did not reach every subject: leaving the report file alone")
             self.logger.info(f"{'=' * 60}")
             return
 
@@ -1962,8 +1964,9 @@ class CuhkScraper:
 
         # Index file generation removed - frontend loads individual JSON files directly
 
-        # Report course outcomes CUHK is serving a system error for
-        self._report_course_outcome_failures(full_catalog)
+        # Report course outcomes CUHK is serving a system error for. A subject that failed
+        # never reached its courses, so this run cannot vouch for them either.
+        self._report_course_outcome_failures(full_catalog and not failed_subjects)
 
         # Final summary
         self.logger.info("🎉 SCRAPING COMPLETED!")

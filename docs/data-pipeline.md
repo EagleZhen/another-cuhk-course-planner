@@ -199,7 +199,7 @@ Check for outstanding outcome failures. The file exists only while a full scrape
 cat logs/failed_course_outcomes.txt 2>/dev/null || echo "none outstanding"
 ```
 
-Only a full scrape rewrites it. Re-scraping one subject to see whether ITSC fixed it leaves the list alone, since that run knows nothing about the others.
+Only a scrape that reached every subject rewrites it — a partial run, or one that lost a subject, leaves the list alone rather than speaking for what it never saw.
 
 A production scrape already keeps the two pages nothing retries — a course that exhausted `max_course_attempts` (`*_FAILED.html`) and a permanent course-outcome system error (`*_SYSTEM_ERROR.html`) — so check for those before reproducing a failure.
 

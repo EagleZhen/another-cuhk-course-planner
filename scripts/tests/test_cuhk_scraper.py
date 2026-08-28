@@ -202,10 +202,8 @@ def test_finish_run_is_what_marks_a_run_completed(tracker):
     assert _saved(tracker)["latest_run"]["status"] == "completed"
 
 
-def test_a_run_reports_what_its_loop_actually_did(tmp_path):
-    # The only cover for the wiring in scrape_all_subjects: the tracker's arguments and
-    # the finish_run() that ends the run. Both network calls are stubbed, so this stays
-    # off the live site.
+def _loop_scraper(tmp_path, *, failing=(), report=None):
+    """A scraper whose network calls are stubbed, so the loop runs off the live site."""
     scraper = CuhkScraper.__new__(CuhkScraper)
     scraper.logger = logging.getLogger("test")
     scraper.config = ScrapingConfig(
@@ -215,9 +213,30 @@ def test_a_run_reports_what_its_loop_actually_did(tmp_path):
     )
     scraper.progress_tracker = None
     scraper.get_subjects_with_titles_from_live_site = lambda: []
-    scraper.scrape_subject = lambda subject: _boom() if subject == "BBBB" else []
+    scraper.scrape_subject = lambda subject: _boom() if subject in failing else []
     scraper._save_subject_immediately = lambda subject, courses, config: []
-    scraper._report_course_outcome_failures = lambda *a: None
+    scraper._report_course_outcome_failures = report or (lambda *a: None)
+    return scraper
+
+
+@pytest.mark.parametrize(
+    "failing, covered", [((), True), (("BBBB",), False)], ids=["all reached", "one lost"]
+)
+def test_only_a_run_that_reached_every_subject_speaks_for_the_catalog(tmp_path, failing, covered):
+    # full_catalog says the run was asked to cover everything, not that it did. A subject
+    # that died never reached its courses, so their failures are still outstanding.
+    spoke_for = []
+    scraper = _loop_scraper(tmp_path, failing=failing, report=spoke_for.append)
+
+    CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB"], full_catalog=True)
+
+    assert spoke_for == [covered]
+
+
+def test_a_run_reports_what_its_loop_actually_did(tmp_path):
+    # The only cover for the wiring in scrape_all_subjects: the tracker's arguments and
+    # the finish_run() that ends the run.
+    scraper = _loop_scraper(tmp_path, failing=("BBBB",))
 
     CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB"])
 
@@ -366,13 +385,13 @@ def test_permanent_outcome_failure_is_recorded_once_per_course():
 STALE_REPORT = "COMM5962 - system_error_permanent (2026-06-27T08:59:13+00:00)\n"
 
 
-def _report_outcome_failures(monkeypatch, tmp_path, failures, *, full_catalog=True):
+def _report_outcome_failures(monkeypatch, tmp_path, failures, *, covered_every_subject=True):
     report = tmp_path / "failed_course_outcomes.txt"
     monkeypatch.setattr(cuhk_scraper, "FAILED_COURSE_OUTCOMES_FILE", str(report))
     scraper = _live_scraper()
     for subject, code in failures:
         CuhkScraper._track_failed_course_outcome(scraper, subject, code, "system_error_permanent")
-    CuhkScraper._report_course_outcome_failures(scraper, full_catalog)
+    CuhkScraper._report_course_outcome_failures(scraper, covered_every_subject)
     return report
 
 
@@ -394,13 +413,13 @@ def test_a_clean_full_run_removes_a_previous_run_s_report(monkeypatch, tmp_path)
 
 
 @pytest.mark.parametrize("failures", [[], [("PHED", "1370")]], ids=["clean", "with failures"])
-def test_a_partial_run_leaves_the_report_alone(monkeypatch, tmp_path, failures):
+def test_a_run_that_missed_subjects_leaves_the_report_alone(monkeypatch, tmp_path, failures):
     # Re-scraping one subject is how you check whether ITSC fixed it. That run knows
     # nothing about the other subjects listed, so it must not speak for them.
     report = tmp_path / "failed_course_outcomes.txt"
     report.write_text(STALE_REPORT)
 
-    _report_outcome_failures(monkeypatch, tmp_path, failures, full_catalog=False)
+    _report_outcome_failures(monkeypatch, tmp_path, failures, covered_every_subject=False)
 
     assert report.read_text() == STALE_REPORT
 
