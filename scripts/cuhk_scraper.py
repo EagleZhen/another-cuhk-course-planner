@@ -78,7 +78,7 @@ class ScrapingConfig:
         return cls(
             max_courses_per_subject=None,  # No limit
             save_debug_files=False,  # No debug files in production
-            save_debug_on_error=True,  # TODO(#292): dead - production saves nothing, errors included
+            save_debug_on_error=True,  # Keep only the pages that failed for good
             debug_html_directory=DEBUG_HTML_DIR,  # Separate debug folder
             request_delay=0.8,  # ~9h for a full scrape at today's catalog size
             max_subject_attempts=10,
@@ -579,7 +579,7 @@ class CuhkScraper:
         if not self.current_config:
             return
 
-        # TODO(#292): no caller passes force_save, so the second half never fires
+        # Save if explicitly enabled, or when the caller is keeping a failure
         should_save = self.current_config.save_debug_files or (
             force_save and self.current_config.save_debug_on_error
         )
@@ -961,6 +961,23 @@ class CuhkScraper:
         self.logger.info(f"Parsed {len(courses)} courses from results table")
         return courses
 
+    def _keep_failed_course_page(self, response, course: Course) -> None:
+        """Save the page that made this course fail for good.
+
+        Retries are exhausted, so the subject fails and the publish blocks on it. This is
+        the only copy of what CUHK actually served. `response` is None when no attempt got
+        that far — a 4xx escalates out of `_robust_request` without one, which is what a
+        stale session looks like.
+        """
+        if response is None:
+            return
+        self._set_context(self.config, course)
+        self._save_debug_html(
+            response.text,
+            f"course_details_{course.subject}_{course.course_code}_FAILED.html",
+            force_save=True,
+        )
+
     def get_course_details(self, course: Course, current_html: str) -> Course | None:
         """Get detailed course information by simulating postback with retry for validation failures"""
         if not course.postback_target:
@@ -969,6 +986,7 @@ class CuhkScraper:
 
         # TODO: Extract retry logic if we add more retry sites (see _robust_request for similar pattern)
         attempt = 0
+        response = None
         while True:
             try:
                 soup = BeautifulSoup(current_html, "html.parser")
@@ -1001,6 +1019,7 @@ class CuhkScraper:
                 # Validation error (corrupted HTML, missing buttons, etc.)
                 attempt += 1
                 if attempt >= self.config.max_course_attempts:
+                    self._keep_failed_course_page(response, course)
                     raise
                 wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # Same backoff as _robust_request
                 self.logger.warning(
@@ -1014,6 +1033,7 @@ class CuhkScraper:
                 # Unexpected error - also retry (could be parsing error from bad HTML)
                 attempt += 1
                 if attempt >= self.config.max_course_attempts:
+                    self._keep_failed_course_page(response, course)
                     raise
                 wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
                 self.logger.error(

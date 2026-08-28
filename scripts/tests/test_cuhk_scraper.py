@@ -14,6 +14,7 @@ from cuhk_scraper import (
 )
 from data_utils import SCHEMA_VERSION
 from requests.exceptions import ConnectionError as RequestsConnectionError
+from requests.exceptions import HTTPError
 
 
 def _course(code, term_names):
@@ -289,15 +290,21 @@ def _boom(*args, **kwargs):
     raise ConnectionError("network is down")
 
 
-def _live_scraper(**overrides):
-    """A CuhkScraper with no __init__ — the real one loads OCR models and opens log files."""
+def _live_scraper(*, save_debug_html=False, **overrides):
+    """A CuhkScraper with no __init__ — the real one loads OCR models and opens log files.
+
+    Debug saving is stubbed unless a test asks for it, and then it must point
+    `debug_html_directory` at a tmp_path: the real one is relative to the cwd.
+    """
     scraper = CuhkScraper.__new__(CuhkScraper)
     scraper.logger = logging.getLogger("test")
     scraper.base_url = "http://test.invalid"
     scraper.config = ScrapingConfig(get_course_outcome=False, get_enrollment_details=False)
-    # Not disabled via current_config: _set_context re-enables it mid-scrape, littering
-    # debug HTML into whatever directory the suite ran from.
-    scraper._save_debug_html = lambda *a, **k: None
+    if not save_debug_html:
+        # Not disabled via current_config: _set_context re-enables it mid-scrape, littering
+        # debug HTML into whatever directory the suite ran from.
+        scraper._save_debug_html = lambda *a, **k: None
+    scraper.current_config = None
     scraper.current_course_context = None
     scraper._robust_request = _boom
     for name, value in overrides.items():
@@ -426,6 +433,67 @@ def test_a_course_that_never_parses_gives_up_instead_of_looping(monkeypatch):
 
     with pytest.raises(ValueError):
         CuhkScraper.get_course_details(scraper, course, DETAIL_HTML)
+
+
+def _production_like(tmp_path, **overrides):
+    return ScrapingConfig(
+        save_debug_files=False,  # as production: nothing saved unless it failed
+        save_debug_on_error=True,
+        debug_html_directory=str(tmp_path),
+        max_course_attempts=2,
+        get_course_outcome=False,
+        get_enrollment_details=False,
+        **overrides,
+    )
+
+
+def _failing_scraper(tmp_path, page):
+    scraper = _live_scraper(
+        save_debug_html=True,
+        config=_production_like(tmp_path),
+        _robust_request=lambda *a, **k: SimpleNamespace(text=page),
+    )
+    course = _course("1000", [])
+    course.postback_target = "target"
+    return scraper, course
+
+
+def test_a_course_that_fails_for_good_keeps_the_page_that_failed(monkeypatch, tmp_path):
+    # Production saves no debug HTML, so this page is the only record of what CUHK served —
+    # and the failure blocks the publish until someone reads it.
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+    scraper, course = _failing_scraper(tmp_path, "<html></html>")
+
+    with pytest.raises(ValueError):
+        CuhkScraper.get_course_details(scraper, course, DETAIL_HTML)
+
+    assert [f.name for f in tmp_path.iterdir()] == ["course_details_TEST_1000_FAILED.html"]
+    assert (tmp_path / "course_details_TEST_1000_FAILED.html").read_text() == "<html></html>"
+
+
+def test_a_course_that_succeeds_keeps_nothing(tmp_path):
+    # The other side of the rule: a normal production scrape must not write a file per course.
+    scraper, course = _failing_scraper(tmp_path, DETAIL_HTML)
+
+    assert CuhkScraper.get_course_details(scraper, course, DETAIL_HTML) is course
+    assert list(tmp_path.iterdir()) == []
+
+
+def test_a_course_whose_request_never_returned_keeps_nothing(monkeypatch, tmp_path):
+    # A 4xx escalates out of _robust_request with no response — a stale session, mid-scrape.
+    # There is no page to keep, and reaching for one would raise while handling the failure.
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+    scraper, course = _failing_scraper(tmp_path, "")
+
+    def _stale_session(*args, **kwargs):
+        raise HTTPError("403 Forbidden")
+
+    scraper._robust_request = _stale_session
+
+    with pytest.raises(HTTPError):
+        CuhkScraper.get_course_details(scraper, course, DETAIL_HTML)
+
+    assert list(tmp_path.iterdir()) == []
 
 
 def test_a_course_that_parses_on_a_later_attempt_still_succeeds(monkeypatch):
