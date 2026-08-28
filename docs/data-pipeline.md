@@ -142,7 +142,7 @@ CUHK sometimes returns a system-error page for course outcomes:
 
 - [System error sample](<../lab/scraper/samples/webpages/System error.html>)
 
-These are treated as permanent outcome failures and recorded in [logs/failed_course_outcomes.txt](../logs/failed_course_outcomes.txt) for review.
+Retrying never clears these — CUHK's data for the course is malformed, so the fix has to come from ITSC. A full scrape lists them in `logs/failed_course_outcomes.txt`.
 
 ### Incomplete Or Alternate Pages
 
@@ -193,11 +193,13 @@ ls -t logs/scrape/scrape_*.log | head -1
 jq '.subjects.CSCI' logs/scraping_progress.json
 ```
 
-Review [failed course outcomes](../logs/failed_course_outcomes.txt):
+Check for outstanding outcome failures. The file exists only while a full scrape is still hitting them, so no file means none:
 
 ```bash
-cat logs/failed_course_outcomes.txt
+cat logs/failed_course_outcomes.txt 2>/dev/null || echo "none outstanding"
 ```
+
+Only a full scrape rewrites it. Re-scraping one subject to see whether ITSC fixed it leaves the list alone, since that run knows nothing about the others.
 
 A production scrape already keeps the two pages nothing retries — a course that exhausted `max_course_attempts` (`*_FAILED.html`) and a permanent course-outcome system error (`*_SYSTEM_ERROR.html`) — so check for those before reproducing a failure.
 
