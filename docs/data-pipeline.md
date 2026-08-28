@@ -199,7 +199,9 @@ Review [failed course outcomes](../logs/failed_course_outcomes.txt):
 cat logs/failed_course_outcomes.txt
 ```
 
-Enable debug HTML saving while investigating parser behavior:
+A production scrape already keeps the two pages nothing retries — a course that exhausted `max_course_attempts` (`*_FAILED.html`) and a permanent course-outcome system error (`*_SYSTEM_ERROR.html`) — so check for those before reproducing a failure.
+
+To keep every page instead, while investigating parser behavior:
 
 ```python
 config = ScrapingConfig.for_production()
@@ -207,7 +209,7 @@ config.save_debug_files = True
 scraper = CuhkScraper(config)
 ```
 
-Debug HTML is saved to [lab/scraper/outputs/debug_html/](../lab/scraper/outputs/debug_html/).
+Debug HTML is saved to [lab/scraper/outputs/debug_html/](../lab/scraper/outputs/debug_html/), which `.gitignore` covers only at the repository root — the path is relative, so run the scraper from the root or the files land somewhere untracked.
 
 ## See Also
 

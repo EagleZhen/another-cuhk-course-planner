@@ -496,6 +496,22 @@ def test_a_course_whose_request_never_returned_keeps_nothing(monkeypatch, tmp_pa
     assert list(tmp_path.iterdir()) == []
 
 
+OUTCOME_BUTTON_HTML = '<input id="btn_course_outcome" name="btn_course_outcome" type="submit"/>'
+SYSTEM_ERROR_PAGE = "<html><title>System error</title></html>"
+
+
+def test_a_permanent_system_error_keeps_the_outcome_page(tmp_path):
+    # Nothing retries a permanent system error, so this page is the only evidence that the
+    # outcome is missing rather than genuinely empty.
+    scraper, course = _failing_scraper(tmp_path, SYSTEM_ERROR_PAGE)
+    scraper._set_context(scraper.config)  # scrape_subject does this before any course
+
+    CuhkScraper._scrape_course_outcome(scraper, OUTCOME_BUTTON_HTML, course)
+
+    assert [f.name for f in tmp_path.iterdir()] == ["course_outcome_TEST_1000_SYSTEM_ERROR.html"]
+    assert [f["reason"] for f in scraper._failed_course_outcomes] == ["system_error_permanent"]
+
+
 def test_a_course_that_parses_on_a_later_attempt_still_succeeds(monkeypatch):
     # The cap must only stop failures that never resolve. Transient corruption clears on
     # a re-fetch, and that course still has to come back rather than failing the subject.

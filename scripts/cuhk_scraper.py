@@ -1644,10 +1644,12 @@ class CuhkScraper:
             self._track_failed_course_outcome(
                 course.subject, course.course_code, "system_error_permanent"
             )
-            # TODO(#292): silent in production - needs force_save=True to reach disk
+            # Kept like an exhausted course: nothing retries this, so the page is the only
+            # evidence the outcome is missing rather than empty.
             self._save_debug_html(
                 response.text,
                 f"course_outcome_{course.subject}_{course.course_code}_SYSTEM_ERROR.html",
+                force_save=True,
             )
             return  # Don't retry system errors - they're permanent (malformed data in CUHK database)
 
