@@ -237,7 +237,10 @@ describe('courseMatchesKeyword', () => {
       {
         termCode: '2510',
         termName: TERM,
-        sections: [makeSection({ meetings: [makeMeeting({ instructors: 'Prof. Chan' })] })],
+        // The scraper writes "Professor ...", which the UI displays as "Prof. ...".
+        sections: [
+          makeSection({ meetings: [makeMeeting({ instructors: 'Professor Noam NOKED' })] }),
+        ],
       },
     ],
   })
@@ -246,7 +249,9 @@ describe('courseMatchesKeyword', () => {
     ['full code', 'csci1130'],
     ['bare code', '1130'],
     ['title', 'computing'],
-    ['instructor', 'chan'],
+    ['instructor name', 'noked'],
+    ['instructor title as scraped', 'professor noam'],
+    ['instructor title as displayed', 'prof. noam'],
   ])('matches on %s', (_label, query) => {
     expect(courseMatchesKeyword(course, query, TERM)).toBe(true)
   })

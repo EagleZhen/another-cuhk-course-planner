@@ -3,7 +3,12 @@
 // predicate builder, so a new filter is one builder plus one criteria field.
 
 import type { AcademicCareer, CourseEnrollment, InternalCourse, InternalSection } from './types'
-import { getDayIndex, hasConflictFreeEnrollment, isVisibleAndValid } from './courseUtils'
+import {
+  formatInstructorsCompact,
+  getDayIndex,
+  hasConflictFreeEnrollment,
+  isVisibleAndValid,
+} from './courseUtils'
 
 /** The user's active selections. An empty/blank field means "no constraint". */
 export interface CourseFilterCriteria {
@@ -56,7 +61,18 @@ export function courseMatchesKeyword(course: InternalCourse, query: string, term
     return true
   }
   return termSectionsOf(course, term).some((section) =>
-    section.meetings.some((meeting) => meeting.instructors.toLowerCase().includes(query))
+    section.meetings.some((meeting) => instructorMatchesKeyword(meeting.instructors, query))
+  )
+}
+
+/**
+ * Match against both the scraped names ("Professor CHAN Tai Man") and the compact
+ * form the UI shows ("Prof. CHAN Tai Man"), so a query finds whichever the user saw.
+ */
+function instructorMatchesKeyword(instructors: string, query: string): boolean {
+  return (
+    instructors.toLowerCase().includes(query) ||
+    formatInstructorsCompact(instructors).toLowerCase().includes(query)
   )
 }
 
