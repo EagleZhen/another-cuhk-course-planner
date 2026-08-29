@@ -24,7 +24,7 @@ import {
   getSectionPrefix,
   categorizeCompatibleSections,
   getSectionTypePriority,
-  formatInstructorsCompact,
+  splitInstructorsCompact,
   formatSyncTimestamp,
   getAvailabilityBadges,
   getAvailabilityBadgeStyle,
@@ -1129,7 +1129,7 @@ function InstructorFilters({
   onClearAll,
   isMobile = false,
 }: {
-  instructors: string[]
+  instructors: string[] // compact names, from splitInstructorsCompact
   selectedInstructors: Set<string>
   onToggleInstructor: (instructor: string) => void
   onClearAll: () => void
@@ -1137,8 +1137,7 @@ function InstructorFilters({
 }) {
   return (
     <div className={`flex gap-2 ${isMobile ? 'flex-col w-full' : 'flex-wrap'}`}>
-      {instructors.map((instructor) => {
-        const formattedInstructor = formatInstructorsCompact(instructor)
+      {instructors.map((formattedInstructor) => {
         const isSelected = selectedInstructors.has(formattedInstructor)
         return (
           <div key={formattedInstructor} className="flex items-center">
@@ -1345,15 +1344,9 @@ function CourseCard({
         if (typeGroup) {
           const section = typeGroup.sections.find((s) => s.id === sectionId)
           if (section) {
-            // Check if this section has instructors matching the new filter
-            const sectionMatchesFilter = section.meetings.some((meeting) => {
-              if (!meeting.instructors) return false
-              const instructorNames = meeting.instructors.split(',').map((name) => name.trim())
-              return instructorNames.some((instructorName) => {
-                const formattedName = formatInstructorsCompact(instructorName)
-                return newSelected.has(formattedName)
-              })
-            })
+            const sectionMatchesFilter = section.meetings.some((meeting) =>
+              splitInstructorsCompact(meeting.instructors).some((name) => newSelected.has(name))
+            )
 
             // Only keep selections that match the instructor filter
             if (sectionMatchesFilter) {
@@ -1403,35 +1396,19 @@ function CourseCard({
     })
   }
 
-  // Helper: Remove title from instructor name for sorting
-  const removeInstructorTitle = (instructor: string): string => {
-    if (!instructor || instructor === 'TBA') return 'TBA'
-    return formatInstructorsCompact(instructor).replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
-  }
+  // Sort key: the name without its title
+  const removeInstructorTitle = (instructor: string): string =>
+    instructor.replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
 
-  // Get unique instructors from current term, sorted alphabetically
+  // Compact, so pills dedupe and compare in the form they are displayed
   const currentTermData = course.terms.find((term) => term.termName === currentTerm)
   const instructors = Array.from(
     new Set(
       currentTermData?.sections.flatMap((section) =>
-        section.meetings.flatMap((meeting) => {
-          // Split instructor names by comma if multiple instructors are listed together
-          const instructorString = meeting.instructors || ''
-          return instructorString
-            .split(',')
-            .map((name) => name.trim())
-            .filter(Boolean)
-        })
+        section.meetings.flatMap((meeting) => splitInstructorsCompact(meeting.instructors))
       ) || []
     )
-  )
-    .filter(Boolean)
-    .sort((a, b) => {
-      // Sort alphabetically by the name part (without title)
-      const nameA = removeInstructorTitle(a)
-      const nameB = removeInstructorTitle(b)
-      return nameA.localeCompare(nameB)
-    })
+  ).sort((a, b) => removeInstructorTitle(a).localeCompare(removeInstructorTitle(b)))
 
   // Cart action buttons (Add/Remove/Scroll to Cart/Replace), compact inline layout for desktop
   const renderCartActionsInline = () => (
@@ -2015,16 +1992,11 @@ function CourseCard({
               ) => {
                 // Priority 1: Instructor filter (always applied)
                 if (selectedInstructors.size > 0) {
-                  const matchesInstructorFilter = section.meetings.some((meeting) => {
-                    if (!meeting.instructors) return false
-                    const instructorNames = meeting.instructors
-                      .split(',')
-                      .map((name) => name.trim())
-                    return instructorNames.some((instructorName) => {
-                      const formattedName = formatInstructorsCompact(instructorName)
-                      return selectedInstructors.has(formattedName)
-                    })
-                  })
+                  const matchesInstructorFilter = section.meetings.some((meeting) =>
+                    splitInstructorsCompact(meeting.instructors).some((name) =>
+                      selectedInstructors.has(name)
+                    )
+                  )
                   if (!matchesInstructorFilter) return false
                 }
 

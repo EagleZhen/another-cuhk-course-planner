@@ -1095,32 +1095,26 @@ export function formatTimeCompact(timeStr: string): string {
 }
 
 /**
- * Format instructor name for compact display: "Professor" → "Prof.", "Dr." stays "Dr."
- * Internal helper - use formatInstructorsCompact() for display
+ * Scraped instructor string → the names the UI shows; empty when nobody is named ("TBA"
+ * is not a name). Read instructors through this or formatInstructorsCompact, never off
+ * the meeting, or displayed and matched names drift apart (#287).
+ *
+ * "Professor Noam NOKED, Dr. CHEONG Chi Hong" → ["Prof. Noam NOKED", "Dr. CHEONG Chi Hong"]
  */
-function formatInstructorCompact(instructor: string): string {
-  if (!instructor || instructor === 'TBA') return 'TBA'
+export function splitInstructorsCompact(instructorString: string): string[] {
+  if (!instructorString) return []
 
-  return instructor.replace('Professor ', 'Prof. ')
+  return instructorString
+    .split(',')
+    .map((instructor) => instructor.trim())
+    .filter((instructor) => instructor && instructor !== 'TBA')
+    .map((instructor) => instructor.replace('Professor ', 'Prof. '))
 }
 
-/**
- * Format instructor string (potentially multiple comma-separated names) for display
- * Handles multiple instructors and formats each one
- * Examples:
- *   "Professor Noam NOKED, Professor Steven Brian GALLAGHER" → "Prof. Noam NOKED, Prof. Steven Brian GALLAGHER"
- *   "TBA" → "TBA"
- */
+/** The same names as one display string, or "TBA" when nobody is named. */
 export function formatInstructorsCompact(instructorString: string): string {
-  if (!instructorString) return 'TBA'
-
-  const instructors = instructorString
-    .split(',')
-    .map((i) => i.trim())
-    .filter((i) => i && i !== 'TBA')
-  return instructors.length > 0
-    ? instructors.map((instructor) => formatInstructorCompact(instructor)).join(', ')
-    : 'TBA'
+  const instructors = splitInstructorsCompact(instructorString)
+  return instructors.length > 0 ? instructors.join(', ') : 'TBA'
 }
 
 // ========================================

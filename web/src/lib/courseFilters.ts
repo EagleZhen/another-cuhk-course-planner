@@ -65,10 +65,7 @@ export function courseMatchesKeyword(course: InternalCourse, query: string, term
   )
 }
 
-/**
- * Match against both the scraped names ("Professor CHAN Tai Man") and the compact
- * form the UI shows ("Prof. CHAN Tai Man"), so a query finds whichever the user saw.
- */
+/** Match both "Professor CHAN" and the displayed "Prof. CHAN", so a query finds whichever the user saw. */
 function instructorMatchesKeyword(instructors: string, query: string): boolean {
   return (
     instructors.toLowerCase().includes(query) ||

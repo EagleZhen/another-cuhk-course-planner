@@ -19,6 +19,8 @@ import {
   syncCart,
   syncEnrollment,
   isEnrollmentOpen,
+  splitInstructorsCompact,
+  formatInstructorsCompact,
 } from './courseUtils'
 import { SCHEDULE_DATA_VERSION } from './constants'
 import type {
@@ -1084,5 +1086,31 @@ describe('diffSectionDetail', () => {
     expect(detail.rows).toHaveLength(1)
     expect(detail.rows[0].status).toBe('unchanged')
     expect(detail.languageChanged).toBe(true)
+  })
+})
+
+describe('splitInstructorsCompact', () => {
+  it.each([
+    ['abbreviates Professor', 'Professor Noam NOKED', ['Prof. Noam NOKED']],
+    ['leaves other titles alone', 'Dr. CHEONG Chi Hong', ['Dr. CHEONG Chi Hong']],
+    [
+      'splits and compacts each name',
+      'Professor Noam NOKED, Dr. CHEONG Chi Hong',
+      ['Prof. Noam NOKED', 'Dr. CHEONG Chi Hong'],
+    ],
+    ['drops blanks left by trailing commas', 'Professor CHAN Tai Man, ', ['Prof. CHAN Tai Man']],
+    ['treats TBA as no instructor', 'TBA', []],
+    ['treats empty as no instructor', '', []],
+  ])('%s', (_label, raw, expected) => {
+    expect(splitInstructorsCompact(raw)).toEqual(expected)
+  })
+
+  it('is the list formatInstructorsCompact joins', () => {
+    const raw = 'Professor Noam NOKED, Dr. CHEONG Chi Hong'
+    expect(splitInstructorsCompact(raw).join(', ')).toBe(formatInstructorsCompact(raw))
+  })
+
+  it('is idempotent, so a name may be compacted twice', () => {
+    expect(splitInstructorsCompact('Prof. Noam NOKED')).toEqual(['Prof. Noam NOKED'])
   })
 })
