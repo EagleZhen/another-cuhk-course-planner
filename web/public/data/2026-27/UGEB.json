@@ -3,7 +3,7 @@
     "schema_version": 1,
     "subject": "UGEB",
     "subject_title": "UGEB: Nature, Science and Technology",
-    "total_courses": 44
+    "total_courses": 45
   },
   "courses": [
     {
@@ -1147,6 +1147,67 @@
         "Essays": "40",
         "Presentation": "20",
         "Short answer test or exam": "40"
+      }
+    },
+    {
+      "subject": "UGEB",
+      "course_code": "2161",
+      "title": "Resource Issues in the Age of Globalization",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9900)",
+              "meetings": [
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Staff",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Staff",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "Sino Building UG06",
+                  "instructor": "Staff",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            }
+          ]
+        }
+      ],
+      "description": "Globalization processes have been affecting every nook and corner of the world. We are all fascinated by the mushrooming of transnational companies; the increasing cross-boundary flows of resources as well as the increasing competition among places and cities. Resource becomes a keen issue due to the growth of population, trade and economy in the age of globalization. Good management of resources will thus be both global and local concerns. In this regard and with the advent of the global agenda 2030, there is increasing enthusiasm in addressing the most pressing and challenging issues that the world is facing today, and these are Globalization and the Sustainable Development Goals (SDGs).\n\nThis course will thus focus on the interaction of man and environment in a geographical context with special reference to a selection of relevant SDGs. By adopting different perspectives, a variety of resource issues ranging from natural resources to economic and human resources will be examined. The course will be divided into two parts. The first part will be the discussion of basic concepts of globalization and resource issues in the society that are related to selected SDGs. The second part will be issue-based analyses of different resource issues that affect lives in modern societies and that could make a difference in the pursuit of the SDGs particularly in this age of globalization. Various cases in the real world will be analyzed. This course will help students to broaden their views on the SDGs and understand the importance and implications of resource issues in both developing and developed countries.",
+      "enrollment_requirement": "Not for Geography and Resource Management Majors. \nCo-requisite: Any course with “UGFH” or “UGFN” as prefix",
+      "course_attributes": "SDG-GE #2 Zero Hunger\nSDG-GE #10 Reducing Inequality\nSDG-GE #11 Sustainable Cities and Communities\nSDG-GE #13 Climate Action\nSDG-GE #14 Life Below Water\nSDG-GE #15 Life On Land\nSDG-GE #16 Peace, Justice and Strong Institutions",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Office of University GE",
+      "academic_org": "Dept of Geo & Resource Mgt",
+      "learning_outcomes": "Through a variety of teaching and learning activities, including lectures, video shows, forum and group discussion on current issues, the student will be able to:\n\n1. understand the basic concepts of resource issues and globalization\n2. develop analytical and critical thinking capabilities through the discussion of various case studies and current issues\n3. students will be able to develop self-awareness and reflect their roles in local communities and at the international context\n4. enhance the skills necessary for interpreting relevant planning and management of resources in the society",
+      "assessment_types": {
+        "Presentation": "20",
+        "Short answer test or exam": "20",
+        "Selected response test or exam": "60"
       }
     },
     {

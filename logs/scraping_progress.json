@@ -1,4 +1,18 @@
 {
+  "latest_run": {
+    "started_at": "2026-08-28 22:05:02 HK",
+    "last_updated": "2026-08-29 07:23:00 HK",
+    "duration": "9h 17m 56s",
+    "status": "completed",
+    "subjects_total": 270,
+    "subjects_completed": 270,
+    "subjects_failed": 0,
+    "config": {
+      "get_details": true,
+      "get_enrollment_details": true,
+      "max_courses": null
+    }
+  },
   "subjects": {
     "ACCT": {
       "status": "completed",
