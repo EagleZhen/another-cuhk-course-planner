@@ -48,7 +48,8 @@ export interface InternalSection {
 export interface InternalMeeting {
   time: string
   location: string
-  instructors: string
+  // TODO(#295): rename to instructorsRaw; persisted, so it needs a migration
+  instructors: string // Scraped form ("Professor CHAN"); display via formatInstructorsCompact
   dates: string
 }
 
@@ -56,12 +57,12 @@ export interface InternalMeeting {
 export interface SectionMeetingSignature {
   time: string
   location: string
-  instructor: string
+  instructor: string // Scraped form, compared verbatim; display via formatInstructorsCompact
 }
 
 // A section's comparable facts: deduped meetings (source order) plus language of
-// instruction. Pure data — display formatting (see formatSectionSignature) is a separate
-// concern, so a future formatting change can't retroactively look like a data change.
+// instruction. Pure data — MeetingRowCard formats it for display, so a future formatting
+// change can't retroactively look like a data change.
 export interface SectionSignature {
   meetings: SectionMeetingSignature[]
   language: string
@@ -168,7 +169,7 @@ export interface CalendarEvent {
   sectionType: SectionType
   time: string
   location: string
-  instructors: string
+  instructors: string // Scraped form ("Professor CHAN"); display via formatInstructorsCompact
   credits: number
   color: string
   isVisible: boolean

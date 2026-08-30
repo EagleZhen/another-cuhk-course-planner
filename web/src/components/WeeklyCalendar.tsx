@@ -880,9 +880,7 @@ export default function WeeklyCalendar({
                                     textLineLimits.instructor === 2 ? 'line-clamp-2' : 'truncate'
                                   }`}
                                 >
-                                  {event.instructors
-                                    ? formatInstructorsCompact(event.instructors)
-                                    : 'TBA'}
+                                  {formatInstructorsCompact(event.instructors)}
                                 </div>
                               )}
                             </div>
@@ -1117,9 +1115,7 @@ function UnscheduledSectionsCard({
 
                     {displayConfig.showInstructor && (
                       <div className={`${TEXT_STYLES.INSTRUCTOR} truncate`}>
-                        {item.meeting.instructors
-                          ? formatInstructorsCompact(item.meeting.instructors)
-                          : 'TBA'}
+                        {formatInstructorsCompact(item.meeting.instructors)}
                       </div>
                     )}
 

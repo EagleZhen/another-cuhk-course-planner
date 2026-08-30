@@ -26,8 +26,8 @@ export function MeetingRowCard({
   const { meeting } = row
   const before = row.status === 'changed' ? row.before : undefined
   const fields = row.status === 'changed' ? row.fields : undefined
-  const formattedTime = formatTimeCompact(meeting.time || 'TBA')
-  const formattedInstructor = formatInstructorsCompact(meeting.instructor || 'TBA')
+  const formattedTime = formatTimeCompact(meeting.time)
+  const formattedInstructor = formatInstructorsCompact(meeting.instructor)
   const location = meeting.location || 'TBA'
 
   let containerClass = 'bg-white border-gray-200'

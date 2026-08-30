@@ -661,7 +661,7 @@ const sameMeeting = (a: SectionMeetingSignature, b: SectionMeetingSignature): bo
   a.time === b.time && a.location === b.location && a.instructor === b.instructor
 
 // A section's deduped meetings (in source order) plus language — the comparison key for
-// change detection. Pure data; ignores `dates`. See formatSectionSignature for display.
+// change detection. Pure data; ignores `dates`. MeetingRowCard formats it for display.
 export function sectionSignature(section: InternalSection): SectionSignature {
   const seen = new Set<string>()
   const meetings: SectionMeetingSignature[] = []
@@ -674,14 +674,6 @@ export function sectionSignature(section: InternalSection): SectionSignature {
     }
   }
   return { meetings, language: norm(section.classAttributes) }
-}
-
-// Human-readable rendering of a SectionSignature, e.g. for a before/after tooltip.
-export function formatSectionSignature(signature: SectionSignature): string {
-  const lines = signature.meetings.map((m) =>
-    [m.time, m.location, m.instructor].filter(Boolean).join(' · ')
-  )
-  return [...lines, signature.language].filter(Boolean).join('  |  ')
 }
 
 // Compared positionally, which assumes the scraper emits meetings in a stable order (it
@@ -1095,32 +1087,35 @@ export function formatTimeCompact(timeStr: string): string {
 }
 
 /**
- * Format instructor name for compact display: "Professor" → "Prof.", "Dr." stays "Dr."
- * Internal helper - use formatInstructorsCompact() for display
+ * Scraped instructor string → the names the UI shows; empty when nobody is named ("TBA"
+ * is not a name). Read instructors through this or formatInstructorsCompact, never off
+ * the meeting, or displayed and matched names drift apart (#287).
+ *
+ * "Professor Noam NOKED, Dr. CHEONG Chi Hong" → ["Prof. Noam NOKED", "Dr. CHEONG Chi Hong"]
  */
-function formatInstructorCompact(instructor: string): string {
-  if (!instructor || instructor === 'TBA') return 'TBA'
+export function splitInstructorsCompact(instructorString: string): string[] {
+  if (!instructorString) return []
 
-  return instructor.replace('Professor ', 'Prof. ')
+  return instructorString
+    .split(',')
+    .map((instructor) => instructor.trim())
+    .filter((instructor) => instructor && instructor !== 'TBA')
+    .map((instructor) => instructor.replace('Professor ', 'Prof. '))
 }
 
-/**
- * Format instructor string (potentially multiple comma-separated names) for display
- * Handles multiple instructors and formats each one
- * Examples:
- *   "Professor Noam NOKED, Professor Steven Brian GALLAGHER" → "Prof. Noam NOKED, Prof. Steven Brian GALLAGHER"
- *   "TBA" → "TBA"
- */
+/** The same names as one display string, or "TBA" when nobody is named. */
 export function formatInstructorsCompact(instructorString: string): string {
-  if (!instructorString) return 'TBA'
+  const instructors = splitInstructorsCompact(instructorString)
+  return instructors.length > 0 ? instructors.join(', ') : 'TBA'
+}
 
-  const instructors = instructorString
-    .split(',')
-    .map((i) => i.trim())
-    .filter((i) => i && i !== 'TBA')
-  return instructors.length > 0
-    ? instructors.map((instructor) => formatInstructorCompact(instructor)).join(', ')
-    : 'TBA'
+// Every title the scraped data uses, dotted or not. "Staff" and the "***" prefix are
+// not titles and stay as they are — we don't know what "***" means.
+const INSTRUCTOR_TITLE = /^(Prof|Dr|Mrs|Miss|Mr|Ms|Rev)\.?\s+/i
+
+/** Sorts a compact name by surname rather than by its title. */
+export function instructorSortKey(instructor: string): string {
+  return instructor.replace(INSTRUCTOR_TITLE, '')
 }
 
 // ========================================
@@ -1829,7 +1824,6 @@ export function createICSEventsForMeeting(
     return [] // Skip meetings with no valid dates
   }
 
-  // Handle instructor plural/singular properly with compact formatting
   const formattedInstructors = formatInstructorsCompact(meeting.instructors)
 
   // Create description with better formatting and structure
