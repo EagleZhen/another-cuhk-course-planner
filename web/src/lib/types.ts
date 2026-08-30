@@ -48,7 +48,7 @@ export interface InternalSection {
 export interface InternalMeeting {
   time: string
   location: string
-  instructors: string
+  instructors: string // Scraped form ("Professor CHAN"); display via formatInstructorsCompact
   dates: string
 }
 
@@ -168,7 +168,7 @@ export interface CalendarEvent {
   sectionType: SectionType
   time: string
   location: string
-  instructors: string
+  instructors: string // Scraped form ("Professor CHAN"); display via formatInstructorsCompact
   credits: number
   color: string
   isVisible: boolean
