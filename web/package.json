@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && node scripts/assert-no-source-maps.mts",
+    "build": "next build && node scripts/finalize-source-maps.mts",
     "start": "next start",
     "typecheck": "tsc --noEmit && tsc --noEmit -p functions/tsconfig.json",
     "lint": "eslint .",
@@ -32,6 +32,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260827.1",
     "@playwright/test": "^1.62.1",
+    "@posthog/nextjs-config": "^1.10.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^24",
     "@types/react": "^19",

@@ -24,6 +24,12 @@ Don't confuse that with `ui_host` (`us.posthog.com`): that's PostHog's separate 
 
 The entry pageview captures UTM attribution before `utm_*` parameters are removed, and captured URLs omit query parameters. Error Tracking records unhandled errors plus explicit captures from boundaries and critical caught failures. Exceptions include the build ID, page visibility, navigation type, and time since page load; session recording remains disabled.
 
+### Source Maps
+
+Production builds upload source maps to PostHog so stack traces name real files and lines, then delete them — nothing new is served to browsers. `POSTHOG_PERSONAL_API_KEY` and `POSTHOG_PROJECT_ID` live in Cloudflare's Production environment only; without a key no maps are generated, so local builds and preview deploys are unchanged.
+
+The uploader always leaves a couple behind ([posthog-js#2383](https://github.com/PostHog/posthog-js/issues/2383)), so [finalize-source-maps.mts](../web/scripts/finalize-source-maps.mts) deletes whatever reaches `out/` after every build — and fails a keyed build with no chunk IDs, the sign that the upload did nothing.
+
 See [decisions.md](decisions.md#posthog-over-vercel-analytics) for the analytics provider rationale.
 
 ## Re-Showing the Mobile Notice
