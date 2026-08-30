@@ -60,8 +60,8 @@ export interface SectionMeetingSignature {
 }
 
 // A section's comparable facts: deduped meetings (source order) plus language of
-// instruction. Pure data — display formatting (see formatSectionSignature) is a separate
-// concern, so a future formatting change can't retroactively look like a data change.
+// instruction. Pure data — MeetingRowCard formats it for display, so a future formatting
+// change can't retroactively look like a data change.
 export interface SectionSignature {
   meetings: SectionMeetingSignature[]
   language: string

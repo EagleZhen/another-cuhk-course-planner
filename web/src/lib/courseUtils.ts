@@ -661,7 +661,7 @@ const sameMeeting = (a: SectionMeetingSignature, b: SectionMeetingSignature): bo
   a.time === b.time && a.location === b.location && a.instructor === b.instructor
 
 // A section's deduped meetings (in source order) plus language — the comparison key for
-// change detection. Pure data; ignores `dates`. See formatSectionSignature for display.
+// change detection. Pure data; ignores `dates`. MeetingRowCard formats it for display.
 export function sectionSignature(section: InternalSection): SectionSignature {
   const seen = new Set<string>()
   const meetings: SectionMeetingSignature[] = []
@@ -674,14 +674,6 @@ export function sectionSignature(section: InternalSection): SectionSignature {
     }
   }
   return { meetings, language: norm(section.classAttributes) }
-}
-
-// Human-readable rendering of a SectionSignature, e.g. for a before/after tooltip.
-export function formatSectionSignature(signature: SectionSignature): string {
-  const lines = signature.meetings.map((m) =>
-    [m.time, m.location, m.instructor].filter(Boolean).join(' · ')
-  )
-  return [...lines, signature.language].filter(Boolean).join('  |  ')
 }
 
 // Compared positionally, which assumes the scraper emits meetings in a stable order (it
@@ -1832,7 +1824,6 @@ export function createICSEventsForMeeting(
     return [] // Skip meetings with no valid dates
   }
 
-  // Handle instructor plural/singular properly with compact formatting
   const formattedInstructors = formatInstructorsCompact(meeting.instructors)
 
   // Create description with better formatting and structure
