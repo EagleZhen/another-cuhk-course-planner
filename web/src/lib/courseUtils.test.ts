@@ -20,6 +20,7 @@ import {
   syncEnrollment,
   isEnrollmentOpen,
   splitInstructorsCompact,
+  instructorSortKey,
   formatInstructorsCompact,
 } from './courseUtils'
 import { SCHEDULE_DATA_VERSION } from './constants'
@@ -1112,5 +1113,33 @@ describe('splitInstructorsCompact', () => {
 
   it('is idempotent, so a name may be compacted twice', () => {
     expect(splitInstructorsCompact('Prof. Noam NOKED')).toEqual(['Prof. Noam NOKED'])
+  })
+})
+
+describe('instructorSortKey', () => {
+  // Every title form the scraped data uses, dotted and undotted.
+  it.each([
+    ['Prof. CHAN Tai Man', 'CHAN Tai Man'],
+    ['Dr. CHEONG Chi Hong', 'CHEONG Chi Hong'],
+    ['Dr LEE Siu', 'LEE Siu'],
+    ['Mr. WONG Ka Fai', 'WONG Ka Fai'],
+    ['Mrs. LAM Siu Ling', 'LAM Siu Ling'],
+    ['Mrs LAM Siu Ling', 'LAM Siu Ling'],
+    ['Ms HO Wai Yin', 'HO Wai Yin'],
+    ['Miss AU Wai Yin', 'AU Wai Yin'],
+    ['Rev. YIU Chi Ho', 'YIU Chi Ho'],
+  ])('strips the title from %s', (name, expected) => {
+    expect(instructorSortKey(name)).toBe(expected)
+  })
+
+  // Not titles: leave them alone rather than guess at what they mean.
+  it.each([['Staff'], ['*** CHOI Pak Tat Frankie']])('leaves %s untouched', (name) => {
+    expect(instructorSortKey(name)).toBe(name)
+  })
+
+  it('sorts the names splitInstructorsCompact actually produces', () => {
+    expect(splitInstructorsCompact('Professor CHAN Tai Man').map(instructorSortKey)).toEqual([
+      'CHAN Tai Man',
+    ])
   })
 })

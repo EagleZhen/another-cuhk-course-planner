@@ -25,6 +25,7 @@ import {
   categorizeCompatibleSections,
   getSectionTypePriority,
   splitInstructorsCompact,
+  instructorSortKey,
   formatSyncTimestamp,
   getAvailabilityBadges,
   getAvailabilityBadgeStyle,
@@ -1396,10 +1397,6 @@ function CourseCard({
     })
   }
 
-  // Sort key: the name without its title
-  const removeInstructorTitle = (instructor: string): string =>
-    instructor.replace(/^(Prof|Dr|Mr|Ms|Mrs)\.?\s+/i, '')
-
   // Compact, so pills dedupe and compare in the form they are displayed
   const currentTermData = course.terms.find((term) => term.termName === currentTerm)
   const instructors = Array.from(
@@ -1408,7 +1405,7 @@ function CourseCard({
         section.meetings.flatMap((meeting) => splitInstructorsCompact(meeting.instructors))
       ) || []
     )
-  ).sort((a, b) => removeInstructorTitle(a).localeCompare(removeInstructorTitle(b)))
+  ).sort((a, b) => instructorSortKey(a).localeCompare(instructorSortKey(b)))
 
   // Cart action buttons (Add/Remove/Scroll to Cart/Replace), compact inline layout for desktop
   const renderCartActionsInline = () => (

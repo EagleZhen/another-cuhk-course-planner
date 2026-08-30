@@ -1117,6 +1117,15 @@ export function formatInstructorsCompact(instructorString: string): string {
   return instructors.length > 0 ? instructors.join(', ') : 'TBA'
 }
 
+// Every title the scraped data uses, dotted or not. "Staff" and the "***" prefix are
+// not titles and stay as they are — we don't know what "***" means.
+const INSTRUCTOR_TITLE = /^(Prof|Dr|Mrs|Miss|Mr|Ms|Rev)\.?\s+/i
+
+/** Sorts a compact name by surname rather than by its title. */
+export function instructorSortKey(instructor: string): string {
+  return instructor.replace(INSTRUCTOR_TITLE, '')
+}
+
 // ========================================
 // Section Compatibility & Selection Logic
 // ========================================
