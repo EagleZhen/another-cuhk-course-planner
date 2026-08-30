@@ -56,7 +56,7 @@ export interface InternalMeeting {
 export interface SectionMeetingSignature {
   time: string
   location: string
-  instructor: string
+  instructor: string // Scraped form, compared verbatim; display via formatInstructorsCompact
 }
 
 // A section's comparable facts: deduped meetings (source order) plus language of

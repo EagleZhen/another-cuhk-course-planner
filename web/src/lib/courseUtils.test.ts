@@ -21,6 +21,7 @@ import {
   isEnrollmentOpen,
   splitInstructorsCompact,
   instructorSortKey,
+  formatTimeCompact,
   formatInstructorsCompact,
 } from './courseUtils'
 import { SCHEDULE_DATA_VERSION } from './constants'
@@ -1141,5 +1142,13 @@ describe('instructorSortKey', () => {
     expect(splitInstructorsCompact('Professor CHAN Tai Man').map(instructorSortKey)).toEqual([
       'CHAN Tai Man',
     ])
+  })
+})
+
+// MeetingRowCard renders these directly, with no `|| 'TBA'` guard of its own.
+describe('empty-value fallbacks', () => {
+  it('renders TBA for a missing time or instructor', () => {
+    expect(formatTimeCompact('')).toBe('TBA')
+    expect(formatInstructorsCompact('')).toBe('TBA')
   })
 })
