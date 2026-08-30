@@ -10,6 +10,10 @@ import { basename, relative, resolve } from 'node:path'
 // The JS (`//#`) and CSS (`/*# */`) spellings of the comment.
 const SOURCE_MAPPING_URL = /(?:\/\/|\/\*)# sourceMappingURL=([^\s*]+)[ \t]*(?:\*\/)?/g
 
+// Anchored like posthog-cli's own matcher, so a bundled string literal can't pass for a
+// real marker.
+const CHUNK_ID = /^\/\/# chunkId=/m
+
 const outDir = resolve(import.meta.dirname, '..', 'out')
 
 const entries = await readdir(outDir, { recursive: true, withFileTypes: true })
@@ -41,7 +45,7 @@ if (process.env.POSTHOG_PERSONAL_API_KEY) {
   const scripts = files.filter((file) => file.endsWith('.js'))
   const contents = await Promise.all(scripts.map((file) => readFile(file, 'utf8')))
 
-  if (!contents.some((content) => content.includes('//# chunkId='))) {
+  if (!contents.some((content) => CHUNK_ID.test(content))) {
     console.error('No chunk IDs in out/: the PostHog source map upload did not run.')
     process.exit(1)
   }
