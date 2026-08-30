@@ -60,7 +60,9 @@ export function MeetingRowCard({
         <span>⏰</span>
         <span
           className={`font-mono ${fields?.time ? changedText : valueClass}`}
-          title={fields?.time && before ? `Previously ${before.time}` : undefined}
+          title={
+            fields?.time && before ? `Previously ${formatTimeCompact(before.time)}` : undefined
+          }
         >
           {formattedTime}
         </span>
@@ -73,7 +75,7 @@ export function MeetingRowCard({
             className={`truncate ${fields?.instructor ? changedText : valueClass}`}
             title={
               fields?.instructor && before
-                ? `Previously ${before.instructor}`
+                ? `Previously ${formatInstructorsCompact(before.instructor)}`
                 : wholeMeetingChange
                   ? undefined
                   : formattedInstructor
@@ -103,7 +105,7 @@ export function MeetingRowCard({
             className={`truncate ${fields?.location ? changedText : valueClass}`}
             title={
               fields?.location && before
-                ? `Previously ${before.location}`
+                ? `Previously ${before.location || 'TBA'}`
                 : wholeMeetingChange
                   ? undefined
                   : location
