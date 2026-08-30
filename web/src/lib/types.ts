@@ -48,6 +48,7 @@ export interface InternalSection {
 export interface InternalMeeting {
   time: string
   location: string
+  // TODO(#295): rename to instructorsRaw; persisted, so it needs a migration
   instructors: string // Scraped form ("Professor CHAN"); display via formatInstructorsCompact
   dates: string
 }
