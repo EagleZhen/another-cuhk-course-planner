@@ -203,3 +203,11 @@ Why it fits:
 - archived years are worth keeping (last year's catalog predicts next year's, which CUHK hides at rollover) but rarely opened — so fetch on demand, not upfront.
 - the reference bar and one-click return keep a frozen year from being mistaken for the live one and edited by accident.
 - deriving the live year from `DEFAULT_CURRENT_TERM` makes rollover a single edit that flips both the eager year and the archived set.
+
+## Derive Display Forms, Keep Scraped Values
+
+Instructors are scraped as "Professor CHAN Tai Man" and shown as "Prof. CHAN Tai Man". Converting once at the boundary would spare every consumer from remembering, but enrollments persist whole to `localStorage` — that freezes our parse, comma-splitting assumption included, in every browser.
+
+Decision: store scraped values as scraped, derive display forms where they are shown (`splitInstructorsCompact` in [courseUtils.ts](../web/src/lib/courseUtils.ts)). Keep only the source and a parser fix reaches every user on their next load — [Strip Unrendered Fields At Publish](#strip-unrendered-fields-at-publish), one layer in.
+
+Nothing enforces this: a lint rule flags only correct call sites, since reading the field to pass it into the helper is the intended use.
