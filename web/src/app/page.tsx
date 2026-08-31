@@ -846,7 +846,7 @@ function SubjectFilterControls({
               className="h-5 px-2 text-xs font-normal cursor-pointer"
               title="Clear all subject filters and search"
             >
-              ✕ Clear Subjects
+              Clear Subjects
             </Button>
           )}
         </div>
