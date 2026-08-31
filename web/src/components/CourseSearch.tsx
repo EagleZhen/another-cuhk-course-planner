@@ -18,6 +18,7 @@ import {
   HardDrive,
   Shuffle,
   RotateCcw,
+  Lightbulb,
 } from 'lucide-react'
 import {
   parseSectionTypes,
@@ -1047,7 +1048,7 @@ export default function CourseSearch({
             {displayResults.isLimited && (
               <div className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg p-3 mb-3">
                 <div className="flex items-start gap-2">
-                  <span className="text-amber-600 text-3xl">💡</span>
+                  <Lightbulb className="w-9 h-9 flex-shrink-0 text-amber-600" strokeWidth={1.5} />
                   <div>
                     <strong>
                       Showing {displayResults.courses.length} of {displayResults.total} matching
