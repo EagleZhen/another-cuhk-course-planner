@@ -5,7 +5,16 @@ import posthog from 'posthog-js'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { TermSelector } from '@/components/TermSelector'
-import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar, Download, Undo } from 'lucide-react'
+import {
+  ChevronDown,
+  ChevronUp,
+  Eye,
+  EyeOff,
+  Camera,
+  Calendar,
+  CalendarArrowDown,
+  Undo,
+} from 'lucide-react'
 import {
   groupOverlappingEvents,
   eventsOverlap,
@@ -420,7 +429,7 @@ export default function WeeklyCalendar({
                   className="gap-1 h-full hover:bg-gray-100 rounded-none"
                   title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
                 >
-                  <Download className="w-4 h-4" />
+                  <CalendarArrowDown className="w-4 h-4" />
                   .ics
                 </Button>
 
@@ -505,7 +514,7 @@ export default function WeeklyCalendar({
                     className="gap-1 h-full hover:bg-gray-100 rounded-none"
                     title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
                   >
-                    <Download className="w-4 h-4" />
+                    <CalendarArrowDown className="w-4 h-4" />
                     <span className="hidden xs:inline">.ics</span>
                   </Button>
 
