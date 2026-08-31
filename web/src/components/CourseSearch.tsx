@@ -606,7 +606,7 @@ export default function CourseSearch({
                       analytics.filterCleared(pill.filter, 'summary')
                       pill.onRemove?.()
                     }}
-                    className="group -my-0.5 inline-flex size-5 touch-manipulation cursor-pointer items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                    className="group -my-0.5 -mr-1 inline-flex size-5 touch-manipulation cursor-pointer items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                     aria-label={`Remove ${pill.label} filter`}
                     title={`Remove ${pill.label} filter`}
                   >
