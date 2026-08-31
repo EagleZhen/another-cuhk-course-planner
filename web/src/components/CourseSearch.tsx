@@ -16,6 +16,8 @@ import {
   ShoppingCart,
   AlertTriangle,
   HardDrive,
+  Shuffle,
+  RotateCcw,
 } from 'lucide-react'
 import {
   parseSectionTypes,
@@ -638,7 +640,8 @@ export default function CourseSearch({
               className="h-6 px-2 text-xs cursor-pointer ml-2"
               title="Reset to original order"
             >
-              ↻ Reset
+              <RotateCcw className="size-3" />
+              Reset
             </Button>
           </>
         )}
@@ -655,7 +658,8 @@ export default function CourseSearch({
           className="h-6 px-2 text-xs"
           title="Shuffle courses for discovery"
         >
-          🎲 Shuffle
+          <Shuffle className="size-3" />
+          Shuffle
         </Button>
       )}
     </div>
