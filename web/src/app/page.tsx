@@ -12,6 +12,7 @@ import { Search, Archive } from 'lucide-react'
 import {
   detectConflicts,
   enrollmentsToCalendarEvents,
+  formatSyncTimestamp,
   getDeterministicColor,
   autoCompleteEnrollmentSections,
   getUnscheduledSections,
@@ -51,6 +52,11 @@ export default function Home() {
   )
 
   // Current term state
+  // The sync <time> waits for mount: iOS data detectors latch onto a prerendered
+  // one, and the banner has no timestamp to show until the catalog resolves.
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+
   const [currentTerm, setCurrentTerm] = useState(DEFAULT_CURRENT_TERM)
   const selectedYear = extractAcademicYearCode(currentTerm)
   const catalog = useCourseCatalog(selectedYear)
@@ -498,26 +504,41 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       {/* Data source disclaimer — swapped out for the reference-mode bar on archived years */}
       {!isArchivedYear && (
-        <div className="bg-amber-50 border-b border-amber-200 text-amber-800 text-xs text-center py-1.5 px-4">
-          <span>Data frequently synced from </span>
-          <a
-            href="http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-amber-900 font-medium"
-          >
-            the official course catalog
-          </a>
-          <span className="font-semibold">. When they differ, trust </span>
-          <a
-            href="https://cusis.cuhk.edu.hk/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-amber-900 font-bold"
-          >
-            CUSIS
-          </a>
-          <span className="font-semibold">.</span>
+        <div className="relative bg-amber-50 border-b border-amber-200 text-amber-800 text-xs text-center py-1.5 px-4">
+          {/* One sentence per line below sm, where a single line orphans "CUSIS." */}
+          <span className="block sm:inline">
+            Data frequently synced from{' '}
+            <a
+              href="http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-amber-900 font-medium"
+            >
+              the official course catalog
+            </a>
+            .
+          </span>{' '}
+          <span className="block font-semibold sm:inline">
+            When they differ, trust{' '}
+            <a
+              href="https://cusis.cuhk.edu.hk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-amber-900 font-bold"
+            >
+              CUSIS
+            </a>
+            .
+          </span>
+          {mounted && catalog.scrapedAt && (
+            /* Pinned right only from lg: the centred message needs the timestamp's
+               width clear on both sides, which narrower screens cannot give. */
+            <div className="text-amber-700 lg:absolute lg:right-4 lg:top-1/2 lg:-translate-y-1/2">
+              <time dateTime={catalog.scrapedAt.toISOString()}>
+                Last synced: {formatSyncTimestamp(catalog.scrapedAt)}
+              </time>
+            </div>
+          )}
         </div>
       )}
 
