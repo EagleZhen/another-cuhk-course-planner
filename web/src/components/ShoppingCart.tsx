@@ -530,8 +530,8 @@ export default function ShoppingCart({
                           >
                             {/* Section header with cycling buttons */}
                             <div className="flex items-center justify-between mb-1">
-                              <div className="flex items-center gap-2">
-                                <div className="text-xs font-mono font-medium text-gray-800">
+                              <div className="flex items-center gap-1.5">
+                                <div className="font-mono text-xs font-medium tracking-tight text-gray-800">
                                   {section.sectionCode}
                                 </div>
                                 {conflictInfo.hasConflict && (
@@ -546,7 +546,7 @@ export default function ShoppingCart({
                               {/* Cycling controls or "only option" badge */}
                               {canCycle ? (
                                 <div className="flex items-center gap-1">
-                                  <span className="text-[10px] text-gray-500 mr-1">
+                                  <span className="text-[10px] text-gray-500">
                                     {sectionPosition}
                                   </span>
                                   <Button
@@ -648,7 +648,7 @@ export default function ShoppingCart({
                             title={removedTooltip}
                           >
                             <div className="mb-1 flex items-start justify-between gap-0.5">
-                              <div className="font-mono text-xs font-medium text-gray-500 line-through">
+                              <div className="font-mono text-xs font-medium tracking-tight text-gray-500 line-through">
                                 {section.sectionCode}
                               </div>
 
