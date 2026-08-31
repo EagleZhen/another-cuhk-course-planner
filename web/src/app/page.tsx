@@ -52,11 +52,6 @@ export default function Home() {
   )
 
   // Current term state
-  // The sync <time> waits for mount: iOS data detectors latch onto a prerendered
-  // one, and the banner has no timestamp to show until the catalog resolves.
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => setMounted(true), [])
-
   const [currentTerm, setCurrentTerm] = useState(DEFAULT_CURRENT_TERM)
   const selectedYear = extractAcademicYearCode(currentTerm)
   const catalog = useCourseCatalog(selectedYear)
@@ -530,13 +525,22 @@ export default function Home() {
             </a>
             .
           </span>
-          {mounted && catalog.scrapedAt && (
+          {catalog.scrapedAt && (
             /* Pinned right only from lg: the centred message needs the timestamp's
                width clear on both sides, which narrower screens cannot give. */
             <div className="text-amber-700 lg:absolute lg:right-4 lg:top-1/2 lg:-translate-y-1/2">
-              <time dateTime={catalog.scrapedAt.toISOString()}>
-                Last synced: {formatSyncTimestamp(catalog.scrapedAt)}
-              </time>
+              {/* Only the <time> waits for hydration, as in the filter panel: a
+                  prerendered one is what iOS data detectors latch onto, and it would
+                  wrap the placeholder. The line renders either way so the banner
+                  cannot grow a row under lg, where this sits in flow. */}
+              Last synced:{' '}
+              {isHydrated ? (
+                <time dateTime={catalog.scrapedAt.toISOString()}>
+                  {formatSyncTimestamp(catalog.scrapedAt)}
+                </time>
+              ) : (
+                'Loading…'
+              )}
             </div>
           )}
         </div>
