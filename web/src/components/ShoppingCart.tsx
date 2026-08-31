@@ -589,7 +589,7 @@ export default function ShoppingCart({
                               {getAvailabilityBadges(section.availability).map((badge) => (
                                 <Badge
                                   key={badge.type}
-                                  className={`text-[9px] flex-shrink-0 px-1 py-0 ${badge.style.className}`}
+                                  className={`text-[8.5px] flex-shrink-0 px-1 py-0 ${badge.style.className}`}
                                   title={
                                     badge.type === 'status'
                                       ? `Course status: ${badge.text}`
