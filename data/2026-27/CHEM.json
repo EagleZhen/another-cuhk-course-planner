@@ -224,10 +224,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "29",
+                "enrolled": "30",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "51",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -244,10 +244,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "29",
+                "enrolled": "30",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "51",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -963,10 +963,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "74",
+                "enrolled": "75",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -989,10 +989,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "74",
+                "enrolled": "75",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -1053,10 +1053,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "62",
+                "enrolled": "63",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "17",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1579,10 +1579,10 @@
               ],
               "availability": {
                 "capacity": "16",
-                "enrolled": "14",
+                "enrolled": "15",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -2836,16 +2836,23 @@
             },
             {
               "section": "-T01-TUT (5514)",
-              "meetings": [],
+              "meetings": [
+                {
+                  "time": "Tu 12:30PM - 1:15PM",
+                  "location": "Mong Man Wai Bldg 703",
+                  "instructor": "Professor YEUNG Ying Yeung",
+                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
+                }
+              ],
               "availability": {
-                "capacity": "",
-                "enrolled": "",
-                "waitlist_capacity": "",
-                "waitlist_total": "",
-                "available_seats": "",
-                "status": "Closed"
+                "capacity": "90",
+                "enrolled": "82",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "8",
+                "status": "Open"
               },
-              "class_attributes": ""
+              "class_attributes": "Cantonese, English and Putonghua"
             }
           ]
         }
