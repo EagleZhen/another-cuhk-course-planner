@@ -499,7 +499,7 @@ export default function Home() {
       {/* Data source disclaimer — swapped out for the reference-mode bar on archived years */}
       {!isArchivedYear && (
         <div className="bg-amber-50 border-b border-amber-200 text-amber-800 text-xs text-center py-1.5 px-4">
-          <span>Data regularly synced from </span>
+          <span>Data frequently synced from </span>
           <a
             href="http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
             target="_blank"
@@ -508,8 +508,7 @@ export default function Home() {
           >
             the official course catalog
           </a>
-          <span>. </span>
-          <span className="font-semibold">Always verify in </span>
+          <span className="font-semibold">. When they differ, trust </span>
           <a
             href="https://cusis.cuhk.edu.hk/"
             target="_blank"
@@ -518,7 +517,7 @@ export default function Home() {
           >
             CUSIS
           </a>
-          <span className="font-semibold"> before enrolling.</span>
+          <span className="font-semibold">.</span>
         </div>
       )}
 
