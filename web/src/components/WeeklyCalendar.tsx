@@ -5,7 +5,16 @@ import posthog from 'posthog-js'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { TermSelector } from '@/components/TermSelector'
-import { ChevronDown, ChevronUp, Eye, EyeOff, Camera, Calendar, Download, Undo } from 'lucide-react'
+import {
+  ChevronDown,
+  ChevronUp,
+  Eye,
+  EyeOff,
+  Camera,
+  Calendar,
+  CalendarArrowDown,
+  Undo,
+} from 'lucide-react'
 import {
   groupOverlappingEvents,
   eventsOverlap,
@@ -412,20 +421,20 @@ export default function WeeklyCalendar({
 
           <div className="flex items-center gap-2">
             <div className="relative">
-              <div className="inline-flex items-center border border-gray-300 rounded-md overflow-hidden text-sm h-8 bg-white">
+              <div className="inline-flex items-center border rounded-md overflow-hidden text-sm h-8 bg-background">
                 {/* Left: Download .ics */}
                 <Button
                   variant="ghost"
                   onClick={handleExportCalendar}
-                  className="gap-1 h-full hover:bg-gray-100 rounded-none"
+                  className="gap-2 h-full hover:bg-gray-100 rounded-none"
                   title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
                 >
-                  <Download className="w-4 h-4" />
+                  <CalendarArrowDown className="w-4 h-4" />
                   .ics
                 </Button>
 
                 {/* Separator */}
-                <div className="h-4 w-px bg-gray-300" />
+                <div className="h-4 w-px bg-border" />
 
                 {/* Right: Expand menu */}
                 <Button
@@ -438,7 +447,7 @@ export default function WeeklyCalendar({
                   aria-label="ICS file options"
                 >
                   <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform ${isIcsMenuExpanded ? 'rotate-180' : ''}`}
+                    className={`w-3 h-3 transition-transform ${isIcsMenuExpanded ? 'rotate-180' : ''}`}
                   />
                 </Button>
               </div>
@@ -497,20 +506,20 @@ export default function WeeklyCalendar({
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2 min-w-0">
               <div className="relative flex-shrink-0">
-                <div className="inline-flex items-center border border-gray-300 rounded-md overflow-hidden text-sm h-8 bg-white">
+                <div className="inline-flex items-center border rounded-md overflow-hidden text-sm h-8 bg-background">
                   {/* Left: Download .ics */}
                   <Button
                     variant="ghost"
                     onClick={handleExportCalendar}
-                    className="gap-1 h-full hover:bg-gray-100 rounded-none"
+                    className="gap-2 h-full hover:bg-gray-100 rounded-none"
                     title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
                   >
-                    <Download className="w-4 h-4" />
+                    <CalendarArrowDown className="w-4 h-4" />
                     <span className="hidden xs:inline">.ics</span>
                   </Button>
 
                   {/* Separator */}
-                  <div className="h-4 w-px bg-gray-300" />
+                  <div className="h-4 w-px bg-border" />
 
                   {/* Right: Expand menu */}
                   <Button
@@ -523,7 +532,7 @@ export default function WeeklyCalendar({
                     aria-label="ICS file options"
                   >
                     <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform ${isIcsMenuExpanded ? 'rotate-180' : ''}`}
+                      className={`w-3 h-3 transition-transform ${isIcsMenuExpanded ? 'rotate-180' : ''}`}
                     />
                   </Button>
                 </div>

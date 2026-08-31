@@ -12,6 +12,7 @@ import { Search, Archive } from 'lucide-react'
 import {
   detectConflicts,
   enrollmentsToCalendarEvents,
+  formatSyncTimestamp,
   getDeterministicColor,
   autoCompleteEnrollmentSections,
   getUnscheduledSections,
@@ -498,34 +499,57 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       {/* Data source disclaimer — swapped out for the reference-mode bar on archived years */}
       {!isArchivedYear && (
-        <div className="bg-amber-50 border-b border-amber-200 text-amber-800 text-xs text-center py-1.5 px-4">
-          <span>Data regularly synced from </span>
-          <a
-            href="http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-amber-900 font-medium"
-          >
-            the official course catalog
-          </a>
-          <span>. </span>
-          <span className="font-semibold">Always verify in </span>
-          <a
-            href="https://cusis.cuhk.edu.hk/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-amber-900 font-bold"
-          >
-            CUSIS
-          </a>
-          <span className="font-semibold"> before enrolling.</span>
+        <div className="relative bg-amber-50 border-b border-amber-200 text-amber-800 text-xs text-center py-1.5 px-4">
+          {/* One sentence per line below sm, where a single line orphans "CUSIS." */}
+          <span className="block sm:inline">
+            Data frequently synced from{' '}
+            <a
+              href="http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-amber-900 font-medium"
+            >
+              the official course catalog
+            </a>
+            .
+          </span>{' '}
+          <span className="block font-semibold sm:inline">
+            When they differ, trust{' '}
+            <a
+              href="https://cusis.cuhk.edu.hk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-amber-900 font-bold"
+            >
+              CUSIS
+            </a>
+            .
+          </span>
+          {catalog.scrapedAt && (
+            /* Pinned right only from lg: the centred message needs the timestamp's
+               width clear on both sides, which narrower screens cannot give. */
+            <div className="text-amber-700 lg:absolute lg:right-4 lg:top-1/2 lg:-translate-y-1/2">
+              {/* Only the <time> waits for hydration, as in the filter panel: a
+                  prerendered one is what iOS data detectors latch onto, and it would
+                  wrap the placeholder. The line renders either way so the banner
+                  cannot grow a row under lg, where this sits in flow. */}
+              Last synced:{' '}
+              {isHydrated ? (
+                <time dateTime={catalog.scrapedAt.toISOString()}>
+                  {formatSyncTimestamp(catalog.scrapedAt)}
+                </time>
+              ) : (
+                'Loading…'
+              )}
+            </div>
+          )}
         </div>
       )}
 
       {/* Reference-mode bar: sticky, global reminder while browsing a frozen, non-live year */}
       {isArchivedYear && (
         <div className="sticky top-0 z-40 border-b border-amber-300 bg-amber-50 text-amber-900 shadow-sm">
-          <div className="mx-auto flex max-w-7xl items-center justify-center gap-2 px-4 py-2 text-sm">
+          <div className="relative mx-auto flex max-w-7xl items-center justify-center gap-2 px-4 py-2 text-sm">
             <Archive className="h-4 w-4 flex-shrink-0 text-amber-600" />
             <span className="truncate">
               <span className="hidden sm:inline">
@@ -542,6 +566,24 @@ export default function Home() {
             >
               Back to current<span className="hidden sm:inline"> term</span>
             </button>
+            {catalog.scrapedAt && (
+              /* Pinned right from lg and hidden below, where the disclaimer banner
+                 instead drops its timestamp onto its own line. The difference is
+                 deliberate: this bar is sticky and CourseSearch's search header pins
+                 itself beneath it with a hardcoded top offset, so a second row here
+                 would slide that header under the bar. "Last synced" reads correctly
+                 here too, since the bar already says the year is archived. */
+              <div className="hidden text-xs text-amber-700 lg:absolute lg:right-4 lg:top-1/2 lg:block lg:-translate-y-1/2">
+                Last synced:{' '}
+                {isHydrated ? (
+                  <time dateTime={catalog.scrapedAt.toISOString()}>
+                    {formatSyncTimestamp(catalog.scrapedAt)}
+                  </time>
+                ) : (
+                  'Loading…'
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -846,7 +888,7 @@ function SubjectFilterControls({
               className="h-5 px-2 text-xs font-normal cursor-pointer"
               title="Clear all subject filters and search"
             >
-              ✕ Clear Subjects
+              Clear Subjects
             </Button>
           )}
         </div>

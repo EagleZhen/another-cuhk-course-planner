@@ -16,6 +16,8 @@ import {
   ShoppingCart,
   AlertTriangle,
   HardDrive,
+  Shuffle,
+  Lightbulb,
 } from 'lucide-react'
 import {
   parseSectionTypes,
@@ -115,6 +117,26 @@ function shuffledCopy<T>(items: T[]): T[] {
     ;[copy[i], copy[j]] = [copy[j], copy[i]]
   }
   return copy
+}
+
+/**
+ * The ✕ inside a summary chip. The 20px hit area is wider than the 16px circle it
+ * shows, so the negative margins keep that slack from padding out the badge.
+ */
+function ChipRemoveButton({ label, onRemove }: { label: string; onRemove: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onRemove}
+      className="group -my-0.5 -mr-1 inline-flex size-5 touch-manipulation cursor-pointer items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      aria-label={label}
+      title={label}
+    >
+      <span className="inline-flex size-4 items-center justify-center rounded-full text-gray-500 transition-colors group-hover:bg-black/10 group-hover:text-gray-800">
+        <X className="h-3 w-3" aria-hidden="true" />
+      </span>
+    </button>
+  )
 }
 
 export default function CourseSearch({
@@ -597,20 +619,13 @@ export default function CourseSearch({
               <Badge key={pill.filter} variant="secondary">
                 {pill.label}
                 {pill.onRemove && (
-                  <button
-                    type="button"
-                    onClick={() => {
+                  <ChipRemoveButton
+                    label={`Remove ${pill.label} filter`}
+                    onRemove={() => {
                       analytics.filterCleared(pill.filter, 'summary')
                       pill.onRemove?.()
                     }}
-                    className="group -my-0.5 inline-flex size-5 touch-manipulation cursor-pointer items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                    aria-label={`Remove ${pill.label} filter`}
-                    title={`Remove ${pill.label} filter`}
-                  >
-                    <span className="inline-flex size-4 items-center justify-center rounded-full text-gray-500 transition-colors group-hover:bg-black/10 group-hover:text-gray-800">
-                      <X className="h-3 w-3" aria-hidden="true" />
-                    </span>
-                  </button>
+                  />
                 )}
               </Badge>
             ))}
@@ -626,21 +641,16 @@ export default function CourseSearch({
           </span>
         )}
         {!isFiltering && displayResults.isShuffled && (
-          <>
-            <span className="text-blue-600 font-medium"> (shuffled)</span>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => {
+          <Badge variant="secondary">
+            Shuffled
+            <ChipRemoveButton
+              label="Reset to original order"
+              onRemove={() => {
                 analytics.shuffleReset()
                 setShuffleTrigger(0)
               }}
-              className="h-6 px-2 text-xs cursor-pointer ml-2"
-              title="Reset to original order"
-            >
-              ↻ Reset
-            </Button>
-          </>
+            />
+          </Badge>
         )}
       </div>
 
@@ -655,7 +665,8 @@ export default function CourseSearch({
           className="h-6 px-2 text-xs"
           title="Shuffle courses for discovery"
         >
-          🎲 Shuffle
+          <Shuffle className="size-3" />
+          Shuffle
         </Button>
       )}
     </div>
@@ -1043,7 +1054,7 @@ export default function CourseSearch({
             {displayResults.isLimited && (
               <div className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg p-3 mb-3">
                 <div className="flex items-start gap-2">
-                  <span className="text-amber-600 text-3xl">💡</span>
+                  <Lightbulb className="w-9 h-9 flex-shrink-0 text-amber-600" strokeWidth={1.5} />
                   <div>
                     <strong>
                       Showing {displayResults.courses.length} of {displayResults.total} matching
