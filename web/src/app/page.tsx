@@ -569,10 +569,10 @@ export default function Home() {
             {catalog.scrapedAt && (
               /* Pinned right from lg and hidden below, where the disclaimer banner
                  instead drops its timestamp onto its own line. The difference is
-                 deliberate: this bar is sticky, and the search header offsets itself
-                 by its height (CourseSearch's top-[37px]), so letting it wrap would
-                 slide the header under it. "Last synced" reads correctly here too,
-                 since the bar already says the year is archived. */
+                 deliberate: this bar is sticky and CourseSearch's search header pins
+                 itself beneath it with a hardcoded top offset, so a second row here
+                 would slide that header under the bar. "Last synced" reads correctly
+                 here too, since the bar already says the year is archived. */
               <div className="hidden text-xs text-amber-700 lg:absolute lg:right-4 lg:top-1/2 lg:block lg:-translate-y-1/2">
                 Last synced:{' '}
                 {isHydrated ? (
