@@ -28,6 +28,7 @@ import {
   getSectionTypePriority,
   splitInstructorsCompact,
   instructorSortKey,
+  formatSyncTimestamp,
   getAvailabilityBadges,
   getAvailabilityBadgeStyle,
   checkSectionConflict,
@@ -154,6 +155,8 @@ export default function CourseSearch({
   onAvailableSubjectsUpdate,
   onClearSubjects,
 }: CourseSearchProps) {
+  // Keeps the timestamp out of the prerendered HTML, where browsers rewrite it before hydration.
+  const [mounted, setMounted] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
   const [isFiltering, setIsFiltering] = useState(false)
@@ -175,6 +178,8 @@ export default function CourseSearch({
   })
   const [searchSequence, setSearchSequence] = useState(0) // Track new searches for auto-expansion
   const [isFromCourseDetails, setIsFromCourseDetails] = useState(false) // Track if search is from course details
+
+  useEffect(() => setMounted(true), [])
 
   // Day filter toggle function
   const toggleDayFilter = (dayIndex: number) => {
@@ -722,6 +727,32 @@ export default function CourseSearch({
                   onTermChange={onTermChange}
                 />
               </div>
+              {catalog.scrapedAt && (
+                <>
+                  <div className="flex items-center gap-1.5">
+                    <AlertTriangle className="w-3 h-3 text-orange-500 flex-shrink-0" />
+                    <span className="whitespace-nowrap">Check CUSIS for real-time course info</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-3 flex justify-center flex-shrink-0">
+                      <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+                    </span>
+                    <span className="whitespace-nowrap">
+                      Last Data Sync:{' '}
+                      {/* The whole element waits for mount: a prerendered <time> is what iOS
+                          data detectors look for, and it would wrap non-temporal placeholder
+                          text. dateTime carries the instant for machines and screen readers. */}
+                      {mounted ? (
+                        <time dateTime={catalog.scrapedAt.toISOString()}>
+                          {formatSyncTimestamp(catalog.scrapedAt)}
+                        </time>
+                      ) : (
+                        'Loading…'
+                      )}
+                    </span>
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Course-level Day Filters — only show days with courses in current results */}
