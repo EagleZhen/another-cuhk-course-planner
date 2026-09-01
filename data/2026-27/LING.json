@@ -2883,6 +2883,12 @@
               "meetings": [
                 {
                   "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 505",
+                  "instructor": "Staff",
+                  "dates": "17/10"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
                   "location": "Esther Lee Bldg LT4",
                   "instructor": "Staff",
                   "dates": "12/9, 19/9"
@@ -2901,11 +2907,11 @@
                 }
               ],
               "availability": {
-                "capacity": "100",
+                "capacity": "90",
                 "enrolled": "71",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "English only"

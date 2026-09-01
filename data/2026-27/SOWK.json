@@ -5336,13 +5336,13 @@
                 {
                   "time": "Mo 11:30AM - 2:15PM",
                   "location": "Chen Kou Bun Bldg 109",
-                  "instructor": "Staff",
+                  "instructor": "Dr. CHAN Kam Tong",
                   "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
                 },
                 {
                   "time": "Mo 11:30AM - 2:15PM",
                   "location": "Chen Kou Bun Bldg 109",
-                  "instructor": "Staff",
+                  "instructor": "Dr. CHAN Kam Tong",
                   "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11, 7/12, 14/12"
                 }
               ],
@@ -5749,13 +5749,25 @@
                   "time": "Mo 11:30AM - 2:15PM",
                   "location": "T.C. Cheng Bldg C1",
                   "instructor": "Dr. Raees Begum BAIG",
-                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                  "dates": "7/9, 14/9, 21/9, 28/9"
                 },
                 {
                   "time": "Mo 11:30AM - 2:15PM",
                   "location": "T.C. Cheng Bldg C1",
                   "instructor": "Dr. Raees Begum BAIG",
-                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                  "dates": "30/11"
+                },
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Dr. Raees Begum BAIG",
+                  "dates": "12/10"
+                },
+                {
+                  "time": "Mo 11:30AM - 2:15PM",
+                  "location": "T.C. Cheng Bldg C1",
+                  "instructor": "Dr. Raees Begum BAIG",
+                  "dates": "26/10, 2/11"
                 }
               ],
               "availability": {
@@ -5775,7 +5787,7 @@
                   "time": "Mo 9:30AM - 12:15PM",
                   "location": "Wong Foo Yuan Bldg 107B",
                   "instructor": "Dr. Raees Begum BAIG",
-                  "dates": "28/9"
+                  "dates": "28/9, 5/10"
                 },
                 {
                   "time": "Mo 9:30AM - 12:15PM",
@@ -5801,7 +5813,7 @@
                   "time": "Mo 2:30PM - 5:15PM",
                   "location": "Esther Lee Bldg 204",
                   "instructor": "Dr. Raees Begum BAIG",
-                  "dates": "28/9"
+                  "dates": "28/9, 5/10"
                 },
                 {
                   "time": "Mo 2:30PM - 5:15PM",
@@ -5905,7 +5917,13 @@
                   "time": "Fr 6:30PM - 9:15PM",
                   "location": "Yasumoto Int'l Acad Park LT5",
                   "instructor": "Staff",
-                  "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12, 11/12"
+                  "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT5",
+                  "instructor": "Staff",
+                  "dates": "4/12, 11/12"
                 }
               ],
               "availability": {
@@ -5923,21 +5941,9 @@
               "meetings": [
                 {
                   "time": "Fr 6:30PM - 9:15PM",
-                  "location": "Yasumoto Int'l Acad Park 509",
+                  "location": "Yasumoto Int'l Acad Park 406",
                   "instructor": "Staff",
-                  "dates": "16/10, 23/10"
-                },
-                {
-                  "time": "Fr 6:30PM - 9:15PM",
-                  "location": "Yasumoto Int'l Acad Park 509",
-                  "instructor": "Staff",
-                  "dates": "13/11"
-                },
-                {
-                  "time": "Fr 6:30PM - 9:15PM",
-                  "location": "Yasumoto Int'l Acad Park 509",
-                  "instructor": "Staff",
-                  "dates": "27/11"
+                  "dates": "6/11, 13/11, 20/11, 27/11"
                 }
               ],
               "availability": {
@@ -5955,21 +5961,9 @@
               "meetings": [
                 {
                   "time": "Fr 6:30PM - 9:15PM",
-                  "location": "Yasumoto Int'l Acad Park 501",
+                  "location": "Yasumoto Int'l Acad Park 408",
                   "instructor": "Staff",
-                  "dates": "16/10, 23/10"
-                },
-                {
-                  "time": "Fr 6:30PM - 9:15PM",
-                  "location": "Yasumoto Int'l Acad Park 501",
-                  "instructor": "Staff",
-                  "dates": "13/11"
-                },
-                {
-                  "time": "Fr 6:30PM - 9:15PM",
-                  "location": "Yasumoto Int'l Acad Park 501",
-                  "instructor": "Staff",
-                  "dates": "27/11"
+                  "dates": "6/11, 13/11, 20/11, 27/11"
                 }
               ],
               "availability": {
@@ -5987,21 +5981,9 @@
               "meetings": [
                 {
                   "time": "Fr 6:30PM - 9:15PM",
-                  "location": "Yasumoto Int'l Acad Park 511",
+                  "location": "Yasumoto Int'l Acad Park 410",
                   "instructor": "Staff",
-                  "dates": "16/10, 23/10"
-                },
-                {
-                  "time": "Fr 6:30PM - 9:15PM",
-                  "location": "Yasumoto Int'l Acad Park 511",
-                  "instructor": "Staff",
-                  "dates": "13/11"
-                },
-                {
-                  "time": "Fr 6:30PM - 9:15PM",
-                  "location": "Yasumoto Int'l Acad Park 511",
-                  "instructor": "Staff",
-                  "dates": "27/11"
+                  "dates": "6/11, 13/11, 20/11, 27/11"
                 }
               ],
               "availability": {
@@ -6019,21 +6001,9 @@
               "meetings": [
                 {
                   "time": "Fr 6:30PM - 9:15PM",
-                  "location": "Yasumoto Int'l Acad Park 507",
+                  "location": "Yasumoto Int'l Acad Park 401",
                   "instructor": "Staff",
-                  "dates": "16/10, 23/10"
-                },
-                {
-                  "time": "Fr 6:30PM - 9:15PM",
-                  "location": "Yasumoto Int'l Acad Park 507",
-                  "instructor": "Staff",
-                  "dates": "13/11"
-                },
-                {
-                  "time": "Fr 6:30PM - 9:15PM",
-                  "location": "Yasumoto Int'l Acad Park 507",
-                  "instructor": "Staff",
-                  "dates": "27/11"
+                  "dates": "6/11, 13/11, 20/11, 27/11"
                 }
               ],
               "availability": {
@@ -6051,21 +6021,9 @@
               "meetings": [
                 {
                   "time": "Fr 6:30PM - 9:15PM",
-                  "location": "Yasumoto Int'l Acad Park 506",
+                  "location": "Yasumoto Int'l Acad Park 404",
                   "instructor": "Staff",
-                  "dates": "16/10, 23/10"
-                },
-                {
-                  "time": "Fr 6:30PM - 9:15PM",
-                  "location": "Yasumoto Int'l Acad Park 506",
-                  "instructor": "Staff",
-                  "dates": "13/11"
-                },
-                {
-                  "time": "Fr 6:30PM - 9:15PM",
-                  "location": "Yasumoto Int'l Acad Park 506",
-                  "instructor": "Staff",
-                  "dates": "27/11"
+                  "dates": "6/11, 13/11, 20/11, 27/11"
                 }
               ],
               "availability": {
@@ -6116,15 +6074,9 @@
               "meetings": [
                 {
                   "time": "We 4:30PM - 7:15PM",
-                  "location": "Humanities Building 12",
+                  "location": "Esther Lee Bldg 401",
                   "instructor": "Mr AU Pak Ching Romeo, \nMs. LEE Wang",
-                  "dates": "23/9"
-                },
-                {
-                  "time": "We 4:30PM - 7:15PM",
-                  "location": "Wen Lan Tang LG204",
-                  "instructor": "Mr AU Pak Ching Romeo, \nMs. LEE Wang",
-                  "dates": "30/9"
+                  "dates": "16/9, 23/9, 30/9"
                 },
                 {
                   "time": "We 4:30PM - 7:15PM",
@@ -6136,7 +6088,7 @@
                   "time": "We 4:30PM - 7:15PM",
                   "location": "T.C. Cheng Bldg C4",
                   "instructor": "Mr AU Pak Ching Romeo, \nMs. LEE Wang",
-                  "dates": "9/9, 16/9"
+                  "dates": "9/9"
                 }
               ],
               "availability": {
@@ -6153,8 +6105,8 @@
               "section": "AT01-TUT (2444)",
               "meetings": [
                 {
-                  "time": "We 9:30AM - 12:15PM",
-                  "location": "T.C. Cheng Bldg 109",
+                  "time": "We 11:30AM - 2:15PM",
+                  "location": "TBA",
                   "instructor": "Mr. CHOI Wai Leuk Willy",
                   "dates": "7/10, 14/10, 21/10, 28/10"
                 }
@@ -6173,8 +6125,8 @@
               "section": "AT02-TUT (2440)",
               "meetings": [
                 {
-                  "time": "We 2:30PM - 5:15PM",
-                  "location": "TBA",
+                  "time": "We 4:30PM - 7:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 503",
                   "instructor": "Mr. CHOI Wai Leuk Willy",
                   "dates": "7/10, 14/10, 21/10, 28/10"
                 }
@@ -6287,7 +6239,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "Staff",
+                  "instructor": "Ms. LIN Yuen Ying",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -6327,7 +6279,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "Mr. CHOI Wai Leuk Willy",
+                  "instructor": "Dr. CHYU Pui Yung",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -6347,7 +6299,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "Staff",
+                  "instructor": "Mr. CHOI Wai Leuk Willy",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -6367,7 +6319,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "Dr. CHYU Pui Yung",
+                  "instructor": "Mr. CHOI Wai Leuk Willy",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -6480,7 +6432,31 @@
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "T.C. Cheng Bldg C2",
                   "instructor": "Staff",
-                  "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12, 11/12"
+                  "dates": "11/9, 18/9"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C2",
+                  "instructor": "Staff",
+                  "dates": "2/10"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C2",
+                  "instructor": "Staff",
+                  "dates": "16/10"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C2",
+                  "instructor": "Staff",
+                  "dates": "30/10"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "T.C. Cheng Bldg C2",
+                  "instructor": "Staff",
+                  "dates": "13/11, 20/11, 27/11, 4/12, 11/12"
                 }
               ],
               "availability": {
@@ -6690,7 +6666,19 @@
                   "time": "Tu 6:30PM - 9:15PM",
                   "location": "Lee Shau Kee Archi Bldg G03",
                   "instructor": "Professor LI Jia",
-                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12, 8/12"
+                  "dates": "8/9, 15/9, 22/9, 29/9"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G03",
+                  "instructor": "Professor LI Jia",
+                  "dates": "20/10"
+                },
+                {
+                  "time": "Tu 6:30PM - 9:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G03",
+                  "instructor": "Professor LI Jia",
+                  "dates": "10/11, 17/11, 24/11, 1/12, 8/12"
                 }
               ],
               "availability": {
@@ -6872,7 +6860,13 @@
                   "time": "We 4:30PM - 7:15PM",
                   "location": "Humanities Building 213",
                   "instructor": "Dr. WONG Chun Miao",
-                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                  "dates": "16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                },
+                {
+                  "time": "We 4:30PM - 7:15PM",
+                  "location": "Humanities Building 11",
+                  "instructor": "Dr. WONG Chun Miao",
+                  "dates": "9/9"
                 }
               ],
               "availability": {
@@ -7198,25 +7192,25 @@
                 {
                   "time": "We 6:30PM - 9:15PM",
                   "location": "Yasumoto Int'l Acad Park 410",
-                  "instructor": "Miss NG Pui Wah",
+                  "instructor": "Miss NG Pui Wah, \nMs. LEE Shuk Ha",
                   "dates": "30/9"
                 },
                 {
                   "time": "We 6:30PM - 9:15PM",
                   "location": "Yasumoto Int'l Acad Park 410",
-                  "instructor": "Miss NG Pui Wah",
+                  "instructor": "Miss NG Pui Wah, \nMs. LEE Shuk Ha",
                   "dates": "21/10"
                 },
                 {
                   "time": "We 6:30PM - 9:15PM",
                   "location": "Yasumoto Int'l Acad Park 410",
-                  "instructor": "Miss NG Pui Wah",
+                  "instructor": "Miss NG Pui Wah, \nMs. LEE Shuk Ha",
                   "dates": "11/11"
                 },
                 {
                   "time": "We 6:30PM - 9:15PM",
                   "location": "Yasumoto Int'l Acad Park 410",
-                  "instructor": "Miss NG Pui Wah",
+                  "instructor": "Miss NG Pui Wah, \nMs. LEE Shuk Ha",
                   "dates": "2/12"
                 }
               ],
@@ -7409,7 +7403,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "Staff",
+                  "instructor": "Ms. CHAN Mo Ning Molly",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -7429,7 +7423,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "Ms. CHAN Mo Ning Molly",
+                  "instructor": "Miss CHEUNG Wan Ying",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -7449,7 +7443,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "Miss CHEUNG Wan Ying",
+                  "instructor": "Mr. NG Tsz Chung",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -7469,7 +7463,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "Mr. NG Tsz Chung",
+                  "instructor": "Ms. WONG Ka Yuk",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -7489,7 +7483,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "*** WONG Ka Yuk",
+                  "instructor": "Mr WONG Kon Chi",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -7555,7 +7549,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "Ms. CHAN Mo Ning Molly",
+                  "instructor": "Ms. LEE Wang",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -7595,7 +7589,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "Staff",
+                  "instructor": "Ms. WONG Ka Yuk",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -7615,7 +7609,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "*** WONG Ka Yuk",
+                  "instructor": "Mr WONG Kon Chi",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -10035,7 +10029,19 @@
                   "time": "Mo 9:30AM - 12:15PM",
                   "location": "Wu Ho Man Yuen Bldg 304",
                   "instructor": "Dr. WONG Chun Miao",
-                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11, 7/12, 14/12"
+                  "dates": "7/12, 14/12"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "instructor": "Dr. WONG Chun Miao",
+                  "dates": "2/11"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "instructor": "Dr. WONG Chun Miao",
+                  "dates": "16/11"
                 }
               ],
               "availability": {
@@ -10272,7 +10278,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "Staff",
+                  "instructor": "Ms. HUANG Wenjie",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -10292,7 +10298,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "Mr SUN Hoi Tung",
+                  "instructor": "Ms. LIN Yuen Ying",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -10312,7 +10318,7 @@
                 {
                   "time": "TBA",
                   "location": "TBA",
-                  "instructor": "Ms. HUANG Wenjie",
+                  "instructor": "Staff",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],

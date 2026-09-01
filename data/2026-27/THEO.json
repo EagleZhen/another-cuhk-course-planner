@@ -3915,7 +3915,7 @@
               "meetings": [
                 {
                   "time": "We 7:00PM - 9:30PM",
-                  "location": "Wu Ho Man Yuen Bldg 303",
+                  "location": "Cheng Yu Tung Building 214",
                   "instructor": "Professor Tobias BRANDNER",
                   "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
                 }
@@ -5665,13 +5665,13 @@
               "meetings": [
                 {
                   "time": "Mo 7:00PM - 9:30PM",
-                  "location": "TBA",
+                  "location": "Esther Lee Bldg 205",
                   "instructor": "Professor REN Baixin",
                   "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
                 },
                 {
                   "time": "Mo 7:00PM - 9:30PM",
-                  "location": "TBA",
+                  "location": "Esther Lee Bldg 205",
                   "instructor": "Professor REN Baixin",
                   "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
                 }
@@ -6183,6 +6183,32 @@
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "45",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-F01-FLD (9903)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Miss SHIU Sin Man",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"

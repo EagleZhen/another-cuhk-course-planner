@@ -2573,13 +2573,19 @@
                   "time": "Mo 4:30PM - 6:15PM",
                   "location": "Humanities Building 213",
                   "instructor": "Professor FANG Guoxin",
-                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                  "dates": "14/9, 21/9, 28/9, 5/10, 12/10"
                 },
                 {
                   "time": "Mo 4:30PM - 6:15PM",
                   "location": "Humanities Building 213",
                   "instructor": "Professor FANG Guoxin",
                   "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Humanities Building 115",
+                  "instructor": "Professor FANG Guoxin",
+                  "dates": "7/9"
                 }
               ],
               "availability": {
@@ -3132,12 +3138,12 @@
                 }
               ],
               "availability": {
-                "capacity": "80",
+                "capacity": "100",
                 "enrolled": "80",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "20",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -3307,12 +3313,12 @@
                 }
               ],
               "availability": {
-                "capacity": "80",
+                "capacity": "130",
                 "enrolled": "80",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "50",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -3423,11 +3429,11 @@
                 }
               ],
               "availability": {
-                "capacity": "80",
+                "capacity": "100",
                 "enrolled": "52",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "28",
+                "available_seats": "48",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3478,11 +3484,11 @@
                 }
               ],
               "availability": {
-                "capacity": "80",
+                "capacity": "100",
                 "enrolled": "77",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "23",
                 "status": "Open"
               },
               "class_attributes": "English only"
