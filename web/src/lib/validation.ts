@@ -131,10 +131,13 @@ function transformAvailability(
   const waitlistCapacity = parseInt(external.waitlist_capacity) || 0
   const waitlistTotal = parseInt(external.waitlist_total) || 0
 
+  // The catalog's word, verbatim. 'Waitlisted' is what we published before it — kept, not
+  // pending removal: dropping it would only turn a stale cached bundle into Unknown
+  // badges. Anything else stays 'Unknown' rather than guessed at.
   let status: SectionAvailability['status'] = 'Unknown'
   if (external.status === 'Open') status = 'Open'
   else if (external.status === 'Closed') status = 'Closed'
-  else if (external.status === 'Waitlisted') status = 'Waitlisted'
+  else if (external.status === 'Wait List' || external.status === 'Waitlisted') status = 'Wait List'
 
   return {
     capacity,

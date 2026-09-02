@@ -93,7 +93,7 @@ export interface SectionDiffDetail {
 export interface SectionAvailability {
   capacity: number
   enrolled: number
-  status: 'Open' | 'Closed' | 'Waitlisted' | 'Unknown'
+  status: 'Open' | 'Closed' | 'Wait List' | 'Unknown'
   availableSeats: number
   waitlistCapacity: number
   waitlistTotal: number

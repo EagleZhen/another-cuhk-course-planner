@@ -2108,7 +2108,7 @@ function CourseCard({
                                   ? 'border border-gray-200 opacity-40 cursor-not-allowed grayscale'
                                   : section.availability.status === 'Open'
                                     ? 'border border-green-500 hover:bg-green-50 cursor-pointer shadow-sm'
-                                    : section.availability.status === 'Waitlisted'
+                                    : section.availability.status === 'Wait List'
                                       ? 'border border-yellow-500 hover:bg-yellow-50 cursor-pointer shadow-sm'
                                       : 'border border-red-500 hover:bg-red-50 cursor-pointer shadow-sm'
                             }`}

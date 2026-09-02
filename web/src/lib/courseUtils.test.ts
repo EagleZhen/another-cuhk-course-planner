@@ -259,7 +259,7 @@ describe('syncEnrollment', () => {
     const freshTut = makeSection({
       id: 'tut',
       sectionType: 'TUT',
-      availability: { ...removedTut.availability, status: 'Waitlisted' },
+      availability: { ...removedTut.availability, status: 'Wait List' },
     })
     const freshCourse = makeCourse([lec, freshTut])
     const enrollment: CourseEnrollment = {
@@ -424,6 +424,36 @@ describe('readStoredEnrollments', () => {
     const loaded = readStoredEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments: stored })
 
     expect(loaded?.[0].lastSynced).toEqual(new Date('2026-07-14T13:27:10.392Z'))
+  })
+
+  it('renames the derived wait list status in selected and removed sections', () => {
+    const stored = [
+      {
+        courseId: 'CSCI3100',
+        selectedSections: [
+          {
+            ...makeSection({ id: 'lec' }),
+            availability: { ...makeSection({}).availability, status: 'Waitlisted' },
+          },
+        ],
+        removedSections: [
+          {
+            ...makeSection({ id: 'tut', sectionType: 'TUT' }),
+            availability: { ...makeSection({}).availability, status: 'Waitlisted' },
+          },
+        ],
+      },
+    ] as unknown as CourseEnrollment[]
+
+    const loaded = readStoredEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments: stored })
+
+    expect(loaded?.[0].selectedSections[0].availability.status).toBe('Wait List')
+    expect(loaded?.[0].removedSections?.[0].availability.status).toBe('Wait List')
+
+    // Idempotent: a second load must not change it.
+    expect(readStoredEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments: loaded! })).toEqual(
+      loaded
+    )
   })
 
   it('migrates v2 partial removals without changing whole-course removals', () => {
