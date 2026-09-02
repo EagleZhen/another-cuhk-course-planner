@@ -9,7 +9,7 @@ type PublishedCourse = {
   terms?: Array<{ schedule?: Array<{ availability?: { status?: unknown } }> }>
 }
 
-function forEachPublishedCourse(visit: (course: PublishedCourse) => void): void {
+function forEachPublishedFile(visit: (path: string, contents: unknown) => void): void {
   const dataDirectory = join(process.cwd(), 'public', 'data')
 
   for (const year of readdirSync(dataDirectory, { withFileTypes: true })) {
@@ -18,12 +18,17 @@ function forEachPublishedCourse(visit: (course: PublishedCourse) => void): void 
     for (const file of readdirSync(join(dataDirectory, year.name), { withFileTypes: true })) {
       if (!file.isFile() || !file.name.endsWith('.json')) continue
 
-      const { courses = [] } = JSON.parse(
-        readFileSync(join(dataDirectory, year.name, file.name), 'utf8')
-      ) as { courses?: PublishedCourse[] }
-      courses.forEach(visit)
+      const path = join(year.name, file.name)
+      visit(path, JSON.parse(readFileSync(join(dataDirectory, path), 'utf8')))
     }
   }
+}
+
+function forEachPublishedCourse(visit: (course: PublishedCourse) => void): void {
+  forEachPublishedFile((_path, contents) => {
+    const { courses = [] } = contents as { courses?: PublishedCourse[] }
+    courses.forEach(visit)
+  })
 }
 
 function publishedCareerValues(): Set<string> {
@@ -126,6 +131,18 @@ describe('transformExternalCourseData', () => {
       })
       expect(result.courses).toHaveLength(1)
     }
+  })
+
+  it('still reads every published file, including archived years', () => {
+    // Archived years are frozen: CUHK no longer serves them, so no scrape can bring their
+    // files up to a tightened schema. Nothing else notices if this schema stops accepting
+    // them — the publisher validates structure, never this transform.
+    let files = 0
+    forEachPublishedFile((path, contents) => {
+      expect(() => transformExternalCourseData(contents), path).not.toThrow()
+      files += 1
+    })
+    expect(files).toBeGreaterThan(0)
   })
 
   it('recognizes every section status in published data', () => {
