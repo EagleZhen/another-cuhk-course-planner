@@ -20,6 +20,10 @@ Build a producer only together with its consumer. A computed value nothing reads
 
 Tolerate malformed values from outside our control — scraped HTML, a hand-edited file — but let a missing key from our own output raise. Degrading quietly on what we wrote ourselves hides the break for months.
 
+Check whether the source states a value before computing one. A derived value stored beside scraped ones looks exactly like them, and can never be checked afterwards.
+
+Give a parser defaults a real value could never take. Empty strings that become zero turn a failed fetch into a plausible record.
+
 Name a function for the scope it operates on, and fix the name in the change that notices the gap. A wrong name outlives whoever still remembers which half was right.
 
 For generated or tool-managed files, prefer commands over manual edits.

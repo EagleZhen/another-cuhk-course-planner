@@ -50,7 +50,7 @@ Flags an enrolled section that changed (time, location, instructor, or language)
 
 ## Summary Semantics
 
-- A course counts as **Open** only when _every_ selected section is open, but as **Waitlisted**/**Closed** when _any_ section is. The asymmetry is deliberate: one problematic section blocks clean enrollment.
+- A course counts as **Open** only when _every_ selected section is open, but as **Wait List**/**Closed** when _any_ section is. The asymmetry is deliberate: one problematic section blocks clean enrollment.
 - Credit totals exclude invalid enrollments; all counts split into visible/total when some courses are hidden.
 
 ## Section Ordering

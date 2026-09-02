@@ -37,6 +37,7 @@ Production scraping uses `ScrapingConfig.for_production()`:
 - reads the subject list from the live CUHK site when no subject argument is passed
 - writes one JSON file per scraped subject to [data/](../data/)
 - collects course details, enrollment data, and course outcome data
+- fails a section whose class details response is unreadable — wrong class number, no status, or unreadable seat counts — rather than recording a blank one. The course is retried; an exhausted one fails its subject.
 - tracks progress in [logs/scraping_progress.json](../logs/scraping_progress.json)
 - writes verbose logs to [logs/scrape/](../logs/scrape/)
 
@@ -60,6 +61,8 @@ Scripts that write JSON output use `save_json_with_newline()` in [scripts/data_u
 ### File Schema
 
 Every course file carries `metadata.schema_version` (`SCHEMA_VERSION` in [scripts/data_utils.py](../scripts/data_utils.py)); publishing rejects anything else. Bump it for any file-shape change and add a row.
+
+A bump forces a full re-scrape, which is the point: published data can never be a silent mix of old and new records.
 
 | Version | Change |
 | --- | --- |
