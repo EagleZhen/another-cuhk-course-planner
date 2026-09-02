@@ -49,7 +49,7 @@ def is_subject_file(path: Path) -> bool:
 
 # Stamped into every course file's metadata; the publisher rejects anything else.
 # Bump on any file-shape change, and add a row to the table in docs/data-pipeline.md.
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 
 def clean_word_html(html_content: str) -> str:
@@ -426,14 +426,14 @@ def clean_html_text(text: str) -> str:
 def parse_enrollment_status_from_image(img_src: str) -> str:
     """Parse enrollment status from status icon image source
 
-    Maps CUHK course catalog status icons to standardized status strings.
-    Extracted from cuhk_scraper.py for reusability and easier testing.
+    Maps CUHK course catalog status icons to the wording CUHK prints beside them, so an
+    icon-derived status is directly comparable with the class details page's own word.
 
     Args:
         img_src: Image source URL containing status icon filename
 
     Returns:
-        str: Standardized status string ('Open', 'Closed', 'Waitlisted', 'Unknown')
+        str: Standardized status string ('Open', 'Closed', 'Wait List', 'Unknown')
 
     Examples:
         >>> parse_enrollment_status_from_image("images/class_open.gif")
@@ -443,7 +443,7 @@ def parse_enrollment_status_from_image(img_src: str) -> str:
         'Closed'
 
         >>> parse_enrollment_status_from_image("images/class_wait.gif")
-        'Waitlisted'
+        'Wait List'
 
         >>> parse_enrollment_status_from_image("unknown.gif")
         'Unknown'
@@ -456,7 +456,7 @@ def parse_enrollment_status_from_image(img_src: str) -> str:
     elif "class_closed.gif" in img_src:
         return "Closed"
     elif "class_wait.gif" in img_src:
-        return "Waitlisted"
+        return "Wait List"
     else:
         return "Unknown"
 

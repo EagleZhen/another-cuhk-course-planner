@@ -1520,65 +1520,55 @@ class CuhkScraper:
             "class_attributes": class_attributes,  # Section-specific language info
         }
 
+    # The seat counts of the "Class Availability" panel, by the id CUHK gives each span.
+    SEAT_COUNT_FIELDS = {
+        "capacity": "uc_class_lbl_enrl_cap",
+        "enrolled": "uc_class_lbl_enrl_tot",
+        "waitlist_capacity": "uc_class_lbl_wait_cap",
+        "waitlist_total": "uc_class_lbl_wait_tot",
+        "available_seats": "uc_class_lbl_available_seat",
+    }
+
     def _parse_class_availability(self, soup: BeautifulSoup) -> dict:
-        """Parse class availability information from class details page"""
-        availability = {
-            "capacity": "",
-            "enrolled": "",
-            "waitlist_capacity": "",
-            "waitlist_total": "",
-            "available_seats": "",
-            "status": "Unknown",
-        }
+        """Parse the Class Details status and the Class Availability seat counts.
 
-        try:
-            # Class Capacity
-            capacity_elem = soup.find("span", {"id": "uc_class_lbl_enrl_cap"})
-            if capacity_elem:
-                availability["capacity"] = clean_html_text(capacity_elem.get_text())
+        Every value is whatever CUHK printed, verbatim — an empty string when the page
+        does not carry it. Nothing here is computed: a status we derived would be
+        indistinguishable from one CUHK stated, and could never be checked afterwards.
+        """
+        availability = dict.fromkeys(self.SEAT_COUNT_FIELDS, "")
+        availability["status"] = ""
 
-            # Enrollment Total
-            enrolled_elem = soup.find("span", {"id": "uc_class_lbl_enrl_tot"})
-            if enrolled_elem:
-                availability["enrolled"] = clean_html_text(enrolled_elem.get_text())
+        for name, element_id in self.SEAT_COUNT_FIELDS.items():
+            element = soup.find("span", {"id": element_id})
+            if element:
+                availability[name] = clean_html_text(element.get_text())
 
-            # Wait List Capacity
-            wait_cap_elem = soup.find("span", {"id": "uc_class_lbl_wait_cap"})
-            if wait_cap_elem:
-                availability["waitlist_capacity"] = clean_html_text(wait_cap_elem.get_text())
+        status_elem = soup.find("span", {"id": "uc_class_lbl_class_status"})
+        if status_elem:
+            availability["status"] = clean_html_text(status_elem.get_text())
 
-            # Wait List Total
-            wait_tot_elem = soup.find("span", {"id": "uc_class_lbl_wait_tot"})
-            if wait_tot_elem:
-                availability["waitlist_total"] = clean_html_text(wait_tot_elem.get_text())
-
-            # Available Seats
-            available_elem = soup.find("span", {"id": "uc_class_lbl_available_seat"})
-            if available_elem:
-                availability["available_seats"] = clean_html_text(available_elem.get_text())
-
-            # Determine status based on availability
-            try:
-                available_seats = (
-                    int(availability["available_seats"]) if availability["available_seats"] else 0
-                )
-                waitlist_total = (
-                    int(availability["waitlist_total"]) if availability["waitlist_total"] else 0
-                )
-
-                if available_seats > 0:
-                    availability["status"] = "Open"
-                elif waitlist_total > 0:
-                    availability["status"] = "Waitlisted"
-                else:
-                    availability["status"] = "Closed"
-            except (ValueError, TypeError):
-                availability["status"] = "Unknown"
-
-        except Exception as e:
-            self.logger.error(f"Error parsing class availability: {e}")
+        self._warn_on_status_icon_mismatch(soup, availability["status"])
 
         return availability
+
+    def _warn_on_status_icon_mismatch(self, soup: BeautifulSoup, status: str) -> None:
+        """Log when the status icon and the status word disagree.
+
+        Both render the same field, so they should never differ. Nothing else enumerates
+        CUHK's status words now that we store them verbatim, which makes this the only
+        place a change in their wording would be noticed.
+        """
+        status_img = soup.find("img", {"id": "uc_class_img_status"})
+        if not status_img or not status:
+            return
+
+        from_icon = parse_enrollment_status_from_image(status_img.get("src", ""))
+        if from_icon != "Unknown" and from_icon != status:
+            self.logger.warning(
+                f"⚠️ Class status icon says {from_icon!r} but the page says {status!r} — "
+                f"CUHK's wording may have changed"
+            )
 
     def _parse_current_term_info(self, html: str) -> TermInfo | None:
         """Parse term info when no dropdown is available"""

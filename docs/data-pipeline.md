@@ -64,6 +64,7 @@ Every course file carries `metadata.schema_version` (`SCHEMA_VERSION` in [script
 | Version | Change |
 | --- | --- |
 | 1 | Versioned metadata, no per-file scrape timestamp (see [decisions.md](decisions.md#stamp-each-data-directory-with-its-scrape-time)) |
+| 2 | `availability.status` is CUHK's own word, not one derived from seat counts (see [decisions.md](decisions.md#record-the-catalog-status-verbatim)) |
 
 ### Freshness
 

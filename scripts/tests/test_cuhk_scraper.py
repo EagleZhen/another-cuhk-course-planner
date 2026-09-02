@@ -2,10 +2,11 @@ import json
 import logging
 import time
 from pathlib import Path
-from types import SimpleNamespace
+from types import MethodType, SimpleNamespace
 
 import cuhk_scraper
 import pytest
+from bs4 import BeautifulSoup
 from cuhk_scraper import (
     Course,
     CuhkScraper,
@@ -760,3 +761,107 @@ def test_unknown_subject_title_is_recorded_empty_not_as_the_code(tmp_path):
 
     metadata = json.loads((tmp_path / "2025-26" / "TEST.json").read_text())["metadata"]
     assert metadata["subject_title"] == ""
+
+
+# --- Class availability, parsed from real catalog pages ---------------------------------
+
+SAMPLE_PAGES = Path(__file__).resolve().parents[2] / "lab" / "scraper" / "samples" / "webpages"
+
+
+def _availability(page_name):
+    soup = BeautifulSoup((SAMPLE_PAGES / page_name).read_text(encoding="utf-8"), "html.parser")
+    fake = SimpleNamespace(
+        logger=logging.getLogger("test"), SEAT_COUNT_FIELDS=CuhkScraper.SEAT_COUNT_FIELDS
+    )
+    fake._warn_on_status_icon_mismatch = MethodType(CuhkScraper._warn_on_status_icon_mismatch, fake)
+    return CuhkScraper._parse_class_availability(fake, soup)
+
+
+@pytest.mark.parametrize(
+    "page_name,expected",
+    [
+        # Seat counts alone cannot tell these apart: CHLT is as full as a closed class, yet
+        # CUHK calls it Wait List, and UGFN has a queue while still calling itself Open.
+        (
+            "Class Details - CHLT 1001 - CD University Chinese I.html",
+            {
+                "capacity": "25",
+                "enrolled": "25",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Wait List",
+            },
+        ),
+        (
+            "Class Details - UGFN 1000 - C.html",
+            {
+                "capacity": "136",
+                "enrolled": "125",
+                "waitlist_capacity": "999",
+                "waitlist_total": "6",
+                "available_seats": "11",
+                "status": "Open",
+            },
+        ),
+        (
+            "Class Details - CSCI 1020 - - Hands-On Intro to C++.html",
+            {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open",
+            },
+        ),
+        (
+            "Class Detail - UGCP 1001 - -X01 Understanding China.html",
+            {
+                "capacity": "2400",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "2400",
+                "status": "Open",
+            },
+        ),
+    ],
+)
+def test_availability_is_read_from_the_page_not_computed(page_name, expected):
+    assert _availability(page_name) == expected
+
+
+def test_availability_is_blank_when_the_page_is_not_class_details(scraper):
+    # A blank record is honest about having found nothing; the old rule read the missing
+    # seat counts as zero and stamped "Closed" on it.
+    assert _availability("System error.html") == {
+        "capacity": "",
+        "enrolled": "",
+        "waitlist_capacity": "",
+        "waitlist_total": "",
+        "available_seats": "",
+        "status": "",
+    }
+
+
+def test_status_icon_disagreeing_with_the_status_word_is_logged(scraper, caplog):
+    soup = BeautifulSoup(
+        '<img id="uc_class_img_status" src="images/class_closed.gif">'
+        '<span id="uc_class_lbl_class_status">Wait List</span>',
+        "html.parser",
+    )
+    with caplog.at_level(logging.WARNING):
+        CuhkScraper._warn_on_status_icon_mismatch(scraper, soup, "Wait List")
+
+    assert "wording may have changed" in caplog.text
+
+
+def test_matching_status_icon_and_word_are_not_logged(scraper, caplog):
+    soup = BeautifulSoup(
+        '<img id="uc_class_img_status" src="images/class_wait.gif">', "html.parser"
+    )
+    with caplog.at_level(logging.WARNING):
+        CuhkScraper._warn_on_status_icon_mismatch(scraper, soup, "Wait List")
+
+    assert caplog.text == ""
