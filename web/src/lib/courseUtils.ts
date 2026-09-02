@@ -1576,16 +1576,12 @@ export function getWaitlistBadgeStyle(waitlistTotal: number) {
 export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
   const { availableSeats, status } = availability
 
-  // Closed/Full status takes precedence
+  // No seats is no seats, wait list or not: the queue is what the other two badges are
+  // for. Colour here answers only "can I take a seat now?", on the same green/yellow/red
+  // scale as the wait list badge.
   if (status === 'Closed' || availableSeats === 0) {
     return {
       className: 'bg-red-100 text-red-800 border-red-300',
-    }
-  }
-
-  if (status === 'Wait List') {
-    return {
-      className: 'bg-orange-100 text-orange-800 border-orange-300',
     }
   }
 
