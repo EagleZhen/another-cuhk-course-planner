@@ -2,6 +2,7 @@ import gc
 import json
 import logging
 import os
+import re
 import time
 from dataclasses import asdict, dataclass, field
 from datetime import datetime
@@ -27,6 +28,10 @@ from data_utils import (
     utc_to_hkt,
 )
 from requests.exceptions import ConnectionError, HTTPError, Timeout
+
+# The Class Details status: both the value we record and the sentinel that the response
+# is a class details page at all. Absent from every other page CUHK serves.
+CLASS_STATUS_FIELD = "uc_class_lbl_class_status"
 
 # Lab/debug outputs
 SCRAPER_OUTPUTS_DIR = os.path.join("lab", "scraper", "outputs")
@@ -1469,21 +1474,64 @@ class CuhkScraper:
         class_details_html = response.text
 
         # Save debug file for class details HTML (using smart saving)
-        clean_section = (
-            section_name.replace("(", "").replace(")", "").replace(" ", "_").replace("-", "")
-        )
         if self.current_course_context:
-            subject = self.current_course_context["subject"]
-            course_code = self.current_course_context["course_code"]
-            filename = f"class_details_{subject}_{course_code}_{clean_section}.html"
-            self._save_debug_html(class_details_html, filename)
+            self._save_debug_html(
+                class_details_html, self._class_details_debug_filename(section_name)
+            )
 
         # Parse the class details page
         return self._parse_class_details(class_details_html, section_name)
 
+    # Trailing "(8704)" in a schedule-grid section name, which is CUHK's class number.
+    CLASS_NUMBER_IN_SECTION_NAME = re.compile(r"\((\d+)\)\s*$")
+
+    def _class_details_debug_filename(self, section_name: str, suffix: str = "") -> str:
+        """Debug filename for one section's class details response."""
+        context = self.current_course_context or {}
+        clean_section = (
+            section_name.replace("(", "").replace(")", "").replace(" ", "_").replace("-", "")
+        )
+        return (
+            f"class_details_{context.get('subject', 'UNKNOWN')}"
+            f"_{context.get('course_code', 'UNKNOWN')}_{clean_section}{suffix}.html"
+        )
+
+    def _validate_class_details_response(self, soup: BeautifulSoup, section_name: str) -> None:
+        """Raise unless this is the class details page for this section.
+
+        Every other postback checks it got the page it asked for; this one did not, so an
+        error page parsed into a blank record that looked like a real section with nothing
+        available. Raising propagates to get_course_details(), which retries the course.
+        """
+        status_elem = soup.find("span", {"id": CLASS_STATUS_FIELD})
+        if not status_elem or not clean_html_text(status_elem.get_text()):
+            raise ValueError(
+                f"No class status for section {section_name} - response is not a class details page"
+            )
+
+        # Every section postback replays the same schedule-page viewstate, so a response
+        # about a different class is otherwise indistinguishable from the right one.
+        expected = self.CLASS_NUMBER_IN_SECTION_NAME.search(section_name)
+        number_elem = soup.find("span", {"id": "uc_class_lbl_class_nbr"})
+        served = clean_html_text(number_elem.get_text()) if number_elem else ""
+        if expected and served != expected.group(1):
+            raise ValueError(
+                f"Class details for class {served!r} returned for section {section_name}"
+            )
+
     def _parse_class_details(self, html: str, section_name: str) -> dict | None:
         """Parse class details page to extract section info with enrollment data"""
         soup = BeautifulSoup(html, "html.parser")
+
+        try:
+            self._validate_class_details_response(soup, section_name)
+        except ValueError:
+            # _keep_failed_course_page saves the course details response, not this one,
+            # so the page that actually failed would otherwise be lost.
+            self._save_debug_html(
+                html, self._class_details_debug_filename(section_name, "_FAILED"), force_save=True
+            )
+            raise
 
         # Extract class availability information
         availability = self._parse_class_availability(soup)
@@ -1544,7 +1592,7 @@ class CuhkScraper:
             if element:
                 availability[name] = clean_html_text(element.get_text())
 
-        status_elem = soup.find("span", {"id": "uc_class_lbl_class_status"})
+        status_elem = soup.find("span", {"id": CLASS_STATUS_FIELD})
         if status_elem:
             availability["status"] = clean_html_text(status_elem.get_text())
 

@@ -2,7 +2,7 @@ import json
 import logging
 import time
 from pathlib import Path
-from types import MethodType, SimpleNamespace
+from types import SimpleNamespace
 
 import cuhk_scraper
 import pytest
@@ -768,13 +768,24 @@ def test_unknown_subject_title_is_recorded_empty_not_as_the_code(tmp_path):
 SAMPLE_PAGES = Path(__file__).resolve().parents[2] / "lab" / "scraper" / "samples" / "webpages"
 
 
+def _bare_scraper(**attributes):
+    """A CuhkScraper with __init__ skipped: no session, no OCR model, real methods."""
+    scraper = CuhkScraper.__new__(CuhkScraper)
+    scraper.logger = logging.getLogger("test")
+    scraper.current_config = None
+    scraper.current_course_context = None
+    for name, value in attributes.items():
+        setattr(scraper, name, value)
+    return scraper
+
+
+def _sample_html(page_name):
+    return (SAMPLE_PAGES / page_name).read_text(encoding="utf-8")
+
+
 def _availability(page_name):
-    soup = BeautifulSoup((SAMPLE_PAGES / page_name).read_text(encoding="utf-8"), "html.parser")
-    fake = SimpleNamespace(
-        logger=logging.getLogger("test"), SEAT_COUNT_FIELDS=CuhkScraper.SEAT_COUNT_FIELDS
-    )
-    fake._warn_on_status_icon_mismatch = MethodType(CuhkScraper._warn_on_status_icon_mismatch, fake)
-    return CuhkScraper._parse_class_availability(fake, soup)
+    soup = BeautifulSoup(_sample_html(page_name), "html.parser")
+    return _bare_scraper()._parse_class_availability(soup)
 
 
 @pytest.mark.parametrize(
@@ -832,7 +843,7 @@ def test_availability_is_read_from_the_page_not_computed(page_name, expected):
     assert _availability(page_name) == expected
 
 
-def test_availability_is_blank_when_the_page_is_not_class_details(scraper):
+def test_availability_is_blank_when_the_page_is_not_class_details():
     # A blank record is honest about having found nothing; the old rule read the missing
     # seat counts as zero and stamped "Closed" on it.
     assert _availability("System error.html") == {
@@ -865,3 +876,61 @@ def test_matching_status_icon_and_word_are_not_logged(scraper, caplog):
         CuhkScraper._warn_on_status_icon_mismatch(scraper, soup, "Wait List")
 
     assert caplog.text == ""
+
+
+# --- Class details response validation --------------------------------------------------
+
+# Each sample page paired with the section name the schedule grid gives it in data/.
+REAL_CLASS_DETAILS = [
+    ("Class Detail - UGCP 1001 - -X01 Understanding China.html", "-X01-WBL (8641)"),
+    ("Class Details - CHLT 1001 - CD University Chinese I.html", "CD-LEC (7067)"),
+    ("Class Details - CSCI 1020 - - Hands-On Intro to C++.html", "--LEC (6161)"),
+    ("Class Details - UGFN 1000 - C.html", "C-LEC (5743)"),
+]
+
+
+def _parse_details(page_name, section_name, tmp_path):
+    scraper = _bare_scraper(
+        current_config=SimpleNamespace(
+            save_debug_files=False, save_debug_on_error=True, debug_html_directory=str(tmp_path)
+        ),
+        current_course_context={"subject": "TEST", "course_code": "1000"},
+    )
+    return scraper._parse_class_details(_sample_html(page_name), section_name)
+
+
+@pytest.mark.parametrize("page_name,section_name", REAL_CLASS_DETAILS)
+def test_real_class_details_pages_still_parse(tmp_path, page_name, section_name):
+    result = _parse_details(page_name, section_name, tmp_path)
+
+    assert result["section"] == section_name
+    assert result["availability"]["status"] in {"Open", "Closed", "Wait List"}
+    assert not list(tmp_path.iterdir())  # nothing kept when nothing failed
+
+
+@pytest.mark.parametrize(
+    "page_name",
+    ["Invalid Verification Code - AENP.html", "System error.html", "No record found - AENP.html"],
+)
+def test_a_response_that_is_not_class_details_raises(tmp_path, page_name):
+    # These parsed into a blank record that the old status rule stamped "Closed", which
+    # then published as a real section offering nothing.
+    with pytest.raises(ValueError, match="not a class details page"):
+        _parse_details(page_name, "-T01-TUT (5514)", tmp_path)
+
+
+def test_another_class_details_page_raises(tmp_path):
+    # Every section postback replays the same viewstate, so the wrong class coming back
+    # is invisible unless the class number is checked against the section name.
+    with pytest.raises(ValueError, match="returned for section"):
+        _parse_details(REAL_CLASS_DETAILS[1][0], "CD-LEC (9999)", tmp_path)
+
+
+def test_the_failing_page_is_kept(tmp_path):
+    with pytest.raises(ValueError):
+        _parse_details("System error.html", "-T01-TUT (5514)", tmp_path)
+
+    # _keep_failed_course_page saves the course details response, not this one.
+    kept = list(tmp_path.iterdir())
+    assert [p.name for p in kept] == ["class_details_TEST_1000_T01TUT_5514_FAILED.html"]
+    assert "System error" in kept[0].read_text()
