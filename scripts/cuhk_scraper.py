@@ -1519,6 +1519,24 @@ class CuhkScraper:
                 f"Class details for class {served!r} returned for section {section_name}"
             )
 
+        # The seat counts sit in a different panel from the status, so the checks above do
+        # not cover them. Left to publish, a restructured panel would first write every
+        # section as offering nothing; here it retries, and fails before writing anything.
+        unreadable = sorted(
+            name
+            for name, element_id in self.SEAT_COUNT_FIELDS.items()
+            if not self._seat_count_text(soup, element_id).isdigit()
+        )
+        if unreadable:
+            raise ValueError(
+                f"Unreadable seat counts for section {section_name}: {', '.join(unreadable)}"
+            )
+
+    @staticmethod
+    def _seat_count_text(soup: BeautifulSoup, element_id: str) -> str:
+        element = soup.find("span", {"id": element_id})
+        return clean_html_text(element.get_text()) if element else ""
+
     def _parse_class_details(self, html: str, section_name: str) -> dict | None:
         """Parse class details page to extract section info with enrollment data"""
         soup = BeautifulSoup(html, "html.parser")
@@ -1588,9 +1606,7 @@ class CuhkScraper:
         availability["status"] = ""
 
         for name, element_id in self.SEAT_COUNT_FIELDS.items():
-            element = soup.find("span", {"id": element_id})
-            if element:
-                availability[name] = clean_html_text(element.get_text())
+            availability[name] = self._seat_count_text(soup, element_id)
 
         status_elem = soup.find("span", {"id": CLASS_STATUS_FIELD})
         if status_elem:

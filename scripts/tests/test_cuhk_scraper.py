@@ -934,3 +934,23 @@ def test_the_failing_page_is_kept(tmp_path):
     kept = list(tmp_path.iterdir())
     assert [p.name for p in kept] == ["class_details_TEST_1000_T01TUT_5514_FAILED.html"]
     assert "System error" in kept[0].read_text()
+
+
+def test_a_class_details_page_with_no_seat_counts_raises(tmp_path):
+    # The seat counts sit in a different panel from the status, so a page can carry a
+    # status and still say nothing about seats.
+    scraper = _bare_scraper(
+        current_config=SimpleNamespace(
+            save_debug_files=False, save_debug_on_error=True, debug_html_directory=str(tmp_path)
+        ),
+        current_course_context={"subject": "TEST", "course_code": "1000"},
+    )
+    html = (
+        '<span id="uc_class_lbl_class_status">Open</span>'
+        '<span id="uc_class_lbl_class_nbr">1234</span>'
+    )
+
+    with pytest.raises(ValueError, match="Unreadable seat counts"):
+        scraper._parse_class_details(html, "--LEC (1234)")
+
+    assert [p.name for p in tmp_path.iterdir()] == ["class_details_TEST_1000_LEC_1234_FAILED.html"]
