@@ -23,6 +23,7 @@ import {
   instructorSortKey,
   formatTimeCompact,
   formatInstructorsCompact,
+  getAvailabilityBadges,
 } from './courseUtils'
 import { SCHEDULE_DATA_VERSION } from './constants'
 import type {
@@ -1180,5 +1181,35 @@ describe('empty-value fallbacks', () => {
   it('renders TBA for a missing time or instructor', () => {
     expect(formatTimeCompact('')).toBe('TBA')
     expect(formatInstructorsCompact('')).toBe('TBA')
+  })
+})
+
+describe('getAvailabilityBadges', () => {
+  // CHLT 1001 CD-LEC: full, nobody queued yet, but the queue is open — joining puts a
+  // student first in line. Reading the seat counts alone hides that entirely.
+  const fullWithOpenQueue = {
+    capacity: 25,
+    enrolled: 25,
+    status: 'Wait List' as const,
+    availableSeats: 0,
+    waitlistCapacity: 999,
+    waitlistTotal: 0,
+  }
+
+  it('shows the queue on a full class whose wait list is open but empty', () => {
+    expect(getAvailabilityBadges(fullWithOpenQueue).map((badge) => badge.text)).toEqual([
+      'Wait List',
+      '0/25 Available',
+      '0 Waiting',
+    ])
+  })
+
+  it('shows no queue on a full class with no wait list', () => {
+    const badges = getAvailabilityBadges({
+      ...fullWithOpenQueue,
+      status: 'Closed',
+      waitlistCapacity: 0,
+    })
+    expect(badges.map((badge) => badge.text)).toEqual(['Closed', '0/25 Available'])
   })
 })

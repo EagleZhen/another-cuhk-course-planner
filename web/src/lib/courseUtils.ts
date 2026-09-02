@@ -1511,7 +1511,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
   if (waitlistTotal > 0 || (status === 'Wait List' && waitlistCapacity > 0)) {
     badges.push({
       type: 'waitlist' as const,
-      text: `${waitlistTotal} on Waitlist`,
+      text: `${waitlistTotal} Waiting`,
       style: getWaitlistBadgeStyle(waitlistTotal),
     })
   }

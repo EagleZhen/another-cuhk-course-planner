@@ -591,7 +591,7 @@ export default function ShoppingCart({
                                       ? `Course status: ${badge.text}`
                                       : badge.type === 'availability'
                                         ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
-                                        : `${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
+                                        : `${section.availability.waitlistTotal} people on the wait list (capacity ${section.availability.waitlistCapacity})`
                                   }
                                 >
                                   {badge.text}
