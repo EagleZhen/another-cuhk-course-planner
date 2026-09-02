@@ -228,13 +228,15 @@ def find_course_files(year_dir: str) -> tuple[list[str], list[str], int]:
 def archived_years(source_years: list[Path]) -> set[str]:
     """Years the last full scrape did not produce, so nothing can rewrite them.
 
-    Only full scrapes stamp a year directory, and only for the directories they wrote, so
-    a stamp older than the newest one means CUHK stopped serving that year. Its published
-    copy is complete and frozen; re-validating it against the current schema would reject
-    it forever, since no re-scrape can satisfy the check.
+    Only full scrapes stamp a year directory, and only the ones they wrote, so a stamp
+    older than the newest means CUHK stopped serving that year. Re-validating it against
+    the current schema would reject it forever, since no re-scrape can satisfy the check.
 
-    A year with no stamp at all is left out: it cannot be compared, so it is treated as
-    current and published as before.
+    Not taken from the progress log, the obvious alternative: its subject registry is
+    cumulative, so a subject this run skipped keeps an `output_file` naming a year CUHK
+    has since dropped, and that year would look current again.
+
+    A year with no stamp is treated as current and published as before.
     """
     stamps = {}
     for year_path in source_years:
@@ -387,8 +389,9 @@ def collect_scrape_times(years: Iterable[str]) -> dict[str, str]:
 def copy_commit_title(scrape_times: dict[str, str]) -> None:
     """Put the commit title for this run on the clipboard, ready to paste.
 
-    List only years stamped by the newest full scrape. Older source years remain
-    publishable after CUHK drops them, but they were not updated by this run.
+    List only years stamped by the newest full scrape — the same rule archived_years
+    inverts. An older year is archived rather than republished, so it never belongs in
+    a title describing what this run wrote.
 
     Writes to stderr, which isn't teed into the publish log, so the committed
     log stays free of clipboard chatter either way.

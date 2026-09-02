@@ -86,9 +86,11 @@ The publish script checks:
 - scraping progress metadata
 - zero-course subjects and structural issues
 
+A year the latest full scrape did not produce is **archived**: CUHK no longer serves it, so no scrape can rewrite its files and the schema check could only reject them forever. Such a year is still read for the manifests — dropping it would erase the year from the app — but is neither version-checked nor re-copied, since its published copy is complete and can no longer change.
+
 These checks validate selected files; they do not prove that an academic year contains every subject. Treat unexpected subject removals as data-review signals.
 
-A run ends by copying a ready-to-paste commit title to the clipboard: `chore(data): update <years> courses (<scrape time in HKT>)`. It lists only the years stamped by the latest full scrape, excluding older frozen years that remain publishable.
+A run ends by copying a ready-to-paste commit title to the clipboard: `chore(data): update <years> courses (<scrape time in HKT>)`. It lists only the years stamped by the latest full scrape, excluding archived ones.
 
 After validation succeeds, publishing regenerates the app's manifests (see [Generated Manifests](#generated-manifests)). Validation failures and dry runs leave them unchanged.
 
@@ -99,7 +101,7 @@ Use [logs/latest_publish.log](../logs/latest_publish.log) for exact current coun
 Read the publish count summary per source year (`data/<year>/`) as:
 
 - source JSON files found in that year's directory
-- files selected and copied for publishing
+- files selected and copied for publishing — an archived year reports its files as selected but copies none
 
 ## Generated Manifests
 
