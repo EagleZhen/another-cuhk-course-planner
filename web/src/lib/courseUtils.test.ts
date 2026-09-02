@@ -23,6 +23,7 @@ import {
   instructorSortKey,
   formatTimeCompact,
   formatInstructorsCompact,
+  getAvailabilityBadges,
 } from './courseUtils'
 import { SCHEDULE_DATA_VERSION } from './constants'
 import type {
@@ -30,6 +31,7 @@ import type {
   InternalCourse,
   InternalSection,
   InternalMeeting,
+  SectionAvailability,
   SectionSignature,
 } from './types'
 
@@ -259,7 +261,7 @@ describe('syncEnrollment', () => {
     const freshTut = makeSection({
       id: 'tut',
       sectionType: 'TUT',
-      availability: { ...removedTut.availability, status: 'Waitlisted' },
+      availability: { ...removedTut.availability, status: 'Wait List' },
     })
     const freshCourse = makeCourse([lec, freshTut])
     const enrollment: CourseEnrollment = {
@@ -424,6 +426,36 @@ describe('readStoredEnrollments', () => {
     const loaded = readStoredEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments: stored })
 
     expect(loaded?.[0].lastSynced).toEqual(new Date('2026-07-14T13:27:10.392Z'))
+  })
+
+  it('renames the derived wait list status in selected and removed sections', () => {
+    const stored = [
+      {
+        courseId: 'CSCI3100',
+        selectedSections: [
+          {
+            ...makeSection({ id: 'lec' }),
+            availability: { ...makeSection({}).availability, status: 'Waitlisted' },
+          },
+        ],
+        removedSections: [
+          {
+            ...makeSection({ id: 'tut', sectionType: 'TUT' }),
+            availability: { ...makeSection({}).availability, status: 'Waitlisted' },
+          },
+        ],
+      },
+    ] as unknown as CourseEnrollment[]
+
+    const loaded = readStoredEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments: stored })
+
+    expect(loaded?.[0].selectedSections[0].availability.status).toBe('Wait List')
+    expect(loaded?.[0].removedSections?.[0].availability.status).toBe('Wait List')
+
+    // Idempotent: a second load must not change it.
+    expect(readStoredEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments: loaded! })).toEqual(
+      loaded
+    )
   })
 
   it('migrates v2 partial removals without changing whole-course removals', () => {
@@ -1150,5 +1182,58 @@ describe('empty-value fallbacks', () => {
   it('renders TBA for a missing time or instructor', () => {
     expect(formatTimeCompact('')).toBe('TBA')
     expect(formatInstructorsCompact('')).toBe('TBA')
+  })
+})
+
+describe('getAvailabilityBadges', () => {
+  // CHLT 1001 CD-LEC: full, nobody queued yet, but the queue is open — joining puts a
+  // student first in line. Reading the seat counts alone hides that entirely.
+  const fullWithOpenQueue = {
+    capacity: 25,
+    enrolled: 25,
+    status: 'Wait List' as const,
+    availableSeats: 0,
+    waitlistCapacity: 999,
+    waitlistTotal: 0,
+  }
+
+  it('shows the queue on a full class whose wait list is open but empty', () => {
+    expect(getAvailabilityBadges(fullWithOpenQueue).map((badge) => badge.text)).toEqual([
+      'Wait List',
+      '0/25 Available',
+      '0 Waiting',
+    ])
+  })
+
+  it('colours the seat count by seats alone, not by the catalog status', () => {
+    // UGFN 1000 C is real: CUHK says Open with 11 seats and 6 people queued, so its word
+    // does not track the seat counts. If it ever says Wait List with seats left, the seat
+    // badge still answers "can I take one now?" — and the answer is yes.
+    const seats = {
+      capacity: 136,
+      enrolled: 125,
+      availableSeats: 11,
+      waitlistCapacity: 999,
+      waitlistTotal: 6,
+    }
+    // Picked by type, not position: a conditional status badge would shift both
+    // destructures together and quietly compare two of the same badge.
+    const seatStyle = (availability: SectionAvailability) =>
+      getAvailabilityBadges(availability).find((badge) => badge.type === 'availability')?.style
+        .className
+
+    const waitList = seatStyle({ ...seats, status: 'Wait List' })
+
+    expect(waitList).toBeDefined()
+    expect(waitList).toEqual(seatStyle({ ...seats, status: 'Open' }))
+  })
+
+  it('shows no queue on a full class with no wait list', () => {
+    const badges = getAvailabilityBadges({
+      ...fullWithOpenQueue,
+      status: 'Closed',
+      waitlistCapacity: 0,
+    })
+    expect(badges.map((badge) => badge.text)).toEqual(['Closed', '0/25 Available'])
   })
 })

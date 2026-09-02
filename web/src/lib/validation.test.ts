@@ -4,8 +4,12 @@ import { describe, it, expect } from 'vitest'
 import { ACADEMIC_CAREERS } from './types'
 import { transformExternalCourseData } from './validation'
 
-function publishedCareerValues(): Set<string> {
-  const careers = new Set<string>()
+type PublishedCourse = {
+  academic_career?: unknown
+  terms?: Array<{ schedule?: Array<{ availability?: { status?: unknown } }> }>
+}
+
+function forEachPublishedFile(visit: (path: string, contents: unknown) => void): void {
   const dataDirectory = join(process.cwd(), 'public', 'data')
 
   for (const year of readdirSync(dataDirectory, { withFileTypes: true })) {
@@ -14,16 +18,79 @@ function publishedCareerValues(): Set<string> {
     for (const file of readdirSync(join(dataDirectory, year.name), { withFileTypes: true })) {
       if (!file.isFile() || !file.name.endsWith('.json')) continue
 
-      const { courses = [] } = JSON.parse(
-        readFileSync(join(dataDirectory, year.name, file.name), 'utf8')
-      ) as { courses?: Array<{ academic_career?: unknown }> }
-      for (const course of courses) {
-        if (typeof course.academic_career === 'string') careers.add(course.academic_career)
-      }
+      const path = join(year.name, file.name)
+      visit(path, JSON.parse(readFileSync(join(dataDirectory, path), 'utf8')))
     }
   }
+}
 
+function forEachPublishedCourse(visit: (course: PublishedCourse) => void): void {
+  forEachPublishedFile((_path, contents) => {
+    const { courses = [] } = contents as { courses?: PublishedCourse[] }
+    courses.forEach(visit)
+  })
+}
+
+function publishedCareerValues(): Set<string> {
+  const careers = new Set<string>()
+  forEachPublishedCourse((course) => {
+    if (typeof course.academic_career === 'string') careers.add(course.academic_career)
+  })
   return careers
+}
+
+function publishedStatusValues(): Set<string> {
+  const statuses = new Set<string>()
+  forEachPublishedCourse((course) => {
+    for (const term of course.terms ?? []) {
+      for (const section of term.schedule ?? []) {
+        const status = section.availability?.status
+        if (typeof status === 'string') statuses.add(status)
+      }
+    }
+  })
+  return statuses
+}
+
+// One section carrying the given raw status, shaped like a published file.
+function courseWithStatus(status: string) {
+  return {
+    metadata: { subject: 'CSCI', total_courses: 1 },
+    courses: [
+      {
+        subject: 'CSCI',
+        course_code: '3100',
+        title: 'Software Engineering',
+        credits: '3.00',
+        terms: [
+          {
+            term_code: '2380',
+            term_name: '2025-26 Term 1',
+            schedule: [
+              {
+                section: '--LEC (1234)',
+                meetings: [],
+                availability: {
+                  capacity: '25',
+                  enrolled: '25',
+                  status,
+                  available_seats: '0',
+                  waitlist_capacity: '999',
+                  waitlist_total: '0',
+                },
+                class_attributes: '',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  }
+}
+
+function transformedStatus(status: string) {
+  return transformExternalCourseData(courseWithStatus(status)).courses[0].terms[0].sections[0]
+    .availability.status
 }
 
 describe('transformExternalCourseData', () => {
@@ -64,6 +131,35 @@ describe('transformExternalCourseData', () => {
       })
       expect(result.courses).toHaveLength(1)
     }
+  })
+
+  it('still reads every published file, including archived years', () => {
+    // Archived years are frozen: CUHK no longer serves them, so no scrape can bring their
+    // files up to a tightened schema. Nothing else notices if this schema stops accepting
+    // them — the publisher validates structure, never this transform.
+    let files = 0
+    forEachPublishedFile((path, contents) => {
+      expect(() => transformExternalCourseData(contents), path).not.toThrow()
+      files += 1
+    })
+    expect(files).toBeGreaterThan(0)
+  })
+
+  it('recognizes every section status in published data', () => {
+    // Runtime degrades a new catalog word to a gray badge rather than breaking, so
+    // CI is where we find out it appeared.
+    for (const status of publishedStatusValues()) {
+      expect(transformedStatus(status), `published status ${status}`).not.toBe('Unknown')
+    }
+  })
+
+  it('reads the wait list status under both the catalog and the derived spelling', () => {
+    expect(transformedStatus('Wait List')).toBe('Wait List')
+    expect(transformedStatus('Waitlisted')).toBe('Wait List')
+  })
+
+  it('does not guess at an unrecognized status', () => {
+    expect(transformedStatus('Tentative')).toBe('Unknown')
   })
 
   it('accepts published course data with stripped fields absent', () => {

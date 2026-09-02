@@ -2,6 +2,7 @@ import gc
 import json
 import logging
 import os
+import re
 import time
 from dataclasses import asdict, dataclass, field
 from datetime import datetime
@@ -27,6 +28,10 @@ from data_utils import (
     utc_to_hkt,
 )
 from requests.exceptions import ConnectionError, HTTPError, Timeout
+
+# The Class Details status: both the value we record and the sentinel that the response
+# is a class details page at all. Absent from every other page CUHK serves.
+CLASS_STATUS_FIELD = "uc_class_lbl_class_status"
 
 # Lab/debug outputs
 SCRAPER_OUTPUTS_DIR = os.path.join("lab", "scraper", "outputs")
@@ -1469,21 +1474,82 @@ class CuhkScraper:
         class_details_html = response.text
 
         # Save debug file for class details HTML (using smart saving)
-        clean_section = (
-            section_name.replace("(", "").replace(")", "").replace(" ", "_").replace("-", "")
-        )
         if self.current_course_context:
-            subject = self.current_course_context["subject"]
-            course_code = self.current_course_context["course_code"]
-            filename = f"class_details_{subject}_{course_code}_{clean_section}.html"
-            self._save_debug_html(class_details_html, filename)
+            self._save_debug_html(
+                class_details_html, self._class_details_debug_filename(section_name)
+            )
 
         # Parse the class details page
         return self._parse_class_details(class_details_html, section_name)
 
+    # Trailing "(8704)" in a schedule-grid section name, which is CUHK's class number.
+    CLASS_NUMBER_IN_SECTION_NAME = re.compile(r"\((\d+)\)\s*$")
+
+    def _class_details_debug_filename(self, section_name: str, suffix: str = "") -> str:
+        """Debug filename for one section's class details response."""
+        context = self.current_course_context or {}
+        clean_section = (
+            section_name.replace("(", "").replace(")", "").replace(" ", "_").replace("-", "")
+        )
+        return (
+            f"class_details_{context.get('subject', 'UNKNOWN')}"
+            f"_{context.get('course_code', 'UNKNOWN')}_{clean_section}{suffix}.html"
+        )
+
+    def _validate_class_details_response(self, soup: BeautifulSoup, section_name: str) -> None:
+        """Raise unless this is the class details page for this section.
+
+        Every other postback checks it got the page it asked for; this one did not, so an
+        error page parsed into a blank record that looked like a real section with nothing
+        available. Raising propagates to get_course_details(), which retries the course.
+        """
+        status_elem = soup.find("span", {"id": CLASS_STATUS_FIELD})
+        if not status_elem or not clean_html_text(status_elem.get_text()):
+            raise ValueError(
+                f"No class status for section {section_name} - response is not a class details page"
+            )
+
+        # Every section postback replays the same schedule-page viewstate, so a response
+        # about a different class is otherwise indistinguishable from the right one.
+        expected = self.CLASS_NUMBER_IN_SECTION_NAME.search(section_name)
+        number_elem = soup.find("span", {"id": "uc_class_lbl_class_nbr"})
+        served = clean_html_text(number_elem.get_text()) if number_elem else ""
+        if expected and served != expected.group(1):
+            raise ValueError(
+                f"Class details for class {served!r} returned for section {section_name}"
+            )
+
+        # The seat counts sit in a different panel from the status, so the checks above do
+        # not cover them. Left to publish, a restructured panel would first write every
+        # section as offering nothing; here it retries, and fails before writing anything.
+        unreadable = sorted(
+            name
+            for name, element_id in self.SEAT_COUNT_FIELDS.items()
+            if not self._seat_count_text(soup, element_id).isdigit()
+        )
+        if unreadable:
+            raise ValueError(
+                f"Unreadable seat counts for section {section_name}: {', '.join(unreadable)}"
+            )
+
+    @staticmethod
+    def _seat_count_text(soup: BeautifulSoup, element_id: str) -> str:
+        element = soup.find("span", {"id": element_id})
+        return clean_html_text(element.get_text()) if element else ""
+
     def _parse_class_details(self, html: str, section_name: str) -> dict | None:
         """Parse class details page to extract section info with enrollment data"""
         soup = BeautifulSoup(html, "html.parser")
+
+        try:
+            self._validate_class_details_response(soup, section_name)
+        except ValueError:
+            # _keep_failed_course_page saves the course details response, not this one,
+            # so the page that actually failed would otherwise be lost.
+            self._save_debug_html(
+                html, self._class_details_debug_filename(section_name, "_FAILED"), force_save=True
+            )
+            raise
 
         # Extract class availability information
         availability = self._parse_class_availability(soup)
@@ -1520,65 +1586,53 @@ class CuhkScraper:
             "class_attributes": class_attributes,  # Section-specific language info
         }
 
+    # The seat counts of the "Class Availability" panel, by the id CUHK gives each span.
+    SEAT_COUNT_FIELDS = {
+        "capacity": "uc_class_lbl_enrl_cap",
+        "enrolled": "uc_class_lbl_enrl_tot",
+        "waitlist_capacity": "uc_class_lbl_wait_cap",
+        "waitlist_total": "uc_class_lbl_wait_tot",
+        "available_seats": "uc_class_lbl_available_seat",
+    }
+
     def _parse_class_availability(self, soup: BeautifulSoup) -> dict:
-        """Parse class availability information from class details page"""
-        availability = {
-            "capacity": "",
-            "enrolled": "",
-            "waitlist_capacity": "",
-            "waitlist_total": "",
-            "available_seats": "",
-            "status": "Unknown",
-        }
+        """Parse the Class Details status and the Class Availability seat counts.
 
-        try:
-            # Class Capacity
-            capacity_elem = soup.find("span", {"id": "uc_class_lbl_enrl_cap"})
-            if capacity_elem:
-                availability["capacity"] = clean_html_text(capacity_elem.get_text())
+        Every value is whatever CUHK printed, verbatim — an empty string when the page
+        does not carry it. Nothing here is computed: a status we derived would be
+        indistinguishable from one CUHK stated, and could never be checked afterwards.
+        """
+        availability = dict.fromkeys(self.SEAT_COUNT_FIELDS, "")
+        availability["status"] = ""
 
-            # Enrollment Total
-            enrolled_elem = soup.find("span", {"id": "uc_class_lbl_enrl_tot"})
-            if enrolled_elem:
-                availability["enrolled"] = clean_html_text(enrolled_elem.get_text())
+        for name, element_id in self.SEAT_COUNT_FIELDS.items():
+            availability[name] = self._seat_count_text(soup, element_id)
 
-            # Wait List Capacity
-            wait_cap_elem = soup.find("span", {"id": "uc_class_lbl_wait_cap"})
-            if wait_cap_elem:
-                availability["waitlist_capacity"] = clean_html_text(wait_cap_elem.get_text())
+        status_elem = soup.find("span", {"id": CLASS_STATUS_FIELD})
+        if status_elem:
+            availability["status"] = clean_html_text(status_elem.get_text())
 
-            # Wait List Total
-            wait_tot_elem = soup.find("span", {"id": "uc_class_lbl_wait_tot"})
-            if wait_tot_elem:
-                availability["waitlist_total"] = clean_html_text(wait_tot_elem.get_text())
-
-            # Available Seats
-            available_elem = soup.find("span", {"id": "uc_class_lbl_available_seat"})
-            if available_elem:
-                availability["available_seats"] = clean_html_text(available_elem.get_text())
-
-            # Determine status based on availability
-            try:
-                available_seats = (
-                    int(availability["available_seats"]) if availability["available_seats"] else 0
-                )
-                waitlist_total = (
-                    int(availability["waitlist_total"]) if availability["waitlist_total"] else 0
-                )
-
-                if available_seats > 0:
-                    availability["status"] = "Open"
-                elif waitlist_total > 0:
-                    availability["status"] = "Waitlisted"
-                else:
-                    availability["status"] = "Closed"
-            except (ValueError, TypeError):
-                availability["status"] = "Unknown"
-
-        except Exception as e:
-            self.logger.error(f"Error parsing class availability: {e}")
+        self._warn_on_status_icon_mismatch(soup, availability["status"])
 
         return availability
+
+    def _warn_on_status_icon_mismatch(self, soup: BeautifulSoup, status: str) -> None:
+        """Log when the status icon and the status word disagree.
+
+        Both render the same field, so they should never differ. Nothing else enumerates
+        CUHK's status words now that we store them verbatim, which makes this the only
+        place a change in their wording would be noticed.
+        """
+        status_img = soup.find("img", {"id": "uc_class_img_status"})
+        if not status_img or not status:
+            return
+
+        from_icon = parse_enrollment_status_from_image(status_img.get("src", ""))
+        if from_icon != "Unknown" and from_icon != status:
+            self.logger.warning(
+                f"⚠️ Class status icon says {from_icon!r} but the page says {status!r} — "
+                f"CUHK's wording may have changed"
+            )
 
     def _parse_current_term_info(self, html: str) -> TermInfo | None:
         """Parse term info when no dropdown is available"""

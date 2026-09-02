@@ -37,6 +37,7 @@ Production scraping uses `ScrapingConfig.for_production()`:
 - reads the subject list from the live CUHK site when no subject argument is passed
 - writes one JSON file per scraped subject to [data/](../data/)
 - collects course details, enrollment data, and course outcome data
+- fails a section whose class details response is unreadable — wrong class number, no status, or unreadable seat counts — rather than recording a blank one. The course is retried; an exhausted one fails its subject.
 - tracks progress in [logs/scraping_progress.json](../logs/scraping_progress.json)
 - writes verbose logs to [logs/scrape/](../logs/scrape/)
 
@@ -61,9 +62,12 @@ Scripts that write JSON output use `save_json_with_newline()` in [scripts/data_u
 
 Every course file carries `metadata.schema_version` (`SCHEMA_VERSION` in [scripts/data_utils.py](../scripts/data_utils.py)); publishing rejects anything else. Bump it for any file-shape change and add a row.
 
+A bump forces a full re-scrape, which is the point: published data can never be a silent mix of old and new records.
+
 | Version | Change |
 | --- | --- |
 | 1 | Versioned metadata, no per-file scrape timestamp (see [decisions.md](decisions.md#stamp-each-data-directory-with-its-scrape-time)) |
+| 2 | `availability.status` is CUHK's own word, not one derived from seat counts (see [decisions.md](decisions.md#record-the-catalog-status-verbatim)) |
 
 ### Freshness
 
@@ -82,9 +86,11 @@ The publish script checks:
 - scraping progress metadata
 - zero-course subjects and structural issues
 
+A year the latest full scrape did not produce is **archived**: CUHK no longer serves it, so no scrape can rewrite its files and the schema check could only reject them forever. Such a year is neither version-checked nor re-copied, since its published copy is complete and can no longer change. It still feeds the manifests — dropping it would erase the year from the app — but its subjects and terms are read from the published copy, so a manifest can never name a subject that was never copied. Its scrape time still comes from the stamp in [data/](../data/).
+
 These checks validate selected files; they do not prove that an academic year contains every subject. Treat unexpected subject removals as data-review signals.
 
-A run ends by copying a ready-to-paste commit title to the clipboard: `chore(data): update <years> courses (<scrape time in HKT>)`. It lists only the years stamped by the latest full scrape, excluding older frozen years that remain publishable.
+A run ends by copying a ready-to-paste commit title to the clipboard: `chore(data): update <years> courses (<scrape time in HKT>)`. It lists only the years stamped by the latest full scrape, excluding archived ones.
 
 After validation succeeds, publishing regenerates the app's manifests (see [Generated Manifests](#generated-manifests)). Validation failures and dry runs leave them unchanged.
 
@@ -95,7 +101,7 @@ Use [logs/latest_publish.log](../logs/latest_publish.log) for exact current coun
 Read the publish count summary per source year (`data/<year>/`) as:
 
 - source JSON files found in that year's directory
-- files selected and copied for publishing
+- files selected and copied for publishing — an archived year reports its files as selected but copies none
 
 ## Generated Manifests
 
@@ -131,8 +137,8 @@ List page -> detail page -> outcome page -> term/section pages
 Courses marked as available from a future date can use different formatting on different pages. PHED1370 is the canonical sample:
 
 - [Course list sample](<../lab/scraper/samples/webpages/Course List - PHED.html>)
-- [Detail page sample](<../lab/scraper/samples/webpages/Class Detail - PHED 1370 - Archery.html>)
-- [Outcome page sample](<../lab/scraper/samples/webpages/Course Outcome - PHED 1370 - Archery .html>)
+- [Detail page sample](<../lab/scraper/samples/webpages/Course Detail - PHED 1370 - Archery.html>)
+- [Outcome page sample](<../lab/scraper/samples/webpages/Course Outcome - PHED 1370 - Archery.html>)
 
 On the list page, the course code may be wrapped in brackets and the title may include an availability remark. On the outcome page, the course header may be a dash. The scraper therefore trusts the detail page for the clean course code and title.
 

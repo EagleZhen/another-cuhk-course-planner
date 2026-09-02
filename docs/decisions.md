@@ -204,6 +204,20 @@ Why it fits:
 - the reference bar and one-click return keep a frozen year from being mistaken for the live one and edited by accident.
 - deriving the live year from `DEFAULT_CURRENT_TERM` makes rollover a single edit that flips both the eager year and the archived set.
 
+## Record The Catalog Status Verbatim
+
+`availability.status` was computed from available seats and waitlist total, which is wrong wherever a full class has an open wait list — CHLT 1001 CD-LEC reads `Closed` where CUHK and CUSIS say `Wait List`. 2,429 sections share that shape.
+
+Decision: store `uc_class_lbl_class_status` as printed, and derive nothing. An instance of [Derive Display Forms, Keep Scraped Values](#derive-display-forms-keep-scraped-values) one layer earlier — the derivation did not merely answer worse, it replaced the fact that would have exposed it.
+
+Three simplifications it has to resist:
+
+- **The grid's status icon is not a substitute.** SPED 2010 AP01-PRA shows the _Closed_ icon in the schedule grid while its class details page says `Wait List`. Reading the grid would cut a scrape from ~9h to minutes, so it will keep being proposed.
+- **The spelling is adopted, not translated.** Upstream uses `Wait List` for the status and `waitlist` as a modifier (`Waitlist Capacity`); the app follows both, so there is no invented third form to keep in sync. Rewriting the value at publish would put a string we authored into published data looking scraped.
+- **Nothing enumerates the allowed words.** An unrecognized one becomes a gray `Unknown` badge, not a blocked publish. The scraper logs when the status icon and the word disagree, which is where a change in CUHK's wording surfaces.
+
+Published data is therefore mixed by year: a year CUHK still serves carries the catalog's own status, while an archived year keeps the derived one. Those cannot be corrected — CUHK no longer serves the year, and we never recorded its word, so they are unverifiable rather than known-good. A derived `Closed` in an archived year is not the fix having failed.
+
 ## Derive Display Forms, Keep Scraped Values
 
 Instructors are scraped as "Professor CHAN Tai Man" and shown as "Prof. CHAN Tai Man". Converting once at the boundary would spare every consumer from remembering, but enrollments persist whole to `localStorage`, which would freeze whatever we parsed in every browser.

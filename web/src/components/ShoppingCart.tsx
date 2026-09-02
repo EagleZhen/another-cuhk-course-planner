@@ -195,14 +195,10 @@ export default function ShoppingCart({
       },
       waitlisted: {
         visible: visibleValidEnrollments.filter((enrollment) =>
-          enrollment.selectedSections.some(
-            (section) => section.availability.status === 'Waitlisted'
-          )
+          enrollment.selectedSections.some((section) => section.availability.status === 'Wait List')
         ).length,
         total: validEnrollments.filter((enrollment) =>
-          enrollment.selectedSections.some(
-            (section) => section.availability.status === 'Waitlisted'
-          )
+          enrollment.selectedSections.some((section) => section.availability.status === 'Wait List')
         ).length,
       },
       closed: {
@@ -595,7 +591,7 @@ export default function ShoppingCart({
                                       ? `Course status: ${badge.text}`
                                       : badge.type === 'availability'
                                         ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
-                                        : `${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
+                                        : `${section.availability.waitlistTotal} people on the wait list (capacity ${section.availability.waitlistCapacity})`
                                   }
                                 >
                                   {badge.text}
@@ -735,7 +731,7 @@ export default function ShoppingCart({
             )}
           </div>
 
-          {/* Row 2: Open, Waitlisted, Closed (all optional) */}
+          {/* Row 2: Open, Wait List, Closed (all optional) */}
           {(() => {
             // Only show row 2 if there's any status info to display
             const hasStatusInfo =
@@ -776,8 +772,8 @@ export default function ShoppingCart({
                       <AlertTriangle className="w-3 h-3" />
                       <span>
                         {statusCounts.waitlisted.visible === statusCounts.waitlisted.total
-                          ? `${statusCounts.waitlisted.total} Waitlisted`
-                          : `${statusCounts.waitlisted.visible}/${statusCounts.waitlisted.total} Waitlisted`}
+                          ? `${statusCounts.waitlisted.total} Wait List`
+                          : `${statusCounts.waitlisted.visible}/${statusCounts.waitlisted.total} Wait List`}
                       </span>
                     </div>
                   )}

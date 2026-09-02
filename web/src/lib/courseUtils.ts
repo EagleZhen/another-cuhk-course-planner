@@ -623,10 +623,28 @@ function stripLegacyInvalidStateFields(enrollments: CourseEnrollment[]): CourseE
   )
 }
 
+// Carts hold whole sections, so they carry the pre-catalog status too. Both lists have
+// availability; both need rewriting.
+function renameStoredWaitlistStatus(enrollments: CourseEnrollment[]): CourseEnrollment[] {
+  const rename = (section: InternalSection): InternalSection =>
+    (section.availability?.status as string) === 'Waitlisted'
+      ? { ...section, availability: { ...section.availability, status: 'Wait List' } }
+      : section
+
+  // A hand-edited blob can be missing either list.
+  return enrollments.map((enrollment) => ({
+    ...enrollment,
+    selectedSections: enrollment.selectedSections?.map(rename),
+    removedSections: enrollment.removedSections?.map(rename),
+  }))
+}
+
 // Every step is idempotent, so re-normalizing current-version data is a no-op.
 function normalizeStoredEnrollments(enrollments: CourseEnrollment[]): CourseEnrollment[] {
   return reviveEnrollmentDates(
-    stripLegacyInvalidStateFields(migrateLegacyPartialRemovals(enrollments))
+    stripLegacyInvalidStateFields(
+      renameStoredWaitlistStatus(migrateLegacyPartialRemovals(enrollments))
+    )
   )
 }
 
@@ -1490,10 +1508,10 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
   }
 
   // 3. Waitlist Badge (only show if waitlist exists)
-  if (waitlistTotal > 0 || (status === 'Waitlisted' && waitlistCapacity > 0)) {
+  if (waitlistTotal > 0 || (status === 'Wait List' && waitlistCapacity > 0)) {
     badges.push({
       type: 'waitlist' as const,
-      text: `${waitlistTotal} on Waitlist`,
+      text: `${waitlistTotal} Waiting`,
       style: getWaitlistBadgeStyle(waitlistTotal),
     })
   }
@@ -1510,7 +1528,7 @@ function getCourseStatusStyle(status: string) {
       return {
         className: 'bg-green-700 text-white border-green-600 font-medium',
       }
-    case 'Waitlisted':
+    case 'Wait List':
       return {
         className: 'bg-yellow-600 text-white border-yellow-500 font-medium',
       }
@@ -1558,16 +1576,12 @@ export function getWaitlistBadgeStyle(waitlistTotal: number) {
 export function getAvailabilityBadgeStyle(availability: SectionAvailability) {
   const { availableSeats, status } = availability
 
-  // Closed/Full status takes precedence
+  // No seats is no seats, wait list or not: the queue is what the other two badges are
+  // for. Colour here answers only "can I take a seat now?", on the same green/yellow/red
+  // scale as the wait list badge.
   if (status === 'Closed' || availableSeats === 0) {
     return {
       className: 'bg-red-100 text-red-800 border-red-300',
-    }
-  }
-
-  if (status === 'Waitlisted') {
-    return {
-      className: 'bg-orange-100 text-orange-800 border-orange-300',
     }
   }
 

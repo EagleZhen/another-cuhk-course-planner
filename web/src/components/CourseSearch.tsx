@@ -2108,7 +2108,7 @@ function CourseCard({
                                   ? 'border border-gray-200 opacity-40 cursor-not-allowed grayscale'
                                   : section.availability.status === 'Open'
                                     ? 'border border-green-500 hover:bg-green-50 cursor-pointer shadow-sm'
-                                    : section.availability.status === 'Waitlisted'
+                                    : section.availability.status === 'Wait List'
                                       ? 'border border-yellow-500 hover:bg-yellow-50 cursor-pointer shadow-sm'
                                       : 'border border-red-500 hover:bg-red-50 cursor-pointer shadow-sm'
                             }`}
@@ -2226,7 +2226,7 @@ function CourseCard({
                                         ? `Course status: ${badge.text}`
                                         : badge.type === 'availability'
                                           ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
-                                          : `${section.availability.waitlistTotal} people waiting (capacity: ${section.availability.waitlistCapacity})`
+                                          : `${section.availability.waitlistTotal} people on the wait list (capacity ${section.availability.waitlistCapacity})`
                                     }
                                   >
                                     {badge.text}

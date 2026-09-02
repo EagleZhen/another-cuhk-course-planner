@@ -13,7 +13,7 @@ from data_utils import (
     render_subjects_module,
     render_terms_module,
 )
-from publish_course_data import update_generated_file
+from publish_course_data import archived_years, build_publish_plan, update_generated_file
 
 
 def _configure_publisher(tmp_path, monkeypatch, *, dry_run=False):
@@ -318,7 +318,7 @@ def test_build_publish_plan_checks_every_year_before_blocking(tmp_path, monkeypa
     assert "[2027-28] source files:" in out, "stopped before checking the last year"
 
     assert plan.blocked
-    assert list(plan.files_by_year) == ["2027-28"]
+    assert list(plan.served_files_by_year) == ["2027-28"]
     assert [os.path.basename(source) for source, _ in plan.copy_plan] == ["CCCC.json"]
 
 
@@ -573,3 +573,103 @@ def test_dry_run_reports_manifest_changes_without_writing(tmp_path, monkeypatch,
     assert "Details unavailable; review the generated diff." in output
     assert "Terms manifest changed" in output
     assert "Would publish: 1/1 files" in output
+
+
+# --- Archived years: no scrape can rewrite them ------------------------------------------
+
+
+def _stamp(source_dir, year, when):
+    year_dir = source_dir / year
+    year_dir.mkdir(parents=True, exist_ok=True)
+    # Trailing newline as save_json_with_newline writes it; an unstripped read parses as
+    # None and would silently report no archived years at all.
+    (year_dir / "_scraped_at.txt").write_text(when + "\n")
+
+
+def test_a_year_the_last_scrape_did_not_produce_is_archived(tmp_path):
+    _stamp(tmp_path, "2025-26", "2026-07-29T01:03:33+00:00")
+    _stamp(tmp_path, "2026-27", "2026-09-01T14:05:06+00:00")
+
+    assert archived_years([tmp_path / "2025-26", tmp_path / "2026-27"]) == {"2025-26"}
+
+
+def test_years_from_the_same_scrape_are_not_archived(tmp_path):
+    _stamp(tmp_path, "2025-26", "2026-09-01T14:05:06+00:00")
+    _stamp(tmp_path, "2026-27", "2026-09-01T14:05:06+00:00")
+
+    assert archived_years([tmp_path / "2025-26", tmp_path / "2026-27"]) == set()
+
+
+def test_an_unstamped_year_is_treated_as_current(tmp_path):
+    (tmp_path / "2025-26").mkdir()
+    _stamp(tmp_path, "2026-27", "2026-09-01T14:05:06+00:00")
+
+    assert archived_years([tmp_path / "2025-26", tmp_path / "2026-27"]) == set()
+
+
+def _plan_with_stale_archived_year(tmp_path, monkeypatch, *, archived_schema):
+    source_dir, _, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir, year="2025-26", filename="AAAA.json", subject="AAAA")
+    _write_course_file(source_dir, year="2026-27", filename="AAAA.json", subject="AAAA")
+    _stamp(source_dir, "2025-26", "2026-07-29T01:03:33+00:00")
+    _stamp(source_dir, "2026-27", "2026-09-01T14:05:06+00:00")
+
+    archived_file = source_dir / "2025-26" / "AAAA.json"
+    data = json.loads(archived_file.read_text())
+    data["metadata"]["schema_version"] = archived_schema
+    archived_file.write_text(json.dumps(data))
+
+    return build_publish_plan([source_dir / "2025-26", source_dir / "2026-27"], None)
+
+
+def test_an_archived_year_is_not_version_checked_or_copied(tmp_path, monkeypatch, capsys):
+    plan = _plan_with_stale_archived_year(tmp_path, monkeypatch, archived_schema=SCHEMA_VERSION - 1)
+    capsys.readouterr()
+
+    assert not plan.blocked
+    # Dropping the year here would erase it from scrape-times.ts, which is keyed by year
+    # name. What it contributes to subjects.ts and terms.ts is covered below.
+    assert set(plan.served_files_by_year) == {"2025-26", "2026-27"}
+    # Its published copy is complete and can no longer change, so nothing is copied.
+    assert {Path(source).parent.name for source, _ in plan.copy_plan} == {"2026-27"}
+
+
+def test_a_current_year_is_still_version_checked(tmp_path, monkeypatch, capsys):
+    source_dir, _, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir, year="2026-27", filename="AAAA.json", subject="AAAA")
+    _stamp(source_dir, "2026-27", "2026-09-01T14:05:06+00:00")
+
+    stale = source_dir / "2026-27" / "AAAA.json"
+    data = json.loads(stale.read_text())
+    data["metadata"]["schema_version"] = SCHEMA_VERSION - 1
+    stale.write_text(json.dumps(data))
+
+    plan = build_publish_plan([source_dir / "2026-27"], None)
+    capsys.readouterr()
+
+    assert plan.blocked
+    assert plan.blocked_subjects == ["AAAA"]
+
+
+def test_archived_manifests_describe_the_published_copy_not_the_source(
+    tmp_path, monkeypatch, capsys
+):
+    # Nothing copies an archived year, so a source file with no published counterpart
+    # would be listed in subjects.ts and then 404 when the app fetched it.
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    for subject in ("AAAA", "BBBB"):
+        _write_course_file(source_dir, year="2025-26", filename=f"{subject}.json", subject=subject)
+    _write_course_file(source_dir, year="2026-27", filename="AAAA.json", subject="AAAA")
+    _stamp(source_dir, "2025-26", "2026-07-29T01:03:33+00:00")
+    _stamp(source_dir, "2026-27", "2026-09-01T14:05:06+00:00")
+
+    # Only AAAA was ever published for the archived year.
+    (published_dir / "2025-26").mkdir(parents=True)
+    (published_dir / "2025-26" / "AAAA.json").write_text(
+        (source_dir / "2025-26" / "AAAA.json").read_text()
+    )
+
+    plan = build_publish_plan([source_dir / "2025-26", source_dir / "2026-27"], None)
+    capsys.readouterr()
+
+    assert [path.name for path in plan.served_files_by_year["2025-26"]] == ["AAAA.json"]

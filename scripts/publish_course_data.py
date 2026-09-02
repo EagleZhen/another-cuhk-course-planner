@@ -38,6 +38,7 @@ from data_utils import (
     render_subjects_module,
     render_terms_module,
     save_json_with_newline,
+    subject_files,
     year_dirs,
 )
 
@@ -107,12 +108,17 @@ def subject_code_of(file_path: str) -> str:
     return os.path.splitext(os.path.basename(file_path))[0]
 
 
-def validate_course_file(file_path: str, subject_code: str) -> tuple[bool, list[str]]:
+def validate_course_file(
+    file_path: str, subject_code: str, *, check_schema_version: bool = True
+) -> tuple[bool, list[str]]:
     """
     Validate a course JSON file
     Returns (is_valid, list_of_issues)
 
     File scope only; the scrape's own record is validate_scrape_progress.
+
+    `check_schema_version` is off for an archived year, whose files no scrape can
+    rewrite — see archived_years.
     """
     issues = []
 
@@ -134,7 +140,7 @@ def validate_course_file(file_path: str, subject_code: str) -> tuple[bool, list[
 
     # Check metadata
     file_version = metadata.get("schema_version")
-    if file_version != SCHEMA_VERSION:
+    if check_schema_version and file_version != SCHEMA_VERSION:
         issues.append(
             f"Schema version is {file_version!r}, expected {SCHEMA_VERSION} — re-scrape this subject"
         )
@@ -220,8 +226,37 @@ def find_course_files(year_dir: str) -> tuple[list[str], list[str], int]:
     return sorted(course_files), sorted(unexpected_files), len(all_files)
 
 
+def archived_years(source_years: list[Path]) -> set[str]:
+    """Years the last full scrape did not produce, so nothing can rewrite them.
+
+    Only full scrapes stamp a year directory, and only the ones they wrote, so a stamp
+    older than the newest means CUHK stopped serving that year. Re-validating it against
+    the current schema would reject it forever, since no re-scrape can satisfy the check.
+
+    Not taken from the progress log, the obvious alternative: its subject registry is
+    cumulative, so a subject this run skipped keeps an `output_file` naming a year CUHK
+    has since dropped, and that year would look current again.
+
+    A year with no stamp is treated as current and published as before.
+    """
+    stamps = {}
+    for year_path in source_years:
+        stamp = year_path / SCRAPE_TIME_FILENAME
+        scraped_at = (
+            parse_iso_timestamp(stamp.read_text("utf-8").strip()) if stamp.exists() else None
+        )
+        if scraped_at:
+            stamps[year_path.name] = scraped_at
+
+    if not stamps:
+        return set()
+
+    newest = max(stamps.values())
+    return {year for year, scraped_at in stamps.items() if scraped_at < newest}
+
+
 def categorize_year_files(
-    course_files: list[str],
+    course_files: list[str], *, check_schema_version: bool = True
 ) -> tuple[list[str], list[tuple[str, list[str]]], list[str]]:
     """Validate each file in a year. Returns (files_to_copy, blocking_failures, empty_codes):
     - files_to_copy: valid files plus subjects whose only issue is having no courses
@@ -234,7 +269,9 @@ def categorize_year_files(
 
     for file_path in course_files:
         subject_code = subject_code_of(file_path)
-        is_valid, issues = validate_course_file(file_path, subject_code)
+        is_valid, issues = validate_course_file(
+            file_path, subject_code, check_schema_version=check_schema_version
+        )
 
         if is_valid:
             files_to_copy.append(file_path)
@@ -257,7 +294,11 @@ class PublishPlan(NamedTuple):
     """What to copy where, plus whether validation found a blocking problem."""
 
     copy_plan: list[tuple[str, str]]  # (source_path, dest_path)
-    files_by_year: dict[str, list[Path]]
+    # What the app will be able to fetch once this run finishes — the manifests are built
+    # from it, never from data/, so a dry run computes the same answer as a real one.
+    # A current year lists the files about to be copied; an archived year, those already
+    # published.
+    served_files_by_year: dict[str, list[Path]]
     blocked: bool
     blocked_subjects: list[str]  # subject codes to re-scrape, named in the abort message
 
@@ -269,7 +310,7 @@ def build_publish_plan(source_years: list[Path], progress_data: dict | None) -> 
     A blocked year contributes nothing to the plan, and neither does a blocked subject.
     """
     copy_plan: list[tuple[str, str]] = []
-    files_by_year: dict[str, list[Path]] = {}
+    served_files_by_year: dict[str, list[Path]] = {}
     blocked = False
     blocked_subjects: set[str] = set()
 
@@ -281,11 +322,15 @@ def build_publish_plan(source_years: list[Path], progress_data: dict | None) -> 
         blocked_subjects.update(progress_issues)
         blocked = True
 
+    archived = archived_years(source_years)
+
     for year_path in source_years:
         year = year_path.name
+        is_archived = year in archived
         course_files, unexpected_files, total_json_files = find_course_files(str(year_path))
 
-        print(f"[{year}] source files: {total_json_files}, selected: {len(course_files)}")
+        label = " (archived, not re-published)" if is_archived else ""
+        print(f"[{year}] source files: {total_json_files}, selected: {len(course_files)}{label}")
         if unexpected_files:
             print(f"   Skipped unexpected filenames: {', '.join(unexpected_files)}")
         if not course_files:
@@ -293,7 +338,9 @@ def build_publish_plan(source_years: list[Path], progress_data: dict | None) -> 
             blocked = True
             continue
 
-        files_to_copy, blocking_failures, empty_codes = categorize_year_files(course_files)
+        files_to_copy, blocking_failures, empty_codes = categorize_year_files(
+            course_files, check_schema_version=not is_archived
+        )
         if empty_codes:
             print(
                 f"   Subjects with no courses ({len(empty_codes)}): "
@@ -308,17 +355,27 @@ def build_publish_plan(source_years: list[Path], progress_data: dict | None) -> 
             blocked = True
             continue
 
-        files_to_copy = [
-            file_path
-            for file_path in files_to_copy
-            if subject_code_of(file_path) not in progress_issues
-        ]
-        files_by_year[year] = [Path(file_path) for file_path in files_to_copy]
+        # A subject this scrape failed says nothing about a year the scrape never touched.
+        if not is_archived:
+            files_to_copy = [
+                file_path
+                for file_path in files_to_copy
+                if subject_code_of(file_path) not in progress_issues
+            ]
+
+        # Nothing is copied for an archived year, so what it serves is what is already
+        # published. Listing the source here would name a subject no copy ever produced.
+        if is_archived:
+            served_files_by_year[year] = subject_files(Path(PUBLISHED_DATA_DIR) / year)
+            continue
+
+        served_files_by_year[year] = [Path(file_path) for file_path in files_to_copy]
+
         dest_dir = os.path.join(PUBLISHED_DATA_DIR, year)
         for file_path in files_to_copy:
             copy_plan.append((file_path, os.path.join(dest_dir, os.path.basename(file_path))))
 
-    return PublishPlan(copy_plan, files_by_year, blocked, sorted(blocked_subjects))
+    return PublishPlan(copy_plan, served_files_by_year, blocked, sorted(blocked_subjects))
 
 
 def collect_scrape_times(years: Iterable[str]) -> dict[str, str]:
@@ -338,8 +395,9 @@ def collect_scrape_times(years: Iterable[str]) -> dict[str, str]:
 def copy_commit_title(scrape_times: dict[str, str]) -> None:
     """Put the commit title for this run on the clipboard, ready to paste.
 
-    List only years stamped by the newest full scrape. Older source years remain
-    publishable after CUHK drops them, but they were not updated by this run.
+    List only years stamped by the newest full scrape — the same rule archived_years
+    inverts. An older year is archived rather than republished, so it never belongs in
+    a title describing what this run wrote.
 
     Writes to stderr, which isn't teed into the publish log, so the committed
     log stays free of clipboard chatter either way.
@@ -604,14 +662,14 @@ def main():
         else:
             print(f"Publishing {len(plan.copy_plan)} files under {published_root}/<year>/")
 
-        # 3. Regenerate the frontend manifests from the plan, not the source tree, so they
-        # describe exactly what ships. Both are rendered before either is written, so a
-        # rendering failure cannot leave the pair half-updated.
-        subjects_by_year, subject_titles = collect_subjects_from_files(plan.files_by_year)
+        # 3. Regenerate the frontend manifests from what the plan says will be served.
+        # Both are rendered before either is written, so a rendering failure cannot leave
+        # the pair half-updated.
+        subjects_by_year, subject_titles = collect_subjects_from_files(plan.served_files_by_year)
         new_subjects_content = render_subjects_module(subjects_by_year, subject_titles)
 
         terms_by_year = collect_terms_from_files(
-            filepath for filepaths in plan.files_by_year.values() for filepath in filepaths
+            filepath for filepaths in plan.served_files_by_year.values() for filepath in filepaths
         )
         new_terms_content = render_terms_module(terms_by_year)
 
@@ -630,7 +688,7 @@ def main():
         # Written even when empty, so the module always reflects the data just published
         # rather than leaving times behind from an earlier run. No "changed" warning:
         # these move with every scrape by design.
-        scrape_times = collect_scrape_times(plan.files_by_year)
+        scrape_times = collect_scrape_times(plan.served_files_by_year)
         update_generated_file(SCRAPE_TIMES_FILE, render_scrape_times_module(scrape_times), dry_run)
 
         # 4. Copy the data files into web/public/data/<year>/, stripping fields the app
