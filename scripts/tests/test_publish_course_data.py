@@ -318,7 +318,7 @@ def test_build_publish_plan_checks_every_year_before_blocking(tmp_path, monkeypa
     assert "[2027-28] source files:" in out, "stopped before checking the last year"
 
     assert plan.blocked
-    assert list(plan.files_by_year) == ["2027-28"]
+    assert list(plan.served_files_by_year) == ["2027-28"]
     assert [os.path.basename(source) for source, _ in plan.copy_plan] == ["CCCC.json"]
 
 
@@ -628,7 +628,7 @@ def test_an_archived_year_is_not_version_checked_or_copied(tmp_path, monkeypatch
 
     assert not plan.blocked
     # Still feeds subjects.ts, terms.ts and scrape-times.ts; dropping it erases the year.
-    assert set(plan.files_by_year) == {"2025-26", "2026-27"}
+    assert set(plan.served_files_by_year) == {"2025-26", "2026-27"}
     # Its published copy is complete and can no longer change, so nothing is copied.
     assert {Path(source).parent.name for source, _ in plan.copy_plan} == {"2026-27"}
 
@@ -648,3 +648,27 @@ def test_a_current_year_is_still_version_checked(tmp_path, monkeypatch, capsys):
 
     assert plan.blocked
     assert plan.blocked_subjects == ["AAAA"]
+
+
+def test_archived_manifests_describe_the_published_copy_not_the_source(
+    tmp_path, monkeypatch, capsys
+):
+    # Nothing copies an archived year, so a source file with no published counterpart
+    # would be listed in subjects.ts and then 404 when the app fetched it.
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    for subject in ("AAAA", "BBBB"):
+        _write_course_file(source_dir, year="2025-26", filename=f"{subject}.json", subject=subject)
+    _write_course_file(source_dir, year="2026-27", filename="AAAA.json", subject="AAAA")
+    _stamp(source_dir, "2025-26", "2026-07-29T01:03:33+00:00")
+    _stamp(source_dir, "2026-27", "2026-09-01T14:05:06+00:00")
+
+    # Only AAAA was ever published for the archived year.
+    (published_dir / "2025-26").mkdir(parents=True)
+    (published_dir / "2025-26" / "AAAA.json").write_text(
+        (source_dir / "2025-26" / "AAAA.json").read_text()
+    )
+
+    plan = build_publish_plan([source_dir / "2025-26", source_dir / "2026-27"], None)
+    capsys.readouterr()
+
+    assert [path.name for path in plan.served_files_by_year["2025-26"]] == ["AAAA.json"]

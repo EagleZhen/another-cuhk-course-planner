@@ -38,6 +38,7 @@ from data_utils import (
     render_subjects_module,
     render_terms_module,
     save_json_with_newline,
+    subject_files,
     year_dirs,
 )
 
@@ -293,7 +294,11 @@ class PublishPlan(NamedTuple):
     """What to copy where, plus whether validation found a blocking problem."""
 
     copy_plan: list[tuple[str, str]]  # (source_path, dest_path)
-    files_by_year: dict[str, list[Path]]
+    # What the app will be able to fetch once this run finishes — the manifests are built
+    # from it, never from data/, so a dry run computes the same answer as a real one.
+    # A current year lists the files about to be copied; an archived year, those already
+    # published.
+    served_files_by_year: dict[str, list[Path]]
     blocked: bool
     blocked_subjects: list[str]  # subject codes to re-scrape, named in the abort message
 
@@ -305,7 +310,7 @@ def build_publish_plan(source_years: list[Path], progress_data: dict | None) -> 
     A blocked year contributes nothing to the plan, and neither does a blocked subject.
     """
     copy_plan: list[tuple[str, str]] = []
-    files_by_year: dict[str, list[Path]] = {}
+    served_files_by_year: dict[str, list[Path]] = {}
     blocked = False
     blocked_subjects: set[str] = set()
 
@@ -358,18 +363,19 @@ def build_publish_plan(source_years: list[Path], progress_data: dict | None) -> 
                 if subject_code_of(file_path) not in progress_issues
             ]
 
-        # An archived year still feeds the subject, term and scrape-time manifests —
-        # dropping it here would erase the year from the app — but its published copy is
-        # already complete and can no longer change, so nothing is copied.
-        files_by_year[year] = [Path(file_path) for file_path in files_to_copy]
+        # Nothing is copied for an archived year, so what it serves is what is already
+        # published. Listing the source here would name a subject no copy ever produced.
         if is_archived:
+            served_files_by_year[year] = subject_files(Path(PUBLISHED_DATA_DIR) / year)
             continue
+
+        served_files_by_year[year] = [Path(file_path) for file_path in files_to_copy]
 
         dest_dir = os.path.join(PUBLISHED_DATA_DIR, year)
         for file_path in files_to_copy:
             copy_plan.append((file_path, os.path.join(dest_dir, os.path.basename(file_path))))
 
-    return PublishPlan(copy_plan, files_by_year, blocked, sorted(blocked_subjects))
+    return PublishPlan(copy_plan, served_files_by_year, blocked, sorted(blocked_subjects))
 
 
 def collect_scrape_times(years: Iterable[str]) -> dict[str, str]:
@@ -656,14 +662,14 @@ def main():
         else:
             print(f"Publishing {len(plan.copy_plan)} files under {published_root}/<year>/")
 
-        # 3. Regenerate the frontend manifests from the plan, not the source tree, so they
-        # describe exactly what ships. Both are rendered before either is written, so a
-        # rendering failure cannot leave the pair half-updated.
-        subjects_by_year, subject_titles = collect_subjects_from_files(plan.files_by_year)
+        # 3. Regenerate the frontend manifests from what the plan says will be served.
+        # Both are rendered before either is written, so a rendering failure cannot leave
+        # the pair half-updated.
+        subjects_by_year, subject_titles = collect_subjects_from_files(plan.served_files_by_year)
         new_subjects_content = render_subjects_module(subjects_by_year, subject_titles)
 
         terms_by_year = collect_terms_from_files(
-            filepath for filepaths in plan.files_by_year.values() for filepath in filepaths
+            filepath for filepaths in plan.served_files_by_year.values() for filepath in filepaths
         )
         new_terms_content = render_terms_module(terms_by_year)
 
@@ -682,7 +688,7 @@ def main():
         # Written even when empty, so the module always reflects the data just published
         # rather than leaving times behind from an earlier run. No "changed" warning:
         # these move with every scrape by design.
-        scrape_times = collect_scrape_times(plan.files_by_year)
+        scrape_times = collect_scrape_times(plan.served_files_by_year)
         update_generated_file(SCRAPE_TIMES_FILE, render_scrape_times_module(scrape_times), dry_run)
 
         # 4. Copy the data files into web/public/data/<year>/, stripping fields the app
