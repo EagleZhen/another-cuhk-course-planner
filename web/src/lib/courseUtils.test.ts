@@ -31,6 +31,7 @@ import type {
   InternalCourse,
   InternalSection,
   InternalMeeting,
+  SectionAvailability,
   SectionSignature,
 } from './types'
 
@@ -1215,10 +1216,16 @@ describe('getAvailabilityBadges', () => {
       waitlistCapacity: 999,
       waitlistTotal: 6,
     }
-    const [, waitListSeats] = getAvailabilityBadges({ ...seats, status: 'Wait List' })
-    const [, openSeats] = getAvailabilityBadges({ ...seats, status: 'Open' })
+    // Picked by type, not position: a conditional status badge would shift both
+    // destructures together and quietly compare two of the same badge.
+    const seatStyle = (availability: SectionAvailability) =>
+      getAvailabilityBadges(availability).find((badge) => badge.type === 'availability')?.style
+        .className
 
-    expect(waitListSeats.style.className).toEqual(openSeats.style.className)
+    const waitList = seatStyle({ ...seats, status: 'Wait List' })
+
+    expect(waitList).toBeDefined()
+    expect(waitList).toEqual(seatStyle({ ...seats, status: 'Open' }))
   })
 
   it('shows no queue on a full class with no wait list', () => {
