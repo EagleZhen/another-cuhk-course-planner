@@ -794,7 +794,7 @@ def _availability(page_name):
         # Seat counts alone cannot tell these apart: CHLT is as full as a closed class, yet
         # CUHK calls it Wait List, and UGFN has a queue while still calling itself Open.
         (
-            "Class Details - CHLT 1001 - CD University Chinese I.html",
+            "Class Details - CHLT 1001 - CD University Chinese I (7067).html",
             {
                 "capacity": "25",
                 "enrolled": "25",
@@ -805,7 +805,7 @@ def _availability(page_name):
             },
         ),
         (
-            "Class Details - UGFN 1000 - C.html",
+            "Class Details - UGFN 1000 - C (5743).html",
             {
                 "capacity": "136",
                 "enrolled": "125",
@@ -816,7 +816,7 @@ def _availability(page_name):
             },
         ),
         (
-            "Class Details - CSCI 1020 - - Hands-On Intro to C++.html",
+            "Class Details - CSCI 1020 - - Hands-On Intro to C++ (6161).html",
             {
                 "capacity": "50",
                 "enrolled": "0",
@@ -827,7 +827,7 @@ def _availability(page_name):
             },
         ),
         (
-            "Class Detail - UGCP 1001 - -X01 Understanding China.html",
+            "Class Details - UGCP 1001 - -X01 Understanding China (8641).html",
             {
                 "capacity": "2400",
                 "enrolled": "0",
@@ -882,10 +882,10 @@ def test_matching_status_icon_and_word_are_not_logged(scraper, caplog):
 
 # Each sample page paired with the section name the schedule grid gives it in data/.
 REAL_CLASS_DETAILS = [
-    ("Class Detail - UGCP 1001 - -X01 Understanding China.html", "-X01-WBL (8641)"),
-    ("Class Details - CHLT 1001 - CD University Chinese I.html", "CD-LEC (7067)"),
-    ("Class Details - CSCI 1020 - - Hands-On Intro to C++.html", "--LEC (6161)"),
-    ("Class Details - UGFN 1000 - C.html", "C-LEC (5743)"),
+    ("Class Details - UGCP 1001 - -X01 Understanding China (8641).html", "-X01-WBL (8641)"),
+    ("Class Details - CHLT 1001 - CD University Chinese I (7067).html", "CD-LEC (7067)"),
+    ("Class Details - CSCI 1020 - - Hands-On Intro to C++ (6161).html", "--LEC (6161)"),
+    ("Class Details - UGFN 1000 - C (5743).html", "C-LEC (5743)"),
 ]
 
 
