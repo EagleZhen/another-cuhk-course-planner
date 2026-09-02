@@ -837,6 +837,32 @@ def _availability(page_name):
                 "status": "Open",
             },
         ),
+        # Full with no wait list to join. Enrolment runs over capacity, so available seats
+        # is not capacity minus enrolled either.
+        (
+            "Class Details - GENA 1000 - -A01 College Biweekly Assembly (8862).html",
+            {
+                "capacity": "1438",
+                "enrolled": "2363",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "0",
+                "status": "Closed",
+            },
+        ),
+        # Full, and the wait list is full too, so there is no queue left to join. The old
+        # rule asked only whether anyone was queueing, and called this "Waitlisted".
+        (
+            "Class Details - UGCP 1001 - -X01 Understanding China (6555).html",
+            {
+                "capacity": "2400",
+                "enrolled": "2400",
+                "waitlist_capacity": "999",
+                "waitlist_total": "999",
+                "available_seats": "0",
+                "status": "Closed",
+            },
+        ),
     ],
 )
 def test_availability_is_read_from_the_page_not_computed(page_name, expected):
@@ -883,6 +909,8 @@ def test_matching_status_icon_and_word_are_not_logged(scraper, caplog):
 # Each sample page paired with the section name the schedule grid gives it in data/.
 REAL_CLASS_DETAILS = [
     ("Class Details - UGCP 1001 - -X01 Understanding China (8641).html", "-X01-WBL (8641)"),
+    ("Class Details - UGCP 1001 - -X01 Understanding China (6555).html", "-X01-WBL (6555)"),
+    ("Class Details - GENA 1000 - -A01 College Biweekly Assembly (8862).html", "-A01-ASB (8862)"),
     ("Class Details - CHLT 1001 - CD University Chinese I (7067).html", "CD-LEC (7067)"),
     ("Class Details - CSCI 1020 - - Hands-On Intro to C++ (6161).html", "--LEC (6161)"),
     ("Class Details - UGFN 1000 - C (5743).html", "C-LEC (5743)"),
