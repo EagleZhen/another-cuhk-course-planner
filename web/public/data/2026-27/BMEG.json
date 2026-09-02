@@ -237,10 +237,10 @@
               ],
               "availability": {
                 "capacity": "81",
-                "enrolled": "71",
+                "enrolled": "72",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -257,10 +257,10 @@
               ],
               "availability": {
                 "capacity": "81",
-                "enrolled": "71",
+                "enrolled": "72",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -729,7 +729,7 @@
                 "capacity": "40",
                 "enrolled": "40",
                 "waitlist_capacity": "999",
-                "waitlist_total": "4",
+                "waitlist_total": "5",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -755,7 +755,7 @@
                 "capacity": "40",
                 "enrolled": "40",
                 "waitlist_capacity": "999",
-                "waitlist_total": "4",
+                "waitlist_total": "5",
                 "available_seats": "0",
                 "status": "Waitlisted"
               },
@@ -1874,10 +1874,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "29",
+                "enrolled": "31",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "41",
+                "available_seats": "39",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1894,10 +1894,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "29",
+                "enrolled": "31",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "41",
+                "available_seats": "39",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1914,10 +1914,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "29",
+                "enrolled": "31",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "41",
+                "available_seats": "39",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -3941,24 +3941,30 @@
               "meetings": [
                 {
                   "time": "Mo 6:45PM - 9:30PM",
-                  "location": "Lady Shaw Bldg LT2",
+                  "location": "TBA",
+                  "instructor": "Professor CHANG Hing Chiu, \nProfessor DUAN Liting, \nProfessor GAO Zhaoli, \nProfessor HO Ho Pui, \nProfessor MAO Chuanbin, \nProfessor TONG Kai Yu",
+                  "dates": "26/10"
+                },
+                {
+                  "time": "Mo 6:45PM - 9:30PM",
+                  "location": "Mong Man Wai Bldg LT2",
                   "instructor": "Professor CHANG Hing Chiu, \nProfessor DUAN Liting, \nProfessor GAO Zhaoli, \nProfessor HO Ho Pui, \nProfessor MAO Chuanbin, \nProfessor TONG Kai Yu",
                   "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
                 },
                 {
                   "time": "Mo 6:45PM - 9:30PM",
-                  "location": "Lady Shaw Bldg LT2",
+                  "location": "T.Y.Wong Hall LT",
                   "instructor": "Professor CHANG Hing Chiu, \nProfessor DUAN Liting, \nProfessor GAO Zhaoli, \nProfessor HO Ho Pui, \nProfessor MAO Chuanbin, \nProfessor TONG Kai Yu",
-                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11, 7/12, 14/12"
+                  "dates": "2/11, 9/11, 16/11, 23/11, 30/11, 7/12, 14/12"
                 }
               ],
               "availability": {
-                "capacity": "100",
+                "capacity": "120",
                 "enrolled": "108",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "12",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }

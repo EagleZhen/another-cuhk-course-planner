@@ -198,11 +198,11 @@
               ],
               "availability": {
                 "capacity": "68",
-                "enrolled": "20",
+                "enrolled": "68",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
-                "available_seats": "48",
-                "status": "Open"
+                "waitlist_total": "20",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "English only"
             }
@@ -327,11 +327,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "33",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
-                "available_seats": "37",
-                "status": "Open"
+                "waitlist_total": "10",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese only"
             },
@@ -347,11 +347,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "28",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
-                "available_seats": "42",
-                "status": "Open"
+                "waitlist_total": "19",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese only"
             }
@@ -711,9 +711,9 @@
                 "capacity": "15",
                 "enrolled": "15",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
+                "waitlist_total": "1",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese only"
             },
@@ -729,11 +729,11 @@
               ],
               "availability": {
                 "capacity": "15",
-                "enrolled": "9",
+                "enrolled": "15",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "6",
-                "status": "Open"
+                "waitlist_total": "1",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese only"
             },
@@ -749,11 +749,11 @@
               ],
               "availability": {
                 "capacity": "15",
-                "enrolled": "12",
+                "enrolled": "15",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "3",
-                "status": "Open"
+                "waitlist_total": "4",
+                "available_seats": "0",
+                "status": "Waitlisted"
               },
               "class_attributes": "Cantonese only"
             }
@@ -1073,10 +1073,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "56",
+                "enrolled": "58",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -1123,10 +1123,10 @@
               ],
               "availability": {
                 "capacity": "14",
-                "enrolled": "12",
+                "enrolled": "13",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -1217,10 +1217,10 @@
               ],
               "availability": {
                 "capacity": "14",
-                "enrolled": "12",
+                "enrolled": "13",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -1364,10 +1364,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "29",
+                "enrolled": "30",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -4440,10 +4440,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "56",
+                "enrolled": "57",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5787,7 +5787,7 @@
                   "time": "Mo 9:30AM - 12:15PM",
                   "location": "Wong Foo Yuan Bldg 107B",
                   "instructor": "Dr. Raees Begum BAIG",
-                  "dates": "28/9, 5/10"
+                  "dates": "5/10"
                 },
                 {
                   "time": "Mo 9:30AM - 12:15PM",
@@ -5813,7 +5813,7 @@
                   "time": "Mo 2:30PM - 5:15PM",
                   "location": "Esther Lee Bldg 204",
                   "instructor": "Dr. Raees Begum BAIG",
-                  "dates": "28/9, 5/10"
+                  "dates": "5/10"
                 },
                 {
                   "time": "Mo 2:30PM - 5:15PM",
@@ -7192,25 +7192,25 @@
                 {
                   "time": "We 6:30PM - 9:15PM",
                   "location": "Yasumoto Int'l Acad Park 410",
-                  "instructor": "Miss NG Pui Wah, \nMs. LEE Shuk Ha",
+                  "instructor": "Ms. LEE Shuk Ha",
                   "dates": "30/9"
                 },
                 {
                   "time": "We 6:30PM - 9:15PM",
                   "location": "Yasumoto Int'l Acad Park 410",
-                  "instructor": "Miss NG Pui Wah, \nMs. LEE Shuk Ha",
+                  "instructor": "Ms. LEE Shuk Ha",
                   "dates": "21/10"
                 },
                 {
                   "time": "We 6:30PM - 9:15PM",
                   "location": "Yasumoto Int'l Acad Park 410",
-                  "instructor": "Miss NG Pui Wah, \nMs. LEE Shuk Ha",
+                  "instructor": "Ms. LEE Shuk Ha",
                   "dates": "11/11"
                 },
                 {
                   "time": "We 6:30PM - 9:15PM",
                   "location": "Yasumoto Int'l Acad Park 410",
-                  "instructor": "Miss NG Pui Wah, \nMs. LEE Shuk Ha",
+                  "instructor": "Ms. LEE Shuk Ha",
                   "dates": "2/12"
                 }
               ],
