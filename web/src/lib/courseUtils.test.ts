@@ -1204,6 +1204,23 @@ describe('getAvailabilityBadges', () => {
     ])
   })
 
+  it('colours the seat count by seats alone, not by the catalog status', () => {
+    // UGFN 1000 C is real: CUHK says Open with 11 seats and 6 people queued, so its word
+    // does not track the seat counts. If it ever says Wait List with seats left, the seat
+    // badge still answers "can I take one now?" — and the answer is yes.
+    const seats = {
+      capacity: 136,
+      enrolled: 125,
+      availableSeats: 11,
+      waitlistCapacity: 999,
+      waitlistTotal: 6,
+    }
+    const [, waitListSeats] = getAvailabilityBadges({ ...seats, status: 'Wait List' })
+    const [, openSeats] = getAvailabilityBadges({ ...seats, status: 'Open' })
+
+    expect(waitListSeats.style.className).toEqual(openSeats.style.className)
+  })
+
   it('shows no queue on a full class with no wait list', () => {
     const badges = getAvailabilityBadges({
       ...fullWithOpenQueue,

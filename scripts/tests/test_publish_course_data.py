@@ -627,7 +627,8 @@ def test_an_archived_year_is_not_version_checked_or_copied(tmp_path, monkeypatch
     capsys.readouterr()
 
     assert not plan.blocked
-    # Still feeds subjects.ts, terms.ts and scrape-times.ts; dropping it erases the year.
+    # Dropping the year here would erase it from scrape-times.ts, which is keyed by year
+    # name. What it contributes to subjects.ts and terms.ts is covered below.
     assert set(plan.served_files_by_year) == {"2025-26", "2026-27"}
     # Its published copy is complete and can no longer change, so nothing is copied.
     assert {Path(source).parent.name for source, _ in plan.copy_plan} == {"2026-27"}

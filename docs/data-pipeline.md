@@ -86,7 +86,7 @@ The publish script checks:
 - scraping progress metadata
 - zero-course subjects and structural issues
 
-A year the latest full scrape did not produce is **archived**: CUHK no longer serves it, so no scrape can rewrite its files and the schema check could only reject them forever. Such a year is neither version-checked nor re-copied, since its published copy is complete and can no longer change. It still feeds the manifests — dropping it would erase the year from the app — but from the published copy rather than from [data/](../data/), so a manifest can never name a subject that was never copied.
+A year the latest full scrape did not produce is **archived**: CUHK no longer serves it, so no scrape can rewrite its files and the schema check could only reject them forever. Such a year is neither version-checked nor re-copied, since its published copy is complete and can no longer change. It still feeds the manifests — dropping it would erase the year from the app — but its subjects and terms are read from the published copy, so a manifest can never name a subject that was never copied. Its scrape time still comes from the stamp in [data/](../data/).
 
 These checks validate selected files; they do not prove that an academic year contains every subject. Treat unexpected subject removals as data-review signals.
 
