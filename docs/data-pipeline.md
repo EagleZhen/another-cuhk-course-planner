@@ -137,8 +137,8 @@ List page -> detail page -> outcome page -> term/section pages
 Courses marked as available from a future date can use different formatting on different pages. PHED1370 is the canonical sample:
 
 - [Course list sample](<../lab/scraper/samples/webpages/Course List - PHED.html>)
-- [Detail page sample](<../lab/scraper/samples/webpages/Class Detail - PHED 1370 - Archery.html>)
-- [Outcome page sample](<../lab/scraper/samples/webpages/Course Outcome - PHED 1370 - Archery .html>)
+- [Detail page sample](<../lab/scraper/samples/webpages/Course Detail - PHED 1370 - Archery.html>)
+- [Outcome page sample](<../lab/scraper/samples/webpages/Course Outcome - PHED 1370 - Archery.html>)
 
 On the list page, the course code may be wrapped in brackets and the title may include an availability remark. On the outcome page, the course header may be a dash. The scraper therefore trusts the detail page for the clean course code and title.
 
