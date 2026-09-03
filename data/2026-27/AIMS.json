@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 1,
+    "schema_version": 2,
     "subject": "AIMS",
     "subject_title": "Artificial Intelligence",
     "total_courses": 15
@@ -711,12 +711,12 @@
                 }
               ],
               "availability": {
-                "capacity": "72",
+                "capacity": "66",
                 "enrolled": "66",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "20",
                 "waitlist_total": "0",
-                "available_seats": "6",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }

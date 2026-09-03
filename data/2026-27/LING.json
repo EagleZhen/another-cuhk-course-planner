@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 1,
+    "schema_version": 2,
     "subject": "LING",
     "subject_title": "Linguistics",
     "total_courses": 50
@@ -34,11 +34,11 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "71",
+                "enrolled": "75",
                 "waitlist_capacity": "999",
-                "waitlist_total": "20",
-                "available_seats": "4",
-                "status": "Open"
+                "waitlist_total": "16",
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -60,11 +60,11 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "71",
+                "enrolled": "75",
                 "waitlist_capacity": "999",
-                "waitlist_total": "20",
-                "available_seats": "4",
-                "status": "Open"
+                "waitlist_total": "16",
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -398,10 +398,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "55",
+                "enrolled": "58",
                 "waitlist_capacity": "999",
-                "waitlist_total": "3",
-                "available_seats": "10",
+                "waitlist_total": "0",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -418,10 +418,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "31",
+                "enrolled": "34",
                 "waitlist_capacity": "999",
-                "waitlist_total": "3",
-                "available_seats": "4",
+                "waitlist_total": "0",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
