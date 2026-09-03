@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 1,
+    "schema_version": 2,
     "subject": "BIOL",
     "subject_title": "Biology",
     "total_courses": 32
@@ -519,7 +519,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -779,10 +779,10 @@
               ],
               "availability": {
                 "capacity": "130",
-                "enrolled": "75",
+                "enrolled": "76",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "55",
+                "available_seats": "54",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -833,10 +833,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "41",
+                "enrolled": "45",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1266,10 +1266,10 @@
               ],
               "availability": {
                 "capacity": "82",
-                "enrolled": "38",
+                "enrolled": "40",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "44",
+                "available_seats": "42",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1322,10 +1322,10 @@
               ],
               "availability": {
                 "capacity": "63",
-                "enrolled": "58",
+                "enrolled": "60",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1562,10 +1562,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "35",
+                "available_seats": "34",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1862,7 +1862,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }

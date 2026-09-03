@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 1,
+    "schema_version": 2,
     "subject": "EDUC",
     "subject_title": "Education",
     "total_courses": 14
@@ -458,7 +458,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -739,10 +739,10 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "34",
+                "enrolled": "35",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "41",
+                "available_seats": "40",
                 "status": "Open"
               },
               "class_attributes": "English only"

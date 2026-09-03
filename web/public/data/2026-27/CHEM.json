@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 1,
+    "schema_version": 2,
     "subject": "CHEM",
     "subject_title": "Chemistry",
     "total_courses": 81
@@ -40,10 +40,10 @@
               ],
               "availability": {
                 "capacity": "249",
-                "enrolled": "246",
+                "enrolled": "247",
                 "waitlist_capacity": "999",
-                "waitlist_total": "12",
-                "available_seats": "3",
+                "waitlist_total": "11",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -66,10 +66,10 @@
               ],
               "availability": {
                 "capacity": "249",
-                "enrolled": "246",
+                "enrolled": "247",
                 "waitlist_capacity": "999",
-                "waitlist_total": "12",
-                "available_seats": "3",
+                "waitlist_total": "11",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -220,10 +220,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "75",
+                "enrolled": "76",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -240,10 +240,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "75",
+                "enrolled": "76",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -1467,7 +1467,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese, English and Putonghua"
             },
@@ -2750,10 +2750,10 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "82",
+                "enrolled": "84",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2770,10 +2770,10 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "82",
+                "enrolled": "84",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "Cantonese, English and Putonghua"
@@ -2891,11 +2891,11 @@
               ],
               "availability": {
                 "capacity": "85",
-                "enrolled": "86",
+                "enrolled": "88",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -3287,7 +3287,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese, English and Putonghua"
             }
@@ -4068,10 +4068,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "14",
+                "enrolled": "16",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "26",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4123,10 +4123,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "37",
+                "enrolled": "39",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4301,10 +4301,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "22",
+                "enrolled": "24",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -4415,7 +4415,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -4435,7 +4435,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English"
             }

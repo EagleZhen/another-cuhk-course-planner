@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 1,
+    "schema_version": 2,
     "subject": "BCHE",
     "subject_title": "Biochemistry",
     "total_courses": 23
@@ -94,10 +94,10 @@
               ],
               "availability": {
                 "capacity": "300",
-                "enrolled": "248",
+                "enrolled": "251",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "52",
+                "available_seats": "49",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -565,7 +565,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -741,7 +741,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "2",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -940,7 +940,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -1143,10 +1143,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "52",
+                "enrolled": "54",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1465,7 +1465,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "10",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }

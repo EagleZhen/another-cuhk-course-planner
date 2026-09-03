@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 1,
+    "schema_version": 2,
     "subject": "EEEN",
     "subject_title": "Energy and Environmental Engineering",
     "total_courses": 12
@@ -34,11 +34,11 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "63",
+                "enrolled": "66",
                 "waitlist_capacity": "999",
                 "waitlist_total": "4",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -54,11 +54,11 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "63",
+                "enrolled": "66",
                 "waitlist_capacity": "999",
                 "waitlist_total": "4",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -402,10 +402,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "23",
+                "enrolled": "24",
                 "waitlist_capacity": "999",
                 "waitlist_total": "2",
-                "available_seats": "17",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -422,10 +422,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "23",
+                "enrolled": "24",
                 "waitlist_capacity": "999",
                 "waitlist_total": "2",
-                "available_seats": "17",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
