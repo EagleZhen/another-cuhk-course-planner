@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 1,
+    "schema_version": 2,
     "subject": "GDRS",
     "subject_title": "Gender Studies",
     "total_courses": 36
@@ -221,7 +221,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -241,7 +241,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -898,11 +898,11 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "31",
+                "enrolled": "35",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "4",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -918,11 +918,11 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "31",
+                "enrolled": "35",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "4",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -1259,11 +1259,11 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "35",
+                "enrolled": "40",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -1285,11 +1285,11 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "35",
+                "enrolled": "40",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -1465,11 +1465,11 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "33",
+                "enrolled": "38",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -1485,11 +1485,11 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "33",
+                "enrolled": "38",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -1844,10 +1844,10 @@
               ],
               "availability": {
                 "capacity": "58",
-                "enrolled": "48",
+                "enrolled": "49",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2122,10 +2122,10 @@
               ],
               "availability": {
                 "capacity": "53",
-                "enrolled": "42",
+                "enrolled": "43",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only"

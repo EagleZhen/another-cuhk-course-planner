@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 1,
+    "schema_version": 2,
     "subject": "CENG",
     "subject_title": "Computer Engineering",
     "total_courses": 10
@@ -169,11 +169,11 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "51",
+                "enrolled": "50",
                 "waitlist_capacity": "999",
                 "waitlist_total": "7",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -195,11 +195,11 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "51",
+                "enrolled": "50",
                 "waitlist_capacity": "999",
                 "waitlist_total": "7",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -605,10 +605,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "6",
+                "enrolled": "8",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "44",
+                "available_seats": "42",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -625,10 +625,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "6",
+                "enrolled": "8",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "44",
+                "available_seats": "42",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2504,10 +2504,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "21",
+                "enrolled": "22",
                 "waitlist_capacity": "2",
                 "waitlist_total": "0",
-                "available_seats": "39",
+                "available_seats": "38",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2524,10 +2524,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "21",
+                "enrolled": "22",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "39",
+                "available_seats": "38",
                 "status": "Open"
               },
               "class_attributes": "English only"

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 1,
+    "schema_version": 2,
     "subject": "MEDU",
     "subject_title": "Medicine",
     "total_courses": 52
@@ -455,7 +455,7 @@
               ],
               "availability": {
                 "capacity": "300",
-                "enrolled": "312",
+                "enrolled": "310",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -475,7 +475,7 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "26",
+                "enrolled": "25",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -555,7 +555,7 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "26",
+                "enrolled": "25",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -1058,7 +1058,7 @@
               ],
               "availability": {
                 "capacity": "300",
-                "enrolled": "312",
+                "enrolled": "310",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -1084,10 +1084,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "18",
+                "enrolled": "17",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "23",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1214,10 +1214,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "21",
+                "enrolled": "20",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2651,126 +2651,6 @@
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "-O07-OTH (1114)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "TBA",
-                  "instructor": "Staff",
-                  "dates": "TBA"
-                }
-              ],
-              "availability": {
-                "capacity": "28",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "28",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "-O08-OTH (1124)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "TBA",
-                  "instructor": "Staff",
-                  "dates": "TBA"
-                }
-              ],
-              "availability": {
-                "capacity": "28",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "28",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "-O09-OTH (1119)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "TBA",
-                  "instructor": "Staff",
-                  "dates": "TBA"
-                }
-              ],
-              "availability": {
-                "capacity": "28",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "28",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "-O10-OTH (1120)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "TBA",
-                  "instructor": "Staff",
-                  "dates": "TBA"
-                }
-              ],
-              "availability": {
-                "capacity": "28",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "28",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "-O11-OTH (1106)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "TBA",
-                  "instructor": "Staff",
-                  "dates": "TBA"
-                }
-              ],
-              "availability": {
-                "capacity": "28",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "28",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "-O12-OTH (1121)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "TBA",
-                  "instructor": "Staff",
-                  "dates": "TBA"
-                }
-              ],
-              "availability": {
-                "capacity": "28",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "28",
-                "status": "Open"
               },
               "class_attributes": "English only"
             }

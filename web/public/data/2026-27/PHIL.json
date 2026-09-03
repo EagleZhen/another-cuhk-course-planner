@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 1,
+    "schema_version": 2,
     "subject": "PHIL",
     "subject_title": "Philosophy",
     "total_courses": 65
@@ -28,10 +28,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "49",
+                "enrolled": "55",
                 "waitlist_capacity": "999",
-                "waitlist_total": "65",
-                "available_seats": "11",
+                "waitlist_total": "55",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -48,10 +48,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "49",
+                "enrolled": "55",
                 "waitlist_capacity": "999",
-                "waitlist_total": "65",
-                "available_seats": "11",
+                "waitlist_total": "55",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -265,10 +265,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "52",
+                "enrolled": "51",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -285,10 +285,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "52",
+                "enrolled": "51",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -3485,7 +3485,7 @@
                 "waitlist_capacity": "5",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese only"
             }
@@ -3534,7 +3534,7 @@
                 "waitlist_capacity": "5",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese only"
             }
@@ -3589,7 +3589,7 @@
                 "waitlist_capacity": "5",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese only"
             }
@@ -3637,7 +3637,7 @@
                 "waitlist_capacity": "5",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese only"
             }
@@ -3733,7 +3733,7 @@
                 "waitlist_capacity": "5",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Putonghua only"
             }
@@ -3811,7 +3811,7 @@
                 "waitlist_capacity": "13",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese only"
             }

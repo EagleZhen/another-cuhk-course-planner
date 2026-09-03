@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 1,
+    "schema_version": 2,
     "subject": "GESC",
     "subject_title": "General Education - Shaw College",
     "total_courses": 20
@@ -48,10 +48,10 @@
               ],
               "availability": {
                 "capacity": "2000",
-                "enrolled": "993",
+                "enrolled": "994",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1007",
+                "available_seats": "1006",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -179,7 +179,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "96",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese only"
             }
@@ -228,7 +228,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "40",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English"
             }
@@ -345,7 +345,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "9",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -365,7 +365,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -391,7 +391,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese only"
             },
@@ -411,7 +411,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "4",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese only"
             },
@@ -437,7 +437,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "11",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -457,7 +457,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -477,7 +477,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "6",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -497,7 +497,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -517,7 +517,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "4",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -537,7 +537,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -557,7 +557,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -577,7 +577,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
-                "status": "Closed"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -623,7 +623,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "2",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English"
             },
@@ -643,7 +643,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "13",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "Putonghua only"
             }
@@ -1066,9 +1066,9 @@
                 "capacity": "40",
                 "enrolled": "41",
                 "waitlist_capacity": "999",
-                "waitlist_total": "48",
+                "waitlist_total": "47",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "Putonghua and Cantonese"
             }
@@ -1114,11 +1114,11 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "57",
+                "enrolled": "59",
                 "waitlist_capacity": "999",
-                "waitlist_total": "38",
+                "waitlist_total": "37",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English"
             }
@@ -1167,7 +1167,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "23",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -1187,7 +1187,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "23",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -1242,7 +1242,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "47",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -1506,7 +1506,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "26",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English"
             }
@@ -1550,11 +1550,11 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "61",
+                "enrolled": "63",
                 "waitlist_capacity": "999",
-                "waitlist_total": "36",
+                "waitlist_total": "35",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese only"
             },
@@ -1570,11 +1570,11 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "61",
+                "enrolled": "63",
                 "waitlist_capacity": "999",
-                "waitlist_total": "36",
+                "waitlist_total": "35",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese only"
             }
@@ -1762,11 +1762,11 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "51",
+                "enrolled": "52",
                 "waitlist_capacity": "999",
                 "waitlist_total": "8",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }

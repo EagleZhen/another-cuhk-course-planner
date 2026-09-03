@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 1,
+    "schema_version": 2,
     "subject": "PSYC",
     "subject_title": "Psychology",
     "total_courses": 105
@@ -34,10 +34,10 @@
               ],
               "availability": {
                 "capacity": "400",
-                "enrolled": "326",
+                "enrolled": "339",
                 "waitlist_capacity": "999",
                 "waitlist_total": "64",
-                "available_seats": "74",
+                "available_seats": "61",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -180,7 +180,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "29",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -499,10 +499,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "105",
+                "enrolled": "107",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "45",
+                "available_seats": "43",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -525,10 +525,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "105",
+                "enrolled": "107",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "45",
+                "available_seats": "43",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -681,11 +681,11 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "47",
+                "enrolled": "50",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "3",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -707,11 +707,11 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "47",
+                "enrolled": "50",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "3",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -946,10 +946,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "99",
+                "enrolled": "100",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "51",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -972,10 +972,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "99",
+                "enrolled": "100",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "51",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1127,10 +1127,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "134",
+                "enrolled": "144",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1147,10 +1147,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "134",
+                "enrolled": "144",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1310,11 +1310,11 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "137",
+                "enrolled": "153",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "13",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -1330,11 +1330,11 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "137",
+                "enrolled": "153",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "13",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -1497,7 +1497,7 @@
                 "waitlist_capacity": "999",
                 "waitlist_total": "5",
                 "available_seats": "0",
-                "status": "Waitlisted"
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -1705,10 +1705,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "25",
+                "enrolled": "31",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "25",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1725,10 +1725,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "25",
+                "enrolled": "31",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "25",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1783,10 +1783,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "90",
+                "enrolled": "99",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "21",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1803,10 +1803,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "90",
+                "enrolled": "99",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "21",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2296,10 +2296,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "73",
+                "enrolled": "77",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "47",
+                "available_seats": "43",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2322,10 +2322,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "38",
+                "enrolled": "42",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "18",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2406,10 +2406,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "80",
+                "enrolled": "89",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "40",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2426,10 +2426,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "80",
+                "enrolled": "89",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "40",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "English only"
