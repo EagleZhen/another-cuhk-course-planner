@@ -588,7 +588,7 @@ export default function ShoppingCart({
                                   className={`text-[8.5px] flex-shrink-0 px-1 py-0 ${badge.style.className}`}
                                   title={
                                     badge.type === 'status'
-                                      ? `Course status: ${badge.text}`
+                                      ? `Section status: ${badge.text}`
                                       : badge.type === 'availability'
                                         ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
                                         : `${section.availability.waitlistTotal} people on the wait list (capacity ${section.availability.waitlistCapacity})`

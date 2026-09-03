@@ -1484,18 +1484,18 @@ export function autoCompleteEnrollmentSections(
 }
 
 /**
- * Determine which badges to show based on course status and availability
+ * Determine which badges to show based on section status and availability
  */
 export function getAvailabilityBadges(availability: SectionAvailability) {
   const { availableSeats, status, waitlistTotal, waitlistCapacity, capacity } = availability
 
   const badges = []
 
-  // 1. Course Status Badge (leftmost, most important)
+  // 1. Section Status Badge (leftmost, most important)
   badges.push({
     type: 'status' as const,
     text: status,
-    style: getCourseStatusStyle(status),
+    style: getSectionStatusStyle(status),
   })
 
   // 2. Availability Badge (show available/total seats when capacity > 0)
@@ -1520,9 +1520,9 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
 }
 
 /**
- * Get course status badge styling based on status - intuitive warning system
+ * Get section status badge styling based on status - intuitive warning system
  */
-function getCourseStatusStyle(status: string) {
+function getSectionStatusStyle(status: string) {
   switch (status) {
     case 'Open':
       return {
