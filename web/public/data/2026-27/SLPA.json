@@ -3,7 +3,7 @@
     "schema_version": 2,
     "subject": "SLPA",
     "subject_title": "Speech-Language Pathology",
-    "total_courses": 18
+    "total_courses": 19
   },
   "courses": [
     {
@@ -794,6 +794,51 @@
       "academic_group": "Div of ORL & Commn Science",
       "academic_org": "Div of ORL & Commn Science",
       "learning_outcomes": "Upon completion of this course, students will be able to discuss the different ways of identifying appropriate goals and identify the most appropriate intervention approach based on the available evidence-base.",
+      "assessment_types": {}
+    },
+    {
+      "subject": "SLPA",
+      "course_code": "5304",
+      "title": "Work Integrated Learning and Clinical Practice IV",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-P01-PRA (9904)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LAW Thomas Ka Tung",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "2",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            }
+          ]
+        }
+      ],
+      "description": "The course is designed to provide students with experiential learning for them to develop the required clinical skills in managing clients with various communication and swallowing disorders. Students will be trained to manage, under supervision, paediatric and adult clients in various settings including clinics, schools, health care organizations, and hospitals.",
+      "enrollment_requirement": "Pre-requisite: SLPA5211, SLPA5300, SLPA5301, SLPA5302, SLPA5303, \nFor students in MSc Speech-Language Pathology",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Pass/Not Pass",
+      "component": "Practicum",
+      "campus": "Main Campus",
+      "academic_group": "Div of ORL & Commn Science",
+      "academic_org": "Div of ORL & Commn Science",
+      "learning_outcomes": "Upon completion of this course, students will be able to:\n1. Understand how theories could be integrated into clinical practice;\n2. Systematically evaluate how a professional could manage clients with various communication disorders;\n3. Manage clients with various communication and swallowing disorders under supervision",
       "assessment_types": {}
     },
     {

@@ -20117,12 +20117,12 @@
                 }
               ],
               "availability": {
-                "capacity": "60",
+                "capacity": "50",
                 "enrolled": "50",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },
@@ -20276,12 +20276,12 @@
                 }
               ],
               "availability": {
-                "capacity": "60",
+                "capacity": "50",
                 "enrolled": "50",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only"
             },
@@ -21507,40 +21507,16 @@
               "section": "--LEC (1433)",
               "meetings": [
                 {
-                  "time": "Fr 8:30AM - 1:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 406",
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Basic Med Sci Bldg",
                   "instructor": "Dr. WONG Ho Yan, \nProfessor CHAN Wai Kiu",
-                  "dates": "6/11"
-                },
-                {
-                  "time": "Mo 8:30AM - 1:15PM",
-                  "location": "TBA",
-                  "instructor": "Dr. WONG Ho Yan, \nProfessor CHAN Wai Kiu",
-                  "dates": "2/11"
+                  "dates": "10/9, 17/9, 24/9"
                 },
                 {
                   "time": "Th 9:30AM - 12:15PM",
-                  "location": "TBA",
+                  "location": "Basic Med Sci Bldg",
                   "instructor": "Dr. WONG Ho Yan, \nProfessor CHAN Wai Kiu",
-                  "dates": "10/9"
-                },
-                {
-                  "time": "Th 9:30AM - 12:15PM",
-                  "location": "TBA",
-                  "instructor": "Dr. WONG Ho Yan, \nProfessor CHAN Wai Kiu",
-                  "dates": "15/10, 22/10, 29/10"
-                },
-                {
-                  "time": "Mo 8:30AM - 1:15PM",
-                  "location": "TBA",
-                  "instructor": "Dr. WONG Ho Yan, \nProfessor CHAN Wai Kiu",
-                  "dates": "2/11"
-                },
-                {
-                  "time": "Fr 8:30AM - 1:15PM",
-                  "location": "TBA",
-                  "instructor": "Dr. WONG Ho Yan, \nProfessor CHAN Wai Kiu",
-                  "dates": "6/11"
+                  "dates": "22/10"
                 },
                 {
                   "time": "Fr 9:30AM - 12:15PM",
@@ -21561,28 +21537,16 @@
                   "dates": "23/10"
                 },
                 {
-                  "time": "Th 9:30AM - 12:15PM",
-                  "location": "Shaw College LT",
+                  "time": "Fr 10:30AM - 12:15PM",
+                  "location": "Esther Lee Bldg 203",
                   "instructor": "Dr. WONG Ho Yan, \nProfessor CHAN Wai Kiu",
-                  "dates": "17/9"
+                  "dates": "16/10"
                 },
                 {
                   "time": "Th 9:30AM - 12:15PM",
                   "location": "Shaw College LT",
                   "instructor": "Dr. WONG Ho Yan, \nProfessor CHAN Wai Kiu",
                   "dates": "8/10"
-                },
-                {
-                  "time": "Th 9:30AM - 12:15PM",
-                  "location": "TBA",
-                  "instructor": "Dr. WONG Ho Yan, \nProfessor CHAN Wai Kiu",
-                  "dates": "24/9"
-                },
-                {
-                  "time": "Fr 10:30AM - 12:15PM",
-                  "location": "Esther Lee Bldg 203",
-                  "instructor": "Dr. WONG Ho Yan, \nProfessor CHAN Wai Kiu",
-                  "dates": "16/10"
                 }
               ],
               "availability": {
@@ -21676,12 +21640,6 @@
               "section": "--LEC (2532)",
               "meetings": [
                 {
-                  "time": "We 9:30AM - 12:15PM",
-                  "location": "TBA",
-                  "instructor": "Dr. PANG Cho Kwan, \nMs. KWAN Siu Kuen, \nProfessor CHAN Ngo Sheung Dorothy",
-                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10"
-                },
-                {
                   "time": "Th 2:30PM - 5:15PM",
                   "location": "Tsang Shiu Tim Bldg 312",
                   "instructor": "Dr. PANG Cho Kwan, \nMs. KWAN Siu Kuen, \nProfessor CHAN Ngo Sheung Dorothy",
@@ -21694,22 +21652,34 @@
                   "dates": "15/10"
                 },
                 {
-                  "time": "Tu 9:30AM - 12:15PM",
-                  "location": "Humanities Building 11",
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Basic Med Sci Bldg",
                   "instructor": "Dr. PANG Cho Kwan, \nMs. KWAN Siu Kuen, \nProfessor CHAN Ngo Sheung Dorothy",
                   "dates": "29/9"
                 },
                 {
-                  "time": "We 9:30AM - 1:15PM",
-                  "location": "Humanities Building 11",
+                  "time": "We 10:30AM - 11:15AM",
+                  "location": "Basic Med Sci Bldg",
+                  "instructor": "Dr. PANG Cho Kwan, \nMs. KWAN Siu Kuen, \nProfessor CHAN Ngo Sheung Dorothy",
+                  "dates": "28/10"
+                },
+                {
+                  "time": "We 10:30AM - 12:15PM",
+                  "location": "Basic Med Sci Bldg",
                   "instructor": "Dr. PANG Cho Kwan, \nMs. KWAN Siu Kuen, \nProfessor CHAN Ngo Sheung Dorothy",
                   "dates": "30/9"
                 },
                 {
-                  "time": "We 10:30AM - 12:15PM",
-                  "location": "Humanities Building 11",
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Basic Med Sci Bldg",
                   "instructor": "Dr. PANG Cho Kwan, \nMs. KWAN Siu Kuen, \nProfessor CHAN Ngo Sheung Dorothy",
-                  "dates": "14/10"
+                  "dates": "9/9, 16/9, 23/9"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Basic Med Sci Bldg",
+                  "instructor": "Dr. PANG Cho Kwan, \nMs. KWAN Siu Kuen, \nProfessor CHAN Ngo Sheung Dorothy",
+                  "dates": "7/10, 14/10, 21/10"
                 }
               ],
               "availability": {
@@ -21852,24 +21822,6 @@
               "section": "-T04-TUT (1412)",
               "meetings": [
                 {
-                  "time": "Mo 8:30AM - 1:00PM",
-                  "location": "Esther Lee Bldg 304",
-                  "instructor": "Dr. KWOK Ching Man, \nDr. PANG Cho Kwan, \nMs. KWAN Siu Kuen, \nMs. YAU Wai Yan",
-                  "dates": "9/11"
-                },
-                {
-                  "time": "Th 8:30AM - 1:00PM",
-                  "location": "Cheng Yu Tung Building LT5",
-                  "instructor": "Dr. KWOK Ching Man, \nDr. PANG Cho Kwan, \nMs. KWAN Siu Kuen, \nMs. YAU Wai Yan",
-                  "dates": "12/11"
-                },
-                {
-                  "time": "Tu 8:30AM - 1:00PM",
-                  "location": "Science Centre 139",
-                  "instructor": "Dr. KWOK Ching Man, \nDr. PANG Cho Kwan, \nMs. KWAN Siu Kuen, \nMs. YAU Wai Yan",
-                  "dates": "3/11, 10/11"
-                },
-                {
                   "time": "We 8:30AM - 1:00PM",
                   "location": "TBA",
                   "instructor": "Dr. KWOK Ching Man, \nDr. PANG Cho Kwan, \nMs. KWAN Siu Kuen, \nMs. YAU Wai Yan",
@@ -21889,11 +21841,11 @@
                 }
               ],
               "availability": {
-                "capacity": "60",
+                "capacity": "50",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "60",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -22164,7 +22116,7 @@
                 },
                 {
                   "time": "Tu 2:30PM - 4:15PM",
-                  "location": "Fung King Hey Bldg Swire Hall1",
+                  "location": "Basic Med Sci Bldg",
                   "instructor": "Dr. CHEUNG Pui Han, \nMs. WAN Yuet Mei",
                   "dates": "27/10"
                 },
@@ -22178,7 +22130,7 @@
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "Sino Building LT2",
                   "instructor": "Dr. CHEUNG Pui Han, \nMs. WAN Yuet Mei",
-                  "dates": "16/10, 23/10"
+                  "dates": "16/10"
                 }
               ],
               "availability": {
@@ -22354,34 +22306,10 @@
                   "dates": "6/11, 13/11"
                 },
                 {
-                  "time": "Mo 1:30PM - 5:15PM",
-                  "location": "Esther Lee Bldg LT2",
+                  "time": "Mo 9:30AM - 12:15PM",
+                  "location": "Basic Med Sci Bldg",
                   "instructor": "Dr. LO Hin Man Hermione, \nDr. WONG Ho Yan, \nProfessor TANG Wing Ki",
-                  "dates": "2/11, 9/11"
-                },
-                {
-                  "time": "Fr 1:30PM - 5:15PM",
-                  "location": "Cheng Yu Tung Building LT5",
-                  "instructor": "Dr. LO Hin Man Hermione, \nDr. WONG Ho Yan, \nProfessor TANG Wing Ki",
-                  "dates": "6/11, 13/11"
-                },
-                {
-                  "time": "Tu 1:30PM - 5:15PM",
-                  "location": "Chen Kou Bun Bldg LT3",
-                  "instructor": "Dr. LO Hin Man Hermione, \nDr. WONG Ho Yan, \nProfessor TANG Wing Ki",
-                  "dates": "3/11, 10/11"
-                },
-                {
-                  "time": "Tu 1:30PM - 5:15PM",
-                  "location": "Lee Shau Kee Archi Bldg G01",
-                  "instructor": "Dr. LO Hin Man Hermione, \nDr. WONG Ho Yan, \nProfessor TANG Wing Ki",
-                  "dates": "3/11, 10/11"
-                },
-                {
-                  "time": "Mo 4:30PM - 5:15PM",
-                  "location": "Esther Lee Bldg LT4",
-                  "instructor": "Dr. LO Hin Man Hermione, \nDr. WONG Ho Yan, \nProfessor TANG Wing Ki",
-                  "dates": "26/10"
+                  "dates": "7/9"
                 },
                 {
                   "time": "Fr 8:30AM - 12:15PM",
@@ -22399,7 +22327,7 @@
                   "time": "Mo 9:30AM - 1:15PM",
                   "location": "Esther Lee Bldg 303",
                   "instructor": "Dr. LO Hin Man Hermione, \nDr. WONG Ho Yan, \nProfessor TANG Wing Ki",
-                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                  "dates": "14/9, 21/9, 28/9, 5/10, 12/10"
                 },
                 {
                   "time": "Mo 1:30PM - 5:15PM",
@@ -22412,6 +22340,18 @@
                   "location": "Yasumoto Int'l Acad Park 201",
                   "instructor": "Dr. LO Hin Man Hermione, \nDr. WONG Ho Yan, \nProfessor TANG Wing Ki",
                   "dates": "12/10"
+                },
+                {
+                  "time": "Mo 4:30PM - 5:15PM",
+                  "location": "Basic Med Sci Bldg",
+                  "instructor": "Dr. LO Hin Man Hermione, \nDr. WONG Ho Yan, \nProfessor TANG Wing Ki",
+                  "dates": "26/10"
+                },
+                {
+                  "time": "Mo 3:30PM - 5:30PM",
+                  "location": "Basic Med Sci Bldg",
+                  "instructor": "Dr. LO Hin Man Hermione, \nDr. WONG Ho Yan, \nProfessor TANG Wing Ki",
+                  "dates": "5/10"
                 }
               ],
               "availability": {
