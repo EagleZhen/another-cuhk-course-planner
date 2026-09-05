@@ -143,7 +143,7 @@
                   "time": "Th 2:30PM - 4:15PM",
                   "location": "Wong Foo Yuan Bldg 107A",
                   "instructor": "Dr. Raees Begum BAIG",
-                  "dates": "17/9"
+                  "dates": "17/9, 24/9"
                 },
                 {
                   "time": "Th 2:30PM - 4:15PM",
@@ -703,7 +703,7 @@
                 {
                   "time": "We 2:30PM - 5:15PM",
                   "location": "T.C. Cheng Bldg C1",
-                  "instructor": "Staff",
+                  "instructor": "Miss CHEUNG Lok Yi",
                   "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
                 }
               ],
@@ -723,7 +723,7 @@
                 {
                   "time": "We 10:30AM - 1:15PM",
                   "location": "Yasumoto Int'l Acad Park 405",
-                  "instructor": "Ms HUNG Fai",
+                  "instructor": "Mr. CHOI Wai Leuk Willy",
                   "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
                 }
               ],
@@ -2913,33 +2913,39 @@
               "meetings": [
                 {
                   "time": "Th 9:30AM - 11:15AM",
-                  "location": "Lee Shau Kee Building 306",
+                  "location": "T.C. Cheng Bldg 102",
                   "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
                   "dates": "17/9"
                 },
                 {
                   "time": "Th 9:30AM - 11:15AM",
-                  "location": "Lee Shau Kee Building 306",
+                  "location": "T.C. Cheng Bldg 102",
                   "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
-                  "dates": "15/10"
+                  "dates": "8/10"
                 },
                 {
                   "time": "Th 9:30AM - 11:15AM",
-                  "location": "Lee Shau Kee Building 306",
+                  "location": "T.C. Cheng Bldg 102",
                   "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
-                  "dates": "29/10"
+                  "dates": "22/10"
                 },
                 {
                   "time": "Th 9:30AM - 11:15AM",
-                  "location": "Lee Shau Kee Building 306",
+                  "location": "T.C. Cheng Bldg 102",
                   "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
-                  "dates": "12/11"
+                  "dates": "5/11"
                 },
                 {
                   "time": "Th 9:30AM - 11:15AM",
-                  "location": "Lee Shau Kee Building 306",
+                  "location": "T.C. Cheng Bldg 102",
                   "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
-                  "dates": "26/11"
+                  "dates": "3/12"
+                },
+                {
+                  "time": "Th 9:30AM - 11:15AM",
+                  "location": "T.C. Cheng Bldg 102",
+                  "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
+                  "dates": "19/11"
                 }
               ],
               "availability": {
@@ -2957,59 +2963,9 @@
               "meetings": [
                 {
                   "time": "Th 9:30AM - 11:15AM",
-                  "location": "Lee Shau Kee Building 306",
-                  "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
-                  "dates": "24/9"
-                },
-                {
-                  "time": "Th 9:30AM - 11:15AM",
-                  "location": "Lee Shau Kee Building 306",
-                  "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
-                  "dates": "8/10"
-                },
-                {
-                  "time": "Th 9:30AM - 11:15AM",
-                  "location": "Lee Shau Kee Building 306",
-                  "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
-                  "dates": "22/10"
-                },
-                {
-                  "time": "Th 9:30AM - 11:15AM",
-                  "location": "Lee Shau Kee Building 306",
-                  "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
-                  "dates": "5/11"
-                },
-                {
-                  "time": "Th 9:30AM - 11:15AM",
-                  "location": "Lee Shau Kee Building 306",
-                  "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
-                  "dates": "19/11"
-                },
-                {
-                  "time": "Th 9:30AM - 11:15AM",
-                  "location": "Lee Shau Kee Building 306",
-                  "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
-                  "dates": "3/12"
-                }
-              ],
-              "availability": {
-                "capacity": "15",
-                "enrolled": "13",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese and English"
-            },
-            {
-              "section": "-T03-TUT (9586)",
-              "meetings": [
-                {
-                  "time": "Th 9:30AM - 11:15AM",
                   "location": "T.C. Cheng Bldg 102",
                   "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
-                  "dates": "17/9"
+                  "dates": "24/9"
                 },
                 {
                   "time": "Th 9:30AM - 11:15AM",
@@ -3047,43 +3003,87 @@
               "class_attributes": "Cantonese and English"
             },
             {
-              "section": "-T04-TUT (7367)",
+              "section": "-T03-TUT (9586)",
               "meetings": [
                 {
                   "time": "Th 9:30AM - 11:15AM",
-                  "location": "T.C. Cheng Bldg 102",
+                  "location": "Lee Shau Kee Building 306",
                   "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
-                  "dates": "24/9"
+                  "dates": "17/9"
                 },
                 {
                   "time": "Th 9:30AM - 11:15AM",
-                  "location": "T.C. Cheng Bldg 102",
+                  "location": "Lee Shau Kee Building 306",
                   "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
                   "dates": "8/10"
                 },
                 {
                   "time": "Th 9:30AM - 11:15AM",
-                  "location": "T.C. Cheng Bldg 102",
+                  "location": "Lee Shau Kee Building 306",
                   "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
                   "dates": "22/10"
                 },
                 {
                   "time": "Th 9:30AM - 11:15AM",
-                  "location": "T.C. Cheng Bldg 102",
+                  "location": "Lee Shau Kee Building 306",
                   "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
                   "dates": "5/11"
                 },
                 {
                   "time": "Th 9:30AM - 11:15AM",
-                  "location": "T.C. Cheng Bldg 102",
+                  "location": "Lee Shau Kee Building 306",
                   "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
-                  "dates": "19/11"
+                  "dates": "3/12"
                 },
                 {
                   "time": "Th 9:30AM - 11:15AM",
-                  "location": "T.C. Cheng Bldg 102",
+                  "location": "Lee Shau Kee Building 306",
                   "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
-                  "dates": "3/12"
+                  "dates": "19/11"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "13",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English"
+            },
+            {
+              "section": "-T04-TUT (7367)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 306",
+                  "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
+                  "dates": "24/9"
+                },
+                {
+                  "time": "Th 9:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 306",
+                  "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
+                  "dates": "15/10"
+                },
+                {
+                  "time": "Th 9:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 306",
+                  "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
+                  "dates": "29/10"
+                },
+                {
+                  "time": "Th 9:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 306",
+                  "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
+                  "dates": "12/11"
+                },
+                {
+                  "time": "Th 9:30AM - 11:15AM",
+                  "location": "Lee Shau Kee Building 306",
+                  "instructor": "Dr. CHIU Renee, \nProfessor LEUNG Yuk Ki",
+                  "dates": "26/11"
                 }
               ],
               "availability": {
@@ -3759,37 +3759,37 @@
                   "time": "Th 4:30PM - 6:15PM",
                   "location": "T.C. Cheng Bldg 205",
                   "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
-                  "dates": "22/10"
+                  "dates": "15/10"
                 },
                 {
                   "time": "Th 4:30PM - 6:15PM",
                   "location": "T.C. Cheng Bldg 205",
                   "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
-                  "dates": "5/11"
+                  "dates": "29/10"
                 },
                 {
                   "time": "Th 4:30PM - 6:15PM",
                   "location": "T.C. Cheng Bldg 205",
                   "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
-                  "dates": "19/11"
+                  "dates": "12/11"
                 },
                 {
                   "time": "Th 4:30PM - 6:15PM",
                   "location": "T.C. Cheng Bldg 205",
                   "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
-                  "dates": "3/12"
+                  "dates": "26/11"
                 },
                 {
                   "time": "Th 4:30PM - 6:15PM",
                   "location": "T.C. Cheng Bldg 205",
                   "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
-                  "dates": "17/9"
+                  "dates": "10/9"
                 },
                 {
                   "time": "Th 4:30PM - 6:15PM",
                   "location": "T.C. Cheng Bldg 205",
                   "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
-                  "dates": "8/10"
+                  "dates": "24/9"
                 }
               ],
               "availability": {
@@ -3809,29 +3809,85 @@
                   "time": "Th 4:30PM - 6:15PM",
                   "location": "T.C. Cheng Bldg 205",
                   "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
-                  "dates": "24/9"
+                  "dates": "17/9"
                 },
                 {
                   "time": "Th 4:30PM - 6:15PM",
                   "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
+                  "dates": "8/10"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
+                  "dates": "22/10"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
+                  "dates": "5/11"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
+                  "dates": "3/12"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
+                  "dates": "19/11"
+                }
+              ],
+              "availability": {
+                "capacity": "17",
+                "enrolled": "15",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "2",
+                "status": "Open"
+              },
+              "class_attributes": "English only"
+            },
+            {
+              "section": "-T03-TUT (7130)",
+              "meetings": [
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 102",
+                  "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
+                  "dates": "10/9"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 102",
+                  "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
+                  "dates": "24/9"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 102",
                   "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
                   "dates": "15/10"
                 },
                 {
                   "time": "Th 4:30PM - 6:15PM",
-                  "location": "T.C. Cheng Bldg 205",
+                  "location": "T.C. Cheng Bldg 102",
                   "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
                   "dates": "29/10"
                 },
                 {
                   "time": "Th 4:30PM - 6:15PM",
-                  "location": "T.C. Cheng Bldg 205",
+                  "location": "T.C. Cheng Bldg 102",
                   "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
                   "dates": "12/11"
                 },
                 {
                   "time": "Th 4:30PM - 6:15PM",
-                  "location": "T.C. Cheng Bldg 205",
+                  "location": "T.C. Cheng Bldg 102",
                   "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
                   "dates": "26/11"
                 }
@@ -3847,7 +3903,7 @@
               "class_attributes": "English only"
             },
             {
-              "section": "-T03-TUT (7130)",
+              "section": "-T04-TUT (8243)",
               "meetings": [
                 {
                   "time": "Th 4:30PM - 6:15PM",
@@ -3877,57 +3933,13 @@
                   "time": "Th 4:30PM - 6:15PM",
                   "location": "T.C. Cheng Bldg 102",
                   "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
-                  "dates": "19/11"
-                },
-                {
-                  "time": "Th 4:30PM - 6:15PM",
-                  "location": "T.C. Cheng Bldg 102",
-                  "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
                   "dates": "3/12"
-                }
-              ],
-              "availability": {
-                "capacity": "17",
-                "enrolled": "15",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            },
-            {
-              "section": "-T04-TUT (8243)",
-              "meetings": [
-                {
-                  "time": "Th 4:30PM - 6:15PM",
-                  "location": "T.C. Cheng Bldg 102",
-                  "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
-                  "dates": "24/9"
                 },
                 {
                   "time": "Th 4:30PM - 6:15PM",
                   "location": "T.C. Cheng Bldg 102",
                   "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
-                  "dates": "15/10"
-                },
-                {
-                  "time": "Th 4:30PM - 6:15PM",
-                  "location": "T.C. Cheng Bldg 102",
-                  "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
-                  "dates": "29/10"
-                },
-                {
-                  "time": "Th 4:30PM - 6:15PM",
-                  "location": "T.C. Cheng Bldg 102",
-                  "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
-                  "dates": "12/11"
-                },
-                {
-                  "time": "Th 4:30PM - 6:15PM",
-                  "location": "T.C. Cheng Bldg 102",
-                  "instructor": "Dr. AU YEUNG Kwok Wai Eric, \nMr. LI Ting Fung",
-                  "dates": "26/11"
+                  "dates": "19/11"
                 }
               ],
               "availability": {
@@ -5724,13 +5736,13 @@
                 {
                   "time": "Fr 6:30PM - 9:15PM",
                   "location": "Yasumoto Int'l Acad Park LT5",
-                  "instructor": "Staff",
+                  "instructor": "Dr. CHAN Yui Choi",
                   "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10"
                 },
                 {
                   "time": "Fr 6:30PM - 9:15PM",
                   "location": "Yasumoto Int'l Acad Park LT5",
-                  "instructor": "Staff",
+                  "instructor": "Dr. CHAN Yui Choi",
                   "dates": "4/12, 11/12"
                 }
               ],
@@ -5750,7 +5762,7 @@
                 {
                   "time": "Fr 6:30PM - 9:15PM",
                   "location": "Yasumoto Int'l Acad Park 406",
-                  "instructor": "Staff",
+                  "instructor": "Dr. CHAN Yui Choi",
                   "dates": "6/11, 13/11, 20/11, 27/11"
                 }
               ],

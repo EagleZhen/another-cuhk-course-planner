@@ -100,10 +100,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "62",
+                "enrolled": "61",
                 "waitlist_capacity": "999",
                 "waitlist_total": "15",
-                "available_seats": "8",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -361,11 +361,11 @@
                 }
               ],
               "availability": {
-                "capacity": "35",
+                "capacity": "44",
                 "enrolled": "33",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "11",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -527,12 +527,12 @@
                 }
               ],
               "availability": {
-                "capacity": "45",
+                "capacity": "55",
                 "enrolled": "50",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "5",
+                "status": "Open"
               },
               "class_attributes": "English only"
             }
@@ -617,11 +617,11 @@
                 }
               ],
               "availability": {
-                "capacity": "50",
+                "capacity": "60",
                 "enrolled": "37",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "23",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -892,11 +892,11 @@
                 }
               ],
               "availability": {
-                "capacity": "50",
+                "capacity": "53",
                 "enrolled": "42",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "11",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1052,11 +1052,11 @@
                 }
               ],
               "availability": {
-                "capacity": "45",
+                "capacity": "55",
                 "enrolled": "14",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "31",
+                "available_seats": "41",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -1171,7 +1171,7 @@
                 }
               ],
               "availability": {
-                "capacity": "45",
+                "capacity": "53",
                 "enrolled": "53",
                 "waitlist_capacity": "999",
                 "waitlist_total": "3",
@@ -1376,11 +1376,11 @@
                 }
               ],
               "availability": {
-                "capacity": "45",
+                "capacity": "52",
                 "enrolled": "31",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "21",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2049,16 +2049,16 @@
                 {
                   "time": "Tu 9:30AM - 12:15PM",
                   "location": "Cheng Yu Tung Building LT5",
-                  "instructor": "Professor YANG Yu Ming",
+                  "instructor": "Professor Jasmine YANG",
                   "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
                 }
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "48",
+                "enrolled": "49",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "17",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2069,7 +2069,7 @@
                 {
                   "time": "Tu 6:30PM - 9:15PM",
                   "location": "Cheng Yu Tung Building 209B",
-                  "instructor": "Professor YANG Yu Ming",
+                  "instructor": "Professor Jasmine YANG",
                   "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
                 }
               ],
@@ -2156,10 +2156,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "58",
+                "enrolled": "59",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "7",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2546,6 +2546,12 @@
               "section": "G-LEC (2560)",
               "meetings": [
                 {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT2",
+                  "instructor": "Professor ZHANG Meng",
+                  "dates": "10/11"
+                },
+                {
                   "time": "Mo 9:30AM - 12:15PM",
                   "location": "Fung King Hey Bldg Swire Hall1",
                   "instructor": "Professor ZHANG Meng",
@@ -2555,15 +2561,15 @@
                   "time": "Mo 9:30AM - 12:15PM",
                   "location": "Fung King Hey Bldg Swire Hall1",
                   "instructor": "Professor ZHANG Meng",
-                  "dates": "26/10, 2/11, 9/11"
+                  "dates": "26/10, 2/11"
                 }
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "71",
+                "enrolled": "74",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -2571,6 +2577,12 @@
             {
               "section": "GA-LEC (2561)",
               "meetings": [
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT2",
+                  "instructor": "Professor ZHANG Meng",
+                  "dates": "10/11"
+                },
                 {
                   "time": "Fr 10:30AM - 1:15PM",
                   "location": "Yasumoto Int'l Acad Park 201",
@@ -2581,7 +2593,7 @@
                   "time": "Fr 10:30AM - 1:15PM",
                   "location": "Yasumoto Int'l Acad Park 201",
                   "instructor": "Professor ZHANG Meng",
-                  "dates": "9/10, 16/10, 23/10, 30/10, 6/11, 13/11"
+                  "dates": "9/10, 16/10, 23/10, 30/10, 6/11"
                 }
               ],
               "availability": {
@@ -4317,13 +4329,19 @@
                   "time": "Tu 5:30PM - 9:15PM",
                   "location": "Lady Shaw Bldg LT5",
                   "instructor": "Dr. CISTERNAS VERA Francisco Orlando",
-                  "dates": "12/1, 19/1, 26/1, 2/2"
+                  "dates": "19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 5:30PM - 9:15PM",
                   "location": "Lady Shaw Bldg LT5",
                   "instructor": "Dr. CISTERNAS VERA Francisco Orlando",
                   "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Sa 2:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT9",
+                  "instructor": "Dr. CISTERNAS VERA Francisco Orlando",
+                  "dates": "16/1"
                 }
               ],
               "availability": {

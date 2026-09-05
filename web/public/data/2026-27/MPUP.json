@@ -3,7 +3,7 @@
     "schema_version": 2,
     "subject": "MPUP",
     "subject_title": "Public Policy",
-    "total_courses": 16
+    "total_courses": 15
   },
   "courses": [
     {
@@ -575,56 +575,6 @@
         "Essays": "50",
         "Presentation": "10",
         "Report": "30"
-      }
-    },
-    {
-      "subject": "MPUP",
-      "course_code": "5433",
-      "title": "Global Finance and Governance",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (1531)",
-              "meetings": [
-                {
-                  "time": "Fr 6:45PM - 9:30PM",
-                  "location": "Wu Ho Man Yuen Bldg 402",
-                  "instructor": "Professor Miron MUSHKAT",
-                  "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12, 11/12"
-                }
-              ],
-              "availability": {
-                "capacity": "45",
-                "enrolled": "28",
-                "waitlist_capacity": "6",
-                "waitlist_total": "0",
-                "available_seats": "17",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
-      "description": "The purpose of this course is to analyze both short-term and long-term flows of capital across borders, the patterns they assume, the forces driving them. It also examines the benefits and costs/risks arising as a result, the instruments developed by private agents to maximize their effectiveness, government efforts to minimize the disruption caused, and the institiutional architecture which is emerging as a by-product of their rapid expansion.",
-      "enrollment_requirement": "For students in MSSc Public Policy",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Gov & Policy Sci",
-      "academic_org": "Div of Gov & Policy Sci",
-      "learning_outcomes": "Upon completion of this course, students will be able:\n\n1. To gain insight into the structure and functioning of the global financial system and its components;\n\n2. To understand the underlying rationale for, scope of, and limitations of international and national (or equivalent) financial regulatory mechanisms.",
-      "assessment_types": {
-        "Attendance": "8",
-        "Essays": "40",
-        "Project": "40",
-        "Participation": "12"
       }
     },
     {
