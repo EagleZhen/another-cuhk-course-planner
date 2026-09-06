@@ -2,7 +2,9 @@
 
 ## Next.js
 
-For Next.js work, read the relevant version-matched docs in `web/node_modules/next/dist/docs/`.
+This is not the Next.js you know. This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant version-matched guide in `web/node_modules/next/dist/docs/` before writing any code, and heed deprecation notices.
+
+Next.js recreates `web/AGENTS.md` with this warning, and a `web/CLAUDE.md` pointing at it, on any agent-run `next dev`; `agentRules: false` in `web/next.config.ts` turns that off in favour of this section.
 
 ## Project Docs
 

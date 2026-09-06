@@ -3,7 +3,7 @@
  * Extracted from courseUtils.ts for better separation of concerns
  */
 
-import { toPng } from 'html-to-image'
+import { domToPng } from 'modern-screenshot'
 import { CALENDAR_LAYOUT_CONSTANTS } from './calendarConfig'
 
 // Centralized screenshot configuration
@@ -25,7 +25,6 @@ const SCREENSHOT_CONFIG = {
       sectionSpacing: 10,
       footerSpacing: 10,
       bottomMargin: 60,
-      minWidth: 1000,
     },
     withUnscheduled: {
       padding: 50,
@@ -33,7 +32,6 @@ const SCREENSHOT_CONFIG = {
       sectionSpacing: 10,
       footerSpacing: -30, // Tighter spacing when unscheduled section exists
       bottomMargin: 60,
-      minWidth: 1000,
     },
   },
 
@@ -43,7 +41,7 @@ const SCREENSHOT_CONFIG = {
     backgroundColor: '#ffffff',
     imageFormat: 'image/png' as const,
     quality: 0.95,
-    pixelRatio: 3.0, // For html-to-image capture
+    pixelRatio: 3.0, // Device-pixel multiplier for the DOM-to-PNG capture
   },
 
   // Element styling during preparation
@@ -86,7 +84,6 @@ interface LayoutConfig {
   sectionSpacing: number // Between calendar and unscheduled
   footerSpacing: number // Between content and footer (context-dependent)
   bottomMargin: number // Below footer
-  minWidth: number // Minimum canvas width
 }
 
 // Typography configuration - centralized font definitions
@@ -170,7 +167,9 @@ function calculateScreenshotLayout(
     (unscheduledDimensions ? unscheduledDimensions.height + config.sectionSpacing : 0)
 
   // Calculate final canvas size
-  const canvasWidth = Math.max(maxContentWidth + config.padding * 2, config.minWidth)
+  // `padding` is the only thing between content and edge: minContentWidth already floors
+  // the content, so a separate canvas floor could only inflate the side margins.
+  const canvasWidth = maxContentWidth + config.padding * 2
   const canvasHeight =
     totalContentHeight +
     config.headerHeight +
@@ -489,7 +488,7 @@ function clearSelectionEffects(element: HTMLElement, stateManager: ScreenshotSta
 }
 
 /**
- * Capture element as PNG data URL using html-to-image with configuration
+ * Capture element as PNG data URL using modern-screenshot with configuration
  */
 async function captureElementAsPng(
   element: HTMLElement,
@@ -498,17 +497,18 @@ async function captureElementAsPng(
 ): Promise<string> {
   const canvasConfig = SCREENSHOT_CONFIG.canvas
 
-  return await toPng(element, {
+  return await domToPng(element, {
     quality: 1.0,
     backgroundColor: canvasConfig.backgroundColor,
-    pixelRatio: canvasConfig.pixelRatio,
+    scale: canvasConfig.pixelRatio,
     width: width,
     height: height,
     style: {
       transform: 'scale(1)',
       transformOrigin: 'top left',
     },
-    skipAutoScale: true,
+    // maximumCanvasSize is left unset: it defaults to 0, which disables the
+    // downscaling that html-to-image's skipAutoScale used to suppress.
   })
 }
 
