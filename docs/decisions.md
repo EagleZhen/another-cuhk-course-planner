@@ -119,7 +119,7 @@ ESLint v10 removed `context.getFilename()`, which `eslint-plugin-react` still ca
 
 Decision: hold `eslint` at `^9` in [web/package.json](../web/package.json).
 
-Lift once `eslint-config-next` ships a v10-compatible `eslint-plugin-react`. Dependabot keeps proposing the major regardless; CI now fails it.
+Lift once `eslint-config-next` ships a v10-compatible `eslint-plugin-react`. Until then [dependabot.yml](../.github/dependabot.yml) ignores the major, so no PR reappears.
 
 ## Leave Python Dependencies Uncapped
 
