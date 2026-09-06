@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button'
 import { analytics } from '@/lib/analytics'
 import {
   hasRefreshMarker,
-  isStaleChunkError,
   readStaleChunkReload,
   rememberStaleChunkReload,
   shouldReloadForStaleChunk,
@@ -15,21 +14,19 @@ import {
   withRefreshMarker,
 } from '@/lib/staleChunk'
 
+const BUILD_ID = process.env.NEXT_PUBLIC_BUILD_ID ?? 'unknown'
+
 export default function ErrorPage({ error }: { error: Error & { digest?: string } }) {
   // Decided during render, not in an effect, so this page never flashes before the reload.
-  const [recovering, setRecovering] = useState(
+  const [recovering] = useState(
     () =>
       typeof window !== 'undefined' &&
-      shouldReloadForStaleChunk(error, readStaleChunkReload(Date.now()), Date.now())
+      shouldReloadForStaleChunk(error, readStaleChunkReload(), BUILD_ID)
   )
 
   useEffect(() => {
     if (recovering) {
-      // Reloading without a stored guard would loop, so fall back to the error page.
-      if (!rememberStaleChunkReload(Date.now())) {
-        setRecovering(false)
-        return
-      }
+      rememberStaleChunkReload(BUILD_ID)
       // Handled — the user sees a reload, not a failure, so this is not one to triage.
       analytics.staleChunkRecovered()
       window.location.replace(withRefreshMarker(window.location.href))
@@ -42,11 +39,9 @@ export default function ErrorPage({ error }: { error: Error & { digest?: string 
       window.history.replaceState(null, '', withoutRefreshMarker(window.location.href))
     }
 
-    posthog.captureException(error, {
-      error_boundary: 'app',
-      // The reload did not help and the user is looking at this page.
-      ...(isStaleChunkError(error) && { stale_chunk_recovery: 'exhausted' }),
-    })
+    // A ChunkLoadError reaching here means we already tried this build; the recovered
+    // case reports stale_chunk_recovered instead, and build_id rides on both.
+    posthog.captureException(error, { error_boundary: 'app' })
   }, [error, recovering])
 
   if (recovering) return null

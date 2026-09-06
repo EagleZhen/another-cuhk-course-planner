@@ -12,30 +12,25 @@ function chunkLoadError() {
   return error
 }
 
-const now = 1_000_000_000_000
-const minutes = (n: number) => n * 60_000
+const build = 'abc123'
 
 describe('shouldReloadForStaleChunk', () => {
-  it('reloads on the first stale chunk', () => {
-    expect(shouldReloadForStaleChunk(chunkLoadError(), null, now)).toBe(true)
+  it('recovers on the first stale chunk', () => {
+    expect(shouldReloadForStaleChunk(chunkLoadError(), null, build)).toBe(true)
   })
 
-  it('gives up when the last reload was moments ago', () => {
-    expect(shouldReloadForStaleChunk(chunkLoadError(), now - minutes(1), now)).toBe(false)
+  // The navigation handed back the build we already failed on, so repeating it is the loop.
+  it('gives up when the same build comes back', () => {
+    expect(shouldReloadForStaleChunk(chunkLoadError(), build, build)).toBe(false)
   })
 
-  // A later deploy is a fresh reason to recover, not the broken build the guard is for.
-  it('recovers again once the cooldown has passed', () => {
-    expect(shouldReloadForStaleChunk(chunkLoadError(), now - minutes(6), now)).toBe(true)
+  // A later deploy is a different build, and a fresh reason to recover.
+  it('recovers again on a build it has not tried', () => {
+    expect(shouldReloadForStaleChunk(chunkLoadError(), 'older', build)).toBe(true)
   })
 
   it('leaves other errors to the error page', () => {
-    expect(shouldReloadForStaleChunk(new TypeError('unrelated'), null, now)).toBe(false)
-  })
-
-  // What an unreadable flag reports: no guard can persist, so a reload would repeat.
-  it('does not reload when the last reload reads as just now', () => {
-    expect(shouldReloadForStaleChunk(chunkLoadError(), now, now)).toBe(false)
+    expect(shouldReloadForStaleChunk(new TypeError('unrelated'), null, build)).toBe(false)
   })
 })
 

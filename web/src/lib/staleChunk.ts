@@ -1,25 +1,23 @@
 import { STALE_CHUNK_REFRESH_PARAM, STALE_CHUNK_RELOAD_KEY } from './constants'
 
-// A deploy removes the chunk an open tab asks for; reloading picks up the new build.
-// Two facts with different lifetimes: whether we already tried (the loop guard, kept in
-// session storage) and whether the navigation that just happened was ours (the URL).
-
-// A second failure this soon after a reload means the build is broken, not that someone
-// deployed again. Much longer and a tab left open across two deploys would be stranded.
-const RELOAD_COOLDOWN_MS = 5 * 60_000
+// A deploy removes the chunk an open tab asks for; navigating again picks up the new
+// build. Two facts with different lifetimes: which build we last tried this from (the
+// loop guard, in session storage) and whether the navigation just made was ours (the URL).
 
 // PostHog groups these by error.name, and our events show this string.
 export function isStaleChunkError(error: Error): boolean {
   return error.name === 'ChunkLoadError'
 }
 
+// Recover only from a build we have not already tried. Getting the same build back means
+// the navigation did not reach a new one, so repeating it cannot help — while a later
+// deploy is a different build and recovers normally.
 export function shouldReloadForStaleChunk(
   error: Error,
-  lastReloadAt: number | null,
-  now: number
+  lastBuildId: string | null,
+  buildId: string
 ): boolean {
-  if (!isStaleChunkError(error)) return false
-  return lastReloadAt === null || now - lastReloadAt > RELOAD_COOLDOWN_MS
+  return isStaleChunkError(error) && lastBuildId !== buildId
 }
 
 // Recovering navigates to this rather than reloading, so the marker rides the navigation
@@ -42,26 +40,11 @@ export function withoutRefreshMarker(href: string): string {
   return url.pathname + url.search + url.hash
 }
 
-// Storage throws where site data is blocked. These run in the root error boundary, which
-// has nothing beneath it to catch a throw, so they report failure instead.
-
-/** `now` when storage is unreadable: we cannot rule out having just reloaded, and
- *  recovering with no guard to persist is what loops. */
-export function readStaleChunkReload(now: number): number | null {
-  try {
-    const at = Number(sessionStorage.getItem(STALE_CHUNK_RELOAD_KEY))
-    return at > 0 ? at : null
-  } catch {
-    return now
-  }
+/** The build this tab last tried to recover from, or null if it has not tried. */
+export function readStaleChunkReload(): string | null {
+  return sessionStorage.getItem(STALE_CHUNK_RELOAD_KEY)
 }
 
-/** False if nothing was stored — reloading then would loop. */
-export function rememberStaleChunkReload(at: number): boolean {
-  try {
-    sessionStorage.setItem(STALE_CHUNK_RELOAD_KEY, String(at))
-    return true
-  } catch {
-    return false
-  }
+export function rememberStaleChunkReload(buildId: string): void {
+  sessionStorage.setItem(STALE_CHUNK_RELOAD_KEY, buildId)
 }
