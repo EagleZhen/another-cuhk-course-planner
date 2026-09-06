@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import { Info, X } from 'lucide-react'
-import { forgetStaleChunkReload, readStaleChunkReload } from '@/lib/staleChunk'
+import { hasRefreshMarker, withoutRefreshMarker } from '@/lib/staleChunk'
 
 const AUTO_HIDE_MS = 10_000
 
@@ -11,13 +11,13 @@ export default function StaleVersionNotice() {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
-    if (readStaleChunkReload()) setShow(true)
+    if (hasRefreshMarker(window.location.href)) setShow(true)
   }, [])
 
-  // Clearing re-arms error.tsx's reload, so hold it until the notice has been seen —
-  // a remount before that re-reads the flag instead of swallowing the notice.
+  // The marker stays in the URL until the notice has been seen, so a remount re-reads it
+  // instead of swallowing the notice.
   const hide = useCallback(() => {
-    forgetStaleChunkReload()
+    window.history.replaceState(null, '', withoutRefreshMarker(window.location.href))
     setShow(false)
   }, [])
 

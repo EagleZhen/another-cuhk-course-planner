@@ -29,6 +29,9 @@ export const DEFAULT_CURRENT_TERM = '2026-27 Term 1'
 // is "YYYY-YY <suffix>"). The single current-year knob is DEFAULT_CURRENT_TERM.
 export const CURRENT_ACADEMIC_YEAR = DEFAULT_CURRENT_TERM.split(' ')[0]
 
-// Marks a tab that reloaded itself to recover from a stale chunk. Doubles as the loop
-// guard, so it is cleared only once a page renders (see StaleVersionNotice).
+// When a tab last reloaded itself to recover from a stale chunk. The loop guard; see
+// RELOAD_COOLDOWN_MS in staleChunk.ts for how it expires.
 export const STALE_CHUNK_RELOAD_KEY = 'stale-chunk-reloaded'
+
+// Marks the recovery navigation itself, so the page it lands on can explain the refresh.
+export const STALE_CHUNK_REFRESH_PARAM = 'refreshed'
