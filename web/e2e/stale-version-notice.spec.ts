@@ -41,3 +41,18 @@ test('dismisses, and does not come back on the next load', async ({ page }) => {
   await expect(hydrated(page)).toBeVisible()
   await expect(notice(page)).toHaveCount(0)
 })
+
+// Both the notice and the feedback button are fixed to the bottom edge, and on a phone
+// the notice is nearly full width — so they collided until the notice moved up.
+test('clears the feedback button on a phone', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 800 })
+  await open(page)
+  await reloadAsStaleChunkRecovery(page)
+  await expect(notice(page)).toBeVisible()
+
+  const box = (await notice(page).boundingBox())!
+  const feedback = (await page
+    .getByTitle('Share feedback about this course planner')
+    .boundingBox())!
+  expect(box.y + box.height).toBeLessThanOrEqual(feedback.y)
+})

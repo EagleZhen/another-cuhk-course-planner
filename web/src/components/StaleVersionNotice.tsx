@@ -41,7 +41,7 @@ export default function StaleVersionNotice() {
     <div
       role="status"
       data-stale-version-notice
-      className="fixed bottom-6 left-6 z-50 flex overflow-hidden max-w-[calc(100vw-3rem)] items-start gap-2 sm:max-w-md rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-lg"
+      className="fixed bottom-20 left-6 z-50 flex overflow-hidden sm:bottom-6 max-w-[calc(100vw-3rem)] items-start gap-2 sm:max-w-md rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-lg"
     >
       <span>This page refreshed automatically to load the latest version.</span>
       <button
