@@ -227,3 +227,11 @@ Instructors are scraped as "Professor CHAN Tai Man" and shown as "Prof. CHAN Tai
 Decision: store scraped values as scraped, derive display forms where they are shown (`splitInstructorsCompact` in [courseUtils.ts](../web/src/lib/courseUtils.ts)). Keep only the source and a parser fix reaches every user on their next load — [Strip Unrendered Fields At Publish](#strip-unrendered-fields-at-publish), one layer in.
 
 Nothing enforces this: a lint rule flags only correct call sites, since reading the field to pass it into the helper is the intended use.
+
+## Replace html-to-image With modern-screenshot
+
+`html-to-image` read `rule.style.fontFamily`, which came back `undefined` for an `@font-face` rule on Firefox/Android and threw, killing the export. The package has not shipped since April 2025.
+
+Decision: rasterize with `modern-screenshot` in [screenshotUtils.ts](../web/src/lib/screenshotUtils.ts) — actively released, and it reads that value through `getPropertyValue`, which always returns a string, so the crash cannot recur. Same SVG-`foreignObject` technique, so output is unchanged; `html2canvas-pro` paints to canvas itself, which would not have been.
+
+Watch out: `skipAutoScale: true` has no counterpart and needs none — `modern-screenshot` downscales only when `maximumCanvasSize` is set, and it defaults to `0`. Setting it would silently shrink every export.
