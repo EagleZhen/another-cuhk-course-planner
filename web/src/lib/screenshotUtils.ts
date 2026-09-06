@@ -25,7 +25,6 @@ const SCREENSHOT_CONFIG = {
       sectionSpacing: 10,
       footerSpacing: 10,
       bottomMargin: 60,
-      minWidth: 1000,
     },
     withUnscheduled: {
       padding: 50,
@@ -33,7 +32,6 @@ const SCREENSHOT_CONFIG = {
       sectionSpacing: 10,
       footerSpacing: -30, // Tighter spacing when unscheduled section exists
       bottomMargin: 60,
-      minWidth: 1000,
     },
   },
 
@@ -86,7 +84,6 @@ interface LayoutConfig {
   sectionSpacing: number // Between calendar and unscheduled
   footerSpacing: number // Between content and footer (context-dependent)
   bottomMargin: number // Below footer
-  minWidth: number // Minimum canvas width
 }
 
 // Typography configuration - centralized font definitions
@@ -170,7 +167,9 @@ function calculateScreenshotLayout(
     (unscheduledDimensions ? unscheduledDimensions.height + config.sectionSpacing : 0)
 
   // Calculate final canvas size
-  const canvasWidth = Math.max(maxContentWidth + config.padding * 2, config.minWidth)
+  // `padding` is the only thing between content and edge: minContentWidth already floors
+  // the content, so a separate canvas floor could only inflate the side margins.
+  const canvasWidth = maxContentWidth + config.padding * 2
   const canvasHeight =
     totalContentHeight +
     config.headerHeight +
