@@ -54,3 +54,21 @@ test('shows an error and allows another screenshot attempt', async ({ page }) =>
   await expect(screenshotAlert).toHaveCount(0)
   await expect(screenshotButton).toHaveText('Screenshot')
 })
+
+// Firefox 146/Android reported `undefined` from the `font-family` reflection on an
+// @font-face rule, which threw inside the rasterizer and killed the export. No engine
+// Playwright ships does that, so the quirk is injected rather than waited for.
+test('exports when the font-family reflection yields undefined', async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(CSSStyleDeclaration.prototype, 'fontFamily', {
+      configurable: true,
+      get: () => undefined,
+    })
+  })
+  await page.goto('/')
+
+  const downloadPromise = page.waitForEvent('download')
+  await page.getByRole('button', { name: 'Screenshot' }).click()
+
+  expect((await stat((await (await downloadPromise).path())!)).size).toBeGreaterThan(0)
+})
