@@ -3,7 +3,7 @@
  * Extracted from courseUtils.ts for better separation of concerns
  */
 
-import { toPng } from 'html-to-image'
+import { domToPng } from 'modern-screenshot'
 import { CALENDAR_LAYOUT_CONSTANTS } from './calendarConfig'
 
 // Centralized screenshot configuration
@@ -43,7 +43,7 @@ const SCREENSHOT_CONFIG = {
     backgroundColor: '#ffffff',
     imageFormat: 'image/png' as const,
     quality: 0.95,
-    pixelRatio: 3.0, // For html-to-image capture
+    pixelRatio: 3.0, // Device-pixel multiplier for the DOM-to-PNG capture
   },
 
   // Element styling during preparation
@@ -489,7 +489,7 @@ function clearSelectionEffects(element: HTMLElement, stateManager: ScreenshotSta
 }
 
 /**
- * Capture element as PNG data URL using html-to-image with configuration
+ * Capture element as PNG data URL using modern-screenshot with configuration
  */
 async function captureElementAsPng(
   element: HTMLElement,
@@ -498,17 +498,18 @@ async function captureElementAsPng(
 ): Promise<string> {
   const canvasConfig = SCREENSHOT_CONFIG.canvas
 
-  return await toPng(element, {
+  return await domToPng(element, {
     quality: 1.0,
     backgroundColor: canvasConfig.backgroundColor,
-    pixelRatio: canvasConfig.pixelRatio,
+    scale: canvasConfig.pixelRatio,
     width: width,
     height: height,
     style: {
       transform: 'scale(1)',
       transformOrigin: 'top left',
     },
-    skipAutoScale: true,
+    // maximumCanvasSize is left unset: it defaults to 0, which disables the
+    // downscaling that html-to-image's skipAutoScale used to suppress.
   })
 }
 
