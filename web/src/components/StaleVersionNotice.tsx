@@ -21,10 +21,18 @@ export default function StaleVersionNotice() {
     setShow(false)
   }, [])
 
+  // `elapsed` drives the countdown bar off the same constant as the timer, so the two
+  // cannot drift. It flips one frame after mount, which is what starts the transition.
+  const [elapsed, setElapsed] = useState(false)
+
   useEffect(() => {
     if (!show) return
+    const frame = requestAnimationFrame(() => setElapsed(true))
     const timer = setTimeout(hide, AUTO_HIDE_MS)
-    return () => clearTimeout(timer)
+    return () => {
+      cancelAnimationFrame(frame)
+      clearTimeout(timer)
+    }
   }, [show, hide])
 
   if (!show) return null
@@ -33,9 +41,9 @@ export default function StaleVersionNotice() {
     <div
       role="status"
       data-stale-version-notice
-      className="fixed bottom-6 left-6 z-50 flex max-w-[calc(100vw-3rem)] items-start gap-2 sm:max-w-md rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-lg"
+      className="fixed bottom-6 left-6 z-50 flex overflow-hidden max-w-[calc(100vw-3rem)] items-start gap-2 sm:max-w-md rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-lg"
     >
-      <span>This page refreshed automatically to load a new version.</span>
+      <span>This page refreshed automatically to load the latest version.</span>
       <button
         onClick={hide}
         aria-label="Dismiss"
@@ -43,6 +51,12 @@ export default function StaleVersionNotice() {
       >
         <X className="size-4" />
       </button>
+
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-1 bg-slate-400 transition-[width] ease-linear motion-reduce:hidden"
+        style={{ width: elapsed ? '100%' : '0%', transitionDuration: `${AUTO_HIDE_MS}ms` }}
+      />
     </div>
   )
 }
