@@ -27,7 +27,18 @@ test('dismisses, and does not come back on the next load', async ({ page }) => {
   await notice(page).getByRole('button', { name: 'Dismiss' }).click()
   await expect(notice(page)).toHaveCount(0)
 
-  // Dismissing strips the marker from the URL, so a reload has nothing left to explain.
+  await page.reload()
+  await expect(hydrated(page)).toBeVisible()
+  await expect(notice(page)).toHaveCount(0)
+})
+
+// The marker is stripped on arrival, so it cannot be reloaded from or shared onward —
+// MobileDesktopNotice hands window.location.href straight to the share sheet.
+test('drops the marker from the URL on arrival', async ({ page }) => {
+  await open(page, { recovered: true })
+  await expect(notice(page)).toBeVisible()
+  expect(new URL(page.url()).searchParams.has('refreshed')).toBe(false)
+
   await page.reload()
   await expect(hydrated(page)).toBeVisible()
   await expect(notice(page)).toHaveCount(0)
