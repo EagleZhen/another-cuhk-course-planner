@@ -33,8 +33,8 @@ export default function ErrorPage({ error }: { error: Error & { digest?: string 
       return
     }
 
-    // Recovery failed, so drop the marker before StaleVersionNotice — mounted after us —
-    // reads it and claims success beside this page.
+    // Recovery failed, so drop the marker: a later manual reload must not claim we picked
+    // up a new version.
     if (hasRefreshMarker(window.location.href)) {
       window.history.replaceState(null, '', withoutRefreshMarker(window.location.href))
     }

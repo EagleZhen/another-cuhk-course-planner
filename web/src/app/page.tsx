@@ -6,6 +6,7 @@ import { useState, useMemo, useEffect, useRef } from 'react'
 import CourseSearch from '@/components/CourseSearch'
 import WeeklyCalendar from '@/components/WeeklyCalendar'
 import ShoppingCart from '@/components/ShoppingCart'
+import StaleVersionNotice from '@/components/StaleVersionNotice'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Search, Archive } from 'lucide-react'
@@ -785,6 +786,10 @@ export default function Home() {
           </div>
         </footer>
       </div>
+
+      {/* Inside the error boundary on purpose: it says this page loaded, so it must go
+          when the page does. */}
+      <StaleVersionNotice />
     </div>
   )
 }
