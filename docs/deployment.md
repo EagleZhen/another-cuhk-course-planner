@@ -20,7 +20,7 @@ Cloudflare serves assets first — HTML, course JSON under [web/public/data/](..
 
 A new build's chunks get new hashes, so a tab open across a deploy asks for one that no longer exists and throws `ChunkLoadError`. [error.tsx](../web/src/app/error.tsx) reloads that tab once and `StaleVersionNotice` explains the refresh afterwards. A session flag guards the loop: it is cleared only once the notice has shown, so a second failure renders the error page instead.
 
-Users stop seeing this; PostHog does not. Each deploy still mints a fresh issue, because the chunk hash sits in the title.
+A recovered chunk reports `stale_chunk_recovered`, not an exception, so routine deploys no longer raise Error Tracking issues. Only an exhausted recovery — the reload did not help — still does.
 
 ## Analytics
 
