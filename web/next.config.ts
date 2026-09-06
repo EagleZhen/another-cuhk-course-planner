@@ -28,6 +28,10 @@ const nextConfig: NextConfig = {
 
   env: { NEXT_PUBLIC_BUILD_ID: resolveBuildId() },
 
+  // `next dev` writes web/AGENTS.md and web/CLAUDE.md whenever it detects a coding agent.
+  // The repo's own AGENTS.md already points agents at web/node_modules/next/dist/docs/.
+  agentRules: false,
+
   turbopack: {
     root: process.cwd(),
   },
