@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import FeedbackButton from '@/components/FeedbackButton'
 import MobileDesktopNotice from '@/components/MobileDesktopNotice'
+import StaleVersionNotice from '@/components/StaleVersionNotice'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -91,6 +92,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
         <MobileDesktopNotice />
+        <StaleVersionNotice />
         <FeedbackButton />
       </body>
     </html>

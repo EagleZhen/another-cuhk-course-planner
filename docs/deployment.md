@@ -16,6 +16,12 @@ The repository no longer keeps a `vercel.json` file or Vercel runtime packages.
 
 Cloudflare serves assets first — HTML, course JSON under [web/public/data/](../web/public/data/), and images are free static assets (edge-cached; even `304` revalidations cost nothing). Only the PostHog proxy at `/x8m2k/*` runs as a Pages Function, the sole path billed against the Functions limit (100k/day free) — so eager-loading ~400 course files per session is cheap. Cloudflare bills only requests matched by the auto-generated `_routes.json` `include` (Pages derives it from `functions/`; ours is just `/x8m2k/*`), so adding a `functions/` route is what would re-bill the catalog. See [decisions.md](decisions.md#static-export-over-the-next-on-pages-adapter).
 
+### Stale chunks after a deploy
+
+A new build's chunks get new hashes, so a tab open across a deploy asks for one that no longer exists and throws `ChunkLoadError`. [error.tsx](../web/src/app/error.tsx) reloads that tab once and `StaleVersionNotice` explains the refresh afterwards. A session flag guards the loop: it is cleared only once the notice has shown, so a second failure renders the error page instead.
+
+Users stop seeing this; PostHog does not. Each deploy still mints a fresh issue, because the chunk hash sits in the title.
+
 ## Analytics
 
 Analytics use PostHog, initialized in `web/src/instrumentation-client.ts`.
