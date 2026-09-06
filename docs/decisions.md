@@ -109,6 +109,8 @@ Why it fits:
 - the only lever Cloudflare's build system respects for this
 - pinned to Node 24 (Active LTS, supported to April 2028), not Cloudflare's aging default (22) or a contributor's local version, which can silently drift onto an already-EOL release
 
+`engines.node` matches the pin: the build runs `scripts/finalize-source-maps.mts` through Node's type stripping, unavailable before 22.18, so a wider range would promise builds that cannot work.
+
 Dependabot cannot see `.nvmrc`, so bump it by hand when a new 24.x LTS lands.
 
 ## Hold ESLint At v9
