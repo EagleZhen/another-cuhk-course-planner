@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useState } from 'react'
-import { X } from 'lucide-react'
+import { Info, X } from 'lucide-react'
 import { STALE_CHUNK_RELOAD_KEY } from '@/lib/constants'
 
 const AUTO_HIDE_MS = 10_000
@@ -41,9 +41,10 @@ export default function StaleVersionNotice() {
     <div
       role="status"
       data-stale-version-notice
-      className="fixed bottom-20 left-6 z-50 flex overflow-hidden sm:bottom-6 max-w-[calc(100vw-3rem)] items-start gap-2 sm:max-w-md rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-lg"
+      className="fixed bottom-20 left-6 z-50 flex overflow-hidden sm:bottom-6 max-w-[calc(100vw-3rem)] items-start gap-2 sm:max-w-lg rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-lg"
     >
-      <span>This page refreshed automatically to load the latest version.</span>
+      <Info aria-hidden="true" className="mt-0.5 size-4 flex-shrink-0 text-slate-400" />
+      <span>This page refreshed automatically to pick up a new version.</span>
       <button
         onClick={hide}
         aria-label="Dismiss"
