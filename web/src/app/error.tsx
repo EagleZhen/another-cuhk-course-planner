@@ -1,14 +1,36 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { RefreshCw, TriangleAlert } from 'lucide-react'
 import posthog from 'posthog-js'
 import { Button } from '@/components/ui/button'
+import { STALE_CHUNK_RELOAD_KEY } from '@/lib/constants'
+import { isStaleChunkError, shouldReloadForStaleChunk } from '@/lib/staleChunk'
 
 export default function ErrorPage({ error }: { error: Error & { digest?: string } }) {
+  // Decided during render, not in an effect, so this page never flashes before the reload.
+  const [recovering] = useState(
+    () =>
+      typeof window !== 'undefined' &&
+      shouldReloadForStaleChunk(error, sessionStorage.getItem(STALE_CHUNK_RELOAD_KEY) !== null)
+  )
+
   useEffect(() => {
-    posthog.captureException(error, { error_boundary: 'app' })
-  }, [error])
+    posthog.captureException(error, {
+      error_boundary: 'app',
+      // 'exhausted' = the reload did not help and the user is looking at this page.
+      ...(isStaleChunkError(error) && {
+        stale_chunk_recovery: recovering ? 'reloaded' : 'exhausted',
+      }),
+    })
+
+    if (recovering) {
+      sessionStorage.setItem(STALE_CHUNK_RELOAD_KEY, '1')
+      window.location.reload()
+    }
+  }, [error, recovering])
+
+  if (recovering) return null
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-slate-50 px-4 py-16">
