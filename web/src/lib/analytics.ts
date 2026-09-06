@@ -173,4 +173,13 @@ export const analytics = {
       avg_time_ms: stats.avgTimeMs,
     })
   },
+
+  // === DEPLOYS ===
+
+  // A deploy stranded an open tab and the one-shot reload fixed it — not an exception,
+  // since the user saw a reload rather than a failure. `build_id` says which build.
+  // Key question: how often do deploys disrupt open tabs, and is recovery holding?
+  staleChunkRecovered: () => {
+    track('stale_chunk_recovered')
+  },
 }

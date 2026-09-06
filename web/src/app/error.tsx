@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { RefreshCw, TriangleAlert } from 'lucide-react'
 import posthog from 'posthog-js'
 import { Button } from '@/components/ui/button'
+import { analytics } from '@/lib/analytics'
 import { STALE_CHUNK_RELOAD_KEY } from '@/lib/constants'
 import { isStaleChunkError, shouldReloadForStaleChunk } from '@/lib/staleChunk'
 
@@ -16,18 +17,19 @@ export default function ErrorPage({ error }: { error: Error & { digest?: string 
   )
 
   useEffect(() => {
-    posthog.captureException(error, {
-      error_boundary: 'app',
-      // 'exhausted' = the reload did not help and the user is looking at this page.
-      ...(isStaleChunkError(error) && {
-        stale_chunk_recovery: recovering ? 'reloaded' : 'exhausted',
-      }),
-    })
-
     if (recovering) {
+      // Handled — the user sees a reload, not a failure, so this is not one to triage.
+      analytics.staleChunkRecovered()
       sessionStorage.setItem(STALE_CHUNK_RELOAD_KEY, '1')
       window.location.reload()
+      return
     }
+
+    posthog.captureException(error, {
+      error_boundary: 'app',
+      // The reload did not help and the user is looking at this page.
+      ...(isStaleChunkError(error) && { stale_chunk_recovery: 'exhausted' }),
+    })
   }, [error, recovering])
 
   if (recovering) return null
