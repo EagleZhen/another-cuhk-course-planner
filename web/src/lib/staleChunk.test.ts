@@ -19,4 +19,9 @@ describe('shouldReloadForStaleChunk', () => {
   it('leaves other errors to the error page', () => {
     expect(shouldReloadForStaleChunk(new TypeError('unrelated'), false)).toBe(false)
   })
+
+  // Without storage the guard cannot persist, so a reload would repeat forever.
+  it('does not reload when the flag cannot be read', () => {
+    expect(shouldReloadForStaleChunk(chunkLoadError(), null)).toBe(false)
+  })
 })

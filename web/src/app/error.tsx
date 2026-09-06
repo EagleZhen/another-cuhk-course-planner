@@ -5,22 +5,28 @@ import { RefreshCw, TriangleAlert } from 'lucide-react'
 import posthog from 'posthog-js'
 import { Button } from '@/components/ui/button'
 import { analytics } from '@/lib/analytics'
-import { STALE_CHUNK_RELOAD_KEY } from '@/lib/constants'
-import { isStaleChunkError, shouldReloadForStaleChunk } from '@/lib/staleChunk'
+import {
+  isStaleChunkError,
+  readStaleChunkReload,
+  rememberStaleChunkReload,
+  shouldReloadForStaleChunk,
+} from '@/lib/staleChunk'
 
 export default function ErrorPage({ error }: { error: Error & { digest?: string } }) {
   // Decided during render, not in an effect, so this page never flashes before the reload.
-  const [recovering] = useState(
-    () =>
-      typeof window !== 'undefined' &&
-      shouldReloadForStaleChunk(error, sessionStorage.getItem(STALE_CHUNK_RELOAD_KEY) !== null)
+  const [recovering, setRecovering] = useState(
+    () => typeof window !== 'undefined' && shouldReloadForStaleChunk(error, readStaleChunkReload())
   )
 
   useEffect(() => {
     if (recovering) {
+      // Reloading without a stored guard would loop, so fall back to the error page.
+      if (!rememberStaleChunkReload()) {
+        setRecovering(false)
+        return
+      }
       // Handled — the user sees a reload, not a failure, so this is not one to triage.
       analytics.staleChunkRecovered()
-      sessionStorage.setItem(STALE_CHUNK_RELOAD_KEY, '1')
       window.location.reload()
       return
     }

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import { Info, X } from 'lucide-react'
-import { STALE_CHUNK_RELOAD_KEY } from '@/lib/constants'
+import { forgetStaleChunkReload, readStaleChunkReload } from '@/lib/staleChunk'
 
 const AUTO_HIDE_MS = 10_000
 
@@ -11,18 +11,18 @@ export default function StaleVersionNotice() {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
-    if (sessionStorage.getItem(STALE_CHUNK_RELOAD_KEY) !== null) setShow(true)
+    if (readStaleChunkReload()) setShow(true)
   }, [])
 
-  // Clearing the flag re-arms error.tsx's one-shot reload, so hold it until the notice has
-  // been seen: a remount before that then re-reads it instead of swallowing the notice.
+  // Clearing re-arms error.tsx's reload, so hold it until the notice has been seen —
+  // a remount before that re-reads the flag instead of swallowing the notice.
   const hide = useCallback(() => {
-    sessionStorage.removeItem(STALE_CHUNK_RELOAD_KEY)
+    forgetStaleChunkReload()
     setShow(false)
   }, [])
 
-  // `elapsed` drives the countdown bar off the same constant as the timer, so the two
-  // cannot drift. It flips one frame after mount, which is what starts the transition.
+  // Drives the countdown bar off the timer's own constant, so the two cannot drift.
+  // Flipping it one frame after mount is what starts the transition.
   const [elapsed, setElapsed] = useState(false)
 
   useEffect(() => {
