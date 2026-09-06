@@ -1,14 +1,55 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { RefreshCw, TriangleAlert } from 'lucide-react'
 import posthog from 'posthog-js'
 import { Button } from '@/components/ui/button'
+import { analytics } from '@/lib/analytics'
+import {
+  hasRefreshMarker,
+  isStaleChunkError,
+  readStaleChunkReload,
+  rememberStaleChunkReload,
+  shouldReloadForStaleChunk,
+  withoutRefreshMarker,
+  withRefreshMarker,
+} from '@/lib/staleChunk'
 
 export default function ErrorPage({ error }: { error: Error & { digest?: string } }) {
+  // Decided during render, not in an effect, so this page never flashes before the reload.
+  const [recovering, setRecovering] = useState(
+    () =>
+      typeof window !== 'undefined' &&
+      shouldReloadForStaleChunk(error, readStaleChunkReload(Date.now()), Date.now())
+  )
+
   useEffect(() => {
-    posthog.captureException(error, { error_boundary: 'app' })
-  }, [error])
+    if (recovering) {
+      // Reloading without a stored guard would loop, so fall back to the error page.
+      if (!rememberStaleChunkReload(Date.now())) {
+        setRecovering(false)
+        return
+      }
+      // Handled — the user sees a reload, not a failure, so this is not one to triage.
+      analytics.staleChunkRecovered()
+      window.location.replace(withRefreshMarker(window.location.href))
+      return
+    }
+
+    // Recovery failed, so drop the marker before StaleVersionNotice — mounted after us —
+    // reads it and claims success beside this page.
+    if (hasRefreshMarker(window.location.href)) {
+      window.history.replaceState(null, '', withoutRefreshMarker(window.location.href))
+    }
+
+    posthog.captureException(error, {
+      error_boundary: 'app',
+      // The reload did not help and the user is looking at this page.
+      ...(isStaleChunkError(error) && { stale_chunk_recovery: 'exhausted' }),
+    })
+  }, [error, recovering])
+
+  if (recovering) return null
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-slate-50 px-4 py-16">

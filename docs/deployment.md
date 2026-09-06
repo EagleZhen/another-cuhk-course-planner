@@ -16,6 +16,14 @@ The repository no longer keeps a `vercel.json` file or Vercel runtime packages.
 
 Cloudflare serves assets first — HTML, course JSON under [web/public/data/](../web/public/data/), and images are free static assets (edge-cached; even `304` revalidations cost nothing). Only the PostHog proxy at `/x8m2k/*` runs as a Pages Function, the sole path billed against the Functions limit (100k/day free) — so eager-loading ~400 course files per session is cheap. Cloudflare bills only requests matched by the auto-generated `_routes.json` `include` (Pages derives it from `functions/`; ours is just `/x8m2k/*`), so adding a `functions/` route is what would re-bill the catalog. See [decisions.md](decisions.md#static-export-over-the-next-on-pages-adapter).
 
+### Stale chunks after a deploy
+
+A new build's chunks get new hashes, so a tab open across a deploy asks for one that no longer exists and throws `ChunkLoadError`. [error.tsx](../web/src/app/error.tsx) reloads that tab once, and `StaleVersionNotice` explains the refresh on the page that comes back.
+
+Recovery navigates to `?refreshed=1` rather than reloading, so the marker rides the navigation and cannot be seen on the page being left behind; the notice strips it once shown, and the error page strips it too so a failed recovery never claims success. A session timestamp guards the loop separately ([staleChunk.ts](../web/src/lib/staleChunk.ts)): a second failure within five minutes means the build is broken, so the error page renders instead, while a deploy later that day recovers again.
+
+A recovered chunk reports `stale_chunk_recovered`, not an exception, so routine deploys no longer raise Error Tracking issues. Only an exhausted recovery — the reload did not help — still does.
+
 ## Analytics
 
 Analytics use PostHog, initialized in `web/src/instrumentation-client.ts`.
