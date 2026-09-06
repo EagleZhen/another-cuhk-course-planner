@@ -21,7 +21,11 @@ export default function ErrorPage({ error }: { error: Error & { digest?: string 
   const [recovering] = useState(
     () =>
       typeof window !== 'undefined' &&
-      shouldReloadForStaleChunk(error, readStaleChunkReload(), BUILD_ID)
+      shouldReloadForStaleChunk(error, {
+        href: window.location.href,
+        lastBuildId: readStaleChunkReload(),
+        buildId: BUILD_ID,
+      })
   )
 
   useEffect(() => {

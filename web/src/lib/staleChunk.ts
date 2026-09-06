@@ -9,15 +9,16 @@ export function isStaleChunkError(error: Error): boolean {
   return error.name === 'ChunkLoadError'
 }
 
-// Recover only from a build we have not already tried. Getting the same build back means
-// the navigation did not reach a new one, so repeating it cannot help — while a later
-// deploy is a different build and recovers normally.
+// Recover only from a navigation we have not already made. The marker says one just
+// brought us here — only a successful page mount strips it — and the build id says we
+// already tried this one. Either way, repeating cannot help; a later deploy is a
+// different build, arriving without a marker, and recovers normally.
 export function shouldReloadForStaleChunk(
   error: Error,
-  lastBuildId: string | null,
-  buildId: string
+  { href, lastBuildId, buildId }: { href: string; lastBuildId: string | null; buildId: string }
 ): boolean {
-  return isStaleChunkError(error) && lastBuildId !== buildId
+  if (!isStaleChunkError(error)) return false
+  return !hasRefreshMarker(href) && lastBuildId !== buildId
 }
 
 // Recovering navigates to this rather than reloading, so the marker rides the navigation
