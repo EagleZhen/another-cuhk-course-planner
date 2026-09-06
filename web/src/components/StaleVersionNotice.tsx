@@ -47,15 +47,15 @@ export default function StaleVersionNotice() {
       <button
         onClick={hide}
         aria-label="Dismiss"
-        className="-mr-1 rounded p-0.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600"
+        className="-mr-1 cursor-pointer rounded p-0.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600"
       >
         <X className="size-4" />
       </button>
 
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 h-1 bg-slate-400 transition-[width] ease-linear motion-reduce:hidden"
-        style={{ width: elapsed ? '100%' : '0%', transitionDuration: `${AUTO_HIDE_MS}ms` }}
+        className="absolute bottom-0 right-0 h-1 bg-slate-400 transition-[width] ease-linear motion-reduce:hidden"
+        style={{ width: elapsed ? '0%' : '100%', transitionDuration: `${AUTO_HIDE_MS}ms` }}
       />
     </div>
   )
