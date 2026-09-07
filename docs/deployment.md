@@ -18,11 +18,13 @@ Cloudflare serves assets first — HTML, course JSON under [web/public/data/](..
 
 ### Stale chunks after a deploy
 
-A new build's chunks get new hashes, so a tab open across a deploy asks for one that no longer exists and throws `ChunkLoadError`. [error.tsx](../web/src/app/error.tsx) reloads that tab once, and `StaleVersionNotice` explains the refresh on the page that comes back.
+A new build's chunks get new hashes, so a tab open across a deploy asks for one that no longer exists and throws `ChunkLoadError`. [error.tsx](../web/src/app/error.tsx) recovers by navigating to `?refreshed=1` — at most once per build — and `StaleVersionNotice` explains the refresh on the page that comes back.
 
-Recovery navigates to `?refreshed=1` rather than reloading, so the marker rides the navigation and cannot be seen on the page being left behind; the notice strips it on arrival — the URL gets shared and reloaded from — and the error page strips it too, so a failed recovery never claims success. The loop guard is separate ([staleChunk.ts](../web/src/lib/staleChunk.ts)): a tab records the build it recovered from, and getting that same build back means recovering again cannot help, so the error page renders instead. A later deploy is a different build and recovers normally.
+Repeats are blocked twice ([staleChunk.ts](../web/src/lib/staleChunk.ts)): only a page that mounts strips the `?refreshed=1` marker, so a failure that never mounts leaves it in the URL; and a tab records the build it recovered from. A later deploy is a different build, arriving without a marker, and recovers normally.
 
-A recovered chunk reports `stale_chunk_recovered`, not an exception, so routine deploys no longer raise Error Tracking issues. Only an exhausted recovery — the reload did not help — still does.
+`StaleVersionNotice` renders from `page.tsx`, not the layout — `error.js` replaces the page and leaves the layout standing, so only that placement keeps the notice off the error page.
+
+A recovered chunk reports `stale_chunk_recovered` rather than an exception, so routine deploys no longer raise Error Tracking issues. A chunk error that reaches the error page still does.
 
 ## Analytics
 
