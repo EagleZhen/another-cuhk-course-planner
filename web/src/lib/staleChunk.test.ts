@@ -46,6 +46,12 @@ describe('shouldReloadForStaleChunk', () => {
   it('recovers again on a build it has not tried', () => {
     expect(shouldReloadForStaleChunk({ ...fresh, lastBuildId: 'older' })).toBe(true)
   })
+
+  // No commit named this build, so nothing is stored and both sides read null. Comparing
+  // them would say "already tried" and never recover; the marker is the whole guard here.
+  it('falls back to the marker when the build is unnamed', () => {
+    expect(shouldReloadForStaleChunk({ ...fresh, buildId: null, lastBuildId: null })).toBe(true)
+  })
 })
 
 describe('the refresh marker', () => {

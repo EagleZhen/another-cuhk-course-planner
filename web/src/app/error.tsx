@@ -15,7 +15,7 @@ import {
   withRefreshMarker,
 } from '@/lib/staleChunk'
 
-const BUILD_ID = process.env.NEXT_PUBLIC_BUILD_ID ?? 'unknown'
+const BUILD_ID = process.env.NEXT_PUBLIC_BUILD_ID ?? null
 
 export default function ErrorPage({ error }: { error: Error & { digest?: string } }) {
   // Decided during render, not in an effect, so this page never flashes before the reload.
@@ -32,7 +32,7 @@ export default function ErrorPage({ error }: { error: Error & { digest?: string 
 
   useEffect(() => {
     if (recovering) {
-      rememberStaleChunkReload(BUILD_ID)
+      if (BUILD_ID) rememberStaleChunkReload(BUILD_ID)
       // Handled — the user sees a reload, not a failure, so this is not one to triage.
       analytics.staleChunkRecovered()
       window.location.replace(withRefreshMarker(window.location.href))

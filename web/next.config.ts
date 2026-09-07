@@ -10,14 +10,17 @@ const allowedDevOrigins = process.env.ALLOWED_DEV_ORIGINS?.split(',')
   .filter(Boolean)
 
 // Commit SHA of this build, surfaced to analytics (see instrumentation-client) so an
-// error traces to the deployed code. 'unknown' if git is absent, never failing the build.
-function resolveBuildId(): string {
+// error traces to the deployed code. Null if git is absent, never failing the build — and
+// never a stand-in, which stale-chunk recovery would go on to compare as a real identity.
+function resolveBuildId(): string | null {
   try {
     return execFileSync('git', ['rev-parse', 'HEAD']).toString().trim()
   } catch {
-    return 'unknown'
+    return null
   }
 }
+
+const buildId = resolveBuildId()
 
 const nextConfig: NextConfig = {
   // Static export: assets served by Cloudflare's static layer, not a Function.
@@ -26,7 +29,7 @@ const nextConfig: NextConfig = {
   output: 'export',
   images: { unoptimized: true },
 
-  env: { NEXT_PUBLIC_BUILD_ID: resolveBuildId() },
+  ...(buildId ? { env: { NEXT_PUBLIC_BUILD_ID: buildId } } : {}),
 
   // `next dev` writes web/AGENTS.md and web/CLAUDE.md whenever it detects a coding agent.
   // The repo's own AGENTS.md already points agents at web/node_modules/next/dist/docs/.

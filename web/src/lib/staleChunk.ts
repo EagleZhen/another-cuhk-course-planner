@@ -23,9 +23,11 @@ export function shouldReloadForStaleChunk({
 }: {
   href: string
   lastBuildId: string | null
-  buildId: string
+  /** Null when the build had no commit to name it; the marker is then the whole guard. */
+  buildId: string | null
 }): boolean {
-  return !hasRefreshMarker(href) && lastBuildId !== buildId
+  if (hasRefreshMarker(href)) return false
+  return buildId === null || lastBuildId !== buildId
 }
 
 // Recovering navigates to this rather than reloading, so the marker rides the navigation
