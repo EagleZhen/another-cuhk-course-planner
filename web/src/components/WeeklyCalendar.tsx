@@ -101,8 +101,8 @@ function dateOfDay(weekStart: Date | null, day: WeekDay): Date | null {
   )
 }
 
-/** Just past three breaths of `changed-ring`, so the cue ends on its own. */
-const CHANGED_HIGHLIGHT_MS = 4600
+/** Just past two breaths of `changed-ring`, so the cue ends on its own. */
+const CHANGED_HIGHLIGHT_MS = 3100
 
 interface WeeklyCalendarProps {
   events: CalendarEvent[]
@@ -262,6 +262,12 @@ export default function WeeklyCalendar({
     setScreenshotError(null)
     setIsCapturing(true)
     try {
+      // The change cue is navigation state, not schedule content, so it must not
+      // reach the image. Clearing it is not enough on its own — wait for the
+      // frame that paints without it before reading the DOM.
+      setChangedIds(new Set())
+      await new Promise((resolve) => requestAnimationFrame(resolve))
+
       // Find unscheduled section using data attribute
       const unscheduledElement = document.querySelector(
         '[data-screenshot="unscheduled"]'

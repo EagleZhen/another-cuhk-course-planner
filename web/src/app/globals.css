@@ -144,9 +144,9 @@
 }
 
 @layer utilities {
-  /* Three slow breaths, each ending where it began, so it stops without a cut. */
+  /* Two slow breaths, each ending where it began, so it stops without a cut. */
   .changed-ring {
-    animation: changed-breathe 1.5s ease-in-out 3;
+    animation: changed-breathe 1.5s ease-in-out 2;
   }
 
   @media (prefers-reduced-motion: reduce) {
