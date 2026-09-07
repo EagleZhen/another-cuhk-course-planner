@@ -176,9 +176,11 @@ export const analytics = {
 
   // === DEPLOYS ===
 
-  // A deploy stranded an open tab and the one-shot reload fixed it — not an exception,
-  // since the user saw a reload rather than a failure. `build_id` says which build.
-  // Key question: how often do deploys disrupt open tabs, and is recovery holding?
+  // A tab woke up behind the current build and the one-shot reload fixed it — not an
+  // exception, since the user saw a reload rather than a failure. `build_id` says which
+  // build it woke up on.
+  // Fires when the navigation is issued, not when it lands, so a recovery that failed
+  // still reports here; that failure surfaces separately as a ChunkLoadError exception.
   staleChunkRecovered: () => {
     track('stale_chunk_recovered')
   },

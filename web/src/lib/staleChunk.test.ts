@@ -65,7 +65,8 @@ describe('the refresh marker', () => {
     expect(hasRefreshMarker(page)).toBe(false)
   })
 
-  // Stripping must leave the rest of the URL alone — the term drives what the page shows.
+  // Stripping must leave the rest of the URL alone — this feeds replaceState, so whatever
+  // else is in the URL stays in what the user sees and copies.
   it('strips only itself', () => {
     expect(withoutRefreshMarker(withRefreshMarker(page))).toBe('/?term=2026')
   })
