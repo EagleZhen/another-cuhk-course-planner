@@ -6,5 +6,9 @@ import { defineConfig } from 'vitest/config'
 export default defineConfig({
   test: {
     include: ['src/**/*.{test,spec}.{ts,tsx}'],
+    // Pin the zone so date assertions don't vary by machine. Neither Hong Kong
+    // nor UTC: the export converts HKT to UTC, so under either of those zones
+    // code confusing the local zone with one of them would still pass.
+    env: { TZ: 'America/Chicago' },
   },
 })

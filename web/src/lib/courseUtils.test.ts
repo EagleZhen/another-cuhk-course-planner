@@ -1,4 +1,6 @@
-import { describe, it, expect } from 'vitest'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { describe, it, expect, vi } from 'vitest'
 import {
   updateExistingEnrollment,
   markCourseUnavailable,
@@ -24,7 +26,13 @@ import {
   formatTimeCompact,
   formatInstructorsCompact,
   getAvailabilityBadges,
+  parseMeetingDates,
+  createICSEventsForMeeting,
+  generateICSCalendar,
+  processICSForUndo,
+  extractAcademicYearBounds,
 } from './courseUtils'
+import { transformExternalCourseData } from './validation'
 import { SCHEDULE_DATA_VERSION } from './constants'
 import type {
   CourseEnrollment,
@@ -1235,5 +1243,202 @@ describe('getAvailabilityBadges', () => {
       waitlistCapacity: 0,
     })
     expect(badges.map((badge) => badge.text)).toEqual(['Closed', '0/25 Available'])
+  })
+})
+
+// === ICS EXPORT ===
+//
+// Characterization tests over real published data, pinning today's behavior
+// including the year rule that misdates August. The next commit should move
+// only the August expectations.
+
+function loadPublishedCourse(year: string, subject: string, courseCode: string): InternalCourse {
+  const path = join(process.cwd(), 'public', 'data', year, `${subject}.json`)
+  const { courses } = transformExternalCourseData(JSON.parse(readFileSync(path, 'utf8')))
+
+  const course = courses.find((candidate) => candidate.courseCode === courseCode)
+  if (!course) throw new Error(`${subject}${courseCode} is not in ${year} published data`)
+
+  return course
+}
+
+function findPublishedSection(
+  course: InternalCourse,
+  termName: string,
+  sectionCode: string
+): InternalSection {
+  const section = course.terms
+    .find((term) => term.termName === termName)
+    // Published section codes carry the class number, e.g. "B-LEC (6012)".
+    ?.sections.find((candidate) => candidate.sectionCode.startsWith(`${sectionCode} (`))
+  if (!section) throw new Error(`${sectionCode} is not in ${course.subject} ${termName}`)
+
+  return section
+}
+
+function makeEnrollment(course: InternalCourse, sections: InternalSection[]): CourseEnrollment {
+  return {
+    courseId: `${course.subject}${course.courseCode}`,
+    course,
+    selectedSections: sections,
+    color: '#000000',
+    isVisible: true,
+  }
+}
+
+/** ACCT1111 B-LEC: one weekly Thursday row, Sep-Nov. */
+const ACCT1111_TERM = '2025-26 Term 1'
+/** ACCT5111 FA-LEC: its Monday row crosses Dec into Jan. */
+const ACCT5111_TERM = '2025-26 Term 2'
+const acct = (courseCode: string) => loadPublishedCourse('2025-26', 'ACCT', courseCode)
+
+/** EMBA5011 AE-LEC: six rows, one August date each. */
+const EMBA5011_TERM = '2025-26 Term 1'
+const emba5011 = () => loadPublishedCourse('2025-26', 'EMBA', '5011')
+
+describe('extractAcademicYearBounds', () => {
+  it('reads both calendar years, and rejects a term name without one', () => {
+    expect(extractAcademicYearBounds('2025-26 Term 2')).toEqual({
+      firstYear: 2025,
+      secondYear: 2026,
+    })
+    expect(() => extractAcademicYearBounds('Term 2')).toThrow(/Invalid term name/)
+  })
+})
+
+describe('parseMeetingDates', () => {
+  it('expands a comma-separated list onto the term first year for Sep-Dec', () => {
+    const section = findPublishedSection(acct('1111'), ACCT1111_TERM, 'B-LEC')
+    const dates = parseMeetingDates(section.meetings[0].dates, ACCT1111_TERM)
+
+    expect(dates).toHaveLength(13)
+    expect(dates[0]).toEqual(new Date(2025, 8, 4))
+    expect(dates[12]).toEqual(new Date(2025, 10, 27))
+  })
+
+  // A year change inside one list, which today's rule gets right.
+  it('rolls a single list from December into the second year', () => {
+    const section = findPublishedSection(acct('5111'), ACCT5111_TERM, 'FA-LEC')
+    const monday = section.meetings.find((meeting) => meeting.time.startsWith('Mo'))!
+    const dates = parseMeetingDates(monday.dates, ACCT5111_TERM)
+
+    expect(dates[4]).toEqual(new Date(2025, 11, 29))
+    expect(dates[5]).toEqual(new Date(2026, 0, 5))
+  })
+
+  // Pinned bug: the Sep cutoff sends Jan-Aug to the second year, so `Mo 25/8`
+  // yields 25 Aug 2026 — a Tuesday. It is 2025.
+  it('misdates August meetings by a year', () => {
+    const section = findPublishedSection(emba5011(), EMBA5011_TERM, 'AE-LEC')
+    const monday = section.meetings.find((meeting) => meeting.time.startsWith('Mo'))!
+
+    expect(parseMeetingDates(monday.dates, EMBA5011_TERM)).toEqual([new Date(2026, 7, 25)])
+  })
+
+  it('returns no dates for TBA or empty input', () => {
+    expect(parseMeetingDates('TBA', ACCT1111_TERM)).toEqual([])
+    expect(parseMeetingDates('', ACCT1111_TERM)).toEqual([])
+  })
+
+  // No published row is malformed; this pins that one would be dropped, not guessed.
+  it('drops an unparseable date with a warning, keeping the rest', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    expect(parseMeetingDates('4/9, 32/13, 11/9', ACCT1111_TERM)).toEqual([
+      new Date(2025, 8, 4),
+      new Date(2025, 8, 11),
+    ])
+    expect(warn).toHaveBeenCalledOnce()
+
+    warn.mockRestore()
+  })
+})
+
+describe('createICSEventsForMeeting', () => {
+  it('emits one UTC event per date, converted from Hong Kong time', () => {
+    const course = acct('1111')
+    const section = findPublishedSection(course, ACCT1111_TERM, 'B-LEC')
+    const events = createICSEventsForMeeting(section.meetings[0], course, section, ACCT1111_TERM)
+
+    expect(events).toHaveLength(13)
+    // 14:30-17:15 HKT on 4 Sep 2025 is 06:30-09:15 UTC.
+    expect(events[0].start).toEqual([2025, 9, 4, 6, 30])
+    expect(events[0].end).toEqual([2025, 9, 4, 9, 15])
+    expect(events[0].uid).toBe(
+      'ACCT1111-B-LEC-2025-09-04-1430-1715@another-cuhk-course-planner.com'
+    )
+    // The cohort letter joins the course code; the type follows.
+    expect(events[0].title).toBe('ACCT1111B LEC')
+    expect(events[0].location).toBe('Lee Shau Kee Archi Bldg G03')
+  })
+
+  // The UID carries the date, so fixing the year rewrites it — breaking undo for
+  // anyone who already imported these events.
+  it('carries the misdated August year into the UID', () => {
+    const course = emba5011()
+    const section = findPublishedSection(course, EMBA5011_TERM, 'AE-LEC')
+    const monday = section.meetings.find((meeting) => meeting.time.startsWith('Mo'))!
+
+    // Only the first cohort letter reaches the UID, so "AE-LEC" prints as "A".
+    expect(createICSEventsForMeeting(monday, course, section, EMBA5011_TERM)[0].uid).toBe(
+      'EMBA5011-A-LEC-2026-08-25-0845-1845@another-cuhk-course-planner.com'
+    )
+  })
+
+  it('skips a meeting with no parseable time', () => {
+    const course = acct('1111')
+    const section = findPublishedSection(course, ACCT1111_TERM, 'B-LEC')
+    const meeting = { ...section.meetings[0], time: 'TBA' }
+
+    expect(createICSEventsForMeeting(meeting, course, section, ACCT1111_TERM)).toEqual([])
+  })
+})
+
+describe('generateICSCalendar', () => {
+  // AE-LEC has six rows of one date each, so the count proves the walk over rows.
+  it('writes one VEVENT per occurrence across every meeting row', () => {
+    const course = emba5011()
+    const section = findPublishedSection(course, EMBA5011_TERM, 'AE-LEC')
+    const { icsContent, filename, error } = generateICSCalendar(
+      [makeEnrollment(course, [section])],
+      EMBA5011_TERM
+    )
+
+    expect(error).toBeUndefined()
+    expect(filename).toMatch(/^2025-26-Term-1-Schedule-\d{4}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}\.ics$/)
+    expect(icsContent!.match(/BEGIN:VEVENT/g)).toHaveLength(6)
+    expect(icsContent).toContain('PRODID:Another CUHK Course Planner')
+  })
+
+  it('excludes hidden enrollments and reports when nothing is left to export', () => {
+    const course = emba5011()
+    const section = findPublishedSection(course, EMBA5011_TERM, 'AE-LEC')
+    const hidden = { ...makeEnrollment(course, [section]), isVisible: false }
+
+    expect(generateICSCalendar([hidden], EMBA5011_TERM).error).toMatch(/No scheduled events/)
+  })
+})
+
+describe('processICSForUndo', () => {
+  // Fed by the real generator, so the two stay in step.
+  it('cancels every event in a calendar we generated', () => {
+    const course = emba5011()
+    const section = findPublishedSection(course, EMBA5011_TERM, 'AE-LEC')
+    const { icsContent } = generateICSCalendar([makeEnrollment(course, [section])], EMBA5011_TERM)
+
+    const result = processICSForUndo(icsContent!)
+
+    expect(result.success).toBe(true)
+    expect(result.needsWarning).toBe(false)
+    expect(result.modifiedContent!.match(/STATUS:CANCELLED/g)).toHaveLength(6)
+  })
+
+  it('warns about a calendar from elsewhere and rejects a non-calendar', () => {
+    expect(processICSForUndo('BEGIN:VCALENDAR\nBEGIN:VEVENT\nEND:VCALENDAR')).toMatchObject({
+      success: true,
+      needsWarning: true,
+    })
+    expect(processICSForUndo('not a calendar')).toMatchObject({ success: false })
+    expect(processICSForUndo('')).toMatchObject({ success: false, error: 'File is empty' })
   })
 })
