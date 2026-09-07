@@ -17,6 +17,7 @@ import {
 } from 'lucide-react'
 import {
   groupOverlappingEvents,
+  assignOverlapColumns,
   eventsOverlap,
   formatTimeCompact,
   formatInstructorsCompact,
@@ -764,7 +765,10 @@ export default function WeeklyCalendar({
 
                       {/* Event cards with dynamic time-based positioning */}
                       {eventGroups.map((group) => {
-                        return group.map((event, stackIndex) => {
+                        const columns = assignOverlapColumns(group)
+                        const columnCount = Math.max(...columns.values()) + 1
+
+                        return group.map((event) => {
                           const { top, height } = getCardDimensions(
                             event,
                             calendarConfig.startHour,
@@ -774,8 +778,8 @@ export default function WeeklyCalendar({
                           const textLineLimits = getCardTextLineLimits(height, localDisplayConfig)
 
                           const { leftOffset, rightOffset, zIndex } = getCardStackPlacement(
-                            stackIndex,
-                            group.length,
+                            columns.get(event.id)!,
+                            columnCount,
                             isSelected
                           )
 

@@ -99,25 +99,25 @@ export interface CardStackPlacement {
 }
 
 /**
- * Places a card within its overlap group: cards fan rightwards, the last on top.
+ * Places a card in its column: cards fan rightwards, the rightmost on top.
  * Don't invert that — the strips left showing are each buried card's left edge,
  * where the text is, so they read as cards rather than blank slivers.
  * A selected card outranks the stack.
  */
 export function getCardStackPlacement(
-  stackIndex: number,
-  groupSize: number,
+  column: number,
+  columnCount: number,
   isSelected: boolean
 ): CardStackPlacement {
   const offset = CALENDAR_LAYOUT_CONSTANTS.CONFLICT_CARD_STACK_OFFSET
-  const isStacked = groupSize > 1
-  const depth = groupSize - 1 - stackIndex
+  const isStacked = columnCount > 1
+  const depth = columnCount - 1 - column
 
   return {
-    leftOffset: isStacked ? stackIndex * offset : 0,
+    leftOffset: isStacked ? column * offset : 0,
     rightOffset: isStacked ? depth * offset : 0,
     // All below the sticky header at z-50.
-    zIndex: isSelected ? 40 : isStacked ? 20 + stackIndex : 10,
+    zIndex: isSelected ? 40 : isStacked ? 20 + column : 10,
   }
 }
 

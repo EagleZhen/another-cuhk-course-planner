@@ -261,6 +261,36 @@ export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
 }
 
 /**
+ * Column for each card in an overlap group, keyed by event id.
+ *
+ * A card only has to dodge cards it actually overlaps, so a chain does not march
+ * rightwards: with 9:30-11:15, 10:30-12:15 and 11:30-13:00, the first and last
+ * share column 0. Column count is therefore how many classes truly run at once.
+ */
+export function assignOverlapColumns(group: CalendarEvent[]): Map<string, number> {
+  const minutes = (event: CalendarEvent) => event.startHour * 60 + event.startMinute
+  // Earliest first, so the greedy choice below is optimal; id breaks ties for a
+  // placement that does not depend on cart order.
+  const byStart = [...group].sort((a, b) => minutes(a) - minutes(b) || a.id.localeCompare(b.id))
+
+  const columns = new Map<string, number>()
+
+  for (const event of byStart) {
+    const taken = new Set(
+      byStart
+        .filter((other) => columns.has(other.id) && eventsOverlap(other, event))
+        .map((other) => columns.get(other.id))
+    )
+
+    let column = 0
+    while (taken.has(column)) column++
+    columns.set(event.id, column)
+  }
+
+  return columns
+}
+
+/**
  * Get day index from time string (0=Monday, 1=Tuesday, etc.)
  * Now supports weekend days: Saturday=5, Sunday=6
  */
@@ -288,13 +318,18 @@ export function groupOverlappingEvents(events: CalendarEvent[]): CalendarEvent[]
     const group = [event]
     processed.add(event.id)
 
-    // Find overlapping events
-    for (const otherEvent of events) {
-      if (processed.has(otherEvent.id)) continue
+    // Overlap is not transitive, so sweep the group as it grows rather than
+    // comparing against the seed alone: 9:30-11:15 and 11:30-13:00 both belong
+    // with 10:30-12:15. Seeding alone splits that chain in a cart-order-dependent
+    // way, and the resulting groups draw conflict zones that overlap on screen.
+    for (let member = 0; member < group.length; member++) {
+      for (const otherEvent of events) {
+        if (processed.has(otherEvent.id)) continue
 
-      if (eventsOverlap(event, otherEvent)) {
-        group.push(otherEvent)
-        processed.add(otherEvent.id)
+        if (eventsOverlap(group[member], otherEvent)) {
+          group.push(otherEvent)
+          processed.add(otherEvent.id)
+        }
       }
     }
 
