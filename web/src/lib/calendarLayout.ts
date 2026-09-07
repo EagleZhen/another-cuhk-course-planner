@@ -188,24 +188,42 @@ export function distinctWeeks(events: CalendarEvent[], weeks: Date[]): Date[] {
   })
 }
 
+/** The section a card belongs to, whatever it shows that week. */
+function sectionKey(event: CalendarEvent): string {
+  return `${event.enrollmentId}|${event.sectionCode}`
+}
+
 /**
- * Ids of cards showing something that has not appeared before: a section
- * starting, or one whose room, instructor or time has changed.
+ * Ids of the cards worth marking on arrival, given the week last shown:
  *
- * A section merely resuming after a break is not marked. Its content is
- * unchanged, and the gap it returns from is plain on the grid — marking those
- * would be 96% of all marks and would teach the eye to skip them.
+ * - the same section showing something different from where you came from —
+ *   `GEWS1011`'s lecture changes building, and that reads the same in either
+ *   direction, so week 1 marks it when reached from week 2;
+ * - content no earlier week held, which catches a section starting mid-term.
+ *
+ * A section resuming unchanged after a break is neither. That was 96% of all
+ * marks and reports what the empty grid already showed.
  */
-export function changedEventIds(events: CalendarEvent[], weekStart: Date): Set<string> {
-  const seenBefore = new Set(
-    events.filter((event) => event.date.getTime() < weekStart.getTime()).map(contentKey)
-  )
-  // Nothing precedes the first week, so nothing there is new.
-  if (seenBefore.size === 0) return new Set()
+export function changedEventIds(
+  events: CalendarEvent[],
+  weekStart: Date,
+  lastShown?: Date | null
+): Set<string> {
+  const earlier = events.filter((event) => event.date.getTime() < weekStart.getTime())
+  const seenBefore = new Set(earlier.map(contentKey))
+
+  const shownLast = lastShown ? eventsInWeek(events, lastShown) : []
+  const lastContent = new Set(shownLast.map(contentKey))
+  const lastSections = new Set(shownLast.map(sectionKey))
 
   return new Set(
     eventsInWeek(events, weekStart)
-      .filter((event) => !seenBefore.has(contentKey(event)))
+      .filter((event) => {
+        if (lastContent.has(contentKey(event))) return false
+        if (lastSections.has(sectionKey(event))) return true
+
+        return earlier.length > 0 && !seenBefore.has(contentKey(event))
+      })
       .map((event) => event.id)
   )
 }

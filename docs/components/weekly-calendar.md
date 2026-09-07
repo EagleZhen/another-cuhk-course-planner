@@ -32,7 +32,7 @@ A test expands every published timed meeting on each run, so a future term falli
 Accuracy does not help a student who never looks. A median 13-week cart holds only 5 distinct weeks, so paging one week at a time shows nothing new eight times.
 
 - **Repeated weeks are skipped** by default: the chevrons step to the next week whose content differs. A cart that never varies therefore disables them, which is itself the signal.
-- **A card breathes on arrival** when it shows content no earlier week did — a section starting, or one whose room, instructor or time changed. `GEWS1011`'s lecture changes building between weeks 1 and 2, which nothing else reveals.
+- **A card breathes on arrival** when the same section shows something different from the week you came from, or when its content appeared in no earlier week. `GEWS1011`'s lecture changes building between weeks 1 and 2, which nothing else reveals; comparing against the week you came from is what makes that read the same travelling back as forwards. Content compared is time, location and instructor — language sits on the section, so it cannot vary by week.
 - **A section resuming unchanged is not marked.** That was 96% of all marks and reports what the empty grid already showed, which taught the eye to skip the rest.
 - **The cue expires** (`CHANGED_HIGHLIGHT_MS`) and is cleared before a capture renders — it is navigation state, not schedule content. Clearing alone is not enough: the capture reads live DOM after React batches, so it waits a frame.
 

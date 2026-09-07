@@ -175,6 +175,21 @@ describe('what changes between weeks', () => {
     expect(changedEventIds(events, MON(2))).toEqual(new Set(['LEC-2']))
   })
 
+  // GEWS1011: one lecture, two weeks, two buildings. Whichever week you arrive
+  // at, the room differs from the one you left, so both directions mark it.
+  it('marks a room change from either direction', () => {
+    const events = [card(0, 'LEC'), card(1, 'LEC', 'YIA 404')]
+
+    expect(changedEventIds(events, MON(1), MON(0))).toEqual(new Set(['LEC-1']))
+    expect(changedEventIds(events, MON(0), MON(1))).toEqual(new Set(['LEC-0']))
+  })
+
+  it('marks nothing in the first week reached without a previous one', () => {
+    const events = [card(0, 'LEC'), card(1, 'LEC', 'YIA 404')]
+
+    expect(changedEventIds(events, MON(0))).toEqual(new Set())
+  })
+
   it('marks nothing in a week that would be skipped', () => {
     const events = [card(0, 'LEC'), card(1, 'LEC')]
 
@@ -187,7 +202,9 @@ describe('what changes between weeks', () => {
     const events = [card(0, 'LEC'), card(2, 'LEC')]
 
     expect(distinctWeeks(events, [MON(0), MON(1), MON(2)])).toEqual([MON(0), MON(1), MON(2)])
-    expect(changedEventIds(events, MON(2))).toEqual(new Set())
+    // Arrived at from the empty week between, or from the week before that.
+    expect(changedEventIds(events, MON(2), MON(1))).toEqual(new Set())
+    expect(changedEventIds(events, MON(2), MON(0))).toEqual(new Set())
   })
 
   it('still marks a section that resumes in a different room', () => {

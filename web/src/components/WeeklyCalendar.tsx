@@ -159,6 +159,8 @@ export default function WeeklyCalendar({
     scrollbarWidth: 0,
   })
 
+  // The week we came from, so a change reads the same going back as forwards.
+  const lastShownWeekRef = useRef<number | null>(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const calendarRef = useRef<HTMLDivElement>(null)
 
@@ -452,7 +454,16 @@ export default function WeeklyCalendar({
   useEffect(() => {
     if (activeWeekTime === null) return
 
-    setChangedIds(changedEventIds(events, new Date(activeWeekTime)))
+    const lastShown = lastShownWeekRef.current
+    lastShownWeekRef.current = activeWeekTime
+
+    setChangedIds(
+      changedEventIds(
+        events,
+        new Date(activeWeekTime),
+        lastShown === null ? null : new Date(lastShown)
+      )
+    )
     const timer = setTimeout(() => setChangedIds(new Set()), CHANGED_HIGHLIGHT_MS)
 
     return () => clearTimeout(timer)
