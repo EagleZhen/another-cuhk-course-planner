@@ -34,7 +34,7 @@ export default function ErrorPage({ error }: { error: Error & { digest?: string 
     if (recovering) {
       if (BUILD_ID) rememberStaleChunkReload(BUILD_ID)
       // Handled — the user sees a reload, not a failure, so this is not one to triage.
-      analytics.staleChunkRecovered()
+      analytics.chunkLoadRecovered()
       window.location.replace(withRefreshMarker(window.location.href))
       return
     }
@@ -46,7 +46,7 @@ export default function ErrorPage({ error }: { error: Error & { digest?: string 
     }
 
     // A ChunkLoadError reaching here means we already tried this build; the recovered
-    // case reports stale_chunk_recovered instead, and build_id rides on both.
+    // case reports chunk_load_recovered instead, and build_id rides on both.
     posthog.captureException(error, { error_boundary: 'app' })
   }, [error, recovering])
 

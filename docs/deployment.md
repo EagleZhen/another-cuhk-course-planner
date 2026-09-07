@@ -24,7 +24,7 @@ Repeats are blocked twice ([staleChunk.ts](../web/src/lib/staleChunk.ts)): only 
 
 `StaleVersionNotice` renders from `page.tsx`, not the layout — `error.js` replaces the page and leaves the layout standing, so only that placement keeps the notice off the error page.
 
-A recovered chunk reports `stale_chunk_recovered` rather than an exception, so routine deploys no longer raise Error Tracking issues. One that reaches the error page still does. A chunk that fails before hydration leaves no boundary mounted at all: it autocaptures unhandled, and this recovery never runs.
+A recovered chunk reports `chunk_load_recovered` rather than an exception, so routine deploys no longer raise Error Tracking issues. One that reaches the error page still does. A chunk that fails before hydration leaves no boundary mounted at all: it autocaptures unhandled, and this recovery never runs.
 
 ## Analytics
 
