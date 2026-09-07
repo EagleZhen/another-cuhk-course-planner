@@ -147,19 +147,9 @@ export function detectConflicts(events: CalendarEvent[]): CalendarEvent[] {
       return { ...event, hasConflict: false }
     }
 
-    const eventTime = parseTimeRange(event.time)
-    if (!eventTime) {
-      return { ...event, hasConflict: false }
-    }
-
-    const hasConflict = visibleEvents.some((other) => {
-      if (other.id === event.id) return false
-
-      const otherTime = parseTimeRange(other.time)
-      if (!otherTime) return false
-
-      return doTimesOverlap(eventTime, otherTime)
-    })
+    const hasConflict = visibleEvents.some(
+      (other) => other.id !== event.id && eventsOverlap(event, other)
+    )
 
     return { ...event, hasConflict }
   })
@@ -180,10 +170,17 @@ export function isEnrollmentOpen(enrollment: CourseEnrollment): boolean {
 }
 
 /**
- * Convert course enrollments to calendar events with day/time info
+ * One calendar event per occurrence: a section's class on one date.
+ *
+ * The id is the whole displayed row, so a source row repeated verbatim collapses
+ * into one card while two rows differing only by room stay two.
  */
-export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): CalendarEvent[] {
+export function enrollmentsToCalendarEvents(
+  enrollments: CourseEnrollment[],
+  termName: string
+): CalendarEvent[] {
   const events: CalendarEvent[] = []
+  const seen = new Set<string>()
 
   enrollments.filter(isVisibleAndValid).forEach((enrollment) => {
     enrollment.selectedSections.forEach((section) => {
@@ -196,26 +193,41 @@ export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): Ca
           return
         }
 
-        events.push({
-          id: `${enrollment.courseId}_${section.id}_${meeting.time}`,
-          subject: enrollment.course.subject,
-          courseCode: enrollment.course.courseCode,
-          title: enrollment.course.title,
-          sectionCode: section.sectionCode,
-          sectionType: section.sectionType,
-          time: meeting.time,
-          location: meeting.location,
-          instructors: meeting.instructors,
-          credits: enrollment.course.credits,
-          color: enrollment.color,
-          isVisible: enrollment.isVisible,
-          hasConflict: false, // Will be computed later
-          enrollmentId: enrollment.courseId,
-          day: dayIndex,
-          startHour: timeRange?.startHour || 9,
-          endHour: timeRange?.endHour || 10,
-          startMinute: timeRange?.startMinute || 0,
-          endMinute: timeRange?.endMinute || 0,
+        parseMeetingDates(meeting.dates, termName, timeRange.day).forEach((date) => {
+          const id = [
+            enrollment.courseId,
+            section.id,
+            formatDateKey(date),
+            meeting.time,
+            meeting.location,
+            meeting.instructors,
+          ].join('|')
+
+          if (seen.has(id)) return
+          seen.add(id)
+
+          events.push({
+            id,
+            date,
+            subject: enrollment.course.subject,
+            courseCode: enrollment.course.courseCode,
+            title: enrollment.course.title,
+            sectionCode: section.sectionCode,
+            sectionType: section.sectionType,
+            time: meeting.time,
+            location: meeting.location,
+            instructors: meeting.instructors,
+            credits: enrollment.course.credits,
+            color: enrollment.color,
+            isVisible: enrollment.isVisible,
+            hasConflict: false, // Will be computed later
+            enrollmentId: enrollment.courseId,
+            day: dayIndex,
+            startHour: timeRange.startHour,
+            endHour: timeRange.endHour,
+            startMinute: timeRange.startMinute,
+            endMinute: timeRange.endMinute,
+          })
         })
       })
     })
@@ -278,7 +290,7 @@ export function getDayIndex(timeStr: string): number {
  * Check if two calendar events overlap in time
  */
 export function eventsOverlap(event1: CalendarEvent, event2: CalendarEvent): boolean {
-  if (event1.day !== event2.day) return false
+  if (event1.date.getTime() !== event2.date.getTime()) return false
 
   const start1 = event1.startHour * 60 + event1.startMinute
   const end1 = event1.endHour * 60 + event1.endMinute
@@ -1741,6 +1753,12 @@ export function parseMeetingDates(dates: string, termName: string, weekday: stri
     .filter((date) => date !== null) as Date[]
 }
 
+/** Local calendar date as "2025-09-04", for ids and UIDs. */
+export function formatDateKey(date: Date): string {
+  const month = (date.getMonth() + 1).toString().padStart(2, '0')
+  return `${date.getFullYear()}-${month}-${date.getDate().toString().padStart(2, '0')}`
+}
+
 /** One meeting of a section on one date. */
 export interface SectionOccurrence {
   date: Date
@@ -1844,7 +1862,7 @@ export function createICSEventsForMeeting(
     // Generate deterministic UID for consistent event identification
     // Example with prefix: "CSCI1234-A-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
     // Example without prefix: "CSCI1234-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
-    const dateStr = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`
+    const dateStr = formatDateKey(date)
     const timeStr = `${timeRange.startHour.toString().padStart(2, '0')}${timeRange.startMinute.toString().padStart(2, '0')}-${timeRange.endHour.toString().padStart(2, '0')}${timeRange.endMinute.toString().padStart(2, '0')}`
     const prefix = getSectionPrefix(section.sectionCode)
     const prefixPart = prefix ? `${prefix}-` : ''

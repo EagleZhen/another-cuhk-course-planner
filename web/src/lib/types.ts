@@ -159,9 +159,10 @@ export interface CourseEnrollment {
   lastSeenInvalidState?: InvalidEnrollmentState
 }
 
-// Calendar event using clean internal types
+// One occurrence of a meeting: a section's class on one date.
 export interface CalendarEvent {
   id: string
+  date: Date
   subject: string
   courseCode: string
   title: string

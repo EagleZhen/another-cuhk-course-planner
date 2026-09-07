@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import posthog from 'posthog-js'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -8,6 +8,8 @@ import { TermSelector } from '@/components/TermSelector'
 import {
   ChevronDown,
   ChevronUp,
+  ChevronLeft,
+  ChevronRight,
   Eye,
   EyeOff,
   Camera,
@@ -24,7 +26,7 @@ import {
   processICSForUndo,
 } from '@/lib/courseUtils'
 import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
-import { layoutDayEvents } from '@/lib/calendarLayout'
+import { layoutDayEvents, weekRange, defaultWeek, eventsInWeek } from '@/lib/calendarLayout'
 import {
   DEFAULT_CALENDAR_CONFIG,
   CALENDAR_LAYOUT_CONSTANTS,
@@ -35,6 +37,7 @@ import {
   getCardTextLineLimits,
   getDayIndex,
   getRequiredDays,
+  type WeekDay,
   getGridColumns,
   getMinimumCalendarWidth,
   type CalendarDisplayConfig,
@@ -80,6 +83,17 @@ const getCardDimensions = (
   return { top, height }
 }
 
+/** The date a day column falls on in the shown week. */
+function dateOfDay(weekStart: Date | null, day: WeekDay): Date | null {
+  if (!weekStart) return null
+
+  return new Date(
+    weekStart.getFullYear(),
+    weekStart.getMonth(),
+    weekStart.getDate() + getDayIndex(day)
+  )
+}
+
 interface WeeklyCalendarProps {
   events: CalendarEvent[]
   unscheduledSections?: Array<{
@@ -116,6 +130,7 @@ export default function WeeklyCalendar({
   const [isCapturing, setIsCapturing] = useState(false)
   const [screenshotError, setScreenshotError] = useState<string | null>(null)
   const [isIcsMenuExpanded, setIsIcsMenuExpanded] = useState(false)
+  const [selectedWeekTime, setSelectedWeekTime] = useState<number | null>(null)
 
   // Refs for auto-scrolling to selected events
   const eventRefs = useRef<Map<string, HTMLDivElement>>(new Map())
@@ -383,7 +398,18 @@ export default function WeeklyCalendar({
     fileInputRef.current?.click()
   }
 
-  // Dynamic day detection - show weekends only when courses exist
+  // The cart's own weeks, first occurrence to last. The selection is derived
+  // rather than synced, so a cart or term change that drops the chosen week
+  // falls back to today's without an effect to keep in step.
+  const weeks = useMemo(() => weekRange(events), [events])
+  const chosenWeek = weeks.find((week) => week.getTime() === selectedWeekTime)
+  const activeWeek = chosenWeek ?? defaultWeek(weeks, new Date())
+  const weekIndex = activeWeek
+    ? weeks.findIndex((week) => week.getTime() === activeWeek.getTime())
+    : -1
+  const weekEvents = activeWeek ? eventsInWeek(events, activeWeek) : []
+
+  // Columns and hours span every week, so paging does not shift the grid.
   const days = getRequiredDays(events)
   const gridColumns = getGridColumns(days.length)
   const minimumCalendarWidth = getMinimumCalendarWidth(days.length)
@@ -626,6 +652,30 @@ export default function WeeklyCalendar({
           </button>
         )}
 
+        {activeWeek && (
+          <div className="flex items-center justify-center gap-2 pb-1 text-xs text-gray-600">
+            <button
+              className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-default"
+              disabled={weekIndex <= 0}
+              aria-label="Previous week"
+              onClick={() => setSelectedWeekTime(weeks[weekIndex - 1].getTime())}
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <span className="tabular-nums font-medium">
+              Week {weekIndex + 1} of {weeks.length}
+            </span>
+            <button
+              className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-default"
+              disabled={weekIndex >= weeks.length - 1}
+              aria-label="Next week"
+              onClick={() => setSelectedWeekTime(weeks[weekIndex + 1].getTime())}
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+
         <div
           className="h-full max-h-[720px] overflow-auto"
           ref={scrollContainerRef}
@@ -633,9 +683,17 @@ export default function WeeklyCalendar({
         >
           <div
             ref={calendarRef}
-            className="h-full"
+            className="h-full relative"
             style={{ minWidth: `${minimumCalendarWidth}px` }}
           >
+            {/* A week can be genuinely empty. Say so, so it does not read as a bug. */}
+            {activeWeek && weekEvents.length === 0 && (
+              <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none">
+                <span className="rounded-full bg-white/90 px-3 py-1 text-xs text-gray-500 shadow-xs">
+                  No classes this week
+                </span>
+              </div>
+            )}
             {/* Sticky Header Row */}
             <div
               className="grid border-gray-200 bg-white sticky top-0 z-50 shadow-xs"
@@ -647,14 +705,23 @@ export default function WeeklyCalendar({
               <div className="h-full flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0 bg-white">
                 Time
               </div>
-              {days.map((day) => (
-                <div
-                  key={day}
-                  className="h-full flex items-center justify-center text-xs font-medium text-gray-700 border-b border-r border-gray-200 min-w-0 flex-1 bg-white"
-                >
-                  {day}
-                </div>
-              ))}
+              {days.map((day) => {
+                const date = dateOfDay(activeWeek, day)
+
+                return (
+                  <div
+                    key={day}
+                    className="h-full flex items-center justify-center gap-1 text-xs font-medium text-gray-700 border-b border-r border-gray-200 min-w-0 flex-1 bg-white"
+                  >
+                    <span>{day}</span>
+                    {date && (
+                      <span className="text-gray-400 tabular-nums">
+                        {date.getDate()}/{date.getMonth() + 1}
+                      </span>
+                    )}
+                  </div>
+                )
+              })}
             </div>
 
             {/* Calendar Content Grid */}
@@ -687,7 +754,7 @@ export default function WeeklyCalendar({
 
               {/* Day columns with clean time-based rendering */}
               {days.map((day) => {
-                const eventGroups = layoutDayEvents(events, getDayIndex(day))
+                const eventGroups = layoutDayEvents(weekEvents, getDayIndex(day))
 
                 return (
                   <div

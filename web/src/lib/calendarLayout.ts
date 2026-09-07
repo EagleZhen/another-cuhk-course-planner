@@ -97,3 +97,56 @@ export function layoutDayEvents(events: CalendarEvent[], day: number): OverlapGr
     }
   })
 }
+
+// === WEEKS ===
+//
+// The week range comes from the cart's own occurrences, never a term calendar,
+// so nothing here needs to know when a term starts or ends.
+
+/** Monday of the week containing `date`, at local midnight. */
+export function startOfWeek(date: Date): Date {
+  const monday = new Date(date.getFullYear(), date.getMonth(), date.getDate())
+  // getDay() is Sunday-based; shift so Monday starts the week.
+  monday.setDate(monday.getDate() - ((monday.getDay() + 6) % 7))
+  return monday
+}
+
+/**
+ * Every week from the first occurrence to the last, contiguous — a week nothing
+ * falls in stays in the range rather than being skipped.
+ */
+export function weekRange(events: CalendarEvent[]): Date[] {
+  if (events.length === 0) return []
+
+  const times = events.map((event) => startOfWeek(event.date).getTime())
+  const weeks: Date[] = []
+
+  for (let week = new Date(Math.min(...times)); week.getTime() <= Math.max(...times);) {
+    weeks.push(new Date(week))
+    week = new Date(week.getFullYear(), week.getMonth(), week.getDate() + 7)
+  }
+
+  return weeks
+}
+
+/** The week containing `today`, clamped to the range. */
+export function defaultWeek(weeks: Date[], today: Date): Date | null {
+  if (weeks.length === 0) return null
+
+  const current = startOfWeek(today).getTime()
+  if (current <= weeks[0].getTime()) return weeks[0]
+
+  return weeks.find((week) => week.getTime() === current) ?? weeks[weeks.length - 1]
+}
+
+/** Cards falling in the seven days from `weekStart`. */
+export function eventsInWeek(events: CalendarEvent[], weekStart: Date): CalendarEvent[] {
+  const start = weekStart.getTime()
+  const end = new Date(
+    weekStart.getFullYear(),
+    weekStart.getMonth(),
+    weekStart.getDate() + 7
+  ).getTime()
+
+  return events.filter((event) => event.date.getTime() >= start && event.date.getTime() < end)
+}
