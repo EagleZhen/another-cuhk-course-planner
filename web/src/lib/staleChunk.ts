@@ -13,11 +13,18 @@ export function isStaleChunkError(error: Error): boolean {
 // brought us here — only a successful page mount strips it — and the build id says we
 // already tried this one. Either way, repeating cannot help; a later deploy is a
 // different build, arriving without a marker, and recovers normally.
-export function shouldReloadForStaleChunk(
-  error: Error,
-  { href, lastBuildId, buildId }: { href: string; lastBuildId: string | null; buildId: string }
-): boolean {
-  if (!isStaleChunkError(error)) return false
+//
+// Callers check isStaleChunkError first, so reading storage stays off the path of every
+// other error the boundary handles.
+export function shouldReloadForStaleChunk({
+  href,
+  lastBuildId,
+  buildId,
+}: {
+  href: string
+  lastBuildId: string | null
+  buildId: string
+}): boolean {
   return !hasRefreshMarker(href) && lastBuildId !== buildId
 }
 

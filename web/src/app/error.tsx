@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { analytics } from '@/lib/analytics'
 import {
   hasRefreshMarker,
+  isStaleChunkError,
   readStaleChunkReload,
   rememberStaleChunkReload,
   shouldReloadForStaleChunk,
@@ -21,7 +22,8 @@ export default function ErrorPage({ error }: { error: Error & { digest?: string 
   const [recovering] = useState(
     () =>
       typeof window !== 'undefined' &&
-      shouldReloadForStaleChunk(error, {
+      isStaleChunkError(error) &&
+      shouldReloadForStaleChunk({
         href: window.location.href,
         lastBuildId: readStaleChunkReload(),
         buildId: BUILD_ID,
