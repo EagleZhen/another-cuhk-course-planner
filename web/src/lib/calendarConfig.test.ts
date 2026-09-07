@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   calculateReferenceCardHeight,
+  getCardStackPlacement,
   getCardTextLineLimits,
   getGridColumns,
   getMinimumCalendarWidth,
@@ -61,5 +62,36 @@ describe('calendar card text wrapping', () => {
       location: 1,
       instructor: 2,
     })
+  })
+})
+
+describe('conflict card stacking', () => {
+  const stack = (groupSize: number) =>
+    Array.from({ length: groupSize }, (_, index) => getCardStackPlacement(index, groupSize, false))
+
+  // Inverted, the buried cards would show blank right edges instead.
+  it('puts the last card of a stack on top', () => {
+    expect(stack(3).map((placement) => placement.zIndex)).toEqual([20, 21, 22])
+  })
+
+  it('fans the cards rightwards at one shared width', () => {
+    expect(stack(3).map((placement) => placement.leftOffset)).toEqual([0, 16, 32])
+    expect(stack(3).map((placement) => placement.rightOffset)).toEqual([32, 16, 0])
+  })
+
+  it('leaves a card with no overlap flush and unstacked', () => {
+    expect(getCardStackPlacement(0, 1, false)).toEqual({
+      leftOffset: 0,
+      rightOffset: 0,
+      zIndex: 10,
+    })
+  })
+
+  it('raises a selected card above the stack it is buried in', () => {
+    const selected = getCardStackPlacement(0, 3, true)
+
+    expect(selected.zIndex).toBeGreaterThan(stack(3)[2].zIndex)
+    // Still below the sticky header.
+    expect(selected.zIndex).toBeLessThan(50)
   })
 })

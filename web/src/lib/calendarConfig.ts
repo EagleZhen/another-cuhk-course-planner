@@ -91,6 +91,36 @@ export const CALENDAR_LAYOUT_CONSTANTS = {
   STICKY_HEADER_HEIGHT: 32,
 } as const
 
+/** Where a card sits within its overlap group. */
+export interface CardStackPlacement {
+  leftOffset: number
+  rightOffset: number
+  zIndex: number
+}
+
+/**
+ * Places a card within its overlap group: cards fan rightwards, the last on top.
+ * Don't invert that — the strips left showing are each buried card's left edge,
+ * where the text is, so they read as cards rather than blank slivers.
+ * A selected card outranks the stack.
+ */
+export function getCardStackPlacement(
+  stackIndex: number,
+  groupSize: number,
+  isSelected: boolean
+): CardStackPlacement {
+  const offset = CALENDAR_LAYOUT_CONSTANTS.CONFLICT_CARD_STACK_OFFSET
+  const isStacked = groupSize > 1
+  const depth = groupSize - 1 - stackIndex
+
+  return {
+    leftOffset: isStacked ? stackIndex * offset : 0,
+    rightOffset: isStacked ? depth * offset : 0,
+    // All below the sticky header at z-50.
+    zIndex: isSelected ? 40 : isStacked ? 20 + stackIndex : 10,
+  }
+}
+
 /**
  * Typography styles for consistent course card text rendering.
  * Prioritized by information importance in timetable context.

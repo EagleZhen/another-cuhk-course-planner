@@ -29,6 +29,7 @@ import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
 import {
   DEFAULT_CALENDAR_CONFIG,
   CALENDAR_LAYOUT_CONSTANTS,
+  getCardStackPlacement,
   TEXT_STYLES,
   MINIMUM_COURSE_DURATION_MINUTES,
   calculateReferenceCardHeight,
@@ -769,22 +770,14 @@ export default function WeeklyCalendar({
                             calendarConfig.startHour,
                             dynamicHourHeight
                           )
-                          const isConflicted = group.length > 1
                           const isSelected = selectedEnrollment === event.enrollmentId
                           const textLineLimits = getCardTextLineLimits(height, localDisplayConfig)
 
-                          // Stacking for conflicts
-                          const stackOffset = isConflicted
-                            ? stackIndex * CALENDAR_LAYOUT_CONSTANTS.CONFLICT_CARD_STACK_OFFSET
-                            : 0
-                          const rightOffset = isConflicted
-                            ? (group.length - 1 - stackIndex) *
-                              CALENDAR_LAYOUT_CONSTANTS.CONFLICT_CARD_STACK_OFFSET
-                            : 0
-
-                          // Z-index should be lower than sticky header (z-50)
-                          let zIndex = isConflicted ? 20 + stackIndex : 10
-                          if (isSelected) zIndex = 40 // Lower than header z-50
+                          const { leftOffset, rightOffset, zIndex } = getCardStackPlacement(
+                            stackIndex,
+                            group.length,
+                            isSelected
+                          )
 
                           return (
                             <div
@@ -801,7 +794,7 @@ export default function WeeklyCalendar({
                                 position: 'absolute',
                                 top: `${top}px`,
                                 height: `${height}px`,
-                                left: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING + stackOffset}px`,
+                                left: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING + leftOffset}px`,
                                 right: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING + rightOffset}px`,
                                 padding: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING}px`,
                                 zIndex,
