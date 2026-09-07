@@ -1745,19 +1745,26 @@ export function extractAcademicYearCode(termName: string): string {
 
 // === CALENDAR EXPORT UTILITIES ===
 
+/** In `Date.getDay()` order, so the index is the day number. */
+const WEEKDAY_CODES = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+
 /**
- * Parses meeting dates string and converts to actual Date objects
- * @param dates Comma-separated dates like "5/1, 12/1, 19/1"
- * @param termName Term name like "2025-26 Term 2"
- * @returns Array of Date objects
+ * Expands a meeting's date list, e.g. "5/1, 12/1" for a Monday in "2025-26 Term 2".
+ *
+ * The source states no year. The weekday supplies it: a day/month falls on that
+ * weekday in only one of the term's two years, so a date matching neither
+ * contradicts itself and is dropped rather than guessed.
+ *
+ * @param weekday As `parseTimeRange` reports it, e.g. "Mo"
  */
-export function parseMeetingDates(dates: string, termName: string): Date[] {
+export function parseMeetingDates(dates: string, termName: string, weekday: string): Date[] {
   // Handle TBA or empty dates - be strict about TBA match
   if (!dates || dates.trim() === '' || dates.trim().toUpperCase() === 'TBA') {
     return []
   }
 
   const { firstYear, secondYear } = extractAcademicYearBounds(termName)
+  const weekdayNumber = WEEKDAY_CODES.indexOf(weekday)
 
   return dates
     .split(',')
@@ -1765,15 +1772,25 @@ export function parseMeetingDates(dates: string, termName: string): Date[] {
       const trimmedDate = dateStr.trim()
       const [day, month] = trimmedDate.split('/').map(Number)
 
-      if (isNaN(day) || isNaN(month) || month < 1 || month > 12) {
+      if (isNaN(day) || isNaN(month) || month < 1 || month > 12 || day < 1 || day > 31) {
         console.warn(`Invalid date format: "${trimmedDate}" in dates: "${dates}"`)
         return null
       }
 
-      // Academic year logic: Sep-Dec = first year, Jan-Aug = second year
-      const year = month >= 9 && month <= 12 ? firstYear : secondYear
+      // JS rolls an impossible date forward — 31/2 lands on 3 March — where it
+      // could match the weekday by luck, so require the month to survive.
+      const resolved = [firstYear, secondYear]
+        .map((year) => new Date(year, month - 1, day))
+        .find((date) => date.getMonth() === month - 1 && date.getDay() === weekdayNumber)
 
-      return new Date(year, month - 1, day) // month is 0-indexed in Date constructor
+      if (!resolved) {
+        console.warn(
+          `No ${weekday} falls on "${trimmedDate}" in ${termName}; dropping it from "${dates}"`
+        )
+        return null
+      }
+
+      return resolved
     })
     .filter((date) => date !== null) as Date[]
 }
@@ -1833,7 +1850,7 @@ export function createICSEventsForMeeting(
   }
 
   // Parse dates
-  const meetingDates = parseMeetingDates(meeting.dates, termName)
+  const meetingDates = parseMeetingDates(meeting.dates, termName, timeRange.day)
   if (meetingDates.length === 0) {
     return [] // Skip meetings with no valid dates
   }

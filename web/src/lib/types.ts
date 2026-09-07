@@ -193,7 +193,7 @@ export interface SectionTypeInfo {
 
 // Time range for conflict detection
 export interface TimeRange {
-  day: string // 'Mo', 'Tu', 'We', 'Th', 'Fr'
+  day: string // 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'
   startHour: number
   startMinute: number
   endHour: number

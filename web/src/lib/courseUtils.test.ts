@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, it, expect, vi } from 'vitest'
 import {
@@ -31,6 +31,7 @@ import {
   generateICSCalendar,
   processICSForUndo,
   extractAcademicYearBounds,
+  parseTimeRange,
 } from './courseUtils'
 import { transformExternalCourseData } from './validation'
 import { SCHEDULE_DATA_VERSION } from './constants'
@@ -1248,9 +1249,7 @@ describe('getAvailabilityBadges', () => {
 
 // === ICS EXPORT ===
 //
-// Characterization tests over real published data, pinning today's behavior
-// including the year rule that misdates August. The next commit should move
-// only the August expectations.
+// Driven by real published data throughout.
 
 function loadPublishedCourse(year: string, subject: string, courseCode: string): InternalCourse {
   const path = join(process.cwd(), 'public', 'data', year, `${subject}.json`)
@@ -1292,9 +1291,47 @@ const ACCT1111_TERM = '2025-26 Term 1'
 const ACCT5111_TERM = '2025-26 Term 2'
 const acct = (courseCode: string) => loadPublishedCourse('2025-26', 'ACCT', courseCode)
 
-/** EMBA5011 AE-LEC: six rows, one August date each. */
+/** EMBA5011 AE-LEC: six rows, one August date each, in the term's *first* year. */
 const EMBA5011_TERM = '2025-26 Term 1'
 const emba5011 = () => loadPublishedCourse('2025-26', 'EMBA', '5011')
+
+/** CLCP1113 C-LEC: August again, but in the term's *second* year. */
+const CLCP1113_TERM = '2025-26 Summer Session'
+const clcp1113 = () => loadPublishedCourse('2025-26', 'CLCP', '1113')
+
+/** Every published meeting with a real time, and so a weekday and dates. */
+function forEachPublishedTimedMeeting(
+  visit: (meeting: InternalMeeting, weekday: string, termName: string) => void
+): void {
+  const root = join(process.cwd(), 'public', 'data')
+
+  for (const year of readdirSync(root, { withFileTypes: true })) {
+    if (!year.isDirectory()) continue
+
+    for (const file of readdirSync(join(root, year.name))) {
+      if (!file.endsWith('.json')) continue
+
+      const { courses } = transformExternalCourseData(
+        JSON.parse(readFileSync(join(root, year.name, file), 'utf8'))
+      )
+      for (const course of courses) {
+        for (const term of course.terms) {
+          for (const section of term.sections) {
+            for (const meeting of section.meetings) {
+              const timeRange = parseTimeRange(meeting.time)
+              if (timeRange) visit(meeting, timeRange.day, term.termName)
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/** The Monday row of a published section, whose weekday resolves its dates. */
+function mondayOf(section: InternalSection): InternalMeeting {
+  return section.meetings.find((meeting) => meeting.time.startsWith('Mo'))!
+}
 
 describe('extractAcademicYearBounds', () => {
   it('reads both calendar years, and rejects a term name without one', () => {
@@ -1309,7 +1346,7 @@ describe('extractAcademicYearBounds', () => {
 describe('parseMeetingDates', () => {
   it('expands a comma-separated list onto the term first year for Sep-Dec', () => {
     const section = findPublishedSection(acct('1111'), ACCT1111_TERM, 'B-LEC')
-    const dates = parseMeetingDates(section.meetings[0].dates, ACCT1111_TERM)
+    const dates = parseMeetingDates(section.meetings[0].dates, ACCT1111_TERM, 'Th')
 
     expect(dates).toHaveLength(13)
     expect(dates[0]).toEqual(new Date(2025, 8, 4))
@@ -1319,36 +1356,73 @@ describe('parseMeetingDates', () => {
   // A year change inside one list, which today's rule gets right.
   it('rolls a single list from December into the second year', () => {
     const section = findPublishedSection(acct('5111'), ACCT5111_TERM, 'FA-LEC')
-    const monday = section.meetings.find((meeting) => meeting.time.startsWith('Mo'))!
-    const dates = parseMeetingDates(monday.dates, ACCT5111_TERM)
+    const dates = parseMeetingDates(mondayOf(section).dates, ACCT5111_TERM, 'Mo')
 
     expect(dates[4]).toEqual(new Date(2025, 11, 29))
     expect(dates[5]).toEqual(new Date(2026, 0, 5))
   })
 
-  // Pinned bug: the Sep cutoff sends Jan-Aug to the second year, so `Mo 25/8`
-  // yields 25 Aug 2026 — a Tuesday. It is 2025.
-  it('misdates August meetings by a year', () => {
-    const section = findPublishedSection(emba5011(), EMBA5011_TERM, 'AE-LEC')
-    const monday = section.meetings.find((meeting) => meeting.time.startsWith('Mo'))!
+  // No month cutoff can satisfy both: same weekday, same month, different years.
+  it('resolves the same August weekday to either year of the term', () => {
+    const termOne = findPublishedSection(emba5011(), EMBA5011_TERM, 'AE-LEC')
+    const summer = findPublishedSection(clcp1113(), CLCP1113_TERM, 'C-LEC')
 
-    expect(parseMeetingDates(monday.dates, EMBA5011_TERM)).toEqual([new Date(2026, 7, 25)])
+    expect(parseMeetingDates(mondayOf(termOne).dates, EMBA5011_TERM, 'Mo')).toEqual([
+      new Date(2025, 7, 25),
+    ])
+    expect(parseMeetingDates(mondayOf(summer).dates, CLCP1113_TERM, 'Mo')).toEqual([
+      new Date(2026, 7, 10),
+      new Date(2026, 7, 17),
+      new Date(2026, 7, 24),
+    ])
+  })
+
+  it('accepts 29 February in a leap year and rejects it otherwise', () => {
+    expect(parseMeetingDates('29/2', '2027-28 Term 2', 'Tu')).toEqual([new Date(2028, 1, 29)])
+    expect(parseMeetingDates('29/2', '2025-26 Term 2', 'Su')).toEqual([])
   })
 
   it('returns no dates for TBA or empty input', () => {
-    expect(parseMeetingDates('TBA', ACCT1111_TERM)).toEqual([])
-    expect(parseMeetingDates('', ACCT1111_TERM)).toEqual([])
+    expect(parseMeetingDates('TBA', ACCT1111_TERM, 'Th')).toEqual([])
+    expect(parseMeetingDates('', ACCT1111_TERM, 'Th')).toEqual([])
   })
 
-  // No published row is malformed; this pins that one would be dropped, not guessed.
+  // No published row is malformed; these pin that one would be dropped, not guessed.
   it('drops an unparseable date with a warning, keeping the rest', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
 
-    expect(parseMeetingDates('4/9, 32/13, 11/9', ACCT1111_TERM)).toEqual([
+    expect(parseMeetingDates('4/9, 32/13, 11/9', ACCT1111_TERM, 'Th')).toEqual([
       new Date(2025, 8, 4),
       new Date(2025, 8, 11),
     ])
     expect(warn).toHaveBeenCalledOnce()
+
+    warn.mockRestore()
+  })
+
+  // Candidate years are the term's own two, so a future term with dates outside
+  // them fails here rather than quietly dropping classes.
+  it('resolves every date of every published timed meeting', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    let resolved = 0
+
+    forEachPublishedTimedMeeting((meeting, weekday, termName) => {
+      const dates = parseMeetingDates(meeting.dates, termName, weekday)
+      expect(dates).toHaveLength(meeting.dates.split(',').filter((date) => date.trim()).length)
+      resolved += dates.length
+    })
+
+    expect(warn).not.toHaveBeenCalled()
+    expect(resolved).toBeGreaterThan(250_000) // a walker that visited nothing would pass
+    warn.mockRestore()
+  })
+
+  // 4 Sep 2025 is a Thursday, so a row calling it Monday contradicts itself.
+  it('drops a date falling on neither year with a warning', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    expect(parseMeetingDates('4/9, 11/9', ACCT1111_TERM, 'Mo')).toEqual([])
+    expect(warn).toHaveBeenCalledTimes(2)
 
     warn.mockRestore()
   })
@@ -1372,17 +1446,14 @@ describe('createICSEventsForMeeting', () => {
     expect(events[0].location).toBe('Lee Shau Kee Archi Bldg G03')
   })
 
-  // The UID carries the date, so fixing the year rewrites it — breaking undo for
-  // anyone who already imported these events.
-  it('carries the misdated August year into the UID', () => {
+  it('carries the resolved August year into the UID', () => {
     const course = emba5011()
     const section = findPublishedSection(course, EMBA5011_TERM, 'AE-LEC')
-    const monday = section.meetings.find((meeting) => meeting.time.startsWith('Mo'))!
 
     // Only the first cohort letter reaches the UID, so "AE-LEC" prints as "A".
-    expect(createICSEventsForMeeting(monday, course, section, EMBA5011_TERM)[0].uid).toBe(
-      'EMBA5011-A-LEC-2026-08-25-0845-1845@another-cuhk-course-planner.com'
-    )
+    expect(
+      createICSEventsForMeeting(mondayOf(section), course, section, EMBA5011_TERM)[0].uid
+    ).toBe('EMBA5011-A-LEC-2025-08-25-0845-1845@another-cuhk-course-planner.com')
   })
 
   it('skips a meeting with no parseable time', () => {
