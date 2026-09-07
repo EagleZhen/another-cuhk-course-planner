@@ -16,15 +16,15 @@ The repository no longer keeps a `vercel.json` file or Vercel runtime packages.
 
 Cloudflare serves assets first — HTML, course JSON under [web/public/data/](../web/public/data/), and images are free static assets (edge-cached; even `304` revalidations cost nothing). Only the PostHog proxy at `/x8m2k/*` runs as a Pages Function, the sole path billed against the Functions limit (100k/day free) — so eager-loading ~400 course files per session is cheap. Cloudflare bills only requests matched by the auto-generated `_routes.json` `include` (Pages derives it from `functions/`; ours is just `/x8m2k/*`), so adding a `functions/` route is what would re-bill the catalog. See [decisions.md](decisions.md#static-export-over-the-next-on-pages-adapter).
 
-### Stale chunks after a deploy
+### Stale chunks in long-lived tabs
 
-A new build's chunks get new hashes, so a tab open across a deploy asks for one that no longer exists and throws `ChunkLoadError`. [error.tsx](../web/src/app/error.tsx) recovers by navigating to `?refreshed=1` — at most once per build — and `StaleVersionNotice` explains the refresh on the page that comes back.
+Each build hashes its chunks afresh, and a newer build stops the old ones being served, so a tab that outlived any deploy since it loaded throws `ChunkLoadError`. Deploys are frequent and the planner sits in a background tab, so the tabs that break are typically days to weeks behind — not caught mid-deploy. [error.tsx](../web/src/app/error.tsx) recovers by navigating to `?refreshed=1` — at most once per build — and `StaleVersionNotice` explains the refresh on the page that comes back.
 
 Repeats are blocked twice ([staleChunk.ts](../web/src/lib/staleChunk.ts)): only a page that mounts strips the `?refreshed=1` marker, so a failure that never mounts leaves it in the URL; and a tab records the build it recovered from. A later deploy is a different build, arriving without a marker, and recovers normally.
 
 `StaleVersionNotice` renders from `page.tsx`, not the layout — `error.js` replaces the page and leaves the layout standing, so only that placement keeps the notice off the error page.
 
-A recovered chunk reports `stale_chunk_recovered` rather than an exception, so routine deploys no longer raise Error Tracking issues. A chunk error that reaches the error page still does.
+A recovered chunk reports `stale_chunk_recovered` rather than an exception, so routine deploys no longer raise Error Tracking issues. One that reaches the error page still does. A chunk that fails before hydration leaves no boundary mounted at all: it autocaptures unhandled, and this recovery never runs.
 
 ## Analytics
 
