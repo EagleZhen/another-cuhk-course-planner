@@ -154,6 +154,9 @@ export default function WeeklyCalendar({
   const [scrollState, setScrollState] = useState({
     canScrollUp: false,
     canScrollDown: false,
+    // Width the vertical scrollbar takes from inside the grid. Zero where the
+    // platform overlays it, so measuring beats assuming.
+    scrollbarWidth: 0,
   })
 
   const scrollContainerRef = useRef<HTMLDivElement>(null)
@@ -175,6 +178,8 @@ export default function WeeklyCalendar({
     const significantScrollThreshold = 5
 
     setScrollState({
+      scrollbarWidth:
+        scrollContainerRef.current.offsetWidth - scrollContainerRef.current.clientWidth,
       canScrollUp: currentScrollTop > tolerance,
       canScrollDown:
         scrollHeight > clientHeight &&
@@ -699,7 +704,15 @@ export default function WeeklyCalendar({
         {activeWeek && (
           // Equal side columns keep the week label centred, while the toggle sits
           // immediately beside it rather than off at the edge where it is missed.
-          <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 pb-1 text-xs text-gray-600">
+          // Indented past the time column and the scrollbar, so it centres on the
+          // day grid rather than on the card that contains it.
+          <div
+            className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 pb-1 text-xs text-gray-600"
+            style={{
+              paddingLeft: CALENDAR_LAYOUT_CONSTANTS.TIME_LABEL_COLUMN_WIDTH,
+              paddingRight: scrollState.scrollbarWidth,
+            }}
+          >
             <div />
             <div className="flex items-center gap-2">
               <button
