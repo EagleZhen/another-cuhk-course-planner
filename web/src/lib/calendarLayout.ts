@@ -22,7 +22,9 @@ const startMinutes = (event: CalendarEvent) => event.startHour * 60 + event.star
 const endMinutes = (event: CalendarEvent) => event.endHour * 60 + event.endMinute
 
 /**
- * Group overlapping calendar events for visual stacking
+ * Cards chained by overlap, one group per conflict zone. Overlap is not
+ * transitive, so the group is swept as it grows: 9:30-11:15 and 11:30-13:00
+ * belong with 10:30-12:15 even though they miss each other.
  */
 export function groupOverlappingEvents(events: CalendarEvent[]): CalendarEvent[][] {
   const groups: CalendarEvent[][] = []
@@ -34,10 +36,6 @@ export function groupOverlappingEvents(events: CalendarEvent[]): CalendarEvent[]
     const group = [event]
     processed.add(event.id)
 
-    // Overlap is not transitive, so sweep the group as it grows rather than
-    // comparing against the seed alone: 9:30-11:15 and 11:30-13:00 both belong
-    // with 10:30-12:15. Seeding alone splits that chain in a cart-order-dependent
-    // way, and the resulting groups draw conflict zones that overlap on screen.
     for (let member = 0; member < group.length; member++) {
       for (const otherEvent of events) {
         if (processed.has(otherEvent.id)) continue
@@ -56,17 +54,16 @@ export function groupOverlappingEvents(events: CalendarEvent[]): CalendarEvent[]
 }
 
 /**
- * Column for each card in an overlap group, keyed by event id.
- *
- * A card only has to dodge cards it actually overlaps, so a chain does not march
- * rightwards: with 9:30-11:15, 10:30-12:15 and 11:30-13:00, the first and last
- * share column 0. Column count is therefore how many classes truly run at once.
+ * Column for each card, keyed by event id. A card only dodges cards it actually
+ * overlaps, so the ends of a chain share column 0 rather than the stack marching
+ * rightwards, and the column count is how many classes really run at once.
  */
 export function assignOverlapColumns(group: CalendarEvent[]): Map<string, number> {
-  const minutes = (event: CalendarEvent) => event.startHour * 60 + event.startMinute
-  // Earliest first, so the greedy choice below is optimal; id breaks ties for a
-  // placement that does not depend on cart order.
-  const byStart = [...group].sort((a, b) => minutes(a) - minutes(b) || a.id.localeCompare(b.id))
+  // Earliest first makes the greedy choice below optimal; id breaks ties so the
+  // placement does not depend on cart order.
+  const byStart = [...group].sort(
+    (a, b) => startMinutes(a) - startMinutes(b) || a.id.localeCompare(b.id)
+  )
 
   const columns = new Map<string, number>()
 
@@ -85,14 +82,7 @@ export function assignOverlapColumns(group: CalendarEvent[]): Map<string, number
   return columns
 }
 
-/**
- * Groups a day's cards by overlap and places each one in a column.
- *
- * A group is a chain, and its zone spans the whole of it, so two cards linked
- * only through a third share one zone rather than drawing two that overlap.
- * Columns come from real overlap, so the chain's ends share the left edge
- * instead of the stack marching rightwards.
- */
+/** A day's cards, grouped for zones and placed in columns. */
 export function layoutDayEvents(events: CalendarEvent[], day: number): OverlapGroup[] {
   const dayEvents = events.filter((event) => event.day === day)
 
