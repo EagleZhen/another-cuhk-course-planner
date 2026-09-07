@@ -65,8 +65,8 @@ Each `(term, scrape time)` pair is synchronized only after that term's cart is r
 
 Major responsibilities:
 
-- convert enrollments into calendar events
-- detect visible-event time conflicts
+- convert enrollments into one calendar event per dated occurrence
+- detect conflicts between events sharing a date
 - compute deterministic course colors
 - parse and display section types
 - auto-complete compatible section selections
@@ -77,8 +77,12 @@ Section compatibility follows CUHK cohort prefixes: sections with the same lette
 
 Conflict detection is a two-step model:
 
-1. convert current enrollments into calendar events
-2. mark events as conflicting when visible event times overlap
+1. convert current enrollments into calendar events, one per dated occurrence
+2. mark events as conflicting when they share a date and their times overlap
+
+Two sections at the same hour in different weeks do not clash. One predicate serves search badges, the cart, the calendar and the course filter, so they cannot disagree.
+
+[calendarLayout.ts](../web/src/lib/calendarLayout.ts) owns the calendar's geometry: `courseUtils` answers whether things clash, `calendarLayout` where they sit.
 
 ## UI Surfaces
 
