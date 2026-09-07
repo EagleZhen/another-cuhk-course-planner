@@ -7,6 +7,8 @@ import {
   weekRange,
   defaultWeek,
   eventsInWeek,
+  distinctWeeks,
+  changedEventIds,
 } from './calendarLayout'
 import type { CalendarEvent } from './types'
 
@@ -132,5 +134,52 @@ describe('weeks', () => {
     const outside = on(new Date(2026, 8, 14)) // the next Monday
 
     expect(eventsInWeek([on(SEP_7), inside, outside], SEP_7)).toEqual([on(SEP_7), inside])
+  })
+})
+
+describe('what changes between weeks', () => {
+  const MON = (week: number) => new Date(2026, 8, 7 + week * 7)
+  const card = (week: number, section: string, location = 'LSK 101'): CalendarEvent =>
+    ({
+      id: `${section}-${week}`,
+      date: MON(week),
+      enrollmentId: 'GEWS1011',
+      sectionCode: section,
+      time: 'Mo 9:30AM - 11:15AM',
+      location,
+      instructors: 'Staff',
+    }) as CalendarEvent
+
+  it('stops only at weeks that differ from the one before', () => {
+    // Same lecture for three weeks, then the room moves, then back.
+    const events = [card(0, 'LEC'), card(1, 'LEC'), card(2, 'LEC', 'YIA 404'), card(3, 'LEC')]
+
+    expect(distinctWeeks(events, [MON(0), MON(1), MON(2), MON(3)])).toEqual([
+      MON(0),
+      MON(2),
+      MON(3),
+    ])
+  })
+
+  it('treats a uniform cart as a single stop', () => {
+    const events = [card(0, 'LEC'), card(1, 'LEC'), card(2, 'LEC')]
+
+    expect(distinctWeeks(events, [MON(0), MON(1), MON(2)])).toEqual([MON(0)])
+  })
+
+  it('rings what a week gained or changed, and nothing in the first', () => {
+    const events = [card(0, 'LEC'), card(1, 'LEC'), card(1, 'TUT'), card(2, 'LEC', 'YIA 404')]
+
+    expect(changedEventIds(events, MON(0))).toEqual(new Set())
+    expect(changedEventIds(events, MON(1))).toEqual(new Set(['TUT-1']))
+    expect(changedEventIds(events, MON(2))).toEqual(new Set(['LEC-2']))
+  })
+
+  // Skipping and ringing are one comparison, so a skipped week never hides a ring.
+  it('rings nothing in a week that would be skipped', () => {
+    const events = [card(0, 'LEC'), card(1, 'LEC')]
+
+    expect(distinctWeeks(events, [MON(0), MON(1)])).toEqual([MON(0)])
+    expect(changedEventIds(events, MON(1))).toEqual(new Set())
   })
 })

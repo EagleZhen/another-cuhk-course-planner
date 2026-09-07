@@ -126,3 +126,33 @@
     font-variant-ligatures: none;
   }
 }
+
+/* Marks a card the shown week gained or changed. Purely an arrival cue, so it
+   clears itself: WeeklyCalendar drops the state after CHANGED_HIGHLIGHT_MS,
+   which keeps it out of screenshots whether or not the animation runs.
+
+   Neutral rather than coloured: the glow falls outside the card, onto the white
+   grid, so it must contrast with the background rather than with the card. */
+@keyframes changed-breathe {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(15 23 42 / 0);
+  }
+  50% {
+    box-shadow: 0 0 6px 5px rgb(15 23 42 / 0.4);
+  }
+}
+
+@layer utilities {
+  /* Three slow breaths, each ending where it began, so it stops without a cut. */
+  .changed-ring {
+    animation: changed-breathe 1.5s ease-in-out 3;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .changed-ring {
+      animation: none;
+      box-shadow: 0 0 6px 5px rgb(15 23 42 / 0.4);
+    }
+  }
+}

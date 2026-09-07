@@ -26,7 +26,14 @@ import {
   processICSForUndo,
 } from '@/lib/courseUtils'
 import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
-import { layoutDayEvents, weekRange, defaultWeek, eventsInWeek } from '@/lib/calendarLayout'
+import {
+  layoutDayEvents,
+  weekRange,
+  defaultWeek,
+  eventsInWeek,
+  distinctWeeks,
+  changedEventIds,
+} from '@/lib/calendarLayout'
 import {
   DEFAULT_CALENDAR_CONFIG,
   CALENDAR_LAYOUT_CONSTANTS,
@@ -94,6 +101,9 @@ function dateOfDay(weekStart: Date | null, day: WeekDay): Date | null {
   )
 }
 
+/** Just past three breaths of `changed-ring`, so the cue ends on its own. */
+const CHANGED_HIGHLIGHT_MS = 4600
+
 interface WeeklyCalendarProps {
   events: CalendarEvent[]
   unscheduledSections?: Array<{
@@ -131,6 +141,10 @@ export default function WeeklyCalendar({
   const [screenshotError, setScreenshotError] = useState<string | null>(null)
   const [isIcsMenuExpanded, setIsIcsMenuExpanded] = useState(false)
   const [selectedWeekTime, setSelectedWeekTime] = useState<number | null>(null)
+  const [skipRepeatWeeks, setSkipRepeatWeeks] = useState(true)
+  // Which cards this week gained or changed. An arrival cue only, so it expires
+  // rather than sitting in the view — and so it never lands in a screenshot.
+  const [changedIds, setChangedIds] = useState<Set<string>>(new Set())
 
   // Refs for auto-scrolling to selected events
   const eventRefs = useRef<Map<string, HTMLDivElement>>(new Map())
@@ -409,6 +423,30 @@ export default function WeeklyCalendar({
     : -1
   const weekEvents = activeWeek ? eventsInWeek(events, activeWeek) : []
 
+  // A repeat week shows exactly what the one before it did, so stepping over it
+  // makes every click land on something new. Same comparison as the rings.
+  const stops = useMemo(
+    () => (skipRepeatWeeks ? distinctWeeks(events, weeks) : weeks),
+    [skipRepeatWeeks, events, weeks]
+  )
+  const previousStop = activeWeek
+    ? [...stops].reverse().find((week) => week.getTime() < activeWeek.getTime())
+    : undefined
+  const nextStop = activeWeek
+    ? stops.find((week) => week.getTime() > activeWeek.getTime())
+    : undefined
+
+  const activeWeekTime = activeWeek?.getTime() ?? null
+
+  useEffect(() => {
+    if (activeWeekTime === null) return
+
+    setChangedIds(changedEventIds(events, new Date(activeWeekTime)))
+    const timer = setTimeout(() => setChangedIds(new Set()), CHANGED_HIGHLIGHT_MS)
+
+    return () => clearTimeout(timer)
+  }, [events, activeWeekTime])
+
   // Columns and hours span every week, so paging does not shift the grid.
   const days = getRequiredDays(events)
   const gridColumns = getGridColumns(days.length)
@@ -653,26 +691,39 @@ export default function WeeklyCalendar({
         )}
 
         {activeWeek && (
-          <div className="flex items-center justify-center gap-2 pb-1 text-xs text-gray-600">
-            <button
-              className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-default"
-              disabled={weekIndex <= 0}
-              aria-label="Previous week"
-              onClick={() => setSelectedWeekTime(weeks[weekIndex - 1].getTime())}
+          // Equal side columns keep the week label centred, while the toggle sits
+          // immediately beside it rather than off at the edge where it is missed.
+          <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 pb-1 text-xs text-gray-600">
+            <div />
+            <div className="flex items-center gap-2">
+              <button
+                className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-default"
+                disabled={!previousStop}
+                aria-label="Previous week"
+                onClick={() => previousStop && setSelectedWeekTime(previousStop.getTime())}
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <span className="tabular-nums font-medium">
+                Week {weekIndex + 1} of {weeks.length}
+              </span>
+              <button
+                className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-default"
+                disabled={!nextStop}
+                aria-label="Next week"
+                onClick={() => nextStop && setSelectedWeekTime(nextStop.getTime())}
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+            <Button
+              variant={skipRepeatWeeks ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setSkipRepeatWeeks(!skipRepeatWeeks)}
+              className="justify-self-start h-6 px-2 text-xs font-normal border-1 cursor-pointer"
             >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <span className="tabular-nums font-medium">
-              Week {weekIndex + 1} of {weeks.length}
-            </span>
-            <button
-              className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-default"
-              disabled={weekIndex >= weeks.length - 1}
-              aria-label="Next week"
-              onClick={() => setSelectedWeekTime(weeks[weekIndex + 1].getTime())}
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
+              Skip repeated weeks
+            </Button>
           </div>
         )}
 
@@ -861,6 +912,7 @@ export default function WeeklyCalendar({
                               hover:scale-105 transition-all duration-300 cursor-pointer
                               overflow-hidden group
                               ${isSelected ? 'scale-105' : ''}
+                              ${changedIds.has(event.id) ? 'changed-ring' : ''}
                             `}
                               onClick={() => {
                                 if (onSelectEnrollment && event.enrollmentId) {

@@ -150,3 +150,60 @@ export function eventsInWeek(events: CalendarEvent[], weekStart: Date): Calendar
 
   return events.filter((event) => event.date.getTime() >= start && event.date.getTime() < end)
 }
+
+// === WHAT CHANGES BETWEEN WEEKS ===
+//
+// A week is identified by what it shows, not when: same classes, same rooms, same
+// instructors. Skipping repeats and ringing what changed are then the same
+// comparison, so the two can never disagree.
+
+/** A card's content, with its date left out. */
+function contentKey(event: CalendarEvent): string {
+  return [
+    event.enrollmentId,
+    event.sectionCode,
+    event.time,
+    event.location,
+    event.instructors,
+  ].join('|')
+}
+
+function weekContent(events: CalendarEvent[], weekStart: Date): Set<string> {
+  return new Set(eventsInWeek(events, weekStart).map(contentKey))
+}
+
+/** The weeks worth stopping at: the first, and any that differ from the one before. */
+export function distinctWeeks(events: CalendarEvent[], weeks: Date[]): Date[] {
+  let previous: Set<string> | null = null
+
+  return weeks.filter((week) => {
+    const content = weekContent(events, week)
+    const isNew =
+      previous === null ||
+      content.size !== previous.size ||
+      [...content].some((key) => !previous!.has(key))
+
+    previous = content
+    return isNew
+  })
+}
+
+/**
+ * Ids of the cards a week gained or changed since the week before. A card that
+ * *ends* is not marked — the risk is missing a class you have, not one you don't.
+ */
+export function changedEventIds(events: CalendarEvent[], weekStart: Date): Set<string> {
+  // Nothing precedes the first week, so nothing there is a change.
+  if (!events.some((event) => event.date.getTime() < weekStart.getTime())) return new Set()
+
+  const previous = weekContent(
+    events,
+    new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() - 7)
+  )
+
+  return new Set(
+    eventsInWeek(events, weekStart)
+      .filter((event) => !previous.has(contentKey(event)))
+      .map((event) => event.id)
+  )
+}
