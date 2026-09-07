@@ -2095,7 +2095,11 @@ function CourseCard({
                         const sectionPrefix = getSectionPrefix(section.sectionCode)
 
                         // Check for time conflicts with current schedule
-                        const conflictInfo = checkSectionConflict(section, courseEnrollments)
+                        const conflictInfo = checkSectionConflict(
+                          section,
+                          courseEnrollments,
+                          currentTerm
+                        )
                         const hasTimeConflict = conflictInfo.hasConflict // Show conflicts even for selected sections
 
                         return (

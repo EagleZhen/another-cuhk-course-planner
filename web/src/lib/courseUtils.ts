@@ -118,22 +118,22 @@ export function doTimesOverlap(time1: TimeRange, time2: TimeRange): boolean {
 }
 
 /**
- * Check whether any scheduled meetings in two sections overlap.
- * Meetings without a real time are ignored.
+ * Check whether two sections meet on the same date at an overlapping time.
+ * A meeting with no real time cannot be placed, so it never clashes.
  */
-export function sectionsOverlapInTime(
+export function sectionsOverlap(
   section1: InternalSection,
-  section2: InternalSection
+  section2: InternalSection,
+  termName: string
 ): boolean {
-  return section1.meetings.some((meeting1) => {
-    const time1 = parseTimeRange(meeting1.time)
-    if (!time1) return false
+  const occurrences2 = sectionOccurrences(section2, termName)
 
-    return section2.meetings.some((meeting2) => {
-      const time2 = parseTimeRange(meeting2.time)
-      return time2 !== null && doTimesOverlap(time1, time2)
-    })
-  })
+  return sectionOccurrences(section1, termName).some((one) =>
+    occurrences2.some(
+      (two) =>
+        one.date.getTime() === two.date.getTime() && doTimesOverlap(one.timeRange, two.timeRange)
+    )
+  )
 }
 
 /**
@@ -1179,8 +1179,8 @@ export function hasConflictFreeEnrollment(
 
     return compatibleSections.some((candidate) => {
       const isTimeFree =
-        baselineSections.every((baseline) => !sectionsOverlapInTime(candidate, baseline)) &&
-        selectedSections.every((selected) => !sectionsOverlapInTime(candidate, selected))
+        baselineSections.every((baseline) => !sectionsOverlap(candidate, baseline, termName)) &&
+        selectedSections.every((selected) => !sectionsOverlap(candidate, selected, termName))
 
       return isTimeFree && search(typeIndex + 1, [...selectedSections, candidate])
     })
@@ -1583,7 +1583,8 @@ export function getAggregateSeatInfo(
  */
 export function checkSectionConflict(
   candidateSection: InternalSection,
-  currentEnrollments: CourseEnrollment[]
+  currentEnrollments: CourseEnrollment[],
+  termName: string
 ): {
   hasConflict: boolean
   conflictingSections: string[]
@@ -1598,7 +1599,7 @@ export function checkSectionConflict(
       // Skip itself from checking
       if (
         enrolledSection.id === candidateSection.id ||
-        !sectionsOverlapInTime(candidateSection, enrolledSection)
+        !sectionsOverlap(candidateSection, enrolledSection, termName)
       ) {
         continue
       }
@@ -1738,6 +1739,31 @@ export function parseMeetingDates(dates: string, termName: string, weekday: stri
       return resolved
     })
     .filter((date) => date !== null) as Date[]
+}
+
+/** One meeting of a section on one date. */
+export interface SectionOccurrence {
+  date: Date
+  timeRange: TimeRange
+}
+
+/**
+ * Every dated meeting of a section. A row with no real time states a date range
+ * rather than a list, so it has nothing to expand and contributes none.
+ */
+export function sectionOccurrences(
+  section: InternalSection,
+  termName: string
+): SectionOccurrence[] {
+  return section.meetings.flatMap((meeting) => {
+    const timeRange = parseTimeRange(meeting.time)
+    if (!timeRange) return []
+
+    return parseMeetingDates(meeting.dates, termName, timeRange.day).map((date) => ({
+      date,
+      timeRange,
+    }))
+  })
 }
 
 /**

@@ -507,7 +507,11 @@ export default function ShoppingCart({
                         const canCycle = compatible.length > 1
                         const currentIndex = compatible.findIndex((s) => s.id === section.id)
                         const sectionPosition = `${currentIndex + 1}/${compatible.length}`
-                        const conflictInfo = checkSectionConflict(section, courseEnrollments)
+                        const conflictInfo = checkSectionConflict(
+                          section,
+                          courseEnrollments,
+                          currentTerm
+                        )
                         const sectionChange = changes?.find((c) => c.sectionId === section.id)
                         const changeDetail = sectionChange
                           ? diffSectionDetail(section, sectionChange.before)

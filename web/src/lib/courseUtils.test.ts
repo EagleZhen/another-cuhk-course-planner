@@ -14,7 +14,7 @@ import {
   diffSectionDetail,
   getChangedCourseIds,
   formatSyncTimestamp,
-  sectionsOverlapInTime,
+  sectionsOverlap,
   checkSectionConflict,
   hasConflictFreeEnrollment,
   pruneReplacedTombstones,
@@ -532,8 +532,29 @@ describe('readStoredEnrollments', () => {
   })
 })
 
+// 1-7 September 2025 is a Mon-Sun week, so a meeting lands on the weekday its
+// time states. Sections built here therefore clash exactly when their times do,
+// which is what these tests are about; a test needing separate weeks says so.
+const FIRST_WEEK: Record<string, string> = {
+  Mo: '1/9',
+  Tu: '2/9',
+  We: '3/9',
+  Th: '4/9',
+  Fr: '5/9',
+  Sa: '6/9',
+  Su: '7/9',
+}
+const SYNTHETIC_TERM = '2025-26 Term 1'
+
 function mkMeeting(p: Partial<InternalMeeting>): InternalMeeting {
-  return { time: 'We 2:30PM - 5:15PM', location: 'Hum 314', instructors: 'Staff', dates: '', ...p }
+  const time = p.time ?? 'We 2:30PM - 5:15PM'
+  return {
+    time,
+    location: 'Hum 314',
+    instructors: 'Staff',
+    dates: FIRST_WEEK[time.slice(0, 2)] ?? '',
+    ...p,
+  }
 }
 function mkSection(id: string, meetings: InternalMeeting[], classAttributes = ''): InternalSection {
   return {
@@ -734,14 +755,39 @@ describe('isEnrollmentOpen', () => {
   })
 })
 
-describe('sectionsOverlapInTime', () => {
+/** Two Saturday sections at the same hour, five weeks apart. */
+const ACCT5610_TERM = '2026-27 Term 1'
+/** LEC, PRA and TUT at the same hour on the same dates — a real clash. */
+const PHAR1433_TERM = '2026-27 Term 1'
+
+describe('sectionsOverlap', () => {
   it('reports only real meeting overlaps', () => {
     const scheduled = mkSection('scheduled', [mkMeeting({ time: 'Mo 9:00AM - 10:00AM' })])
     const overlapping = mkSection('overlapping', [mkMeeting({ time: 'Mo 9:30AM - 10:30AM' })])
     const unscheduled = mkSection('unscheduled', [mkMeeting({ time: 'TBA' })])
 
-    expect(sectionsOverlapInTime(scheduled, overlapping)).toBe(true)
-    expect(sectionsOverlapInTime(scheduled, unscheduled)).toBe(false)
+    expect(sectionsOverlap(scheduled, overlapping, SYNTHETIC_TERM)).toBe(true)
+    expect(sectionsOverlap(scheduled, unscheduled, SYNTHETIC_TERM)).toBe(false)
+  })
+
+  // Same slot, different weeks: a false conflict until dates were consulted.
+  it('clears two published sections that share a slot on disjoint dates', () => {
+    const course = loadPublishedCourse('2026-27', 'ACCT', '5610')
+    const saturdayA = findPublishedSection(course, ACCT5610_TERM, 'SA-LEC')
+    const saturdayB = findPublishedSection(course, ACCT5610_TERM, 'SB-LEC')
+
+    expect(sectionsOverlap(saturdayA, saturdayB, ACCT5610_TERM)).toBe(false)
+  })
+
+  // The guard against over-correcting: these three really do clash every week.
+  it('still reports published sections sharing a slot on identical dates', () => {
+    const course = loadPublishedCourse('2026-27', 'PHAR', '1433')
+    const lecture = findPublishedSection(course, PHAR1433_TERM, '--LEC')
+    const practical = findPublishedSection(course, PHAR1433_TERM, '-P01-PRA')
+    const tutorial = findPublishedSection(course, PHAR1433_TERM, '-T01-TUT')
+
+    expect(sectionsOverlap(lecture, practical, PHAR1433_TERM)).toBe(true)
+    expect(sectionsOverlap(practical, tutorial, PHAR1433_TERM)).toBe(true)
   })
 })
 
@@ -750,7 +796,7 @@ describe('checkSectionConflict', () => {
     const candidate = mkSection('candidate', [mkMeeting({ time: 'Mo 9:00AM - 10:00AM' })])
     const enrolled = mkSection('enrolled', [mkMeeting({ time: 'Mo 9:30AM - 10:30AM' })])
 
-    expect(checkSectionConflict(candidate, [mkEnrollment([enrolled])])).toEqual({
+    expect(checkSectionConflict(candidate, [mkEnrollment([enrolled])], SYNTHETIC_TERM)).toEqual({
       hasConflict: true,
       conflictingSections: ['COMM1180 LEC'],
     })
@@ -763,7 +809,7 @@ describe('hasConflictFreeEnrollment', () => {
     courseCode: '1000',
     title: 'Test Course',
     credits: 3,
-    terms: [{ termCode: '2510', termName: 'Term 1', sections }],
+    terms: [{ termCode: '2510', termName: SYNTHETIC_TERM, sections }],
   })
 
   const timedSection = (
@@ -783,7 +829,7 @@ describe('hasConflictFreeEnrollment', () => {
     const course = courseWithSections([timedSection('lec', 'LEC', 'A-LEC', 'Mo 9:00AM - 10:00AM')])
     const baseline = [timedSection('busy', 'LEC', '--LEC', 'Mo 9:30AM - 10:30AM')]
 
-    expect(hasConflictFreeEnrollment(course, baseline, 'Term 1')).toBe(false)
+    expect(hasConflictFreeEnrollment(course, baseline, SYNTHETIC_TERM)).toBe(false)
   })
 
   it('backtracks until it finds a jointly compatible, non-overlapping combination', () => {
@@ -794,7 +840,7 @@ describe('hasConflictFreeEnrollment', () => {
       timedSection('tut-b', 'TUT', 'BT01-TUT', 'We 9:00AM - 10:00AM'),
     ])
 
-    expect(hasConflictFreeEnrollment(course, [], 'Term 1')).toBe(true)
+    expect(hasConflictFreeEnrollment(course, [], SYNTHETIC_TERM)).toBe(true)
   })
 
   it('rejects courses whose individually free sections cannot form one valid combination', () => {
@@ -805,7 +851,7 @@ describe('hasConflictFreeEnrollment', () => {
       timedSection('tut-b', 'TUT', 'BT01-TUT', 'Tu 9:30AM - 10:30AM'),
     ])
 
-    expect(hasConflictFreeEnrollment(course, [], 'Term 1')).toBe(false)
+    expect(hasConflictFreeEnrollment(course, [], SYNTHETIC_TERM)).toBe(false)
   })
 
   it('skips a lower-priority type when no section is cohort-compatible', () => {
@@ -814,14 +860,14 @@ describe('hasConflictFreeEnrollment', () => {
       timedSection('tut-b', 'TUT', 'BT01-TUT', 'Tu 9:00AM - 10:00AM'),
     ])
 
-    expect(hasConflictFreeEnrollment(course, [], 'Term 1')).toBe(true)
+    expect(hasConflictFreeEnrollment(course, [], SYNTHETIC_TERM)).toBe(true)
   })
 
   it('treats unscheduled meetings as conflict-free', () => {
     const course = courseWithSections([timedSection('lec', 'LEC', 'A-LEC', 'TBA')])
     const baseline = [timedSection('busy', 'LEC', '--LEC', 'Mo 9:00AM - 10:00AM')]
 
-    expect(hasConflictFreeEnrollment(course, baseline, 'Term 1')).toBe(true)
+    expect(hasConflictFreeEnrollment(course, baseline, SYNTHETIC_TERM)).toBe(true)
   })
 })
 
