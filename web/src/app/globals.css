@@ -139,7 +139,7 @@
     box-shadow: 0 0 0 0 rgb(15 23 42 / 0);
   }
   50% {
-    box-shadow: 0 0 6px 5px rgb(15 23 42 / 0.4);
+    box-shadow: 0 0 7px 6px rgb(15 23 42 / 0.55);
   }
 }
 
@@ -152,7 +152,7 @@
   @media (prefers-reduced-motion: reduce) {
     .changed-ring {
       animation: none;
-      box-shadow: 0 0 6px 5px rgb(15 23 42 / 0.4);
+      box-shadow: 0 0 7px 6px rgb(15 23 42 / 0.55);
     }
   }
 }

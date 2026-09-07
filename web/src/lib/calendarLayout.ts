@@ -189,21 +189,23 @@ export function distinctWeeks(events: CalendarEvent[], weeks: Date[]): Date[] {
 }
 
 /**
- * Ids of the cards a week gained or changed since the week before. A card that
- * *ends* is not marked — the risk is missing a class you have, not one you don't.
+ * Ids of cards showing something that has not appeared before: a section
+ * starting, or one whose room, instructor or time has changed.
+ *
+ * A section merely resuming after a break is not marked. Its content is
+ * unchanged, and the gap it returns from is plain on the grid — marking those
+ * would be 96% of all marks and would teach the eye to skip them.
  */
 export function changedEventIds(events: CalendarEvent[], weekStart: Date): Set<string> {
-  // Nothing precedes the first week, so nothing there is a change.
-  if (!events.some((event) => event.date.getTime() < weekStart.getTime())) return new Set()
-
-  const previous = weekContent(
-    events,
-    new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() - 7)
+  const seenBefore = new Set(
+    events.filter((event) => event.date.getTime() < weekStart.getTime()).map(contentKey)
   )
+  // Nothing precedes the first week, so nothing there is new.
+  if (seenBefore.size === 0) return new Set()
 
   return new Set(
     eventsInWeek(events, weekStart)
-      .filter((event) => !previous.has(contentKey(event)))
+      .filter((event) => !seenBefore.has(contentKey(event)))
       .map((event) => event.id)
   )
 }

@@ -142,8 +142,8 @@ export default function WeeklyCalendar({
   const [isIcsMenuExpanded, setIsIcsMenuExpanded] = useState(false)
   const [selectedWeekTime, setSelectedWeekTime] = useState<number | null>(null)
   const [skipRepeatWeeks, setSkipRepeatWeeks] = useState(true)
-  // Which cards this week gained or changed. An arrival cue only, so it expires
-  // rather than sitting in the view — and so it never lands in a screenshot.
+  // Cards showing something not seen in an earlier week. An arrival cue only, so
+  // it expires rather than sitting in the view, and never lands in a screenshot.
   const [changedIds, setChangedIds] = useState<Set<string>>(new Set())
 
   // Refs for auto-scrolling to selected events

@@ -167,7 +167,7 @@ describe('what changes between weeks', () => {
     expect(distinctWeeks(events, [MON(0), MON(1), MON(2)])).toEqual([MON(0)])
   })
 
-  it('rings what a week gained or changed, and nothing in the first', () => {
+  it('marks a section starting or changing, and nothing in the first week', () => {
     const events = [card(0, 'LEC'), card(1, 'LEC'), card(1, 'TUT'), card(2, 'LEC', 'YIA 404')]
 
     expect(changedEventIds(events, MON(0))).toEqual(new Set())
@@ -175,11 +175,24 @@ describe('what changes between weeks', () => {
     expect(changedEventIds(events, MON(2))).toEqual(new Set(['LEC-2']))
   })
 
-  // Skipping and ringing are one comparison, so a skipped week never hides a ring.
-  it('rings nothing in a week that would be skipped', () => {
+  it('marks nothing in a week that would be skipped', () => {
     const events = [card(0, 'LEC'), card(1, 'LEC')]
 
     expect(distinctWeeks(events, [MON(0), MON(1)])).toEqual([MON(0)])
     expect(changedEventIds(events, MON(1))).toEqual(new Set())
+  })
+
+  // A holiday week is still a stop, but coming back from it is not a change.
+  it('marks nothing when a section resumes unchanged after a break', () => {
+    const events = [card(0, 'LEC'), card(2, 'LEC')]
+
+    expect(distinctWeeks(events, [MON(0), MON(1), MON(2)])).toEqual([MON(0), MON(1), MON(2)])
+    expect(changedEventIds(events, MON(2))).toEqual(new Set())
+  })
+
+  it('still marks a section that resumes in a different room', () => {
+    const events = [card(0, 'LEC'), card(2, 'LEC', 'YIA 404')]
+
+    expect(changedEventIds(events, MON(2))).toEqual(new Set(['LEC-2']))
   })
 })
