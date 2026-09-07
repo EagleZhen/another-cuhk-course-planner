@@ -173,4 +173,16 @@ export const analytics = {
       avg_time_ms: stats.avgTimeMs,
     })
   },
+
+  // === DEPLOYS ===
+
+  // A chunk failed to load and the one-shot reload fixed it — not an exception, since the
+  // user saw a reload rather than a failure.
+  // Named for what the error states, not why: ChunkLoadError covers both a chunk retired
+  // by a deploy and a transient fetch failure. `build_id` separates them afterwards.
+  // Fires when the navigation is issued, not when it lands, so a recovery that failed
+  // still reports here; that failure surfaces separately as a ChunkLoadError exception.
+  chunkLoadRecovered: () => {
+    track('chunk_load_recovered')
+  },
 }
