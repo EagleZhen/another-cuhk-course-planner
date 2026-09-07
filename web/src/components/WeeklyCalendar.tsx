@@ -16,9 +16,6 @@ import {
   Undo,
 } from 'lucide-react'
 import {
-  groupOverlappingEvents,
-  assignOverlapColumns,
-  eventsOverlap,
   formatTimeCompact,
   formatInstructorsCompact,
   formatCourseCodeWithPrefix,
@@ -27,6 +24,7 @@ import {
   processICSForUndo,
 } from '@/lib/courseUtils'
 import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
+import { layoutDayEvents } from '@/lib/calendarLayout'
 import {
   DEFAULT_CALENDAR_CONFIG,
   CALENDAR_LAYOUT_CONSTANTS,
@@ -689,21 +687,7 @@ export default function WeeklyCalendar({
 
               {/* Day columns with clean time-based rendering */}
               {days.map((day) => {
-                // Get the CalendarEvent.day index for this day key
-                const calendarEventDayIndex = getDayIndex(day)
-                const dayEvents = events
-                  .filter((event) => event.day === calendarEventDayIndex)
-                  .map((event) => ({
-                    ...event,
-                    hasConflict: events.some(
-                      (other) =>
-                        other.id !== event.id &&
-                        other.day === event.day &&
-                        eventsOverlap(event, other)
-                    ),
-                  }))
-
-                const eventGroups = groupOverlappingEvents(dayEvents)
+                const eventGroups = layoutDayEvents(events, getDayIndex(day))
 
                 return (
                   <div
@@ -722,25 +706,20 @@ export default function WeeklyCalendar({
 
                       {/* Dynamic conflict zones - scale with hour height */}
                       {eventGroups.map((group, groupIndex) => {
-                        if (group.length <= 1) return null
+                        if (group.events.length <= 1) return null
 
-                        // Calculate based on pure time bounds with dynamic height
-                        const startTimes = group.map((e) => e.startHour * 60 + e.startMinute)
-                        const endTimes = group.map((e) => e.endHour * 60 + e.endMinute)
-                        const minStart = Math.min(...startTimes)
-                        const maxEnd = Math.max(...endTimes)
-
+                        const { startMinutes, endMinutes } = group
                         const zoneTop =
                           timeToPixels(
-                            Math.floor(minStart / 60),
-                            minStart % 60,
+                            Math.floor(startMinutes / 60),
+                            startMinutes % 60,
                             calendarConfig.startHour,
                             dynamicHourHeight
                           ) - CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
                         const zoneBottom =
                           timeToPixels(
-                            Math.floor(maxEnd / 60),
-                            maxEnd % 60,
+                            Math.floor(endMinutes / 60),
+                            endMinutes % 60,
                             calendarConfig.startHour,
                             dynamicHourHeight
                           ) + CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
@@ -765,10 +744,7 @@ export default function WeeklyCalendar({
 
                       {/* Event cards with dynamic time-based positioning */}
                       {eventGroups.map((group) => {
-                        const columns = assignOverlapColumns(group)
-                        const columnCount = Math.max(...columns.values()) + 1
-
-                        return group.map((event) => {
+                        return group.events.map(({ event, column }) => {
                           const { top, height } = getCardDimensions(
                             event,
                             calendarConfig.startHour,
@@ -778,8 +754,8 @@ export default function WeeklyCalendar({
                           const textLineLimits = getCardTextLineLimits(height, localDisplayConfig)
 
                           const { leftOffset, rightOffset, zIndex } = getCardStackPlacement(
-                            columns.get(event.id)!,
-                            columnCount,
+                            column,
+                            group.columnCount,
                             isSelected
                           )
 

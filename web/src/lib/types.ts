@@ -200,14 +200,6 @@ export interface TimeRange {
   endMinute: number
 }
 
-// Conflict zone for visual representation
-export interface ConflictZone {
-  startHour: number
-  endHour: number
-  startMinute: number
-  endMinute: number
-}
-
 export interface SearchResults {
   courses: InternalCourse[]
   total: number

@@ -6,7 +6,6 @@ import type {
   TimeRange,
   CalendarEvent,
   CourseEnrollment,
-  ConflictZone,
   InternalCourse,
   InternalSection,
   InternalMeeting,
@@ -261,36 +260,6 @@ export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
 }
 
 /**
- * Column for each card in an overlap group, keyed by event id.
- *
- * A card only has to dodge cards it actually overlaps, so a chain does not march
- * rightwards: with 9:30-11:15, 10:30-12:15 and 11:30-13:00, the first and last
- * share column 0. Column count is therefore how many classes truly run at once.
- */
-export function assignOverlapColumns(group: CalendarEvent[]): Map<string, number> {
-  const minutes = (event: CalendarEvent) => event.startHour * 60 + event.startMinute
-  // Earliest first, so the greedy choice below is optimal; id breaks ties for a
-  // placement that does not depend on cart order.
-  const byStart = [...group].sort((a, b) => minutes(a) - minutes(b) || a.id.localeCompare(b.id))
-
-  const columns = new Map<string, number>()
-
-  for (const event of byStart) {
-    const taken = new Set(
-      byStart
-        .filter((other) => columns.has(other.id) && eventsOverlap(other, event))
-        .map((other) => columns.get(other.id))
-    )
-
-    let column = 0
-    while (taken.has(column)) column++
-    columns.set(event.id, column)
-  }
-
-  return columns
-}
-
-/**
  * Get day index from time string (0=Monday, 1=Tuesday, etc.)
  * Now supports weekend days: Saturday=5, Sunday=6
  */
@@ -306,40 +275,6 @@ export function getDayIndex(timeStr: string): number {
 }
 
 /**
- * Group overlapping calendar events for visual stacking
- */
-export function groupOverlappingEvents(events: CalendarEvent[]): CalendarEvent[][] {
-  const groups: CalendarEvent[][] = []
-  const processed = new Set<string>()
-
-  for (const event of events) {
-    if (processed.has(event.id)) continue
-
-    const group = [event]
-    processed.add(event.id)
-
-    // Overlap is not transitive, so sweep the group as it grows rather than
-    // comparing against the seed alone: 9:30-11:15 and 11:30-13:00 both belong
-    // with 10:30-12:15. Seeding alone splits that chain in a cart-order-dependent
-    // way, and the resulting groups draw conflict zones that overlap on screen.
-    for (let member = 0; member < group.length; member++) {
-      for (const otherEvent of events) {
-        if (processed.has(otherEvent.id)) continue
-
-        if (eventsOverlap(group[member], otherEvent)) {
-          group.push(otherEvent)
-          processed.add(otherEvent.id)
-        }
-      }
-    }
-
-    groups.push(group)
-  }
-
-  return groups
-}
-
-/**
  * Check if two calendar events overlap in time
  */
 export function eventsOverlap(event1: CalendarEvent, event2: CalendarEvent): boolean {
@@ -351,31 +286,6 @@ export function eventsOverlap(event1: CalendarEvent, event2: CalendarEvent): boo
   const end2 = event2.endHour * 60 + event2.endMinute
 
   return start1 < end2 && start2 < end1
-}
-
-/**
- * Calculate conflict zones for calendar background highlighting
- */
-export function getConflictZones(events: CalendarEvent[]): ConflictZone[] {
-  const zones: ConflictZone[] = []
-  const eventGroups = groupOverlappingEvents(events)
-
-  eventGroups.forEach((group) => {
-    if (group.length > 1) {
-      // Find the time range that covers all conflicting events
-      const minStart = Math.min(...group.map((e) => e.startHour * 60 + e.startMinute))
-      const maxEnd = Math.max(...group.map((e) => e.endHour * 60 + e.endMinute))
-
-      zones.push({
-        startHour: Math.floor(minStart / 60),
-        startMinute: minStart % 60,
-        endHour: Math.floor(maxEnd / 60),
-        endMinute: maxEnd % 60,
-      })
-    }
-  })
-
-  return zones
 }
 
 /**
