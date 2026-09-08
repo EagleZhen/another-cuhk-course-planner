@@ -757,8 +757,8 @@ describe('isEnrollmentOpen', () => {
   })
 })
 
-/** Lecture and tutorial share a slot on Fridays, but never the same Friday. */
-const GEWS1011_TERM = '2026-27 Term 1'
+/** The term every cross-course conflict fixture below belongs to. */
+const CONFLICT_TERM = '2026-27 Term 1'
 /** Two Saturday sections at the same hour, five weeks apart. */
 const ACCT5610_TERM = '2026-27 Term 1'
 /** LEC, PRA and TUT at the same hour on the same dates — a real clash. */
@@ -769,11 +769,11 @@ describe('detectConflicts', () => {
   // can distinguish two events on the same weekday.
   it('flags a clash only when the two occurrences fall on the same date', () => {
     const course = loadPublishedCourse('2026-27', 'GEWS', '1011')
-    const lecture = findPublishedSection(course, GEWS1011_TERM, '--LEC')
-    const tutorial = findPublishedSection(course, GEWS1011_TERM, '-T01-TUT')
+    const lecture = findPublishedSection(course, CONFLICT_TERM, '--LEC')
+    const tutorial = findPublishedSection(course, CONFLICT_TERM, '-T01-TUT')
 
     const apart = detectConflicts(
-      enrollmentsToCalendarEvents([makeEnrollment(course, [lecture, tutorial])], GEWS1011_TERM)
+      enrollmentsToCalendarEvents([makeEnrollment(course, [lecture, tutorial])], CONFLICT_TERM)
     )
     expect(apart.filter((event) => event.hasConflict)).toEqual([])
 
@@ -784,10 +784,34 @@ describe('detectConflicts', () => {
           makeEnrollment(course, [lecture]),
           { ...makeEnrollment(course, [lecture]), courseId: 'OTHER' },
         ],
-        GEWS1011_TERM
+        CONFLICT_TERM
       )
     )
     expect(together.every((event) => event.hasConflict)).toBe(true)
+  })
+
+  // One shared date is a clash, and only on that date. STAT3008 and FINA6092
+  // share 11 Thursday lectures; STAT3008 also meets on 3 December alone.
+  it('flags only the occurrences on a shared date, not the whole section', () => {
+    const stat = loadPublishedCourse('2026-27', 'STAT', '3008')
+    const fina = loadPublishedCourse('2026-27', 'FINA', '6092')
+    const statLecture = findPublishedSection(stat, CONFLICT_TERM, 'B-LEC')
+    const finaLecture = findPublishedSection(fina, CONFLICT_TERM, 'FB-LEC')
+
+    expect(sectionsOverlap(statLecture, finaLecture, CONFLICT_TERM)).toBe(true)
+
+    const events = detectConflicts(
+      enrollmentsToCalendarEvents(
+        [makeEnrollment(stat, [statLecture]), makeEnrollment(fina, [finaLecture])],
+        CONFLICT_TERM
+      )
+    )
+    const statEvents = events.filter((event) => event.enrollmentId === 'STAT3008')
+
+    expect(statEvents).toHaveLength(12)
+    expect(statEvents.filter((event) => !event.hasConflict).map((event) => event.date)).toEqual([
+      new Date(2026, 11, 3),
+    ])
   })
 })
 

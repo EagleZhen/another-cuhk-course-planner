@@ -75,7 +75,7 @@ test('reports no conflict for sections that never share a date', async ({ page }
   await expect(conflictZone(page)).toHaveCount(0)
 })
 
-test('reports a conflict for sections sharing every date', async ({ page }) => {
+test('reports a conflict for sections that share a date', async ({ page }) => {
   await openPlanner(page, '11/9')
 
   await expect(cards(page)).toHaveCount(2)
