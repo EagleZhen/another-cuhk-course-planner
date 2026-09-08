@@ -31,6 +31,8 @@ import {
   generateICSCalendar,
   processICSForUndo,
   extractAcademicYearBounds,
+  detectConflicts,
+  enrollmentsToCalendarEvents,
   parseTimeRange,
 } from './courseUtils'
 import { transformExternalCourseData } from './validation'
@@ -755,10 +757,39 @@ describe('isEnrollmentOpen', () => {
   })
 })
 
+/** Lecture and tutorial share a slot on Fridays, but never the same Friday. */
+const GEWS1011_TERM = '2026-27 Term 1'
 /** Two Saturday sections at the same hour, five weeks apart. */
 const ACCT5610_TERM = '2026-27 Term 1'
 /** LEC, PRA and TUT at the same hour on the same dates — a real clash. */
 const PHAR1433_TERM = '2026-27 Term 1'
+
+describe('detectConflicts', () => {
+  // Runs over every occurrence, not one week, so it is the only place the date
+  // can distinguish two events on the same weekday.
+  it('flags a clash only when the two occurrences fall on the same date', () => {
+    const course = loadPublishedCourse('2026-27', 'GEWS', '1011')
+    const lecture = findPublishedSection(course, GEWS1011_TERM, '--LEC')
+    const tutorial = findPublishedSection(course, GEWS1011_TERM, '-T01-TUT')
+
+    const apart = detectConflicts(
+      enrollmentsToCalendarEvents([makeEnrollment(course, [lecture, tutorial])], GEWS1011_TERM)
+    )
+    expect(apart.filter((event) => event.hasConflict)).toEqual([])
+
+    // The same lecture against itself under a second course id: identical dates.
+    const together = detectConflicts(
+      enrollmentsToCalendarEvents(
+        [
+          makeEnrollment(course, [lecture]),
+          { ...makeEnrollment(course, [lecture]), courseId: 'OTHER' },
+        ],
+        GEWS1011_TERM
+      )
+    )
+    expect(together.every((event) => event.hasConflict)).toBe(true)
+  })
+})
 
 describe('sectionsOverlap', () => {
   it('reports only real meeting overlaps', () => {

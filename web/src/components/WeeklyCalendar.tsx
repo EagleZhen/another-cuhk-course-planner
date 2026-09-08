@@ -875,6 +875,7 @@ export default function WeeklyCalendar({
                         return (
                           <div
                             key={`conflict-zone-${groupIndex}`}
+                            data-conflict-zone="true"
                             style={{
                               position: 'absolute',
                               top: `${zoneTop}px`,
