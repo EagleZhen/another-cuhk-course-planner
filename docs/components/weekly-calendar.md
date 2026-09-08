@@ -25,7 +25,7 @@ So a date matching neither year contradicts itself and is dropped with a warning
 
 No month rule can work — August is the first year in Term 1 and the second in the Summer Session. The one this replaced misdated 232 dates.
 
-A test expands every published timed meeting on each run, so a future term falling outside its own two years fails there rather than quietly dropping classes.
+A test walks every published timed meeting on each run: the dates must be a `d/m` list, and every one must resolve. A refresh pairing a time with a year the term does not cover would drop classes; pairing it with a date range would resolve to the range's own start and turn a term-long class into one session. Both fail there instead.
 
 ## Noticing What Changes
 

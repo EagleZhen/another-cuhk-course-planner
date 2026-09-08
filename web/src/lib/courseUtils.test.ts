@@ -1592,13 +1592,21 @@ describe('parseMeetingDates', () => {
 
   // Candidate years are the term's own two, so a future term with dates outside
   // them fails here rather than quietly dropping classes.
+  //
+  // Shape is checked before the count, because a count alone accepts the one input
+  // that fabricates rather than drops: the range an undated row carries. As a single
+  // comma token it resolves to its own start date, turning a 13-week class into one
+  // session, and the count matches.
   it('resolves every date of every published timed meeting', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
     let resolved = 0
 
     forEachPublishedTimedMeeting((meeting, weekday, termName) => {
+      const listed = meeting.dates.split(',').map((date) => date.trim())
+      expect(listed.every((date) => /^\d{1,2}\/\d{1,2}$/.test(date))).toBe(true)
+
       const dates = parseMeetingDates(meeting.dates, termName, weekday)
-      expect(dates).toHaveLength(meeting.dates.split(',').filter((date) => date.trim()).length)
+      expect(dates).toHaveLength(listed.length)
       resolved += dates.length
     })
 
