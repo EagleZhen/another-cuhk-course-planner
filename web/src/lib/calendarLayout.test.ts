@@ -193,12 +193,13 @@ describe('what changes between weeks', () => {
     ])
   })
 
-  it('marks a section starting or changing, and nothing in the first week', () => {
-    const events = [card(0, 'LEC'), card(1, 'LEC'), card(1, 'TUT'), card(2, 'LEC', 'YIA 404')]
+  // Filling an empty slot looks the same whichever way you arrive, so neither marks.
+  it('marks nothing when a class fills a slot the last week left empty', () => {
+    const events = [card(0, 'LEC'), card(1, 'LEC'), card(1, 'TUT'), card(3, 'TUT')]
 
-    expect(changedEventIds(events, MON(0))).toEqual(new Set())
-    expect(changedEventIds(events, MON(1))).toEqual(new Set(['TUT-Mo-1']))
-    expect(changedEventIds(events, MON(2))).toEqual(new Set(['LEC-Mo-2']))
+    expect(changedEventIds(events, MON(1), MON(0))).toEqual(new Set()) // the tutorial starts
+    expect(changedEventIds(events, MON(0), MON(1))).toEqual(new Set()) // and going back
+    expect(changedEventIds(events, MON(3), MON(2))).toEqual(new Set()) // it resumes
   })
 
   // GEWS1011: one lecture, two weeks, two buildings. Whichever week you arrive
@@ -245,10 +246,13 @@ describe('what changes between weeks', () => {
     expect(changedEventIds(events, MON(2), MON(1))).toEqual(new Set())
   })
 
-  it('still marks a section that resumes in a different room', () => {
+  // The week between is blank, so the comparison has to reach past it — a quarter of
+  // all real changes look like this.
+  it('marks a section that resumes in a different room, across the empty week', () => {
     const events = [card(0, 'LEC'), card(2, 'LEC', 'YIA 404')]
 
-    expect(changedEventIds(events, MON(2))).toEqual(new Set(['LEC-Mo-2']))
+    expect(changedEventIds(events, MON(2), MON(1))).toEqual(new Set(['LEC-Mo-2']))
+    expect(changedEventIds(events, MON(0), MON(1))).toEqual(new Set(['LEC-Mo-0']))
   })
 })
 

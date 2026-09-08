@@ -214,36 +214,44 @@ function slotKey(event: CalendarEvent): string {
 }
 
 /**
- * Ids of the cards worth marking on arrival, given the week last shown:
+ * Cards worth marking on arrival: those showing something different from the last
+ * time you saw that class, travelling the way you came. No term order, so the mark
+ * reads the same both ways.
  *
- * - the same slot showing something different from where you came from —
- *   `GEWS1011`'s lecture changes building, and that reads the same in either
- *   direction, so week 1 marks it when reached from week 2;
- * - content no earlier week held, which catches a section starting mid-term.
- *
- * A section resuming unchanged after a break is neither. That was 96% of all
- * marks and reports what the empty grid already showed.
+ * Reaching past a pause, not just to the adjacent week: 262 of the 1,122 real
+ * changes resume after a break, where the week before is blank. A class you have
+ * not seen, or one resuming unchanged, marks nothing — 32,162 of the latter.
  */
 export function changedEventIds(
   events: CalendarEvent[],
   weekStart: Date,
   lastShown?: Date | null
 ): Set<string> {
-  const earlier = events.filter((event) => event.date.getTime() < weekStart.getTime())
-  const seenBefore = new Set(earlier.map(contentKey))
+  if (!lastShown) return new Set()
 
-  const shownLast = lastShown ? eventsInWeek(events, lastShown) : []
-  const lastContent = new Set(shownLast.map(contentKey))
-  const lastSlots = new Set(shownLast.map(slotKey))
+  const from = lastShown.getTime()
+  const goingForward = weekStart.getTime() > from
+  const seenWeek = new Map<string, number>()
+  const seenContent = new Map<string, Set<string>>()
+
+  for (const event of events) {
+    const week = startOfWeek(event.date).getTime()
+    if (goingForward ? week > from : week < from) continue
+
+    const slot = slotKey(event)
+    const nearest = seenWeek.get(slot)
+
+    if (nearest === undefined || Math.abs(week - from) < Math.abs(nearest - from)) {
+      seenWeek.set(slot, week)
+      seenContent.set(slot, new Set([contentKey(event)]))
+    } else if (nearest === week) {
+      seenContent.get(slot)!.add(contentKey(event))
+    }
+  }
 
   return new Set(
     eventsInWeek(events, weekStart)
-      .filter((event) => {
-        if (lastContent.has(contentKey(event))) return false
-        if (lastSlots.has(slotKey(event))) return true
-
-        return earlier.length > 0 && !seenBefore.has(contentKey(event))
-      })
+      .filter((event) => seenContent.get(slotKey(event))?.has(contentKey(event)) === false)
       .map((event) => event.id)
   )
 }
