@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import type { Page } from '@playwright/test'
 
 const term = '2026-27 Term 1'
 const storageKey = `schedule_${term}`
@@ -25,7 +26,7 @@ const section = {
   classAttributes: 'English only',
 }
 
-test('shows what a changed field was and is', async ({ page }) => {
+async function openCart(page: Page) {
   await page.route('**/data/**', (route) => route.abort())
   await page.addInitScript(({ key, value }) => localStorage.setItem(key, value), {
     key: storageKey,
@@ -57,6 +58,10 @@ test('shows what a changed field was and is', async ({ page }) => {
     }),
   })
   await page.goto('/')
+}
+
+test('shows what a changed field was and is', async ({ page }) => {
+  await openCart(page)
 
   await expect(page.getByText('1 course changed since you last checked')).toBeVisible()
 
@@ -64,4 +69,14 @@ test('shows what a changed field was and is', async ({ page }) => {
   const changedLocation = page.locator('span.bg-amber-100', { hasText: nowIn })
 
   await expect(changedLocation).toHaveAttribute('title', `${wasIn}\n↓\n${nowIn}`)
+})
+
+// Dates answer for the time, not the room, so they hang off the time row.
+test('shows the dates on the time row', async ({ page }) => {
+  await openCart(page)
+
+  // The row's own time span, not the calendar card's copy of the same text.
+  const time = page.locator('span.font-mono', { hasText: 'Fr 14:30-17:15' })
+
+  await expect(time).toHaveAttribute('title', 'Dates\n18/9')
 })

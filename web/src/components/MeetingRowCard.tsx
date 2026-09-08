@@ -59,26 +59,26 @@ export function MeetingRowCard({
       break
   }
 
-  // Each source row on its own line: the break is what reveals a gap between runs.
+  // Dates ride with the time, the one field they answer for: hovering a room to
+  // learn which weeks it runs would be a non-sequitur. Each source row keeps its
+  // own line, since the break between runs is what reveals a gap.
   const datesTooltip = row.dates?.length ? `Dates\n${row.dates.join('\n')}` : undefined
-  const rowTooltip = [tooltip, datesTooltip].filter(Boolean).join('\n\n') || undefined
-  const helpCursor = rowTooltip && !containerClass.includes('cursor-help') ? ' cursor-help' : ''
+  const changedTime =
+    fields?.time && before
+      ? changedTooltip(formatTimeCompact(before.time), formattedTime)
+      : undefined
+  const timeTooltip = [changedTime, datesTooltip].filter(Boolean).join('\n\n') || undefined
 
   return (
-    <div
-      className={`rounded border px-2 py-1.5 shadow-sm ${containerClass}${helpCursor}`}
-      title={rowTooltip}
-    >
+    <div className={`rounded border px-2 py-1.5 shadow-sm ${containerClass}`} title={tooltip}>
       {/* Row 1: Time */}
       <div className="flex items-center gap-1 text-[11px]">
         <span>⏰</span>
         <span
-          className={`font-mono ${fields?.time ? changedText : valueClass}`}
-          title={
-            fields?.time && before
-              ? changedTooltip(formatTimeCompact(before.time), formattedTime)
-              : undefined
-          }
+          className={`font-mono ${fields?.time ? changedText : valueClass}${
+            timeTooltip && !fields?.time ? ' cursor-help' : ''
+          }`}
+          title={timeTooltip}
         >
           {formattedTime}
         </span>
