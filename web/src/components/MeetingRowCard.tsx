@@ -17,7 +17,7 @@ export const changedText = 'rounded bg-amber-100 text-amber-800 cursor-help'
 // A changed value shows both, since the row truncates and the arrow says which
 // way it went. Labelling them would only repeat what the arrow already states.
 function changedTooltip(before: string, now: string): string {
-  return `${before}\n\u2193\n${now}`
+  return `${before}\n↓\n${now}`
 }
 
 // One meeting in the unified 3-row emoji format, styled by its change status.
