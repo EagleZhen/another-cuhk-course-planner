@@ -36,6 +36,14 @@ Accuracy does not help a student who never looks. A median 13-week cart holds on
 - **A section resuming unchanged is not marked.** That was 96% of all marks and reports what the empty grid already showed, which taught the eye to skip the rest.
 - **The cue expires** (`CHANGED_HIGHLIGHT_MS`) and is cleared before a capture renders — it is navigation state, not schedule content. Clearing alone is not enough: the capture reads live DOM after React batches, so it waits a frame.
 
+## Finding A Conflict
+
+A clash can occupy one week of thirteen while the cart reports it all term — `MBTE3510` and `BECE4020` clash on 2 November alone — so the badge says there is a problem and the grid shows none.
+
+**"Review next conflict" appears only when the week on screen is clear and another is not**, the one state where the two disagree. Showing it whenever any week clashed is the obvious rule and wrong: of conflicted carts, 66% clash in _every_ week and 30% in nine of ten, so it would duplicate the `next week` chevron almost always.
+
+It ignores the skip toggle: where the clash is and which weeks are worth stepping through are different questions.
+
 ## Layout
 
 - **Dynamic hour height:** the grid is scaled so a 45-minute event (`MINIMUM_COURSE_DURATION_MINUTES`, the shortest CUHK class) exactly fits the rows enabled in the display config. Hardcoding card or slot heights breaks the guarantee that the shortest class can show every enabled row.
