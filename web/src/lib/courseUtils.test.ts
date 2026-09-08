@@ -782,18 +782,18 @@ describe('sectionMeetingDates', () => {
       '10/9, 17/9, 24/9',
       '8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12',
     ])
-    expect(runs.map(formatDateRange)).toEqual(['10/9 - 24/9', '8/10 - 3/12'])
+    expect(runs.map(formatDateRange)).toEqual(['10/9-24/9', '8/10-3/12'])
   })
 
-  it('leaves a lone date, an empty row, and a range the source wrote', () => {
+  it('leaves a lone date and an empty row, and closes up a range the source wrote', () => {
     expect(formatDateRange('2/11')).toBe('2/11')
     expect(formatDateRange('')).toBe('')
-    expect(formatDateRange('11/01/2027 - 19/04/2027')).toBe('11/01/2027 - 19/04/2027')
+    expect(formatDateRange('11/01/2027 - 19/04/2027')).toBe('11/01/2027-19/04/2027')
   })
 
   // First and last only tell the truth if a row is one unbroken weekly run.
   // Checked against every published row: a refresh that broke it would make
-  // "10/9 - 24/9" claim a class on 17/9 that does not exist.
+  // "10/9-24/9" claim a class on 17/9 that does not exist.
   it('finds every published row to be one ascending weekly run', () => {
     const weekAfter = (date: Date) =>
       new Date(date.getFullYear(), date.getMonth(), date.getDate() + 7).getTime()
