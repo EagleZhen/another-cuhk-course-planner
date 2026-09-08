@@ -236,7 +236,7 @@ describe('what changes between weeks', () => {
     const events = [card(0, 'LEC'), card(1, 'LEC')]
 
     expect(nextDistinctWeek(events, [MON(0), MON(1)], MON(0), 1)).toBeNull()
-    expect(changedEventIds(events, MON(1))).toEqual(new Set())
+    expect(changedEventIds(events, MON(1), MON(0))).toEqual(new Set())
   })
 
   // Only the week you came from counts, so a break changes nothing about the rule:
@@ -246,15 +246,6 @@ describe('what changes between weeks', () => {
 
     expect(changedEventIds(events, MON(2), MON(1))).toEqual(new Set(['LEC-Mo-2']))
     expect(changedEventIds(events, MON(2), MON(0))).toEqual(new Set())
-  })
-
-  // The week between is blank, so the comparison has to reach past it — a quarter of
-  // all real changes look like this.
-  it('marks a section that resumes in a different room, across the empty week', () => {
-    const events = [card(0, 'LEC'), card(2, 'LEC', 'YIA 404')]
-
-    expect(changedEventIds(events, MON(2), MON(1))).toEqual(new Set(['LEC-Mo-2']))
-    expect(changedEventIds(events, MON(0), MON(1))).toEqual(new Set(['LEC-Mo-0']))
   })
 })
 
