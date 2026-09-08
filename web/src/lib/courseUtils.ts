@@ -657,10 +657,13 @@ export function sectionSignature(section: InternalSection): SectionSignature {
 }
 
 /**
- * A source row's dates as a range: "10/9, 17/9, 24/9" reads "10/9–24/9".
+ * A source row's dates as a range: "10/9, 17/9, 24/9" reads "10/9 - 24/9".
  *
  * Every published row is one weekly run, so first and last say it all. The runs
  * come from the source's own split into rows, never from grouping dates here.
+ *
+ * Spaced hyphen to match the ranges the source writes for undated rows, which
+ * appear verbatim on this same line: "11/01/2027 - 19/04/2027".
  */
 export function formatDateRange(dates: string): string {
   const days = dates
@@ -668,7 +671,7 @@ export function formatDateRange(dates: string): string {
     .map((date) => date.trim())
     .filter(Boolean)
 
-  return days.length > 1 ? `${days[0]}–${days[days.length - 1]}` : (days[0] ?? '')
+  return days.length > 1 ? `${days[0]} - ${days[days.length - 1]}` : (days[0] ?? '')
 }
 
 /**

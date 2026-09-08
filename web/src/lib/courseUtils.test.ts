@@ -790,9 +790,11 @@ describe('sectionMeetingDates', () => {
     const { meetings } = sectionSignature(section)
     const runs = sectionMeetingDates(section).get(meetingRowKey(meetings[0]))!
 
-    expect(runs.map(formatDateRange)).toEqual(['10/9–24/9', '8/10–3/12'])
+    expect(runs.map(formatDateRange)).toEqual(['10/9 - 24/9', '8/10 - 3/12'])
     expect(formatDateRange('2/11')).toBe('2/11')
     expect(formatDateRange('')).toBe('')
+    // An undated row states its own range; it passes through unchanged.
+    expect(formatDateRange('11/01/2027 - 19/04/2027')).toBe('11/01/2027 - 19/04/2027')
   })
 })
 
