@@ -32,7 +32,7 @@ import {
   weekRange,
   defaultWeek,
   eventsInWeek,
-  distinctWeeks,
+  nextDistinctWeek,
   changedEventIds,
   weeksWithConflict,
 } from '@/lib/calendarLayout'
@@ -439,12 +439,6 @@ export default function WeeklyCalendar({
     : -1
   const weekEvents = activeWeek ? eventsInWeek(events, activeWeek) : []
 
-  // A repeat week shows exactly what the one before it did, so stepping over it
-  // makes every click land on something new. Same comparison as the rings.
-  const stops = useMemo(
-    () => (skipRepeatWeeks ? distinctWeeks(events, weeks, landingWeek) : weeks),
-    [skipRepeatWeeks, events, weeks, landingWeek]
-  )
   // Answers one contradiction: the cart reports a clash and this week shows none.
   // With the clash on screen there is nothing to point at, and in the two thirds
   // of conflicted carts where every week clashes the chevrons already do the job.
@@ -455,12 +449,16 @@ export default function WeeklyCalendar({
     ? (conflictWeeks.find((week) => week.getTime() > activeWeek.getTime()) ?? conflictWeeks[0])
     : undefined
 
-  const previousStop = activeWeek
-    ? [...stops].reverse().find((week) => week.getTime() < activeWeek.getTime())
-    : undefined
-  const nextStop = activeWeek
-    ? stops.find((week) => week.getTime() > activeWeek.getTime())
-    : undefined
+  // Skipping repeats steps to the nearest week showing something this one does not,
+  // so every click lands on something new. Same comparison as the rings.
+  const step = (direction: 1 | -1) => {
+    if (!activeWeek) return undefined
+    if (!skipRepeatWeeks) return weeks[weekIndex + direction]
+
+    return nextDistinctWeek(events, weeks, activeWeek, direction) ?? undefined
+  }
+  const previousStop = step(-1)
+  const nextStop = step(1)
 
   // A dead chevron says why: an end of the range, or nothing new left that way.
   const noPreviousReason = previousStop

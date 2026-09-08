@@ -154,8 +154,8 @@ export function eventsInWeek(events: CalendarEvent[], weekStart: Date): Calendar
 // === WHAT CHANGES BETWEEN WEEKS ===
 //
 // A week is identified by what it shows, not when: same classes, same rooms, same
-// instructors. Skipping repeats and ringing what changed are then the same
-// comparison, so the two can never disagree.
+// instructors. Skipping repeats and ringing what changed read a week through that
+// one key, so the two can never disagree about what a week holds.
 
 /** A card's content, with its date left out. */
 function contentKey(event: CalendarEvent): string {
@@ -177,50 +177,36 @@ function sameContent(one: Set<string>, two: Set<string>): boolean {
 }
 
 /**
- * The weeks worth stopping at: the first, and any that differ from the one before.
+ * Where a chevron goes with repeats skipped: the nearest week in `direction`
+ * showing something `from` does not, or null when no week does.
  *
- * `landing` — the week the calendar opens on — is always one, and displaces any
- * other stop showing the same thing. Otherwise the chevrons can carry you off it
- * with no way back.
+ * Relative to where you stand, so it skips the run you are in rather than walking
+ * to that run's edge, and a week nothing differs from simply has no move — which
+ * is what makes every step reversible without a notion of a preferred week.
  */
-export function distinctWeeks(
+export function nextDistinctWeek(
   events: CalendarEvent[],
   weeks: Date[],
-  landing: Date | null
-): Date[] {
-  const landingContent = landing && weekContent(events, landing)
-  let previous: Set<string> | null = null
+  from: Date,
+  direction: 1 | -1
+): Date | null {
+  const start = weeks.findIndex((week) => week.getTime() === from.getTime())
+  if (start === -1) return null
 
-  return weeks.filter((week) => {
-    const content = weekContent(events, week)
-    const isNew = previous === null || !sameContent(content, previous)
-    previous = content
+  const content = weekContent(events, from)
+  const ahead = direction === 1 ? weeks.slice(start + 1) : weeks.slice(0, start).reverse()
 
-    if (landing && week.getTime() === landing.getTime()) return true
-    if (landingContent && sameContent(content, landingContent)) return false
-
-    return isNew
-  })
+  return ahead.find((week) => !sameContent(weekContent(events, week), content)) ?? null
 }
 
 /**
- * The slot a card fills, whatever it shows that week. Keyed by time, not by
- * section alone: a section with two weekly meetings keeps the section present
- * when only one of them pauses, which would make the other's return look like a
- * change to it.
- */
-function slotKey(event: CalendarEvent): string {
-  return `${event.enrollmentId}|${event.sectionCode}|${event.time}`
-}
-
-/**
- * Cards worth marking on arrival: those showing something different from the last
- * time you saw that class, travelling the way you came. No term order, so the mark
- * reads the same both ways.
+ * Cards worth marking on arrival: everything on screen that was not on the
+ * timetable you last saw. One comparison, no exceptions — a room change, a
+ * section swap, a class returning from a break all read the same, and so does
+ * travelling either way.
  *
- * Reaching past a pause, not just to the adjacent week: 262 of the 1,122 real
- * changes resume after a break, where the week before is blank. A class you have
- * not seen, or one resuming unchanged, marks nothing — 32,162 of the latter.
+ * Content is time, location and instructor; language sits on the section, so it
+ * cannot vary by week.
  */
 export function changedEventIds(
   events: CalendarEvent[],
@@ -229,29 +215,11 @@ export function changedEventIds(
 ): Set<string> {
   if (!lastShown) return new Set()
 
-  const from = lastShown.getTime()
-  const goingForward = weekStart.getTime() > from
-  const seenWeek = new Map<string, number>()
-  const seenContent = new Map<string, Set<string>>()
-
-  for (const event of events) {
-    const week = startOfWeek(event.date).getTime()
-    if (goingForward ? week > from : week < from) continue
-
-    const slot = slotKey(event)
-    const nearest = seenWeek.get(slot)
-
-    if (nearest === undefined || Math.abs(week - from) < Math.abs(nearest - from)) {
-      seenWeek.set(slot, week)
-      seenContent.set(slot, new Set([contentKey(event)]))
-    } else if (nearest === week) {
-      seenContent.get(slot)!.add(contentKey(event))
-    }
-  }
+  const shown = weekContent(events, lastShown)
 
   return new Set(
     eventsInWeek(events, weekStart)
-      .filter((event) => seenContent.get(slotKey(event))?.has(contentKey(event)) === false)
+      .filter((event) => !shown.has(contentKey(event)))
       .map((event) => event.id)
   )
 }

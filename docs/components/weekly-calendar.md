@@ -31,11 +31,11 @@ A test expands every published timed meeting on each run, so a future term falli
 
 Accuracy does not help a student who never looks. A median 13-week cart holds only 5 distinct weeks, so paging one week at a time shows nothing new eight times.
 
-- **Repeated weeks are skipped** by default: the chevrons step to the next week whose content differs, and a dead one says on hover why. A cart that never varies disables both, which is itself the signal.
-- **The week you open on is always a stop**, displacing any other showing the same thing — otherwise the chevrons could carry you off it with no way back.
-- **A card breathes on arrival** when it shows something different from the last time you saw that class, travelling the way you came. `GEWS1011`'s lecture changes building between weeks 1 and 2, which nothing else reveals, and it reads the same coming back. Content compared is time, location and instructor — language sits on the section, so it cannot vary by week.
-- **The comparison reaches past a pause**, not just to the adjacent week: 262 of the 1,122 real changes resume after a break, and the week before them is blank.
-- **A class you have not seen, or one resuming unchanged, is not marked** — 32,162 unchanged resumptions against 1,122 real changes, all showing what the grid you just left already did. An earlier rule marked first appearances only, which fired going forwards and never coming back.
+- **Repeated weeks are skipped** by default: a chevron steps to the nearest week showing something this one does not, and a dead one says on hover why. A cart that never varies disables both, which is itself the signal.
+- **The step is relative to where you stand**, not to a precomputed list of run boundaries — from inside a run those land on the run's own first week and change nothing on screen. It also removes any need for a preferred week: if nothing differs, there is simply no move, so no step can strand you.
+- **A card breathes on arrival** when it was not on the timetable you last saw. One comparison and no exceptions: a room change, a section swapping type, a class back from a break all read alike, and so does travelling either way. Content is time, location and instructor — language sits on the section, so it cannot vary by week.
+- **Do not carve out resumptions.** Two earlier versions suppressed them to keep the cue rare, and each carve-out marked going one way and not the other. It costs less than it looks: silencing them takes arrivals that ring from 28% to 7%, but `GEWS1011` swapping its lecture for ten tutorials falls in the gap.
+- **Nothing ringing means something left.** With repeats skipped you always land on a different week, but a class that stops leaves no card to mark.
 - **The cue expires** (`CHANGED_HIGHLIGHT_MS`) and is cleared before a capture renders — it is navigation state, not schedule content. Clearing alone is not enough: the capture reads live DOM after React batches, so it waits a frame.
 
 ## Finding A Conflict

@@ -1,4 +1,8 @@
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { describe, it, expect } from 'vitest'
+import { transformExternalCourseData } from './validation'
+import { enrollmentsToCalendarEvents } from './courseUtils'
 import {
   groupOverlappingEvents,
   assignOverlapColumns,
@@ -7,11 +11,11 @@ import {
   weekRange,
   defaultWeek,
   eventsInWeek,
-  distinctWeeks,
+  nextDistinctWeek,
   changedEventIds,
   weeksWithConflict,
 } from './calendarLayout'
-import type { CalendarEvent } from './types'
+import type { CalendarEvent, InternalCourse } from './types'
 
 describe('day column layout', () => {
   // Week of Monday 7 September 2026, so a card's date matches its day index.
@@ -156,50 +160,61 @@ describe('what changes between weeks', () => {
       instructors: 'Staff',
     }) as CalendarEvent
 
-  it('stops only at weeks that differ from the one before', () => {
-    // Same lecture for three weeks, then the room moves, then back. Week 3 moves
-    // back to the landing week's room, so the landing week already shows it.
-    const events = [card(0, 'LEC'), card(1, 'LEC'), card(2, 'LEC', 'YIA 404'), card(3, 'LEC')]
+  // One room for two weeks, then another for three.
+  const twoRuns = [
+    card(0, 'LEC'),
+    card(1, 'LEC'),
+    card(2, 'LEC', 'YIA 404'),
+    card(3, 'LEC', 'YIA 404'),
+    card(4, 'LEC', 'YIA 404'),
+  ]
+  const fiveWeeks = [MON(0), MON(1), MON(2), MON(3), MON(4)]
 
-    expect(distinctWeeks(events, [MON(0), MON(1), MON(2), MON(3)], MON(0))).toEqual([
-      MON(0),
-      MON(2),
-    ])
+  it('steps to the nearest week showing something else', () => {
+    expect(nextDistinctWeek(twoRuns, fiveWeeks, MON(0), 1)).toEqual(MON(2))
+    expect(nextDistinctWeek(twoRuns, fiveWeeks, MON(2), -1)).toEqual(MON(1))
   })
 
-  // One stop wherever you land, so both chevrons die there rather than offering a
-  // one-way trip to week 0.
-  it('makes the landing week the only stop of a uniform cart', () => {
-    const events = [card(0, 'LEC'), card(1, 'LEC'), card(2, 'LEC')]
+  // Standing in week 4, back has to clear weeks 3 and 2 — they show what week 4
+  // already does. Stepping to a precomputed run boundary landed on week 2 and
+  // changed nothing on screen.
+  it('clears the run it is standing in', () => {
+    expect(nextDistinctWeek(twoRuns, fiveWeeks, MON(4), -1)).toEqual(MON(1))
+  })
+
+  // Nothing differs, so there is no move to make and no way to be stranded.
+  it('offers no move in a uniform cart, wherever you stand', () => {
+    const uniform = [card(0, 'LEC'), card(1, 'LEC'), card(2, 'LEC')]
     const weeks = [MON(0), MON(1), MON(2)]
 
-    expect(distinctWeeks(events, weeks, MON(1))).toEqual([MON(1)])
-    expect(distinctWeeks(events, weeks, MON(0))).toEqual([MON(0)])
+    expect(nextDistinctWeek(uniform, weeks, MON(1), -1)).toBeNull()
+    expect(nextDistinctWeek(uniform, weeks, MON(1), 1)).toBeNull()
+    expect(nextDistinctWeek(uniform, weeks, MON(0), 1)).toBeNull()
   })
 
-  // Landing in the second run, the landing week stands in for week 2 — so every
-  // distinct week is still reachable both ways.
-  it('keeps a varying cart reachable from the landing week', () => {
-    const events = [
-      card(0, 'LEC'),
-      card(1, 'LEC'),
-      card(2, 'LEC', 'YIA 404'),
-      card(3, 'LEC', 'YIA 404'),
-    ]
+  // An empty week differs from a full one, so it is somewhere to land.
+  it('treats a week with no classes as different', () => {
+    const events = [card(0, 'LEC'), card(2, 'LEC')]
+    const weeks = [MON(0), MON(1), MON(2)]
 
-    expect(distinctWeeks(events, [MON(0), MON(1), MON(2), MON(3)], MON(3))).toEqual([
-      MON(0),
-      MON(3),
-    ])
+    expect(nextDistinctWeek(events, weeks, MON(0), 1)).toEqual(MON(1))
+    expect(nextDistinctWeek(events, weeks, MON(2), -1)).toEqual(MON(1))
   })
 
-  // Filling an empty slot looks the same whichever way you arrive, so neither marks.
-  it('marks nothing when a class fills a slot the last week left empty', () => {
+  // Starting, resuming and moving room are one case, so none of them needs a rule.
+  it('marks a class that was not on the timetable it came from', () => {
     const events = [card(0, 'LEC'), card(1, 'LEC'), card(1, 'TUT'), card(3, 'TUT')]
 
-    expect(changedEventIds(events, MON(1), MON(0))).toEqual(new Set()) // the tutorial starts
-    expect(changedEventIds(events, MON(0), MON(1))).toEqual(new Set()) // and going back
-    expect(changedEventIds(events, MON(3), MON(2))).toEqual(new Set()) // it resumes
+    expect(changedEventIds(events, MON(1), MON(0))).toEqual(new Set(['TUT-Mo-1'])) // starts
+    expect(changedEventIds(events, MON(3), MON(2))).toEqual(new Set(['TUT-Mo-3'])) // resumes
+  })
+
+  // A class that stops leaves no card, so the arrival has nothing to mark. That is
+  // the only reason a skipped step can land on a week showing no ring at all.
+  it('marks nothing when the difference is a class leaving', () => {
+    const events = [card(0, 'LEC'), card(1, 'LEC'), card(1, 'TUT')]
+
+    expect(changedEventIds(events, MON(0), MON(1))).toEqual(new Set())
   })
 
   // GEWS1011: one lecture, two weeks, two buildings. Whichever week you arrive
@@ -220,30 +235,17 @@ describe('what changes between weeks', () => {
   it('marks nothing in a week that would be skipped', () => {
     const events = [card(0, 'LEC'), card(1, 'LEC')]
 
-    expect(distinctWeeks(events, [MON(0), MON(1)], MON(0))).toEqual([MON(0)])
+    expect(nextDistinctWeek(events, [MON(0), MON(1)], MON(0), 1)).toBeNull()
     expect(changedEventIds(events, MON(1))).toEqual(new Set())
   })
 
-  // A holiday week is still a stop, but coming back from it is not a change.
-  // Week 2 resumes what the landing week shows, so it is not a stop of its own.
-  it('marks nothing when a section resumes unchanged after a break', () => {
+  // Only the week you came from counts, so a break changes nothing about the rule:
+  // arriving from the empty week marks, arriving from before it does not.
+  it('compares against the week you came from, not the term', () => {
     const events = [card(0, 'LEC'), card(2, 'LEC')]
 
-    expect(distinctWeeks(events, [MON(0), MON(1), MON(2)], MON(0))).toEqual([MON(0), MON(1)])
-    // Arrived at from the empty week between, or from the week before that.
-    expect(changedEventIds(events, MON(2), MON(1))).toEqual(new Set())
+    expect(changedEventIds(events, MON(2), MON(1))).toEqual(new Set(['LEC-Mo-2']))
     expect(changedEventIds(events, MON(2), MON(0))).toEqual(new Set())
-  })
-
-  // ELTU1001 DAC1-CLW meets twice a week; only the Thursday pauses for a holiday.
-  // The section is still present via its Tuesday class, so comparing by section
-  // rather than by slot made the Thursday's return look like a change to it.
-  it("marks nothing when one of a section's two weekly meetings resumes", () => {
-    const tuesday = (week: number) => card(week, 'CLW', 'LSK 101', 'Tu 9:30AM - 10:15AM')
-    const thursday = (week: number) => card(week, 'CLW', 'LSK 101', 'Th 10:30AM - 12:15PM')
-    const events = [tuesday(0), thursday(0), tuesday(1), tuesday(2), thursday(2)]
-
-    expect(changedEventIds(events, MON(2), MON(1))).toEqual(new Set())
   })
 
   // The week between is blank, so the comparison has to reach past it — a quarter of
@@ -267,5 +269,53 @@ describe('weeksWithConflict', () => {
 
     expect(weeksWithConflict(events, weeks)).toEqual([MON(1)])
     expect(weeksWithConflict([at(0, false)], weeks)).toEqual([])
+  })
+})
+
+// The rule's three past bugs all came from carts no unit test held: a section
+// swapping type, a lecture moving building, a class returning mid-term. Driven by
+// the real producer, so a change in how occurrences are built shows up here.
+describe('the arrival cue over a real cart', () => {
+  const TERM = '2026-27 Term 1'
+
+  const published = (subject: string, courseCode: string): InternalCourse => {
+    const path = join(process.cwd(), 'public', 'data', '2026-27', `${subject}.json`)
+    const { courses } = transformExternalCourseData(JSON.parse(readFileSync(path, 'utf8')))
+    const course = courses.find((candidate) => candidate.courseCode === courseCode)
+    if (!course) throw new Error(`${subject}${courseCode} is not in 2026-27 published data`)
+
+    return course
+  }
+
+  // GEWS1011: lecture in weeks 1-2, moving building between them, then ten
+  // tutorials from week 3. MBTE3510: a Monday lecture starting in week 2 and
+  // stopping after week 9.
+  const events = enrollmentsToCalendarEvents(
+    [published('GEWS', '1011'), published('MBTE', '3510')].map((course) => ({
+      courseId: `${course.subject}${course.courseCode}`,
+      course,
+      selectedSections: course.terms.find((term) => term.termName === TERM)!.sections,
+      color: '#000000',
+      isVisible: true,
+    })),
+    TERM
+  )
+  const weeks = weekRange(events)
+  const marks = (from: number, to: number) =>
+    [...changedEventIds(events, weeks[to - 1], weeks[from - 1])].map((id) => id.split('|')[1])
+
+  it('marks the lecture that moves building, both ways', () => {
+    expect(marks(1, 2)).toContain('GEWS1011_--LEC (5850)')
+    expect(marks(2, 1)).toEqual(['GEWS1011_--LEC (5850)'])
+  })
+
+  it('marks a section type swapping in and out', () => {
+    expect(marks(2, 3)).toHaveLength(10) // the tutorials start
+    expect(marks(3, 2)).toEqual(['GEWS1011_--LEC (5850)']) // and the lecture is back
+  })
+
+  it('marks a class returning, and nothing when it leaves', () => {
+    expect(marks(10, 9)).toEqual(['MBTE3510_--LEC (5987)'])
+    expect(marks(9, 10)).toEqual([])
   })
 })
