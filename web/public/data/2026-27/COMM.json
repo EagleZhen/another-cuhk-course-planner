@@ -3,7 +3,7 @@
     "schema_version": 2,
     "subject": "COMM",
     "subject_title": "Communication",
-    "total_courses": 148
+    "total_courses": 146
   },
   "courses": [
     {
@@ -28,11 +28,11 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "57",
+                "enrolled": "80",
                 "waitlist_capacity": "999",
-                "waitlist_total": "42",
-                "available_seats": "23",
-                "status": "Open"
+                "waitlist_total": "19",
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -54,11 +54,11 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "71",
+                "enrolled": "80",
                 "waitlist_capacity": "999",
-                "waitlist_total": "44",
-                "available_seats": "9",
-                "status": "Open"
+                "waitlist_total": "31",
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -179,11 +179,11 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "43",
+                "enrolled": "60",
                 "waitlist_capacity": "999",
-                "waitlist_total": "37",
-                "available_seats": "17",
-                "status": "Open"
+                "waitlist_total": "20",
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -1594,7 +1594,7 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "122",
+                "enrolled": "120",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -3811,66 +3811,6 @@
     },
     {
       "subject": "COMM",
-      "course_code": "3660",
-      "title": "Infographics and Data Visualization",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2430",
-          "term_name": "2026-27 Term 2",
-          "schedule": [
-            {
-              "section": "--LEC (8238)",
-              "meetings": [
-                {
-                  "time": "Tu 10:30AM - 1:15PM",
-                  "location": "Humanities Building 209",
-                  "instructor": "Mr. SIU Yat Long",
-                  "dates": "12/1, 19/1, 26/1, 2/2"
-                },
-                {
-                  "time": "Tu 10:30AM - 1:15PM",
-                  "location": "Humanities Building 209",
-                  "instructor": "Mr. SIU Yat Long",
-                  "dates": "16/2, 23/2, 2/3"
-                },
-                {
-                  "time": "Tu 10:30AM - 1:15PM",
-                  "location": "Humanities Building 209",
-                  "instructor": "Mr. SIU Yat Long",
-                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
-                }
-              ],
-              "availability": {
-                "capacity": "20",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "20",
-                "status": "Open"
-              },
-              "class_attributes": "Can, change to Eng if needed"
-            }
-          ]
-        }
-      ],
-      "description": "This course discusses issues related to data-based storytelling through charts, diagrams, maps, and other forms of visualization in professional communication. Theoretical issues such as principles in problem modeling, graphic design, and data processing will be covered. Practical issues such as limitations related to media form and workflow will also be discussed. Particular attention will be made to ethical issues and common pitfalls in data visualization.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nWorkshop",
-      "campus": "Main Campus",
-      "academic_group": "Sch of Journalism and Comm",
-      "academic_org": "Sch of Journalism and Comm",
-      "learning_outcomes": "After completing this course, students should be able to:\n- Discover where to find useful data and assess its validity\n- Dissect the data and analysis it for story\n- Analyze and critique infographics and data visualizations in the media, and propose alternatives that would improve them\n- Plan for data-based storytelling through various forms of visualizations\n- Design infographics and data visualizations that are not just attractive but, more importantly, accurate and informative",
-      "assessment_types": {
-        "Homework or assignment": "50",
-        "Project": "50"
-      }
-    },
-    {
-      "subject": "COMM",
       "course_code": "3680",
       "title": "Business and Financial Reporting",
       "credits": "3.00",
@@ -5434,68 +5374,6 @@
     },
     {
       "subject": "COMM",
-      "course_code": "4250",
-      "title": "Global Digital Platforms: Culture, Power and Politics",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2430",
-          "term_name": "2026-27 Term 2",
-          "schedule": [
-            {
-              "section": "--LEC (8403)",
-              "meetings": [
-                {
-                  "time": "Th 10:30AM - 1:15PM",
-                  "location": "Tsang Shiu Tim Bldg 312",
-                  "instructor": "Professor CHAN Ngai Keung",
-                  "dates": "14/1, 21/1, 28/1, 4/2"
-                },
-                {
-                  "time": "Th 10:30AM - 1:15PM",
-                  "location": "Tsang Shiu Tim Bldg 312",
-                  "instructor": "Professor CHAN Ngai Keung",
-                  "dates": "18/2, 25/2, 4/3"
-                },
-                {
-                  "time": "Th 10:30AM - 1:15PM",
-                  "location": "Tsang Shiu Tim Bldg 312",
-                  "instructor": "Professor CHAN Ngai Keung",
-                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
-                }
-              ],
-              "availability": {
-                "capacity": "40",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "40",
-                "status": "Open"
-              },
-              "class_attributes": "English only"
-            }
-          ]
-        }
-      ],
-      "description": "Platforms have become key technological, economic, and political actors in today's digital world. As digital platforms have increasingly been embedded in people’s daily lives, they have reshaped social connectivity, cultural tastes, media production, labor practices, and regulatory frameworks. This advanced course aims at introducing students to the key concepts, histories, and practices of global digital platforms from a multidisciplinary and comparative perspective.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Sch of Journalism and Comm",
-      "academic_org": "Sch of Journalism and Comm",
-      "learning_outcomes": "By the end of the course, students will be able to:\n\n1. Understand key theoretical approaches to studying digital platforms;\n2. Gain a situated understanding of the historical trajectories and current practices of various global digital platforms;\n3. Examine how digital platforms have reconfigured economic, cultural, and political environments;\n4. Recognize and evaluate the social and ethical challenges of using, researching, and regulating digital platforms; and\n5. Develop a critical voice on pressing controversies surrounding digital platforms from a global perspective.",
-      "assessment_types": {
-        "Essays": "40",
-        "Others": "20",
-        "Presentation": "20",
-        "Short answer test or exam": "20"
-      }
-    },
-    {
-      "subject": "COMM",
       "course_code": "4730",
       "title": "Documentary",
       "credits": "3.00",
@@ -5653,10 +5531,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "31",
+                "enrolled": "34",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5704,10 +5582,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "15",
+                "enrolled": "22",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -5787,10 +5665,10 @@
               ],
               "availability": {
                 "capacity": "56",
-                "enrolled": "51",
+                "enrolled": "53",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6245,10 +6123,10 @@
               ],
               "availability": {
                 "capacity": "54",
-                "enrolled": "42",
+                "enrolled": "36",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "18",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6271,10 +6149,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "42",
+                "enrolled": "35",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6297,10 +6175,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "49",
+                "enrolled": "48",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6323,10 +6201,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "41",
+                "enrolled": "38",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6456,10 +6334,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "44",
+                "enrolled": "40",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6476,10 +6354,10 @@
               ],
               "availability": {
                 "capacity": "56",
-                "enrolled": "50",
+                "enrolled": "52",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6578,10 +6456,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "35",
+                "enrolled": "36",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "Putonghua and English"
@@ -6857,10 +6735,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "29",
+                "enrolled": "33",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6953,10 +6831,10 @@
               ],
               "availability": {
                 "capacity": "52",
-                "enrolled": "50",
+                "enrolled": "51",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -6973,10 +6851,10 @@
               ],
               "availability": {
                 "capacity": "56",
-                "enrolled": "50",
+                "enrolled": "49",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7069,10 +6947,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "22",
+                "enrolled": "21",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7285,10 +7163,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "18",
+                "enrolled": "20",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "17",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7336,10 +7214,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "27",
+                "enrolled": "24",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7387,10 +7265,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "57",
+                "enrolled": "59",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7678,10 +7556,10 @@
               ],
               "availability": {
                 "capacity": "53",
-                "enrolled": "49",
+                "enrolled": "50",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7723,10 +7601,10 @@
               ],
               "availability": {
                 "capacity": "53",
-                "enrolled": "50",
+                "enrolled": "51",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -7825,10 +7703,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "5",
+                "enrolled": "4",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8023,10 +7901,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "22",
+                "enrolled": "23",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8043,10 +7921,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "29",
+                "enrolled": "28",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8322,10 +8200,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "27",
+                "enrolled": "29",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -8367,10 +8245,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "29",
+                "enrolled": "27",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English"
@@ -8418,7 +8296,7 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "35",
+                "enrolled": "34",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -8463,10 +8341,10 @@
               ],
               "availability": {
                 "capacity": "51",
-                "enrolled": "47",
+                "enrolled": "46",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8514,10 +8392,10 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "3",
+                "enrolled": "4",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "21",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8895,10 +8773,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "46",
+                "enrolled": "47",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -8991,10 +8869,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "8",
+                "enrolled": "9",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "11",
                 "status": "Open"
               },
               "class_attributes": "English only"
@@ -9323,10 +9201,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "27",
+                "enrolled": "26",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only"

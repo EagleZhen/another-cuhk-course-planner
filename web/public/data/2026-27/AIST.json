@@ -534,11 +534,11 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "41",
+                "enrolled": "50",
                 "waitlist_capacity": "999",
-                "waitlist_total": "20",
-                "available_seats": "9",
-                "status": "Open"
+                "waitlist_total": "10",
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             },
@@ -554,11 +554,11 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "41",
+                "enrolled": "50",
                 "waitlist_capacity": "999",
-                "waitlist_total": "20",
-                "available_seats": "9",
-                "status": "Open"
+                "waitlist_total": "10",
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only"
             }
@@ -3203,9 +3203,9 @@
                 "capacity": "60",
                 "enrolled": "60",
                 "waitlist_capacity": "2",
-                "waitlist_total": "0",
+                "waitlist_total": "2",
                 "available_seats": "0",
-                "status": "Wait List"
+                "status": "Closed"
               },
               "class_attributes": "English only"
             }
@@ -3250,7 +3250,7 @@
               ],
               "availability": {
                 "capacity": "110",
-                "enrolled": "118",
+                "enrolled": "121",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -3270,7 +3270,7 @@
               ],
               "availability": {
                 "capacity": "110",
-                "enrolled": "118",
+                "enrolled": "121",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
