@@ -157,20 +157,40 @@ describe('what changes between weeks', () => {
     }) as CalendarEvent
 
   it('stops only at weeks that differ from the one before', () => {
-    // Same lecture for three weeks, then the room moves, then back.
+    // Same lecture for three weeks, then the room moves, then back. Week 3 moves
+    // back to the landing week's room, so the landing week already shows it.
     const events = [card(0, 'LEC'), card(1, 'LEC'), card(2, 'LEC', 'YIA 404'), card(3, 'LEC')]
 
-    expect(distinctWeeks(events, [MON(0), MON(1), MON(2), MON(3)])).toEqual([
+    expect(distinctWeeks(events, [MON(0), MON(1), MON(2), MON(3)], MON(0))).toEqual([
       MON(0),
       MON(2),
-      MON(3),
     ])
   })
 
-  it('treats a uniform cart as a single stop', () => {
+  // One stop wherever you land, so both chevrons die there rather than offering a
+  // one-way trip to week 0.
+  it('makes the landing week the only stop of a uniform cart', () => {
     const events = [card(0, 'LEC'), card(1, 'LEC'), card(2, 'LEC')]
+    const weeks = [MON(0), MON(1), MON(2)]
 
-    expect(distinctWeeks(events, [MON(0), MON(1), MON(2)])).toEqual([MON(0)])
+    expect(distinctWeeks(events, weeks, MON(1))).toEqual([MON(1)])
+    expect(distinctWeeks(events, weeks, MON(0))).toEqual([MON(0)])
+  })
+
+  // Landing in the second run, the landing week stands in for week 2 — so every
+  // distinct week is still reachable both ways.
+  it('keeps a varying cart reachable from the landing week', () => {
+    const events = [
+      card(0, 'LEC'),
+      card(1, 'LEC'),
+      card(2, 'LEC', 'YIA 404'),
+      card(3, 'LEC', 'YIA 404'),
+    ]
+
+    expect(distinctWeeks(events, [MON(0), MON(1), MON(2), MON(3)], MON(3))).toEqual([
+      MON(0),
+      MON(3),
+    ])
   })
 
   it('marks a section starting or changing, and nothing in the first week', () => {
@@ -199,15 +219,16 @@ describe('what changes between weeks', () => {
   it('marks nothing in a week that would be skipped', () => {
     const events = [card(0, 'LEC'), card(1, 'LEC')]
 
-    expect(distinctWeeks(events, [MON(0), MON(1)])).toEqual([MON(0)])
+    expect(distinctWeeks(events, [MON(0), MON(1)], MON(0))).toEqual([MON(0)])
     expect(changedEventIds(events, MON(1))).toEqual(new Set())
   })
 
   // A holiday week is still a stop, but coming back from it is not a change.
+  // Week 2 resumes what the landing week shows, so it is not a stop of its own.
   it('marks nothing when a section resumes unchanged after a break', () => {
     const events = [card(0, 'LEC'), card(2, 'LEC')]
 
-    expect(distinctWeeks(events, [MON(0), MON(1), MON(2)])).toEqual([MON(0), MON(1), MON(2)])
+    expect(distinctWeeks(events, [MON(0), MON(1), MON(2)], MON(0))).toEqual([MON(0), MON(1)])
     // Arrived at from the empty week between, or from the week before that.
     expect(changedEventIds(events, MON(2), MON(1))).toEqual(new Set())
     expect(changedEventIds(events, MON(2), MON(0))).toEqual(new Set())

@@ -172,18 +172,33 @@ function weekContent(events: CalendarEvent[], weekStart: Date): Set<string> {
   return new Set(eventsInWeek(events, weekStart).map(contentKey))
 }
 
-/** The weeks worth stopping at: the first, and any that differ from the one before. */
-export function distinctWeeks(events: CalendarEvent[], weeks: Date[]): Date[] {
+function sameContent(one: Set<string>, two: Set<string>): boolean {
+  return one.size === two.size && [...one].every((key) => two.has(key))
+}
+
+/**
+ * The weeks worth stopping at: the first, and any that differ from the one before.
+ *
+ * `landing` — the week the calendar opens on — is always one, and displaces any
+ * other stop showing the same thing. Otherwise the chevrons can carry you off it
+ * with no way back.
+ */
+export function distinctWeeks(
+  events: CalendarEvent[],
+  weeks: Date[],
+  landing: Date | null
+): Date[] {
+  const landingContent = landing && weekContent(events, landing)
   let previous: Set<string> | null = null
 
   return weeks.filter((week) => {
     const content = weekContent(events, week)
-    const isNew =
-      previous === null ||
-      content.size !== previous.size ||
-      [...content].some((key) => !previous!.has(key))
-
+    const isNew = previous === null || !sameContent(content, previous)
     previous = content
+
+    if (landing && week.getTime() === landing.getTime()) return true
+    if (landingContent && sameContent(content, landingContent)) return false
+
     return isNew
   })
 }

@@ -431,8 +431,9 @@ export default function WeeklyCalendar({
   // rather than synced, so a cart or term change that drops the chosen week
   // falls back to today's without an effect to keep in step.
   const weeks = useMemo(() => weekRange(events), [events])
+  const landingWeek = useMemo(() => defaultWeek(weeks, new Date()), [weeks])
   const chosenWeek = weeks.find((week) => week.getTime() === selectedWeekTime)
-  const activeWeek = chosenWeek ?? defaultWeek(weeks, new Date())
+  const activeWeek = chosenWeek ?? landingWeek
   const weekIndex = activeWeek
     ? weeks.findIndex((week) => week.getTime() === activeWeek.getTime())
     : -1
@@ -441,8 +442,8 @@ export default function WeeklyCalendar({
   // A repeat week shows exactly what the one before it did, so stepping over it
   // makes every click land on something new. Same comparison as the rings.
   const stops = useMemo(
-    () => (skipRepeatWeeks ? distinctWeeks(events, weeks) : weeks),
-    [skipRepeatWeeks, events, weeks]
+    () => (skipRepeatWeeks ? distinctWeeks(events, weeks, landingWeek) : weeks),
+    [skipRepeatWeeks, events, weeks, landingWeek]
   )
   // Answers one contradiction: the cart reports a clash and this week shows none.
   // With the clash on screen there is nothing to point at, and in the two thirds
@@ -460,6 +461,18 @@ export default function WeeklyCalendar({
   const nextStop = activeWeek
     ? stops.find((week) => week.getTime() > activeWeek.getTime())
     : undefined
+
+  // A dead chevron says why: an end of the range, or nothing new left that way.
+  const noPreviousReason = previousStop
+    ? undefined
+    : weekIndex === 0
+      ? 'This is the first week of your timetable'
+      : 'Every earlier week shows the same classes'
+  const noNextReason = nextStop
+    ? undefined
+    : weekIndex === weeks.length - 1
+      ? 'This is the last week of your timetable'
+      : 'Every later week shows the same classes'
 
   const activeWeekTime = activeWeek?.getTime() ?? null
 
@@ -735,25 +748,31 @@ export default function WeeklyCalendar({
               )}
             </div>
             <div className="flex items-center gap-2">
-              <button
-                className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-default"
-                disabled={!previousStop}
-                aria-label="Previous week"
-                onClick={() => previousStop && setSelectedWeekTime(previousStop.getTime())}
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
+              {/* Reason and cursor sit on a wrapper: a disabled button takes no
+                  pointer events, so neither surfaces from the button itself. */}
+              <span title={noPreviousReason} className={noPreviousReason && 'cursor-not-allowed'}>
+                <button
+                  className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
+                  disabled={!previousStop}
+                  aria-label="Previous week"
+                  onClick={() => previousStop && setSelectedWeekTime(previousStop.getTime())}
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+              </span>
               <span className="tabular-nums font-medium">
                 Week {weekIndex + 1} of {weeks.length}
               </span>
-              <button
-                className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-default"
-                disabled={!nextStop}
-                aria-label="Next week"
-                onClick={() => nextStop && setSelectedWeekTime(nextStop.getTime())}
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
+              <span title={noNextReason} className={noNextReason && 'cursor-not-allowed'}>
+                <button
+                  className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
+                  disabled={!nextStop}
+                  aria-label="Next week"
+                  onClick={() => nextStop && setSelectedWeekTime(nextStop.getTime())}
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </span>
             </div>
             <Button
               variant={skipRepeatWeeks ? 'default' : 'outline'}
