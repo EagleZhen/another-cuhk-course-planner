@@ -10,6 +10,7 @@ import {
   ChevronUp,
   ChevronLeft,
   ChevronRight,
+  AlertTriangle,
   Eye,
   EyeOff,
   Camera,
@@ -33,6 +34,7 @@ import {
   eventsInWeek,
   distinctWeeks,
   changedEventIds,
+  weeksWithConflict,
 } from '@/lib/calendarLayout'
 import {
   DEFAULT_CALENDAR_CONFIG,
@@ -442,6 +444,14 @@ export default function WeeklyCalendar({
     () => (skipRepeatWeeks ? distinctWeeks(events, weeks) : weeks),
     [skipRepeatWeeks, events, weeks]
   )
+  // A clash can sit in one week of thirteen while the cart reports it all term,
+  // so the badge says there is a problem and twelve weeks show none. Wraps, so
+  // it walks them rather than dying at the last.
+  const conflictWeeks = useMemo(() => weeksWithConflict(events, weeks), [events, weeks])
+  const nextConflict = activeWeek
+    ? (conflictWeeks.find((week) => week.getTime() > activeWeek.getTime()) ?? conflictWeeks[0])
+    : undefined
+
   const previousStop = activeWeek
     ? [...stops].reverse().find((week) => week.getTime() < activeWeek.getTime())
     : undefined
@@ -724,7 +734,23 @@ export default function WeeklyCalendar({
               paddingRight: scrollState.scrollbarWidth,
             }}
           >
-            <div />
+            <div className="justify-self-end">
+              {conflictWeeks.length > 0 && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  disabled={nextConflict?.getTime() === activeWeek?.getTime()}
+                  title={`${conflictWeeks.length} of ${weeks.length} weeks have a conflict`}
+                  onClick={() => nextConflict && setSelectedWeekTime(nextConflict.getTime())}
+                  // Same shape as the skip toggle beside the navigator; purple only
+                  // because purple is what marks a conflict everywhere else.
+                  className="h-6 border-1 border-purple-300 px-2 text-xs font-normal text-purple-700 cursor-pointer hover:bg-purple-50 hover:text-purple-800"
+                >
+                  <AlertTriangle className="size-3" />
+                  Review next conflict
+                </Button>
+              )}
+            </div>
             <div className="flex items-center gap-2">
               <button
                 className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-default"

@@ -28,9 +28,9 @@ function section(id: string, sectionCode: string, sectionType: string, dates: st
   }
 }
 
-async function openPlanner(page: Page, tutorialDates: string) {
+async function openPlanner(page: Page, tutorialDates: string, lectureDates = '11/9') {
   const sections = [
-    section('lec', '--LEC (1)', 'LEC', '11/9'),
+    section('lec', '--LEC (1)', 'LEC', lectureDates),
     section('tut', '-T01-TUT (2)', 'TUT', tutorialDates),
   ]
 
@@ -98,4 +98,26 @@ test('steps to the next week that differs, empty weeks included', async ({ page 
   await expect(page.getByText('Week 3 of 3')).toBeVisible()
   await expect(cards(page)).toHaveCount(1)
   await expect(nextWeek).toBeDisabled()
+})
+
+// A clash can sit in one week of many while the cart reports it all term, so the
+// grid shows nothing wrong until you happen to page onto the right week.
+test('jumps to the one week a conflict falls in', async ({ page }) => {
+  // The lecture runs both weeks; the tutorial meets once, clashing only on 18/9.
+  await openPlanner(page, '18/9', '11/9, 18/9')
+
+  const jump = page.getByRole('button', { name: 'Review next conflict' })
+  await expect(jump).toHaveAttribute('title', '1 of 2 weeks have a conflict')
+  await expect(conflictZone(page)).toHaveCount(0)
+
+  await jump.click()
+
+  await expect(page.getByText('Week 2 of 2')).toBeVisible()
+  await expect(conflictZone(page).first()).toBeVisible()
+})
+
+test('offers no jump when nothing clashes', async ({ page }) => {
+  await openPlanner(page, '25/9')
+
+  await expect(page.getByRole('button', { name: 'Review next conflict' })).toHaveCount(0)
 })

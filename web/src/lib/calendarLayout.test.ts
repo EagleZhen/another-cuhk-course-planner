@@ -9,6 +9,7 @@ import {
   eventsInWeek,
   distinctWeeks,
   changedEventIds,
+  weeksWithConflict,
 } from './calendarLayout'
 import type { CalendarEvent } from './types'
 
@@ -227,5 +228,19 @@ describe('what changes between weeks', () => {
     const events = [card(0, 'LEC'), card(2, 'LEC', 'YIA 404')]
 
     expect(changedEventIds(events, MON(2))).toEqual(new Set(['LEC-Mo-2']))
+  })
+})
+
+describe('weeksWithConflict', () => {
+  const MON = (week: number) => new Date(2026, 8, 7 + week * 7)
+  const at = (week: number, hasConflict: boolean): CalendarEvent =>
+    ({ id: `${week}-${hasConflict}`, date: MON(week), hasConflict }) as CalendarEvent
+
+  it('finds only the weeks a clash actually falls in', () => {
+    const weeks = [MON(0), MON(1), MON(2)]
+    const events = [at(0, false), at(1, true), at(2, false)]
+
+    expect(weeksWithConflict(events, weeks)).toEqual([MON(1)])
+    expect(weeksWithConflict([at(0, false)], weeks)).toEqual([])
   })
 })

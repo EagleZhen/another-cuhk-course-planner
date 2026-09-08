@@ -232,3 +232,14 @@ export function changedEventIds(
       .map((event) => event.id)
   )
 }
+
+/**
+ * Weeks holding at least one clash.
+ *
+ * A conflict can occupy one week of thirteen while the cart reports it the whole
+ * term, so the badge says there is a problem and the grid shows none. These are
+ * the weeks worth jumping to.
+ */
+export function weeksWithConflict(events: CalendarEvent[], weeks: Date[]): Date[] {
+  return weeks.filter((week) => eventsInWeek(events, week).some((event) => event.hasConflict))
+}
