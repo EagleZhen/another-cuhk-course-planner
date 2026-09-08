@@ -750,7 +750,10 @@ export default function WeeklyCalendar({
             <div className="flex items-center gap-2">
               {/* Reason and cursor sit on a wrapper: a disabled button takes no
                   pointer events, so neither surfaces from the button itself. */}
-              <span title={noPreviousReason} className={noPreviousReason && 'cursor-not-allowed'}>
+              <span
+                title={noPreviousReason}
+                className={`flex ${noPreviousReason ? 'cursor-not-allowed' : ''}`}
+              >
                 <button
                   className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
                   disabled={!previousStop}
@@ -763,7 +766,10 @@ export default function WeeklyCalendar({
               <span className="tabular-nums font-medium">
                 Week {weekIndex + 1} of {weeks.length}
               </span>
-              <span title={noNextReason} className={noNextReason && 'cursor-not-allowed'}>
+              <span
+                title={noNextReason}
+                className={`flex ${noNextReason ? 'cursor-not-allowed' : ''}`}
+              >
                 <button
                   className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
                   disabled={!nextStop}
