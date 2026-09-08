@@ -139,13 +139,18 @@ describe('weeks', () => {
 
 describe('what changes between weeks', () => {
   const MON = (week: number) => new Date(2026, 8, 7 + week * 7)
-  const card = (week: number, section: string, location = 'LSK 101'): CalendarEvent =>
+  const card = (
+    week: number,
+    section: string,
+    location = 'LSK 101',
+    time = 'Mo 9:30AM - 11:15AM'
+  ): CalendarEvent =>
     ({
-      id: `${section}-${week}`,
+      id: `${section}-${time.slice(0, 2)}-${week}`,
       date: MON(week),
       enrollmentId: 'GEWS1011',
       sectionCode: section,
-      time: 'Mo 9:30AM - 11:15AM',
+      time,
       location,
       instructors: 'Staff',
     }) as CalendarEvent
@@ -171,8 +176,8 @@ describe('what changes between weeks', () => {
     const events = [card(0, 'LEC'), card(1, 'LEC'), card(1, 'TUT'), card(2, 'LEC', 'YIA 404')]
 
     expect(changedEventIds(events, MON(0))).toEqual(new Set())
-    expect(changedEventIds(events, MON(1))).toEqual(new Set(['TUT-1']))
-    expect(changedEventIds(events, MON(2))).toEqual(new Set(['LEC-2']))
+    expect(changedEventIds(events, MON(1))).toEqual(new Set(['TUT-Mo-1']))
+    expect(changedEventIds(events, MON(2))).toEqual(new Set(['LEC-Mo-2']))
   })
 
   // GEWS1011: one lecture, two weeks, two buildings. Whichever week you arrive
@@ -180,8 +185,8 @@ describe('what changes between weeks', () => {
   it('marks a room change from either direction', () => {
     const events = [card(0, 'LEC'), card(1, 'LEC', 'YIA 404')]
 
-    expect(changedEventIds(events, MON(1), MON(0))).toEqual(new Set(['LEC-1']))
-    expect(changedEventIds(events, MON(0), MON(1))).toEqual(new Set(['LEC-0']))
+    expect(changedEventIds(events, MON(1), MON(0))).toEqual(new Set(['LEC-Mo-1']))
+    expect(changedEventIds(events, MON(0), MON(1))).toEqual(new Set(['LEC-Mo-0']))
   })
 
   it('marks nothing in the first week reached without a previous one', () => {
@@ -207,9 +212,20 @@ describe('what changes between weeks', () => {
     expect(changedEventIds(events, MON(2), MON(0))).toEqual(new Set())
   })
 
+  // ELTU1001 DAC1-CLW meets twice a week; only the Thursday pauses for a holiday.
+  // The section is still present via its Tuesday class, so comparing by section
+  // rather than by slot made the Thursday's return look like a change to it.
+  it("marks nothing when one of a section's two weekly meetings resumes", () => {
+    const tuesday = (week: number) => card(week, 'CLW', 'LSK 101', 'Tu 9:30AM - 10:15AM')
+    const thursday = (week: number) => card(week, 'CLW', 'LSK 101', 'Th 10:30AM - 12:15PM')
+    const events = [tuesday(0), thursday(0), tuesday(1), tuesday(2), thursday(2)]
+
+    expect(changedEventIds(events, MON(2), MON(1))).toEqual(new Set())
+  })
+
   it('still marks a section that resumes in a different room', () => {
     const events = [card(0, 'LEC'), card(2, 'LEC', 'YIA 404')]
 
-    expect(changedEventIds(events, MON(2))).toEqual(new Set(['LEC-2']))
+    expect(changedEventIds(events, MON(2))).toEqual(new Set(['LEC-Mo-2']))
   })
 })

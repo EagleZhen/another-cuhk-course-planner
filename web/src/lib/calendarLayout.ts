@@ -188,15 +188,20 @@ export function distinctWeeks(events: CalendarEvent[], weeks: Date[]): Date[] {
   })
 }
 
-/** The section a card belongs to, whatever it shows that week. */
-function sectionKey(event: CalendarEvent): string {
-  return `${event.enrollmentId}|${event.sectionCode}`
+/**
+ * The slot a card fills, whatever it shows that week. Keyed by time, not by
+ * section alone: a section with two weekly meetings keeps the section present
+ * when only one of them pauses, which would make the other's return look like a
+ * change to it.
+ */
+function slotKey(event: CalendarEvent): string {
+  return `${event.enrollmentId}|${event.sectionCode}|${event.time}`
 }
 
 /**
  * Ids of the cards worth marking on arrival, given the week last shown:
  *
- * - the same section showing something different from where you came from —
+ * - the same slot showing something different from where you came from —
  *   `GEWS1011`'s lecture changes building, and that reads the same in either
  *   direction, so week 1 marks it when reached from week 2;
  * - content no earlier week held, which catches a section starting mid-term.
@@ -214,13 +219,13 @@ export function changedEventIds(
 
   const shownLast = lastShown ? eventsInWeek(events, lastShown) : []
   const lastContent = new Set(shownLast.map(contentKey))
-  const lastSections = new Set(shownLast.map(sectionKey))
+  const lastSlots = new Set(shownLast.map(slotKey))
 
   return new Set(
     eventsInWeek(events, weekStart)
       .filter((event) => {
         if (lastContent.has(contentKey(event))) return false
-        if (lastSections.has(sectionKey(event))) return true
+        if (lastSlots.has(slotKey(event))) return true
 
         return earlier.length > 0 && !seenBefore.has(contentKey(event))
       })
