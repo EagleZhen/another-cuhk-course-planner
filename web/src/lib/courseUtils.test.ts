@@ -1,4 +1,6 @@
-import { describe, it, expect } from 'vitest'
+import { readFileSync, readdirSync } from 'node:fs'
+import { join } from 'node:path'
+import { describe, it, expect, vi } from 'vitest'
 import {
   updateExistingEnrollment,
   markCourseUnavailable,
@@ -12,7 +14,7 @@ import {
   diffSectionDetail,
   getChangedCourseIds,
   formatSyncTimestamp,
-  sectionsOverlapInTime,
+  sectionsOverlap,
   checkSectionConflict,
   hasConflictFreeEnrollment,
   pruneReplacedTombstones,
@@ -24,7 +26,17 @@ import {
   formatTimeCompact,
   formatInstructorsCompact,
   getAvailabilityBadges,
+  parseMeetingDates,
+  createICSEventsForMeeting,
+  generateICSCalendar,
+  processICSForUndo,
+  extractAcademicYearBounds,
+  detectConflicts,
+  enrollmentsToCalendarEvents,
+  formatDateRange,
+  parseTimeRange,
 } from './courseUtils'
+import { transformExternalCourseData } from './validation'
 import { SCHEDULE_DATA_VERSION } from './constants'
 import type {
   CourseEnrollment,
@@ -523,8 +535,29 @@ describe('readStoredEnrollments', () => {
   })
 })
 
+// 1-7 September 2025 is a Mon-Sun week, so a meeting lands on the weekday its
+// time states. Sections built here therefore clash exactly when their times do,
+// which is what these tests are about; a test needing separate weeks says so.
+const FIRST_WEEK: Record<string, string> = {
+  Mo: '1/9',
+  Tu: '2/9',
+  We: '3/9',
+  Th: '4/9',
+  Fr: '5/9',
+  Sa: '6/9',
+  Su: '7/9',
+}
+const SYNTHETIC_TERM = '2025-26 Term 1'
+
 function mkMeeting(p: Partial<InternalMeeting>): InternalMeeting {
-  return { time: 'We 2:30PM - 5:15PM', location: 'Hum 314', instructors: 'Staff', dates: '', ...p }
+  const time = p.time ?? 'We 2:30PM - 5:15PM'
+  return {
+    time,
+    location: 'Hum 314',
+    instructors: 'Staff',
+    dates: FIRST_WEEK[time.slice(0, 2)] ?? '',
+    ...p,
+  }
 }
 function mkSection(id: string, meetings: InternalMeeting[], classAttributes = ''): InternalSection {
   return {
@@ -558,6 +591,25 @@ function mkEnrollment(
 }
 const sig = (s: InternalSection) => sectionSignature(s)
 
+/** The shape a snapshot had before dates were stored on it. */
+const legacySnapshot = (section: InternalSection): SectionSignature => ({
+  ...sig(section),
+  meetings: sig(section).meetings.map(({ time, location, instructor }) => ({
+    time,
+    location,
+    instructor,
+  })),
+})
+
+// A signature row as sectionSignature builds it. mkMeeting dates a meeting by the
+// weekday its time states, so changing the weekday moves its dates too.
+const sigRow = (time: string, location = 'Hum 314', instructor = 'Staff') => ({
+  time,
+  location,
+  instructor,
+  dates: [FIRST_WEEK[time.slice(0, 2)]].filter(Boolean),
+})
+
 describe('getChangedCourseIds', () => {
   it('includes invalid, tombstoned, and section-changed courses once in cart order', () => {
     const enrollments = [
@@ -588,7 +640,7 @@ describe('getChangedCourseIds', () => {
     const enrollment = {
       ...mkEnrollment([section], {
         '8818': {
-          meetings: [{ time: 'stale', location: 'stale', instructor: 'stale' }],
+          meetings: [sigRow('stale', 'stale', 'stale')],
           language: '',
         },
       }),
@@ -725,14 +777,138 @@ describe('isEnrollmentOpen', () => {
   })
 })
 
-describe('sectionsOverlapInTime', () => {
+/** The term every cross-course conflict fixture below belongs to. */
+const CONFLICT_TERM = '2026-27 Term 1'
+/** Two Saturday sections at the same hour, five weeks apart. */
+const ACCT5610_TERM = '2026-27 Term 1'
+/** LEC, PRA and TUT at the same hour on the same dates — a real clash. */
+const PHAR1433_TERM = '2026-27 Term 1'
+
+describe('sectionSignature dates', () => {
+  // ACCT1111 B-LEC lists the same Thursday lecture twice, once either side of a
+  // fortnight's gap. The rows merge on display; their dates must not, and each
+  // reads as a range so the missing fortnight stays visible.
+  it("keeps a merged row's runs apart and reads each as a range", () => {
+    const course = loadPublishedCourse('2026-27', 'ACCT', '1111')
+    const section = findPublishedSection(course, CONFLICT_TERM, 'B-LEC')
+    const { meetings } = sectionSignature(section)
+    const runs = meetings[0].dates!
+
+    expect(meetings).toHaveLength(1)
+    expect(runs).toEqual([
+      '10/9, 17/9, 24/9',
+      '8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12',
+    ])
+    expect(runs.map(formatDateRange)).toEqual(['10/9-24/9', '8/10-3/12'])
+  })
+
+  it('leaves a lone date and an empty row, and closes up a range the source wrote', () => {
+    expect(formatDateRange('2/11')).toBe('2/11')
+    expect(formatDateRange('')).toBe('')
+    expect(formatDateRange('11/01/2027 - 19/04/2027')).toBe('11/01/2027-19/04/2027')
+  })
+
+  // First and last only tell the truth if a row is one unbroken weekly run.
+  // Checked against every published row: a refresh that broke it would make
+  // "10/9-24/9" claim a class on 17/9 that does not exist.
+  it('finds every published row to be one ascending weekly run', () => {
+    const weekAfter = (date: Date) =>
+      new Date(date.getFullYear(), date.getMonth(), date.getDate() + 7).getTime()
+    let checked = 0
+
+    forEachPublishedTimedMeeting((meeting, weekday, termName) => {
+      const dates = parseMeetingDates(meeting.dates, termName, weekday)
+      if (dates.length < 2) return
+
+      checked++
+      expect(dates.every((date, i) => i === 0 || weekAfter(dates[i - 1]) === date.getTime())).toBe(
+        true
+      )
+    })
+
+    expect(checked).toBeGreaterThan(40_000) // a walker that visited nothing would pass
+  })
+})
+
+describe('detectConflicts', () => {
+  // Runs over every occurrence, not one week, so it is the only place the date
+  // can distinguish two events on the same weekday.
+  it('flags a clash only when the two occurrences fall on the same date', () => {
+    const course = loadPublishedCourse('2026-27', 'GEWS', '1011')
+    const lecture = findPublishedSection(course, CONFLICT_TERM, '--LEC')
+    const tutorial = findPublishedSection(course, CONFLICT_TERM, '-T01-TUT')
+
+    const apart = detectConflicts(
+      enrollmentsToCalendarEvents([makeEnrollment(course, [lecture, tutorial])], CONFLICT_TERM)
+    )
+    expect(apart.filter((event) => event.hasConflict)).toEqual([])
+
+    // The same lecture against itself under a second course id: identical dates.
+    const together = detectConflicts(
+      enrollmentsToCalendarEvents(
+        [
+          makeEnrollment(course, [lecture]),
+          { ...makeEnrollment(course, [lecture]), courseId: 'OTHER' },
+        ],
+        CONFLICT_TERM
+      )
+    )
+    expect(together.every((event) => event.hasConflict)).toBe(true)
+  })
+
+  // One shared date is a clash, and only on that date. STAT3008 and FINA6092
+  // share 11 Thursday lectures; STAT3008 also meets on 3 December alone.
+  it('flags only the occurrences on a shared date, not the whole section', () => {
+    const stat = loadPublishedCourse('2026-27', 'STAT', '3008')
+    const fina = loadPublishedCourse('2026-27', 'FINA', '6092')
+    const statLecture = findPublishedSection(stat, CONFLICT_TERM, 'B-LEC')
+    const finaLecture = findPublishedSection(fina, CONFLICT_TERM, 'FB-LEC')
+
+    expect(sectionsOverlap(statLecture, finaLecture, CONFLICT_TERM)).toBe(true)
+
+    const events = detectConflicts(
+      enrollmentsToCalendarEvents(
+        [makeEnrollment(stat, [statLecture]), makeEnrollment(fina, [finaLecture])],
+        CONFLICT_TERM
+      )
+    )
+    const statEvents = events.filter((event) => event.enrollmentId === 'STAT3008')
+
+    expect(statEvents).toHaveLength(12)
+    expect(statEvents.filter((event) => !event.hasConflict).map((event) => event.date)).toEqual([
+      new Date(2026, 11, 3),
+    ])
+  })
+})
+
+describe('sectionsOverlap', () => {
   it('reports only real meeting overlaps', () => {
     const scheduled = mkSection('scheduled', [mkMeeting({ time: 'Mo 9:00AM - 10:00AM' })])
     const overlapping = mkSection('overlapping', [mkMeeting({ time: 'Mo 9:30AM - 10:30AM' })])
     const unscheduled = mkSection('unscheduled', [mkMeeting({ time: 'TBA' })])
 
-    expect(sectionsOverlapInTime(scheduled, overlapping)).toBe(true)
-    expect(sectionsOverlapInTime(scheduled, unscheduled)).toBe(false)
+    expect(sectionsOverlap(scheduled, overlapping, SYNTHETIC_TERM)).toBe(true)
+    expect(sectionsOverlap(scheduled, unscheduled, SYNTHETIC_TERM)).toBe(false)
+  })
+
+  // Same slot, different weeks: a false conflict until dates were consulted.
+  it('clears two published sections that share a slot on disjoint dates', () => {
+    const course = loadPublishedCourse('2026-27', 'ACCT', '5610')
+    const saturdayA = findPublishedSection(course, ACCT5610_TERM, 'SA-LEC')
+    const saturdayB = findPublishedSection(course, ACCT5610_TERM, 'SB-LEC')
+
+    expect(sectionsOverlap(saturdayA, saturdayB, ACCT5610_TERM)).toBe(false)
+  })
+
+  // The guard against over-correcting: these three really do clash every week.
+  it('still reports published sections sharing a slot on identical dates', () => {
+    const course = loadPublishedCourse('2026-27', 'PHAR', '1433')
+    const lecture = findPublishedSection(course, PHAR1433_TERM, '--LEC')
+    const practical = findPublishedSection(course, PHAR1433_TERM, '-P01-PRA')
+    const tutorial = findPublishedSection(course, PHAR1433_TERM, '-T01-TUT')
+
+    expect(sectionsOverlap(lecture, practical, PHAR1433_TERM)).toBe(true)
+    expect(sectionsOverlap(practical, tutorial, PHAR1433_TERM)).toBe(true)
   })
 })
 
@@ -741,7 +917,7 @@ describe('checkSectionConflict', () => {
     const candidate = mkSection('candidate', [mkMeeting({ time: 'Mo 9:00AM - 10:00AM' })])
     const enrolled = mkSection('enrolled', [mkMeeting({ time: 'Mo 9:30AM - 10:30AM' })])
 
-    expect(checkSectionConflict(candidate, [mkEnrollment([enrolled])])).toEqual({
+    expect(checkSectionConflict(candidate, [mkEnrollment([enrolled])], SYNTHETIC_TERM)).toEqual({
       hasConflict: true,
       conflictingSections: ['COMM1180 LEC'],
     })
@@ -754,7 +930,7 @@ describe('hasConflictFreeEnrollment', () => {
     courseCode: '1000',
     title: 'Test Course',
     credits: 3,
-    terms: [{ termCode: '2510', termName: 'Term 1', sections }],
+    terms: [{ termCode: '2510', termName: SYNTHETIC_TERM, sections }],
   })
 
   const timedSection = (
@@ -774,7 +950,7 @@ describe('hasConflictFreeEnrollment', () => {
     const course = courseWithSections([timedSection('lec', 'LEC', 'A-LEC', 'Mo 9:00AM - 10:00AM')])
     const baseline = [timedSection('busy', 'LEC', '--LEC', 'Mo 9:30AM - 10:30AM')]
 
-    expect(hasConflictFreeEnrollment(course, baseline, 'Term 1')).toBe(false)
+    expect(hasConflictFreeEnrollment(course, baseline, SYNTHETIC_TERM)).toBe(false)
   })
 
   it('backtracks until it finds a jointly compatible, non-overlapping combination', () => {
@@ -785,7 +961,7 @@ describe('hasConflictFreeEnrollment', () => {
       timedSection('tut-b', 'TUT', 'BT01-TUT', 'We 9:00AM - 10:00AM'),
     ])
 
-    expect(hasConflictFreeEnrollment(course, [], 'Term 1')).toBe(true)
+    expect(hasConflictFreeEnrollment(course, [], SYNTHETIC_TERM)).toBe(true)
   })
 
   it('rejects courses whose individually free sections cannot form one valid combination', () => {
@@ -796,7 +972,7 @@ describe('hasConflictFreeEnrollment', () => {
       timedSection('tut-b', 'TUT', 'BT01-TUT', 'Tu 9:30AM - 10:30AM'),
     ])
 
-    expect(hasConflictFreeEnrollment(course, [], 'Term 1')).toBe(false)
+    expect(hasConflictFreeEnrollment(course, [], SYNTHETIC_TERM)).toBe(false)
   })
 
   it('skips a lower-priority type when no section is cohort-compatible', () => {
@@ -805,14 +981,14 @@ describe('hasConflictFreeEnrollment', () => {
       timedSection('tut-b', 'TUT', 'BT01-TUT', 'Tu 9:00AM - 10:00AM'),
     ])
 
-    expect(hasConflictFreeEnrollment(course, [], 'Term 1')).toBe(true)
+    expect(hasConflictFreeEnrollment(course, [], SYNTHETIC_TERM)).toBe(true)
   })
 
   it('treats unscheduled meetings as conflict-free', () => {
     const course = courseWithSections([timedSection('lec', 'LEC', 'A-LEC', 'TBA')])
     const baseline = [timedSection('busy', 'LEC', '--LEC', 'Mo 9:00AM - 10:00AM')]
 
-    expect(hasConflictFreeEnrollment(course, baseline, 'Term 1')).toBe(true)
+    expect(hasConflictFreeEnrollment(course, baseline, SYNTHETIC_TERM)).toBe(true)
   })
 })
 
@@ -831,9 +1007,43 @@ describe('sectionSignature', () => {
     ])
     expect(sig(a)).toEqual(sig(mkSection('1', [mkMeeting({ location: 'Hum 314' })])))
   })
-  it('ignores the dates field (no false positives)', () => {
-    const a = mkSection('1', [mkMeeting({ dates: '7/1, 14/1' })])
-    expect(sig(a)).toEqual(sig(mkSection('1', [mkMeeting({ dates: '21/1, 28/1' })])))
+  it('reports a date-only change, which the .ics export has always carried', () => {
+    const was = mkSection('1', [mkMeeting({ dates: '7/1, 14/1' })])
+    const now = mkSection('1', [mkMeeting({ dates: '21/1, 28/1' })])
+
+    expect(diffSectionDetail(now, sig(was)).rows[0]).toMatchObject({
+      status: 'changed',
+      fields: { time: false, location: false, instructor: false, dates: true },
+    })
+  })
+
+  // A snapshot from before dates were stored gains them on the next sync, so it
+  // reports nothing now and catches the change after. Without the backfill the
+  // entry stays date-blind for good, since sync keeps existing entries as-is.
+  it('fills dates into a snapshot stored before them, then catches the next change', () => {
+    const section = mkSection('1', [mkMeeting({ dates: '7/1, 14/1' })])
+    const enrollment: CourseEnrollment = {
+      ...mkEnrollment([section]),
+      lastSeenSections: { '1': legacySnapshot(section) },
+    }
+
+    const synced = recordSeenSections(enrollment, { onlyMissing: true })
+    expect(synced.lastSeenSections!['1'].meetings[0].dates).toEqual(['7/1, 14/1'])
+
+    const moved = mkSection('1', [mkMeeting({ dates: '21/1, 28/1' })])
+    expect(diffSectionDetail(moved, synced.lastSeenSections!['1']).rows[0].status).toBe('changed')
+  })
+
+  // Snapshots stored before dates were compared have none. Treating that as a
+  // change would warn every user about every section the day this ships.
+  it('reports no change against a snapshot taken before dates were stored', () => {
+    const section = mkSection('1', [mkMeeting({ dates: '21/1, 28/1' })])
+    expect(
+      diffSectionDetail(
+        section,
+        legacySnapshot(mkSection('1', [mkMeeting({ dates: '7/1, 14/1' })]))
+      ).rows[0].status
+    ).toBe('unchanged')
   })
   it('reflects time, location, instructor and language', () => {
     const base = mkSection('1', [mkMeeting({})], 'English only')
@@ -853,16 +1063,8 @@ describe('sectionSignature', () => {
       mkMeeting({ time: 'Sa 9:30AM - 12:15PM' }),
       mkMeeting({ time: 'Su 2:00PM - 5:00PM' }),
     ])
-    expect(sig(s).meetings).toContainEqual({
-      time: 'Sa 9:30AM - 12:15PM',
-      location: 'Hum 314',
-      instructor: 'Staff',
-    })
-    expect(sig(s).meetings).toContainEqual({
-      time: 'Su 2:00PM - 5:00PM',
-      location: 'Hum 314',
-      instructor: 'Staff',
-    })
+    expect(sig(s).meetings).toContainEqual(sigRow('Sa 9:30AM - 12:15PM'))
+    expect(sig(s).meetings).toContainEqual(sigRow('Su 2:00PM - 5:00PM'))
   })
 })
 
@@ -872,7 +1074,7 @@ describe('diffEnrollment', () => {
       mkMeeting({ time: 'Mo 2:30PM - 5:15PM', location: 'T.C. Cheng 208' }),
     ])
     const stale: SectionSignature = {
-      meetings: [{ time: 'stale', location: 'stale', instructor: 'stale' }],
+      meetings: [sigRow('stale', 'stale', 'stale')],
       language: '',
     }
     const changes = diffEnrollment(mkEnrollment([now], { '8818': stale }))
@@ -893,7 +1095,7 @@ describe('diffEnrollment', () => {
     const s2 = mkSection('2', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
     const e = mkEnrollment([s1, s2], {
       '1': sig(s1),
-      '2': { meetings: [{ time: 'stale', location: 'stale', instructor: 'stale' }], language: '' },
+      '2': { meetings: [sigRow('stale', 'stale', 'stale')], language: '' },
     })
     const before = JSON.stringify(e)
     expect(diffEnrollment(e).map((c) => c.sectionId)).toEqual(['2'])
@@ -921,7 +1123,7 @@ describe('recordSeenSections', () => {
   it('acknowledge (onlyMissing:false) overwrites all so diff clears', () => {
     const now = mkSection('8818', [mkMeeting({ time: 'Mo 2:30PM - 5:15PM' })])
     const stale: SectionSignature = {
-      meetings: [{ time: 'stale', location: 'stale', instructor: 'stale' }],
+      meetings: [sigRow('stale', 'stale', 'stale')],
       language: '',
     }
     expect(
@@ -956,7 +1158,7 @@ describe('diffSectionDetail', () => {
     expect(detail.rows).toEqual([
       {
         status: 'unchanged',
-        meeting: { time: 'We 2:30PM - 5:15PM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('We 2:30PM - 5:15PM'),
       },
     ])
     expect(detail.languageChanged).toBe(false)
@@ -969,9 +1171,9 @@ describe('diffSectionDetail', () => {
     expect(detail.rows).toEqual([
       {
         status: 'changed',
-        meeting: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
-        before: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
-        fields: { time: true, location: false, instructor: false },
+        meeting: sigRow('We 9AM - 10AM'),
+        before: sigRow('Mo 9AM - 10AM'),
+        fields: { time: true, location: false, instructor: false, dates: true },
       },
     ])
   })
@@ -988,6 +1190,7 @@ describe('diffSectionDetail', () => {
       time: true,
       location: true,
       instructor: true,
+      dates: true,
     })
   })
 
@@ -1004,13 +1207,13 @@ describe('diffSectionDetail', () => {
     expect(detail.rows).toEqual([
       {
         status: 'unchanged',
-        meeting: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('Mo 9AM - 10AM'),
       },
       {
         status: 'changed',
-        meeting: { time: 'Th 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
-        before: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
-        fields: { time: true, location: false, instructor: false },
+        meeting: sigRow('Th 9AM - 10AM'),
+        before: sigRow('We 9AM - 10AM'),
+        fields: { time: true, location: false, instructor: false, dates: true },
       },
     ])
   })
@@ -1042,11 +1245,11 @@ describe('diffSectionDetail', () => {
     expect(detail.rows).toEqual([
       {
         status: 'unchanged',
-        meeting: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('Mo 9AM - 10AM'),
       },
       {
         status: 'added',
-        meeting: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('We 9AM - 10AM'),
       },
     ])
   })
@@ -1065,19 +1268,15 @@ describe('diffSectionDetail', () => {
     expect(diffSectionDetail(now, sig(before)).rows).toEqual([
       {
         status: 'unchanged',
-        meeting: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('We 9AM - 10AM'),
       },
       {
         status: 'unchanged',
-        meeting: { time: 'Fr 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('Fr 9AM - 10AM'),
       },
       {
         status: 'removed',
-        meeting: {
-          time: 'Mo 9AM - 10AM',
-          location: 'Science Centre 327',
-          instructor: 'Staff',
-        },
+        meeting: sigRow('Mo 9AM - 10AM', 'Science Centre 327'),
       },
     ])
   })
@@ -1096,19 +1295,19 @@ describe('diffSectionDetail', () => {
     expect(diffSectionDetail(now, sig(before)).rows).toEqual([
       {
         status: 'unchanged',
-        meeting: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('We 9AM - 10AM'),
       },
       {
         status: 'added',
-        meeting: { time: 'Th 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('Th 9AM - 10AM'),
       },
       {
         status: 'added',
-        meeting: { time: 'Fr 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('Fr 9AM - 10AM'),
       },
       {
         status: 'removed',
-        meeting: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('Mo 9AM - 10AM'),
       },
     ])
   })
@@ -1235,5 +1434,280 @@ describe('getAvailabilityBadges', () => {
       waitlistCapacity: 0,
     })
     expect(badges.map((badge) => badge.text)).toEqual(['Closed', '0/25 Available'])
+  })
+})
+
+// === ICS EXPORT ===
+//
+// Driven by real published data throughout.
+
+function loadPublishedCourse(year: string, subject: string, courseCode: string): InternalCourse {
+  const path = join(process.cwd(), 'public', 'data', year, `${subject}.json`)
+  const { courses } = transformExternalCourseData(JSON.parse(readFileSync(path, 'utf8')))
+
+  const course = courses.find((candidate) => candidate.courseCode === courseCode)
+  if (!course) throw new Error(`${subject}${courseCode} is not in ${year} published data`)
+
+  return course
+}
+
+function findPublishedSection(
+  course: InternalCourse,
+  termName: string,
+  sectionCode: string
+): InternalSection {
+  const section = course.terms
+    .find((term) => term.termName === termName)
+    // Published section codes carry the class number, e.g. "B-LEC (6012)".
+    ?.sections.find((candidate) => candidate.sectionCode.startsWith(`${sectionCode} (`))
+  if (!section) throw new Error(`${sectionCode} is not in ${course.subject} ${termName}`)
+
+  return section
+}
+
+function makeEnrollment(course: InternalCourse, sections: InternalSection[]): CourseEnrollment {
+  return {
+    courseId: `${course.subject}${course.courseCode}`,
+    course,
+    selectedSections: sections,
+    color: '#000000',
+    isVisible: true,
+  }
+}
+
+/** ACCT1111 B-LEC: one weekly Thursday row, Sep-Nov. */
+const ACCT1111_TERM = '2025-26 Term 1'
+/** ACCT5111 FA-LEC: its Monday row crosses Dec into Jan. */
+const ACCT5111_TERM = '2025-26 Term 2'
+const acct = (courseCode: string) => loadPublishedCourse('2025-26', 'ACCT', courseCode)
+
+/** EMBA5011 AE-LEC: six rows, one August date each, in the term's *first* year. */
+const EMBA5011_TERM = '2025-26 Term 1'
+const emba5011 = () => loadPublishedCourse('2025-26', 'EMBA', '5011')
+
+/** CLCP1113 C-LEC: August again, but in the term's *second* year. */
+const CLCP1113_TERM = '2025-26 Summer Session'
+const clcp1113 = () => loadPublishedCourse('2025-26', 'CLCP', '1113')
+
+/** Every published meeting with a real time, and so a weekday and dates. */
+function forEachPublishedTimedMeeting(
+  visit: (meeting: InternalMeeting, weekday: string, termName: string) => void
+): void {
+  const root = join(process.cwd(), 'public', 'data')
+
+  for (const year of readdirSync(root, { withFileTypes: true })) {
+    if (!year.isDirectory()) continue
+
+    for (const file of readdirSync(join(root, year.name))) {
+      if (!file.endsWith('.json')) continue
+
+      const { courses } = transformExternalCourseData(
+        JSON.parse(readFileSync(join(root, year.name, file), 'utf8'))
+      )
+      for (const course of courses) {
+        for (const term of course.terms) {
+          for (const section of term.sections) {
+            for (const meeting of section.meetings) {
+              const timeRange = parseTimeRange(meeting.time)
+              if (timeRange) visit(meeting, timeRange.day, term.termName)
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/** The Monday row of a published section, whose weekday resolves its dates. */
+function mondayOf(section: InternalSection): InternalMeeting {
+  return section.meetings.find((meeting) => meeting.time.startsWith('Mo'))!
+}
+
+describe('extractAcademicYearBounds', () => {
+  it('reads both calendar years, and rejects a term name without one', () => {
+    expect(extractAcademicYearBounds('2025-26 Term 2')).toEqual({
+      firstYear: 2025,
+      secondYear: 2026,
+    })
+    expect(() => extractAcademicYearBounds('Term 2')).toThrow(/Invalid term name/)
+  })
+})
+
+describe('parseMeetingDates', () => {
+  it('expands a comma-separated list onto the term first year for Sep-Dec', () => {
+    const section = findPublishedSection(acct('1111'), ACCT1111_TERM, 'B-LEC')
+    const dates = parseMeetingDates(section.meetings[0].dates, ACCT1111_TERM, 'Th')
+
+    expect(dates).toHaveLength(13)
+    expect(dates[0]).toEqual(new Date(2025, 8, 4))
+    expect(dates[12]).toEqual(new Date(2025, 10, 27))
+  })
+
+  // A year change inside one list, which today's rule gets right.
+  it('rolls a single list from December into the second year', () => {
+    const section = findPublishedSection(acct('5111'), ACCT5111_TERM, 'FA-LEC')
+    const dates = parseMeetingDates(mondayOf(section).dates, ACCT5111_TERM, 'Mo')
+
+    expect(dates[4]).toEqual(new Date(2025, 11, 29))
+    expect(dates[5]).toEqual(new Date(2026, 0, 5))
+  })
+
+  // No month cutoff can satisfy both: same weekday, same month, different years.
+  it('resolves the same August weekday to either year of the term', () => {
+    const termOne = findPublishedSection(emba5011(), EMBA5011_TERM, 'AE-LEC')
+    const summer = findPublishedSection(clcp1113(), CLCP1113_TERM, 'C-LEC')
+
+    expect(parseMeetingDates(mondayOf(termOne).dates, EMBA5011_TERM, 'Mo')).toEqual([
+      new Date(2025, 7, 25),
+    ])
+    expect(parseMeetingDates(mondayOf(summer).dates, CLCP1113_TERM, 'Mo')).toEqual([
+      new Date(2026, 7, 10),
+      new Date(2026, 7, 17),
+      new Date(2026, 7, 24),
+    ])
+  })
+
+  it('accepts 29 February in a leap year and rejects it otherwise', () => {
+    expect(parseMeetingDates('29/2', '2027-28 Term 2', 'Tu')).toEqual([new Date(2028, 1, 29)])
+    expect(parseMeetingDates('29/2', '2025-26 Term 2', 'Su')).toEqual([])
+  })
+
+  it('returns no dates for TBA or empty input', () => {
+    expect(parseMeetingDates('TBA', ACCT1111_TERM, 'Th')).toEqual([])
+    expect(parseMeetingDates('', ACCT1111_TERM, 'Th')).toEqual([])
+  })
+
+  // No published row is malformed; these pin that one would be dropped, not guessed.
+  it('drops an unparseable date with a warning, keeping the rest', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    expect(parseMeetingDates('4/9, 32/13, 11/9', ACCT1111_TERM, 'Th')).toEqual([
+      new Date(2025, 8, 4),
+      new Date(2025, 8, 11),
+    ])
+    expect(warn).toHaveBeenCalledOnce()
+
+    warn.mockRestore()
+  })
+
+  // Candidate years are the term's own two, so a future term with dates outside
+  // them fails here rather than quietly dropping classes.
+  //
+  // Shape is checked before the count, because a count alone accepts the one input
+  // that fabricates rather than drops: the range an undated row carries. As a single
+  // comma token it resolves to its own start date, turning a 13-week class into one
+  // session, and the count matches.
+  it('resolves every date of every published timed meeting', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    let resolved = 0
+
+    forEachPublishedTimedMeeting((meeting, weekday, termName) => {
+      const listed = meeting.dates.split(',').map((date) => date.trim())
+      expect(listed.every((date) => /^\d{1,2}\/\d{1,2}$/.test(date))).toBe(true)
+
+      const dates = parseMeetingDates(meeting.dates, termName, weekday)
+      expect(dates).toHaveLength(listed.length)
+      resolved += dates.length
+    })
+
+    expect(warn).not.toHaveBeenCalled()
+    expect(resolved).toBeGreaterThan(250_000) // a walker that visited nothing would pass
+    warn.mockRestore()
+  })
+
+  // 4 Sep 2025 is a Thursday, so a row calling it Monday contradicts itself.
+  it('drops a date falling on neither year with a warning', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    expect(parseMeetingDates('4/9, 11/9', ACCT1111_TERM, 'Mo')).toEqual([])
+    expect(warn).toHaveBeenCalledTimes(2)
+
+    warn.mockRestore()
+  })
+})
+
+describe('createICSEventsForMeeting', () => {
+  it('emits one UTC event per date, converted from Hong Kong time', () => {
+    const course = acct('1111')
+    const section = findPublishedSection(course, ACCT1111_TERM, 'B-LEC')
+    const events = createICSEventsForMeeting(section.meetings[0], course, section, ACCT1111_TERM)
+
+    expect(events).toHaveLength(13)
+    // 14:30-17:15 HKT on 4 Sep 2025 is 06:30-09:15 UTC.
+    expect(events[0].start).toEqual([2025, 9, 4, 6, 30])
+    expect(events[0].end).toEqual([2025, 9, 4, 9, 15])
+    expect(events[0].uid).toBe(
+      'ACCT1111-B-LEC-2025-09-04-1430-1715@another-cuhk-course-planner.com'
+    )
+    // The cohort letter joins the course code; the type follows.
+    expect(events[0].title).toBe('ACCT1111B LEC')
+    expect(events[0].location).toBe('Lee Shau Kee Archi Bldg G03')
+  })
+
+  it('carries the resolved August year into the UID', () => {
+    const course = emba5011()
+    const section = findPublishedSection(course, EMBA5011_TERM, 'AE-LEC')
+
+    // Only the first cohort letter reaches the UID, so "AE-LEC" prints as "A".
+    expect(
+      createICSEventsForMeeting(mondayOf(section), course, section, EMBA5011_TERM)[0].uid
+    ).toBe('EMBA5011-A-LEC-2025-08-25-0845-1845@another-cuhk-course-planner.com')
+  })
+
+  it('skips a meeting with no parseable time', () => {
+    const course = acct('1111')
+    const section = findPublishedSection(course, ACCT1111_TERM, 'B-LEC')
+    const meeting = { ...section.meetings[0], time: 'TBA' }
+
+    expect(createICSEventsForMeeting(meeting, course, section, ACCT1111_TERM)).toEqual([])
+  })
+})
+
+describe('generateICSCalendar', () => {
+  // AE-LEC has six rows of one date each, so the count proves the walk over rows.
+  it('writes one VEVENT per occurrence across every meeting row', () => {
+    const course = emba5011()
+    const section = findPublishedSection(course, EMBA5011_TERM, 'AE-LEC')
+    const { icsContent, filename, error } = generateICSCalendar(
+      [makeEnrollment(course, [section])],
+      EMBA5011_TERM
+    )
+
+    expect(error).toBeUndefined()
+    expect(filename).toMatch(/^2025-26-Term-1-Schedule-\d{4}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}\.ics$/)
+    expect(icsContent!.match(/BEGIN:VEVENT/g)).toHaveLength(6)
+    expect(icsContent).toContain('PRODID:Another CUHK Course Planner')
+  })
+
+  it('excludes hidden enrollments and reports when nothing is left to export', () => {
+    const course = emba5011()
+    const section = findPublishedSection(course, EMBA5011_TERM, 'AE-LEC')
+    const hidden = { ...makeEnrollment(course, [section]), isVisible: false }
+
+    expect(generateICSCalendar([hidden], EMBA5011_TERM).error).toMatch(/No scheduled events/)
+  })
+})
+
+describe('processICSForUndo', () => {
+  // Fed by the real generator, so the two stay in step.
+  it('cancels every event in a calendar we generated', () => {
+    const course = emba5011()
+    const section = findPublishedSection(course, EMBA5011_TERM, 'AE-LEC')
+    const { icsContent } = generateICSCalendar([makeEnrollment(course, [section])], EMBA5011_TERM)
+
+    const result = processICSForUndo(icsContent!)
+
+    expect(result.success).toBe(true)
+    expect(result.needsWarning).toBe(false)
+    expect(result.modifiedContent!.match(/STATUS:CANCELLED/g)).toHaveLength(6)
+  })
+
+  it('warns about a calendar from elsewhere and rejects a non-calendar', () => {
+    expect(processICSForUndo('BEGIN:VCALENDAR\nBEGIN:VEVENT\nEND:VCALENDAR')).toMatchObject({
+      success: true,
+      needsWarning: true,
+    })
+    expect(processICSForUndo('not a calendar')).toMatchObject({ success: false })
+    expect(processICSForUndo('')).toMatchObject({ success: false, error: 'File is empty' })
   })
 })

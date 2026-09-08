@@ -53,11 +53,15 @@ export interface InternalMeeting {
   dates: string
 }
 
-// A single meeting's comparable facts (normalized, no `dates`).
+// A single meeting's comparable facts, normalized.
 export interface SectionMeetingSignature {
   time: string
   location: string
   instructor: string // Scraped form, compared verbatim; display via formatInstructorsCompact
+  // The source rows behind this one, each its own entry. Compared, but kept out
+  // of the dedupe key so rows differing only by date still merge. Optional: a
+  // snapshot taken before dates were stored reports no date change.
+  dates?: string[]
 }
 
 // A section's comparable facts: deduped meetings (source order) plus language of
@@ -82,7 +86,7 @@ export interface MeetingRow {
   status: MeetingChangeStatus
   meeting: SectionMeetingSignature
   before?: SectionMeetingSignature
-  fields?: { time: boolean; location: boolean; instructor: boolean }
+  fields?: { time: boolean; location: boolean; instructor: boolean; dates: boolean }
 }
 
 export interface SectionDiffDetail {
@@ -159,9 +163,10 @@ export interface CourseEnrollment {
   lastSeenInvalidState?: InvalidEnrollmentState
 }
 
-// Calendar event using clean internal types
+// One occurrence of a meeting: a section's class on one date.
 export interface CalendarEvent {
   id: string
+  date: Date
   subject: string
   courseCode: string
   title: string
@@ -193,18 +198,10 @@ export interface SectionTypeInfo {
 
 // Time range for conflict detection
 export interface TimeRange {
-  day: string // 'Mo', 'Tu', 'We', 'Th', 'Fr'
+  day: string // 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'
   startHour: number
   startMinute: number
   endHour: number
-  endMinute: number
-}
-
-// Conflict zone for visual representation
-export interface ConflictZone {
-  startHour: number
-  endHour: number
-  startMinute: number
   endMinute: number
 }
 

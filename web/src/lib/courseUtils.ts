@@ -6,7 +6,6 @@ import type {
   TimeRange,
   CalendarEvent,
   CourseEnrollment,
-  ConflictZone,
   InternalCourse,
   InternalSection,
   InternalMeeting,
@@ -119,22 +118,22 @@ export function doTimesOverlap(time1: TimeRange, time2: TimeRange): boolean {
 }
 
 /**
- * Check whether any scheduled meetings in two sections overlap.
- * Meetings without a real time are ignored.
+ * Check whether two sections meet on the same date at an overlapping time.
+ * A meeting with no real time cannot be placed, so it never clashes.
  */
-export function sectionsOverlapInTime(
+export function sectionsOverlap(
   section1: InternalSection,
-  section2: InternalSection
+  section2: InternalSection,
+  termName: string
 ): boolean {
-  return section1.meetings.some((meeting1) => {
-    const time1 = parseTimeRange(meeting1.time)
-    if (!time1) return false
+  const occurrences2 = sectionOccurrences(section2, termName)
 
-    return section2.meetings.some((meeting2) => {
-      const time2 = parseTimeRange(meeting2.time)
-      return time2 !== null && doTimesOverlap(time1, time2)
-    })
-  })
+  return sectionOccurrences(section1, termName).some((one) =>
+    occurrences2.some(
+      (two) =>
+        one.date.getTime() === two.date.getTime() && doTimesOverlap(one.timeRange, two.timeRange)
+    )
+  )
 }
 
 /**
@@ -148,19 +147,9 @@ export function detectConflicts(events: CalendarEvent[]): CalendarEvent[] {
       return { ...event, hasConflict: false }
     }
 
-    const eventTime = parseTimeRange(event.time)
-    if (!eventTime) {
-      return { ...event, hasConflict: false }
-    }
-
-    const hasConflict = visibleEvents.some((other) => {
-      if (other.id === event.id) return false
-
-      const otherTime = parseTimeRange(other.time)
-      if (!otherTime) return false
-
-      return doTimesOverlap(eventTime, otherTime)
-    })
+    const hasConflict = visibleEvents.some(
+      (other) => other.id !== event.id && eventsOverlap(event, other)
+    )
 
     return { ...event, hasConflict }
   })
@@ -181,10 +170,17 @@ export function isEnrollmentOpen(enrollment: CourseEnrollment): boolean {
 }
 
 /**
- * Convert course enrollments to calendar events with day/time info
+ * One calendar event per occurrence: a section's class on one date.
+ *
+ * The id is the whole displayed row, so a source row repeated verbatim collapses
+ * into one card while two rows differing only by room stay two.
  */
-export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): CalendarEvent[] {
+export function enrollmentsToCalendarEvents(
+  enrollments: CourseEnrollment[],
+  termName: string
+): CalendarEvent[] {
   const events: CalendarEvent[] = []
+  const seen = new Set<string>()
 
   enrollments.filter(isVisibleAndValid).forEach((enrollment) => {
     enrollment.selectedSections.forEach((section) => {
@@ -197,26 +193,41 @@ export function enrollmentsToCalendarEvents(enrollments: CourseEnrollment[]): Ca
           return
         }
 
-        events.push({
-          id: `${enrollment.courseId}_${section.id}_${meeting.time}`,
-          subject: enrollment.course.subject,
-          courseCode: enrollment.course.courseCode,
-          title: enrollment.course.title,
-          sectionCode: section.sectionCode,
-          sectionType: section.sectionType,
-          time: meeting.time,
-          location: meeting.location,
-          instructors: meeting.instructors,
-          credits: enrollment.course.credits,
-          color: enrollment.color,
-          isVisible: enrollment.isVisible,
-          hasConflict: false, // Will be computed later
-          enrollmentId: enrollment.courseId,
-          day: dayIndex,
-          startHour: timeRange?.startHour || 9,
-          endHour: timeRange?.endHour || 10,
-          startMinute: timeRange?.startMinute || 0,
-          endMinute: timeRange?.endMinute || 0,
+        parseMeetingDates(meeting.dates, termName, timeRange.day).forEach((date) => {
+          const id = [
+            enrollment.courseId,
+            section.id,
+            formatDateKey(date),
+            meeting.time,
+            meeting.location,
+            meeting.instructors,
+          ].join('|')
+
+          if (seen.has(id)) return
+          seen.add(id)
+
+          events.push({
+            id,
+            date,
+            subject: enrollment.course.subject,
+            courseCode: enrollment.course.courseCode,
+            title: enrollment.course.title,
+            sectionCode: section.sectionCode,
+            sectionType: section.sectionType,
+            time: meeting.time,
+            location: meeting.location,
+            instructors: meeting.instructors,
+            credits: enrollment.course.credits,
+            color: enrollment.color,
+            isVisible: enrollment.isVisible,
+            hasConflict: false, // Will be computed later
+            enrollmentId: enrollment.courseId,
+            day: dayIndex,
+            startHour: timeRange.startHour,
+            endHour: timeRange.endHour,
+            startMinute: timeRange.startMinute,
+            endMinute: timeRange.endMinute,
+          })
         })
       })
     })
@@ -276,39 +287,10 @@ export function getDayIndex(timeStr: string): number {
 }
 
 /**
- * Group overlapping calendar events for visual stacking
- */
-export function groupOverlappingEvents(events: CalendarEvent[]): CalendarEvent[][] {
-  const groups: CalendarEvent[][] = []
-  const processed = new Set<string>()
-
-  for (const event of events) {
-    if (processed.has(event.id)) continue
-
-    const group = [event]
-    processed.add(event.id)
-
-    // Find overlapping events
-    for (const otherEvent of events) {
-      if (processed.has(otherEvent.id)) continue
-
-      if (eventsOverlap(event, otherEvent)) {
-        group.push(otherEvent)
-        processed.add(otherEvent.id)
-      }
-    }
-
-    groups.push(group)
-  }
-
-  return groups
-}
-
-/**
  * Check if two calendar events overlap in time
  */
 export function eventsOverlap(event1: CalendarEvent, event2: CalendarEvent): boolean {
-  if (event1.day !== event2.day) return false
+  if (event1.date.getTime() !== event2.date.getTime()) return false
 
   const start1 = event1.startHour * 60 + event1.startMinute
   const end1 = event1.endHour * 60 + event1.endMinute
@@ -316,31 +298,6 @@ export function eventsOverlap(event1: CalendarEvent, event2: CalendarEvent): boo
   const end2 = event2.endHour * 60 + event2.endMinute
 
   return start1 < end2 && start2 < end1
-}
-
-/**
- * Calculate conflict zones for calendar background highlighting
- */
-export function getConflictZones(events: CalendarEvent[]): ConflictZone[] {
-  const zones: ConflictZone[] = []
-  const eventGroups = groupOverlappingEvents(events)
-
-  eventGroups.forEach((group) => {
-    if (group.length > 1) {
-      // Find the time range that covers all conflicting events
-      const minStart = Math.min(...group.map((e) => e.startHour * 60 + e.startMinute))
-      const maxEnd = Math.max(...group.map((e) => e.endHour * 60 + e.endMinute))
-
-      zones.push({
-        startHour: Math.floor(minStart / 60),
-        startMinute: minStart % 60,
-        endHour: Math.floor(maxEnd / 60),
-        endMinute: maxEnd % 60,
-      })
-    }
-  })
-
-  return zones
 }
 
 /**
@@ -675,23 +632,59 @@ const meetingRow = (m: InternalMeeting): SectionMeetingSignature => ({
   instructor: norm(m.instructors),
 })
 
+// A snapshot taken before dates were stored cannot say whether they moved, so
+// an absent list means "no change" rather than "changed to nothing".
+const sameDates = (a: SectionMeetingSignature, b: SectionMeetingSignature): boolean =>
+  !a.dates ||
+  !b.dates ||
+  (a.dates.length === b.dates.length && a.dates.every((run, i) => run === b.dates![i]))
+
 const sameMeeting = (a: SectionMeetingSignature, b: SectionMeetingSignature): boolean =>
-  a.time === b.time && a.location === b.location && a.instructor === b.instructor
+  a.time === b.time && a.location === b.location && a.instructor === b.instructor && sameDates(a, b)
 
 // A section's deduped meetings (in source order) plus language — the comparison key for
 // change detection. Pure data; ignores `dates`. MeetingRowCard formats it for display.
+/** Identifies a displayed meeting row — exactly the fields the row shows. */
+export function meetingRowKey(row: SectionMeetingSignature): string {
+  return `${row.time}|${row.location}|${row.instructor}`
+}
+
 export function sectionSignature(section: InternalSection): SectionSignature {
-  const seen = new Set<string>()
-  const meetings: SectionMeetingSignature[] = []
+  const byRow = new Map<string, SectionMeetingSignature>()
+
   for (const m of section.meetings) {
     const row = meetingRow(m)
-    const key = `${row.time}|${row.location}|${row.instructor}`
-    if ((row.time || row.location || row.instructor) && !seen.has(key)) {
-      seen.add(key)
-      meetings.push(row)
-    }
+    if (!row.time && !row.location && !row.instructor) continue
+
+    const key = meetingRowKey(row)
+    const existing = byRow.get(key)
+    const dates = norm(m.dates)
+
+    if (!existing) byRow.set(key, { ...row, dates: dates ? [dates] : [] })
+    else if (dates && !existing.dates!.includes(dates)) existing.dates!.push(dates)
   }
-  return { meetings, language: norm(section.classAttributes) }
+
+  return { meetings: [...byRow.values()], language: norm(section.classAttributes) }
+}
+
+/**
+ * A source row's dates as a range: "10/9, 17/9, 24/9" reads "10/9-24/9".
+ *
+ * Every published row is one weekly run, so first and last say it all. The runs
+ * come from the source's own split into rows, never from grouping dates here.
+ *
+ * A range is one unit, so the hyphen is closed up. An undated row states its own
+ * range and appears on this same line, so it is closed up to match.
+ */
+export function formatDateRange(dates: string): string {
+  const days = dates
+    .split(',')
+    .map((date) => date.trim())
+    .filter(Boolean)
+
+  if (days.length > 1) return `${days[0]}-${days[days.length - 1]}`
+
+  return (days[0] ?? '').replace(/\s+-\s+/, '-')
 }
 
 // Compared positionally, which assumes the scraper emits meetings in a stable order (it
@@ -765,10 +758,33 @@ export function recordSeenSections(
   for (const section of [...enrollment.selectedSections, ...(enrollment.removedSections ?? [])]) {
     next[section.id] =
       opts.onlyMissing && prev[section.id] !== undefined
-        ? prev[section.id]
+        ? withCurrentDates(prev[section.id], section)
         : sectionSignature(section)
   }
   return { ...enrollment, lastSeenSections: next }
+}
+
+/**
+ * Fills dates into a snapshot stored before they were compared, taking them from
+ * the section as it stands so the entry reads as "no date change yet".
+ *
+ * Without this the entry stays date-blind for good: kept as-is on every sync, it
+ * would only gain dates if some unrelated change happened and was dismissed. A
+ * row that no longer matches is left alone — it has changed, and gets reported.
+ */
+function withCurrentDates(stored: SectionSignature, section: InternalSection): SectionSignature {
+  if (stored.meetings.every((meeting) => meeting.dates)) return stored
+
+  const current = new Map(
+    sectionSignature(section).meetings.map((meeting) => [meetingRowKey(meeting), meeting.dates])
+  )
+
+  return {
+    ...stored,
+    meetings: stored.meetings.map((meeting) =>
+      meeting.dates ? meeting : { ...meeting, dates: current.get(meetingRowKey(meeting)) }
+    ),
+  }
 }
 
 /** Acknowledge changes without deleting section tombstones or changing the timetable. */
@@ -810,6 +826,7 @@ export function diffSectionDetail(
         time: previous.time !== meeting.time,
         location: previous.location !== meeting.location,
         instructor: previous.instructor !== meeting.instructor,
+        dates: !sameDates(previous, meeting),
       },
     }
   })
@@ -1234,8 +1251,8 @@ export function hasConflictFreeEnrollment(
 
     return compatibleSections.some((candidate) => {
       const isTimeFree =
-        baselineSections.every((baseline) => !sectionsOverlapInTime(candidate, baseline)) &&
-        selectedSections.every((selected) => !sectionsOverlapInTime(candidate, selected))
+        baselineSections.every((baseline) => !sectionsOverlap(candidate, baseline, termName)) &&
+        selectedSections.every((selected) => !sectionsOverlap(candidate, selected, termName))
 
       return isTimeFree && search(typeIndex + 1, [...selectedSections, candidate])
     })
@@ -1638,7 +1655,8 @@ export function getAggregateSeatInfo(
  */
 export function checkSectionConflict(
   candidateSection: InternalSection,
-  currentEnrollments: CourseEnrollment[]
+  currentEnrollments: CourseEnrollment[],
+  termName: string
 ): {
   hasConflict: boolean
   conflictingSections: string[]
@@ -1653,7 +1671,7 @@ export function checkSectionConflict(
       // Skip itself from checking
       if (
         enrolledSection.id === candidateSection.id ||
-        !sectionsOverlapInTime(candidateSection, enrolledSection)
+        !sectionsOverlap(candidateSection, enrolledSection, termName)
       ) {
         continue
       }
@@ -1745,19 +1763,26 @@ export function extractAcademicYearCode(termName: string): string {
 
 // === CALENDAR EXPORT UTILITIES ===
 
+/** In `Date.getDay()` order, so the index is the day number. */
+const WEEKDAY_CODES = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+
 /**
- * Parses meeting dates string and converts to actual Date objects
- * @param dates Comma-separated dates like "5/1, 12/1, 19/1"
- * @param termName Term name like "2025-26 Term 2"
- * @returns Array of Date objects
+ * Expands a meeting's date list, e.g. "5/1, 12/1" for a Monday in "2025-26 Term 2".
+ *
+ * The source states no year. The weekday supplies it: a day/month falls on that
+ * weekday in only one of the term's two years, so a date matching neither
+ * contradicts itself and is dropped rather than guessed.
+ *
+ * @param weekday As `parseTimeRange` reports it, e.g. "Mo"
  */
-export function parseMeetingDates(dates: string, termName: string): Date[] {
+export function parseMeetingDates(dates: string, termName: string, weekday: string): Date[] {
   // Handle TBA or empty dates - be strict about TBA match
   if (!dates || dates.trim() === '' || dates.trim().toUpperCase() === 'TBA') {
     return []
   }
 
   const { firstYear, secondYear } = extractAcademicYearBounds(termName)
+  const weekdayNumber = WEEKDAY_CODES.indexOf(weekday)
 
   return dates
     .split(',')
@@ -1765,17 +1790,81 @@ export function parseMeetingDates(dates: string, termName: string): Date[] {
       const trimmedDate = dateStr.trim()
       const [day, month] = trimmedDate.split('/').map(Number)
 
-      if (isNaN(day) || isNaN(month) || month < 1 || month > 12) {
+      if (isNaN(day) || isNaN(month) || month < 1 || month > 12 || day < 1 || day > 31) {
         console.warn(`Invalid date format: "${trimmedDate}" in dates: "${dates}"`)
         return null
       }
 
-      // Academic year logic: Sep-Dec = first year, Jan-Aug = second year
-      const year = month >= 9 && month <= 12 ? firstYear : secondYear
+      // JS rolls an impossible date forward — 31/2 lands on 3 March — where it
+      // could match the weekday by luck, so require the month to survive.
+      const resolved = [firstYear, secondYear]
+        .map((year) => new Date(year, month - 1, day))
+        .find((date) => date.getMonth() === month - 1 && date.getDay() === weekdayNumber)
 
-      return new Date(year, month - 1, day) // month is 0-indexed in Date constructor
+      if (!resolved) {
+        console.warn(
+          `No ${weekday} falls on "${trimmedDate}" in ${termName}; dropping it from "${dates}"`
+        )
+        return null
+      }
+
+      return resolved
     })
     .filter((date) => date !== null) as Date[]
+}
+
+/** Local calendar date as "2025-09-04", for ids and UIDs. */
+export function formatDateKey(date: Date): string {
+  const month = (date.getMonth() + 1).toString().padStart(2, '0')
+  return `${date.getFullYear()}-${month}-${date.getDate().toString().padStart(2, '0')}`
+}
+
+/** One meeting of a section on one date. */
+export interface SectionOccurrence {
+  date: Date
+  timeRange: TimeRange
+}
+
+/**
+ * `sectionsOverlap` compares pairs, so the no-conflict filter re-expands the same
+ * section thousands of times a pass — 200ms without this cache, 8ms with it. Keyed
+ * on the section object: catalog sections are never mutated in place, so a data
+ * reload drops the cache along with the courses.
+ */
+const occurrenceCache = new WeakMap<InternalSection, Map<string, SectionOccurrence[]>>()
+
+/**
+ * Every dated meeting of a section. A row with no real time states a date range
+ * rather than a list, so it has nothing to expand and contributes none.
+ */
+export function sectionOccurrences(
+  section: InternalSection,
+  termName: string
+): SectionOccurrence[] {
+  let byTerm = occurrenceCache.get(section)
+  if (!byTerm) {
+    byTerm = new Map()
+    occurrenceCache.set(section, byTerm)
+  }
+
+  const cached = byTerm.get(termName)
+  if (cached) return cached
+
+  const occurrences = expandSectionOccurrences(section, termName)
+  byTerm.set(termName, occurrences)
+  return occurrences
+}
+
+function expandSectionOccurrences(section: InternalSection, termName: string): SectionOccurrence[] {
+  return section.meetings.flatMap((meeting) => {
+    const timeRange = parseTimeRange(meeting.time)
+    if (!timeRange) return []
+
+    return parseMeetingDates(meeting.dates, termName, timeRange.day).map((date) => ({
+      date,
+      timeRange,
+    }))
+  })
 }
 
 /**
@@ -1833,7 +1922,7 @@ export function createICSEventsForMeeting(
   }
 
   // Parse dates
-  const meetingDates = parseMeetingDates(meeting.dates, termName)
+  const meetingDates = parseMeetingDates(meeting.dates, termName, timeRange.day)
   if (meetingDates.length === 0) {
     return [] // Skip meetings with no valid dates
   }
@@ -1856,7 +1945,7 @@ export function createICSEventsForMeeting(
     // Generate deterministic UID for consistent event identification
     // Example with prefix: "CSCI1234-A-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
     // Example without prefix: "CSCI1234-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
-    const dateStr = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`
+    const dateStr = formatDateKey(date)
     const timeStr = `${timeRange.startHour.toString().padStart(2, '0')}${timeRange.startMinute.toString().padStart(2, '0')}-${timeRange.endHour.toString().padStart(2, '0')}${timeRange.endMinute.toString().padStart(2, '0')}`
     const prefix = getSectionPrefix(section.sectionCode)
     const prefixPart = prefix ? `${prefix}-` : ''

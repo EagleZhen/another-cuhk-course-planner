@@ -130,6 +130,20 @@ List page -> detail page -> outcome page -> term/section pages
 - Outcome page: extracts learning outcomes, syllabus, assessment types, and readings when available.
 - Term/section pages: extract schedules and enrollment data.
 
+### Meeting Rows
+
+Meeting rows take these shapes, with no exceptions across both published years:
+
+| `time`                  | `dates`                            | rows   |
+| ----------------------- | ---------------------------------- | ------ |
+| `"Th 9:30AM - 12:15PM"` | explicit list, `"9/1, 16/1, 23/1"` | 60,019 |
+| `"TBA"`                 | range, `"05/01/2026 - 13/04/2026"` | 15,608 |
+| `"TBA"`                 | `"TBA"`                            | 4      |
+
+**A row that states a time always enumerates its dates.** The timetable expands that list to place classes; a row with no time has none, so it goes to the Unscheduled card. A timed row carrying a range instead would silently vanish.
+
+Dates carry no year — see [weekly-calendar.md](components/weekly-calendar.md#dates).
+
 ## Edge Cases
 
 ### Future-Dated Courses

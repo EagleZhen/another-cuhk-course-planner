@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import posthog from 'posthog-js'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -8,6 +8,9 @@ import { TermSelector } from '@/components/TermSelector'
 import {
   ChevronDown,
   ChevronUp,
+  ChevronLeft,
+  ChevronRight,
+  AlertTriangle,
   Eye,
   EyeOff,
   Camera,
@@ -16,8 +19,6 @@ import {
   Undo,
 } from 'lucide-react'
 import {
-  groupOverlappingEvents,
-  eventsOverlap,
   formatTimeCompact,
   formatInstructorsCompact,
   formatCourseCodeWithPrefix,
@@ -27,14 +28,25 @@ import {
 } from '@/lib/courseUtils'
 import { captureCalendarScreenshot } from '@/lib/screenshotUtils'
 import {
+  layoutDayEvents,
+  weekRange,
+  defaultWeek,
+  eventsInWeek,
+  nextDistinctWeek,
+  changedEventIds,
+  weeksWithConflict,
+} from '@/lib/calendarLayout'
+import {
   DEFAULT_CALENDAR_CONFIG,
   CALENDAR_LAYOUT_CONSTANTS,
+  getCardStackPlacement,
   TEXT_STYLES,
   MINIMUM_COURSE_DURATION_MINUTES,
   calculateReferenceCardHeight,
   getCardTextLineLimits,
   getDayIndex,
   getRequiredDays,
+  type WeekDay,
   getGridColumns,
   getMinimumCalendarWidth,
   type CalendarDisplayConfig,
@@ -80,6 +92,20 @@ const getCardDimensions = (
   return { top, height }
 }
 
+/** The date a day column falls on in the shown week. */
+function dateOfDay(weekStart: Date | null, day: WeekDay): Date | null {
+  if (!weekStart) return null
+
+  return new Date(
+    weekStart.getFullYear(),
+    weekStart.getMonth(),
+    weekStart.getDate() + getDayIndex(day)
+  )
+}
+
+/** Just past two breaths of `changed-ring`, so the cue ends on its own. */
+const CHANGED_HIGHLIGHT_MS = 3100
+
 interface WeeklyCalendarProps {
   events: CalendarEvent[]
   unscheduledSections?: Array<{
@@ -116,6 +142,11 @@ export default function WeeklyCalendar({
   const [isCapturing, setIsCapturing] = useState(false)
   const [screenshotError, setScreenshotError] = useState<string | null>(null)
   const [isIcsMenuExpanded, setIsIcsMenuExpanded] = useState(false)
+  const [selectedWeekTime, setSelectedWeekTime] = useState<number | null>(null)
+  const [skipRepeatWeeks, setSkipRepeatWeeks] = useState(true)
+  // Cards showing something not seen in an earlier week. An arrival cue only, so
+  // it expires rather than sitting in the view, and never lands in a screenshot.
+  const [changedIds, setChangedIds] = useState<Set<string>>(new Set())
 
   // Refs for auto-scrolling to selected events
   const eventRefs = useRef<Map<string, HTMLDivElement>>(new Map())
@@ -125,8 +156,13 @@ export default function WeeklyCalendar({
   const [scrollState, setScrollState] = useState({
     canScrollUp: false,
     canScrollDown: false,
+    // Width the vertical scrollbar takes from inside the grid. Zero where the
+    // platform overlays it, so measuring beats assuming.
+    scrollbarWidth: 0,
   })
 
+  // The week we came from, so a change reads the same going back as forwards.
+  const lastShownWeekRef = useRef<number | null>(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const calendarRef = useRef<HTMLDivElement>(null)
 
@@ -146,6 +182,8 @@ export default function WeeklyCalendar({
     const significantScrollThreshold = 5
 
     setScrollState({
+      scrollbarWidth:
+        scrollContainerRef.current.offsetWidth - scrollContainerRef.current.clientWidth,
       canScrollUp: currentScrollTop > tolerance,
       canScrollDown:
         scrollHeight > clientHeight &&
@@ -233,6 +271,12 @@ export default function WeeklyCalendar({
     setScreenshotError(null)
     setIsCapturing(true)
     try {
+      // The change cue is navigation state, not schedule content, so it must not
+      // reach the image. Clearing it is not enough on its own — wait for the
+      // frame that paints without it before reading the DOM.
+      setChangedIds(new Set())
+      await new Promise((resolve) => requestAnimationFrame(resolve))
+
       // Find unscheduled section using data attribute
       const unscheduledElement = document.querySelector(
         '[data-screenshot="unscheduled"]'
@@ -383,7 +427,72 @@ export default function WeeklyCalendar({
     fileInputRef.current?.click()
   }
 
-  // Dynamic day detection - show weekends only when courses exist
+  // The cart's own weeks, first occurrence to last. The selection is derived
+  // rather than synced, so a cart or term change that drops the chosen week
+  // falls back to today's without an effect to keep in step.
+  const weeks = useMemo(() => weekRange(events), [events])
+  const landingWeek = useMemo(() => defaultWeek(weeks, new Date()), [weeks])
+  const chosenWeek = weeks.find((week) => week.getTime() === selectedWeekTime)
+  const activeWeek = chosenWeek ?? landingWeek
+  const weekIndex = activeWeek
+    ? weeks.findIndex((week) => week.getTime() === activeWeek.getTime())
+    : -1
+  const weekEvents = activeWeek ? eventsInWeek(events, activeWeek) : []
+
+  // Answers one contradiction: the cart reports a clash and this week shows none.
+  // With the clash on screen there is nothing to point at, and in the two thirds
+  // of conflicted carts where every week clashes the chevrons already do the job.
+  const conflictWeeks = useMemo(() => weeksWithConflict(events, weeks), [events, weeks])
+  const weekIsClear =
+    activeWeek && !conflictWeeks.some((week) => week.getTime() === activeWeek.getTime())
+  const conflictToReview = weekIsClear
+    ? (conflictWeeks.find((week) => week.getTime() > activeWeek.getTime()) ?? conflictWeeks[0])
+    : undefined
+
+  // Skipping repeats steps to the nearest week showing something this one does not,
+  // so every click lands on something new. Same comparison as the rings.
+  const step = (direction: 1 | -1) => {
+    if (!activeWeek) return undefined
+    if (!skipRepeatWeeks) return weeks[weekIndex + direction]
+
+    return nextDistinctWeek(events, weeks, activeWeek, direction) ?? undefined
+  }
+  const previousStop = step(-1)
+  const nextStop = step(1)
+
+  // A dead chevron says why: an end of the range, or nothing new left that way.
+  const noPreviousReason = previousStop
+    ? undefined
+    : weekIndex === 0
+      ? 'This is the first week of your timetable'
+      : 'Every earlier week shows the same classes'
+  const noNextReason = nextStop
+    ? undefined
+    : weekIndex === weeks.length - 1
+      ? 'This is the last week of your timetable'
+      : 'Every later week shows the same classes'
+
+  const activeWeekTime = activeWeek?.getTime() ?? null
+
+  useEffect(() => {
+    if (activeWeekTime === null) return
+
+    const lastShown = lastShownWeekRef.current
+    lastShownWeekRef.current = activeWeekTime
+
+    setChangedIds(
+      changedEventIds(
+        events,
+        new Date(activeWeekTime),
+        lastShown === null ? null : new Date(lastShown)
+      )
+    )
+    const timer = setTimeout(() => setChangedIds(new Set()), CHANGED_HIGHLIGHT_MS)
+
+    return () => clearTimeout(timer)
+  }, [events, activeWeekTime])
+
+  // Columns and hours span every week, so paging does not shift the grid.
   const days = getRequiredDays(events)
   const gridColumns = getGridColumns(days.length)
   const minimumCalendarWidth = getMinimumCalendarWidth(days.length)
@@ -608,298 +717,362 @@ export default function WeeklyCalendar({
       )}
 
       <CardContent className="flex-1 px-4 py-0 overflow-hidden relative">
-        {/* Scroll indicators */}
-        {scrollState.canScrollUp && (
-          <button
-            className="absolute z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1 top-12 -left-2"
-            onClick={scrollToTopHandler}
-          >
-            <ChevronUp className="w-4 h-4 text-gray-700" />
-          </button>
-        )}
-        {scrollState.canScrollDown && (
-          <button
-            className="absolute z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1 bottom-8 -left-2"
-            onClick={scrollToBottomHandler}
-          >
-            <ChevronDown className="w-4 h-4 text-gray-700" />
-          </button>
-        )}
-
-        <div
-          className="h-full max-h-[720px] overflow-auto"
-          ref={scrollContainerRef}
-          onScroll={handleScroll}
-        >
+        {activeWeek && (
+          // Equal side columns keep the week label centred, while the toggle sits
+          // immediately beside it rather than off at the edge where it is missed.
+          // Indented past the time column and the scrollbar, so it centres on the
+          // day grid rather than on the card that contains it.
           <div
-            ref={calendarRef}
-            className="h-full"
-            style={{ minWidth: `${minimumCalendarWidth}px` }}
+            className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 pb-1 text-xs text-gray-600"
+            style={{
+              paddingLeft: CALENDAR_LAYOUT_CONSTANTS.TIME_LABEL_COLUMN_WIDTH,
+              paddingRight: scrollState.scrollbarWidth,
+            }}
           >
-            {/* Sticky Header Row */}
-            <div
-              className="grid border-gray-200 bg-white sticky top-0 z-50 shadow-xs"
-              style={{
-                gridTemplateColumns: gridColumns,
-                height: `${CALENDAR_LAYOUT_CONSTANTS.STICKY_HEADER_HEIGHT}px`,
-              }}
-            >
-              <div className="h-full flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0 bg-white">
-                Time
-              </div>
-              {days.map((day) => (
-                <div
-                  key={day}
-                  className="h-full flex items-center justify-center text-xs font-medium text-gray-700 border-b border-r border-gray-200 min-w-0 flex-1 bg-white"
+            <div className="justify-self-end">
+              {conflictToReview && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  title={`${conflictWeeks.length} of ${weeks.length} weeks have a conflict`}
+                  onClick={() => setSelectedWeekTime(conflictToReview.getTime())}
+                  // Same shape as the skip toggle beside the navigator; purple only
+                  // because purple is what marks a conflict everywhere else.
+                  className="h-6 border-1 border-purple-300 px-2 text-xs font-normal text-purple-700 cursor-pointer hover:bg-purple-50 hover:text-purple-800 focus-visible:ring-1"
                 >
-                  {day}
-                </div>
-              ))}
+                  <AlertTriangle className="size-3" />
+                  Review next conflict
+                </Button>
+              )}
             </div>
-
-            {/* Calendar Content Grid */}
-            <div
-              className="grid"
-              style={{ gridTemplateColumns: gridColumns }}
-              onClick={(e) => {
-                const target = e.target as HTMLElement
-                const isEmptySpace = !target.closest('[data-course-card]')
-
-                if (isEmptySpace && onSelectEnrollment) {
-                  onSelectEnrollment(null)
-                }
-              }}
+            <div className="flex items-center gap-2">
+              {/* Reason and cursor sit on a wrapper: a disabled button takes no
+                  pointer events, so neither surfaces from the button itself. */}
+              <span
+                title={noPreviousReason}
+                className={`flex ${noPreviousReason ? 'cursor-not-allowed' : ''}`}
+              >
+                <button
+                  className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
+                  disabled={!previousStop}
+                  aria-label="Previous week"
+                  onClick={() => previousStop && setSelectedWeekTime(previousStop.getTime())}
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+              </span>
+              <span className="tabular-nums font-medium">
+                Week {weekIndex + 1} of {weeks.length}
+              </span>
+              <span
+                title={noNextReason}
+                className={`flex ${noNextReason ? 'cursor-not-allowed' : ''}`}
+              >
+                <button
+                  className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
+                  disabled={!nextStop}
+                  aria-label="Next week"
+                  onClick={() => nextStop && setSelectedWeekTime(nextStop.getTime())}
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </span>
+            </div>
+            <Button
+              variant={skipRepeatWeeks ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setSkipRepeatWeeks(!skipRepeatWeeks)}
+              className="justify-self-start h-6 px-2 text-xs font-normal border-1 cursor-pointer focus-visible:ring-1"
             >
-              {/* Time column */}
-              <div className="flex flex-col flex-shrink-0 border-r border-gray-200 time-column">
-                <div className="flex-1">
-                  {hours.map((hour) => (
-                    <div
-                      key={hour}
-                      className="flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100 transition-all duration-300"
-                      style={{ height: `${dynamicHourHeight}px` }}
-                    >
-                      {hour.toString().padStart(2, '0')}
-                    </div>
-                  ))}
+              Skip repeated weeks
+            </Button>
+          </div>
+        )}
+
+        {/* The chevrons position against the grid, not the card, so the navigator
+            row above cannot push them under the sticky header. The negative margin
+            spans the card's padding back, keeping them overhanging its left edge. */}
+        <div className="relative -mx-4 h-full max-h-[720px] px-4">
+          {scrollState.canScrollUp && (
+            <button
+              className="absolute z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1 top-12 -left-2"
+              onClick={scrollToTopHandler}
+            >
+              <ChevronUp className="w-4 h-4 text-gray-700" />
+            </button>
+          )}
+          {scrollState.canScrollDown && (
+            <button
+              className="absolute z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1 bottom-8 -left-2"
+              onClick={scrollToBottomHandler}
+            >
+              <ChevronDown className="w-4 h-4 text-gray-700" />
+            </button>
+          )}
+
+          <div className="h-full overflow-auto" ref={scrollContainerRef} onScroll={handleScroll}>
+            <div
+              ref={calendarRef}
+              className="h-full relative"
+              style={{ minWidth: `${minimumCalendarWidth}px` }}
+            >
+              {/* A week can be genuinely empty. Say so, so it does not read as a bug. */}
+              {activeWeek && weekEvents.length === 0 && (
+                <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none">
+                  <span className="rounded-full bg-white/90 px-3 py-1 text-xs text-gray-500 shadow-xs">
+                    No classes this week
+                  </span>
                 </div>
+              )}
+              {/* Sticky Header Row */}
+              <div
+                className="grid border-gray-200 bg-white sticky top-0 z-50 shadow-xs"
+                style={{
+                  gridTemplateColumns: gridColumns,
+                  height: `${CALENDAR_LAYOUT_CONSTANTS.STICKY_HEADER_HEIGHT}px`,
+                }}
+              >
+                <div className="h-full flex items-center justify-center text-xs font-medium text-gray-500 border-b border-r border-gray-200 flex-shrink-0 bg-white">
+                  Time
+                </div>
+                {days.map((day) => {
+                  const date = dateOfDay(activeWeek, day)
+
+                  return (
+                    <div
+                      key={day}
+                      className="h-full flex items-center justify-center gap-1 text-xs font-medium text-gray-700 border-b border-r border-gray-200 min-w-0 flex-1 bg-white"
+                    >
+                      <span>{day}</span>
+                      {date && (
+                        <span className="text-gray-400 tabular-nums">
+                          {date.getDate()}/{date.getMonth() + 1}
+                        </span>
+                      )}
+                    </div>
+                  )
+                })}
               </div>
 
-              {/* Day columns with clean time-based rendering */}
-              {days.map((day) => {
-                // Get the CalendarEvent.day index for this day key
-                const calendarEventDayIndex = getDayIndex(day)
-                const dayEvents = events
-                  .filter((event) => event.day === calendarEventDayIndex)
-                  .map((event) => ({
-                    ...event,
-                    hasConflict: events.some(
-                      (other) =>
-                        other.id !== event.id &&
-                        other.day === event.day &&
-                        eventsOverlap(event, other)
-                    ),
-                  }))
+              {/* Calendar Content Grid */}
+              <div
+                className="grid"
+                style={{ gridTemplateColumns: gridColumns }}
+                onClick={(e) => {
+                  const target = e.target as HTMLElement
+                  const isEmptySpace = !target.closest('[data-course-card]')
 
-                const eventGroups = groupOverlappingEvents(dayEvents)
+                  if (isEmptySpace && onSelectEnrollment) {
+                    onSelectEnrollment(null)
+                  }
+                }}
+              >
+                {/* Time column */}
+                <div className="flex flex-col flex-shrink-0 border-r border-gray-200 time-column">
+                  <div className="flex-1">
+                    {hours.map((hour) => (
+                      <div
+                        key={hour}
+                        className="flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100 transition-all duration-300"
+                        style={{ height: `${dynamicHourHeight}px` }}
+                      >
+                        {hour.toString().padStart(2, '0')}
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
-                return (
-                  <div
-                    key={day}
-                    className="flex flex-col relative min-w-0 flex-1 border-r border-gray-200 day-column"
-                  >
-                    {/* Hour slots with dynamic height */}
-                    <div className="relative flex-1">
-                      {hours.map((hour) => (
-                        <div
-                          key={hour}
-                          className="border-b border-gray-200 transition-all duration-300"
-                          style={{ height: `${dynamicHourHeight}px` }}
-                        />
-                      ))}
+                {/* Day columns with clean time-based rendering */}
+                {days.map((day) => {
+                  const eventGroups = layoutDayEvents(weekEvents, getDayIndex(day))
 
-                      {/* Dynamic conflict zones - scale with hour height */}
-                      {eventGroups.map((group, groupIndex) => {
-                        if (group.length <= 1) return null
-
-                        // Calculate based on pure time bounds with dynamic height
-                        const startTimes = group.map((e) => e.startHour * 60 + e.startMinute)
-                        const endTimes = group.map((e) => e.endHour * 60 + e.endMinute)
-                        const minStart = Math.min(...startTimes)
-                        const maxEnd = Math.max(...endTimes)
-
-                        const zoneTop =
-                          timeToPixels(
-                            Math.floor(minStart / 60),
-                            minStart % 60,
-                            calendarConfig.startHour,
-                            dynamicHourHeight
-                          ) - CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
-                        const zoneBottom =
-                          timeToPixels(
-                            Math.floor(maxEnd / 60),
-                            maxEnd % 60,
-                            calendarConfig.startHour,
-                            dynamicHourHeight
-                          ) + CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
-
-                        return (
+                  return (
+                    <div
+                      key={day}
+                      className="flex flex-col relative min-w-0 flex-1 border-r border-gray-200 day-column"
+                    >
+                      {/* Hour slots with dynamic height */}
+                      <div className="relative flex-1">
+                        {hours.map((hour) => (
                           <div
-                            key={`conflict-zone-${groupIndex}`}
-                            style={{
-                              position: 'absolute',
-                              top: `${zoneTop}px`,
-                              height: `${zoneBottom - zoneTop}px`,
-                              left: '0px',
-                              right: '0px',
-                              zIndex: 1,
-                              background:
-                                'repeating-linear-gradient(45deg, rgba(168, 85, 247, 0.6) 0px, rgba(168, 85, 247, 0.6) 10px, rgba(255, 255, 255, 0.3) 10px, rgba(255, 255, 255, 0.3) 20px)',
-                            }}
-                            className="border-2 border-purple-500 rounded-sm animate-pulse transition-all duration-300"
+                            key={hour}
+                            className="border-b border-gray-200 transition-all duration-300"
+                            style={{ height: `${dynamicHourHeight}px` }}
                           />
-                        )
-                      })}
+                        ))}
 
-                      {/* Event cards with dynamic time-based positioning */}
-                      {eventGroups.map((group) => {
-                        return group.map((event, stackIndex) => {
-                          const { top, height } = getCardDimensions(
-                            event,
-                            calendarConfig.startHour,
-                            dynamicHourHeight
-                          )
-                          const isConflicted = group.length > 1
-                          const isSelected = selectedEnrollment === event.enrollmentId
-                          const textLineLimits = getCardTextLineLimits(height, localDisplayConfig)
+                        {/* Dynamic conflict zones - scale with hour height */}
+                        {eventGroups.map((group, groupIndex) => {
+                          if (group.events.length <= 1) return null
 
-                          // Stacking for conflicts
-                          const stackOffset = isConflicted
-                            ? stackIndex * CALENDAR_LAYOUT_CONSTANTS.CONFLICT_CARD_STACK_OFFSET
-                            : 0
-                          const rightOffset = isConflicted
-                            ? (group.length - 1 - stackIndex) *
-                              CALENDAR_LAYOUT_CONSTANTS.CONFLICT_CARD_STACK_OFFSET
-                            : 0
-
-                          // Z-index should be lower than sticky header (z-50)
-                          let zIndex = isConflicted ? 20 + stackIndex : 10
-                          if (isSelected) zIndex = 40 // Lower than header z-50
+                          const { startMinutes, endMinutes } = group
+                          const zoneTop =
+                            timeToPixels(
+                              Math.floor(startMinutes / 60),
+                              startMinutes % 60,
+                              calendarConfig.startHour,
+                              dynamicHourHeight
+                            ) - CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
+                          const zoneBottom =
+                            timeToPixels(
+                              Math.floor(endMinutes / 60),
+                              endMinutes % 60,
+                              calendarConfig.startHour,
+                              dynamicHourHeight
+                            ) + CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING
 
                           return (
                             <div
-                              key={event.id}
-                              ref={(el) => {
-                                if (el && event.enrollmentId) {
-                                  eventRefs.current.set(event.enrollmentId, el)
-                                } else if (event.enrollmentId) {
-                                  eventRefs.current.delete(event.enrollmentId)
-                                }
-                              }}
-                              data-course-card="true"
+                              key={`conflict-zone-${groupIndex}`}
+                              data-conflict-zone="true"
                               style={{
                                 position: 'absolute',
-                                top: `${top}px`,
-                                height: `${height}px`,
-                                left: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING + stackOffset}px`,
-                                right: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING + rightOffset}px`,
-                                padding: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING}px`,
-                                zIndex,
-                                ...(isSelected && {
-                                  backgroundImage: `repeating-linear-gradient(
+                                top: `${zoneTop}px`,
+                                height: `${zoneBottom - zoneTop}px`,
+                                left: '0px',
+                                right: '0px',
+                                zIndex: 1,
+                                background:
+                                  'repeating-linear-gradient(45deg, rgba(168, 85, 247, 0.6) 0px, rgba(168, 85, 247, 0.6) 10px, rgba(255, 255, 255, 0.3) 10px, rgba(255, 255, 255, 0.3) 20px)',
+                              }}
+                              className="border-2 border-purple-500 rounded-sm animate-pulse transition-all duration-300"
+                            />
+                          )
+                        })}
+
+                        {/* Event cards with dynamic time-based positioning */}
+                        {eventGroups.map((group) => {
+                          return group.events.map(({ event, column }) => {
+                            const { top, height } = getCardDimensions(
+                              event,
+                              calendarConfig.startHour,
+                              dynamicHourHeight
+                            )
+                            const isSelected = selectedEnrollment === event.enrollmentId
+                            const textLineLimits = getCardTextLineLimits(height, localDisplayConfig)
+
+                            const { leftOffset, rightOffset, zIndex } = getCardStackPlacement(
+                              column,
+                              group.columnCount,
+                              isSelected
+                            )
+
+                            return (
+                              <div
+                                key={event.id}
+                                ref={(el) => {
+                                  if (el && event.enrollmentId) {
+                                    eventRefs.current.set(event.enrollmentId, el)
+                                  } else if (event.enrollmentId) {
+                                    eventRefs.current.delete(event.enrollmentId)
+                                  }
+                                }}
+                                data-course-card="true"
+                                style={{
+                                  position: 'absolute',
+                                  top: `${top}px`,
+                                  height: `${height}px`,
+                                  left: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING + leftOffset}px`,
+                                  right: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING + rightOffset}px`,
+                                  padding: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING}px`,
+                                  zIndex,
+                                  ...(isSelected && {
+                                    backgroundImage: `repeating-linear-gradient(
                                   45deg,
                                   transparent,
                                   transparent 8px,
                                   rgba(255,255,255,0.15) 8px,
                                   rgba(255,255,255,0.15) 10px
                                 )`,
-                                }),
-                              }}
-                              className={`
+                                  }),
+                                }}
+                                className={`
                               ${event.color}
                               rounded-sm text-xs text-white
                               hover:scale-105 transition-all duration-300 cursor-pointer
                               overflow-hidden group
                               ${isSelected ? 'scale-105' : ''}
+                              ${changedIds.has(event.id) ? 'changed-ring' : ''}
                             `}
-                              onClick={() => {
-                                if (onSelectEnrollment && event.enrollmentId) {
-                                  const newSelection = isSelected ? null : event.enrollmentId
-                                  onSelectEnrollment(newSelection)
-                                }
-                              }}
-                            >
-                              {/* Visibility toggle button */}
-                              <Button
-                                variant="ghost"
-                                size="sm"
-                                onClick={(e) => {
-                                  e.stopPropagation()
+                                onClick={() => {
                                   if (onSelectEnrollment && event.enrollmentId) {
-                                    onSelectEnrollment(event.enrollmentId)
-                                  }
-                                  if (onToggleVisibility && event.enrollmentId) {
-                                    onToggleVisibility(event.enrollmentId)
+                                    const newSelection = isSelected ? null : event.enrollmentId
+                                    onSelectEnrollment(newSelection)
                                   }
                                 }}
-                                className="absolute top-0.5 right-0.5 h-4 w-4 p-0 bg-black/20 hover:bg-white/40 backdrop-blur-sm cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                                title={event.isVisible ? 'Hide course' : 'Show course'}
                               >
-                                {event.isVisible ? (
-                                  <Eye className="w-2.5 h-2.5 text-white" />
-                                ) : (
-                                  <EyeOff className="w-2.5 h-2.5 text-white" />
-                                )}
-                              </Button>
+                                {/* Visibility toggle button */}
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    if (onSelectEnrollment && event.enrollmentId) {
+                                      onSelectEnrollment(event.enrollmentId)
+                                    }
+                                    if (onToggleVisibility && event.enrollmentId) {
+                                      onToggleVisibility(event.enrollmentId)
+                                    }
+                                  }}
+                                  className="absolute top-0.5 right-0.5 h-4 w-4 p-0 bg-black/20 hover:bg-white/40 backdrop-blur-sm cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                  title={event.isVisible ? 'Hide course' : 'Show course'}
+                                >
+                                  {event.isVisible ? (
+                                    <Eye className="w-2.5 h-2.5 text-white" />
+                                  ) : (
+                                    <EyeOff className="w-2.5 h-2.5 text-white" />
+                                  )}
+                                </Button>
 
-                              {/* Course content with conditional rendering based on config */}
-                              <div className={`${TEXT_STYLES.COURSE_CODE} truncate pr-3`}>
-                                {formatCourseCodeWithSection(
-                                  event.subject,
-                                  event.courseCode,
-                                  event.sectionCode
+                                {/* Course content with conditional rendering based on config */}
+                                <div className={`${TEXT_STYLES.COURSE_CODE} truncate pr-3`}>
+                                  {formatCourseCodeWithSection(
+                                    event.subject,
+                                    event.courseCode,
+                                    event.sectionCode
+                                  )}
+                                </div>
+
+                                {localDisplayConfig.showTitle && (
+                                  <div className={`${TEXT_STYLES.TITLE} truncate`}>
+                                    {event.title || 'Course Title'}
+                                  </div>
+                                )}
+
+                                {localDisplayConfig.showTime && (
+                                  <div className={`${TEXT_STYLES.TIME} truncate`}>
+                                    {formatTimeCompact(event.time)}
+                                  </div>
+                                )}
+
+                                {localDisplayConfig.showLocation && (
+                                  <div
+                                    className={`${TEXT_STYLES.LOCATION} ${
+                                      textLineLimits.location === 2 ? 'line-clamp-2' : 'truncate'
+                                    }`}
+                                  >
+                                    {event.location}
+                                  </div>
+                                )}
+
+                                {localDisplayConfig.showInstructor && (
+                                  <div
+                                    className={`${TEXT_STYLES.INSTRUCTOR} ${
+                                      textLineLimits.instructor === 2 ? 'line-clamp-2' : 'truncate'
+                                    }`}
+                                  >
+                                    {formatInstructorsCompact(event.instructors)}
+                                  </div>
                                 )}
                               </div>
-
-                              {localDisplayConfig.showTitle && (
-                                <div className={`${TEXT_STYLES.TITLE} truncate`}>
-                                  {event.title || 'Course Title'}
-                                </div>
-                              )}
-
-                              {localDisplayConfig.showTime && (
-                                <div className={`${TEXT_STYLES.TIME} truncate`}>
-                                  {formatTimeCompact(event.time)}
-                                </div>
-                              )}
-
-                              {localDisplayConfig.showLocation && (
-                                <div
-                                  className={`${TEXT_STYLES.LOCATION} ${
-                                    textLineLimits.location === 2 ? 'line-clamp-2' : 'truncate'
-                                  }`}
-                                >
-                                  {event.location}
-                                </div>
-                              )}
-
-                              {localDisplayConfig.showInstructor && (
-                                <div
-                                  className={`${TEXT_STYLES.INSTRUCTOR} ${
-                                    textLineLimits.instructor === 2 ? 'line-clamp-2' : 'truncate'
-                                  }`}
-                                >
-                                  {formatInstructorsCompact(event.instructors)}
-                                </div>
-                              )}
-                            </div>
-                          )
-                        })
-                      })}
+                            )
+                          })
+                        })}
+                      </div>
                     </div>
-                  </div>
-                )
-              })}
+                  )
+                })}
+              </div>
             </div>
           </div>
         </div>

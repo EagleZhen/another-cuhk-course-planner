@@ -216,11 +216,11 @@ export default function Home() {
   // Convert enrollments to calendar events with conflict detection
   const calendarEvents = useMemo(() => {
     // Generate events from enrollments
-    const events = enrollmentsToCalendarEvents(courseEnrollments)
+    const events = enrollmentsToCalendarEvents(courseEnrollments, currentTerm)
 
     // Detect conflicts and return
     return detectConflicts(events)
-  }, [courseEnrollments])
+  }, [courseEnrollments, currentTerm])
 
   // Section details that changed since the user last saw them. Invalid enrollments surface
   // through the cart's banner/card instead, so they do not need a meeting-level diff.

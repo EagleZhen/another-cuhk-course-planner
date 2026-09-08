@@ -20,10 +20,18 @@ import type {
   InternalMeeting,
 } from './types'
 
-const TERM = 'Term 1'
+// A real term name and a Monday date, so meetings resolve to occurrences the
+// conflict filter can compare. 1 September 2025 is a Monday.
+const TERM = '2025-26 Term 1'
 
 function makeMeeting(overrides: Partial<InternalMeeting> = {}): InternalMeeting {
-  return { time: 'Mo 10:30AM - 12:15PM', location: 'LSB', instructors: '', dates: '', ...overrides }
+  return {
+    time: 'Mo 10:30AM - 12:15PM',
+    location: 'LSB',
+    instructors: '',
+    dates: '1/9',
+    ...overrides,
+  }
 }
 
 function makeSection(overrides: Partial<InternalSection> = {}): InternalSection {
@@ -87,7 +95,7 @@ describe('filterCourses', () => {
     const inTerm = makeCourse({ courseCode: '1130' })
     const otherTerm = makeCourse({
       courseCode: '2100',
-      terms: [{ termCode: '2520', termName: 'Term 2', sections: [makeSection()] }],
+      terms: [{ termCode: '2520', termName: '2025-26 Term 2', sections: [makeSection()] }],
     })
     const result = filterCourses([inTerm, otherTerm], noFilters, ctx)
     expect(result).toEqual([inTerm])

@@ -38,14 +38,20 @@ Acknowledgment runs on three mechanisms with separate reset rules (`lastSeenSect
 
 `isVisible` (the eye toggle) is orthogonal: a hidden course leaves the timetable and ICS but its lifecycle keeps running. See [architecture.md](../architecture.md#browser-state).
 
+## Meeting Rows
+
+Each row shows time, instructor and location, with the weeks it runs under the time it qualifies: `10/9-24/9, 8/10-3/12`. Deliberately quiet — the timetable answers "when" far better, so this is only here to stop a section whose weeks differ looking like every other row.
+
+A range is a source row's first and last date. Every published row is one weekly run, so the runs come from the source's own split into rows rather than from grouping dates here; a test checks that over every row, since otherwise a range would claim a class that does not exist.
+
 ## Change Detection
 
-Flags an enrolled section that changed (time, location, instructor, or language) since the user last saw it, so they know to re-export their `.ics` or update a saved screenshot — which the app can't do for them.
+Flags an enrolled section that changed (time, location, instructor, dates, or language) since the user last saw it, so they know to re-export their `.ics` or update a saved screenshot — which the app can't do for them.
 
 - The rendered timetable is always the fresh scrape. What the user _last saw_ is kept as an invisible per-section signature (`lastSeenSections` on `CourseEnrollment`); a section whose current signature differs is surfaced as changed.
-- That signature advances only on add / section-change / sync / dismiss — never on plain reload — so a note persists across reloads until dismissed and re-fires on further change. Sync only fills in _missing_ signatures, so fresh data the user hasn't seen yet isn't retroactively flagged.
-- Compares time + location + instructor + language; ignores `dates` and availability; only `selectedSections`. Detection compares meeting positions to decide whether to show the summary banner; detail rows use content-based set differences so a deletion does not make later meetings look changed. Logic lives in [courseUtils.ts](../../web/src/lib/courseUtils.ts) (`sectionSignature`, `diffEnrollment`, `diffSectionDetail`).
-- Equal added/removed counts pair positionally into field-level "previously" highlights; unequal counts show whole rows as added/removed rather than guessing pairs — a wrong before/after is worse than none.
+- That signature advances only on add / section-change / sync / dismiss — never on plain reload — so a note persists across reloads until dismissed and re-fires on further change. Sync only fills in _missing_ signatures, so fresh data the user hasn't seen yet isn't retroactively flagged. One exception: a signature stored before dates were compared gets the current dates filled in. An absent list means _unknown_, so nothing is flagged now — and without the fill that signature would be carried forward untouched and stay date-blind for good.
+- Compares time + location + instructor + dates + language; ignores availability; only `selectedSections`. **Dates are compared but are not part of the dedupe key**, or `ACCT1111 B-LEC` — the same lecture listed either side of a gap — would split into two rows identical in every displayed field. Detection compares meeting positions to decide whether to show the summary banner; detail rows use content-based set differences so a deletion does not make later meetings look changed. Logic lives in [courseUtils.ts](../../web/src/lib/courseUtils.ts) (`sectionSignature`, `diffEnrollment`, `diffSectionDetail`).
+- Equal added/removed counts pair positionally into field-level highlights, each showing the old value above the new one; unequal counts show whole rows as added/removed rather than guessing pairs — a wrong before/after is worse than none.
 - A whole course or current term disappearing uses `isInvalid`; a selected section becomes a tombstone; a meeting disappearing from a live section stays in that section as a removed row.
 
 ## Summary Semantics
