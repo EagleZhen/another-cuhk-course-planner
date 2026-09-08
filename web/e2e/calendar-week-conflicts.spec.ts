@@ -132,3 +132,41 @@ test('offers no jump when the shown week already clashes', async ({ page }) => {
   await expect(conflictZone(page).first()).toBeVisible()
   await expect(page.getByRole('button', { name: 'Review next conflict' })).toHaveCount(0)
 })
+
+// Standing inside a run of repeated weeks, back used to step to that run's own
+// first week and change nothing on screen. Reaching such a week needs the toggle,
+// which is also the only route the unit tests cannot take.
+test('back clears the run it is standing in', async ({ page }) => {
+  await openPlanner(page, '25/9, 2/10, 9/10', '11/9, 18/9')
+  const skip = page.getByRole('button', { name: 'Skip repeated weeks' })
+  const nextWeek = page.getByRole('button', { name: 'Next week' })
+  const previousWeek = page.getByRole('button', { name: 'Previous week' })
+
+  // Weeks 3 to 5 all show the tutorial alone, so only the toggle reaches week 5.
+  await skip.click()
+  for (let i = 0; i < 4; i++) await nextWeek.click()
+  await expect(page.getByText('Week 5 of 5')).toBeVisible()
+
+  await skip.click()
+  await previousWeek.click()
+  await expect(page.getByText('Week 2 of 5')).toBeVisible()
+  await expect(cards(page)).toHaveCount(1)
+
+  // And nothing earlier differs from the lecture week, so back is spent.
+  await expect(previousWeek).toBeDisabled()
+  await expect(page.getByTitle('Every earlier week shows the same classes')).toBeVisible()
+})
+
+test('rings the card that was not on the timetable it came from', async ({ page }) => {
+  await openPlanner(page, '25/9, 2/10, 9/10', '11/9, 18/9')
+
+  // Week 1 is arrived at with nothing before it, so nothing rings.
+  await expect(page.locator('.changed-ring')).toHaveCount(0)
+
+  await page.getByRole('button', { name: 'Next week' }).click()
+  await expect(page.getByText('Week 3 of 5')).toBeVisible()
+  await expect(page.locator('.changed-ring')).toHaveCount(1)
+
+  // It is navigation state, not schedule content, so it lets go by itself.
+  await expect(page.locator('.changed-ring')).toHaveCount(0, { timeout: 6000 })
+})
