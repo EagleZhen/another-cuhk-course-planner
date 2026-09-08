@@ -95,7 +95,7 @@ export function MeetingRowCard({
             <div
               className={`truncate text-[10px] ${
                 fields?.dates ? `${changedText} w-fit` : 'text-gray-400'
-              }${datesTooltip ? ' cursor-help' : ''}`}
+              }`}
               title={datesTooltip}
             >
               {dateRanges.join(', ')}
