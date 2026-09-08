@@ -14,6 +14,12 @@ import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 // Exported for the cart's language-of-instruction line, which uses the same treatment.
 export const changedText = 'rounded bg-amber-100 text-amber-800 cursor-help'
 
+// A changed value shows both, since the row truncates and the arrow says which
+// way it went. Labelling them would only repeat what the arrow already states.
+function changedTooltip(before: string, now: string): string {
+  return `${before}\n\u2193\n${now}`
+}
+
 // One meeting in the unified 3-row emoji format, styled by its change status.
 // Shared by the cart (all statuses) and search results (always 'unchanged').
 export function MeetingRowCard({
@@ -69,7 +75,9 @@ export function MeetingRowCard({
         <span
           className={`font-mono ${fields?.time ? changedText : valueClass}`}
           title={
-            fields?.time && before ? `Previously ${formatTimeCompact(before.time)}` : undefined
+            fields?.time && before
+              ? changedTooltip(formatTimeCompact(before.time), formattedTime)
+              : undefined
           }
         >
           {formattedTime}
@@ -83,7 +91,7 @@ export function MeetingRowCard({
             className={`truncate ${fields?.instructor ? changedText : valueClass}`}
             title={
               fields?.instructor && before
-                ? `Previously ${formatInstructorsCompact(before.instructor)}`
+                ? changedTooltip(formatInstructorsCompact(before.instructor), formattedInstructor)
                 : wholeMeetingChange
                   ? undefined
                   : formattedInstructor
@@ -113,7 +121,7 @@ export function MeetingRowCard({
             className={`truncate ${fields?.location ? changedText : valueClass}`}
             title={
               fields?.location && before
-                ? `Previously ${before.location || 'TBA'}`
+                ? changedTooltip(before.location || 'TBA', location)
                 : wholeMeetingChange
                   ? undefined
                   : location
