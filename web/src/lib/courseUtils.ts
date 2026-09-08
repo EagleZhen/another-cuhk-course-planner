@@ -758,10 +758,33 @@ export function recordSeenSections(
   for (const section of [...enrollment.selectedSections, ...(enrollment.removedSections ?? [])]) {
     next[section.id] =
       opts.onlyMissing && prev[section.id] !== undefined
-        ? prev[section.id]
+        ? withCurrentDates(prev[section.id], section)
         : sectionSignature(section)
   }
   return { ...enrollment, lastSeenSections: next }
+}
+
+/**
+ * Fills dates into a snapshot stored before they were compared, taking them from
+ * the section as it stands so the entry reads as "no date change yet".
+ *
+ * Without this the entry stays date-blind for good: kept as-is on every sync, it
+ * would only gain dates if some unrelated change happened and was dismissed. A
+ * row that no longer matches is left alone — it has changed, and gets reported.
+ */
+function withCurrentDates(stored: SectionSignature, section: InternalSection): SectionSignature {
+  if (stored.meetings.every((meeting) => meeting.dates)) return stored
+
+  const current = new Map(
+    sectionSignature(section).meetings.map((meeting) => [meetingRowKey(meeting), meeting.dates])
+  )
+
+  return {
+    ...stored,
+    meetings: stored.meetings.map((meeting) =>
+      meeting.dates ? meeting : { ...meeting, dates: current.get(meetingRowKey(meeting)) }
+    ),
+  }
 }
 
 /** Acknowledge changes without deleting section tombstones or changing the timetable. */

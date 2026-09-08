@@ -591,6 +591,16 @@ function mkEnrollment(
 }
 const sig = (s: InternalSection) => sectionSignature(s)
 
+/** The shape a snapshot had before dates were stored on it. */
+const legacySnapshot = (section: InternalSection): SectionSignature => ({
+  ...sig(section),
+  meetings: sig(section).meetings.map(({ time, location, instructor }) => ({
+    time,
+    location,
+    instructor,
+  })),
+})
+
 // A signature row as sectionSignature builds it. mkMeeting dates a meeting by the
 // weekday its time states, so changing the weekday moves its dates too.
 const sigRow = (time: string, location = 'Hum 314', instructor = 'Staff') => ({
@@ -1007,19 +1017,33 @@ describe('sectionSignature', () => {
     })
   })
 
+  // A snapshot from before dates were stored gains them on the next sync, so it
+  // reports nothing now and catches the change after. Without the backfill the
+  // entry stays date-blind for good, since sync keeps existing entries as-is.
+  it('fills dates into a snapshot stored before them, then catches the next change', () => {
+    const section = mkSection('1', [mkMeeting({ dates: '7/1, 14/1' })])
+    const enrollment: CourseEnrollment = {
+      ...mkEnrollment([section]),
+      lastSeenSections: { '1': legacySnapshot(section) },
+    }
+
+    const synced = recordSeenSections(enrollment, { onlyMissing: true })
+    expect(synced.lastSeenSections!['1'].meetings[0].dates).toEqual(['7/1, 14/1'])
+
+    const moved = mkSection('1', [mkMeeting({ dates: '21/1, 28/1' })])
+    expect(diffSectionDetail(moved, synced.lastSeenSections!['1']).rows[0].status).toBe('changed')
+  })
+
   // Snapshots stored before dates were compared have none. Treating that as a
   // change would warn every user about every section the day this ships.
   it('reports no change against a snapshot taken before dates were stored', () => {
     const section = mkSection('1', [mkMeeting({ dates: '21/1, 28/1' })])
-    // The shape a snapshot had before dates were stored.
-    const old = sig(mkSection('1', [mkMeeting({ dates: '7/1, 14/1' })]))
-    old.meetings = old.meetings.map((row) => ({
-      time: row.time,
-      location: row.location,
-      instructor: row.instructor,
-    }))
-
-    expect(diffSectionDetail(section, old).rows[0].status).toBe('unchanged')
+    expect(
+      diffSectionDetail(
+        section,
+        legacySnapshot(mkSection('1', [mkMeeting({ dates: '7/1, 14/1' })]))
+      ).rows[0].status
+    ).toBe('unchanged')
   })
   it('reflects time, location, instructor and language', () => {
     const base = mkSection('1', [mkMeeting({})], 'English only')
