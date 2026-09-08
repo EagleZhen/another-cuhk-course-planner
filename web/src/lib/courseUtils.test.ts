@@ -769,32 +769,47 @@ const PHAR1433_TERM = '2026-27 Term 1'
 
 describe('sectionMeetingDates', () => {
   // ACCT1111 B-LEC lists the same Thursday lecture twice, once either side of a
-  // fortnight's gap. The rows merge on display; their dates must not.
-  it("keeps a merged row's date runs apart", () => {
-    const course = loadPublishedCourse('2026-27', 'ACCT', '1111')
-    const section = findPublishedSection(course, CONFLICT_TERM, 'B-LEC')
-    const { meetings } = sectionSignature(section)
-
-    expect(meetings).toHaveLength(1)
-    expect(sectionMeetingDates(section).get(meetingRowKey(meetings[0]))).toEqual([
-      '10/9, 17/9, 24/9',
-      '8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12',
-    ])
-  })
-
-  // Every published row is one weekly run, so a range says it without inventing
-  // grouping of our own — the gap between the two runs stays visible.
-  it('reads each run as a range', () => {
+  // fortnight's gap. The rows merge on display; their dates must not, and each
+  // reads as a range so the missing fortnight stays visible.
+  it("keeps a merged row's runs apart and reads each as a range", () => {
     const course = loadPublishedCourse('2026-27', 'ACCT', '1111')
     const section = findPublishedSection(course, CONFLICT_TERM, 'B-LEC')
     const { meetings } = sectionSignature(section)
     const runs = sectionMeetingDates(section).get(meetingRowKey(meetings[0]))!
 
+    expect(meetings).toHaveLength(1)
+    expect(runs).toEqual([
+      '10/9, 17/9, 24/9',
+      '8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12',
+    ])
     expect(runs.map(formatDateRange)).toEqual(['10/9 - 24/9', '8/10 - 3/12'])
+  })
+
+  it('leaves a lone date, an empty row, and a range the source wrote', () => {
     expect(formatDateRange('2/11')).toBe('2/11')
     expect(formatDateRange('')).toBe('')
-    // An undated row states its own range; it passes through unchanged.
     expect(formatDateRange('11/01/2027 - 19/04/2027')).toBe('11/01/2027 - 19/04/2027')
+  })
+
+  // First and last only tell the truth if a row is one unbroken weekly run.
+  // Checked against every published row: a refresh that broke it would make
+  // "10/9 - 24/9" claim a class on 17/9 that does not exist.
+  it('finds every published row to be one ascending weekly run', () => {
+    const weekAfter = (date: Date) =>
+      new Date(date.getFullYear(), date.getMonth(), date.getDate() + 7).getTime()
+    let checked = 0
+
+    forEachPublishedTimedMeeting((meeting, weekday, termName) => {
+      const dates = parseMeetingDates(meeting.dates, termName, weekday)
+      if (dates.length < 2) return
+
+      checked++
+      expect(dates.every((date, i) => i === 0 || weekAfter(dates[i - 1]) === date.getTime())).toBe(
+        true
+      )
+    })
+
+    expect(checked).toBeGreaterThan(40_000) // a walker that visited nothing would pass
   })
 })
 
