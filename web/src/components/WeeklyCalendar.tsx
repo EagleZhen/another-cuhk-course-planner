@@ -720,16 +720,23 @@ export default function WeeklyCalendar({
         {activeWeek && (
           // Equal side columns keep the week label centred, while the toggle sits
           // immediately beside it rather than off at the edge where it is missed.
-          // Indented past the time column and the scrollbar, so it centres on the
-          // day grid rather than on the card that contains it.
+          // The indent past the time column and the scrollbar is what makes it centre
+          // on the day grid rather than on the card.
+          //
+          // Neither survives a phone: the empty side column still reserves the wider
+          // control's width, and the indent costs more than the controls have to
+          // spare. Below `md` the row simply flows from the left and wraps.
           <div
-            className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 pb-1 text-xs text-gray-600"
-            style={{
-              paddingLeft: CALENDAR_LAYOUT_CONSTANTS.TIME_LABEL_COLUMN_WIDTH,
-              paddingRight: scrollState.scrollbarWidth,
-            }}
+            className="flex flex-wrap items-center gap-2 pb-1 text-xs text-gray-600 md:grid md:grid-cols-[1fr_auto_1fr] md:pl-(--grid-indent) md:pr-(--grid-scrollbar)"
+            style={
+              {
+                '--grid-indent': `${CALENDAR_LAYOUT_CONSTANTS.TIME_LABEL_COLUMN_WIDTH}px`,
+                '--grid-scrollbar': `${scrollState.scrollbarWidth}px`,
+              } as React.CSSProperties
+            }
           >
-            <div className="justify-self-end">
+            {/* `contents` so the empty side column costs no gap where there is no grid. */}
+            <div className="max-md:contents justify-self-end">
               {conflictToReview && (
                 <Button
                   variant="outline"
@@ -738,7 +745,7 @@ export default function WeeklyCalendar({
                   onClick={() => setSelectedWeekTime(conflictToReview.getTime())}
                   // Same shape as the skip toggle beside the navigator; purple only
                   // because purple is what marks a conflict everywhere else.
-                  className="h-6 border-1 border-purple-300 px-2 text-xs font-normal text-purple-700 cursor-pointer hover:bg-purple-50 hover:text-purple-800 focus-visible:ring-1"
+                  className="h-6 border-1 border-purple-300 px-2 text-xs font-normal text-purple-700 cursor-pointer hover:bg-purple-50 hover:text-purple-800 focus-visible:ring-1 max-md:order-last"
                 >
                   <AlertTriangle className="size-3" />
                   Review next conflict
@@ -761,7 +768,7 @@ export default function WeeklyCalendar({
                   <ChevronLeft className="w-4 h-4" />
                 </button>
               </span>
-              <span className="tabular-nums font-medium">
+              <span className="tabular-nums font-medium whitespace-nowrap">
                 Week {weekIndex + 1} of {weeks.length}
               </span>
               <span
