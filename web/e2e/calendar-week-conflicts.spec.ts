@@ -114,10 +114,21 @@ test('jumps to the one week a conflict falls in', async ({ page }) => {
 
   await expect(page.getByText('Week 2 of 2')).toBeVisible()
   await expect(conflictZone(page).first()).toBeVisible()
+  // Arrived: the clash is on screen, so there is nothing left to point at.
+  await expect(jump).toHaveCount(0)
 })
 
 test('offers no jump when nothing clashes', async ({ page }) => {
   await openPlanner(page, '25/9')
 
+  await expect(page.getByRole('button', { name: 'Review next conflict' })).toHaveCount(0)
+})
+
+// Two thirds of conflicted carts clash every week, where the chevrons already
+// show it and the button would only duplicate them.
+test('offers no jump when the shown week already clashes', async ({ page }) => {
+  await openPlanner(page, '11/9')
+
+  await expect(conflictZone(page).first()).toBeVisible()
   await expect(page.getByRole('button', { name: 'Review next conflict' })).toHaveCount(0)
 })

@@ -444,11 +444,13 @@ export default function WeeklyCalendar({
     () => (skipRepeatWeeks ? distinctWeeks(events, weeks) : weeks),
     [skipRepeatWeeks, events, weeks]
   )
-  // A clash can sit in one week of thirteen while the cart reports it all term,
-  // so the badge says there is a problem and twelve weeks show none. Wraps, so
-  // it walks them rather than dying at the last.
+  // Answers one contradiction: the cart reports a clash and this week shows none.
+  // With the clash on screen there is nothing to point at, and in the two thirds
+  // of conflicted carts where every week clashes the chevrons already do the job.
   const conflictWeeks = useMemo(() => weeksWithConflict(events, weeks), [events, weeks])
-  const nextConflict = activeWeek
+  const weekIsClear =
+    activeWeek && !conflictWeeks.some((week) => week.getTime() === activeWeek.getTime())
+  const conflictToReview = weekIsClear
     ? (conflictWeeks.find((week) => week.getTime() > activeWeek.getTime()) ?? conflictWeeks[0])
     : undefined
 
@@ -717,13 +719,12 @@ export default function WeeklyCalendar({
             }}
           >
             <div className="justify-self-end">
-              {conflictWeeks.length > 0 && (
+              {conflictToReview && (
                 <Button
                   variant="outline"
                   size="sm"
-                  disabled={nextConflict?.getTime() === activeWeek?.getTime()}
                   title={`${conflictWeeks.length} of ${weeks.length} weeks have a conflict`}
-                  onClick={() => nextConflict && setSelectedWeekTime(nextConflict.getTime())}
+                  onClick={() => setSelectedWeekTime(conflictToReview.getTime())}
                   // Same shape as the skip toggle beside the navigator; purple only
                   // because purple is what marks a conflict everywhere else.
                   className="h-6 border-1 border-purple-300 px-2 text-xs font-normal text-purple-700 cursor-pointer hover:bg-purple-50 hover:text-purple-800 focus-visible:ring-1"
