@@ -657,6 +657,21 @@ export function sectionSignature(section: InternalSection): SectionSignature {
 }
 
 /**
+ * A source row's dates as a range: "10/9, 17/9, 24/9" reads "10/9–24/9".
+ *
+ * Every published row is one weekly run, so first and last say it all. The runs
+ * come from the source's own split into rows, never from grouping dates here.
+ */
+export function formatDateRange(dates: string): string {
+  const days = dates
+    .split(',')
+    .map((date) => date.trim())
+    .filter(Boolean)
+
+  return days.length > 1 ? `${days[0]}–${days[days.length - 1]}` : (days[0] ?? '')
+}
+
+/**
  * Dates behind each displayed meeting row, keyed as `meetingRowKey`.
  *
  * Rows differing only by date merge into one, and each keeps its own entry

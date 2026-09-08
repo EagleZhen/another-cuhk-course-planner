@@ -1,6 +1,7 @@
 'use client'
 
 import {
+  formatDateRange,
   formatTimeCompact,
   formatInstructorsCompact,
   googleSearchAndOpen,
@@ -59,29 +60,41 @@ export function MeetingRowCard({
       break
   }
 
-  // Dates ride with the time, the one field they answer for: hovering a room to
-  // learn which weeks it runs would be a non-sequitur. Each source row keeps its
-  // own line, since the break between runs is what reveals a gap.
-  const datesTooltip = row.dates?.length ? `Dates\n${row.dates.join('\n')}` : undefined
-  const changedTime =
+  // Each source row is one weekly run, so it reads as a range; the break between
+  // runs is what shows a gap.
+  const dateRanges = row.dates?.map(formatDateRange).filter(Boolean) ?? []
+  // Only worth a tooltip where a range stands for dates it does not show.
+  const hiddenDates = row.dates?.some((run) => run.includes(',')) ?? false
+  const timeTooltip =
     fields?.time && before
       ? changedTooltip(formatTimeCompact(before.time), formattedTime)
       : undefined
-  const timeTooltip = [changedTime, datesTooltip].filter(Boolean).join('\n\n') || undefined
 
   return (
     <div className={`rounded border px-2 py-1.5 shadow-sm ${containerClass}`} title={tooltip}>
-      {/* Row 1: Time */}
-      <div className="flex items-center gap-1 text-[11px]">
+      {/* Row 1: Time, with the dates it runs on beneath */}
+      <div className="flex items-start gap-1 text-[11px]">
         <span>⏰</span>
-        <span
-          className={`font-mono ${fields?.time ? changedText : valueClass}${
-            timeTooltip && !fields?.time ? ' cursor-help' : ''
-          }`}
-          title={timeTooltip}
-        >
-          {formattedTime}
-        </span>
+        {/* Dates share the time's column so they align with it whatever the emoji
+            measures, and take no icon of their own — one here would read like the
+            row's action buttons. Quiet at rest: the timetable answers "when" far
+            better, so this is only here to stop a varying section looking uniform. */}
+        <div className="min-w-0 flex-1">
+          <span
+            className={`font-mono ${fields?.time ? changedText : valueClass}`}
+            title={timeTooltip}
+          >
+            {formattedTime}
+          </span>
+          {dateRanges.length > 0 && (
+            <div
+              className={`truncate text-[10px] text-gray-400${hiddenDates ? ' cursor-help' : ''}`}
+              title={hiddenDates ? row.dates!.join('\n') : undefined}
+            >
+              {dateRanges.join(', ')}
+            </div>
+          )}
+        </div>
       </div>
       {/* Row 2: Instructor */}
       <div className="flex items-center gap-1 text-[11px] mt-1">

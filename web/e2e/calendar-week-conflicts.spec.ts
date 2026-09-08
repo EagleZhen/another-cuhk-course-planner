@@ -70,7 +70,7 @@ test('reports no conflict for sections that never share a date', async ({ page }
 
   // Week of 7 September: the lecture alone, its column dated.
   await expect(cards(page)).toHaveCount(1)
-  await expect(page.getByText('11/9', { exact: true })).toBeVisible()
+  await expect(page.locator('span.tabular-nums', { hasText: '11/9' })).toBeVisible()
   await expect(conflictBadge(page)).toHaveCount(0)
   await expect(conflictZone(page)).toHaveCount(0)
 })

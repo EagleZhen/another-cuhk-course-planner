@@ -35,6 +35,7 @@ import {
   enrollmentsToCalendarEvents,
   sectionMeetingDates,
   meetingRowKey,
+  formatDateRange,
   parseTimeRange,
 } from './courseUtils'
 import { transformExternalCourseData } from './validation'
@@ -779,6 +780,19 @@ describe('sectionMeetingDates', () => {
       '10/9, 17/9, 24/9',
       '8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12',
     ])
+  })
+
+  // Every published row is one weekly run, so a range says it without inventing
+  // grouping of our own — the gap between the two runs stays visible.
+  it('reads each run as a range', () => {
+    const course = loadPublishedCourse('2026-27', 'ACCT', '1111')
+    const section = findPublishedSection(course, CONFLICT_TERM, 'B-LEC')
+    const { meetings } = sectionSignature(section)
+    const runs = sectionMeetingDates(section).get(meetingRowKey(meetings[0]))!
+
+    expect(runs.map(formatDateRange)).toEqual(['10/9–24/9', '8/10–3/12'])
+    expect(formatDateRange('2/11')).toBe('2/11')
+    expect(formatDateRange('')).toBe('')
   })
 })
 

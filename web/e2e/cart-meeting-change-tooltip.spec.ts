@@ -71,12 +71,10 @@ test('shows what a changed field was and is', async ({ page }) => {
   await expect(changedLocation).toHaveAttribute('title', `${wasIn}\n↓\n${nowIn}`)
 })
 
-// Dates answer for the time, not the room, so they hang off the time row.
-test('shows the dates on the time row', async ({ page }) => {
+// Dates sit under the time, the field they qualify.
+test('shows the dates under the time', async ({ page }) => {
   await openCart(page)
 
-  // The row's own time span, not the calendar card's copy of the same text.
-  const time = page.locator('span.font-mono', { hasText: 'Fr 14:30-17:15' })
-
-  await expect(time).toHaveAttribute('title', 'Dates\n18/9')
+  // The meeting row's own date line, not the calendar's day header.
+  await expect(page.locator('div.text-gray-400', { hasText: '18/9' })).toBeVisible()
 })
