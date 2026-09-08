@@ -53,8 +53,16 @@ export function MeetingRowCard({
       break
   }
 
+  // Each source row on its own line: the break is what reveals a gap between runs.
+  const datesTooltip = row.dates?.length ? `Dates\n${row.dates.join('\n')}` : undefined
+  const rowTooltip = [tooltip, datesTooltip].filter(Boolean).join('\n\n') || undefined
+  const helpCursor = rowTooltip && !containerClass.includes('cursor-help') ? ' cursor-help' : ''
+
   return (
-    <div className={`rounded border px-2 py-1.5 shadow-sm ${containerClass}`} title={tooltip}>
+    <div
+      className={`rounded border px-2 py-1.5 shadow-sm ${containerClass}${helpCursor}`}
+      title={rowTooltip}
+    >
       {/* Row 1: Time */}
       <div className="flex items-center gap-1 text-[11px]">
         <span>⏰</span>

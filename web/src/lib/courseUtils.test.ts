@@ -33,6 +33,8 @@ import {
   extractAcademicYearBounds,
   detectConflicts,
   enrollmentsToCalendarEvents,
+  sectionMeetingDates,
+  meetingRowKey,
   parseTimeRange,
 } from './courseUtils'
 import { transformExternalCourseData } from './validation'
@@ -763,6 +765,22 @@ const CONFLICT_TERM = '2026-27 Term 1'
 const ACCT5610_TERM = '2026-27 Term 1'
 /** LEC, PRA and TUT at the same hour on the same dates — a real clash. */
 const PHAR1433_TERM = '2026-27 Term 1'
+
+describe('sectionMeetingDates', () => {
+  // ACCT1111 B-LEC lists the same Thursday lecture twice, once either side of a
+  // fortnight's gap. The rows merge on display; their dates must not.
+  it("keeps a merged row's date runs apart", () => {
+    const course = loadPublishedCourse('2026-27', 'ACCT', '1111')
+    const section = findPublishedSection(course, CONFLICT_TERM, 'B-LEC')
+    const { meetings } = sectionSignature(section)
+
+    expect(meetings).toHaveLength(1)
+    expect(sectionMeetingDates(section).get(meetingRowKey(meetings[0]))).toEqual([
+      '10/9, 17/9, 24/9',
+      '8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12',
+    ])
+  })
+})
 
 describe('detectConflicts', () => {
   // Runs over every occurrence, not one week, so it is the only place the date

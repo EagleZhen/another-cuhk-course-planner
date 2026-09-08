@@ -83,6 +83,8 @@ export interface MeetingRow {
   meeting: SectionMeetingSignature
   before?: SectionMeetingSignature
   fields?: { time: boolean; location: boolean; instructor: boolean }
+  // Source rows behind this one, each its own entry. Display only.
+  dates?: string[]
 }
 
 export interface SectionDiffDetail {

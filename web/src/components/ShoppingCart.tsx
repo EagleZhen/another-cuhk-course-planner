@@ -8,6 +8,8 @@ import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search }
 import {
   parseSectionTypes,
   sectionSignature,
+  sectionMeetingDates,
+  meetingRowKey,
   formatSyncTimestamp,
   getSectionTypePriority,
   getSectionTypeName,
@@ -516,12 +518,17 @@ export default function ShoppingCart({
                         const changeDetail = sectionChange
                           ? diffSectionDetail(section, sectionChange.before)
                           : undefined
-                        const meetingRows: MeetingRow[] =
+                        const rowDates = sectionMeetingDates(section)
+                        const meetingRows: MeetingRow[] = (
                           changeDetail?.rows ??
                           sectionSignature(section).meetings.map((meeting) => ({
-                            status: 'unchanged',
+                            status: 'unchanged' as const,
                             meeting,
                           }))
+                        ).map((row) => ({
+                          ...row,
+                          dates: rowDates.get(meetingRowKey(row.meeting)),
+                        }))
 
                         return (
                           <div
@@ -636,8 +643,13 @@ export default function ShoppingCart({
                           section.sectionType
                         ).toLowerCase()
                         const removedTooltip = `This ${sectionTypeName} is no longer offered. It's off your timetable but stays here until you're ready to choose another section or remove the course.`
+                        const removedDates = sectionMeetingDates(section)
                         const meetingRows: MeetingRow[] = sectionSignature(section).meetings.map(
-                          (meeting) => ({ status: 'removed', meeting })
+                          (meeting) => ({
+                            status: 'removed',
+                            meeting,
+                            dates: removedDates.get(meetingRowKey(meeting)),
+                          })
                         )
 
                         return (

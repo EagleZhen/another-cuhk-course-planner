@@ -637,18 +637,52 @@ const sameMeeting = (a: SectionMeetingSignature, b: SectionMeetingSignature): bo
 
 // A section's deduped meetings (in source order) plus language — the comparison key for
 // change detection. Pure data; ignores `dates`. MeetingRowCard formats it for display.
+/** Identifies a displayed meeting row — exactly the fields the row shows. */
+export function meetingRowKey(row: SectionMeetingSignature): string {
+  return `${row.time}|${row.location}|${row.instructor}`
+}
+
 export function sectionSignature(section: InternalSection): SectionSignature {
   const seen = new Set<string>()
   const meetings: SectionMeetingSignature[] = []
   for (const m of section.meetings) {
     const row = meetingRow(m)
-    const key = `${row.time}|${row.location}|${row.instructor}`
+    const key = meetingRowKey(row)
     if ((row.time || row.location || row.instructor) && !seen.has(key)) {
       seen.add(key)
       meetings.push(row)
     }
   }
   return { meetings, language: norm(section.classAttributes) }
+}
+
+/**
+ * Dates behind each displayed meeting row, keyed as `meetingRowKey`.
+ *
+ * Rows differing only by date merge into one, and each keeps its own entry
+ * rather than being joined: `ACCT1111 B-LEC` reads as two runs with a fortnight
+ * missing, not one range that never happened.
+ *
+ * Separate from `sectionSignature` because that doubles as the dedupe key —
+ * dates inside it would stop those rows merging.
+ */
+export function sectionMeetingDates(section: InternalSection): Map<string, string[]> {
+  const dates = new Map<string, string[]>()
+
+  for (const meeting of section.meetings) {
+    if (!meeting.dates.trim()) continue
+
+    const key = meetingRowKey(meetingRow(meeting))
+    const existing = dates.get(key)
+
+    if (existing) {
+      if (!existing.includes(meeting.dates)) existing.push(meeting.dates)
+    } else {
+      dates.set(key, [meeting.dates])
+    }
+  }
+
+  return dates
 }
 
 // Compared positionally, which assumes the scraper emits meetings in a stable order (it
