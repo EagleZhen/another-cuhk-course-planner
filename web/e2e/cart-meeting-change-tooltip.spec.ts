@@ -26,7 +26,7 @@ const section = {
   classAttributes: 'English only',
 }
 
-async function openCart(page: Page) {
+async function openCart(page: Page, lastSeenMeeting: Record<string, unknown> = {}) {
   await page.route('**/data/**', (route) => route.abort())
   await page.addInitScript(({ key, value }) => localStorage.setItem(key, value), {
     key: storageKey,
@@ -46,7 +46,7 @@ async function openCart(page: Page) {
           // What the user last saw: the same lecture in the other building.
           lastSeenSections: {
             lec: {
-              meetings: [{ time: slot, location: wasIn, instructor }],
+              meetings: [{ time: slot, location: wasIn, instructor, ...lastSeenMeeting }],
               language: 'English only',
             },
           },
@@ -77,4 +77,14 @@ test('shows the dates under the time', async ({ page }) => {
 
   // The meeting row's own date line, not the calendar's day header.
   await expect(page.locator('div.text-gray-400', { hasText: '18/9' })).toBeVisible()
+})
+
+// The .ics export has always been per-occurrence, so a moved date invalidates
+// events the student already imported. The date line is where that shows.
+test('marks a date that moved, with what it was', async ({ page }) => {
+  await openCart(page, { location: nowIn, dates: ['11/9'] })
+
+  const dates = page.locator('div.bg-amber-100', { hasText: '18/9' })
+
+  await expect(dates).toHaveAttribute('title', '11/9\n↓\n18/9')
 })

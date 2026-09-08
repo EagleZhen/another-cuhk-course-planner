@@ -23,8 +23,6 @@ import {
   parseSectionTypes,
   isCourseEnrollmentComplete,
   sectionSignature,
-  sectionMeetingDates,
-  meetingRowKey,
   getSectionPrefix,
   categorizeCompatibleSections,
   getSectionTypePriority,
@@ -2254,24 +2252,14 @@ function CourseCard({
                               )}
 
                               {/* Meeting rows are normalized and deduped by sectionSignature. */}
-                              {(() => {
-                                const rowDates = sectionMeetingDates(section)
-
-                                return (
-                                  <div className="space-y-1">
-                                    {sectionSignature(section).meetings.map((meeting, index) => (
-                                      <MeetingRowCard
-                                        key={index}
-                                        row={{
-                                          status: 'unchanged',
-                                          meeting,
-                                          dates: rowDates.get(meetingRowKey(meeting)),
-                                        }}
-                                      />
-                                    ))}
-                                  </div>
-                                )
-                              })()}
+                              <div className="space-y-1">
+                                {sectionSignature(section).meetings.map((meeting, index) => (
+                                  <MeetingRowCard
+                                    key={index}
+                                    row={{ status: 'unchanged', meeting }}
+                                  />
+                                ))}
+                              </div>
                             </div>
                           </div>
                         )

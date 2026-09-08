@@ -62,9 +62,14 @@ export function MeetingRowCard({
 
   // Each source row is one weekly run, so it reads as a range; the break between
   // runs is what shows a gap.
-  const dateRanges = row.dates?.map(formatDateRange).filter(Boolean) ?? []
+  const dateRanges = meeting.dates?.map(formatDateRange).filter(Boolean) ?? []
   // Only worth a tooltip where a range stands for dates it does not show.
-  const hiddenDates = row.dates?.some((run) => run.includes(',')) ?? false
+  const hiddenDates = meeting.dates?.some((run) => run.includes(',')) ?? false
+  const datesTooltip = fields?.dates
+    ? changedTooltip(before!.dates!.map(formatDateRange).join(', '), dateRanges.join(', '))
+    : hiddenDates
+      ? meeting.dates!.join('\n')
+      : undefined
   const timeTooltip =
     fields?.time && before
       ? changedTooltip(formatTimeCompact(before.time), formattedTime)
@@ -88,8 +93,10 @@ export function MeetingRowCard({
           </span>
           {dateRanges.length > 0 && (
             <div
-              className={`truncate text-[10px] text-gray-400${hiddenDates ? ' cursor-help' : ''}`}
-              title={hiddenDates ? row.dates!.join('\n') : undefined}
+              className={`truncate text-[10px] ${
+                fields?.dates ? `${changedText} w-fit` : 'text-gray-400'
+              }${datesTooltip ? ' cursor-help' : ''}`}
+              title={datesTooltip}
             >
               {dateRanges.join(', ')}
             </div>

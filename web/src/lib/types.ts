@@ -53,11 +53,15 @@ export interface InternalMeeting {
   dates: string
 }
 
-// A single meeting's comparable facts (normalized, no `dates`).
+// A single meeting's comparable facts, normalized.
 export interface SectionMeetingSignature {
   time: string
   location: string
   instructor: string // Scraped form, compared verbatim; display via formatInstructorsCompact
+  // The source rows behind this one, each its own entry. Compared, but kept out
+  // of the dedupe key so rows differing only by date still merge. Optional: a
+  // snapshot taken before dates were stored reports no date change.
+  dates?: string[]
 }
 
 // A section's comparable facts: deduped meetings (source order) plus language of
@@ -82,9 +86,7 @@ export interface MeetingRow {
   status: MeetingChangeStatus
   meeting: SectionMeetingSignature
   before?: SectionMeetingSignature
-  fields?: { time: boolean; location: boolean; instructor: boolean }
-  // Source rows behind this one, each its own entry. Display only.
-  dates?: string[]
+  fields?: { time: boolean; location: boolean; instructor: boolean; dates: boolean }
 }
 
 export interface SectionDiffDetail {

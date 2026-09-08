@@ -33,8 +33,6 @@ import {
   extractAcademicYearBounds,
   detectConflicts,
   enrollmentsToCalendarEvents,
-  sectionMeetingDates,
-  meetingRowKey,
   formatDateRange,
   parseTimeRange,
 } from './courseUtils'
@@ -593,6 +591,15 @@ function mkEnrollment(
 }
 const sig = (s: InternalSection) => sectionSignature(s)
 
+// A signature row as sectionSignature builds it. mkMeeting dates a meeting by the
+// weekday its time states, so changing the weekday moves its dates too.
+const sigRow = (time: string, location = 'Hum 314', instructor = 'Staff') => ({
+  time,
+  location,
+  instructor,
+  dates: [FIRST_WEEK[time.slice(0, 2)]].filter(Boolean),
+})
+
 describe('getChangedCourseIds', () => {
   it('includes invalid, tombstoned, and section-changed courses once in cart order', () => {
     const enrollments = [
@@ -623,7 +630,7 @@ describe('getChangedCourseIds', () => {
     const enrollment = {
       ...mkEnrollment([section], {
         '8818': {
-          meetings: [{ time: 'stale', location: 'stale', instructor: 'stale' }],
+          meetings: [sigRow('stale', 'stale', 'stale')],
           language: '',
         },
       }),
@@ -767,7 +774,7 @@ const ACCT5610_TERM = '2026-27 Term 1'
 /** LEC, PRA and TUT at the same hour on the same dates — a real clash. */
 const PHAR1433_TERM = '2026-27 Term 1'
 
-describe('sectionMeetingDates', () => {
+describe('sectionSignature dates', () => {
   // ACCT1111 B-LEC lists the same Thursday lecture twice, once either side of a
   // fortnight's gap. The rows merge on display; their dates must not, and each
   // reads as a range so the missing fortnight stays visible.
@@ -775,7 +782,7 @@ describe('sectionMeetingDates', () => {
     const course = loadPublishedCourse('2026-27', 'ACCT', '1111')
     const section = findPublishedSection(course, CONFLICT_TERM, 'B-LEC')
     const { meetings } = sectionSignature(section)
-    const runs = sectionMeetingDates(section).get(meetingRowKey(meetings[0]))!
+    const runs = meetings[0].dates!
 
     expect(meetings).toHaveLength(1)
     expect(runs).toEqual([
@@ -990,9 +997,29 @@ describe('sectionSignature', () => {
     ])
     expect(sig(a)).toEqual(sig(mkSection('1', [mkMeeting({ location: 'Hum 314' })])))
   })
-  it('ignores the dates field (no false positives)', () => {
-    const a = mkSection('1', [mkMeeting({ dates: '7/1, 14/1' })])
-    expect(sig(a)).toEqual(sig(mkSection('1', [mkMeeting({ dates: '21/1, 28/1' })])))
+  it('reports a date-only change, which the .ics export has always carried', () => {
+    const was = mkSection('1', [mkMeeting({ dates: '7/1, 14/1' })])
+    const now = mkSection('1', [mkMeeting({ dates: '21/1, 28/1' })])
+
+    expect(diffSectionDetail(now, sig(was)).rows[0]).toMatchObject({
+      status: 'changed',
+      fields: { time: false, location: false, instructor: false, dates: true },
+    })
+  })
+
+  // Snapshots stored before dates were compared have none. Treating that as a
+  // change would warn every user about every section the day this ships.
+  it('reports no change against a snapshot taken before dates were stored', () => {
+    const section = mkSection('1', [mkMeeting({ dates: '21/1, 28/1' })])
+    // The shape a snapshot had before dates were stored.
+    const old = sig(mkSection('1', [mkMeeting({ dates: '7/1, 14/1' })]))
+    old.meetings = old.meetings.map((row) => ({
+      time: row.time,
+      location: row.location,
+      instructor: row.instructor,
+    }))
+
+    expect(diffSectionDetail(section, old).rows[0].status).toBe('unchanged')
   })
   it('reflects time, location, instructor and language', () => {
     const base = mkSection('1', [mkMeeting({})], 'English only')
@@ -1012,16 +1039,8 @@ describe('sectionSignature', () => {
       mkMeeting({ time: 'Sa 9:30AM - 12:15PM' }),
       mkMeeting({ time: 'Su 2:00PM - 5:00PM' }),
     ])
-    expect(sig(s).meetings).toContainEqual({
-      time: 'Sa 9:30AM - 12:15PM',
-      location: 'Hum 314',
-      instructor: 'Staff',
-    })
-    expect(sig(s).meetings).toContainEqual({
-      time: 'Su 2:00PM - 5:00PM',
-      location: 'Hum 314',
-      instructor: 'Staff',
-    })
+    expect(sig(s).meetings).toContainEqual(sigRow('Sa 9:30AM - 12:15PM'))
+    expect(sig(s).meetings).toContainEqual(sigRow('Su 2:00PM - 5:00PM'))
   })
 })
 
@@ -1031,7 +1050,7 @@ describe('diffEnrollment', () => {
       mkMeeting({ time: 'Mo 2:30PM - 5:15PM', location: 'T.C. Cheng 208' }),
     ])
     const stale: SectionSignature = {
-      meetings: [{ time: 'stale', location: 'stale', instructor: 'stale' }],
+      meetings: [sigRow('stale', 'stale', 'stale')],
       language: '',
     }
     const changes = diffEnrollment(mkEnrollment([now], { '8818': stale }))
@@ -1052,7 +1071,7 @@ describe('diffEnrollment', () => {
     const s2 = mkSection('2', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
     const e = mkEnrollment([s1, s2], {
       '1': sig(s1),
-      '2': { meetings: [{ time: 'stale', location: 'stale', instructor: 'stale' }], language: '' },
+      '2': { meetings: [sigRow('stale', 'stale', 'stale')], language: '' },
     })
     const before = JSON.stringify(e)
     expect(diffEnrollment(e).map((c) => c.sectionId)).toEqual(['2'])
@@ -1080,7 +1099,7 @@ describe('recordSeenSections', () => {
   it('acknowledge (onlyMissing:false) overwrites all so diff clears', () => {
     const now = mkSection('8818', [mkMeeting({ time: 'Mo 2:30PM - 5:15PM' })])
     const stale: SectionSignature = {
-      meetings: [{ time: 'stale', location: 'stale', instructor: 'stale' }],
+      meetings: [sigRow('stale', 'stale', 'stale')],
       language: '',
     }
     expect(
@@ -1115,7 +1134,7 @@ describe('diffSectionDetail', () => {
     expect(detail.rows).toEqual([
       {
         status: 'unchanged',
-        meeting: { time: 'We 2:30PM - 5:15PM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('We 2:30PM - 5:15PM'),
       },
     ])
     expect(detail.languageChanged).toBe(false)
@@ -1128,9 +1147,9 @@ describe('diffSectionDetail', () => {
     expect(detail.rows).toEqual([
       {
         status: 'changed',
-        meeting: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
-        before: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
-        fields: { time: true, location: false, instructor: false },
+        meeting: sigRow('We 9AM - 10AM'),
+        before: sigRow('Mo 9AM - 10AM'),
+        fields: { time: true, location: false, instructor: false, dates: true },
       },
     ])
   })
@@ -1147,6 +1166,7 @@ describe('diffSectionDetail', () => {
       time: true,
       location: true,
       instructor: true,
+      dates: true,
     })
   })
 
@@ -1163,13 +1183,13 @@ describe('diffSectionDetail', () => {
     expect(detail.rows).toEqual([
       {
         status: 'unchanged',
-        meeting: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('Mo 9AM - 10AM'),
       },
       {
         status: 'changed',
-        meeting: { time: 'Th 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
-        before: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
-        fields: { time: true, location: false, instructor: false },
+        meeting: sigRow('Th 9AM - 10AM'),
+        before: sigRow('We 9AM - 10AM'),
+        fields: { time: true, location: false, instructor: false, dates: true },
       },
     ])
   })
@@ -1201,11 +1221,11 @@ describe('diffSectionDetail', () => {
     expect(detail.rows).toEqual([
       {
         status: 'unchanged',
-        meeting: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('Mo 9AM - 10AM'),
       },
       {
         status: 'added',
-        meeting: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('We 9AM - 10AM'),
       },
     ])
   })
@@ -1224,19 +1244,15 @@ describe('diffSectionDetail', () => {
     expect(diffSectionDetail(now, sig(before)).rows).toEqual([
       {
         status: 'unchanged',
-        meeting: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('We 9AM - 10AM'),
       },
       {
         status: 'unchanged',
-        meeting: { time: 'Fr 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('Fr 9AM - 10AM'),
       },
       {
         status: 'removed',
-        meeting: {
-          time: 'Mo 9AM - 10AM',
-          location: 'Science Centre 327',
-          instructor: 'Staff',
-        },
+        meeting: sigRow('Mo 9AM - 10AM', 'Science Centre 327'),
       },
     ])
   })
@@ -1255,19 +1271,19 @@ describe('diffSectionDetail', () => {
     expect(diffSectionDetail(now, sig(before)).rows).toEqual([
       {
         status: 'unchanged',
-        meeting: { time: 'We 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('We 9AM - 10AM'),
       },
       {
         status: 'added',
-        meeting: { time: 'Th 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('Th 9AM - 10AM'),
       },
       {
         status: 'added',
-        meeting: { time: 'Fr 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('Fr 9AM - 10AM'),
       },
       {
         status: 'removed',
-        meeting: { time: 'Mo 9AM - 10AM', location: 'Hum 314', instructor: 'Staff' },
+        meeting: sigRow('Mo 9AM - 10AM'),
       },
     ])
   })
