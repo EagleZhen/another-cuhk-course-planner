@@ -70,7 +70,6 @@ class ScrapingConfig:
     track_progress: bool = False  # Progress tracking for production
     # Progress log filename (use os.path.join for production)
     progress_file: str = TEST_PROGRESS_FILE
-    progress_update_interval: int = 60  # Save progress every N seconds
 
     # Scraping scope configuration
     get_details: bool = False  # Get detailed course information beyond basic listings
@@ -92,7 +91,6 @@ class ScrapingConfig:
             output_directory=SOURCE_DATA_DIR,  # Production data directory
             track_progress=True,  # Enable progress tracking
             progress_file=SCRAPING_PROGRESS_FILE,
-            progress_update_interval=60,  # 1-minute periodic saves
             # Full scraping scope for production
             get_details=True,
             get_enrollment_details=True,
@@ -241,7 +239,8 @@ class ScrapingProgressTracker:
             "last_updated": utc_to_hkt(),
             "duration": format_duration_human(int(time.monotonic() - self._started_monotonic)),
             # A process cannot record its own death, so "in_progress" means running or
-            # crashed; `last_updated` is what separates the two.
+            # crashed. `last_updated` moves once per subject; logs/scrape/ is what shows
+            # whether a run is still alive.
             "status": self._run_status,
             "subjects_total": len(self.run_subjects),
             "subjects_completed": subject_statuses.count("completed"),
@@ -276,52 +275,16 @@ class ScrapingProgressTracker:
         except Exception as e:
             self.logger.error(f"Could not save progress: {e}")
 
-    def start_subject(self, subject: str, estimated_courses: int = 0):
-        """Mark subject as started"""
+    def start_subject(self, subject: str):
+        """Mark subject as started.
+
+        The entry lasts until the subject completes or fails, so what it records is that
+        a run died here — enough for publishing to block on, and for --resume to redo it.
+        """
         subjects = self.progress_data["subjects"]
-        subjects[subject] = {
-            "status": "in_progress",
-            "started_at": utc_now_iso(),
-            "estimated_courses": estimated_courses,
-            "courses_scraped": 0,
-            "completed_courses": [],  # Track completed course codes
-            "last_course_completed": "",
-            "last_progress_update": utc_now_iso(),
-        }
+        subjects[subject] = {"status": "in_progress", "started_at": utc_now_iso()}
         self._save_progress()
         self.logger.info(f"🚀 Started scraping {subject}")
-
-    def update_course_progress(self, subject: str, course_code: str, total_courses_scraped: int):
-        """Update progress for a specific course completion"""
-        subjects = self.progress_data["subjects"]
-        if subject in subjects and subjects[subject].get("status") == "in_progress":
-            subject_data = subjects[subject]
-            subject_data["courses_scraped"] = total_courses_scraped
-            subject_data["last_course_completed"] = course_code
-            subject_data["last_progress_update"] = utc_now_iso()
-
-            # Add to completed courses list if not already there
-            completed_courses = subject_data.get("completed_courses", [])
-            if course_code not in completed_courses:
-                completed_courses.append(course_code)
-                subject_data["completed_courses"] = completed_courses
-
-            self.logger.debug(
-                f"Updated {subject} progress: {total_courses_scraped} courses, last: {course_code}"
-            )
-
-    def should_save_periodic_progress(self, last_save_time: float, interval_seconds: int) -> bool:
-        """Check if it's time for a periodic progress save"""
-        return time.time() - last_save_time >= interval_seconds
-
-    def save_periodic_progress(self, force: bool = False):
-        """Save progress periodically (called during long operations)"""
-        if force:
-            self._save_progress()
-            self.logger.debug("Forced periodic progress save")
-        else:
-            self._save_progress()
-            self.logger.debug("Periodic progress save")
 
     def complete_subject(
         self,
@@ -348,12 +311,10 @@ class ScrapingProgressTracker:
     def fail_subject(self, subject: str, error_message: str):
         """Mark subject as failed"""
         subjects = self.progress_data["subjects"]
-        current_data = subjects.get(subject, {})
         subjects[subject] = {
             "status": "failed",
             "last_attempt": utc_now_iso(),
             "error": str(error_message)[:200],  # Limit error message length
-            "courses_scraped": current_data.get("courses_scraped", 0),
         }
 
         self._record_scrape_progress(subject, [])
@@ -822,9 +783,8 @@ class CuhkScraper:
                 for course in courses:
                     course.subject = subject_code
 
-                # Mark subject as started in progress tracker with course count estimate
                 if self.progress_tracker and self.config.track_progress:
-                    self.progress_tracker.start_subject(subject_code, len(courses))
+                    self.progress_tracker.start_subject(subject_code)
 
                 # Get detailed information if requested
                 if self.config.get_details and courses:
@@ -841,7 +801,6 @@ class CuhkScraper:
                         )
 
                     detailed_courses = []
-                    last_progress_save = time.time()  # Track last periodic save
 
                     for i, course in enumerate(courses_to_detail):
                         self.logger.info(
@@ -849,23 +808,6 @@ class CuhkScraper:
                         )
                         detailed_course = self.get_course_details(course, response.text)
                         detailed_courses.append(detailed_course)
-
-                        # Update course-level progress tracking
-                        if self.progress_tracker and self.config.track_progress:
-                            courses_completed = i + 1
-                            self.progress_tracker.update_course_progress(
-                                subject_code, course.course_code, courses_completed
-                            )
-
-                            # Periodic progress save based on interval
-                            if self.progress_tracker.should_save_periodic_progress(
-                                last_progress_save, self.config.progress_update_interval
-                            ):
-                                self.progress_tracker.save_periodic_progress()
-                                last_progress_save = time.time()
-                                self.logger.info(
-                                    f"💾 Progress saved: {subject_code} - {courses_completed}/{len(courses_to_detail)} courses completed"
-                                )
 
                     # Add remaining courses without details for complete list (if limited)
                     if self.config.max_courses_per_subject is not None:
