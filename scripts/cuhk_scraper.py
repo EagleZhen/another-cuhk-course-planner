@@ -400,7 +400,6 @@ class CuhkScraper:
 
         # What the scraper is on, for debug filenames. Two fields: a course is in scope
         # for part of a subject, not all of it.
-        self.current_config: ScrapingConfig | None = None
         self.current_subject: str | None = None
         self.current_course_code: str | None = None
         self.subject_titles_cache: dict[str, str] = {}  # Cache for subject code -> title mapping
@@ -551,18 +550,12 @@ class CuhkScraper:
         self.logger.info(f"📝 File logging initialized: {log_filename}")
         return log_filename
 
-    def _set_context(
-        self,
-        config: ScrapingConfig,
-        subject: str | None = None,
-        course: Course | None = None,
-    ) -> None:
+    def _set_context(self, subject: str | None = None, course: Course | None = None) -> None:
         """Record what the scraper is on, for debug filenames.
 
         Both are cleared unless named: a course outliving its subject files the next
         subject's pages under the last one's name.
         """
-        self.current_config = config
         self.current_subject = course.subject if course else subject
         self.current_course_code = course.course_code if course else None
 
@@ -591,20 +584,17 @@ class CuhkScraper:
 
     def _save_debug_html(self, content: str, filename: str, force_save: bool = False) -> None:
         """Smart HTML debug file saving with separate directory"""
-        if not self.current_config:
-            return
-
         # Save if explicitly enabled, or when the caller is keeping a failure
-        should_save = self.current_config.save_debug_files or (
-            force_save and self.current_config.save_debug_on_error
+        should_save = self.config.save_debug_files or (
+            force_save and self.config.save_debug_on_error
         )
 
         if should_save:
             # Ensure debug directory exists
-            os.makedirs(self.current_config.debug_html_directory, exist_ok=True)
+            os.makedirs(self.config.debug_html_directory, exist_ok=True)
 
             # Save to separate debug directory
-            debug_path = os.path.join(self.current_config.debug_html_directory, filename)
+            debug_path = os.path.join(self.config.debug_html_directory, filename)
             with open(debug_path, "w", encoding="utf-8") as f:
                 f.write(content)
             self.logger.info(f"Saved debug HTML: {debug_path}")
@@ -747,7 +737,7 @@ class CuhkScraper:
 
     def scrape_subject(self, subject_code: str) -> list[Course]:
         """Scrape courses for a specific subject"""
-        self._set_context(self.config, subject=subject_code)
+        self._set_context(subject=subject_code)
 
         for attempt in range(self.config.max_subject_attempts):
             try:
@@ -971,7 +961,7 @@ class CuhkScraper:
         """
         if response is None:
             return
-        self._set_context(self.config, course=course)
+        self._set_context(course=course)
         self._save_debug_html(
             response.text,
             f"course_details_{course.subject}_{course.course_code}_FAILED.html",
@@ -1006,7 +996,7 @@ class CuhkScraper:
                 )
 
                 # Debug: save detailed response (using smart saving)
-                self._set_context(self.config, course=course)
+                self._set_context(course=course)
                 self._save_debug_html(
                     response.text, f"course_details_{course.subject}_{course.course_code}.html"
                 )

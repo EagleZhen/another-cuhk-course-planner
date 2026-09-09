@@ -520,10 +520,7 @@ def _live_scraper(*, save_debug_html=False, **overrides):
     scraper.base_url = "http://test.invalid"
     scraper.config = ScrapingConfig(get_course_outcome=False, get_enrollment_details=False)
     if not save_debug_html:
-        # Not disabled via current_config: _set_context re-enables it mid-scrape, littering
-        # debug HTML into whatever directory the suite ran from.
         scraper._save_debug_html = lambda *a, **k: None
-    scraper.current_config = None
     scraper.current_subject = None
     scraper.current_course_code = None
     scraper._robust_request = _boom
@@ -796,7 +793,6 @@ WRONG_PAGE = '<html><div class="titleNormal">Course Catalog</div></html>'
 def test_an_invalid_outcome_page_is_kept(tmp_path):
     # Otherwise a course that gives up here leaves only the healthy-looking details page.
     scraper, course = _failing_scraper(tmp_path, WRONG_PAGE)
-    scraper._set_context(scraper.config)
 
     with pytest.raises(ValueError, match="Invalid course outcome page"):
         CuhkScraper._scrape_course_outcome(scraper, OUTCOME_BUTTON_HTML, course)
@@ -812,7 +808,6 @@ def test_a_valid_outcome_page_keeps_nothing(tmp_path):
         '<td class="reverseHeaderStyle">Learning Outcome</td></html>'
     )
     scraper, course = _failing_scraper(tmp_path, valid)
-    scraper._set_context(scraper.config)
 
     CuhkScraper._scrape_course_outcome(scraper, OUTCOME_BUTTON_HTML, course)
 
@@ -823,7 +818,6 @@ def test_a_permanent_system_error_keeps_the_outcome_page(tmp_path):
     # Nothing retries a permanent system error, so this page is the only evidence that the
     # outcome is missing rather than genuinely empty.
     scraper, course = _failing_scraper(tmp_path, SYSTEM_ERROR_PAGE)
-    scraper._set_context(scraper.config, subject="TEST")  # as scrape_subject does
 
     CuhkScraper._scrape_course_outcome(scraper, OUTCOME_BUTTON_HTML, course)
 
@@ -1049,11 +1043,16 @@ def test_unknown_subject_title_is_recorded_empty_not_as_the_code(tmp_path):
 SAMPLE_PAGES = Path(__file__).resolve().parents[2] / "lab" / "scraper" / "samples" / "webpages"
 
 
-def _bare_scraper(**attributes):
-    """A CuhkScraper with __init__ skipped: no session, no OCR model, real methods."""
+def _bare_scraper(*, save_debug_html=False, **attributes):
+    """A CuhkScraper with __init__ skipped: no session, no OCR model, real methods.
+
+    Debug saving is stubbed unless a test asks for it, and then `config` must point
+    `debug_html_directory` at a tmp_path: the real one is relative to the cwd.
+    """
     scraper = CuhkScraper.__new__(CuhkScraper)
     scraper.logger = logging.getLogger("test")
-    scraper.current_config = None
+    if not save_debug_html:
+        scraper._save_debug_html = lambda *a, **k: None
     scraper.current_subject = None
     scraper.current_course_code = None
     for name, value in attributes.items():
@@ -1201,9 +1200,10 @@ REAL_CLASS_DETAILS = [
 
 def _parse_details(page_name, section_name, tmp_path):
     scraper = _bare_scraper(
-        current_config=SimpleNamespace(
+        config=SimpleNamespace(
             save_debug_files=False, save_debug_on_error=True, debug_html_directory=str(tmp_path)
         ),
+        save_debug_html=True,
         current_subject="TEST",
         current_course_code="1000",
     )
@@ -1251,9 +1251,10 @@ def test_a_class_details_page_with_no_seat_counts_raises(tmp_path):
     # The seat counts sit in a different panel from the status, so a page can carry a
     # status and still say nothing about seats.
     scraper = _bare_scraper(
-        current_config=SimpleNamespace(
+        config=SimpleNamespace(
             save_debug_files=False, save_debug_on_error=True, debug_html_directory=str(tmp_path)
         ),
+        save_debug_html=True,
         current_subject="TEST",
         current_course_code="1000",
     )
@@ -1274,14 +1275,13 @@ def test_a_class_details_page_with_no_seat_counts_raises(tmp_path):
 def test_starting_a_subject_clears_the_previous_course():
     # Asserted through the filename, not the fields: that is what was wrong.
     scraper = _bare_scraper()
-    config = ScrapingConfig()
 
-    scraper._set_context(config, course=_course("1000", []))
+    scraper._set_context(course=_course("1000", []))
     assert scraper._class_details_debug_filename("A-LEC (1)") == (
         "class_details_TEST_1000_ALEC_1.html"
     )
 
-    scraper._set_context(config, subject="OTHER")
+    scraper._set_context(subject="OTHER")
     assert scraper._class_details_debug_filename("A-LEC (1)") == (
         "class_details_OTHER_UNKNOWN_ALEC_1.html"
     )
