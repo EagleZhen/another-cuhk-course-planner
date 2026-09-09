@@ -1,6 +1,7 @@
 import json
 import logging
 import time
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -294,8 +295,13 @@ def test_only_a_run_that_reached_every_subject_speaks_for_the_catalog(tmp_path, 
     assert spoke_for == [covered]
 
 
-def _interrupted(tmp_path, remaining, directories, started_at="2026-09-08T14:05:03.686000+00:00"):
+def _hours_ago(hours):
+    return (datetime.now(UTC) - timedelta(hours=hours)).isoformat()
+
+
+def _interrupted(tmp_path, remaining, directories, started_at=None):
     """A progress file, and the directories on disk, a killed full scrape would leave."""
+    started_at = started_at or _hours_ago(1)
     for directory in directories:
         (tmp_path / directory).mkdir(exist_ok=True)
     (tmp_path / "progress.json").write_text(
@@ -363,6 +369,21 @@ def test_resume_refuses_rather_than_silently_scraping_everything(tmp_path, remai
 
     with pytest.raises(cuhk_scraper.NothingToResume):
         CuhkScraper.scrape_all_subjects(scraper, [], mode="resume")
+
+
+@pytest.mark.parametrize("hours, warns", [(23, False), (25, True)], ids=["last night", "older"])
+def test_resume_warns_about_a_scrape_older_than_a_nightly_cycle(tmp_path, caplog, hours, warns):
+    # Both sides finish the scrape — the age only changes whether it says something first.
+    _interrupted(tmp_path, ["BBBB"], ["2026-27"], started_at=_hours_ago(hours))
+    scraper = _loop_scraper(tmp_path)
+    scraped = []
+    scraper.scrape_subject = lambda subject: scraped.append(subject) or []
+
+    with caplog.at_level(logging.WARNING):
+        CuhkScraper.scrape_all_subjects(scraper, [], mode="resume")
+
+    assert scraped == ["BBBB"]
+    assert any("nightly cycle" in record.message for record in caplog.records) == warns
 
 
 def test_a_full_run_without_progress_tracking_refuses_to_start(tmp_path):

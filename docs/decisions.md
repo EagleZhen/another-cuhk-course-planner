@@ -196,7 +196,7 @@ Why not fold it into `latest_run`, or derive it:
 - an empty `remaining` _is_ the finish, so no separate "completed" flag can disagree with it
 - subjects leave `remaining` when attempted, not when they succeed. Otherwise one subject CUHK drops keeps every future scrape unfinished, freezing freshness with nothing to explain why — a full run with failures still stamps, and publishing still blocks on them
 
-Limitation: `remaining` fixes the catalog as of `started_at`, so a subject CUHK adds mid-scrape waits for the next one.
+Limitation: `remaining` fixes the catalog as of `started_at`, so a subject CUHK adds mid-scrape waits for the next one. `--resume` warns past 24h rather than refusing — a 12-hour scrape has already drifted, so age is a matter of degree.
 
 ## Save Each Subject Immediately
 

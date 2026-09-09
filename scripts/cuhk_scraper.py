@@ -5,7 +5,7 @@ import os
 import re
 import time
 from dataclasses import asdict, dataclass, field
-from datetime import datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -152,6 +152,10 @@ class Course:
         # Convert terms to dict format
         data["terms"] = [term.to_dict() for term in self.terms]
         return data
+
+
+# One nightly cycle: past this, the drift a resume cannot see is worth saying out loud.
+RESUME_AGE_LIMIT = timedelta(hours=24)
 
 
 class NothingToResume(Exception):
@@ -2059,6 +2063,16 @@ class CuhkScraper:
             raise NothingToResume(
                 f"The full scrape started {scrape['started_at']} finished. "
                 "Run without arguments to start a new one."
+            )
+        # Warn rather than refuse: a 12-hour scrape has already drifted from the catalog
+        # it began with, so age is a matter of degree, not a line to draw. And the stamp
+        # is the scrape's start, so finishing a stale one understates freshness.
+        age = datetime.now(UTC) - datetime.fromisoformat(scrape["started_at"])
+        if age > RESUME_AGE_LIMIT:
+            self.logger.warning(
+                f"⚠️  This scrape is {format_duration_human(int(age.total_seconds()))} old, "
+                "more than a nightly cycle. Any subject CUHK has added since is missing "
+                "from it — a fresh full scrape may serve you better."
             )
         self.logger.info(
             f"▶️  Resuming the scrape started {scrape['started_at']}: "
