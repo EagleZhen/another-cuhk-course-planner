@@ -1,3 +1,4 @@
+import io
 import json
 import logging
 import time
@@ -1301,6 +1302,61 @@ def test_scraping_a_subject_puts_it_in_scope():
     assert seen == ["PHED"]
     # And the run-level lines that follow belong to no subject.
     assert (scraper.current_subject, scraper.current_course_code) == (None, None)
+
+
+def _log_context(scraper):
+    record = logging.LogRecord("test", logging.INFO, "f", 1, "msg", None, None)
+    cuhk_scraper._ScrapeContextFilter(scraper).filter(record)
+    return record.context
+
+
+def test_the_log_prefix_names_whatever_is_in_scope():
+    scraper = _bare_scraper()
+    assert _log_context(scraper) == ""  # startup and summary lines belong to no subject
+
+    with scraper._subject_scope("CSCI"):
+        assert _log_context(scraper) == "[CSCI] "
+        with scraper._course_scope(_course("1130", [])):
+            assert _log_context(scraper) == "[CSCI 1130] "
+
+
+def test_the_console_renders_exactly_what_the_log_file_does(tmp_path):
+    # One definition of a scrape line, applied to whichever handler shows it.
+    console = io.StringIO()
+    handler = logging.StreamHandler(console)
+    scraper = _bare_scraper(logger=logging.getLogger("test_console_parity"))
+    scraper.logger.addHandler(handler)
+    cuhk_scraper.show_scrape_context(scraper, [handler])
+    scraper._setup_file_logging(str(tmp_path))
+    try:
+        with scraper._subject_scope("CSCI"), scraper._course_scope(_course("1130", [])):
+            scraper.logger.info("scraping")
+    finally:
+        for h in scraper.logger.handlers[:]:
+            h.close()
+            scraper.logger.removeHandler(h)
+
+    assert (
+        console.getvalue().splitlines()[-1]
+        == (next(tmp_path.iterdir()).read_text().splitlines()[-1])
+    )
+
+
+def test_the_scrape_log_file_carries_the_prefix(tmp_path):
+    # The seam: a format string and a filter field drift apart without noticing.
+    scraper = _bare_scraper(logger=logging.getLogger("test_log_prefix"))
+    scraper._setup_file_logging(str(tmp_path))
+    try:
+        with scraper._subject_scope("CSCI"), scraper._course_scope(_course("1130", [])):
+            scraper.logger.info("scraping")
+    finally:
+        for handler in scraper.logger.handlers[:]:
+            handler.close()
+            scraper.logger.removeHandler(handler)
+
+    lines = next(tmp_path.iterdir()).read_text().splitlines()
+    assert lines[-1].endswith("[CSCI 1130] scraping")
+    assert "[" not in lines[0].split(" - ", 2)[2]  # the setup line, logged before any subject
 
 
 def test_a_course_is_in_scope_before_its_pages_are_saved():

@@ -380,6 +380,46 @@ class ScrapingProgressTracker:
         self.logger.info("\n".join(lines))
 
 
+# How a scrape line looks, wherever it is shown. `context` is filled in by the filter
+# below, and defaults to empty for lines logged outside any scrape.
+SCRAPE_LOG_FORMAT = "%(asctime)s - %(levelname)s - %(context)s%(message)s"
+
+
+def scrape_log_formatter() -> logging.Formatter:
+    """The scrape line format, for a handler that shows scrape output."""
+    return logging.Formatter(SCRAPE_LOG_FORMAT, defaults={"context": ""})
+
+
+class _ScrapeContextFilter(logging.Filter):
+    """Attach the scraper's subject and course to each record.
+
+    A Filter is the stdlib hook for enriching records; nothing is dropped here.
+    """
+
+    def __init__(self, scraper: "CuhkScraper"):
+        super().__init__()
+        self.scraper = scraper
+
+    def filter(self, record: logging.LogRecord) -> bool:
+        subject, course = self.scraper.current_subject, self.scraper.current_course_code
+        if subject and course:
+            record.context = f"[{subject} {course}] "
+        else:
+            record.context = f"[{subject}] " if subject else ""
+        return True
+
+
+def show_scrape_context(scraper: "CuhkScraper", handlers: list[logging.Handler]) -> None:
+    """Have these handlers name the subject and course each line came from.
+
+    The console and the log file show the same lines, so both are set up here rather
+    than each deciding for itself.
+    """
+    for handler in handlers:
+        handler.addFilter(_ScrapeContextFilter(scraper))
+        handler.setFormatter(scrape_log_formatter())
+
+
 class CuhkScraper:
     """Simplified CUHK course scraper"""
 
@@ -397,13 +437,13 @@ class CuhkScraper:
         # Primary configuration for this scraper instance
         self.config = config or ScrapingConfig()
 
-        # Set up file logging automatically
-        self._setup_file_logging()
-
-        # What the scraper is on, for debug filenames. Two fields: a course is in scope
-        # for part of a subject, not all of it.
+        # What the scraper is on, for debug filenames and log prefixes. Before logging
+        # setup, which logs a line the context filter reads these for.
         self.current_subject: str | None = None
         self.current_course_code: str | None = None
+
+        # Set up file logging automatically
+        self._setup_file_logging()
         self.subject_titles_cache: dict[str, str] = {}  # Cache for subject code -> title mapping
 
         # Suppress ONNX warnings
@@ -541,9 +581,7 @@ class CuhkScraper:
         file_handler = logging.FileHandler(log_filename, encoding="utf-8")
         file_handler.setLevel(log_level)
 
-        # Use the same format as console output
-        formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-        file_handler.setFormatter(formatter)
+        show_scrape_context(self, [file_handler])
 
         # Add handler to logger (keeps existing console output)
         self.logger.addHandler(file_handler)
@@ -2174,7 +2212,9 @@ def main():
 
     Production runs go through scripts/scrape_all_subjects.py, not this.
     """
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+    console = logging.StreamHandler()
+    console.setFormatter(scrape_log_formatter())
+    logging.basicConfig(level=logging.INFO, handlers=[console])
 
     scraper = CuhkScraper()
 
