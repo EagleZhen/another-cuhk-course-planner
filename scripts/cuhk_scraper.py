@@ -63,6 +63,9 @@ class ScrapingConfig:
     # Transient corruption clears on the next attempt; this many identical parse failures
     # means the page shape changed and no amount of retrying will parse it.
     max_course_attempts: int = 5
+    # 97% of real transients clear within two attempts. Past six it is a wedged session,
+    # which only the subject scope can fix by rebuilding it.
+    max_request_attempts: int = 6
     output_mode: str = "single_file"  # "single_file" or "per_subject"
     output_directory: str = SCRAPER_OUTPUTS_DIR  # testing default
     track_progress: bool = False  # Progress tracking for production
@@ -437,7 +440,7 @@ class CuhkScraper:
 
     def _robust_request(self, method: str, url: str, **kwargs) -> requests.Response:
         """
-        Robust HTTP request with infinite retry for network issues
+        Robust HTTP request with bounded retry for network issues
 
         Args:
             method: 'GET' or 'POST'
@@ -448,9 +451,10 @@ class CuhkScraper:
             Response object
 
         Note:
-            Retries network issues (ConnectionError, ChunkedEncodingError, Timeout) and
-            HTTP 502/503/504 forever, pre-loading the body so a drop while reading it counts
-            Raises every other HTTP status for the caller to redo the unit
+            Retries network errors (ConnectionError, ChunkedEncodingError, Timeout) and HTTP
+            502/503/504 up to max_request_attempts times, then re-raises so the caller redoes
+            the unit. The body is pre-loaded, so a drop while reading it counts as a failure.
+            Any other HTTP status raises immediately.
         """
         # Set default timeout if not provided
         if "timeout" not in kwargs:
@@ -480,6 +484,9 @@ class CuhkScraper:
             # is not a subclass of requests' ConnectionError.
             except (ConnectionError, ChunkedEncodingError, Timeout) as e:
                 attempt += 1
+                if attempt >= self.config.max_request_attempts:
+                    self.logger.error(f"❌ Network issue after {attempt} attempts, giving up: {e}")
+                    raise
                 # Exponential backoff: 1s, 2s, 4s, 8s, 16s, 32s, max 60s
                 wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
                 self.logger.warning(
@@ -493,6 +500,11 @@ class CuhkScraper:
                 status = e.response.status_code if e.response is not None else None
                 if status in [502, 503, 504]:  # Server errors - retry
                     attempt += 1
+                    if attempt >= self.config.max_request_attempts:
+                        self.logger.error(
+                            f"❌ Server error {status} after {attempt} attempts, giving up"
+                        )
+                        raise
                     wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # Exponential backoff, max 60s
                     self.logger.warning(
                         f"🔧 Server error {status} (attempt {attempt}), retrying in {wait_time}s"

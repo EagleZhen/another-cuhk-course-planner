@@ -188,7 +188,7 @@ Failures retry rather than resolving to empty data, because empty is what a legi
 
 | Scope | Retries on | Limit | When it runs out |
 | --- | --- | --- | --- |
-| Request | network errors, HTTP 502/503/504 | unbounded | other statuses raise to the course |
+| Request | network errors, HTTP 502/503/504 | `max_request_attempts` (6) | raises to the course; any other status raises at once |
 | Course | anything raised while fetching or parsing a course page | `max_course_attempts` (5) | costs the subject one attempt |
 | Subject | any course failure, restarting from the course list | `max_subject_attempts` (10) | records the subject failed, run moves on |
 

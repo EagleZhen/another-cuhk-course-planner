@@ -686,9 +686,12 @@ def _fake_clock(monkeypatch):
     return clock
 
 
+RETRY_BUDGET = 3  # not production's 6: these tests pin the mechanism, not the tuning
+
+
 def _paced_scraper(get, delay=REQUEST_DELAY):
     return _live_scraper(
-        config=ScrapingConfig(request_delay=delay),
+        config=ScrapingConfig(request_delay=delay, max_request_attempts=RETRY_BUDGET),
         session=SimpleNamespace(get=get),
         _request_timeout=(10, 30),
     )
@@ -772,6 +775,42 @@ def test_a_body_that_dies_partway_is_retried_in_place(monkeypatch):
 
     assert CuhkScraper._robust_request(scraper, "GET", "http://test.invalid") is whole
     assert responses == []
+
+
+def test_a_request_that_never_recovers_gives_up(monkeypatch):
+    # The 2026-09-08 regression. The sentinel turns an unbounded loop into a failure
+    # rather than a hung CI.
+    _fake_clock(monkeypatch)
+    calls = []
+
+    def get(*args, **kwargs):
+        calls.append(1)
+        if len(calls) > 50:
+            raise AssertionError("retried well past any sane budget")
+        raise RequestsConnectionError("network is down")
+
+    with pytest.raises(RequestsConnectionError):
+        CuhkScraper._robust_request(_paced_scraper(get), "GET", "http://test.invalid")
+
+    assert len(calls) == RETRY_BUDGET
+
+
+def test_a_request_that_recovers_on_the_last_attempt_still_succeeds(monkeypatch):
+    # The other side of the budget: one too tight would fail transients the old code rode out.
+    _fake_clock(monkeypatch)
+    whole = SimpleNamespace(raise_for_status=lambda: None, content=b"")
+    answers = [RequestsConnectionError("network is down")] * (RETRY_BUDGET - 1) + [whole]
+
+    def get(*args, **kwargs):
+        answer = answers.pop(0)
+        if isinstance(answer, Exception):
+            raise answer
+        return answer
+
+    scraper = _paced_scraper(get)
+
+    assert CuhkScraper._robust_request(scraper, "GET", "http://test.invalid") is whole
+    assert answers == []
 
 
 def test_unknown_subject_title_is_recorded_empty_not_as_the_code(tmp_path):
