@@ -1,5 +1,4 @@
 import gc
-import json
 import logging
 import os
 import re
@@ -21,6 +20,7 @@ from data_utils import (
     clean_html_text,
     format_duration_human,
     html_to_clean_markdown,
+    load_progress_file,
     parse_enrollment_status_from_image,
     partition_subject_by_year,
     save_json_with_newline,
@@ -160,30 +160,6 @@ RESUME_AGE_LIMIT = timedelta(hours=24)
 
 class NothingToResume(Exception):
     """--resume found no unfinished full scrape."""
-
-
-class UnreadableProgressLog(Exception):
-    """The progress log will not parse."""
-
-
-def load_progress_file(progress_file: str) -> dict | None:
-    """The progress log, or None when there is none.
-
-    An unparseable one raises: it is our own output, and reading a break as "nothing
-    recorded" would drop the registry and have --resume refuse for the wrong reason,
-    sending you to redo by hand the ~9 hours it could have finished.
-    """
-    if not os.path.exists(progress_file):
-        return None
-    with open(progress_file, encoding="utf-8") as f:
-        try:
-            return json.load(f)
-        except json.JSONDecodeError as e:
-            raise UnreadableProgressLog(
-                f"{progress_file} is not readable JSON: {e}. It records what is on disk "
-                "and any interrupted scrape, so inspect it before moving it aside — "
-                "without it, a full scrape is the only way forward."
-            ) from e
 
 
 def load_latest_full_scrape(progress_file: str) -> dict | None:

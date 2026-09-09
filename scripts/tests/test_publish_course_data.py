@@ -593,6 +593,37 @@ def test_a_blocked_publish_names_the_subjects_when_no_scrape_is_unfinished(
     assert "scrape_all_subjects.py AAAA" in out
 
 
+def test_publish_refuses_an_unreadable_progress_log(tmp_path, monkeypatch, capsys):
+    # The completion gate reads this file. Swallowed, it published whatever a killed
+    # scrape left behind — an incomplete catalog, with a ❌ printed that changed nothing.
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir, filename="AAAA.json", subject="AAAA")
+    progress_file = tmp_path / "logs" / "scraping_progress.json"
+    progress_file.parent.mkdir(parents=True, exist_ok=True)
+    tracker = ScrapingProgressTracker(
+        str(progress_file), logging.getLogger(__name__), ["AAAA"], ScrapingConfig(), "full"
+    )
+    tracker.start_subject("AAAA")
+    progress_file.write_text(progress_file.read_text()[:40], encoding="utf-8")
+
+    with pytest.raises(SystemExit, match="1"):
+        publish_course_data.main()
+
+    assert "not readable JSON" in capsys.readouterr().out
+    assert not published_dir.exists()
+
+
+def test_publish_still_runs_without_a_progress_log(tmp_path, monkeypatch, capsys):
+    # No log is a legitimate first run, so only a broken one stops the publish.
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir)
+
+    publish_course_data.main()
+
+    assert "validation will be limited" in capsys.readouterr().out
+    assert published_dir.exists()
+
+
 def test_dry_run_reports_manifest_changes_without_writing(tmp_path, monkeypatch, capsys):
     source_dir, published_dir, generated_dir = _configure_publisher(
         tmp_path, monkeypatch, dry_run=True

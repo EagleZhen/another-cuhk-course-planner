@@ -1,6 +1,7 @@
 from types import SimpleNamespace
 
 import cuhk_scraper
+import data_utils
 import pytest
 import scrape_all_subjects
 from scrape_all_subjects import parse_args
@@ -41,7 +42,7 @@ def test_resume_and_a_subject_list_are_rejected_together():
 
 @pytest.mark.parametrize(
     "error",
-    [cuhk_scraper.NothingToResume, cuhk_scraper.UnreadableProgressLog],
+    [cuhk_scraper.NothingToResume, data_utils.UnreadableProgressLog],
     ids=["nothing to resume", "unreadable log"],
 )
 def test_a_refusal_to_scrape_exits_nonzero(monkeypatch, error):

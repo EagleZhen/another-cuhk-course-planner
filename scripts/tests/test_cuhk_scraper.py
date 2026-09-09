@@ -6,6 +6,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 import cuhk_scraper
+import data_utils
 import pytest
 from bs4 import BeautifulSoup
 from cuhk_scraper import (
@@ -385,7 +386,7 @@ def test_resume_says_the_log_is_unreadable_rather_than_reporting_no_scrape(tmp_p
     progress_file = _truncated(tmp_path)
     scraper = _loop_scraper(tmp_path)
 
-    with pytest.raises(cuhk_scraper.UnreadableProgressLog) as raised:
+    with pytest.raises(data_utils.UnreadableProgressLog) as raised:
         CuhkScraper.scrape_all_subjects(scraper, [], mode="resume")
 
     assert str(progress_file) in str(raised.value)
@@ -395,7 +396,7 @@ def test_an_unreadable_log_does_not_start_a_run_with_an_empty_registry(tmp_path)
     # Silently emptying it would drop what is on disk, and un-gate publishing with it.
     progress_file = _truncated(tmp_path)
 
-    with pytest.raises(cuhk_scraper.UnreadableProgressLog):
+    with pytest.raises(data_utils.UnreadableProgressLog):
         _tracker(progress_file, ["AAAA"], mode="full")
 
 

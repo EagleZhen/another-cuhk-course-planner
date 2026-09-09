@@ -28,11 +28,13 @@ import pyperclip
 from data_utils import (
     SCHEMA_VERSION,
     SCRAPE_TIME_FILENAME,
+    UnreadableProgressLog,
     collect_subjects_from_files,
     collect_terms_from_files,
     diff_subject_manifest,
     diff_term_names,
     is_subject_file,
+    load_progress_file,
     parse_iso_timestamp,
     render_scrape_times_module,
     render_subjects_module,
@@ -90,17 +92,15 @@ def update_generated_file(
 
 
 def load_scraping_progress() -> dict | None:
-    """Load scraping progress data for validation"""
-    if not os.path.exists(SCRAPING_PROGRESS_FILE):
-        print("⚠️ No scraping_progress.json found - validation will be limited")
-        return None
+    """The scrape's record of what is on disk, or None when there is none.
 
-    try:
-        with open(SCRAPING_PROGRESS_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    except Exception as e:
-        print(f"❌ Error reading scraping_progress.json: {e}")
-        return None
+    A missing log is a legitimate first-run state; one that will not parse raises,
+    since the completion gate below cannot be applied without it.
+    """
+    progress = load_progress_file(SCRAPING_PROGRESS_FILE)
+    if progress is None:
+        print("⚠️ No scraping_progress.json found - validation will be limited")
+    return progress
 
 
 def subject_code_of(file_path: str) -> str:
@@ -630,7 +630,12 @@ def main():
             print("❌ No source year directories (data/<year>/) found")
             return
 
-        progress_data = load_scraping_progress()
+        try:
+            progress_data = load_scraping_progress()
+        except UnreadableProgressLog as e:
+            # Read as "nothing recorded", it would publish whatever a killed scrape left.
+            print(f"❌ Publishing aborted: {e}")
+            sys.exit(1)
         report_scrape_summary(progress_data, collect_scrape_times(y.name for y in source_years))
 
         # 2. Validate every source year and plan the copy. The gates below are the last

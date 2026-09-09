@@ -13,7 +13,8 @@ import argparse
 import logging
 import sys
 
-from cuhk_scraper import CuhkScraper, NothingToResume, UnreadableProgressLog
+from cuhk_scraper import CuhkScraper, NothingToResume
+from data_utils import UnreadableProgressLog
 
 
 def subject_list(value: str) -> list[str]:

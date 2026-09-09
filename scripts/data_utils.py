@@ -545,6 +545,30 @@ def save_json_with_newline(filepath: str, data: Any) -> None:
         f.write("\n")
 
 
+class UnreadableProgressLog(Exception):
+    """The progress log will not parse."""
+
+
+def load_progress_file(progress_file: str) -> dict | None:
+    """The scrape's progress log, or None when there is none.
+
+    An unparseable one raises: it is our own output, and reading a break as "nothing
+    recorded" would have --resume start the ~9 hours over, and let publishing skip the
+    gate that waits for a finished scrape.
+    """
+    if not os.path.exists(progress_file):
+        return None
+    with open(progress_file, encoding="utf-8") as f:
+        try:
+            return json.load(f)
+        except json.JSONDecodeError as e:
+            raise UnreadableProgressLog(
+                f"{progress_file} is not readable JSON: {e}. It records what is on disk "
+                "and any interrupted scrape, so inspect it before moving it aside — "
+                "without it, a full scrape is the only way forward."
+            ) from e
+
+
 def get_academic_year(term_name: str) -> str | None:
     """Extract the academic year label from a term name for year-partitioning.
 

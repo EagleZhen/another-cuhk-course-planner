@@ -54,7 +54,7 @@ Log filenames in [logs/scrape/](../logs/scrape/) use the machine timezone, norma
 - `latest_full_scrape` describes one scrape of the whole catalog, which may span several runs: `started_at` is what its directories are stamped with, `remaining` is what it has not attempted yet (empty means it finished), `directories` is what it wrote. Full runs start one and resumes continue it; partial runs leave it alone ([why](decisions.md#record-the-scrape-apart-from-the-run)).
 - `subjects` is the cumulative registry of what sits in [data/](../data/), keyed by subject code, so it keeps entries for subjects the current run never visited.
 
-A log that will not parse stops the run rather than reading as an empty one: it is our own output, and a break read as an absence would drop the registry and make `--resume` refuse for the wrong reason — reporting no scrape recorded when one is sitting there half-finished.
+A log that will not parse stops both the scraper and the publisher rather than reading as an empty one — it is our own output. Read as an absence, it makes `--resume` report no scrape recorded when one sits there half-finished, and lets publishing skip the gate that waits for a finished scrape. A missing log is different, and still degrades: no log is a legitimate first run.
 
 ```bash
 jq '.latest_run' logs/scraping_progress.json
