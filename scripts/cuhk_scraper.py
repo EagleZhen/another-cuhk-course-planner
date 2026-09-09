@@ -794,7 +794,7 @@ class CuhkScraper:
         with self._subject_scope(subject_code):
             for attempt in range(self.config.max_subject_attempts):
                 try:
-                    self.logger.info(f"📋 Attempt {attempt + 1}")
+                    self.logger.info(f"📋 Fetching course list, attempt {attempt + 1}")
 
                     # Get the initial page to extract form data
                     response = self._robust_request("GET", self.base_url)
@@ -812,7 +812,7 @@ class CuhkScraper:
                     validation = self._validate_captcha_response(response.text)
                     if not validation["captcha_accepted"]:
                         self.logger.warning(
-                            f"🚫 Captcha rejected for {subject_code} (attempt {attempt + 1}): "
+                            f"🚫 Captcha rejected (attempt {attempt + 1}): "
                             f"{validation['result_type']} - {validation.get('error_message', 'Unknown')}"
                         )
                         # Continue to next attempt
@@ -868,9 +868,7 @@ class CuhkScraper:
 
                     # Log results based on validation type and course count
                     if validation["result_type"] == "no_records":
-                        self.logger.info(
-                            f"🔍 {subject_code}: Valid search, no courses found (empty subject)"
-                        )
+                        self.logger.info("🔍 Valid search, no courses found (empty subject)")
                         return []  # Success - empty subject, no retry needed
                     elif validation["result_type"] == "has_courses":
                         self.logger.info(f"🔍 Found {len(courses)} courses")
@@ -889,9 +887,7 @@ class CuhkScraper:
                         # The session itself may be what failed — ASP.NET keeps per-session
                         # state we cannot clear. A new one restarts from a fresh SessionId.
                         self.session = self._new_session()
-                        self.logger.info(
-                            f"♻️ New session for {subject_code} after attempt {attempt + 1}"
-                        )
+                        self.logger.info(f"♻️ New session after attempt {attempt + 1}")
                         time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
 
             # Returning [] here would be indistinguishable from a subject with no courses,
@@ -1066,8 +1062,7 @@ class CuhkScraper:
                     # Same backoff as _robust_request
                     wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
                     self.logger.warning(
-                        f"⚠️ Course details validation failed for {course.course_code} "
-                        f"(attempt {attempt}), retrying in {wait_time}s: {e}"
+                        f"⚠️ Course details validation failed (attempt {attempt}), retrying in {wait_time}s: {e}"
                     )
                     time.sleep(wait_time)
                     # Continue loop - re-fetch course details page
@@ -1080,8 +1075,7 @@ class CuhkScraper:
                         raise
                     wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
                     self.logger.error(
-                        f"❌ Unexpected error getting course details for {course.course_code} "
-                        f"(attempt {attempt}), retrying in {wait_time}s: {e}"
+                        f"❌ Unexpected error getting course details (attempt {attempt}), retrying in {wait_time}s: {e}"
                     )
                     time.sleep(wait_time)
 
@@ -1188,9 +1182,7 @@ class CuhkScraper:
                 response = self._robust_request("POST", self.base_url, data=form_data)
                 html = response.text
             else:
-                self.logger.info(
-                    f"'Show sections' button disabled for {term_name} - sections should already be visible"
-                )
+                self.logger.info(f"'Show sections' disabled for {term_name}: already shown")
 
             # Save debug file for the sections HTML (already visible if the button was disabled)
             filename = f"sections_{base_course.subject}_{base_course.course_code}_{term_name.replace(' ', '_').replace('-', '_')}.html"
@@ -1723,9 +1715,7 @@ class CuhkScraper:
             "<title>System error</title>" in response.text
             or "System error. Please try again" in response.text
         ):
-            self.logger.error(
-                f"🚨 System error (PERMANENT) for {course.course_code} course outcome - cannot scrape"
-            )
+            self.logger.error("🚨 System error (PERMANENT) for the course outcome - cannot scrape")
             self._track_failed_course_outcome(
                 course.subject, course.course_code, "system_error_permanent"
             )
@@ -1774,9 +1764,7 @@ class CuhkScraper:
             # Check 1: System error page detection (primary failure mode - ~8% of requests)
             # Example failure: <title>System error</title><body>系統有誤，請稍後再試。<br />System error. Please try again latter.</body>
             if "<title>System error</title>" in html or "System error. Please try again" in html:
-                self.logger.error(
-                    f"🚨 System error page detected for {course.course_code} course outcome"
-                )
+                self.logger.error("🚨 System error page for the course outcome")
                 return False
 
             # Check 2: Minimum structural requirements - ensure it's actually a course outcome page
@@ -1796,15 +1784,11 @@ class CuhkScraper:
                 self.logger.error("Outcome page has no content sections")
                 return False
 
-            self.logger.debug(
-                f"✅ Course outcome response validation passed for {course.course_code}"
-            )
+            self.logger.debug("✅ Course outcome response validation passed")
             return True
 
         except Exception as e:
-            self.logger.error(
-                f"Error validating course outcome response for {course.course_code}: {e}"
-            )
+            self.logger.error(f"Error validating course outcome response: {e}")
             return False  # Fail safe - preserve existing data if validation fails
 
     def _track_failed_course_outcome(self, subject: str, course_code: str, reason: str):
