@@ -28,11 +28,13 @@ import pyperclip
 from data_utils import (
     SCHEMA_VERSION,
     SCRAPE_TIME_FILENAME,
+    UnreadableProgressLog,
     collect_subjects_from_files,
     collect_terms_from_files,
     diff_subject_manifest,
     diff_term_names,
     is_subject_file,
+    load_progress_file,
     parse_iso_timestamp,
     render_scrape_times_module,
     render_subjects_module,
@@ -90,17 +92,15 @@ def update_generated_file(
 
 
 def load_scraping_progress() -> dict | None:
-    """Load scraping progress data for validation"""
-    if not os.path.exists(SCRAPING_PROGRESS_FILE):
-        print("⚠️ No scraping_progress.json found - validation will be limited")
-        return None
+    """The scrape's record of what is on disk, or None when there is none.
 
-    try:
-        with open(SCRAPING_PROGRESS_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    except Exception as e:
-        print(f"❌ Error reading scraping_progress.json: {e}")
-        return None
+    A missing log is a legitimate first-run state; one that will not parse raises,
+    since the completion gate below cannot be applied without it.
+    """
+    progress = load_progress_file(SCRAPING_PROGRESS_FILE)
+    if progress is None:
+        print("⚠️ No scraping_progress.json found - validation will be limited")
+    return progress
 
 
 def subject_code_of(file_path: str) -> str:
@@ -630,7 +630,12 @@ def main():
             print("❌ No source year directories (data/<year>/) found")
             return
 
-        progress_data = load_scraping_progress()
+        try:
+            progress_data = load_scraping_progress()
+        except UnreadableProgressLog as e:
+            # Read as "nothing recorded", it would publish whatever a killed scrape left.
+            print(f"❌ Publishing aborted: {e}")
+            sys.exit(1)
         report_scrape_summary(progress_data, collect_scrape_times(y.name for y in source_years))
 
         # 2. Validate every source year and plan the copy. The gates below are the last
@@ -642,12 +647,18 @@ def main():
             # Publishing what passed would leave the manifests describing a catalog the
             # app doesn't have. Publish is manual, so someone is here to fix it.
             print("❌ Publishing aborted: the scraped data is incomplete (reasons above).")
-            if plan.blocked_subjects:
+            # First, since a partial re-scrape would fix the data and leave stamps stale.
+            if ((progress_data or {}).get("latest_full_scrape") or {}).get("remaining"):
+                print("   1. Finish the interrupted scrape:")
+                print("        uv run python scripts/scrape_all_subjects.py --resume")
+            elif plan.blocked_subjects:
                 subjects = ",".join(plan.blocked_subjects)
-                print("   Re-scrape, then run this script again:")
-                print(f"      uv run python scripts/scrape_all_subjects.py {subjects}")
+                print("   1. Re-scrape the blocked subjects:")
+                print(f"        uv run python scripts/scrape_all_subjects.py {subjects}")
             else:
-                print("   Fix the source data, then run this script again.")
+                print("   1. Fix the source data.")
+            print("   2. Publish again:")
+            print("        uv run python scripts/publish_course_data.py")
             sys.exit(1)
 
         if not plan.copy_plan:

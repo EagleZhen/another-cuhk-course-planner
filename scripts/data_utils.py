@@ -11,12 +11,14 @@ TODO(#153): split scrape vs. publish utilities.
 """
 
 import json
+import os
 import re
-from collections.abc import Iterable, Mapping
+from collections.abc import Iterable, Iterator, Mapping
+from contextlib import contextmanager
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, TextIO
 from zoneinfo import ZoneInfo
 
 from bs4 import BeautifulSoup, Comment, Tag
@@ -303,21 +305,6 @@ def html_to_clean_markdown(html_content: str) -> tuple[str, bool]:
         return normalized_text, False
 
 
-# Convenience function for backward compatibility with scraper's expected interface
-def convert_html_to_markdown(html_content: str) -> str:
-    """
-    Simple wrapper around html_to_clean_markdown for backward compatibility.
-
-    Args:
-        html_content: Raw HTML content
-
-    Returns:
-        Clean text content (markdown if possible, plain text as fallback)
-    """
-    result, _ = html_to_clean_markdown(html_content)
-    return result
-
-
 def utc_now_iso() -> str:
     """Get current UTC timestamp in ISO format with timezone info
 
@@ -533,11 +520,53 @@ def format_duration_human(seconds: int) -> str:
     return " ".join(parts)
 
 
+@contextmanager
+def atomic_write(filepath: str, encoding: str = "utf-8") -> Iterator[TextIO]:
+    """Open a file for writing, replacing the target only once it is written in full.
+
+    Opening the target itself empties it before the first byte is written, so a write
+    that fails partway — a full disk, a killed process — destroys what was there.
+    """
+    temp_path = f"{filepath}.tmp"
+    try:
+        with open(temp_path, "w", encoding=encoding) as f:
+            yield f
+        os.replace(temp_path, filepath)
+    except BaseException:
+        if os.path.exists(temp_path):
+            os.unlink(temp_path)
+        raise
+
+
 def save_json_with_newline(filepath: str, data: Any) -> None:
     """Write JSON with UTF-8 encoding, 2-space indent, and trailing newline."""
-    with open(filepath, "w", encoding="utf-8") as f:
+    with atomic_write(filepath) as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
         f.write("\n")
+
+
+class UnreadableProgressLog(Exception):
+    """The progress log will not parse."""
+
+
+def load_progress_file(progress_file: str) -> dict | None:
+    """The scrape's progress log, or None when there is none.
+
+    An unparseable one raises: it is our own output, and reading a break as "nothing
+    recorded" would have --resume start the ~9 hours over, and let publishing skip the
+    gate that waits for a finished scrape.
+    """
+    if not os.path.exists(progress_file):
+        return None
+    with open(progress_file, encoding="utf-8") as f:
+        try:
+            return json.load(f)
+        except json.JSONDecodeError as e:
+            raise UnreadableProgressLog(
+                f"{progress_file} is not readable JSON: {e}. It records what is on disk "
+                "and any interrupted scrape, so inspect it before moving it aside — "
+                "without it, a full scrape is the only way forward."
+            ) from e
 
 
 def get_academic_year(term_name: str) -> str | None:

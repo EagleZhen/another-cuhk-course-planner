@@ -6,16 +6,57 @@ Usage:
     uv run python scripts/scrape_all_subjects.py              # All subjects
     uv run python scripts/scrape_all_subjects.py PHED         # Single subject
     uv run python scripts/scrape_all_subjects.py PHED,CSCI    # Multiple subjects
+    uv run python scripts/scrape_all_subjects.py --resume     # Finish an interrupted full scrape
 """
 
+import argparse
 import logging
 import sys
 
-from cuhk_scraper import CuhkScraper
+from cuhk_scraper import CuhkScraper, NothingToResume
+from data_utils import UnreadableProgressLog
+
+
+def subject_list(value: str) -> list[str]:
+    """Split the subjects argument, rejecting an empty one.
+
+    An unset shell variable arrives as "", which would otherwise read as no subjects
+    given and start a ~9-hour full scrape.
+    """
+    subjects = [code.strip() for code in value.split(",")]
+    if not all(subjects):
+        raise argparse.ArgumentTypeError(f"not a subject list: {value!r}")
+    return subjects
+
+
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    """Parse the command line.
+
+    argparse, not sys.argv: a mistyped flag would otherwise be read as a subject code.
+    """
+    parser = argparse.ArgumentParser(
+        description="Scrape the CUHK course catalog into data/.",
+        epilog="With no arguments, scrapes every subject CUHK offers.",
+    )
+    # Finishing an interrupted scrape and refreshing chosen subjects are different jobs.
+    what = parser.add_mutually_exclusive_group()
+    what.add_argument(
+        "subjects",
+        nargs="?",
+        type=subject_list,
+        help="comma-separated subject codes to refresh, e.g. PHED,CSCI",
+    )
+    what.add_argument(
+        "--resume",
+        action="store_true",
+        help="scrape only what an interrupted full scrape never reached",
+    )
+    return parser.parse_args(argv)
 
 
 def main():
     """Scrape all subjects and export to individual JSON files"""
+    args = parse_args()
 
     # Set up logging (console only - scraper handles its own timestamped file logging)
     logging.basicConfig(
@@ -36,12 +77,16 @@ def main():
         scraper = CuhkScraper(config)
 
         # Get subjects (from args or live website)
-        full_catalog = len(sys.argv) <= 1
-        if not full_catalog:
-            # Debug mode: scrape specific subjects from command line
-            subjects = sys.argv[1].split(",")
+        subjects = []
+        if args.resume:
+            # The scraper reads what is left from the progress log.
+            mode = "resume"
+        elif args.subjects is not None:
+            mode = "partial"
+            subjects = args.subjects
             logger.info(f"🎯 Debug mode: scraping {len(subjects)} subject(s): {subjects}")
         else:
+            mode = "full"
             # Production mode: scrape all subjects from live website
             logger.info("Getting subjects from live website...")
             subjects = scraper.get_subjects_from_live_site()
@@ -61,7 +106,7 @@ def main():
         logger.info("  - Subject titles included in metadata")
 
         # Use clean core API (separation of concerns)
-        results = scraper.scrape_all_subjects(subjects, full_catalog=full_catalog)
+        results = scraper.scrape_all_subjects(subjects, mode=mode)
 
         # Create summary (this is "what to scrape" logic, not core scraping)
         completed_count = len(results["completed"])
@@ -70,6 +115,11 @@ def main():
 
         logger.info("Scraping completed!")
         logger.info(f"Summary: {summary}")
+
+    # Both say what is wrong and what to do; neither is a scrape that half-happened.
+    except (NothingToResume, UnreadableProgressLog) as e:
+        logger.error(str(e))
+        sys.exit(1)
 
     except KeyboardInterrupt:
         logger.info("Scraping interrupted by user")

@@ -173,7 +173,7 @@ Why it fits:
 
 - one timestamp per directory instead of ~900 per scrape, so a data diff shows course changes
 - **per directory, not per subject**: a scrape only writes the years CUHK still serves, so a dropped year's timestamp freezes with its data. Anything derived from per-subject times, or from the run's start, keeps advancing instead, because those subjects are still scraped for the live year — it would advertise frozen data as fresh
-- full runs only: a partial scrape can't speak for the subjects it never touched, so it leaves the stamps alone and stays pessimistic
+- full runs and resumes only: a partial scrape can't speak for the subjects it never touched, so it leaves the stamps alone. A resume stamps with the interrupted scrape's start, not its own
 - a build-time constant, not another fetch: data and code deploy together, and the app already generates `subjects.ts` / `terms.ts` this way. The module stays purely derived, so deleting `generated/` and re-publishing round-trips
 
 Watchouts:
@@ -181,6 +181,22 @@ Watchouts:
 - `schema_version` gates the file shape at publish, but stays optional in the app's Zod schema: a tab open across a deploy can fetch data from a different version, and that must degrade rather than fail to load
 - freshness is not completeness — see [Data Pipeline](data-pipeline.md#freshness)
 - enrollment counters still churn every scrape, so diffs are quieter, not quiet
+
+## Record The Scrape Apart From The Run
+
+A full scrape takes ~9 hours, so a killed one gets finished by a later run. Nothing recorded that the two were one scrape: on 2026-09-08 a run died at UGFN, a catch-up run finished the last 10 subjects, and the directories kept the previous scrape's timestamp — correctly, since neither run alone could speak for the catalog.
+
+Decision: the progress log records `latest_full_scrape` (`started_at`, `remaining`, `directories`), and directory stamps come from it rather than from whichever run wrote them.
+
+Why not fold it into `latest_run`, or derive it:
+
+- a run is one invocation, a scrape is one pass over the catalog and may span several. `latest_run` is overwritten by every run, a one-subject smoke run included
+- `started_at` equals the run's start only when a single run does the whole scrape — the case that never needed it
+- `directories` must accumulate across the scrape's runs: one run's writes are only part of it, and walking `data/` would stamp years CUHK has dropped ([why](#stamp-each-data-directory-with-its-scrape-time))
+- an empty `remaining` _is_ the finish, so no separate "completed" flag can disagree with it
+- subjects leave `remaining` when attempted, not when they succeed. Otherwise one subject CUHK drops keeps every future scrape unfinished, freezing freshness with nothing to explain why — a full run with failures still stamps, and publishing still blocks on them
+
+Limitation: `remaining` fixes the catalog as of `started_at`, so a subject CUHK adds mid-scrape waits for the next one. `--resume` warns past 24h rather than refusing — a 12-hour scrape has already drifted, so age is a matter of degree.
 
 ## Save Each Subject Immediately
 
@@ -194,7 +210,7 @@ Why it fits:
 - peak memory stays flat in the number of subjects instead of growing across the run
 - the progress log records what each subject produced and when, which is what publishing validates against
 
-Limitation: a re-run rescrapes every subject it is given — there is no skip-completed resume.
+Limitation: `--resume` skips subjects an interrupted scrape already covered, but there is no resume within a subject.
 
 ## Eager Current Year, Lazy Archived Years
 

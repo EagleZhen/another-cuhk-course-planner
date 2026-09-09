@@ -19,9 +19,12 @@ Run these from the repository root.
 # Scrape all subjects from the live catalog
 uv run python scripts/scrape_all_subjects.py
 
-# Scrape selected subjects while debugging
+# Scrape selected subjects while debugging (leaves scrape times alone)
 uv run python scripts/scrape_all_subjects.py CSCI
 uv run python scripts/scrape_all_subjects.py CSCI,UGFN
+
+# Finish an interrupted full scrape (warns if it is over a day old)
+uv run python scripts/scrape_all_subjects.py --resume
 
 # Validate and copy publishable data into the web app
 uv run python scripts/publish_course_data.py
@@ -45,18 +48,19 @@ Log filenames in [logs/scrape/](../logs/scrape/) use the machine timezone, norma
 
 ### Progress Log
 
-[scraping_progress.json](../logs/scraping_progress.json) answers two questions from two places:
+[scraping_progress.json](../logs/scraping_progress.json) holds three blocks, shortest-lived first:
 
-- `latest_run` describes the run that wrote it, counting only the subjects that run covered — so a one-subject retry reports 1, not the whole catalog. It is written for a human and never read back, hence HKT timestamps and no machine-readable copies.
-- `subjects` is the cumulative registry of what sits in [data/](../data/), keyed by subject code, so it keeps entries for subjects the run never visited.
+- `latest_run` describes one invocation, counting only the subjects that run covered — so a one-subject retry reports 1, not the whole catalog, and `mode` says which kind of run produced the counts. It is written for a human and never read back, hence HKT timestamps and no machine-readable copies. Its `status` stays `in_progress` until the run ends, so a killed run never reaches `completed`. `last_updated` moves once per subject; [logs/scrape/](../logs/scrape/) is what shows whether a run is still alive.
+- `latest_full_scrape` describes one scrape of the whole catalog, which may span several runs: `started_at` is what its directories are stamped with, `remaining` is what it has not attempted yet (empty means it finished), `directories` is what it wrote. Full runs start one and resumes continue it; partial runs leave it alone ([why](decisions.md#record-the-scrape-apart-from-the-run)).
+- `subjects` is the cumulative registry of what sits in [data/](../data/), keyed by subject code, so it keeps entries for subjects the current run never visited.
 
-`status` stays `in_progress` until the run ends, so a killed run never reaches `completed` — `last_updated` tells the two apart.
+A log that will not parse stops both the scraper and the publisher rather than reading as an empty one — it is our own output. Read as an absence, it makes `--resume` report no scrape recorded when one sits there half-finished, and lets publishing skip the gate that waits for a finished scrape. A missing log is different, and still degrades: no log is a legitimate first run.
 
 ```bash
 jq '.latest_run' logs/scraping_progress.json
 ```
 
-Scripts that write JSON output use `save_json_with_newline()` in [scripts/data_utils.py](../scripts/data_utils.py) for consistent formatting (2-space indent, trailing newline) and clean diffs.
+Scripts that write JSON output use `save_json_with_newline()` in [scripts/data_utils.py](../scripts/data_utils.py) for consistent formatting (2-space indent, trailing newline) and clean diffs. It renames a temporary file over the target, so a kill mid-write leaves the previous file rather than a truncated one.
 
 ### File Schema
 
@@ -73,7 +77,7 @@ A bump forces a full re-scrape, which is the point: published data can never be 
 
 Each data directory holds a `_scraped_at.txt`: when the scrape that wrote it started. Publishing reads those into [scrape-times.ts](../web/src/lib/generated/scrape-times.ts) for the app's "Last Data Sync", shown in CUHK's timezone (HKT), not the viewer's. It renders only after hydration — browsers rewrite a date left in the prerendered HTML (data detectors, translation, extensions), which breaks hydration. A stamp with no UTC offset is skipped as undated, rather than read in the publisher's timezone.
 
-Only full scrapes write them, and only for the directories they produced — so a year CUHK drops keeps its own time ([why](decisions.md#stamp-each-data-directory-with-its-scrape-time)).
+Only full scrapes and resumes write them, and only for the directories that scrape produced — so a year CUHK drops keeps its own time ([why](decisions.md#stamp-each-data-directory-with-its-scrape-time)). A resume writes the interrupted scrape's start, not its own.
 
 ## Publish
 
