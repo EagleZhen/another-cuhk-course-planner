@@ -524,7 +524,8 @@ def _live_scraper(*, save_debug_html=False, **overrides):
         # debug HTML into whatever directory the suite ran from.
         scraper._save_debug_html = lambda *a, **k: None
     scraper.current_config = None
-    scraper.current_course_context = None
+    scraper.current_subject = None
+    scraper.current_course_code = None
     scraper._robust_request = _boom
     for name, value in overrides.items():
         setattr(scraper, name, value)
@@ -822,7 +823,7 @@ def test_a_permanent_system_error_keeps_the_outcome_page(tmp_path):
     # Nothing retries a permanent system error, so this page is the only evidence that the
     # outcome is missing rather than genuinely empty.
     scraper, course = _failing_scraper(tmp_path, SYSTEM_ERROR_PAGE)
-    scraper._set_context(scraper.config)  # scrape_subject does this before any course
+    scraper._set_context(scraper.config, subject="TEST")  # as scrape_subject does
 
     CuhkScraper._scrape_course_outcome(scraper, OUTCOME_BUTTON_HTML, course)
 
@@ -1053,7 +1054,8 @@ def _bare_scraper(**attributes):
     scraper = CuhkScraper.__new__(CuhkScraper)
     scraper.logger = logging.getLogger("test")
     scraper.current_config = None
-    scraper.current_course_context = None
+    scraper.current_subject = None
+    scraper.current_course_code = None
     for name, value in attributes.items():
         setattr(scraper, name, value)
     return scraper
@@ -1202,7 +1204,8 @@ def _parse_details(page_name, section_name, tmp_path):
         current_config=SimpleNamespace(
             save_debug_files=False, save_debug_on_error=True, debug_html_directory=str(tmp_path)
         ),
-        current_course_context={"subject": "TEST", "course_code": "1000"},
+        current_subject="TEST",
+        current_course_code="1000",
     )
     return scraper._parse_class_details(_sample_html(page_name), section_name)
 
@@ -1251,7 +1254,8 @@ def test_a_class_details_page_with_no_seat_counts_raises(tmp_path):
         current_config=SimpleNamespace(
             save_debug_files=False, save_debug_on_error=True, debug_html_directory=str(tmp_path)
         ),
-        current_course_context={"subject": "TEST", "course_code": "1000"},
+        current_subject="TEST",
+        current_course_code="1000",
     )
     html = (
         '<span id="uc_class_lbl_class_status">Open</span>'
@@ -1262,3 +1266,31 @@ def test_a_class_details_page_with_no_seat_counts_raises(tmp_path):
         scraper._parse_class_details(html, "--LEC (1234)")
 
     assert [p.name for p in tmp_path.iterdir()] == ["class_details_TEST_1000_LEC_1234_FAILED.html"]
+
+
+# --- Scraping context ------------------------------------------------------------------
+
+
+def test_starting_a_subject_clears_the_previous_course():
+    # Asserted through the filename, not the fields: that is what was wrong.
+    scraper = _bare_scraper()
+    config = ScrapingConfig()
+
+    scraper._set_context(config, course=_course("1000", []))
+    assert scraper._class_details_debug_filename("A-LEC (1)") == (
+        "class_details_TEST_1000_ALEC_1.html"
+    )
+
+    scraper._set_context(config, subject="OTHER")
+    assert scraper._class_details_debug_filename("A-LEC (1)") == (
+        "class_details_OTHER_UNKNOWN_ALEC_1.html"
+    )
+
+
+def test_scraping_a_subject_records_which_one():
+    # Via the real entry point: nothing else puts the subject in scope.
+    scraper = _subject_scraper(NO_RECORDS_PAGE)
+
+    CuhkScraper.scrape_subject(scraper, "PHED")
+
+    assert (scraper.current_subject, scraper.current_course_code) == ("PHED", None)

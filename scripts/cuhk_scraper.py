@@ -398,9 +398,11 @@ class CuhkScraper:
         # Set up file logging automatically
         self._setup_file_logging()
 
-        # Context management - eliminates parameter propagation (kept for debugging context)
+        # What the scraper is on, for debug filenames. Two fields: a course is in scope
+        # for part of a subject, not all of it.
         self.current_config: ScrapingConfig | None = None
-        self.current_course_context: dict | None = None
+        self.current_subject: str | None = None
+        self.current_course_code: str | None = None
         self.subject_titles_cache: dict[str, str] = {}  # Cache for subject code -> title mapping
 
         # Suppress ONNX warnings
@@ -549,14 +551,20 @@ class CuhkScraper:
         self.logger.info(f"📝 File logging initialized: {log_filename}")
         return log_filename
 
-    def _set_context(self, config: ScrapingConfig, course: Course | None = None):
-        """Set current scraping context to eliminate parameter propagation"""
+    def _set_context(
+        self,
+        config: ScrapingConfig,
+        subject: str | None = None,
+        course: Course | None = None,
+    ) -> None:
+        """Record what the scraper is on, for debug filenames.
+
+        Both are cleared unless named: a course outliving its subject files the next
+        subject's pages under the last one's name.
+        """
         self.current_config = config
-        if course:
-            self.current_course_context = {
-                "subject": course.subject,
-                "course_code": course.course_code,
-            }
+        self.current_subject = course.subject if course else subject
+        self.current_course_code = course.course_code if course else None
 
     def _extract_asp_hidden_fields(self, soup: BeautifulSoup) -> dict[str, str]:
         """
@@ -739,8 +747,7 @@ class CuhkScraper:
 
     def scrape_subject(self, subject_code: str) -> list[Course]:
         """Scrape courses for a specific subject"""
-        # Set context for this subject
-        self._set_context(self.config)
+        self._set_context(self.config, subject=subject_code)
 
         for attempt in range(self.config.max_subject_attempts):
             try:
@@ -964,7 +971,7 @@ class CuhkScraper:
         """
         if response is None:
             return
-        self._set_context(self.config, course)
+        self._set_context(self.config, course=course)
         self._save_debug_html(
             response.text,
             f"course_details_{course.subject}_{course.course_code}_FAILED.html",
@@ -999,7 +1006,7 @@ class CuhkScraper:
                 )
 
                 # Debug: save detailed response (using smart saving)
-                self._set_context(self.config, course)  # Set course context
+                self._set_context(self.config, course=course)
                 self._save_debug_html(
                     response.text, f"course_details_{course.subject}_{course.course_code}.html"
                 )
@@ -1463,7 +1470,7 @@ class CuhkScraper:
         class_details_html = response.text
 
         # Save debug file for class details HTML (using smart saving)
-        if self.current_course_context:
+        if self.current_course_code:
             self._save_debug_html(
                 class_details_html, self._class_details_debug_filename(section_name)
             )
@@ -1476,13 +1483,12 @@ class CuhkScraper:
 
     def _class_details_debug_filename(self, section_name: str, suffix: str = "") -> str:
         """Debug filename for one section's class details response."""
-        context = self.current_course_context or {}
         clean_section = (
             section_name.replace("(", "").replace(")", "").replace(" ", "_").replace("-", "")
         )
         return (
-            f"class_details_{context.get('subject', 'UNKNOWN')}"
-            f"_{context.get('course_code', 'UNKNOWN')}_{clean_section}{suffix}.html"
+            f"class_details_{self.current_subject or 'UNKNOWN'}"
+            f"_{self.current_course_code or 'UNKNOWN'}_{clean_section}{suffix}.html"
         )
 
     def _validate_class_details_response(self, soup: BeautifulSoup, section_name: str) -> None:
