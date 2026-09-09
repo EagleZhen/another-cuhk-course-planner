@@ -457,8 +457,7 @@ class CuhkScraper:
         Note:
             Retries network errors (ConnectionError, ChunkedEncodingError, Timeout) and HTTP
             502/503/504 up to max_request_attempts times, then re-raises so the caller redoes
-            the unit. The body is pre-loaded, so a drop while reading it counts as a failure.
-            Any other HTTP status raises immediately.
+            the unit. Any other HTTP status raises immediately.
         """
         # Set default timeout if not provided
         if "timeout" not in kwargs:
@@ -479,9 +478,6 @@ class CuhkScraper:
                 # Check for HTTP errors
                 response.raise_for_status()
 
-                # Read the body now, so a mid-response drop is retried here rather than
-                # returned short.
-                _ = response.content
                 return response
 
             # ChunkedEncodingError is a body that stopped early. Named separately because it

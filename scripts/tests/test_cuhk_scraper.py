@@ -755,26 +755,23 @@ def test_a_retry_waits_its_turn_like_any_other_request(monkeypatch):
     assert answers == []
 
 
-class _BodyThatDies:
-    """A response whose headers arrived but whose body never finished."""
-
-    def raise_for_status(self):
-        return None
-
-    @property
-    def content(self):
-        raise ChunkedEncodingError("connection broken mid-body")
-
-
 def test_a_body_that_dies_partway_is_retried_in_place(monkeypatch):
+    # requests buffers the body inside get(), so a half-read response surfaces there.
     # One retryable request; escaping here would cost the whole course an attempt.
     _fake_clock(monkeypatch)
     whole = SimpleNamespace(raise_for_status=lambda: None, content=b"whole body")
-    responses = [_BodyThatDies(), whole]
-    scraper = _paced_scraper(lambda *a, **k: responses.pop(0))
+    answers = [ChunkedEncodingError("connection broken mid-body"), whole]
+
+    def get(*args, **kwargs):
+        answer = answers.pop(0)
+        if isinstance(answer, Exception):
+            raise answer
+        return answer
+
+    scraper = _paced_scraper(get)
 
     assert CuhkScraper._robust_request(scraper, "GET", "http://test.invalid") is whole
-    assert responses == []
+    assert answers == []
 
 
 def test_a_request_that_never_recovers_gives_up(monkeypatch):
