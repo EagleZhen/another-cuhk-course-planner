@@ -66,7 +66,6 @@ class ScrapingConfig:
     # 97% of real transients clear within two attempts. Past six it is a wedged session,
     # which only the subject scope can fix by rebuilding it.
     max_request_attempts: int = 6
-    output_mode: str = "single_file"  # "single_file" or "per_subject"
     output_directory: str = SCRAPER_OUTPUTS_DIR  # testing default
     track_progress: bool = False  # Progress tracking for production
     # Progress log filename (use os.path.join for production)
@@ -90,7 +89,6 @@ class ScrapingConfig:
             debug_html_directory=DEBUG_HTML_DIR,  # Separate debug folder
             request_delay=0.8,  # ~9h for a full scrape at today's catalog size
             max_subject_attempts=10,
-            output_mode="per_subject",  # Per-subject files for production
             output_directory=SOURCE_DATA_DIR,  # Production data directory
             track_progress=True,  # Enable progress tracking
             progress_file=SCRAPING_PROGRESS_FILE,
@@ -347,20 +345,6 @@ class ScrapingProgressTracker:
     def get_failed_subjects(self) -> list[str]:
         """Get the subjects this run failed, for summary/retry purposes"""
         return [subject for subject, status in self._subject_statuses.items() if status == "failed"]
-
-    def get_progress_percentage(self, subject: str) -> float:
-        """Get completion percentage for a subject"""
-        subjects = self.progress_data["subjects"]
-        if subject not in subjects:
-            return 0.0
-
-        subject_data = subjects[subject]
-        courses_scraped = subject_data.get("courses_scraped", 0)
-        estimated_courses = subject_data.get("estimated_courses", 0)
-
-        if estimated_courses > 0:
-            return min(100.0, (courses_scraped / estimated_courses) * 100)
-        return 0.0
 
     def log_summary(self):
         """Log this run's summary
@@ -2144,46 +2128,12 @@ class CuhkScraper:
             self.logger.error(f"💥 SAVE FAILED for {subject}: {e}")
             return None
 
-    def _export_per_subject(self, data: dict[str, list[Course]], config: ScrapingConfig) -> str:
-        """Export each subject to its own JSON file"""
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        exported_files = []
-
-        for subject, courses in data.items():
-            # Create per-subject JSON structure
-            subject_data = {
-                "metadata": {
-                    "schema_version": SCHEMA_VERSION,
-                    "subject": subject,
-                    "total_courses": len(courses),
-                    "output_mode": "per_subject",
-                },
-                "courses": [course.to_dict() for course in courses],
-            }
-
-            # Create filename with subject prefix
-            filename = f"{config.output_directory}/{subject}_{timestamp}.json"
-
-            save_json_with_newline(filename, subject_data)
-
-            exported_files.append(filename)
-            self.logger.info(f"Exported {subject} ({len(courses)} courses) to {filename}")
-
-            # Update progress tracker with output file path
-            if self.progress_tracker and subject in self.progress_tracker.progress_data["subjects"]:
-                subject_progress = self.progress_tracker.progress_data["subjects"][subject]
-                if subject_progress.get("status") == "completed":
-                    subject_progress["output_file"] = filename
-                    self.progress_tracker._save_progress()
-
-        # Return summary of exported files
-        summary = f"Exported {len(data)} subjects to {len(exported_files)} files in {config.output_directory}/"
-        self.logger.info(summary)
-        return summary
-
 
 def main():
-    """Main function - demonstrates both testing and production usage"""
+    """Smoke-test the scraper against one subject with the testing defaults.
+
+    Production runs go through scripts/scrape_all_subjects.py, not this.
+    """
     logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
     scraper = CuhkScraper()
@@ -2199,9 +2149,9 @@ def main():
 
     try:
         print("\n=== TESTING MODE (default) ===")
-        print("- Limited to 3 courses per subject")
-        print("- Debug files enabled")
-        print("- 2.0s delays between requests")
+        print(f"- Limited to {scraper.config.max_courses_per_subject} courses per subject")
+        print(f"- Debug files enabled: {scraper.config.save_debug_files}")
+        print(f"- {scraper.config.request_delay}s delays between requests")
 
         # Testing mode (default behavior)
         # Configure scraper for detailed testing
@@ -2218,24 +2168,6 @@ def main():
         print(f"Files saved: {total_files}")
         if results["saved_files"]:
             print(f"Saved files: {list(results['saved_files'].values())}")
-
-        print("\n=== PRODUCTION MODE EXAMPLES ===")
-        print("For complete production workflow (recommended):")
-        print("  summary = scraper.scrape_and_export_production(subjects)")
-        print("  # Creates per-subject files in /data/ directory")
-        print()
-        print("For production scraping only:")
-        print("  results = scraper.scrape_for_production(subjects)")
-        print("  # Returns summary dict with completed/failed subjects")
-        print()
-        print("To resume previous scraping:")
-        print("  resume_summary = scraper.resume_production_scraping()")
-        print("  # Continues from where previous scraping left off")
-        print()
-        print("Per-subject files enable:")
-        print("  - Fault tolerance (keep completed subjects if scraping fails)")
-        print("  - Incremental updates (update individual subjects)")
-        print("  - Better web app performance (load subjects on-demand)")
 
     except KeyboardInterrupt:
         print("\nScraping interrupted")
