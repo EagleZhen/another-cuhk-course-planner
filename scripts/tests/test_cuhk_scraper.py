@@ -325,6 +325,14 @@ def test_run_config_is_recorded_once_for_the_run(tmp_path):
     assert "config" not in saved["subjects"]["AAAA"]
 
 
+def test_the_run_records_which_mode_it_ran_in(tmp_path):
+    # subjects_total cannot tell them apart: a partial run may name every subject.
+    tracker = _tracker(tmp_path / "progress.json", ["AAAA"], mode="full")
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], 1.0)
+
+    assert _saved(tracker)["latest_run"]["mode"] == "full"
+
+
 def test_registry_stays_sorted_as_subjects_are_added(tmp_path):
     # Key order otherwise records scrape history: a subject CUHK adds later lands at the
     # end and stays there, so the file drifts out of order one addition at a time.

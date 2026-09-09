@@ -8,14 +8,32 @@ Usage:
     uv run python scripts/scrape_all_subjects.py PHED,CSCI    # Multiple subjects
 """
 
+import argparse
 import logging
-import sys
 
 from cuhk_scraper import CuhkScraper
 
 
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    """Parse the command line.
+
+    argparse, not sys.argv: a mistyped flag would otherwise be read as a subject code.
+    """
+    parser = argparse.ArgumentParser(
+        description="Scrape the CUHK course catalog into data/.",
+        epilog="With no arguments, scrapes every subject CUHK offers.",
+    )
+    parser.add_argument(
+        "subjects",
+        nargs="?",
+        help="comma-separated subject codes to refresh, e.g. PHED,CSCI",
+    )
+    return parser.parse_args(argv)
+
+
 def main():
     """Scrape all subjects and export to individual JSON files"""
+    args = parse_args()
 
     # Set up logging (console only - scraper handles its own timestamped file logging)
     logging.basicConfig(
@@ -36,10 +54,10 @@ def main():
         scraper = CuhkScraper(config)
 
         # Get subjects (from args or live website)
-        mode = "partial" if len(sys.argv) > 1 else "full"
+        mode = "partial" if args.subjects else "full"
         if mode == "partial":
             # Debug mode: scrape specific subjects from command line
-            subjects = sys.argv[1].split(",")
+            subjects = args.subjects.split(",")
             logger.info(f"🎯 Debug mode: scraping {len(subjects)} subject(s): {subjects}")
         else:
             # Production mode: scrape all subjects from live website

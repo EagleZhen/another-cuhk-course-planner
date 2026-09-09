@@ -242,6 +242,8 @@ class ScrapingProgressTracker:
             # crashed. `last_updated` moves once per subject; logs/scrape/ is what shows
             # whether a run is still alive.
             "status": self._run_status,
+            # Which counts these are: a partial run naming every subject looks the same.
+            "mode": self.mode,
             "subjects_total": len(self.run_subjects),
             "subjects_completed": subject_statuses.count("completed"),
             "subjects_failed": subject_statuses.count("failed"),
