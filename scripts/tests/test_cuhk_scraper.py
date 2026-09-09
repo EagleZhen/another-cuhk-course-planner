@@ -1272,25 +1272,54 @@ def test_a_class_details_page_with_no_seat_counts_raises(tmp_path):
 # --- Scraping context ------------------------------------------------------------------
 
 
-def test_starting_a_subject_clears_the_previous_course():
-    # Asserted through the filename, not the fields: that is what was wrong.
+def test_a_scope_lasts_exactly_as_long_as_its_block():
+    # Debug pages must not be filed under a subject or course the scraper has left.
     scraper = _bare_scraper()
+    named = []
 
-    scraper._set_context(course=_course("1000", []))
-    assert scraper._class_details_debug_filename("A-LEC (1)") == (
-        "class_details_TEST_1000_ALEC_1.html"
-    )
+    with scraper._subject_scope("PHED"):
+        with scraper._course_scope(_course("1010", [])):
+            named.append(scraper._class_details_debug_filename("A-LEC (1)"))
+        named.append(scraper._class_details_debug_filename("A-LEC (1)"))
+    named.append(scraper._class_details_debug_filename("A-LEC (1)"))
 
-    scraper._set_context(subject="OTHER")
-    assert scraper._class_details_debug_filename("A-LEC (1)") == (
-        "class_details_OTHER_UNKNOWN_ALEC_1.html"
-    )
+    assert named == [
+        "class_details_PHED_1010_ALEC_1.html",
+        "class_details_PHED_UNKNOWN_ALEC_1.html",
+        "class_details_UNKNOWN_UNKNOWN_ALEC_1.html",
+    ]
 
 
-def test_scraping_a_subject_records_which_one():
+def test_scraping_a_subject_puts_it_in_scope():
     # Via the real entry point: nothing else puts the subject in scope.
     scraper = _subject_scraper(NO_RECORDS_PAGE)
+    seen = []
+    scraper._parse_course_list = lambda html: seen.append(scraper.current_subject) or []
 
     CuhkScraper.scrape_subject(scraper, "PHED")
 
-    assert (scraper.current_subject, scraper.current_course_code) == ("PHED", None)
+    assert seen == ["PHED"]
+    # And the run-level lines that follow belong to no subject.
+    assert (scraper.current_subject, scraper.current_course_code) == (None, None)
+
+
+def test_a_course_is_in_scope_before_its_pages_are_saved():
+    # Class-details HTML is written inside _get_course_details_with_term_selection, so the
+    # course must already be in scope there. It used to be set after, naming each course's
+    # pages after the previous one.
+    scraper = _live_scraper(_robust_request=lambda *a, **k: SimpleNamespace(text=DETAIL_HTML))
+    named = []
+    scraper._get_course_details_with_term_selection = lambda html, course: (
+        named.append(scraper._class_details_debug_filename("A-LEC (1)")) or course
+    )
+
+    with scraper._subject_scope("TEST"):
+        for code in ("1010", "1011"):
+            course = _course(code, [])
+            course.postback_target = "target"
+            scraper.get_course_details(course, DETAIL_HTML)
+
+    assert named == [
+        "class_details_TEST_1010_ALEC_1.html",
+        "class_details_TEST_1011_ALEC_1.html",
+    ]

@@ -3,6 +3,8 @@ import logging
 import os
 import re
 import time
+from collections.abc import Iterator
+from contextlib import contextmanager
 from dataclasses import asdict, dataclass, field
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
@@ -550,14 +552,28 @@ class CuhkScraper:
         self.logger.info(f"📝 File logging initialized: {log_filename}")
         return log_filename
 
-    def _set_context(self, subject: str | None = None, course: Course | None = None) -> None:
-        """Record what the scraper is on, for debug filenames.
+    # What the scraper is on, for debug filenames. Scopes nest run -> subject -> course
+    # and are entered by the method that owns each, so nothing can outlive its block and
+    # file the next subject's pages under the last one's name.
 
-        Both are cleared unless named: a course outliving its subject files the next
-        subject's pages under the last one's name.
-        """
-        self.current_subject = course.subject if course else subject
-        self.current_course_code = course.course_code if course else None
+    @contextmanager
+    def _subject_scope(self, subject: str) -> Iterator[None]:
+        """One subject, from its first request to its last."""
+        self.current_subject = subject
+        try:
+            yield
+        finally:
+            self.current_subject = None
+            self.current_course_code = None
+
+    @contextmanager
+    def _course_scope(self, course: Course) -> Iterator[None]:
+        """One course within the enclosing subject, which keeps owning the subject."""
+        self.current_course_code = course.course_code
+        try:
+            yield
+        finally:
+            self.current_course_code = None
 
     def _extract_asp_hidden_fields(self, soup: BeautifulSoup) -> dict[str, str]:
         """
@@ -737,115 +753,116 @@ class CuhkScraper:
 
     def scrape_subject(self, subject_code: str) -> list[Course]:
         """Scrape courses for a specific subject"""
-        self._set_context(subject=subject_code)
+        with self._subject_scope(subject_code):
+            for attempt in range(self.config.max_subject_attempts):
+                try:
+                    self.logger.info(f"📋 Scraping {subject_code}, attempt {attempt + 1}")
 
-        for attempt in range(self.config.max_subject_attempts):
-            try:
-                self.logger.info(f"📋 Scraping {subject_code}, attempt {attempt + 1}")
+                    # Get the initial page to extract form data
+                    response = self._robust_request("GET", self.base_url)
 
-                # Get the initial page to extract form data
-                response = self._robust_request("GET", self.base_url)
+                    soup = BeautifulSoup(response.text, "html.parser")
 
-                soup = BeautifulSoup(response.text, "html.parser")
+                    # Extract form data
+                    form_data = self._extract_form_data(soup)
+                    form_data["ddl_subject"] = subject_code
 
-                # Extract form data
-                form_data = self._extract_form_data(soup)
-                form_data["ddl_subject"] = subject_code
+                    # Submit the form
+                    response = self._robust_request("POST", self.base_url, data=form_data)
 
-                # Submit the form
-                response = self._robust_request("POST", self.base_url, data=form_data)
+                    # Validate captcha was accepted by server
+                    validation = self._validate_captcha_response(response.text)
+                    if not validation["captcha_accepted"]:
+                        self.logger.warning(
+                            f"🚫 Captcha rejected for {subject_code} (attempt {attempt + 1}): "
+                            f"{validation['result_type']} - {validation.get('error_message', 'Unknown')}"
+                        )
+                        # Continue to next attempt
+                        if attempt < self.config.max_subject_attempts - 1:
+                            time.sleep(1)  # Brief delay before retry
+                        continue
 
-                # Validate captcha was accepted by server
-                validation = self._validate_captcha_response(response.text)
-                if not validation["captcha_accepted"]:
+                    # Captcha accepted! Log result type
+                    self.logger.info(
+                        f"✅ Captcha accepted for {subject_code}: {validation['result_type']}"
+                    )
+
+                    # Debug: save response to understand structure (using smart saving)
+                    self._save_debug_html(
+                        response.text, f"response_{subject_code}_attempt_{attempt + 1}.html"
+                    )
+
+                    # Parse results
+                    courses = self._parse_course_list(response.text)
+
+                    # Set the subject for all courses
+                    for course in courses:
+                        course.subject = subject_code
+
+                    if self.progress_tracker and self.config.track_progress:
+                        self.progress_tracker.start_subject(subject_code)
+
+                    # Get detailed information if requested
+                    if self.config.get_details and courses:
+                        # Apply course limit based on configuration
+                        if self.config.max_courses_per_subject is not None:
+                            courses_to_detail = courses[: self.config.max_courses_per_subject]
+                            self.logger.info(
+                                f"Getting details for {len(courses_to_detail)} courses (limited by config)..."
+                            )
+                        else:
+                            courses_to_detail = courses
+                            self.logger.info(
+                                f"Getting details for all {len(courses_to_detail)} courses..."
+                            )
+
+                        detailed_courses = []
+
+                        for i, course in enumerate(courses_to_detail):
+                            self.logger.info(
+                                f"📖 Getting details for course {i + 1}/{len(courses_to_detail)}: {course.course_code}"
+                            )
+                            detailed_course = self.get_course_details(course, response.text)
+                            detailed_courses.append(detailed_course)
+
+                        # Add remaining courses without details for complete list (if limited)
+                        if self.config.max_courses_per_subject is not None:
+                            detailed_courses.extend(courses[self.config.max_courses_per_subject :])
+                        courses = detailed_courses
+
+                    # Log results based on validation type and course count
+                    if validation["result_type"] == "no_records":
+                        self.logger.info(
+                            f"🔍 {subject_code}: Valid search, no courses found (empty subject)"
+                        )
+                        return []  # Success - empty subject, no retry needed
+                    elif validation["result_type"] == "has_courses":
+                        self.logger.info(f"🔍 {subject_code}: Found {len(courses)} courses")
+                        return courses  # Success - return found courses
+
+                    # If we reach here, something unexpected happened - retry
                     self.logger.warning(
-                        f"🚫 Captcha rejected for {subject_code} (attempt {attempt + 1}): "
-                        f"{validation['result_type']} - {validation.get('error_message', 'Unknown')}"
+                        f"⚠️ Unexpected validation result: {validation['result_type']}"
                     )
-                    # Continue to next attempt
                     if attempt < self.config.max_subject_attempts - 1:
-                        time.sleep(1)  # Brief delay before retry
-                    continue
+                        time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
 
-                # Captcha accepted! Log result type
-                self.logger.info(
-                    f"✅ Captcha accepted for {subject_code}: {validation['result_type']}"
-                )
-
-                # Debug: save response to understand structure (using smart saving)
-                self._save_debug_html(
-                    response.text, f"response_{subject_code}_attempt_{attempt + 1}.html"
-                )
-
-                # Parse results
-                courses = self._parse_course_list(response.text)
-
-                # Set the subject for all courses
-                for course in courses:
-                    course.subject = subject_code
-
-                if self.progress_tracker and self.config.track_progress:
-                    self.progress_tracker.start_subject(subject_code)
-
-                # Get detailed information if requested
-                if self.config.get_details and courses:
-                    # Apply course limit based on configuration
-                    if self.config.max_courses_per_subject is not None:
-                        courses_to_detail = courses[: self.config.max_courses_per_subject]
+                except Exception as e:
+                    self.logger.error(f"Attempt {attempt + 1} failed for {subject_code}: {e}")
+                    if attempt < self.config.max_subject_attempts - 1:
+                        # The session itself may be what failed — ASP.NET keeps per-session
+                        # state we cannot clear. A new one restarts from a fresh SessionId.
+                        self.session = self._new_session()
                         self.logger.info(
-                            f"Getting details for {len(courses_to_detail)} courses (limited by config)..."
+                            f"♻️ New session for {subject_code} after attempt {attempt + 1}"
                         )
-                    else:
-                        courses_to_detail = courses
-                        self.logger.info(
-                            f"Getting details for all {len(courses_to_detail)} courses..."
-                        )
+                        time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
 
-                    detailed_courses = []
-
-                    for i, course in enumerate(courses_to_detail):
-                        self.logger.info(
-                            f"📖 Getting details for course {i + 1}/{len(courses_to_detail)}: {course.course_code}"
-                        )
-                        detailed_course = self.get_course_details(course, response.text)
-                        detailed_courses.append(detailed_course)
-
-                    # Add remaining courses without details for complete list (if limited)
-                    if self.config.max_courses_per_subject is not None:
-                        detailed_courses.extend(courses[self.config.max_courses_per_subject :])
-                    courses = detailed_courses
-
-                # Log results based on validation type and course count
-                if validation["result_type"] == "no_records":
-                    self.logger.info(
-                        f"🔍 {subject_code}: Valid search, no courses found (empty subject)"
-                    )
-                    return []  # Success - empty subject, no retry needed
-                elif validation["result_type"] == "has_courses":
-                    self.logger.info(f"🔍 {subject_code}: Found {len(courses)} courses")
-                    return courses  # Success - return found courses
-
-                # If we reach here, something unexpected happened - retry
-                self.logger.warning(f"⚠️ Unexpected validation result: {validation['result_type']}")
-                if attempt < self.config.max_subject_attempts - 1:
-                    time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
-
-            except Exception as e:
-                self.logger.error(f"Attempt {attempt + 1} failed for {subject_code}: {e}")
-                if attempt < self.config.max_subject_attempts - 1:
-                    # The session itself may be what failed — ASP.NET keeps per-session
-                    # state we cannot clear. A new one restarts from a fresh SessionId.
-                    self.session = self._new_session()
-                    self.logger.info(
-                        f"♻️ New session for {subject_code} after attempt {attempt + 1}"
-                    )
-                    time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
-
-        # Returning [] here would be indistinguishable from a subject with no courses,
-        # and the caller would record the subject as completed.
-        raise RuntimeError(
-            f"{subject_code}: no usable results after {self.config.max_subject_attempts} attempts"
-        )
+            # Returning [] here would be indistinguishable from a subject with no courses,
+            # and the caller would record the subject as completed.
+            raise RuntimeError(
+                f"{subject_code}: no usable results after {self.config.max_subject_attempts} attempts"
+            )
 
     def _extract_form_data(self, soup: BeautifulSoup) -> dict[str, str]:
         """Extract necessary form data from the page"""
@@ -961,7 +978,6 @@ class CuhkScraper:
         """
         if response is None:
             return
-        self._set_context(course=course)
         self._save_debug_html(
             response.text,
             f"course_details_{course.subject}_{course.course_code}_FAILED.html",
@@ -970,67 +986,68 @@ class CuhkScraper:
 
     def get_course_details(self, course: Course, current_html: str) -> Course | None:
         """Get detailed course information by simulating postback with retry for validation failures"""
-        if not course.postback_target:
-            self.logger.warning(f"No postback target for course {course.course_code}")
-            return course
+        with self._course_scope(course):
+            if not course.postback_target:
+                self.logger.warning(f"No postback target for course {course.course_code}")
+                return course
 
-        # TODO: Extract retry logic if we add more retry sites (see _robust_request for similar pattern)
-        attempt = 0
-        response = None
-        while True:
-            try:
-                soup = BeautifulSoup(current_html, "html.parser")
+            # TODO: Extract retry logic if we add more retry sites (see _robust_request for similar pattern)
+            attempt = 0
+            response = None
+            while True:
+                try:
+                    soup = BeautifulSoup(current_html, "html.parser")
 
-                # Prepare postback for course details
-                form_data = self._extract_asp_hidden_fields(soup)
-                form_data["__EVENTTARGET"] = course.postback_target
-                form_data["__EVENTARGUMENT"] = ""
+                    # Prepare postback for course details
+                    form_data = self._extract_asp_hidden_fields(soup)
+                    form_data["__EVENTTARGET"] = course.postback_target
+                    form_data["__EVENTARGUMENT"] = ""
 
-                # Submit the postback to get course details page
-                response = self._robust_request("POST", self.base_url, data=form_data)
+                    # Submit the postback to get course details page
+                    response = self._robust_request("POST", self.base_url, data=form_data)
 
-                # Get course details with all available terms
-                # This will raise ValueError if HTML is corrupted (e.g., missing Course Outcome button)
-                detailed_course = self._get_course_details_with_term_selection(
-                    response.text, course
-                )
+                    # Get course details with all available terms
+                    # This will raise ValueError if HTML is corrupted (e.g., missing Course Outcome button)
+                    detailed_course = self._get_course_details_with_term_selection(
+                        response.text, course
+                    )
 
-                # Debug: save detailed response (using smart saving)
-                self._set_context(course=course)
-                self._save_debug_html(
-                    response.text, f"course_details_{course.subject}_{course.course_code}.html"
-                )
+                    # Debug: save detailed response (using smart saving)
+                    self._save_debug_html(
+                        response.text, f"course_details_{course.subject}_{course.course_code}.html"
+                    )
 
-                return detailed_course
+                    return detailed_course
 
-            # Giving up fails the subject, which blocks publishing and names it. Looping
-            # here instead would strand every subject after this one.
-            except ValueError as e:
-                # Validation error (corrupted HTML, missing buttons, etc.)
-                attempt += 1
-                if attempt >= self.config.max_course_attempts:
-                    self._keep_failed_course_page(response, course)
-                    raise
-                wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # Same backoff as _robust_request
-                self.logger.warning(
-                    f"⚠️ Course details validation failed for {course.course_code} "
-                    f"(attempt {attempt}), retrying in {wait_time}s: {e}"
-                )
-                time.sleep(wait_time)
-                # Continue loop - re-fetch course details page
+                # Giving up fails the subject, which blocks publishing and names it. Looping
+                # here instead would strand every subject after this one.
+                except ValueError as e:
+                    # Validation error (corrupted HTML, missing buttons, etc.)
+                    attempt += 1
+                    if attempt >= self.config.max_course_attempts:
+                        self._keep_failed_course_page(response, course)
+                        raise
+                    # Same backoff as _robust_request
+                    wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
+                    self.logger.warning(
+                        f"⚠️ Course details validation failed for {course.course_code} "
+                        f"(attempt {attempt}), retrying in {wait_time}s: {e}"
+                    )
+                    time.sleep(wait_time)
+                    # Continue loop - re-fetch course details page
 
-            except Exception as e:
-                # Unexpected error - also retry (could be parsing error from bad HTML)
-                attempt += 1
-                if attempt >= self.config.max_course_attempts:
-                    self._keep_failed_course_page(response, course)
-                    raise
-                wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
-                self.logger.error(
-                    f"❌ Unexpected error getting course details for {course.course_code} "
-                    f"(attempt {attempt}), retrying in {wait_time}s: {e}"
-                )
-                time.sleep(wait_time)
+                except Exception as e:
+                    # Unexpected error - also retry (could be parsing error from bad HTML)
+                    attempt += 1
+                    if attempt >= self.config.max_course_attempts:
+                        self._keep_failed_course_page(response, course)
+                        raise
+                    wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
+                    self.logger.error(
+                        f"❌ Unexpected error getting course details for {course.course_code} "
+                        f"(attempt {attempt}), retrying in {wait_time}s: {e}"
+                    )
+                    time.sleep(wait_time)
 
     def _get_course_details_with_term_selection(self, html: str, base_course: Course) -> Course:
         """Get course details for all available terms"""
