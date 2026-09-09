@@ -391,7 +391,7 @@ class CuhkScraper:
     _last_request_at: float | None = None
 
     def __init__(self, config: ScrapingConfig | None = None):
-        self.session = requests.Session()
+        self.session = self._new_session()
         self.logger = logging.getLogger(__name__)
         self.base_url = (
             "http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
@@ -413,8 +413,14 @@ class CuhkScraper:
         onnxruntime.set_default_logger_severity(3)
         self.ocr = ddddocr.DdddOcr()
 
-        # Browser headers and network resilience settings
-        self.session.headers.update(
+        # Network resilience settings
+        self._request_timeout = (10, 30)  # (connect, read) timeouts in seconds
+
+    @staticmethod
+    def _new_session() -> requests.Session:
+        """A session with our browser headers and no cookies of its own."""
+        session = requests.Session()
+        session.headers.update(
             {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
@@ -422,9 +428,7 @@ class CuhkScraper:
                 "Connection": "keep-alive",
             }
         )
-
-        # Network resilience settings
-        self._request_timeout = (10, 30)  # (connect, read) timeouts in seconds
+        return session
 
     def _wait_for_request_slot(self) -> None:
         """Hold requests to one per `request_delay` seconds.
@@ -861,6 +865,12 @@ class CuhkScraper:
             except Exception as e:
                 self.logger.error(f"Attempt {attempt + 1} failed for {subject_code}: {e}")
                 if attempt < self.config.max_subject_attempts - 1:
+                    # The session itself may be what failed — ASP.NET keeps per-session
+                    # state we cannot clear. A new one restarts from a fresh SessionId.
+                    self.session = self._new_session()
+                    self.logger.info(
+                        f"♻️ New session for {subject_code} after attempt {attempt + 1}"
+                    )
                     time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
 
         # Returning [] here would be indistinguishable from a subject with no courses,

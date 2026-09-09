@@ -813,6 +813,32 @@ def test_a_request_that_recovers_on_the_last_attempt_still_succeeds(monkeypatch)
     assert answers == []
 
 
+def test_a_subject_retry_starts_on_a_fresh_session(monkeypatch):
+    # Retrying on a poisoned session repeats an experiment that cannot succeed; a new one
+    # drops the ASP.NET_SessionId and starts from a fresh captcha.
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+    scraper = _live_scraper(
+        config=ScrapingConfig(max_subject_attempts=3), session=CuhkScraper._new_session()
+    )
+    sessions, cookies_on_entry = [], []
+
+    def wedged(*args, **kwargs):
+        sessions.append(scraper.session)
+        cookies_on_entry.append(dict(scraper.session.cookies))
+        scraper.session.cookies.set("ASP.NET_SessionId", "poisoned")
+        raise RequestsConnectionError("network is down")
+
+    scraper._robust_request = wedged
+
+    with pytest.raises(RuntimeError):
+        CuhkScraper.scrape_subject(scraper, "TEST")
+
+    assert len({id(s) for s in sessions}) == 3  # a new session per attempt, none reused
+    assert cookies_on_entry == [{}, {}, {}]  # no attempt inherited the poisoned cookie
+    # A bare requests.Session would announce itself as python-requests.
+    assert sessions[-1].headers["User-Agent"].startswith("Mozilla/")
+
+
 def test_unknown_subject_title_is_recorded_empty_not_as_the_code(tmp_path):
     # getSubjectTitle in the web app already falls back to the code at render time, and
     # an empty string is falsy there — so this renders identically without a guess
