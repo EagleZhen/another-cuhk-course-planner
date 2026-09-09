@@ -15,8 +15,8 @@ from cuhk_scraper import (
     TermInfo,
 )
 from data_utils import SCHEMA_VERSION
+from requests.exceptions import ChunkedEncodingError, HTTPError
 from requests.exceptions import ConnectionError as RequestsConnectionError
-from requests.exceptions import HTTPError
 
 
 def _course(code, term_names):
@@ -750,6 +750,28 @@ def test_a_retry_waits_its_turn_like_any_other_request(monkeypatch):
 
     assert clock.sleeps == [1.0, 2.0]  # backoff, then the rest of the interval
     assert answers == []
+
+
+class _BodyThatDies:
+    """A response whose headers arrived but whose body never finished."""
+
+    def raise_for_status(self):
+        return None
+
+    @property
+    def content(self):
+        raise ChunkedEncodingError("connection broken mid-body")
+
+
+def test_a_body_that_dies_partway_is_retried_in_place(monkeypatch):
+    # One retryable request; escaping here would cost the whole course an attempt.
+    _fake_clock(monkeypatch)
+    whole = SimpleNamespace(raise_for_status=lambda: None, content=b"whole body")
+    responses = [_BodyThatDies(), whole]
+    scraper = _paced_scraper(lambda *a, **k: responses.pop(0))
+
+    assert CuhkScraper._robust_request(scraper, "GET", "http://test.invalid") is whole
+    assert responses == []
 
 
 def test_unknown_subject_title_is_recorded_empty_not_as_the_code(tmp_path):

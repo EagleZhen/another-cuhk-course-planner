@@ -27,7 +27,7 @@ from data_utils import (
     utc_now_iso,
     utc_to_hkt,
 )
-from requests.exceptions import ConnectionError, HTTPError, Timeout
+from requests.exceptions import ChunkedEncodingError, ConnectionError, HTTPError, Timeout
 
 # The Class Details status: both the value we record and the sentinel that the response
 # is a class details page at all. Absent from every other page CUHK serves.
@@ -448,7 +448,7 @@ class CuhkScraper:
             Response object
 
         Note:
-            Retries network issues (ConnectionError, Timeout, ConnectionResetError) and
+            Retries network issues (ConnectionError, ChunkedEncodingError, Timeout) and
             HTTP 502/503/504 forever, pre-loading the body so a drop while reading it counts
             Raises every other HTTP status for the caller to redo the unit
         """
@@ -471,18 +471,14 @@ class CuhkScraper:
                 # Check for HTTP errors
                 response.raise_for_status()
 
-                # Pre-load response content to catch ConnectionResetError here
-                # This forces immediate reading of the response body
-                try:
-                    _ = (
-                        response.content
-                    )  # This will trigger ConnectionResetError if connection drops
-                    return response
-                except ConnectionResetError:
-                    # Treat as network issue and retry
-                    raise ConnectionError("Connection reset during response reading")
+                # Read the body now, so a mid-response drop is retried here rather than
+                # returned short.
+                _ = response.content
+                return response
 
-            except (ConnectionError, Timeout) as e:
+            # ChunkedEncodingError is a body that stopped early. Named separately because it
+            # is not a subclass of requests' ConnectionError.
+            except (ConnectionError, ChunkedEncodingError, Timeout) as e:
                 attempt += 1
                 # Exponential backoff: 1s, 2s, 4s, 8s, 16s, 32s, max 60s
                 wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
