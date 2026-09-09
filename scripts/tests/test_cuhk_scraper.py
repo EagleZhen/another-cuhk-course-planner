@@ -78,55 +78,13 @@ def test_metadata_is_versioned_and_carries_no_timestamp(scraper, tmp_path):
     assert "scraped_at" not in metadata
 
 
-def _write_scrape_times(scraper, out_dir, *, full_catalog):
-    saved = _save(scraper, [_course("1000", ["2025-26 Term 1"]), _course("9999", [])], out_dir)
-    CuhkScraper._write_scrape_times(
-        scraper, {"TEST": saved}, "2026-07-18T00:41:13+00:00", full_catalog
-    )
-
-
-def test_full_scrape_stamps_every_directory_it_wrote(scraper, tmp_path):
-    # Including no-terms: stamping whatever was written needs no special cases, and the
-    # publisher only ever reads year dirs.
-    _write_scrape_times(scraper, tmp_path, full_catalog=True)
-
-    assert (tmp_path / "2025-26" / "_scraped_at.txt").read_text() == "2026-07-18T00:41:13+00:00\n"
-    assert (tmp_path / "no-terms" / "_scraped_at.txt").exists()
-
-
-def test_partial_scrape_leaves_scrape_times_alone(scraper, tmp_path):
-    # A few refreshed subjects can't speak for the rest of the directory.
-    _write_scrape_times(scraper, tmp_path, full_catalog=False)
-
-    assert not list(tmp_path.rglob("_scraped_at.txt"))
-
-
-def test_dropped_year_keeps_its_scrape_time(scraper, tmp_path):
-    # Once CUHK stops serving a year, scrapes stop writing it while its files stay on
-    # disk. Its stamp has to stay put rather than follow the years still produced.
-    _save(scraper, [_course("1000", ["2025-26 Term 1", "2026-27 Term 1"])], tmp_path)
-    CuhkScraper._write_scrape_times(
-        scraper,
-        {"TEST": [str(tmp_path / "2025-26" / "TEST.json")]},
-        "2026-01-01T00:00:00+00:00",
-        True,
-    )
-
-    _save(scraper, [_course("1000", ["2026-27 Term 1"])], tmp_path)
-    CuhkScraper._write_scrape_times(
-        scraper,
-        {"TEST": [str(tmp_path / "2026-27" / "TEST.json")]},
-        "2027-01-01T00:00:00+00:00",
-        True,
-    )
-
-    assert (tmp_path / "2025-26" / "_scraped_at.txt").read_text() == "2026-01-01T00:00:00+00:00\n"
-    assert (tmp_path / "2026-27" / "_scraped_at.txt").read_text() == "2027-01-01T00:00:00+00:00\n"
-
-
-def _tracker(progress_file, run_subjects, config=None):
+def _tracker(progress_file, run_subjects, config=None, mode="partial"):
     return ScrapingProgressTracker(
-        str(progress_file), logging.getLogger("test"), run_subjects, config or ScrapingConfig()
+        str(progress_file),
+        logging.getLogger("test"),
+        run_subjects,
+        config or ScrapingConfig(),
+        mode,
     )
 
 
@@ -153,10 +111,10 @@ def test_run_counters_cover_only_this_run(tmp_path):
     progress_file = tmp_path / "progress.json"
     first = _tracker(progress_file, ["AAAA", "BBBB", "CCCC"])
     for subject in ("AAAA", "BBBB", "CCCC"):
-        first.complete_subject(subject, 1, f"data/{subject}.json", 1.0)
+        first.complete_subject(subject, 1, [f"data/{subject}.json"], 1.0)
 
     retry = _tracker(progress_file, ["BBBB"])
-    retry.complete_subject("BBBB", 2, "data/BBBB.json", 1.0)
+    retry.complete_subject("BBBB", 2, ["data/BBBB.json"], 1.0)
 
     run = _saved(retry)["latest_run"]
     assert (run["subjects_total"], run["subjects_completed"]) == (1, 1)
@@ -169,8 +127,8 @@ def test_run_counters_cover_only_this_run(tmp_path):
 
 def test_run_counters_split_completed_from_failed(tmp_path):
     tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB", "CCCC"])
-    tracker.complete_subject("AAAA", 1, "data/AAAA.json", 1.0)
-    tracker.complete_subject("BBBB", 1, "data/BBBB.json", 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"], 1.0)
+    tracker.complete_subject("BBBB", 1, ["data/BBBB.json"], 1.0)
     tracker.fail_subject("CCCC", "boom")
 
     run = _saved(tracker)["latest_run"]
@@ -184,7 +142,7 @@ def test_run_counters_ignore_what_an_earlier_run_completed(tmp_path):
     progress_file = tmp_path / "progress.json"
     first = _tracker(progress_file, ["AAAA", "BBBB"])
     for subject in ("AAAA", "BBBB"):
-        first.complete_subject(subject, 1, f"data/{subject}.json", 1.0)
+        first.complete_subject(subject, 1, [f"data/{subject}.json"], 1.0)
 
     second = _tracker(progress_file, ["AAAA", "BBBB"])
     second.start_subject("AAAA")
@@ -196,11 +154,109 @@ def test_run_counters_ignore_what_an_earlier_run_completed(tmp_path):
 def test_finish_run_is_what_marks_a_run_completed(tracker):
     # A killed run can never write its own ending, so "in_progress" has to survive
     # everything except finish_run().
-    tracker.complete_subject("TEST", 1, "data/TEST.json", 1.0)
+    tracker.complete_subject("TEST", 1, ["data/TEST.json"], 1.0)
     assert _saved(tracker)["latest_run"]["status"] == "in_progress"
 
     tracker.finish_run()
     assert _saved(tracker)["latest_run"]["status"] == "completed"
+
+
+# `latest_full_scrape` is the middle block: one scrape of the whole catalog, which may
+# span several runs. Every test below is one way it must not be confused with a run.
+
+
+def test_a_full_run_starts_a_scrape_and_a_partial_run_leaves_it_alone(tmp_path):
+    # A one-subject smoke run must not clobber the scrape a killed full run left behind.
+    progress_file = tmp_path / "progress.json"
+    full = _tracker(progress_file, ["AAAA", "BBBB"], mode="full")
+    full.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], 1.0)
+    started_at = _saved(full)["latest_full_scrape"]["started_at"]
+
+    partial = _tracker(progress_file, ["AAAA"], mode="partial")
+    partial.complete_subject("AAAA", 2, ["data/2025-26/AAAA.json"], 1.0)
+
+    scrape = _saved(partial)["latest_full_scrape"]
+    assert scrape["started_at"] == started_at
+    assert scrape["remaining"] == ["BBBB"]  # the partial run's subject is not its business
+    assert scrape["directories"] == ["data/2026-27"]  # nor the year it wrote
+
+
+def test_a_scrape_collects_every_directory_its_subjects_wrote(tmp_path):
+    tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB"], mode="full")
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json", "data/no-terms/AAAA.json"], 1.0)
+    tracker.complete_subject("BBBB", 1, ["data/2026-27/BBBB.json"], 1.0)
+
+    assert _saved(tracker)["latest_full_scrape"]["directories"] == ["data/2026-27", "data/no-terms"]
+
+
+def test_a_failed_subject_still_leaves_the_scrapes_to_do_list(tmp_path):
+    # Attempted, not succeeded. A subject CUHK drops would otherwise sit there forever and
+    # no scrape could finish; publishing is what blocks on the failure instead.
+    tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB"], mode="full")
+    tracker.fail_subject("AAAA", "boom")
+
+    assert _saved(tracker)["latest_full_scrape"]["remaining"] == ["BBBB"]
+
+
+def test_a_killed_scrape_leaves_behind_what_it_never_reached(tmp_path):
+    # The whole point of the block: a run that dies mid-catalog says what is left.
+    tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB", "CCCC"], mode="full")
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], 1.0)
+
+    assert _saved(tracker)["latest_full_scrape"]["remaining"] == ["BBBB", "CCCC"]
+
+
+def test_a_scrape_that_reaches_every_subject_empties_its_to_do_list(tmp_path):
+    # An empty `remaining` is the only thing that says a scrape finished, so nothing may
+    # empty it but attempting the subjects.
+    tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB"], mode="full")
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], 1.0)
+    tracker.fail_subject("BBBB", "boom")
+
+    assert _saved(tracker)["latest_full_scrape"]["remaining"] == []
+
+
+def _stamp(scraper, tmp_path, *, mode, courses=None):
+    """Save one subject through a real tracker, then stamp what the scrape recorded."""
+    scraper.progress_tracker = _tracker(tmp_path / "progress.json", ["TEST"], mode=mode)
+    saved = _save(
+        scraper,
+        courses
+        if courses is not None
+        else [_course("1000", ["2025-26 Term 1"]), _course("9999", [])],
+        tmp_path,
+    )
+    scraper.progress_tracker.complete_subject("TEST", len(saved), saved, 1.0)
+    CuhkScraper._write_scrape_times(scraper, mode)
+    scrape = _saved(scraper.progress_tracker).get("latest_full_scrape")
+    return scrape and scrape["started_at"]
+
+
+def test_full_scrape_stamps_every_directory_it_wrote(scraper, tmp_path):
+    # Including no-terms: stamping whatever the scrape wrote needs no special cases, and
+    # the publisher only ever reads year dirs.
+    started_at = _stamp(scraper, tmp_path, mode="full")
+
+    assert (tmp_path / "2025-26" / "_scraped_at.txt").read_text() == f"{started_at}\n"
+    assert (tmp_path / "no-terms" / "_scraped_at.txt").exists()
+
+
+def test_partial_scrape_leaves_scrape_times_alone(scraper, tmp_path):
+    # A few refreshed subjects can't speak for the rest of the directory.
+    _stamp(scraper, tmp_path, mode="partial")
+
+    assert not list(tmp_path.rglob("_scraped_at.txt"))
+
+
+def test_dropped_year_keeps_its_scrape_time(scraper, tmp_path):
+    # Once CUHK stops serving a year, scrapes stop writing it while its files stay on
+    # disk. Its stamp has to stay put rather than follow the years still produced.
+    first = _stamp(scraper, tmp_path, mode="full", courses=[_course("1000", ["2025-26 Term 1"])])
+    second = _stamp(scraper, tmp_path, mode="full", courses=[_course("1000", ["2026-27 Term 1"])])
+
+    assert first != second
+    assert (tmp_path / "2025-26" / "_scraped_at.txt").read_text() == f"{first}\n"
+    assert (tmp_path / "2026-27" / "_scraped_at.txt").read_text() == f"{second}\n"
 
 
 def _loop_scraper(tmp_path, *, failing=(), report=None):
@@ -224,14 +280,23 @@ def _loop_scraper(tmp_path, *, failing=(), report=None):
     "failing, covered", [((), True), (("BBBB",), False)], ids=["all reached", "one lost"]
 )
 def test_only_a_run_that_reached_every_subject_speaks_for_the_catalog(tmp_path, failing, covered):
-    # full_catalog says the run was asked to cover everything, not that it did. A subject
-    # that died never reached its courses, so their failures are still outstanding.
+    # A full run was asked to cover everything, which is not the same as having done it.
+    # A subject that died never reached its courses, so their failures are still outstanding.
     spoke_for = []
     scraper = _loop_scraper(tmp_path, failing=failing, report=spoke_for.append)
 
-    CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB"], full_catalog=True)
+    CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB"], mode="full")
 
     assert spoke_for == [covered]
+
+
+def test_a_full_run_without_progress_tracking_refuses_to_start(tmp_path):
+    # A stamp needs the scrape's start time and directories, and both live in that file.
+    scraper = _loop_scraper(tmp_path)
+    scraper.config.track_progress = False
+
+    with pytest.raises(ValueError, match="track_progress"):
+        CuhkScraper.scrape_all_subjects(scraper, ["AAAA"], mode="full")
 
 
 def test_a_run_reports_what_its_loop_actually_did(tmp_path):
@@ -253,7 +318,7 @@ def test_run_config_is_recorded_once_for_the_run(tmp_path):
     tracker = _tracker(
         tmp_path / "progress.json", ["AAAA"], ScrapingConfig(max_courses_per_subject=5)
     )
-    tracker.complete_subject("AAAA", 1, "data/AAAA.json", 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"], 1.0)
 
     saved = _saved(tracker)
     assert saved["latest_run"]["config"]["max_courses"] == 5
@@ -264,8 +329,8 @@ def test_registry_stays_sorted_as_subjects_are_added(tmp_path):
     # Key order otherwise records scrape history: a subject CUHK adds later lands at the
     # end and stays there, so the file drifts out of order one addition at a time.
     tracker = _tracker(tmp_path / "progress.json", ["MATH", "AAAA"])
-    tracker.complete_subject("MATH", 1, "data/MATH.json", 1.0)
-    tracker.complete_subject("AAAA", 1, "data/AAAA.json", 1.0)
+    tracker.complete_subject("MATH", 1, ["data/MATH.json"], 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"], 1.0)
 
     saved = _saved(tracker)
     assert list(saved["subjects"]) == ["AAAA", "MATH"]
@@ -279,7 +344,7 @@ def test_run_summary_reaches_the_log_file(tmp_path, caplog):
     # A 7-hour background run is the case that needs this: the summary is the part worth
     # keeping, and print() never reaches logs/scrape/.
     tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB"])
-    tracker.complete_subject("AAAA", 1, "data/AAAA.json", 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"], 1.0)
     tracker.fail_subject("BBBB", "boom")
 
     with caplog.at_level(logging.INFO):

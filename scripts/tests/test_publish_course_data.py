@@ -198,9 +198,9 @@ def test_report_scrape_summary_reads_what_the_scraper_actually_writes(tmp_path, 
     # real tracker, so a renamed key breaks the test rather than the header.
     progress_file = tmp_path / "progress.json"
     tracker = ScrapingProgressTracker(
-        str(progress_file), logging.getLogger("test"), ["AAAA"], ScrapingConfig()
+        str(progress_file), logging.getLogger("test"), ["AAAA"], ScrapingConfig(), "full"
     )
-    tracker.complete_subject("AAAA", 7, "data/2025-26/AAAA.json", 1.0)
+    tracker.complete_subject("AAAA", 7, ["data/2025-26/AAAA.json"], 1.0)
     tracker.finish_run()
 
     publish_course_data.report_scrape_summary(

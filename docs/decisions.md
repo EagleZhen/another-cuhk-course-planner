@@ -182,6 +182,22 @@ Watchouts:
 - freshness is not completeness — see [Data Pipeline](data-pipeline.md#freshness)
 - enrollment counters still churn every scrape, so diffs are quieter, not quiet
 
+## Record The Scrape Apart From The Run
+
+A full scrape takes ~9 hours, so a killed one gets finished by a later run. Nothing recorded that the two were one scrape: on 2026-09-08 a run died at UGFN, a catch-up run finished the last 10 subjects, and the directories kept the previous scrape's timestamp — correctly, since neither run alone could speak for the catalog.
+
+Decision: the progress log records `latest_full_scrape` (`started_at`, `remaining`, `directories`), and directory stamps come from it rather than from whichever run wrote them.
+
+Why not fold it into `latest_run`, or derive it:
+
+- a run is one invocation, a scrape is one pass over the catalog and may span several. `latest_run` is overwritten by every run, a one-subject smoke run included
+- `started_at` equals the run's start only when a single run does the whole scrape — the case that never needed it
+- `directories` must accumulate across the scrape's runs: one run's writes are only part of it, and walking `data/` would stamp years CUHK has dropped ([why](#stamp-each-data-directory-with-its-scrape-time))
+- an empty `remaining` _is_ the finish, so no separate "completed" flag can disagree with it
+- subjects leave `remaining` when attempted, not when they succeed. Otherwise one subject CUHK drops keeps every future scrape unfinished, freezing freshness with nothing to explain why — a full run with failures still stamps, and publishing still blocks on them
+
+Limitation: `remaining` fixes the catalog as of `started_at`, so a subject CUHK adds mid-scrape waits for the next one.
+
 ## Save Each Subject Immediately
 
 A full scrape covers ~260 subjects over ~10 hours. Accumulating every course in memory until the end risks losing the entire run to one crash.
