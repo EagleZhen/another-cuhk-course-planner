@@ -697,10 +697,26 @@ def _paced_scraper(get, delay=REQUEST_DELAY):
     )
 
 
+def _ok(content=b""):
+    return SimpleNamespace(raise_for_status=lambda: None, content=content)
+
+
+def _answering(answers):
+    """Serves `answers` in order: an exception is raised, anything else returned."""
+
+    def get(*args, **kwargs):
+        answer = answers.pop(0)
+        if isinstance(answer, Exception):
+            raise answer
+        return answer
+
+    return get
+
+
 def _responder(clock, takes=0.0):
     def get(*args, **kwargs):
         clock.now += takes
-        return SimpleNamespace(raise_for_status=lambda: None, content=b"")
+        return _ok()
 
     return get
 
@@ -741,15 +757,11 @@ def test_a_retry_waits_its_turn_like_any_other_request(monkeypatch):
     # Pacing lives inside the retry loop. The interval here exceeds the 1 s first backoff,
     # which would otherwise cover the wait and hide a limiter that skips retries.
     clock = _fake_clock(monkeypatch)
-    answers = [RequestsConnectionError("network is down"), None]
+    answers = [RequestsConnectionError("network is down"), _ok()]
 
-    def get(*args, **kwargs):
-        answer = answers.pop(0)
-        if answer is not None:
-            raise answer
-        return SimpleNamespace(raise_for_status=lambda: None, content=b"")
-
-    CuhkScraper._robust_request(_paced_scraper(get, delay=3.0), "GET", "http://test.invalid")
+    CuhkScraper._robust_request(
+        _paced_scraper(_answering(answers), delay=3.0), "GET", "http://test.invalid"
+    )
 
     assert clock.sleeps == [1.0, 2.0]  # backoff, then the rest of the interval
     assert answers == []
@@ -759,16 +771,9 @@ def test_a_body_that_dies_partway_is_retried_in_place(monkeypatch):
     # requests buffers the body inside get(), so a half-read response surfaces there.
     # One retryable request; escaping here would cost the whole course an attempt.
     _fake_clock(monkeypatch)
-    whole = SimpleNamespace(raise_for_status=lambda: None, content=b"whole body")
+    whole = _ok(b"whole body")
     answers = [ChunkedEncodingError("connection broken mid-body"), whole]
-
-    def get(*args, **kwargs):
-        answer = answers.pop(0)
-        if isinstance(answer, Exception):
-            raise answer
-        return answer
-
-    scraper = _paced_scraper(get)
+    scraper = _paced_scraper(_answering(answers))
 
     assert CuhkScraper._robust_request(scraper, "GET", "http://test.invalid") is whole
     assert answers == []
@@ -795,16 +800,9 @@ def test_a_request_that_never_recovers_gives_up(monkeypatch):
 def test_a_request_that_recovers_on_the_last_attempt_still_succeeds(monkeypatch):
     # The other side of the budget: one too tight would fail transients the old code rode out.
     _fake_clock(monkeypatch)
-    whole = SimpleNamespace(raise_for_status=lambda: None, content=b"")
+    whole = _ok()
     answers = [RequestsConnectionError("network is down")] * (RETRY_BUDGET - 1) + [whole]
-
-    def get(*args, **kwargs):
-        answer = answers.pop(0)
-        if isinstance(answer, Exception):
-            raise answer
-        return answer
-
-    scraper = _paced_scraper(get)
+    scraper = _paced_scraper(_answering(answers))
 
     assert CuhkScraper._robust_request(scraper, "GET", "http://test.invalid") is whole
     assert answers == []
