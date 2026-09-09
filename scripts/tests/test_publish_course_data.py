@@ -553,6 +553,46 @@ def test_publish_blocks_on_unversioned_data(tmp_path, monkeypatch, capsys):
     assert not published_dir.exists()
 
 
+def _blocked_publish(tmp_path, monkeypatch, capsys, progress):
+    """A publish blocked by a failed subject, with `progress` as the progress log."""
+    source_dir, _, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir, filename="AAAA.json", subject="AAAA")
+    progress_file = tmp_path / "logs" / "scraping_progress.json"
+    progress_file.parent.mkdir(parents=True, exist_ok=True)
+    progress_file.write_text(json.dumps(progress), encoding="utf-8")
+
+    with pytest.raises(SystemExit, match="1"):
+        publish_course_data.main()
+    return capsys.readouterr().out
+
+
+def test_a_blocked_publish_points_at_resume_when_a_scrape_is_unfinished(
+    tmp_path, monkeypatch, capsys
+):
+    # A partial re-scrape would fix the data and leave the stamps stale.
+    out = _blocked_publish(
+        tmp_path,
+        monkeypatch,
+        capsys,
+        {
+            "latest_full_scrape": {"remaining": ["AAAA"], "started_at": "x", "directories": []},
+            "subjects": {"AAAA": {"status": "failed"}},
+        },
+    )
+
+    assert "scrape_all_subjects.py --resume" in out
+
+
+def test_a_blocked_publish_names_the_subjects_when_no_scrape_is_unfinished(
+    tmp_path, monkeypatch, capsys
+):
+    out = _blocked_publish(
+        tmp_path, monkeypatch, capsys, {"subjects": {"AAAA": {"status": "failed"}}}
+    )
+
+    assert "scrape_all_subjects.py AAAA" in out
+
+
 def test_dry_run_reports_manifest_changes_without_writing(tmp_path, monkeypatch, capsys):
     source_dir, published_dir, generated_dir = _configure_publisher(
         tmp_path, monkeypatch, dry_run=True

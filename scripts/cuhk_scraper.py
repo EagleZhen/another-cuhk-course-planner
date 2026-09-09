@@ -154,6 +154,21 @@ class Course:
         return data
 
 
+class NothingToResume(Exception):
+    """--resume found no unfinished full scrape."""
+
+
+def load_latest_full_scrape(progress_file: str) -> dict | None:
+    """The recorded full scrape, or None. Read before the tracker exists, for --resume."""
+    if not os.path.exists(progress_file):
+        return None
+    try:
+        with open(progress_file, encoding="utf-8") as f:
+            return json.load(f).get("latest_full_scrape")
+    except Exception:
+        return None
+
+
 def render_output_files(output_files: list[str]) -> str:
     """What a subject wrote, for a reader. An empty subject legitimately writes nothing."""
     return ", ".join(output_files) or "(no file — empty subject)"
@@ -192,7 +207,6 @@ class ScrapingProgressTracker:
     def _load_progress(self) -> tuple[dict, dict | None]:
         """Load the subject registry and the last full scrape; run state is always fresh"""
         existing_subjects = {}
-        existing_scrape = None
 
         # Load existing subject data if progress file exists
         if os.path.exists(self.progress_file):
@@ -206,19 +220,19 @@ class ScrapingProgressTracker:
                     self.logger.info(
                         f"Preserved data for {len(existing_subjects)} existing subjects"
                     )
-                existing_scrape = data.get("latest_full_scrape")
 
             except Exception as e:
                 self.logger.warning(f"Could not load progress file: {e}, starting with fresh run")
 
-        return {"subjects": existing_subjects}, existing_scrape
+        return {"subjects": existing_subjects}, load_latest_full_scrape(self.progress_file)
 
     def _open_scrape(self, existing: dict | None) -> dict | None:
         """The full scrape this run belongs to.
 
-        A partial run belongs to none, so it carries the recorded one through untouched.
+        A partial run belongs to none and a resume to the recorded one, so neither starts
+        a new scrape.
         """
-        if self.mode == "partial":
+        if self.mode in ("partial", "resume"):
             return existing
         return {
             "started_at": utc_now_iso(),
@@ -1909,10 +1923,13 @@ class CuhkScraper:
     def scrape_all_subjects(self, subjects: list[str], mode: str = "partial") -> dict[str, Any]:
         """Memory-safe scraping with immediate saves, progress tracking, and memory cleanup.
 
-        mode is "full" for a run over every subject CUHK offers, "partial" for a chosen
-        few. Only a full run can speak for the directories it writes (see
-        _write_scrape_times).
+        mode is "full" for every subject CUHK offers, "partial" for a chosen few, or
+        "resume" to finish an interrupted scrape — which ignores `subjects` and reads
+        what is left from the record.
         """
+        if mode == "resume":
+            subjects = self._subjects_left_to_scrape()
+
         self.logger.info(f"🛡️  Starting scraping for {len(subjects)} subjects")
         self.logger.info(f"📁 Saving to: {self.config.output_directory}/")
         self.logger.info("💾 Mode: Memory-safe with immediate saves")
@@ -2013,7 +2030,9 @@ class CuhkScraper:
 
         # Report course outcomes CUHK is serving a system error for. A subject that failed
         # never reached its courses, so this run cannot vouch for them either.
-        self._report_course_outcome_failures(mode != "partial" and not failed_subjects)
+        # "full", not "resume": these failures are collected per run, so a resume holds
+        # only the subjects it rescraped.
+        self._report_course_outcome_failures(mode == "full" and not failed_subjects)
 
         # Final summary
         self.logger.info("🎉 SCRAPING COMPLETED!")
@@ -2027,6 +2046,25 @@ class CuhkScraper:
             "failed": failed_subjects,
             "saved_files": saved_files,
         }
+
+    def _subjects_left_to_scrape(self) -> list[str]:
+        """What the recorded full scrape never attempted. Refuses rather than guessing."""
+        scrape = load_latest_full_scrape(self.config.progress_file)
+        if scrape is None:
+            raise NothingToResume(
+                f"No full scrape recorded in {self.config.progress_file}. "
+                "Run without arguments to start one."
+            )
+        if not scrape["remaining"]:
+            raise NothingToResume(
+                f"The full scrape started {scrape['started_at']} finished. "
+                "Run without arguments to start a new one."
+            )
+        self.logger.info(
+            f"▶️  Resuming the scrape started {scrape['started_at']}: "
+            f"{len(scrape['remaining'])} subjects left"
+        )
+        return list(scrape["remaining"])
 
     def _write_scrape_times(self, mode: str) -> None:
         """Stamp every directory the scrape wrote with when the scrape started.

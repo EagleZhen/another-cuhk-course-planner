@@ -6,12 +6,14 @@ Usage:
     uv run python scripts/scrape_all_subjects.py              # All subjects
     uv run python scripts/scrape_all_subjects.py PHED         # Single subject
     uv run python scripts/scrape_all_subjects.py PHED,CSCI    # Multiple subjects
+    uv run python scripts/scrape_all_subjects.py --resume     # Finish an interrupted full scrape
 """
 
 import argparse
 import logging
+import sys
 
-from cuhk_scraper import CuhkScraper
+from cuhk_scraper import CuhkScraper, NothingToResume
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -23,10 +25,17 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         description="Scrape the CUHK course catalog into data/.",
         epilog="With no arguments, scrapes every subject CUHK offers.",
     )
-    parser.add_argument(
+    # Finishing an interrupted scrape and refreshing chosen subjects are different jobs.
+    what = parser.add_mutually_exclusive_group()
+    what.add_argument(
         "subjects",
         nargs="?",
         help="comma-separated subject codes to refresh, e.g. PHED,CSCI",
+    )
+    what.add_argument(
+        "--resume",
+        action="store_true",
+        help="scrape only what an interrupted full scrape never reached",
     )
     return parser.parse_args(argv)
 
@@ -54,12 +63,16 @@ def main():
         scraper = CuhkScraper(config)
 
         # Get subjects (from args or live website)
-        mode = "partial" if args.subjects else "full"
-        if mode == "partial":
-            # Debug mode: scrape specific subjects from command line
+        subjects = []
+        if args.resume:
+            # The scraper reads what is left from the progress log.
+            mode = "resume"
+        elif args.subjects:
+            mode = "partial"
             subjects = args.subjects.split(",")
             logger.info(f"🎯 Debug mode: scraping {len(subjects)} subject(s): {subjects}")
         else:
+            mode = "full"
             # Production mode: scrape all subjects from live website
             logger.info("Getting subjects from live website...")
             subjects = scraper.get_subjects_from_live_site()
@@ -88,6 +101,10 @@ def main():
 
         logger.info("Scraping completed!")
         logger.info(f"Summary: {summary}")
+
+    except NothingToResume as e:
+        logger.error(str(e))
+        sys.exit(1)
 
     except KeyboardInterrupt:
         logger.info("Scraping interrupted by user")

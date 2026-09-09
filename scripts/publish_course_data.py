@@ -642,12 +642,18 @@ def main():
             # Publishing what passed would leave the manifests describing a catalog the
             # app doesn't have. Publish is manual, so someone is here to fix it.
             print("❌ Publishing aborted: the scraped data is incomplete (reasons above).")
-            if plan.blocked_subjects:
+            # First, since a partial re-scrape would fix the data and leave stamps stale.
+            if ((progress_data or {}).get("latest_full_scrape") or {}).get("remaining"):
+                print("   1. Finish the interrupted scrape:")
+                print("        uv run python scripts/scrape_all_subjects.py --resume")
+            elif plan.blocked_subjects:
                 subjects = ",".join(plan.blocked_subjects)
-                print("   Re-scrape, then run this script again:")
-                print(f"      uv run python scripts/scrape_all_subjects.py {subjects}")
+                print("   1. Re-scrape the blocked subjects:")
+                print(f"        uv run python scripts/scrape_all_subjects.py {subjects}")
             else:
-                print("   Fix the source data, then run this script again.")
+                print("   1. Fix the source data.")
+            print("   2. Publish again:")
+            print("        uv run python scripts/publish_course_data.py")
             sys.exit(1)
 
         if not plan.copy_plan:

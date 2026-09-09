@@ -173,7 +173,7 @@ Why it fits:
 
 - one timestamp per directory instead of ~900 per scrape, so a data diff shows course changes
 - **per directory, not per subject**: a scrape only writes the years CUHK still serves, so a dropped year's timestamp freezes with its data. Anything derived from per-subject times, or from the run's start, keeps advancing instead, because those subjects are still scraped for the live year — it would advertise frozen data as fresh
-- full runs only: a partial scrape can't speak for the subjects it never touched, so it leaves the stamps alone and stays pessimistic
+- full runs and resumes only: a partial scrape can't speak for the subjects it never touched, so it leaves the stamps alone. A resume stamps with the interrupted scrape's start, not its own
 - a build-time constant, not another fetch: data and code deploy together, and the app already generates `subjects.ts` / `terms.ts` this way. The module stays purely derived, so deleting `generated/` and re-publishing round-trips
 
 Watchouts:
@@ -210,7 +210,7 @@ Why it fits:
 - peak memory stays flat in the number of subjects instead of growing across the run
 - the progress log records what each subject produced and when, which is what publishing validates against
 
-Limitation: a re-run rescrapes every subject it is given — there is no skip-completed resume.
+Limitation: `--resume` skips subjects an interrupted scrape already covered, but there is no resume within a subject.
 
 ## Eager Current Year, Lazy Archived Years
 

@@ -19,9 +19,12 @@ Run these from the repository root.
 # Scrape all subjects from the live catalog
 uv run python scripts/scrape_all_subjects.py
 
-# Scrape selected subjects while debugging
+# Scrape selected subjects while debugging (leaves scrape times alone)
 uv run python scripts/scrape_all_subjects.py CSCI
 uv run python scripts/scrape_all_subjects.py CSCI,UGFN
+
+# Finish a full scrape that was interrupted
+uv run python scripts/scrape_all_subjects.py --resume
 
 # Validate and copy publishable data into the web app
 uv run python scripts/publish_course_data.py
@@ -72,7 +75,7 @@ A bump forces a full re-scrape, which is the point: published data can never be 
 
 Each data directory holds a `_scraped_at.txt`: when the scrape that wrote it started. Publishing reads those into [scrape-times.ts](../web/src/lib/generated/scrape-times.ts) for the app's "Last Data Sync", shown in CUHK's timezone (HKT), not the viewer's. It renders only after hydration — browsers rewrite a date left in the prerendered HTML (data detectors, translation, extensions), which breaks hydration. A stamp with no UTC offset is skipped as undated, rather than read in the publisher's timezone.
 
-Only full scrapes write them, and only for the directories they produced — so a year CUHK drops keeps its own time ([why](decisions.md#stamp-each-data-directory-with-its-scrape-time)).
+Only full scrapes and resumes write them, and only for the directories that scrape produced — so a year CUHK drops keeps its own time ([why](decisions.md#stamp-each-data-directory-with-its-scrape-time)). A resume writes the interrupted scrape's start, not its own.
 
 ## Publish
 

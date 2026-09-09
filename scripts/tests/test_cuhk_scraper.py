@@ -97,8 +97,12 @@ def _entry(tracker, subject):
     return tracker.progress_data["subjects"][subject]
 
 
+def _read(path):
+    return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
 def _saved(tracker):
-    return json.loads(Path(tracker.progress_file).read_text(encoding="utf-8"))
+    return _read(tracker.progress_file)
 
 
 # `latest_run` reports this run; `subjects` is the cumulative registry. Every test below
@@ -288,6 +292,77 @@ def test_only_a_run_that_reached_every_subject_speaks_for_the_catalog(tmp_path, 
     CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB"], mode="full")
 
     assert spoke_for == [covered]
+
+
+def _interrupted(tmp_path, remaining, directories, started_at="2026-09-08T14:05:03.686000+00:00"):
+    """A progress file, and the directories on disk, a killed full scrape would leave."""
+    for directory in directories:
+        (tmp_path / directory).mkdir(exist_ok=True)
+    (tmp_path / "progress.json").write_text(
+        json.dumps(
+            {
+                "latest_run": {"status": "in_progress"},
+                "latest_full_scrape": {
+                    "started_at": started_at,
+                    "remaining": list(remaining),
+                    "directories": [str(tmp_path / d) for d in directories],
+                },
+                "subjects": {},
+            }
+        ),
+        encoding="utf-8",
+    )
+    return started_at
+
+
+def test_resume_scrapes_only_what_the_scrape_never_reached(tmp_path):
+    _interrupted(tmp_path, ["BBBB", "CCCC"], ["2026-27"])
+    scraper = _loop_scraper(tmp_path)
+    scraped = []
+    scraper.scrape_subject = lambda subject: scraped.append(subject) or []
+
+    CuhkScraper.scrape_all_subjects(scraper, [], mode="resume")
+
+    assert scraped == ["BBBB", "CCCC"]
+    assert _read(tmp_path / "progress.json")["latest_full_scrape"]["remaining"] == []
+
+
+def test_resume_stamps_every_directory_the_scrape_wrote_with_its_start(tmp_path):
+    # The one a careless resume gets wrong: it writes only 2026-27, so deriving the
+    # directories from this run would leave no-terms stale.
+    started_at = _interrupted(tmp_path, ["BBBB"], ["2026-27", "no-terms"])
+
+    CuhkScraper.scrape_all_subjects(_loop_scraper(tmp_path), [], mode="resume")
+
+    for directory in ("2026-27", "no-terms"):
+        assert (tmp_path / directory / "_scraped_at.txt").read_text() == f"{started_at}\n"
+
+
+def test_a_resume_cannot_speak_for_the_course_outcomes_it_never_rescraped(tmp_path):
+    # Collected per run, so a resume holds only its own subjects' — rewriting the report
+    # from those would drop the rest.
+    _interrupted(tmp_path, ["BBBB"], ["2026-27"])
+    spoke_for = []
+
+    CuhkScraper.scrape_all_subjects(
+        _loop_scraper(tmp_path, report=spoke_for.append), [], mode="resume"
+    )
+
+    assert spoke_for == [False]
+
+
+@pytest.mark.parametrize(
+    "remaining, reason",
+    [(None, "no recorded scrape"), ([], "an already finished one")],
+    ids=["nothing recorded", "already finished"],
+)
+def test_resume_refuses_rather_than_silently_scraping_everything(tmp_path, remaining, reason):
+    if remaining is not None:
+        _interrupted(tmp_path, remaining, ["2026-27"])
+    scraper = _loop_scraper(tmp_path)
+
+    with pytest.raises(cuhk_scraper.NothingToResume):
+        CuhkScraper.scrape_all_subjects(scraper, [], mode="resume")
 
 
 def test_a_full_run_without_progress_tracking_refuses_to_start(tmp_path):
