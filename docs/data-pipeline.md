@@ -46,7 +46,7 @@ Production scraping uses `ScrapingConfig.for_production()`:
 
 Log filenames in [logs/scrape/](../logs/scrape/) use the machine timezone, normally HKT/UTC+8 for this project environment.
 
-The console and the log file show the same lines. Each is prefixed with its scope — `[CSCI 1130]`, or `[CSCI]` for work spanning the subject — so one course greps out of a run's ~78k lines. Startup and summary lines have none.
+Each line is prefixed with its scope — `[CSCI 1130]`, or `[CSCI]` for work spanning the subject; run-level lines have none. The console uses the same format and also carries the runner's startup and failure lines, so a killed run's log file does not say why it died.
 
 ### Progress Log
 
