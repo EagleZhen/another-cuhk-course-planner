@@ -13,7 +13,19 @@ import argparse
 import logging
 import sys
 
-from cuhk_scraper import CuhkScraper, NothingToResume
+from cuhk_scraper import CuhkScraper, NothingToResume, UnreadableProgressLog
+
+
+def subject_list(value: str) -> list[str]:
+    """Split the subjects argument, rejecting an empty one.
+
+    An unset shell variable arrives as "", which would otherwise read as no subjects
+    given and start a ~9-hour full scrape.
+    """
+    subjects = [code.strip() for code in value.split(",")]
+    if not all(subjects):
+        raise argparse.ArgumentTypeError(f"not a subject list: {value!r}")
+    return subjects
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -30,6 +42,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     what.add_argument(
         "subjects",
         nargs="?",
+        type=subject_list,
         help="comma-separated subject codes to refresh, e.g. PHED,CSCI",
     )
     what.add_argument(
@@ -67,9 +80,9 @@ def main():
         if args.resume:
             # The scraper reads what is left from the progress log.
             mode = "resume"
-        elif args.subjects:
+        elif args.subjects is not None:
             mode = "partial"
-            subjects = args.subjects.split(",")
+            subjects = args.subjects
             logger.info(f"🎯 Debug mode: scraping {len(subjects)} subject(s): {subjects}")
         else:
             mode = "full"
@@ -102,7 +115,8 @@ def main():
         logger.info("Scraping completed!")
         logger.info(f"Summary: {summary}")
 
-    except NothingToResume as e:
+    # Both say what is wrong and what to do; neither is a scrape that half-happened.
+    except (NothingToResume, UnreadableProgressLog) as e:
         logger.error(str(e))
         sys.exit(1)
 
