@@ -27,7 +27,7 @@ from data_utils import (
     utc_now_iso,
     utc_to_hkt,
 )
-from requests.exceptions import ConnectionError, HTTPError, Timeout
+from requests.exceptions import ChunkedEncodingError, ConnectionError, HTTPError, Timeout
 
 # The Class Details status: both the value we record and the sentinel that the response
 # is a class details page at all. Absent from every other page CUHK serves.
@@ -63,6 +63,9 @@ class ScrapingConfig:
     # Transient corruption clears on the next attempt; this many identical parse failures
     # means the page shape changed and no amount of retrying will parse it.
     max_course_attempts: int = 5
+    # 97% of real transients clear within two attempts. Past six it is a wedged session,
+    # which only the subject scope can fix by rebuilding it.
+    max_request_attempts: int = 6
     output_mode: str = "single_file"  # "single_file" or "per_subject"
     output_directory: str = SCRAPER_OUTPUTS_DIR  # testing default
     track_progress: bool = False  # Progress tracking for production
@@ -388,7 +391,7 @@ class CuhkScraper:
     _last_request_at: float | None = None
 
     def __init__(self, config: ScrapingConfig | None = None):
-        self.session = requests.Session()
+        self.session = self._new_session()
         self.logger = logging.getLogger(__name__)
         self.base_url = (
             "http://rgsntl.rgs.cuhk.edu.hk/aqs_prd_applx/Public/tt_dsp_crse_catalog.aspx"
@@ -410,8 +413,14 @@ class CuhkScraper:
         onnxruntime.set_default_logger_severity(3)
         self.ocr = ddddocr.DdddOcr()
 
-        # Browser headers and network resilience settings
-        self.session.headers.update(
+        # Network resilience settings
+        self._request_timeout = (10, 30)  # (connect, read) timeouts in seconds
+
+    @staticmethod
+    def _new_session() -> requests.Session:
+        """A session with our browser headers and no cookies of its own."""
+        session = requests.Session()
+        session.headers.update(
             {
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
@@ -419,9 +428,7 @@ class CuhkScraper:
                 "Connection": "keep-alive",
             }
         )
-
-        # Network resilience settings
-        self._request_timeout = (10, 30)  # (connect, read) timeouts in seconds
+        return session
 
     def _wait_for_request_slot(self) -> None:
         """Hold requests to one per `request_delay` seconds.
@@ -437,7 +444,7 @@ class CuhkScraper:
 
     def _robust_request(self, method: str, url: str, **kwargs) -> requests.Response:
         """
-        Robust HTTP request with infinite retry for network issues
+        Robust HTTP request with bounded retry for network issues
 
         Args:
             method: 'GET' or 'POST'
@@ -448,9 +455,9 @@ class CuhkScraper:
             Response object
 
         Note:
-            Retries network issues (ConnectionError, Timeout, ConnectionResetError) and
-            HTTP 502/503/504 forever, pre-loading the body so a drop while reading it counts
-            Raises every other HTTP status for the caller to redo the unit
+            Retries network errors (ConnectionError, ChunkedEncodingError, Timeout) and HTTP
+            502/503/504 up to max_request_attempts times, then re-raises so the caller redoes
+            the unit. Any other HTTP status raises immediately.
         """
         # Set default timeout if not provided
         if "timeout" not in kwargs:
@@ -471,19 +478,15 @@ class CuhkScraper:
                 # Check for HTTP errors
                 response.raise_for_status()
 
-                # Pre-load response content to catch ConnectionResetError here
-                # This forces immediate reading of the response body
-                try:
-                    _ = (
-                        response.content
-                    )  # This will trigger ConnectionResetError if connection drops
-                    return response
-                except ConnectionResetError:
-                    # Treat as network issue and retry
-                    raise ConnectionError("Connection reset during response reading")
+                return response
 
-            except (ConnectionError, Timeout) as e:
+            # ChunkedEncodingError is a body that stopped early. Named separately because it
+            # is not a subclass of requests' ConnectionError.
+            except (ConnectionError, ChunkedEncodingError, Timeout) as e:
                 attempt += 1
+                if attempt >= self.config.max_request_attempts:
+                    self.logger.error(f"❌ Network issue after {attempt} attempts, giving up: {e}")
+                    raise
                 # Exponential backoff: 1s, 2s, 4s, 8s, 16s, 32s, max 60s
                 wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
                 self.logger.warning(
@@ -497,6 +500,11 @@ class CuhkScraper:
                 status = e.response.status_code if e.response is not None else None
                 if status in [502, 503, 504]:  # Server errors - retry
                     attempt += 1
+                    if attempt >= self.config.max_request_attempts:
+                        self.logger.error(
+                            f"❌ Server error {status} after {attempt} attempts, giving up"
+                        )
+                        raise
                     wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # Exponential backoff, max 60s
                     self.logger.warning(
                         f"🔧 Server error {status} (attempt {attempt}), retrying in {wait_time}s"
@@ -853,6 +861,12 @@ class CuhkScraper:
             except Exception as e:
                 self.logger.error(f"Attempt {attempt + 1} failed for {subject_code}: {e}")
                 if attempt < self.config.max_subject_attempts - 1:
+                    # The session itself may be what failed — ASP.NET keeps per-session
+                    # state we cannot clear. A new one restarts from a fresh SessionId.
+                    self.session = self._new_session()
+                    self.logger.info(
+                        f"♻️ New session for {subject_code} after attempt {attempt + 1}"
+                    )
                     time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
 
         # Returning [] here would be indistinguishable from a subject with no courses,

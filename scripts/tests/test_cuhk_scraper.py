@@ -15,8 +15,8 @@ from cuhk_scraper import (
     TermInfo,
 )
 from data_utils import SCHEMA_VERSION
+from requests.exceptions import ChunkedEncodingError, HTTPError
 from requests.exceptions import ConnectionError as RequestsConnectionError
-from requests.exceptions import HTTPError
 
 
 def _course(code, term_names):
@@ -686,18 +686,37 @@ def _fake_clock(monkeypatch):
     return clock
 
 
+RETRY_BUDGET = 3  # not production's 6: these tests pin the mechanism, not the tuning
+
+
 def _paced_scraper(get, delay=REQUEST_DELAY):
     return _live_scraper(
-        config=ScrapingConfig(request_delay=delay),
+        config=ScrapingConfig(request_delay=delay, max_request_attempts=RETRY_BUDGET),
         session=SimpleNamespace(get=get),
         _request_timeout=(10, 30),
     )
 
 
+def _ok(content=b""):
+    return SimpleNamespace(raise_for_status=lambda: None, content=content)
+
+
+def _answering(answers):
+    """Serves `answers` in order: an exception is raised, anything else returned."""
+
+    def get(*args, **kwargs):
+        answer = answers.pop(0)
+        if isinstance(answer, Exception):
+            raise answer
+        return answer
+
+    return get
+
+
 def _responder(clock, takes=0.0):
     def get(*args, **kwargs):
         clock.now += takes
-        return SimpleNamespace(raise_for_status=lambda: None, content=b"")
+        return _ok()
 
     return get
 
@@ -738,18 +757,81 @@ def test_a_retry_waits_its_turn_like_any_other_request(monkeypatch):
     # Pacing lives inside the retry loop. The interval here exceeds the 1 s first backoff,
     # which would otherwise cover the wait and hide a limiter that skips retries.
     clock = _fake_clock(monkeypatch)
-    answers = [RequestsConnectionError("network is down"), None]
+    answers = [RequestsConnectionError("network is down"), _ok()]
 
-    def get(*args, **kwargs):
-        answer = answers.pop(0)
-        if answer is not None:
-            raise answer
-        return SimpleNamespace(raise_for_status=lambda: None, content=b"")
-
-    CuhkScraper._robust_request(_paced_scraper(get, delay=3.0), "GET", "http://test.invalid")
+    CuhkScraper._robust_request(
+        _paced_scraper(_answering(answers), delay=3.0), "GET", "http://test.invalid"
+    )
 
     assert clock.sleeps == [1.0, 2.0]  # backoff, then the rest of the interval
     assert answers == []
+
+
+def test_a_body_that_dies_partway_is_retried_in_place(monkeypatch):
+    # requests buffers the body inside get(), so a half-read response surfaces there.
+    # One retryable request; escaping here would cost the whole course an attempt.
+    _fake_clock(monkeypatch)
+    whole = _ok(b"whole body")
+    answers = [ChunkedEncodingError("connection broken mid-body"), whole]
+    scraper = _paced_scraper(_answering(answers))
+
+    assert CuhkScraper._robust_request(scraper, "GET", "http://test.invalid") is whole
+    assert answers == []
+
+
+def test_a_request_that_never_recovers_gives_up(monkeypatch):
+    # The 2026-09-08 regression. The sentinel turns an unbounded loop into a failure
+    # rather than a hung CI.
+    _fake_clock(monkeypatch)
+    calls = []
+
+    def get(*args, **kwargs):
+        calls.append(1)
+        if len(calls) > 50:
+            raise AssertionError("retried well past any sane budget")
+        raise RequestsConnectionError("network is down")
+
+    with pytest.raises(RequestsConnectionError):
+        CuhkScraper._robust_request(_paced_scraper(get), "GET", "http://test.invalid")
+
+    assert len(calls) == RETRY_BUDGET
+
+
+def test_a_request_that_recovers_on_the_last_attempt_still_succeeds(monkeypatch):
+    # The other side of the budget: one too tight would fail transients the old code rode out.
+    _fake_clock(monkeypatch)
+    whole = _ok()
+    answers = [RequestsConnectionError("network is down")] * (RETRY_BUDGET - 1) + [whole]
+    scraper = _paced_scraper(_answering(answers))
+
+    assert CuhkScraper._robust_request(scraper, "GET", "http://test.invalid") is whole
+    assert answers == []
+
+
+def test_a_subject_retry_starts_on_a_fresh_session(monkeypatch):
+    # Retrying on a poisoned session repeats an experiment that cannot succeed; a new one
+    # drops the ASP.NET_SessionId and starts from a fresh captcha.
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+    scraper = _live_scraper(
+        config=ScrapingConfig(max_subject_attempts=3), session=CuhkScraper._new_session()
+    )
+    sessions, cookies_on_entry = [], []
+
+    def wedged(*args, **kwargs):
+        sessions.append(scraper.session)
+        cookies_on_entry.append(dict(scraper.session.cookies))
+        scraper.session.cookies.set("ASP.NET_SessionId", "poisoned")
+        raise RequestsConnectionError("network is down")
+
+    scraper._robust_request = wedged
+
+    with pytest.raises(RuntimeError):
+        CuhkScraper.scrape_subject(scraper, "TEST")
+
+    assert len({id(s) for s in sessions}) == 3  # a new session per attempt, none reused
+    assert cookies_on_entry == [{}, {}, {}]  # no attempt inherited the poisoned cookie
+    # A bare requests.Session would announce itself as python-requests.
+    assert sessions[-1].headers["User-Agent"].startswith("Mozilla/")
 
 
 def test_unknown_subject_title_is_recorded_empty_not_as_the_code(tmp_path):
