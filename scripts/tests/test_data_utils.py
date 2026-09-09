@@ -15,6 +15,7 @@ from data_utils import (
     render_scrape_times_module,
     render_subjects_module,
     render_terms_module,
+    save_json_with_newline,
     utc_now_iso,
 )
 
@@ -381,3 +382,33 @@ def test_diff_term_names_ignores_year_keys_on_new_year():
 
     assert added == {"2026-27 Term 1"}
     assert removed == set()
+
+
+def test_save_json_writes_the_data_and_a_trailing_newline(tmp_path):
+    target = tmp_path / "progress.json"
+
+    save_json_with_newline(str(target), {"subjects": {"CSCI": "done"}})
+
+    assert json.loads(target.read_text()) == {"subjects": {"CSCI": "done"}}
+    assert target.read_text().endswith("}\n")
+
+
+def test_save_json_leaves_the_previous_file_intact_when_the_write_fails(tmp_path):
+    # A truncated progress log reads as "no scrape recorded" and sends the next run
+    # into a full rescrape.
+    target = tmp_path / "progress.json"
+    save_json_with_newline(str(target), {"remaining": ["UGFN"]})
+
+    with pytest.raises(TypeError):
+        save_json_with_newline(str(target), {"remaining": [object()]})
+
+    assert json.loads(target.read_text()) == {"remaining": ["UGFN"]}
+
+
+def test_save_json_leaves_no_temporary_file_behind(tmp_path):
+    target = tmp_path / "progress.json"
+    save_json_with_newline(str(target), {"a": 1})
+    with pytest.raises(TypeError):
+        save_json_with_newline(str(target), {"a": object()})
+
+    assert [path.name for path in tmp_path.iterdir()] == ["progress.json"]

@@ -54,11 +54,13 @@ Log filenames in [logs/scrape/](../logs/scrape/) use the machine timezone, norma
 - `latest_full_scrape` describes one scrape of the whole catalog, which may span several runs: `started_at` is what its directories are stamped with, `remaining` is what it has not attempted yet (empty means it finished), `directories` is what it wrote. Full runs start one and resumes continue it; partial runs leave it alone ([why](decisions.md#record-the-scrape-apart-from-the-run)).
 - `subjects` is the cumulative registry of what sits in [data/](../data/), keyed by subject code, so it keeps entries for subjects the current run never visited.
 
+A log that will not parse stops the run rather than reading as an empty one: it is our own output, and a break read as an absence would drop the registry and make `--resume` refuse for the wrong reason — reporting no scrape recorded when one is sitting there half-finished.
+
 ```bash
 jq '.latest_run' logs/scraping_progress.json
 ```
 
-Scripts that write JSON output use `save_json_with_newline()` in [scripts/data_utils.py](../scripts/data_utils.py) for consistent formatting (2-space indent, trailing newline) and clean diffs.
+Scripts that write JSON output use `save_json_with_newline()` in [scripts/data_utils.py](../scripts/data_utils.py) for consistent formatting (2-space indent, trailing newline) and clean diffs. It renames a temporary file over the target, so a kill mid-write leaves the previous file rather than a truncated one.
 
 ### File Schema
 

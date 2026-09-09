@@ -371,6 +371,34 @@ def test_resume_refuses_rather_than_silently_scraping_everything(tmp_path, remai
         CuhkScraper.scrape_all_subjects(scraper, [], mode="resume")
 
 
+def _truncated(tmp_path):
+    """The progress file a process killed mid-save used to leave."""
+    _interrupted(tmp_path, ["BBBB"], ["2026-27"])
+    progress_file = tmp_path / "progress.json"
+    progress_file.write_text(progress_file.read_text()[:40], encoding="utf-8")
+    return progress_file
+
+
+def test_resume_says_the_log_is_unreadable_rather_than_reporting_no_scrape(tmp_path):
+    # "No full scrape recorded" would send a ~9-hour rescrape after the very
+    # interruption --resume exists to finish.
+    progress_file = _truncated(tmp_path)
+    scraper = _loop_scraper(tmp_path)
+
+    with pytest.raises(cuhk_scraper.UnreadableProgressLog) as raised:
+        CuhkScraper.scrape_all_subjects(scraper, [], mode="resume")
+
+    assert str(progress_file) in str(raised.value)
+
+
+def test_an_unreadable_log_does_not_start_a_run_with_an_empty_registry(tmp_path):
+    # Silently emptying it would drop what is on disk, and un-gate publishing with it.
+    progress_file = _truncated(tmp_path)
+
+    with pytest.raises(cuhk_scraper.UnreadableProgressLog):
+        _tracker(progress_file, ["AAAA"], mode="full")
+
+
 @pytest.mark.parametrize("hours, warns", [(23, False), (25, True)], ids=["last night", "older"])
 def test_resume_warns_about_a_scrape_older_than_a_nightly_cycle(tmp_path, caplog, hours, warns):
     # Both sides finish the scrape — the age only changes whether it says something first.

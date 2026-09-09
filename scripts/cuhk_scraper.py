@@ -162,15 +162,34 @@ class NothingToResume(Exception):
     """--resume found no unfinished full scrape."""
 
 
-def load_latest_full_scrape(progress_file: str) -> dict | None:
-    """The recorded full scrape, or None. Read before the tracker exists, for --resume."""
+class UnreadableProgressLog(Exception):
+    """The progress log will not parse."""
+
+
+def load_progress_file(progress_file: str) -> dict | None:
+    """The progress log, or None when there is none.
+
+    An unparseable one raises: it is our own output, and reading a break as "nothing
+    recorded" would drop the registry and have --resume refuse for the wrong reason,
+    sending you to redo by hand the ~9 hours it could have finished.
+    """
     if not os.path.exists(progress_file):
         return None
-    try:
-        with open(progress_file, encoding="utf-8") as f:
-            return json.load(f).get("latest_full_scrape")
-    except Exception:
-        return None
+    with open(progress_file, encoding="utf-8") as f:
+        try:
+            return json.load(f)
+        except json.JSONDecodeError as e:
+            raise UnreadableProgressLog(
+                f"{progress_file} is not readable JSON: {e}. It records what is on disk "
+                "and any interrupted scrape, so inspect it before moving it aside — "
+                "without it, a full scrape is the only way forward."
+            ) from e
+
+
+def load_latest_full_scrape(progress_file: str) -> dict | None:
+    """The recorded full scrape, or None. Read before the tracker exists, for --resume."""
+    data = load_progress_file(progress_file)
+    return data.get("latest_full_scrape") if data else None
 
 
 def render_output_files(output_files: list[str]) -> str:
@@ -210,25 +229,14 @@ class ScrapingProgressTracker:
 
     def _load_progress(self) -> tuple[dict, dict | None]:
         """Load the subject registry and the last full scrape; run state is always fresh"""
-        existing_subjects = {}
+        data = load_progress_file(self.progress_file) or {}
 
-        # Load existing subject data if progress file exists
-        if os.path.exists(self.progress_file):
-            try:
-                with open(self.progress_file, encoding="utf-8") as f:
-                    data = json.load(f)
+        # Preserve existing subject data (so we don't lose completed subjects)
+        existing_subjects = data.get("subjects", {})
+        if existing_subjects:
+            self.logger.info(f"Preserved data for {len(existing_subjects)} existing subjects")
 
-                # Preserve existing subject data (so we don't lose completed subjects)
-                if "subjects" in data:
-                    existing_subjects = data["subjects"]
-                    self.logger.info(
-                        f"Preserved data for {len(existing_subjects)} existing subjects"
-                    )
-
-            except Exception as e:
-                self.logger.warning(f"Could not load progress file: {e}, starting with fresh run")
-
-        return {"subjects": existing_subjects}, load_latest_full_scrape(self.progress_file)
+        return {"subjects": existing_subjects}, data.get("latest_full_scrape")
 
     def _open_scrape(self, existing: dict | None) -> dict | None:
         """The full scrape this run belongs to.

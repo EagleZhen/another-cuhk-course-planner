@@ -11,12 +11,14 @@ TODO(#153): split scrape vs. publish utilities.
 """
 
 import json
+import os
 import re
-from collections.abc import Iterable, Mapping
+from collections.abc import Iterable, Iterator, Mapping
+from contextlib import contextmanager
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, TextIO
 from zoneinfo import ZoneInfo
 
 from bs4 import BeautifulSoup, Comment, Tag
@@ -518,9 +520,27 @@ def format_duration_human(seconds: int) -> str:
     return " ".join(parts)
 
 
+@contextmanager
+def atomic_write(filepath: str, encoding: str = "utf-8") -> Iterator[TextIO]:
+    """Open a file for writing, replacing the target only once it is written in full.
+
+    Opening the target itself empties it before the first byte is written, so a write
+    that fails partway — a full disk, a killed process — destroys what was there.
+    """
+    temp_path = f"{filepath}.tmp"
+    try:
+        with open(temp_path, "w", encoding=encoding) as f:
+            yield f
+        os.replace(temp_path, filepath)
+    except BaseException:
+        if os.path.exists(temp_path):
+            os.unlink(temp_path)
+        raise
+
+
 def save_json_with_newline(filepath: str, data: Any) -> None:
     """Write JSON with UTF-8 encoding, 2-space indent, and trailing newline."""
-    with open(filepath, "w", encoding="utf-8") as f:
+    with atomic_write(filepath) as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
         f.write("\n")
 
