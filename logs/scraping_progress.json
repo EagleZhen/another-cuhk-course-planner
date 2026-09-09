@@ -1,11 +1,11 @@
 {
   "latest_run": {
-    "started_at": "2026-09-08 22:05:04 HK",
-    "last_updated": "2026-09-09 10:29:12 HK",
-    "duration": "12h 24m 7s",
-    "status": "in_progress",
-    "subjects_total": 270,
-    "subjects_completed": 260,
+    "started_at": "2026-09-09 11:48:34 HK",
+    "last_updated": "2026-09-09 11:54:14 HK",
+    "duration": "5m 40s",
+    "status": "completed",
+    "subjects_total": 10,
+    "subjects_completed": 10,
     "subjects_failed": 0,
     "config": {
       "get_details": true,
@@ -1320,13 +1320,9 @@
       "output_file": "data/2026-27/UGFH.json"
     },
     "UGFN": {
-      "status": "in_progress",
-      "started_at": "2026-09-09T02:29:12.599850+00:00",
-      "estimated_courses": 1,
-      "courses_scraped": 0,
-      "completed_courses": [],
-      "last_course_completed": "",
-      "last_progress_update": "2026-09-09T02:29:12.599850+00:00"
+      "status": "completed",
+      "courses_count": 1,
+      "output_file": "data/2026-27/UGFN.json"
     },
     "URBD": {
       "status": "completed",
