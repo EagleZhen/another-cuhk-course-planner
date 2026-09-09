@@ -303,21 +303,6 @@ def html_to_clean_markdown(html_content: str) -> tuple[str, bool]:
         return normalized_text, False
 
 
-# Convenience function for backward compatibility with scraper's expected interface
-def convert_html_to_markdown(html_content: str) -> str:
-    """
-    Simple wrapper around html_to_clean_markdown for backward compatibility.
-
-    Args:
-        html_content: Raw HTML content
-
-    Returns:
-        Clean text content (markdown if possible, plain text as fallback)
-    """
-    result, _ = html_to_clean_markdown(html_content)
-    return result
-
-
 def utc_now_iso() -> str:
     """Get current UTC timestamp in ISO format with timezone info
 
