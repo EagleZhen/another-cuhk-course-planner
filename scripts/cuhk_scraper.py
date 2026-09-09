@@ -2069,8 +2069,8 @@ class CuhkScraper:
 
         # Report course outcomes CUHK is serving a system error for. A subject that failed
         # never reached its courses, so this run cannot vouch for them either.
-        # "full", not "resume": these failures are collected per run, so a resume holds
-        # only the subjects it rescraped.
+        # TODO(#321): "full", not "resume": these failures are collected per run, so a
+        # resume holds only the subjects it rescraped, and the report goes stale after one.
         self._report_course_outcome_failures(mode == "full" and not failed_subjects)
 
         # Final summary
