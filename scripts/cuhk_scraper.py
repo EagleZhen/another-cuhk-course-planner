@@ -290,7 +290,7 @@ class ScrapingProgressTracker:
         subjects = self.progress_data["subjects"]
         subjects[subject] = {"status": "in_progress", "started_at": utc_now_iso()}
         self._save_progress()
-        self.logger.info(f"🚀 Started scraping {subject}")
+        self.logger.info("🚀 Started scraping")
 
     def complete_subject(
         self,
@@ -794,7 +794,7 @@ class CuhkScraper:
         with self._subject_scope(subject_code):
             for attempt in range(self.config.max_subject_attempts):
                 try:
-                    self.logger.info(f"📋 Scraping {subject_code}, attempt {attempt + 1}")
+                    self.logger.info(f"📋 Attempt {attempt + 1}")
 
                     # Get the initial page to extract form data
                     response = self._robust_request("GET", self.base_url)
@@ -821,9 +821,7 @@ class CuhkScraper:
                         continue
 
                     # Captcha accepted! Log result type
-                    self.logger.info(
-                        f"✅ Captcha accepted for {subject_code}: {validation['result_type']}"
-                    )
+                    self.logger.info(f"✅ Captcha accepted: {validation['result_type']}")
 
                     # Debug: save response to understand structure (using smart saving)
                     self._save_debug_html(
@@ -875,7 +873,7 @@ class CuhkScraper:
                         )
                         return []  # Success - empty subject, no retry needed
                     elif validation["result_type"] == "has_courses":
-                        self.logger.info(f"🔍 {subject_code}: Found {len(courses)} courses")
+                        self.logger.info(f"🔍 Found {len(courses)} courses")
                         return courses  # Success - return found courses
 
                     # If we reach here, something unexpected happened - retry
@@ -886,7 +884,7 @@ class CuhkScraper:
                         time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
 
                 except Exception as e:
-                    self.logger.error(f"Attempt {attempt + 1} failed for {subject_code}: {e}")
+                    self.logger.error(f"Attempt {attempt + 1} failed: {e}")
                     if attempt < self.config.max_subject_attempts - 1:
                         # The session itself may be what failed — ASP.NET keeps per-session
                         # state we cannot clear. A new one restarts from a fresh SessionId.
@@ -1026,7 +1024,7 @@ class CuhkScraper:
         """Get detailed course information by simulating postback with retry for validation failures"""
         with self._course_scope(course):
             if not course.postback_target:
-                self.logger.warning(f"No postback target for course {course.course_code}")
+                self.logger.warning("No postback target")
                 return course
 
             # TODO: Extract retry logic if we add more retry sites (see _robust_request for similar pattern)
@@ -1101,9 +1099,7 @@ class CuhkScraper:
         # Check for term dropdown
         term_select = soup.find("select", {"id": "uc_course_ddl_class_term"})
         if not term_select:
-            self.logger.info(
-                f"No term dropdown found for {base_course.course_code}, using current data"
-            )
+            self.logger.info("No term dropdown found, using current data")
             # Create a single term with available data
             current_term = self._parse_current_term_info(html)
             if current_term:
@@ -1119,16 +1115,14 @@ class CuhkScraper:
                 available_terms.append((term_code, term_name))
 
         self.logger.info(
-            f"Found {len(available_terms)} terms for {base_course.course_code}: {[name for _, name in available_terms]}"
+            f"Found {len(available_terms)} terms: {[name for _, name in available_terms]}"
         )
 
         # A failure propagates to get_course_details, which re-scrapes the course: a
         # dropped term is indistinguishable from one CUHK stopped offering.
         all_term_info = []
         for i, (term_code, term_name) in enumerate(available_terms):
-            self.logger.info(
-                f"Scraping term {i + 1}/{len(available_terms)}: {term_name} for {base_course.course_code}"
-            )
+            self.logger.info(f"Scraping term {i + 1}/{len(available_terms)}: {term_name}")
             term_info = self._scrape_term_details(html, base_course, term_code, term_name)
             if term_info:
                 all_term_info.append(term_info)
@@ -1144,9 +1138,7 @@ class CuhkScraper:
                     )
 
         self.logger.info(
-            f"Extracted details for {base_course.course_code}: "
-            f"Credits={base_course.credits}, "
-            f"Terms={len(all_term_info)}"
+            f"Extracted details: Credits={base_course.credits}, Terms={len(all_term_info)}"
         )
         return base_course
 
@@ -1165,7 +1157,7 @@ class CuhkScraper:
 
         # If not current term, switch to it
         if not is_current_term:
-            self.logger.info(f"Switching to {term_name} for {base_course.course_code}")
+            self.logger.info(f"Switching to {term_name}")
 
             # Prepare postback for term change
             form_data = self._extract_asp_hidden_fields(soup)
@@ -1723,7 +1715,7 @@ class CuhkScraper:
         form_data["btn_course_outcome"] = "Course Outcome"
 
         # Submit Course Outcome request
-        self.logger.info(f"Navigating to Course Outcome page for {course.course_code}")
+        self.logger.info("Navigating to Course Outcome page")
         response = self._robust_request("POST", self.base_url, data=form_data)
 
         # Check for PERMANENT system error (don't retry these)
@@ -1792,7 +1784,7 @@ class CuhkScraper:
             # Example invalid: <div class="titleNormal">Course Catalog</div> (wrong page)
             soup = BeautifulSoup(html, "html.parser")
             if not soup.find("div", class_="titleNormal", string="Course Outcome"):
-                self.logger.error(f"Missing 'Course Outcome' title for {course.course_code}")
+                self.logger.error("Missing 'Course Outcome' title")
                 return False
 
             # Check 3: Content structure validation - ensure page has outcome sections
@@ -1801,7 +1793,7 @@ class CuhkScraper:
             # Example: <td class="reverseHeaderStyle">Learning Outcome</td>
             section_headers = soup.find_all("td", class_="reverseHeaderStyle")
             if len(section_headers) < 1:
-                self.logger.error(f"Outcome page has no content sections for {course.course_code}")
+                self.logger.error("Outcome page has no content sections")
                 return False
 
             self.logger.debug(
@@ -1836,7 +1828,7 @@ class CuhkScraper:
             }
         )
 
-        self.logger.info(f"📝 Tracked failed course outcome: {subject}{course_code} ({reason})")
+        self.logger.info(f"📝 Tracked failed course outcome ({reason})")
 
     def _report_course_outcome_failures(self, covered_every_subject: bool):
         """Report course outcomes CUHK serves a system error for
@@ -1932,7 +1924,7 @@ class CuhkScraper:
         if recommended_reading_span:
             course.recommended_readings = self._html_to_markdown(str(recommended_reading_span))
 
-        self.logger.info(f"Course Outcome parsed for {course.course_code}")
+        self.logger.info("Course Outcome parsed")
 
     def _parse_assessment_table(self, table: Tag | None) -> dict[str, str]:
         """Parse assessment types table and return as key-value pairs"""
