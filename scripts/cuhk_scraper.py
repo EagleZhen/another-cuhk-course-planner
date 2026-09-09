@@ -2193,6 +2193,7 @@ def main():
     logging.basicConfig(level=logging.INFO, handlers=[console])
 
     scraper = CuhkScraper()
+    show_scrape_context(scraper, [console])
 
     # Get subjects from live website
     print("Getting subjects from live website...")

@@ -1342,6 +1342,24 @@ def test_the_console_renders_exactly_what_the_log_file_does(tmp_path):
     )
 
 
+def test_a_handler_prefixes_on_its_own_filter_not_another_handlers():
+    # The filter mutates the shared record, so a handler with only the format borrows a
+    # neighbour's prefix — and loses it silently when that neighbour goes.
+    console = io.StringIO()
+    handler = logging.StreamHandler(console)
+    scraper = _bare_scraper(logger=logging.getLogger("test_lone_console"))
+    scraper.logger.setLevel(logging.INFO)
+    scraper.logger.addHandler(handler)
+    cuhk_scraper.show_scrape_context(scraper, [handler])
+    try:
+        with scraper._subject_scope("CSCI"):
+            scraper.logger.info("scraping")
+    finally:
+        scraper.logger.removeHandler(handler)
+
+    assert console.getvalue().strip().endswith("[CSCI] scraping")
+
+
 def test_the_scrape_log_file_carries_the_prefix(tmp_path):
     # The seam: a format string and a filter field drift apart without noticing.
     scraper = _bare_scraper(logger=logging.getLogger("test_log_prefix"))
