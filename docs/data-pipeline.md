@@ -52,7 +52,7 @@ Log filenames in [logs/scrape/](../logs/scrape/) use the machine timezone, norma
 
 - `latest_run` describes one invocation, counting only the subjects that run covered — so a one-subject retry reports 1, not the whole catalog, and `mode` says which kind of run produced the counts. It is written for a human and never read back, hence HKT timestamps and no machine-readable copies. Its `status` stays `in_progress` until the run ends, so a killed run never reaches `completed`. `last_updated` moves once per subject; [logs/scrape/](../logs/scrape/) is what shows whether a run is still alive.
 - `latest_full_scrape` describes one scrape of the whole catalog, which may span several runs: `started_at` is what its directories are stamped with, `remaining` is what it has not attempted yet (empty means it finished), `directories` is what it wrote. Full runs start one and resumes continue it; partial runs leave it alone ([why](decisions.md#record-the-scrape-apart-from-the-run)).
-- `subjects` is the cumulative registry of what sits in [data/](../data/), keyed by subject code, so it keeps entries for subjects no run has ever visited.
+- `subjects` is the cumulative registry of what sits in [data/](../data/), keyed by subject code, so it keeps entries for subjects the current run never visited.
 
 ```bash
 jq '.latest_run' logs/scraping_progress.json
