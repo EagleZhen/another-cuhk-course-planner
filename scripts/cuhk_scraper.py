@@ -444,6 +444,10 @@ class CuhkScraper:
     # Class-level so every instance starts unpaced — including test doubles, which are built with __new__ and never run __init__.
     _last_request_at: float | None = None
 
+    # The live catalog, code -> title. Class-level for the same reason, and always
+    # replaced rather than mutated.
+    subject_titles_cache: dict[str, str] = {}
+
     def __init__(self, config: ScrapingConfig | None = None):
         self.session = self._new_session()
         self.logger = logging.getLogger(__name__)
@@ -462,7 +466,6 @@ class CuhkScraper:
 
         # Set up file logging automatically
         self._setup_file_logging()
-        self.subject_titles_cache: dict[str, str] = {}  # Cache for subject code -> title mapping
 
         # Suppress ONNX warnings
         onnxruntime.set_default_logger_severity(3)
@@ -789,11 +792,18 @@ class CuhkScraper:
         return [subject["code"] for subject in self.get_subjects_with_titles_from_live_site()]
 
     def get_subjects_with_titles_from_live_site(self) -> list[dict[str, str]]:
-        """Extract subject codes and titles from live website.
+        """Subject codes and titles from the live site, cached on the scraper.
+
+        Fetched once per run: the runner and the scrape both ask for it.
 
         Raises rather than returning nothing: an empty result would blank every subject
         title, and the run would look fine.
         """
+        if self.subject_titles_cache:
+            return [
+                {"code": code, "title": title} for code, title in self.subject_titles_cache.items()
+            ]
+
         response = self._robust_request("GET", self.base_url)
         soup = BeautifulSoup(response.text, "html.parser")
         select = soup.find("select", {"name": "ddl_subject"})
@@ -809,6 +819,7 @@ class CuhkScraper:
         if not subjects:
             raise ValueError("Subject dropdown (ddl_subject) held no titled subjects")
 
+        self.subject_titles_cache = {s["code"]: s["title"] for s in subjects}
         self.logger.info(f"Found {len(subjects)} subjects with titles from live site")
         return subjects
 
@@ -1976,14 +1987,9 @@ class CuhkScraper:
         # Ensure output directory exists
         os.makedirs(self.config.output_directory, exist_ok=True)
 
-        # Always cache subject titles for metadata (essential for usability)
+        # Fills the title cache each subject's metadata reads from.
         self.logger.info("Fetching subject titles from live website...")
-        subjects_with_titles = self.get_subjects_with_titles_from_live_site()
-
-        # Build cache for fast lookup during scraping
-        self.subject_titles_cache = {}
-        for subject_info in subjects_with_titles:
-            self.subject_titles_cache[subject_info["code"]] = subject_info["title"]
+        self.get_subjects_with_titles_from_live_site()
         self.logger.info(f"Cached {len(self.subject_titles_cache)} subject titles for metadata")
 
         # Initialize progress tracker if enabled

@@ -880,6 +880,24 @@ def test_missing_titles_abort_the_run_rather_than_blanking_every_subject_title()
         )
 
 
+def test_the_subject_catalog_is_fetched_once_per_run():
+    # The runner asks for the codes and the scrape asks for the titles, off one page.
+    page = '<select name="ddl_subject"><option value="TEST">TEST - Test Subject</option></select>'
+    requests = []
+
+    def request(*args, **kwargs):
+        requests.append(args)
+        return SimpleNamespace(text=page)
+
+    scraper = _live_scraper(_robust_request=request)
+    assert CuhkScraper.get_subjects_from_live_site(scraper) == ["TEST"]
+    assert CuhkScraper.get_subjects_with_titles_from_live_site(scraper) == [
+        {"code": "TEST", "title": "TEST - Test Subject"}
+    ]
+    assert len(requests) == 1
+    assert scraper.subject_titles_cache == {"TEST": "TEST - Test Subject"}
+
+
 REQUEST_DELAY = 0.5
 
 
