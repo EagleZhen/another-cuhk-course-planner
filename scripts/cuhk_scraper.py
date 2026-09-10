@@ -277,7 +277,7 @@ class ScrapingProgressTracker:
             saved["subjects"] = subjects
             save_json_with_newline(self.progress_file, saved)
 
-            self.logger.debug(f"💾 Progress saved to {self.progress_file}")
+            self.logger.debug(f"Progress saved to {self.progress_file}")
         except Exception as e:
             self.logger.error(f"Could not save progress: {e}")
 
@@ -290,7 +290,7 @@ class ScrapingProgressTracker:
         subjects = self.progress_data["subjects"]
         subjects[subject] = {"status": "in_progress", "started_at": utc_now_iso()}
         self._save_progress()
-        self.logger.info("🚀 Started scraping")
+        self.logger.info("Started scraping")
 
     def complete_subject(
         self,
@@ -311,7 +311,7 @@ class ScrapingProgressTracker:
         self._subject_statuses[subject] = "completed"
         self._save_progress()
         self.logger.info(
-            f"✅ Completed {subject}: {courses_count} courses in {duration_minutes:.1f} minutes"
+            f"Completed {subject}: {courses_count} courses in {duration_minutes:.1f} minutes"
         )
 
     def fail_subject(self, subject: str, error_message: str):
@@ -522,12 +522,12 @@ class CuhkScraper:
             except (ConnectionError, ChunkedEncodingError, Timeout) as e:
                 attempt += 1
                 if attempt >= self.config.max_request_attempts:
-                    self.logger.error(f"❌ Network issue after {attempt} attempts, giving up: {e}")
+                    self.logger.error(f"Network issue after {attempt} attempts, giving up: {e}")
                     raise
                 # Exponential backoff: 1s, 2s, 4s, 8s, 16s, 32s, max 60s
                 wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
                 self.logger.warning(
-                    f"🌐 Network issue (attempt {attempt}), retrying in {wait_time}s: {e}"
+                    f"Network issue (attempt {attempt}), retrying in {wait_time}s: {e}"
                 )
                 time.sleep(wait_time)
 
@@ -539,19 +539,19 @@ class CuhkScraper:
                     attempt += 1
                     if attempt >= self.config.max_request_attempts:
                         self.logger.error(
-                            f"❌ Server error {status} after {attempt} attempts, giving up"
+                            f"Server error {status} after {attempt} attempts, giving up"
                         )
                         raise
                     wait_time = min(60, 1.0 * (2 ** (attempt - 1)))  # Exponential backoff, max 60s
                     self.logger.warning(
-                        f"🔧 Server error {status} (attempt {attempt}), retrying in {wait_time}s"
+                        f"Server error {status} (attempt {attempt}), retrying in {wait_time}s"
                     )
                     time.sleep(wait_time)
                 else:
                     # Repeating an identical 4xx won't help — it usually means stale
                     # session or form state, which only the caller can rebuild by redoing
                     # the whole unit. Escalate rather than hammer the same request.
-                    self.logger.error(f"❌ HTTP error {status}: {e}")
+                    self.logger.error(f"HTTP error {status}: {e}")
                     raise
 
     def _setup_file_logging(
@@ -587,7 +587,7 @@ class CuhkScraper:
         self.logger.addHandler(file_handler)
         self.logger.setLevel(log_level)
 
-        self.logger.info(f"📝 File logging initialized: {log_filename}")
+        self.logger.info(f"File logging initialized: {log_filename}")
         return log_filename
 
     # What the scraper is on, for debug filenames. Scopes nest run -> subject -> course
@@ -662,13 +662,13 @@ class CuhkScraper:
 
             # Validate captcha format (4 alphanumeric characters)
             if len(text) == 4 and text.isalnum():
-                self.logger.info(f"🔤 OCR produced: {text} (awaiting server validation)")
+                self.logger.info(f"OCR produced: {text} (awaiting server validation)")
                 return text
             else:
-                self.logger.warning(f"❌ Invalid OCR format: '{text}' (expected 4 alphanumeric)")
+                self.logger.warning(f"Invalid OCR format: '{text}' (expected 4 alphanumeric)")
 
         except Exception as e:
-            self.logger.error(f"❌ OCR processing failed: {e}")
+            self.logger.error(f"OCR processing failed: {e}")
 
         return None
 
@@ -786,7 +786,7 @@ class CuhkScraper:
         if not subjects:
             raise ValueError("Subject dropdown (ddl_subject) held no titled subjects")
 
-        self.logger.info(f"📋 Found {len(subjects)} subjects with titles from live site")
+        self.logger.info(f"Found {len(subjects)} subjects with titles from live site")
         return subjects
 
     def scrape_subject(self, subject_code: str) -> list[Course]:
@@ -794,7 +794,7 @@ class CuhkScraper:
         with self._subject_scope(subject_code):
             for attempt in range(self.config.max_subject_attempts):
                 try:
-                    self.logger.info(f"📋 Fetching course list, attempt {attempt + 1}")
+                    self.logger.info(f"Fetching course list, attempt {attempt + 1}")
 
                     # Get the initial page to extract form data
                     response = self._robust_request("GET", self.base_url)
@@ -812,7 +812,7 @@ class CuhkScraper:
                     validation = self._validate_captcha_response(response.text)
                     if not validation["captcha_accepted"]:
                         self.logger.warning(
-                            f"🚫 Captcha rejected (attempt {attempt + 1}): "
+                            f"Captcha rejected (attempt {attempt + 1}): "
                             f"{validation['result_type']} - {validation.get('error_message', 'Unknown')}"
                         )
                         # Continue to next attempt
@@ -821,7 +821,7 @@ class CuhkScraper:
                         continue
 
                     # Captcha accepted! Log result type
-                    self.logger.info(f"✅ Captcha accepted: {validation['result_type']}")
+                    self.logger.info(f"Captcha accepted: {validation['result_type']}")
 
                     # Debug: save response to understand structure (using smart saving)
                     self._save_debug_html(
@@ -856,7 +856,7 @@ class CuhkScraper:
 
                         for i, course in enumerate(courses_to_detail):
                             self.logger.info(
-                                f"📖 Getting details for course {i + 1}/{len(courses_to_detail)}: {course.course_code}"
+                                f"Getting details for course {i + 1}/{len(courses_to_detail)}: {course.course_code}"
                             )
                             detailed_course = self.get_course_details(course, response.text)
                             detailed_courses.append(detailed_course)
@@ -868,15 +868,15 @@ class CuhkScraper:
 
                     # Log results based on validation type and course count
                     if validation["result_type"] == "no_records":
-                        self.logger.info("🔍 Valid search, no courses found (empty subject)")
+                        self.logger.info("Valid search, no courses found (empty subject)")
                         return []  # Success - empty subject, no retry needed
                     elif validation["result_type"] == "has_courses":
-                        self.logger.info(f"🔍 Found {len(courses)} courses")
+                        self.logger.info(f"Found {len(courses)} courses")
                         return courses  # Success - return found courses
 
                     # If we reach here, something unexpected happened - retry
                     self.logger.warning(
-                        f"⚠️ Unexpected validation result: {validation['result_type']}"
+                        f"Unexpected validation result: {validation['result_type']}"
                     )
                     if attempt < self.config.max_subject_attempts - 1:
                         time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
@@ -887,7 +887,7 @@ class CuhkScraper:
                         # The session itself may be what failed — ASP.NET keeps per-session
                         # state we cannot clear. A new one restarts from a fresh SessionId.
                         self.session = self._new_session()
-                        self.logger.info(f"♻️ New session after attempt {attempt + 1}")
+                        self.logger.info(f"New session after attempt {attempt + 1}")
                         time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
 
             # Returning [] here would be indistinguishable from a subject with no courses,
@@ -1062,7 +1062,7 @@ class CuhkScraper:
                     # Same backoff as _robust_request
                     wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
                     self.logger.warning(
-                        f"⚠️ Course details validation failed (attempt {attempt}), retrying in {wait_time}s: {e}"
+                        f"Course details validation failed (attempt {attempt}), retrying in {wait_time}s: {e}"
                     )
                     time.sleep(wait_time)
                     # Continue loop - re-fetch course details page
@@ -1075,7 +1075,7 @@ class CuhkScraper:
                         raise
                     wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
                     self.logger.error(
-                        f"❌ Unexpected error getting course details (attempt {attempt}), retrying in {wait_time}s: {e}"
+                        f"Unexpected error getting course details (attempt {attempt}), retrying in {wait_time}s: {e}"
                     )
                     time.sleep(wait_time)
 
@@ -1238,7 +1238,7 @@ class CuhkScraper:
             # Log if mismatch with list page (for debugging, not failing)
             if detail_page_code != course.course_code.removeprefix("(").removesuffix(")"):
                 self.logger.info(
-                    f"📝 Course code updated: '{course.course_code}' → '{detail_page_code}'"
+                    f"Course code updated: '{course.course_code}' → '{detail_page_code}'"
                 )
 
             # Overwrite with authoritative data from detail page
@@ -1654,7 +1654,7 @@ class CuhkScraper:
         from_icon = parse_enrollment_status_from_image(status_img.get("src", ""))
         if from_icon != "Unknown" and from_icon != status:
             self.logger.warning(
-                f"⚠️ Class status icon says {from_icon!r} but the page says {status!r} — "
+                f"Class status icon says {from_icon!r} but the page says {status!r} — "
                 f"CUHK's wording may have changed"
             )
 
@@ -1715,7 +1715,7 @@ class CuhkScraper:
             "<title>System error</title>" in response.text
             or "System error. Please try again" in response.text
         ):
-            self.logger.error("🚨 System error (PERMANENT) for the course outcome - cannot scrape")
+            self.logger.error("System error (PERMANENT) for the course outcome - cannot scrape")
             self._track_failed_course_outcome(
                 course.subject, course.course_code, "system_error_permanent"
             )
@@ -1764,7 +1764,7 @@ class CuhkScraper:
             # Check 1: System error page detection (primary failure mode - ~8% of requests)
             # Example failure: <title>System error</title><body>系統有誤，請稍後再試。<br />System error. Please try again latter.</body>
             if "<title>System error</title>" in html or "System error. Please try again" in html:
-                self.logger.error("🚨 System error page for the course outcome")
+                self.logger.error("System error page for the course outcome")
                 return False
 
             # Check 2: Minimum structural requirements - ensure it's actually a course outcome page
@@ -1784,7 +1784,7 @@ class CuhkScraper:
                 self.logger.error("Outcome page has no content sections")
                 return False
 
-            self.logger.debug("✅ Course outcome response validation passed")
+            self.logger.debug("Course outcome response validation passed")
             return True
 
         except Exception as e:
@@ -1812,7 +1812,7 @@ class CuhkScraper:
             }
         )
 
-        self.logger.info(f"📝 Tracked failed course outcome ({reason})")
+        self.logger.info(f"Tracked failed course outcome ({reason})")
 
     def _report_course_outcome_failures(self, covered_every_subject: bool):
         """Report course outcomes CUHK serves a system error for
@@ -1823,15 +1823,15 @@ class CuhkScraper:
         """
         if not hasattr(self, "_failed_course_outcomes") or not self._failed_course_outcomes:
             if not covered_every_subject:
-                self.logger.info("✅ No outcome failures in the subjects this run reached")
+                self.logger.info("No outcome failures in the subjects this run reached")
                 return
-            self.logger.info("✅ All course outcomes scraped successfully")
+            self.logger.info("All course outcomes scraped successfully")
             Path(FAILED_COURSE_OUTCOMES_FILE).unlink(missing_ok=True)
             return
 
         failure_count = len(self._failed_course_outcomes)
         self.logger.info(f"\n{'=' * 60}")
-        self.logger.info(f"🚨 COURSE OUTCOME FAILURES DETECTED: {failure_count} courses")
+        self.logger.info(f"COURSE OUTCOME FAILURES DETECTED: {failure_count} courses")
         self.logger.info(f"{'=' * 60}")
 
         # Group failures by reason for cleaner reporting
@@ -1843,9 +1843,9 @@ class CuhkScraper:
             failures_by_reason[reason].append(f"{failure['subject']}{failure['course_code']}")
 
         for reason, courses in failures_by_reason.items():
-            self.logger.info(f"📋 {reason.upper()}: {', '.join(courses)}")
+            self.logger.info(f"{reason.upper()}: {', '.join(courses)}")
 
-        self.logger.info("\n💡 RECOMMENDATION:")
+        self.logger.info("\nRECOMMENDATION:")
         self.logger.info("   • Retrying will not help - CUHK's data for these courses is malformed")
         self.logger.info("   • Report them to ITSC; only an upstream fix clears this")
         self.logger.info("   • Until then these courses carry empty course outcome data")
@@ -1854,7 +1854,7 @@ class CuhkScraper:
         )
 
         if not covered_every_subject:
-            self.logger.info("\n🎯 Run did not reach every subject: leaving the report file alone")
+            self.logger.info("\nRun did not reach every subject: leaving the report file alone")
             self.logger.info(f"{'=' * 60}")
             return
 
@@ -1869,7 +1869,7 @@ class CuhkScraper:
                     f"{failure['subject']}{failure['course_code']} - {failure['reason']} ({failure['timestamp']})\n"
                 )
 
-        self.logger.info(f"📝 Failure details saved to: {failure_file}")
+        self.logger.info(f"Failure details saved to: {failure_file}")
         self.logger.info(f"{'=' * 60}")
 
     def _parse_course_outcome_content(self, html: str, course: Course) -> None:
@@ -1945,29 +1945,29 @@ class CuhkScraper:
         if mode == "resume":
             subjects = self._subjects_left_to_scrape()
 
-        self.logger.info(f"🛡️  Starting scraping for {len(subjects)} subjects")
-        self.logger.info(f"📁 Saving to: {self.config.output_directory}/")
-        self.logger.info("💾 Mode: Memory-safe with immediate saves")
+        self.logger.info(f"🚀 Starting scraping for {len(subjects)} subjects")
+        self.logger.info(f"Saving to: {self.config.output_directory}/")
+        self.logger.info("Mode: Memory-safe with immediate saves")
 
         # Ensure output directory exists
         os.makedirs(self.config.output_directory, exist_ok=True)
 
         # Always cache subject titles for metadata (essential for usability)
-        self.logger.info("📋 Fetching subject titles from live website...")
+        self.logger.info("Fetching subject titles from live website...")
         subjects_with_titles = self.get_subjects_with_titles_from_live_site()
 
         # Build cache for fast lookup during scraping
         self.subject_titles_cache = {}
         for subject_info in subjects_with_titles:
             self.subject_titles_cache[subject_info["code"]] = subject_info["title"]
-        self.logger.info(f"✅ Cached {len(self.subject_titles_cache)} subject titles for metadata")
+        self.logger.info(f"Cached {len(self.subject_titles_cache)} subject titles for metadata")
 
         # Initialize progress tracker if enabled
         if self.config.track_progress:
             self.progress_tracker = ScrapingProgressTracker(
                 self.config.progress_file, self.logger, subjects, self.config, mode
             )
-            self.logger.info(f"📊 Progress tracking enabled: {self.config.progress_file}")
+            self.logger.info(f"Progress tracking enabled: {self.config.progress_file}")
         elif mode != "partial":
             # A stamp needs the scrape's start time and directories, both kept there.
             raise ValueError(f"A {mode} scrape needs track_progress enabled")
@@ -1977,7 +1977,7 @@ class CuhkScraper:
         saved_files = {}
 
         for i, subject in enumerate(subjects):
-            self.logger.info(f"🔄 Processing {subject} ({i + 1}/{len(subjects)})")
+            self.logger.info(f"🗂️  Processing {subject} ({i + 1}/{len(subjects)})")
 
             # Track start time for duration calculation
             start_time = time.time()
@@ -2005,26 +2005,26 @@ class CuhkScraper:
                     # Use different message for empty vs populated subjects
                     if courses:
                         self.logger.info(
-                            f"✅ {subject} completed: {len(courses)} courses in {duration_minutes:.1f}min → {saved_display}"
+                            f"💾 {subject} completed: {len(courses)} courses in {duration_minutes:.1f}min → {saved_display}"
                         )
                     else:
                         self.logger.info(
-                            f"✅ {subject} completed: no courses (empty subject) in {duration_minutes:.1f}min → {saved_display}"
+                            f"💾 {subject} completed: no courses (empty subject) in {duration_minutes:.1f}min → {saved_display}"
                         )
                 else:
                     failed_subjects.append(subject)
-                    self.logger.error(f"❌ {subject} save failed")
+                    self.logger.error(f"{subject} save failed")
                     if self.progress_tracker:
                         self.progress_tracker.fail_subject(subject, "Save failed")
 
                 # CRITICAL: Clean memory before next subject (prevent crashes)
-                self.logger.debug(f"🧹 Cleaning memory after {subject}")
+                self.logger.debug(f"Cleaning memory after {subject}")
                 del courses  # Explicit cleanup
                 gc.collect()  # Force garbage collection
 
             except Exception as e:
                 failed_subjects.append(subject)
-                self.logger.error(f"❌ {subject} failed with exception: {e}")
+                self.logger.error(f"{subject} failed with exception: {e}")
 
                 # Mark subject as failed in progress tracker
                 if self.progress_tracker:
@@ -2051,10 +2051,10 @@ class CuhkScraper:
 
         # Final summary
         self.logger.info("🎉 SCRAPING COMPLETED!")
-        self.logger.info(f"✅ Completed: {len(completed_subjects)} subjects")
-        self.logger.info(f"❌ Failed: {len(failed_subjects)} subjects")
+        self.logger.info(f"Completed: {len(completed_subjects)} subjects")
+        self.logger.info(f"Failed: {len(failed_subjects)} subjects")
         if failed_subjects:
-            self.logger.info(f"🔄 Failed subjects: {', '.join(failed_subjects)}")
+            self.logger.info(f"Failed subjects: {', '.join(failed_subjects)}")
 
         return {
             "completed": completed_subjects,
@@ -2081,7 +2081,7 @@ class CuhkScraper:
         age = datetime.now(UTC) - datetime.fromisoformat(scrape["started_at"])
         if age > RESUME_AGE_LIMIT:
             self.logger.warning(
-                f"⚠️  This scrape is {format_duration_human(int(age.total_seconds()))} old, "
+                f"This scrape is {format_duration_human(int(age.total_seconds()))} old, "
                 "more than a nightly cycle. Any subject CUHK has added since is missing "
                 "from it — a fresh full scrape may serve you better."
             )
@@ -2105,14 +2105,14 @@ class CuhkScraper:
         "completed". Keep the two in step if that check ever loosens.
         """
         if mode == "partial":
-            self.logger.info("🕒 Partial scrape: leaving scrape times untouched")
+            self.logger.info("Partial scrape: leaving scrape times untouched")
             return
 
         scrape = self.progress_tracker.latest_full_scrape
         scraped_at = scrape["started_at"]
         for directory in scrape["directories"]:
             (Path(directory) / SCRAPE_TIME_FILENAME).write_text(f"{scraped_at}\n", encoding="utf-8")
-        self.logger.info(f"🕒 Stamped {len(scrape['directories'])} directories with {scraped_at}")
+        self.logger.info(f"Stamped {len(scrape['directories'])} directories with {scraped_at}")
 
     def _save_subject_immediately(
         self, subject: str, courses: list[Course], config: ScrapingConfig
@@ -2175,11 +2175,11 @@ class CuhkScraper:
             # TODO(#149): reconcile year subdirs the same way.
 
             summary = ", ".join(written) if written else "(no file — empty subject)"
-            self.logger.info(f"💾 SAVED {subject} → {summary}")
+            self.logger.info(f"SAVED {subject} → {summary}")
             return written
 
         except Exception as e:
-            self.logger.error(f"💥 SAVE FAILED for {subject}: {e}")
+            self.logger.error(f"SAVE FAILED for {subject}: {e}")
             return None
 
 
