@@ -18,7 +18,6 @@ from data_utils import (
     NO_TERMS_DIR,
     SCHEMA_VERSION,
     SCRAPE_TIME_FILENAME,
-    clean_class_attributes,
     clean_html_text,
     format_duration_human,
     html_to_clean_markdown,
@@ -1142,14 +1141,6 @@ class CuhkScraper:
                 all_term_info.append(term_info)
 
         base_course.terms = all_term_info
-
-        # Clean class attributes to remove course attribute duplicates
-        for term in base_course.terms:
-            for section in term.schedule:
-                if "class_attributes" in section and section["class_attributes"]:
-                    section["class_attributes"] = clean_class_attributes(
-                        section["class_attributes"], base_course.course_attributes
-                    )
 
         self.logger.info(
             f"Extracted details: Credits={base_course.credits}, Terms={len(all_term_info)}"

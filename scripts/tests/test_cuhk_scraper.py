@@ -1113,6 +1113,33 @@ def _sample_html(page_name):
     return (SAMPLE_PAGES / page_name).read_text(encoding="utf-8")
 
 
+def test_a_section_keeps_the_attributes_its_own_page_states(monkeypatch):
+    # MUSC 3530 states "Cantonese and English" on both pages. Removing the course's lines
+    # here left the section blank, indistinguishable from one that states nothing (#323).
+    scraper = _live_scraper()
+    section = CuhkScraper._parse_class_details(
+        scraper,
+        _sample_html("Class Details - MUSC 3530 - - Music Performer\u2019s Issues (8858).html"),
+        "--LEC (8858)",
+    )
+    monkeypatch.setattr(
+        CuhkScraper,
+        "_scrape_term_details",
+        lambda self, html, course, code, name: TermInfo(
+            term_code=code, term_name=name, schedule=[section]
+        ),
+    )
+
+    course = CuhkScraper._get_course_details_with_term_selection(
+        scraper,
+        _sample_html("Course Details - MUSC 3530 - Music Performer\u2019s Issues.html"),
+        _course("3530", []),
+    )
+
+    assert course.course_attributes == "Cantonese and English"
+    assert course.terms[0].schedule[0]["class_attributes"] == "Cantonese and English"
+
+
 def _availability(page_name):
     soup = BeautifulSoup(_sample_html(page_name), "html.parser")
     return _bare_scraper()._parse_class_availability(soup)
