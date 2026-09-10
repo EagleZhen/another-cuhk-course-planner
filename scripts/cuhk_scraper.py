@@ -704,6 +704,9 @@ class CuhkScraper:
                 'result_type': str,  # 'captcha_failed' | 'no_records' | 'has_courses' | 'server_error' | etc.
                 'error_message': str | None  # what CUHK said, where it said anything
             }
+
+        `captcha_failed_form_redisplayed` was `captcha_failed_no_table` before 2026-09;
+        logs written until then use the old name.
         """
         soup = BeautifulSoup(response_html, "html.parser")
 
@@ -738,7 +741,7 @@ class CuhkScraper:
                 return {
                     "captcha_accepted": False,
                     "has_results": False,
-                    "result_type": "captcha_failed_no_table",
+                    "result_type": "captcha_failed_form_redisplayed",
                     "error_message": None,
                 }
             else:

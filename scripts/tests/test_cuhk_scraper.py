@@ -703,7 +703,7 @@ def test_a_captcha_result_carries_only_what_cuhk_said(monkeypatch, caplog):
     # So the rejection line ends at the classification rather than trailing a "None".
     with caplog.at_level(logging.WARNING), pytest.raises(RuntimeError):
         CuhkScraper.scrape_subject(_subject_scraper(redisplayed), "TEST")
-    assert caplog.messages[0].endswith("captcha_failed_no_table")
+    assert caplog.messages[0].endswith("captcha_failed_form_redisplayed")
 
 
 def test_a_course_that_never_parses_gives_up_instead_of_looping(monkeypatch):
