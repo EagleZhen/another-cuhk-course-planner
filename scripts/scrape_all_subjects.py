@@ -13,7 +13,12 @@ import argparse
 import logging
 import sys
 
-from cuhk_scraper import CuhkScraper, NothingToResume
+from cuhk_scraper import (
+    CuhkScraper,
+    NothingToResume,
+    scrape_log_formatter,
+    show_scrape_context,
+)
 from data_utils import UnreadableProgressLog
 
 
@@ -58,12 +63,11 @@ def main():
     """Scrape all subjects and export to individual JSON files"""
     args = parse_args()
 
-    # Set up logging (console only - scraper handles its own timestamped file logging)
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s - %(levelname)s - %(message)s",
-        handlers=[logging.StreamHandler()],
-    )
+    # Console only; the scraper adds its own timestamped file. Both render the same
+    # format, and gain the subject/course prefix once the scraper exists.
+    console = logging.StreamHandler()
+    console.setFormatter(scrape_log_formatter())
+    logging.basicConfig(level=logging.INFO, handlers=[console])
 
     logger = logging.getLogger(__name__)
     logger.info("Starting CUHK course scraping for all subjects")
@@ -75,6 +79,7 @@ def main():
         config = ScrapingConfig.for_production()
         # config.save_debug_files = True  # Enable debug HTML saving for investigation
         scraper = CuhkScraper(config)
+        show_scrape_context(scraper, [console])
 
         # Get subjects (from args or live website)
         subjects = []

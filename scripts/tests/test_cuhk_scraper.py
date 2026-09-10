@@ -1,3 +1,4 @@
+import io
 import json
 import logging
 import time
@@ -520,11 +521,9 @@ def _live_scraper(*, save_debug_html=False, **overrides):
     scraper.base_url = "http://test.invalid"
     scraper.config = ScrapingConfig(get_course_outcome=False, get_enrollment_details=False)
     if not save_debug_html:
-        # Not disabled via current_config: _set_context re-enables it mid-scrape, littering
-        # debug HTML into whatever directory the suite ran from.
         scraper._save_debug_html = lambda *a, **k: None
-    scraper.current_config = None
-    scraper.current_course_context = None
+    scraper.current_subject = None
+    scraper.current_course_code = None
     scraper._robust_request = _boom
     for name, value in overrides.items():
         setattr(scraper, name, value)
@@ -795,7 +794,6 @@ WRONG_PAGE = '<html><div class="titleNormal">Course Catalog</div></html>'
 def test_an_invalid_outcome_page_is_kept(tmp_path):
     # Otherwise a course that gives up here leaves only the healthy-looking details page.
     scraper, course = _failing_scraper(tmp_path, WRONG_PAGE)
-    scraper._set_context(scraper.config)
 
     with pytest.raises(ValueError, match="Invalid course outcome page"):
         CuhkScraper._scrape_course_outcome(scraper, OUTCOME_BUTTON_HTML, course)
@@ -811,7 +809,6 @@ def test_a_valid_outcome_page_keeps_nothing(tmp_path):
         '<td class="reverseHeaderStyle">Learning Outcome</td></html>'
     )
     scraper, course = _failing_scraper(tmp_path, valid)
-    scraper._set_context(scraper.config)
 
     CuhkScraper._scrape_course_outcome(scraper, OUTCOME_BUTTON_HTML, course)
 
@@ -822,7 +819,6 @@ def test_a_permanent_system_error_keeps_the_outcome_page(tmp_path):
     # Nothing retries a permanent system error, so this page is the only evidence that the
     # outcome is missing rather than genuinely empty.
     scraper, course = _failing_scraper(tmp_path, SYSTEM_ERROR_PAGE)
-    scraper._set_context(scraper.config)  # scrape_subject does this before any course
 
     CuhkScraper._scrape_course_outcome(scraper, OUTCOME_BUTTON_HTML, course)
 
@@ -1048,12 +1044,18 @@ def test_unknown_subject_title_is_recorded_empty_not_as_the_code(tmp_path):
 SAMPLE_PAGES = Path(__file__).resolve().parents[2] / "lab" / "scraper" / "samples" / "webpages"
 
 
-def _bare_scraper(**attributes):
-    """A CuhkScraper with __init__ skipped: no session, no OCR model, real methods."""
+def _bare_scraper(*, save_debug_html=False, **attributes):
+    """A CuhkScraper with __init__ skipped: no session, no OCR model, real methods.
+
+    Debug saving is stubbed unless a test asks for it, and then `config` must point
+    `debug_html_directory` at a tmp_path: the real one is relative to the cwd.
+    """
     scraper = CuhkScraper.__new__(CuhkScraper)
     scraper.logger = logging.getLogger("test")
-    scraper.current_config = None
-    scraper.current_course_context = None
+    if not save_debug_html:
+        scraper._save_debug_html = lambda *a, **k: None
+    scraper.current_subject = None
+    scraper.current_course_code = None
     for name, value in attributes.items():
         setattr(scraper, name, value)
     return scraper
@@ -1199,10 +1201,12 @@ REAL_CLASS_DETAILS = [
 
 def _parse_details(page_name, section_name, tmp_path):
     scraper = _bare_scraper(
-        current_config=SimpleNamespace(
+        config=SimpleNamespace(
             save_debug_files=False, save_debug_on_error=True, debug_html_directory=str(tmp_path)
         ),
-        current_course_context={"subject": "TEST", "course_code": "1000"},
+        save_debug_html=True,
+        current_subject="TEST",
+        current_course_code="1000",
     )
     return scraper._parse_class_details(_sample_html(page_name), section_name)
 
@@ -1248,10 +1252,12 @@ def test_a_class_details_page_with_no_seat_counts_raises(tmp_path):
     # The seat counts sit in a different panel from the status, so a page can carry a
     # status and still say nothing about seats.
     scraper = _bare_scraper(
-        current_config=SimpleNamespace(
+        config=SimpleNamespace(
             save_debug_files=False, save_debug_on_error=True, debug_html_directory=str(tmp_path)
         ),
-        current_course_context={"subject": "TEST", "course_code": "1000"},
+        save_debug_html=True,
+        current_subject="TEST",
+        current_course_code="1000",
     )
     html = (
         '<span id="uc_class_lbl_class_status">Open</span>'
@@ -1262,3 +1268,149 @@ def test_a_class_details_page_with_no_seat_counts_raises(tmp_path):
         scraper._parse_class_details(html, "--LEC (1234)")
 
     assert [p.name for p in tmp_path.iterdir()] == ["class_details_TEST_1000_LEC_1234_FAILED.html"]
+
+
+# --- Scraping context ------------------------------------------------------------------
+
+
+def test_a_scope_lasts_exactly_as_long_as_its_block():
+    # Debug pages must not be filed under a subject or course the scraper has left.
+    scraper = _bare_scraper()
+    named = []
+
+    with scraper._subject_scope("PHED"):
+        with scraper._course_scope(_course("1010", [])):
+            named.append(scraper._class_details_debug_filename("A-LEC (1)"))
+        named.append(scraper._class_details_debug_filename("A-LEC (1)"))
+    named.append(scraper._class_details_debug_filename("A-LEC (1)"))
+
+    assert named == [
+        "class_details_PHED_1010_ALEC_1.html",
+        "class_details_PHED_UNKNOWN_ALEC_1.html",
+        "class_details_UNKNOWN_UNKNOWN_ALEC_1.html",
+    ]
+
+
+def test_a_scope_unwinds_when_its_block_raises():
+    # How a scope normally ends: a subject dies mid-course. Without this the next
+    # subject inherits the dead one's name — the bug the scopes exist to prevent.
+    scraper = _bare_scraper()
+
+    with scraper._subject_scope("PHED"):
+        with pytest.raises(ConnectionError):
+            with scraper._course_scope(_course("1010", [])):
+                raise ConnectionError("network is down")
+        assert (scraper.current_subject, scraper.current_course_code) == ("PHED", None)
+
+    with pytest.raises(ConnectionError):
+        with scraper._subject_scope("PHED"):
+            raise ConnectionError("network is down")
+    assert (scraper.current_subject, scraper.current_course_code) == (None, None)
+
+
+def test_scraping_a_subject_puts_it_in_scope():
+    # Via the real entry point: nothing else puts the subject in scope.
+    scraper = _subject_scraper(NO_RECORDS_PAGE)
+    seen = []
+    scraper._parse_course_list = lambda html: seen.append(scraper.current_subject) or []
+
+    CuhkScraper.scrape_subject(scraper, "PHED")
+
+    assert seen == ["PHED"]
+    # And the run-level lines that follow belong to no subject.
+    assert (scraper.current_subject, scraper.current_course_code) == (None, None)
+
+
+def _log_context(scraper):
+    record = logging.LogRecord("test", logging.INFO, "f", 1, "msg", None, None)
+    cuhk_scraper._ScrapeContextFilter(scraper).filter(record)
+    return record.context
+
+
+def test_the_log_prefix_names_whatever_is_in_scope():
+    scraper = _bare_scraper()
+    assert _log_context(scraper) == ""  # startup and summary lines belong to no subject
+
+    with scraper._subject_scope("CSCI"):
+        assert _log_context(scraper) == "[CSCI] "
+        with scraper._course_scope(_course("1130", [])):
+            assert _log_context(scraper) == "[CSCI 1130] "
+
+
+def test_the_console_renders_exactly_what_the_log_file_does(tmp_path):
+    # One definition of a scrape line, applied to whichever handler shows it.
+    console = io.StringIO()
+    handler = logging.StreamHandler(console)
+    scraper = _bare_scraper(logger=logging.getLogger("test_console_parity"))
+    scraper.logger.addHandler(handler)
+    cuhk_scraper.show_scrape_context(scraper, [handler])
+    scraper._setup_file_logging(str(tmp_path))
+    try:
+        with scraper._subject_scope("CSCI"), scraper._course_scope(_course("1130", [])):
+            scraper.logger.info("scraping")
+    finally:
+        for h in scraper.logger.handlers[:]:
+            h.close()
+            scraper.logger.removeHandler(h)
+
+    assert (
+        console.getvalue().splitlines()[-1]
+        == (next(tmp_path.iterdir()).read_text().splitlines()[-1])
+    )
+
+
+def test_a_handler_prefixes_on_its_own_filter_not_another_handlers():
+    # The filter mutates the shared record, so a handler with only the format borrows a
+    # neighbour's prefix — and loses it silently when that neighbour goes.
+    console = io.StringIO()
+    handler = logging.StreamHandler(console)
+    scraper = _bare_scraper(logger=logging.getLogger("test_lone_console"))
+    scraper.logger.setLevel(logging.INFO)
+    scraper.logger.addHandler(handler)
+    cuhk_scraper.show_scrape_context(scraper, [handler])
+    try:
+        with scraper._subject_scope("CSCI"):
+            scraper.logger.info("scraping")
+    finally:
+        scraper.logger.removeHandler(handler)
+
+    assert console.getvalue().strip().endswith("[CSCI] scraping")
+
+
+def test_the_scrape_log_file_carries_the_prefix(tmp_path):
+    # The seam: a format string and a filter field drift apart without noticing.
+    scraper = _bare_scraper(logger=logging.getLogger("test_log_prefix"))
+    scraper._setup_file_logging(str(tmp_path))
+    try:
+        with scraper._subject_scope("CSCI"), scraper._course_scope(_course("1130", [])):
+            scraper.logger.info("scraping")
+    finally:
+        for handler in scraper.logger.handlers[:]:
+            handler.close()
+            scraper.logger.removeHandler(handler)
+
+    lines = next(tmp_path.iterdir()).read_text().splitlines()
+    assert lines[-1].endswith("[CSCI 1130] scraping")
+    assert "[" not in lines[0].split(" - ", 2)[2]  # the setup line, logged before any subject
+
+
+def test_a_course_is_in_scope_before_its_pages_are_saved():
+    # Class-details HTML is written inside _get_course_details_with_term_selection, so the
+    # course must already be in scope there. It used to be set after, naming each course's
+    # pages after the previous one.
+    scraper = _live_scraper(_robust_request=lambda *a, **k: SimpleNamespace(text=DETAIL_HTML))
+    named = []
+    scraper._get_course_details_with_term_selection = lambda html, course: (
+        named.append(scraper._class_details_debug_filename("A-LEC (1)")) or course
+    )
+
+    with scraper._subject_scope("TEST"):
+        for code in ("1010", "1011"):
+            course = _course(code, [])
+            course.postback_target = "target"
+            scraper.get_course_details(course, DETAIL_HTML)
+
+    assert named == [
+        "class_details_TEST_1010_ALEC_1.html",
+        "class_details_TEST_1011_ALEC_1.html",
+    ]
