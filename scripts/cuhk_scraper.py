@@ -234,7 +234,7 @@ class ScrapingProgressTracker:
         """Render this run's dashboard
 
         Written for a human and never read back, which is why it carries HKT timestamps
-        and no machine-readable siblings. `log_summary` renders it too, so the counts on
+        and no machine-readable siblings. `run_summary` renders it too, so the counts on
         the console come from this one source; its timestamps are rendered per call.
         """
         subject_statuses = list(self._subject_statuses.values())
@@ -348,26 +348,17 @@ class ScrapingProgressTracker:
         """Get the subjects this run failed, for summary/retry purposes"""
         return [subject for subject, status in self._subject_statuses.items() if status == "failed"]
 
-    def log_summary(self):
-        """Log this run's summary
-
-        One multi-line message, so the block takes a single log prefix rather than one
-        per line.
-        """
+    def run_summary(self) -> str:
+        """This run's tally, for the line that closes the run."""
         run = self._run_block()
-        lines = [
-            "=== SCRAPING PROGRESS SUMMARY ===",
-            f"Total subjects: {run['subjects_total']}",
-            f"Completed: {run['subjects_completed']}",
-            f"Failed: {run['subjects_failed']}",
-            f"Duration: {run['duration']}",
-        ]
+        summary = (
+            f"{run['subjects_completed']} of {run['subjects_total']} subjects in {run['duration']}"
+        )
 
         failed_subjects = self.get_failed_subjects()
         if failed_subjects:
-            lines.append(f"Failed subjects: {', '.join(failed_subjects)}")
-
-        self.logger.info("\n".join(lines))
+            summary += f" — {len(failed_subjects)} failed: {', '.join(failed_subjects)}"
+        return summary
 
 
 # How a scrape line looks, wherever it is shown. The formatter below fills `level_icon`
@@ -1845,9 +1836,9 @@ class CuhkScraper:
         """
         if not hasattr(self, "_failed_course_outcomes") or not self._failed_course_outcomes:
             if not covered_every_subject:
-                self.logger.info("No outcome failures in the subjects this run reached")
+                self.logger.info("Course outcomes: no failures in the subjects this run reached")
                 return
-            self.logger.info("All course outcomes scraped successfully")
+            self.logger.info("Course outcomes: all scraped successfully")
             Path(FAILED_COURSE_OUTCOMES_FILE).unlink(missing_ok=True)
             return
 
@@ -2050,19 +2041,17 @@ class CuhkScraper:
         # Reaching the end of the loop proves the catalog was covered, failures included.
         self._write_scrape_times(mode)
 
-        # The summary is this run's only tally; the marker introduces it.
-        self.logger.info("🎉 SCRAPING COMPLETED!")
-        if self.progress_tracker:
-            self.progress_tracker.finish_run()
-            self.progress_tracker.log_summary()
-
-        # Index file generation removed - frontend loads individual JSON files directly
-
         # Report course outcomes CUHK is serving a system error for. A subject that failed
         # never reached its courses, so this run cannot vouch for them either.
         # TODO(#321): "full", not "resume": these failures are collected per run, so a
         # resume holds only the subjects it rescraped, and the report goes stale after one.
         self._report_course_outcome_failures(mode == "full" and not failed_subjects)
+
+        tally = ""
+        if self.progress_tracker:
+            self.progress_tracker.finish_run()
+            tally = f" {self.progress_tracker.run_summary()}"
+        self.logger.info(f"🎉 SCRAPING COMPLETED!{tally}")
 
         return {
             "completed": completed_subjects,

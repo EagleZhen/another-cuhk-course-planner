@@ -474,21 +474,18 @@ def test_registry_stays_sorted_as_subjects_are_added(tmp_path):
     assert list(saved["latest_run"])[:3] == ["started_at", "last_updated", "duration"]
 
 
-def test_run_summary_reaches_the_log_file(tmp_path, caplog):
-    # A 7-hour background run is the case that needs this: the summary is the part worth
-    # keeping, and print() never reaches logs/scrape/.
-    tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB"])
-    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"])
-    tracker.fail_subject("BBBB", "boom")
+def test_the_run_ends_on_one_line_holding_its_tally(tmp_path, caplog):
+    # A 7-hour background run needs its tally in logs/scrape/, and the marker and the
+    # counts come from different objects.
+    scraper = _loop_scraper(tmp_path, failing=("BBBB",))
 
     with caplog.at_level(logging.INFO):
-        tracker.log_summary()
+        CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB"], mode="full")
 
-    summary = caplog.records[-1].message
-    assert "Total subjects: 2" in summary
-    assert "Completed: 1" in summary
-    assert "Failed: 1" in summary
-    assert "Failed subjects: BBBB" in summary
+    closing = [message for message in caplog.messages if "SCRAPING COMPLETED" in message]
+    assert len(closing) == 1
+    assert "1 of 2 subjects" in closing[0]
+    assert closing[0].endswith("1 failed: BBBB")
 
 
 # Each case below is one distinction: did this come back empty because it is empty, or
