@@ -701,9 +701,10 @@ def test_a_captcha_result_carries_only_what_cuhk_said(monkeypatch, caplog):
     assert validate(_live_scraper(), rejected)["error_message"] == "Invalid Verification Code"
 
     # So the rejection line ends at the classification rather than trailing a "None".
-    with caplog.at_level(logging.WARNING), pytest.raises(RuntimeError):
+    with caplog.at_level(logging.INFO), pytest.raises(RuntimeError):
         CuhkScraper.scrape_subject(_subject_scraper(redisplayed), "TEST")
-    assert caplog.messages[0].endswith("captcha_failed_form_redisplayed")
+    rejection = next(m for m in caplog.messages if m.startswith("Captcha rejected"))
+    assert rejection.endswith("captcha_failed_form_redisplayed")
 
 
 def test_a_course_that_never_parses_gives_up_instead_of_looping(monkeypatch):

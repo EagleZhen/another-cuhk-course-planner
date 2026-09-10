@@ -676,7 +676,8 @@ class CuhkScraper:
                 self.logger.info(f"OCR produced: {text} (awaiting server validation)")
                 return text
             else:
-                self.logger.warning(f"Invalid OCR format: '{text}' (expected 4 alphanumeric)")
+                # Re-solved on the next attempt; only running out of them is a failure.
+                self.logger.info(f"Invalid OCR format: '{text}' (expected 4 alphanumeric)")
 
         except Exception as e:
             self.logger.error(f"OCR processing failed: {e}")
@@ -835,8 +836,9 @@ class CuhkScraper:
                     # Validate captcha was accepted by server
                     validation = self._validate_captcha_response(response.text)
                     if not validation["captcha_accepted"]:
+                        # Guessing a 4-character image wrong is what OCR costs, not a fault.
                         said = validation["error_message"]
-                        self.logger.warning(
+                        self.logger.info(
                             f"Captcha rejected (attempt {attempt + 1}): "
                             f"{validation['result_type']}" + (f" - {said}" if said else "")
                         )
