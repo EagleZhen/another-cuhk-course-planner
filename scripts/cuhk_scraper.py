@@ -702,7 +702,7 @@ class CuhkScraper:
                 'captcha_accepted': bool,
                 'has_results': bool,
                 'result_type': str,  # 'captcha_failed' | 'no_records' | 'has_courses' | 'server_error' | etc.
-                'error_message': str | None
+                'error_message': str | None  # what CUHK said, where it said anything
             }
         """
         soup = BeautifulSoup(response_html, "html.parser")
@@ -739,14 +739,14 @@ class CuhkScraper:
                     "captcha_accepted": False,
                     "has_results": False,
                     "result_type": "captcha_failed_no_table",
-                    "error_message": "No results table found, search form redisplayed",
+                    "error_message": None,
                 }
             else:
                 return {
                     "captcha_accepted": True,  # Uncertain but likely accepted
                     "has_results": False,
                     "result_type": "unknown_error",
-                    "error_message": "No results table, no search form",
+                    "error_message": None,
                 }
 
         # 3. Results table exists - check if it has actual data
@@ -776,7 +776,7 @@ class CuhkScraper:
             "captcha_accepted": True,  # Assume accepted if we got to results
             "has_results": False,
             "result_type": "empty_unclear",
-            "error_message": "Results table exists but content unclear",
+            "error_message": None,
         }
 
     def get_subjects_from_live_site(self) -> list[str]:
@@ -829,9 +829,10 @@ class CuhkScraper:
                     # Validate captcha was accepted by server
                     validation = self._validate_captcha_response(response.text)
                     if not validation["captcha_accepted"]:
+                        said = validation["error_message"]
                         self.logger.warning(
                             f"Captcha rejected (attempt {attempt + 1}): "
-                            f"{validation['result_type']} - {validation.get('error_message', 'Unknown')}"
+                            f"{validation['result_type']}" + (f" - {said}" if said else "")
                         )
                         # Continue to next attempt
                         if attempt < self.config.max_subject_attempts - 1:

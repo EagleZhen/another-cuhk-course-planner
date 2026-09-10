@@ -690,6 +690,22 @@ def test_exhausted_subject_raises_while_an_empty_subject_completes(monkeypatch):
     assert CuhkScraper.scrape_subject(_subject_scraper(NO_RECORDS_PAGE), "TEST") == []
 
 
+def test_a_captcha_result_carries_only_what_cuhk_said(monkeypatch, caplog):
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+    # CUHK sending the search form back says nothing beyond the classification itself.
+    redisplayed = '<input name="txt_captcha" />'
+    rejected = '<span id="lbl_error" class="errorLabel">Invalid Verification Code</span>'
+
+    validate = CuhkScraper._validate_captcha_response
+    assert validate(_live_scraper(), redisplayed)["error_message"] is None
+    assert validate(_live_scraper(), rejected)["error_message"] == "Invalid Verification Code"
+
+    # So the rejection line ends at the classification rather than trailing a "None".
+    with caplog.at_level(logging.WARNING), pytest.raises(RuntimeError):
+        CuhkScraper.scrape_subject(_subject_scraper(redisplayed), "TEST")
+    assert caplog.messages[0].endswith("captcha_failed_no_table")
+
+
 def test_a_course_that_never_parses_gives_up_instead_of_looping(monkeypatch):
     # Retrying forever would strand every subject queued behind this one. Giving up fails
     # the subject, which blocks publishing and names it.
