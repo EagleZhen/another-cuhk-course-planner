@@ -1,17 +1,26 @@
 {
   "latest_run": {
-    "started_at": "2026-09-09 11:48:34 HK",
-    "last_updated": "2026-09-09 11:54:14 HK",
-    "duration": "5m 40s",
+    "started_at": "2026-09-09 22:05:06 HK",
+    "last_updated": "2026-09-10 07:20:10 HK",
+    "duration": "9h 15m 3s",
     "status": "completed",
-    "subjects_total": 10,
-    "subjects_completed": 10,
+    "mode": "full",
+    "subjects_total": 270,
+    "subjects_completed": 270,
     "subjects_failed": 0,
     "config": {
       "get_details": true,
       "get_enrollment_details": true,
       "max_courses": null
     }
+  },
+  "latest_full_scrape": {
+    "started_at": "2026-09-09T14:05:06.865005+00:00",
+    "remaining": [],
+    "directories": [
+      "data/2026-27",
+      "data/no-terms"
+    ]
   },
   "subjects": {
     "ACCT": {
