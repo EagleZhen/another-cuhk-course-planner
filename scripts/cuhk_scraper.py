@@ -883,9 +883,6 @@ class CuhkScraper:
                             )
                         else:
                             courses_to_detail = courses
-                            self.logger.info(
-                                f"Getting details for all {len(courses_to_detail)} courses..."
-                            )
 
                         detailed_courses = []
 
@@ -906,7 +903,6 @@ class CuhkScraper:
                         self.logger.info("Valid search, no courses found (empty subject)")
                         return []  # Success - empty subject, no retry needed
                     elif validation["result_type"] == "has_courses":
-                        self.logger.info(f"Found {len(courses)} courses")
                         return courses  # Success - return found courses
 
                     # If we reach here, something unexpected happened - retry
