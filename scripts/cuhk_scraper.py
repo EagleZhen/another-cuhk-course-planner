@@ -359,7 +359,8 @@ class ScrapingProgressTracker:
 
         failed_subjects = self.get_failed_subjects()
         if failed_subjects:
-            summary += f" — {len(failed_subjects)} failed: {', '.join(failed_subjects)}"
+            # Its own line: the list is as long as the run was bad.
+            summary += f"\n    {len(failed_subjects)} failed: {', '.join(failed_subjects)}"
         return summary
 
 
@@ -2045,7 +2046,9 @@ class CuhkScraper:
         if self.progress_tracker:
             self.progress_tracker.finish_run()
             tally = f": {self.progress_tracker.run_summary()}"
-        self.logger.info(f"🏁 Scrape finished{tally}")
+        # Yellow when the run lost subjects; the level column says so, not the message.
+        finished = f"🏁 Scrape finished{tally}"
+        self.logger.log(logging.WARNING if failed_subjects else logging.INFO, finished)
 
         return {
             "completed": completed_subjects,
