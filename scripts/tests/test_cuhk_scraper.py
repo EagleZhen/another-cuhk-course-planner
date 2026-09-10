@@ -1291,6 +1291,23 @@ def test_a_scope_lasts_exactly_as_long_as_its_block():
     ]
 
 
+def test_a_scope_unwinds_when_its_block_raises():
+    # How a scope normally ends: a subject dies mid-course. Without this the next
+    # subject inherits the dead one's name — the bug the scopes exist to prevent.
+    scraper = _bare_scraper()
+
+    with scraper._subject_scope("PHED"):
+        with pytest.raises(ConnectionError):
+            with scraper._course_scope(_course("1010", [])):
+                raise ConnectionError("network is down")
+        assert (scraper.current_subject, scraper.current_course_code) == ("PHED", None)
+
+    with pytest.raises(ConnectionError):
+        with scraper._subject_scope("PHED"):
+            raise ConnectionError("network is down")
+    assert (scraper.current_subject, scraper.current_course_code) == (None, None)
+
+
 def test_scraping_a_subject_puts_it_in_scope():
     # Via the real entry point: nothing else puts the subject in scope.
     scraper = _subject_scraper(NO_RECORDS_PAGE)
