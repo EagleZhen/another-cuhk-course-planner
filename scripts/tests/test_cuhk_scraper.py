@@ -118,10 +118,10 @@ def test_run_counters_cover_only_this_run(tmp_path):
     progress_file = tmp_path / "progress.json"
     first = _tracker(progress_file, ["AAAA", "BBBB", "CCCC"])
     for subject in ("AAAA", "BBBB", "CCCC"):
-        first.complete_subject(subject, 1, [f"data/{subject}.json"], 1.0)
+        first.complete_subject(subject, 1, [f"data/{subject}.json"])
 
     retry = _tracker(progress_file, ["BBBB"])
-    retry.complete_subject("BBBB", 2, ["data/BBBB.json"], 1.0)
+    retry.complete_subject("BBBB", 2, ["data/BBBB.json"])
 
     run = _saved(retry)["latest_run"]
     assert (run["subjects_total"], run["subjects_completed"]) == (1, 1)
@@ -134,8 +134,8 @@ def test_run_counters_cover_only_this_run(tmp_path):
 
 def test_run_counters_split_completed_from_failed(tmp_path):
     tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB", "CCCC"])
-    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"], 1.0)
-    tracker.complete_subject("BBBB", 1, ["data/BBBB.json"], 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"])
+    tracker.complete_subject("BBBB", 1, ["data/BBBB.json"])
     tracker.fail_subject("CCCC", "boom")
 
     run = _saved(tracker)["latest_run"]
@@ -149,7 +149,7 @@ def test_run_counters_ignore_what_an_earlier_run_completed(tmp_path):
     progress_file = tmp_path / "progress.json"
     first = _tracker(progress_file, ["AAAA", "BBBB"])
     for subject in ("AAAA", "BBBB"):
-        first.complete_subject(subject, 1, [f"data/{subject}.json"], 1.0)
+        first.complete_subject(subject, 1, [f"data/{subject}.json"])
 
     second = _tracker(progress_file, ["AAAA", "BBBB"])
     second.start_subject("AAAA")
@@ -161,7 +161,7 @@ def test_run_counters_ignore_what_an_earlier_run_completed(tmp_path):
 def test_finish_run_is_what_marks_a_run_completed(tracker):
     # A killed run can never write its own ending, so "in_progress" has to survive
     # everything except finish_run().
-    tracker.complete_subject("TEST", 1, ["data/TEST.json"], 1.0)
+    tracker.complete_subject("TEST", 1, ["data/TEST.json"])
     assert _saved(tracker)["latest_run"]["status"] == "in_progress"
 
     tracker.finish_run()
@@ -176,11 +176,11 @@ def test_a_full_run_starts_a_scrape_and_a_partial_run_leaves_it_alone(tmp_path):
     # A one-subject smoke run must not clobber the scrape a killed full run left behind.
     progress_file = tmp_path / "progress.json"
     full = _tracker(progress_file, ["AAAA", "BBBB"], mode="full")
-    full.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], 1.0)
+    full.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"])
     started_at = _saved(full)["latest_full_scrape"]["started_at"]
 
     partial = _tracker(progress_file, ["AAAA"], mode="partial")
-    partial.complete_subject("AAAA", 2, ["data/2025-26/AAAA.json"], 1.0)
+    partial.complete_subject("AAAA", 2, ["data/2025-26/AAAA.json"])
 
     scrape = _saved(partial)["latest_full_scrape"]
     assert scrape["started_at"] == started_at
@@ -190,8 +190,8 @@ def test_a_full_run_starts_a_scrape_and_a_partial_run_leaves_it_alone(tmp_path):
 
 def test_a_scrape_collects_every_directory_its_subjects_wrote(tmp_path):
     tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB"], mode="full")
-    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json", "data/no-terms/AAAA.json"], 1.0)
-    tracker.complete_subject("BBBB", 1, ["data/2026-27/BBBB.json"], 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json", "data/no-terms/AAAA.json"])
+    tracker.complete_subject("BBBB", 1, ["data/2026-27/BBBB.json"])
 
     assert _saved(tracker)["latest_full_scrape"]["directories"] == ["data/2026-27", "data/no-terms"]
 
@@ -208,7 +208,7 @@ def test_a_failed_subject_still_leaves_the_scrapes_to_do_list(tmp_path):
 def test_a_killed_scrape_leaves_behind_what_it_never_reached(tmp_path):
     # The whole point of the block: a run that dies mid-catalog says what is left.
     tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB", "CCCC"], mode="full")
-    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"])
 
     assert _saved(tracker)["latest_full_scrape"]["remaining"] == ["BBBB", "CCCC"]
 
@@ -217,7 +217,7 @@ def test_a_scrape_that_reaches_every_subject_empties_its_to_do_list(tmp_path):
     # An empty `remaining` is the only thing that says a scrape finished, so nothing may
     # empty it but attempting the subjects.
     tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB"], mode="full")
-    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"])
     tracker.fail_subject("BBBB", "boom")
 
     assert _saved(tracker)["latest_full_scrape"]["remaining"] == []
@@ -233,7 +233,7 @@ def _stamp(scraper, tmp_path, *, mode, courses=None):
         else [_course("1000", ["2025-26 Term 1"]), _course("9999", [])],
         tmp_path,
     )
-    scraper.progress_tracker.complete_subject("TEST", len(saved), saved, 1.0)
+    scraper.progress_tracker.complete_subject("TEST", len(saved), saved)
     CuhkScraper._write_scrape_times(scraper, mode)
     scrape = _saved(scraper.progress_tracker).get("latest_full_scrape")
     return scrape and scrape["started_at"]
@@ -444,7 +444,7 @@ def test_run_config_is_recorded_once_for_the_run(tmp_path):
     tracker = _tracker(
         tmp_path / "progress.json", ["AAAA"], ScrapingConfig(max_courses_per_subject=5)
     )
-    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"], 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"])
 
     saved = _saved(tracker)
     assert saved["latest_run"]["config"]["max_courses"] == 5
@@ -454,7 +454,7 @@ def test_run_config_is_recorded_once_for_the_run(tmp_path):
 def test_the_run_records_which_mode_it_ran_in(tmp_path):
     # subjects_total cannot tell them apart: a partial run may name every subject.
     tracker = _tracker(tmp_path / "progress.json", ["AAAA"], mode="full")
-    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"])
 
     assert _saved(tracker)["latest_run"]["mode"] == "full"
 
@@ -463,8 +463,8 @@ def test_registry_stays_sorted_as_subjects_are_added(tmp_path):
     # Key order otherwise records scrape history: a subject CUHK adds later lands at the
     # end and stays there, so the file drifts out of order one addition at a time.
     tracker = _tracker(tmp_path / "progress.json", ["MATH", "AAAA"])
-    tracker.complete_subject("MATH", 1, ["data/MATH.json"], 1.0)
-    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"], 1.0)
+    tracker.complete_subject("MATH", 1, ["data/MATH.json"])
+    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"])
 
     saved = _saved(tracker)
     assert list(saved["subjects"]) == ["AAAA", "MATH"]
@@ -478,7 +478,7 @@ def test_run_summary_reaches_the_log_file(tmp_path, caplog):
     # A 7-hour background run is the case that needs this: the summary is the part worth
     # keeping, and print() never reaches logs/scrape/.
     tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB"])
-    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"], 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"])
     tracker.fail_subject("BBBB", "boom")
 
     with caplog.at_level(logging.INFO):

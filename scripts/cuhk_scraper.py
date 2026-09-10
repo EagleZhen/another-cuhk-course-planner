@@ -291,13 +291,7 @@ class ScrapingProgressTracker:
         subjects[subject] = {"status": "in_progress", "started_at": utc_now_iso()}
         self._save_progress()
 
-    def complete_subject(
-        self,
-        subject: str,
-        courses_count: int,
-        output_files: list[str],
-        duration_minutes: float,
-    ):
+    def complete_subject(self, subject: str, courses_count: int, output_files: list[str]):
         """Mark subject as completed"""
         subjects = self.progress_data["subjects"]
         subjects[subject] = {
@@ -2014,11 +2008,10 @@ class CuhkScraper:
                     saved_files[subject] = saved_file
                     saved_display = render_output_files(saved_file)
 
-                    # Calculate duration and mark as completed in progress tracker
                     duration_minutes = (time.time() - start_time) / 60
                     if self.progress_tracker:
                         self.progress_tracker.complete_subject(
-                            subject, len(courses or []), saved_file, duration_minutes
+                            subject, len(courses or []), saved_file
                         )
 
                     # Use different message for empty vs populated subjects
