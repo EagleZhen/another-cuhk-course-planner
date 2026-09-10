@@ -438,6 +438,28 @@ def test_publish_drops_the_attribute_lines_the_course_page_states(
     assert publish_course_data.class_only_lines(class_attrs, course_attrs) == expected
 
 
+def test_publish_thins_sections_parsed_without_their_class_pages():
+    # A course with no term dropdown never opens its class pages, so its sections come from
+    # this parser alone — and publishing still reads both fields off them.
+    scraper = CuhkScraper.__new__(CuhkScraper)
+    scraper.logger = logging.getLogger("test")
+    course_html = (
+        SAMPLE_PAGES / "Course Details - CHLT 1001 - University Chinese I.html"
+    ).read_text(encoding="utf-8")
+    schedule, _ = scraper._parse_schedule_from_html(course_html)
+    course = {
+        "course_attributes": "Cantonese only",
+        "enrollment_requirement": "--",
+        "terms": [{"schedule": schedule}],
+    }
+
+    publish_course_data.thin_enrollment_information(course)
+
+    assert schedule
+    assert all(section["class_attributes"] == "" for section in schedule)
+    assert all(section["enrollment_requirement"] == "" for section in schedule)
+
+
 def test_publish_keeps_the_class_page_lines_the_course_does_not_state(tmp_path, monkeypatch):
     # data/ keeps every line, so a corrected rule only needs a re-publish.
     source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)

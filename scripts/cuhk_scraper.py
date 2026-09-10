@@ -1366,6 +1366,10 @@ class CuhkScraper:
                             "section": section,
                             "status": status,
                             "meetings": [],
+                            # This path never opens the class page. Empty, not absent:
+                            # publishing reads both off every section.
+                            "class_attributes": "",
+                            "enrollment_requirement": "",
                         }
 
                     # Extract meeting info from nested table
