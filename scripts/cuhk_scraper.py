@@ -1978,19 +1978,17 @@ class CuhkScraper:
         what is left from the record.
         """
         if mode == "resume":
+            # Which already announced the run, with the same count and where it left off.
             subjects = self._subjects_left_to_scrape()
-
-        self.logger.info(f"🚀 Starting scraping for {len(subjects)} subjects")
+        else:
+            self.logger.info(f"🚀 Starting scraping for {len(subjects)} subjects")
         self.logger.info(f"Saving to: {self.config.output_directory}/")
-        self.logger.info("Mode: Memory-safe with immediate saves")
 
         # Ensure output directory exists
         os.makedirs(self.config.output_directory, exist_ok=True)
 
         # Fills the title cache each subject's metadata reads from.
-        self.logger.info("Fetching subject titles from live website...")
         self.get_subjects_with_titles_from_live_site()
-        self.logger.info(f"Cached {len(self.subject_titles_cache)} subject titles for metadata")
 
         # Initialize progress tracker if enabled
         if self.config.track_progress:
