@@ -105,6 +105,8 @@ class TermInfo:
 
     term_code: str  # e.g., "2390"
     term_name: str  # e.g., "2025-26 Term 2"
+    # TODO(#329): a section is the only record with no definition, so the two parsers
+    # that build one can disagree without anything noticing.
     schedule: list[dict]  # List of sections with detailed availability/meetings
 
     def to_dict(self) -> dict:
@@ -1368,6 +1370,8 @@ class CuhkScraper:
                             "meetings": [],
                             # This path never opens the class page. Empty, not absent:
                             # publishing reads both off every section.
+                            # TODO(#329): and it states "status" where the other parser
+                            # states "availability", which is what the app reads.
                             "class_attributes": "",
                             "enrollment_requirement": "",
                         }
