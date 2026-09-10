@@ -54,6 +54,7 @@ def _write_course_file(
     subject_title="Subject A",
     term_name="2025-26 Term 1",
     course_attributes="",
+    enrollment_requirement="",
     schedule=None,
     extra_course_fields=None,
     year="2025-26",
@@ -75,6 +76,7 @@ def _write_course_file(
                 "credits": "3.00",
                 "terms": [{"term_name": term_name, "schedule": list(schedule or [])}],
                 "course_attributes": course_attributes,
+                "enrollment_requirement": enrollment_requirement,
                 **(extra_course_fields or {}),
             }
         ],
@@ -428,30 +430,43 @@ def _scraped_attributes(course_page, class_page):
         ),
     ],
 )
-def test_publish_drops_the_lines_the_course_page_states(course_page, class_page, expected):
+def test_publish_drops_the_attribute_lines_the_course_page_states(
+    course_page, class_page, expected
+):
     class_attrs, course_attrs = _scraped_attributes(course_page, class_page)
 
-    assert publish_course_data.class_only_attributes(class_attrs, course_attrs) == expected
+    assert publish_course_data.class_only_lines(class_attrs, course_attrs) == expected
 
 
 def test_publish_keeps_the_class_page_lines_the_course_does_not_state(tmp_path, monkeypatch):
-    # data/ keeps both lines, so a corrected rule only needs a re-publish.
+    # data/ keeps every line, so a corrected rule only needs a re-publish.
     source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
-    raw = "SDG-GE #5 Gender Equality\nEnglish only"
+    raw_attrs = "SDG-GE #5 Gender Equality\nEnglish only"
+    raw_requirement = "For students of Faculty of Business Administration\n--"
     _write_course_file(
         source_dir,
         course_attributes="SDG-GE #5 Gender Equality",
-        schedule=[{"section": "--LEC (1)", "class_attributes": raw}],
+        enrollment_requirement="--",
+        schedule=[
+            {
+                "section": "--LEC (1)",
+                "class_attributes": raw_attrs,
+                "enrollment_requirement": raw_requirement,
+            }
+        ],
     )
 
     publish_course_data.main()
 
     published = json.loads((published_dir / "2025-26" / "AAAA.json").read_text())["courses"][0]
-    assert published["terms"][0]["schedule"][0]["class_attributes"] == "English only"
-    assert published["course_attributes"] == "SDG-GE #5 Gender Equality"
+    section = published["terms"][0]["schedule"][0]
+    assert section["class_attributes"] == "English only"
+    assert section["enrollment_requirement"] == "For students of Faculty of Business Administration"
 
     source = json.loads((source_dir / "2025-26" / "AAAA.json").read_text())["courses"][0]
-    assert source["terms"][0]["schedule"][0]["class_attributes"] == raw
+    source_section = source["terms"][0]["schedule"][0]
+    assert source_section["class_attributes"] == raw_attrs
+    assert source_section["enrollment_requirement"] == raw_requirement
 
 
 def test_report_term_manifest_changes_lists_added_and_removed_terms(monkeypatch, capsys):

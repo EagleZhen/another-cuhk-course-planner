@@ -2251,6 +2251,19 @@ function CourseCard({
                                 </div>
                               )}
 
+                              {/* Row 4: What this section requires beyond its course */}
+                              {section.enrollmentRequirement && (
+                                <div className="flex items-center gap-1 text-gray-500 text-[11px]">
+                                  <span className="flex-shrink-0">🔒</span>
+                                  <span
+                                    className="truncate"
+                                    title={`Enrollment requirement: ${section.enrollmentRequirement}`}
+                                  >
+                                    {section.enrollmentRequirement}
+                                  </span>
+                                </div>
+                              )}
+
                               {/* Meeting rows are normalized and deduped by sectionSignature. */}
                               <div className="space-y-1">
                                 {sectionSignature(section).meetings.map((meeting, index) => (

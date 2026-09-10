@@ -534,31 +534,34 @@ def report_term_manifest_changes(old_content: str, new_content: str) -> None:
     print()
 
 
-def class_only_attributes(class_attrs: str, course_attrs: str) -> str:
-    """Drop the attribute lines a section's course already states.
+def class_only_lines(class_value: str, course_value: str) -> str:
+    """Drop the lines a section's course already states, which the course block renders.
 
-    Says nothing about what the remaining lines mean — the field is an untyped grab-bag
-    of languages, SDG-GE tags and teaching modes. It only stops each section repeating
-    what the course block renders above it.
-
-    Keep this at publish. At scrape time it overwrote the page's own words before the
-    first save, so a section whose course repeated its lines was stored blank and could
-    only be recovered by re-scraping (#323).
+    Keep this at publish. At scrape time it overwrote the page's own words before the first
+    save, so a section whose course repeated its lines was stored blank and could only be
+    recovered by re-scraping (#323).
     """
-    if not class_attrs or not course_attrs:
-        return class_attrs
+    if not class_value or not course_value:
+        return class_value
 
-    course_lines = {line.strip() for line in course_attrs.split("\n") if line.strip()}
-    class_lines = [line.strip() for line in class_attrs.split("\n") if line.strip()]
+    course_lines = {line.strip() for line in course_value.split("\n") if line.strip()}
+    class_lines = [line.strip() for line in class_value.split("\n") if line.strip()]
     return "\n".join(line for line in class_lines if line not in course_lines)
 
 
-def drop_repeated_course_attributes(course: dict) -> None:
-    """Publish each section's class attributes without the lines its course states."""
+def thin_enrollment_information(course: dict) -> None:
+    """Publish each section without the Enrollment Information lines its course states.
+
+    CUSIS groups a class's attributes and its requirement under "Enrollment Information",
+    and both repeat their course's.
+    """
     for term in course["terms"]:
         for section in term["schedule"]:
-            section["class_attributes"] = class_only_attributes(
+            section["class_attributes"] = class_only_lines(
                 section["class_attributes"], course["course_attributes"]
+            )
+            section["enrollment_requirement"] = class_only_lines(
+                section["enrollment_requirement"], course["enrollment_requirement"]
             )
 
 
@@ -574,7 +577,7 @@ def copy_published_files(copy_plan: list[tuple[str, str]], dry_run: bool) -> int
                 for course in data.get("courses", []):
                     for field in STRIPPED_COURSE_FIELDS:
                         course.pop(field, None)
-                    drop_repeated_course_attributes(course)
+                    thin_enrollment_information(course)
                 save_json_with_newline(dest_path, data)
             copied_count += 1
         # One unreadable or unwritable file must not abort the rest of the publish.

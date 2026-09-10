@@ -1607,18 +1607,26 @@ class CuhkScraper:
                     }
                     meetings.append(meeting)
 
-        # Extract class attributes (language of instruction specific to this section)
+        # Teaching language, mode, SDG-GE tags. Publishing drops what the course repeats.
         class_attributes = ""
         class_attr_elem = soup.find("td", {"id": "uc_class_tc_class_attributes"})
         if class_attr_elem:
             class_attributes = clean_html_text(class_attr_elem.get_text())
+
+        # The class's own requirement, followed by its course's: CHLT 1001's cell is a
+        # faculty line plus the course's "--".
+        enrollment_requirement = ""
+        enrl_elem = soup.find("td", {"id": "uc_class_tc_enrl_requirement"})
+        if enrl_elem:
+            enrollment_requirement = clean_html_text(enrl_elem.get_text())
 
         # Use the original section name from the schedule page
         return {
             "section": section_name,
             "meetings": meetings,
             "availability": availability,
-            "class_attributes": class_attributes,  # Section-specific language info
+            "class_attributes": class_attributes,
+            "enrollment_requirement": enrollment_requirement,
         }
 
     # The seat counts of the "Class Availability" panel, by the id CUHK gives each span.

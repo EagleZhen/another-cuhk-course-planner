@@ -74,7 +74,7 @@ A bump forces a full re-scrape, which is the point: published data can never be 
 | --- | --- |
 | 1 | Versioned metadata, no per-file scrape timestamp (see [decisions.md](decisions.md#stamp-each-data-directory-with-its-scrape-time)) |
 | 2 | `availability.status` is CUHK's own word, not one derived from seat counts (see [decisions.md](decisions.md#record-the-catalog-status-verbatim)) |
-| 3 | `class_attributes` is what the class page states; the course's repeated lines are dropped at publish, not at scrape ([#323](https://github.com/EagleZhen/another-cuhk-course-planner/issues/323)) |
+| 3 | Sections store what their class page states: `class_attributes` unthinned ([#323](https://github.com/EagleZhen/another-cuhk-course-planner/issues/323)), plus a new `enrollment_requirement` ([#327](https://github.com/EagleZhen/another-cuhk-course-planner/issues/327)). Publishing drops the lines their course repeats |
 
 ### Freshness
 

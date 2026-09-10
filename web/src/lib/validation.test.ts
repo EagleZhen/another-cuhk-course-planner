@@ -208,6 +208,7 @@ describe('transformExternalCourseData', () => {
                     waitlist_total: '0',
                   },
                   class_attributes: 'Taught in English',
+                  enrollment_requirement: 'For MUSC Majors',
                 },
               ],
             },
@@ -227,6 +228,7 @@ describe('transformExternalCourseData', () => {
     expect(course.assessmentTypes).toEqual({ 'Final Exam': '50', Project: '50' })
     expect(course.terms).toHaveLength(1)
     expect(course.terms[0].sections).toHaveLength(1)
+    expect(course.terms[0].sections[0].enrollmentRequirement).toBe('For MUSC Majors')
 
     // Stripped fields come through as undefined, not as errors
     expect(course.courseSyllabus).toBeUndefined()
