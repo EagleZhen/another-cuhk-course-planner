@@ -43,6 +43,7 @@ export interface InternalSection {
   meetings: InternalMeeting[]
   availability: SectionAvailability
   classAttributes: string // Language of instruction (e.g., "English only", "Putonghua and English", or "")
+  enrollmentRequirement: string // What this section requires beyond its course, or ""
 }
 
 export interface InternalMeeting {

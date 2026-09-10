@@ -1113,6 +1113,78 @@ def _sample_html(page_name):
     return (SAMPLE_PAGES / page_name).read_text(encoding="utf-8")
 
 
+def test_a_section_keeps_the_attributes_its_own_page_states(monkeypatch):
+    # MUSC 3530 states "Cantonese and English" on both pages. Removing the course's lines
+    # here left the section blank, indistinguishable from one that states nothing (#323).
+    scraper = _live_scraper()
+    section = CuhkScraper._parse_class_details(
+        scraper,
+        _sample_html("Class Details - MUSC 3530 - - Music Performer\u2019s Issues (8858).html"),
+        "--LEC (8858)",
+    )
+    monkeypatch.setattr(
+        CuhkScraper,
+        "_scrape_term_details",
+        lambda self, html, course, code, name: TermInfo(
+            term_code=code, term_name=name, schedule=[section]
+        ),
+    )
+
+    course = CuhkScraper._get_course_details_with_term_selection(
+        scraper,
+        _sample_html("Course Details - MUSC 3530 - Music Performer\u2019s Issues.html"),
+        _course("3530", []),
+    )
+
+    assert course.course_attributes == "Cantonese and English"
+    assert course.terms[0].schedule[0]["class_attributes"] == "Cantonese and English"
+
+
+def _requirements(course_page, class_page):
+    """The enrollment requirement each real page states, read by the scraper's parsers."""
+    scraper = _live_scraper()
+    course = _course("1000", [])
+    CuhkScraper._extract_course_details(
+        scraper, BeautifulSoup(_sample_html(course_page), "html.parser"), course
+    )
+    section = CuhkScraper._parse_class_details(scraper, _sample_html(class_page), "section")
+    return course.enrollment_requirement, section["enrollment_requirement"]
+
+
+@pytest.mark.parametrize(
+    "course_page,class_page,expected",
+    [
+        # The cell holds the class's own line and then its course's "--" (#327).
+        (
+            "Course Details - CHLT 1001 - University Chinese I.html",
+            "Class Details - CHLT 1001 - CD University Chinese I (7067).html",
+            (
+                "--",
+                "For students of Faculty of Business Administration and GLEF major "
+                "admitted in or after 2022/23\n--",
+            ),
+        ),
+        # A restriction on this term's offering, absent from the course page.
+        (
+            "Course Details - MUSC 3530 - Music Performer\u2019s Issues.html",
+            "Class Details - MUSC 3530 - - Music Performer\u2019s Issues (8858).html",
+            ("", "For MUSC Majors & any MUSC Minors"),
+        ),
+        # The levels do agree here — the app has to tell that apart from the cases above.
+        (
+            "Course Details - CSCI 1020 - Hands-on Introduction to C++.html",
+            "Class Details - CSCI 1020 - - Hands-On Intro to C++ (6161).html",
+            (
+                "Not for students who have taken CSCI1120 or 1520 or 1540 or ESTR1100.",
+                "Not for students who have taken CSCI1120 or 1520 or 1540 or ESTR1100.",
+            ),
+        ),
+    ],
+)
+def test_a_section_records_the_requirement_its_own_page_states(course_page, class_page, expected):
+    assert _requirements(course_page, class_page) == expected
+
+
 def _availability(page_name):
     soup = BeautifulSoup(_sample_html(page_name), "html.parser")
     return _bare_scraper()._parse_class_availability(soup)

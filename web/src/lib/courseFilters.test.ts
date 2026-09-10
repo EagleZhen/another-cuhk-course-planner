@@ -49,6 +49,7 @@ function makeSection(overrides: Partial<InternalSection> = {}): InternalSection 
       waitlistTotal: 0,
     },
     classAttributes: '',
+    enrollmentRequirement: '',
     ...overrides,
   }
 }

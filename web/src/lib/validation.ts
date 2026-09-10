@@ -43,6 +43,7 @@ const ExternalSectionSchema = z.object({
     waitlist_total: '0',
   }),
   class_attributes: z.string().default(''), // Language of instruction
+  enrollment_requirement: z.string().default(''), // What the section adds to its course's
 })
 
 const ExternalTermSchema = z.object({
@@ -175,6 +176,7 @@ function transformSection(
     meetings,
     availability,
     classAttributes: (external.class_attributes || '').trim(), // Transform to camelCase, clean whitespace
+    enrollmentRequirement: (external.enrollment_requirement || '').trim(),
   }
 }
 

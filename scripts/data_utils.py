@@ -51,7 +51,7 @@ def is_subject_file(path: Path) -> bool:
 
 # Stamped into every course file's metadata; the publisher rejects anything else.
 # Bump on any file-shape change, and add a row to the table in docs/data-pipeline.md.
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 
 def clean_word_html(html_content: str) -> str:
@@ -335,45 +335,6 @@ def utc_to_hkt() -> str:
     hk_tz = ZoneInfo("Asia/Hong_Kong")
     hk_time = utc_now.astimezone(hk_tz)
     return hk_time.strftime("%Y-%m-%d %H:%M:%S HK")
-
-
-def clean_class_attributes(class_attrs: str, course_attrs: str) -> str:
-    """Remove course attribute duplicates from class attributes
-
-    This function implements line-by-line cleaning to remove course attributes
-    that appear in both class_attributes and course_attributes fields.
-    The result is clean class-specific attributes (typically teaching language).
-
-    Args:
-        class_attrs: Raw class attributes string (may contain duplicates)
-        course_attrs: Course attributes string (authoritative source)
-
-    Returns:
-        str: Cleaned class attributes with course attribute duplicates removed
-
-    Examples:
-        >>> clean_class_attributes(
-        ...     "SDG-GE #5 Gender Equality\\nEnglish only", "SDG-GE #5 Gender Equality"
-        ... )
-        'English only'
-
-        >>> clean_class_attributes("English only", "")
-        'English only'
-
-        >>> clean_class_attributes("", "SDG Goals")
-        ''
-    """
-    if not class_attrs or not course_attrs:
-        return class_attrs or ""
-
-    # Split by newlines and clean whitespace
-    class_lines: list[str] = [line.strip() for line in class_attrs.split("\n") if line.strip()]
-    course_lines: list[str] = [line.strip() for line in course_attrs.split("\n") if line.strip()]
-
-    # Find lines in class_attrs that are NOT in course_attrs
-    cleaned_lines: list[str] = [line for line in class_lines if line not in course_lines]
-
-    return "\n".join(cleaned_lines)
 
 
 def clean_html_text(text: str) -> str:

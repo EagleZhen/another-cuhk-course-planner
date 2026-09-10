@@ -251,3 +251,9 @@ Nothing enforces this: a lint rule flags only correct call sites, since reading 
 Decision: rasterize with `modern-screenshot` in [screenshotUtils.ts](../web/src/lib/screenshotUtils.ts) — actively released, and it reads that value through `getPropertyValue`, which always returns a string, so the crash cannot recur. Same SVG-`foreignObject` technique, so output is unchanged; `html2canvas-pro` paints to canvas itself, which would not have been.
 
 Watch out: `skipAutoScale: true` has no counterpart and needs none — `modern-screenshot` downscales only when `maximumCanvasSize` is set, and it defaults to `0`. Setting it would blur every export without changing its size, since the capture is stretched back to the layout dimensions by `drawImage`. No test catches that.
+
+## Thin Enrollment Information At Publish
+
+The scraper dropped a course's attribute lines from each of its sections before the first save, to leave the teaching language. Where both levels state the same line — MUSC 3530's `Cantonese and English` — the section was stored blank: 493 sections, uncorrectable without a re-scrape ([#323](https://github.com/EagleZhen/another-cuhk-course-planner/issues/323)).
+
+Decision: the scraper stores what the class page states; publishing drops the lines the course repeats (`class_only_lines` in [publish_course_data.py](../scripts/publish_course_data.py)). `enrollment_requirement` is thinned the same way ([#327](https://github.com/EagleZhen/another-cuhk-course-planner/issues/327)). Like [Derive Display Forms, Keep Scraped Values](#derive-display-forms-keep-scraped-values), but at publish rather than in the browser, so changing the rule shows up as a diff of every section it moves. `class_attributes` keeps CUHK's name: 306 sections carry a teaching mode or an SDG-GE tag, so calling it a language would claim more than we know.

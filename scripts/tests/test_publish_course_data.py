@@ -6,7 +6,8 @@ from pathlib import Path
 
 import publish_course_data
 import pytest
-from cuhk_scraper import ScrapingConfig, ScrapingProgressTracker
+from bs4 import BeautifulSoup
+from cuhk_scraper import Course, CuhkScraper, ScrapingConfig, ScrapingProgressTracker
 from data_utils import (
     SCHEMA_VERSION,
     render_scrape_times_module,
@@ -52,6 +53,9 @@ def _write_course_file(
     subject="AAAA",
     subject_title="Subject A",
     term_name="2025-26 Term 1",
+    course_attributes="",
+    enrollment_requirement="",
+    schedule=None,
     extra_course_fields=None,
     year="2025-26",
 ):
@@ -70,7 +74,9 @@ def _write_course_file(
                 "course_code": "1000",
                 "title": "Course A",
                 "credits": "3.00",
-                "terms": [{"term_name": term_name}],
+                "terms": [{"term_name": term_name, "schedule": list(schedule or [])}],
+                "course_attributes": course_attributes,
+                "enrollment_requirement": enrollment_requirement,
                 **(extra_course_fields or {}),
             }
         ],
@@ -381,6 +387,108 @@ def test_publish_strips_unrendered_fields_but_leaves_the_source_intact(tmp_path,
     assert [f for f in publish_course_data.STRIPPED_COURSE_FIELDS if f in source] == list(
         publish_course_data.STRIPPED_COURSE_FIELDS
     )
+
+
+SAMPLE_PAGES = Path(__file__).resolve().parents[2] / "lab" / "scraper" / "samples" / "webpages"
+
+
+def _scraped_attributes(course_page, class_page):
+    """Read a real course and class page with the scraper's own parsers."""
+    scraper = CuhkScraper.__new__(CuhkScraper)
+    scraper.logger = logging.getLogger("test")
+    scraper.current_subject = None
+    scraper.current_course_code = None
+    course = Course(subject="TEST", course_code="1000", title="Course", credits="", terms=[])
+    course_html = (SAMPLE_PAGES / course_page).read_text(encoding="utf-8")
+    scraper._extract_course_details(BeautifulSoup(course_html, "html.parser"), course)
+    section = scraper._parse_class_details(
+        (SAMPLE_PAGES / class_page).read_text(encoding="utf-8"), "section"
+    )
+    return section["class_attributes"], course.course_attributes
+
+
+@pytest.mark.parametrize(
+    "course_page,class_page,expected",
+    [
+        # The course states one of the class page's two lines.
+        (
+            "Course Details - UGCP 1001 - Understanding China.html",
+            "Class Details - UGCP 1001 - -X01 Understanding China (8641).html",
+            "Putonghua and English",
+        ),
+        # No course attributes, so the class page stands as it is.
+        (
+            "Course Details - CSCI 1020 - Hands-on Introduction to C++.html",
+            "Class Details - CSCI 1020 - - Hands-On Intro to C++ (6161).html",
+            "English only",
+        ),
+        # Both state the same line, so nothing is left — #323, pinned so a fix shows here.
+        (
+            "Course Details - MUSC 3530 - Music Performer\u2019s Issues.html",
+            "Class Details - MUSC 3530 - - Music Performer\u2019s Issues (8858).html",
+            "",
+        ),
+    ],
+)
+def test_publish_drops_the_attribute_lines_the_course_page_states(
+    course_page, class_page, expected
+):
+    class_attrs, course_attrs = _scraped_attributes(course_page, class_page)
+
+    assert publish_course_data.class_only_lines(class_attrs, course_attrs) == expected
+
+
+def test_publish_thins_sections_parsed_without_their_class_pages():
+    # A course with no term dropdown never opens its class pages, so its sections come from
+    # this parser alone — and publishing still reads both fields off them.
+    scraper = CuhkScraper.__new__(CuhkScraper)
+    scraper.logger = logging.getLogger("test")
+    course_html = (
+        SAMPLE_PAGES / "Course Details - CHLT 1001 - University Chinese I.html"
+    ).read_text(encoding="utf-8")
+    schedule, _ = scraper._parse_schedule_from_html(course_html)
+    course = {
+        "course_attributes": "Cantonese only",
+        "enrollment_requirement": "--",
+        "terms": [{"schedule": schedule}],
+    }
+
+    publish_course_data.thin_enrollment_information(course)
+
+    assert schedule
+    assert all(section["class_attributes"] == "" for section in schedule)
+    assert all(section["enrollment_requirement"] == "" for section in schedule)
+
+
+def test_publish_keeps_the_class_page_lines_the_course_does_not_state(tmp_path, monkeypatch):
+    # data/ keeps every line, so a corrected rule only needs a re-publish.
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    raw_attrs = "SDG-GE #5 Gender Equality\nEnglish only"
+    raw_requirement = "For students of Faculty of Business Administration\n--"
+    _write_course_file(
+        source_dir,
+        course_attributes="SDG-GE #5 Gender Equality",
+        enrollment_requirement="--",
+        schedule=[
+            {
+                "section": "--LEC (1)",
+                "class_attributes": raw_attrs,
+                "enrollment_requirement": raw_requirement,
+            }
+        ],
+    )
+
+    publish_course_data.main()
+
+    published = json.loads((published_dir / "2025-26" / "AAAA.json").read_text())["courses"][0]
+    section = published["terms"][0]["schedule"][0]
+    assert section["class_attributes"] == "English only"
+    assert section["enrollment_requirement"] == "For students of Faculty of Business Administration"
+
+    source = json.loads((source_dir / "2025-26" / "AAAA.json").read_text())["courses"][0]
+    source_section = source["terms"][0]["schedule"][0]
+    assert source_section["class_attributes"] == raw_attrs
+    assert source_section["enrollment_requirement"] == raw_requirement
 
 
 def test_report_term_manifest_changes_lists_added_and_removed_terms(monkeypatch, capsys):

@@ -74,6 +74,7 @@ A bump forces a full re-scrape, which is the point: published data can never be 
 | --- | --- |
 | 1 | Versioned metadata, no per-file scrape timestamp (see [decisions.md](decisions.md#stamp-each-data-directory-with-its-scrape-time)) |
 | 2 | `availability.status` is CUHK's own word, not one derived from seat counts (see [decisions.md](decisions.md#record-the-catalog-status-verbatim)) |
+| 3 | Sections store what their class page states: `class_attributes` unthinned ([#323](https://github.com/EagleZhen/another-cuhk-course-planner/issues/323)), plus a new `enrollment_requirement` ([#327](https://github.com/EagleZhen/another-cuhk-course-planner/issues/327)). Publishing drops the lines their course repeats |
 
 ### Freshness
 
@@ -84,6 +85,8 @@ Only full scrapes and resumes write them, and only for the directories that scra
 ## Publish
 
 Publishing validates scraped data and copies publishable files to a per-year directory under [web/public/data/](../web/public/data/) (`web/public/data/<year>/`), so the app can fetch one year at a time. Fields the app never renders are stripped during the copy (see `STRIPPED_COURSE_FIELDS` in [scripts/publish_course_data.py](../scripts/publish_course_data.py)); the full data stays in [data/](../data/).
+
+Two fields are thinned rather than copied: a section's `class_attributes` and `enrollment_requirement` lose the lines its course already states, which the course block renders anyway (`class_only_lines`). The page's own words stay in [data/](../data/), so correcting the rule costs a re-publish, not a re-scrape — which is why the scraper no longer does it ([#323](https://github.com/EagleZhen/another-cuhk-course-planner/issues/323), [#327](https://github.com/EagleZhen/another-cuhk-course-planner/issues/327)).
 
 The publish script checks:
 

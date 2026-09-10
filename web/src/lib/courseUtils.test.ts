@@ -85,6 +85,7 @@ function makeSection(overrides: Partial<InternalSection>): InternalSection {
       waitlistTotal: 0,
     },
     classAttributes: '',
+    enrollmentRequirement: '',
     ...overrides,
   }
 }
@@ -137,6 +138,7 @@ describe('updateExistingEnrollment', () => {
         waitlistTotal: 0,
       },
       classAttributes: '',
+      enrollmentRequirement: '',
     }
 
     const existing: CourseEnrollment = {
@@ -566,6 +568,7 @@ function mkSection(id: string, meetings: InternalMeeting[], classAttributes = ''
     sectionType: 'LEC',
     meetings,
     classAttributes,
+    enrollmentRequirement: '',
     availability: {
       capacity: 1,
       enrolled: 0,

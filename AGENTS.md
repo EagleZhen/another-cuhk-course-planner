@@ -24,6 +24,10 @@ Tolerate malformed values from outside our control — scraped HTML, a hand-edit
 
 Check whether the source states a value before computing one. A derived value stored beside scraped ones looks exactly like them, and can never be checked afterwards.
 
+Record what the source said before deriving from it. A derivation made before the first save cannot be corrected without fetching everything again.
+
+Record a value at every level the source states it. Keep one and assume the rest agree, and nobody can ever check.
+
 Give a parser defaults a real value could never take. Empty strings that become zero turn a failed fetch into a plausible record.
 
 Name a function for the scope it operates on, and fix the name in the change that notices the gap. A wrong name outlives whoever still remembers which half was right.

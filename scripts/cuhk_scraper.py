@@ -18,7 +18,6 @@ from data_utils import (
     NO_TERMS_DIR,
     SCHEMA_VERSION,
     SCRAPE_TIME_FILENAME,
-    clean_class_attributes,
     clean_html_text,
     format_duration_human,
     html_to_clean_markdown,
@@ -106,6 +105,8 @@ class TermInfo:
 
     term_code: str  # e.g., "2390"
     term_name: str  # e.g., "2025-26 Term 2"
+    # TODO(#329): a section is the only record with no definition, so the two parsers
+    # that build one can disagree without anything noticing.
     schedule: list[dict]  # List of sections with detailed availability/meetings
 
     def to_dict(self) -> dict:
@@ -1143,14 +1144,6 @@ class CuhkScraper:
 
         base_course.terms = all_term_info
 
-        # Clean class attributes to remove course attribute duplicates
-        for term in base_course.terms:
-            for section in term.schedule:
-                if "class_attributes" in section and section["class_attributes"]:
-                    section["class_attributes"] = clean_class_attributes(
-                        section["class_attributes"], base_course.course_attributes
-                    )
-
         self.logger.info(
             f"Extracted details: Credits={base_course.credits}, Terms={len(all_term_info)}"
         )
@@ -1375,6 +1368,12 @@ class CuhkScraper:
                             "section": section,
                             "status": status,
                             "meetings": [],
+                            # This path never opens the class page. Empty, not absent:
+                            # publishing reads both off every section.
+                            # TODO(#329): and it states "status" where the other parser
+                            # states "availability", which is what the app reads.
+                            "class_attributes": "",
+                            "enrollment_requirement": "",
                         }
 
                     # Extract meeting info from nested table
@@ -1616,18 +1615,27 @@ class CuhkScraper:
                     }
                     meetings.append(meeting)
 
-        # Extract class attributes (language of instruction specific to this section)
+        # Teaching language, mode, SDG-GE tags. Publishing drops what the course repeats.
         class_attributes = ""
         class_attr_elem = soup.find("td", {"id": "uc_class_tc_class_attributes"})
         if class_attr_elem:
             class_attributes = clean_html_text(class_attr_elem.get_text())
 
+        # The class's own requirement, followed by its course's: CHLT 1001's cell is a
+        # faculty line plus the course's "--".
+        enrollment_requirement = ""
+        enrl_elem = soup.find("td", {"id": "uc_class_tc_enrl_requirement"})
+        if enrl_elem:
+            enrollment_requirement = clean_html_text(enrl_elem.get_text())
+
         # Use the original section name from the schedule page
+        # TODO(#329): the shape every published section has, defined nowhere.
         return {
             "section": section_name,
             "meetings": meetings,
             "availability": availability,
-            "class_attributes": class_attributes,  # Section-specific language info
+            "class_attributes": class_attributes,
+            "enrollment_requirement": enrollment_requirement,
         }
 
     # The seat counts of the "Class Availability" panel, by the id CUHK gives each span.
