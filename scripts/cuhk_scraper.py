@@ -2048,7 +2048,8 @@ class CuhkScraper:
         # Reaching the end of the loop proves the catalog was covered, failures included.
         self._write_scrape_times(mode)
 
-        # Report this run if tracking enabled
+        # The summary is this run's only tally; the marker introduces it.
+        self.logger.info("🎉 SCRAPING COMPLETED!")
         if self.progress_tracker:
             self.progress_tracker.finish_run()
             self.progress_tracker.log_summary()
@@ -2060,13 +2061,6 @@ class CuhkScraper:
         # TODO(#321): "full", not "resume": these failures are collected per run, so a
         # resume holds only the subjects it rescraped, and the report goes stale after one.
         self._report_course_outcome_failures(mode == "full" and not failed_subjects)
-
-        # Final summary
-        self.logger.info("🎉 SCRAPING COMPLETED!")
-        self.logger.info(f"Completed: {len(completed_subjects)} subjects")
-        self.logger.info(f"Failed: {len(failed_subjects)} subjects")
-        if failed_subjects:
-            self.logger.info(f"Failed subjects: {', '.join(failed_subjects)}")
 
         return {
             "completed": completed_subjects,
