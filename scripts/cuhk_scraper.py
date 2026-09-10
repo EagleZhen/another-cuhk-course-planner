@@ -745,6 +745,7 @@ class CuhkScraper:
                     "error_message": None,
                 }
             else:
+                # TODO(#324): keep the page — an unrecognised shape leaves no evidence.
                 return {
                     "captcha_accepted": True,  # Uncertain but likely accepted
                     "has_results": False,
@@ -775,6 +776,7 @@ class CuhkScraper:
             }
 
         # 5. Fallback: table exists but unclear content
+        # TODO(#324): keep the page — an unrecognised shape leaves no evidence.
         return {
             "captcha_accepted": True,  # Assume accepted if we got to results
             "has_results": False,
