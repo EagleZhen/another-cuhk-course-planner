@@ -118,10 +118,10 @@ def test_run_counters_cover_only_this_run(tmp_path):
     progress_file = tmp_path / "progress.json"
     first = _tracker(progress_file, ["AAAA", "BBBB", "CCCC"])
     for subject in ("AAAA", "BBBB", "CCCC"):
-        first.complete_subject(subject, 1, [f"data/{subject}.json"], 1.0)
+        first.complete_subject(subject, 1, [f"data/{subject}.json"])
 
     retry = _tracker(progress_file, ["BBBB"])
-    retry.complete_subject("BBBB", 2, ["data/BBBB.json"], 1.0)
+    retry.complete_subject("BBBB", 2, ["data/BBBB.json"])
 
     run = _saved(retry)["latest_run"]
     assert (run["subjects_total"], run["subjects_completed"]) == (1, 1)
@@ -134,8 +134,8 @@ def test_run_counters_cover_only_this_run(tmp_path):
 
 def test_run_counters_split_completed_from_failed(tmp_path):
     tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB", "CCCC"])
-    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"], 1.0)
-    tracker.complete_subject("BBBB", 1, ["data/BBBB.json"], 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"])
+    tracker.complete_subject("BBBB", 1, ["data/BBBB.json"])
     tracker.fail_subject("CCCC", "boom")
 
     run = _saved(tracker)["latest_run"]
@@ -149,7 +149,7 @@ def test_run_counters_ignore_what_an_earlier_run_completed(tmp_path):
     progress_file = tmp_path / "progress.json"
     first = _tracker(progress_file, ["AAAA", "BBBB"])
     for subject in ("AAAA", "BBBB"):
-        first.complete_subject(subject, 1, [f"data/{subject}.json"], 1.0)
+        first.complete_subject(subject, 1, [f"data/{subject}.json"])
 
     second = _tracker(progress_file, ["AAAA", "BBBB"])
     second.start_subject("AAAA")
@@ -161,7 +161,7 @@ def test_run_counters_ignore_what_an_earlier_run_completed(tmp_path):
 def test_finish_run_is_what_marks_a_run_completed(tracker):
     # A killed run can never write its own ending, so "in_progress" has to survive
     # everything except finish_run().
-    tracker.complete_subject("TEST", 1, ["data/TEST.json"], 1.0)
+    tracker.complete_subject("TEST", 1, ["data/TEST.json"])
     assert _saved(tracker)["latest_run"]["status"] == "in_progress"
 
     tracker.finish_run()
@@ -176,11 +176,11 @@ def test_a_full_run_starts_a_scrape_and_a_partial_run_leaves_it_alone(tmp_path):
     # A one-subject smoke run must not clobber the scrape a killed full run left behind.
     progress_file = tmp_path / "progress.json"
     full = _tracker(progress_file, ["AAAA", "BBBB"], mode="full")
-    full.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], 1.0)
+    full.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"])
     started_at = _saved(full)["latest_full_scrape"]["started_at"]
 
     partial = _tracker(progress_file, ["AAAA"], mode="partial")
-    partial.complete_subject("AAAA", 2, ["data/2025-26/AAAA.json"], 1.0)
+    partial.complete_subject("AAAA", 2, ["data/2025-26/AAAA.json"])
 
     scrape = _saved(partial)["latest_full_scrape"]
     assert scrape["started_at"] == started_at
@@ -190,8 +190,8 @@ def test_a_full_run_starts_a_scrape_and_a_partial_run_leaves_it_alone(tmp_path):
 
 def test_a_scrape_collects_every_directory_its_subjects_wrote(tmp_path):
     tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB"], mode="full")
-    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json", "data/no-terms/AAAA.json"], 1.0)
-    tracker.complete_subject("BBBB", 1, ["data/2026-27/BBBB.json"], 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json", "data/no-terms/AAAA.json"])
+    tracker.complete_subject("BBBB", 1, ["data/2026-27/BBBB.json"])
 
     assert _saved(tracker)["latest_full_scrape"]["directories"] == ["data/2026-27", "data/no-terms"]
 
@@ -208,7 +208,7 @@ def test_a_failed_subject_still_leaves_the_scrapes_to_do_list(tmp_path):
 def test_a_killed_scrape_leaves_behind_what_it_never_reached(tmp_path):
     # The whole point of the block: a run that dies mid-catalog says what is left.
     tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB", "CCCC"], mode="full")
-    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"])
 
     assert _saved(tracker)["latest_full_scrape"]["remaining"] == ["BBBB", "CCCC"]
 
@@ -217,7 +217,7 @@ def test_a_scrape_that_reaches_every_subject_empties_its_to_do_list(tmp_path):
     # An empty `remaining` is the only thing that says a scrape finished, so nothing may
     # empty it but attempting the subjects.
     tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB"], mode="full")
-    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"])
     tracker.fail_subject("BBBB", "boom")
 
     assert _saved(tracker)["latest_full_scrape"]["remaining"] == []
@@ -233,7 +233,7 @@ def _stamp(scraper, tmp_path, *, mode, courses=None):
         else [_course("1000", ["2025-26 Term 1"]), _course("9999", [])],
         tmp_path,
     )
-    scraper.progress_tracker.complete_subject("TEST", len(saved), saved, 1.0)
+    scraper.progress_tracker.complete_subject("TEST", len(saved), saved)
     CuhkScraper._write_scrape_times(scraper, mode)
     scrape = _saved(scraper.progress_tracker).get("latest_full_scrape")
     return scrape and scrape["started_at"]
@@ -444,7 +444,7 @@ def test_run_config_is_recorded_once_for_the_run(tmp_path):
     tracker = _tracker(
         tmp_path / "progress.json", ["AAAA"], ScrapingConfig(max_courses_per_subject=5)
     )
-    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"], 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"])
 
     saved = _saved(tracker)
     assert saved["latest_run"]["config"]["max_courses"] == 5
@@ -454,7 +454,7 @@ def test_run_config_is_recorded_once_for_the_run(tmp_path):
 def test_the_run_records_which_mode_it_ran_in(tmp_path):
     # subjects_total cannot tell them apart: a partial run may name every subject.
     tracker = _tracker(tmp_path / "progress.json", ["AAAA"], mode="full")
-    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], 1.0)
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"])
 
     assert _saved(tracker)["latest_run"]["mode"] == "full"
 
@@ -463,8 +463,8 @@ def test_registry_stays_sorted_as_subjects_are_added(tmp_path):
     # Key order otherwise records scrape history: a subject CUHK adds later lands at the
     # end and stays there, so the file drifts out of order one addition at a time.
     tracker = _tracker(tmp_path / "progress.json", ["MATH", "AAAA"])
-    tracker.complete_subject("MATH", 1, ["data/MATH.json"], 1.0)
-    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"], 1.0)
+    tracker.complete_subject("MATH", 1, ["data/MATH.json"])
+    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"])
 
     saved = _saved(tracker)
     assert list(saved["subjects"]) == ["AAAA", "MATH"]
@@ -474,21 +474,18 @@ def test_registry_stays_sorted_as_subjects_are_added(tmp_path):
     assert list(saved["latest_run"])[:3] == ["started_at", "last_updated", "duration"]
 
 
-def test_run_summary_reaches_the_log_file(tmp_path, caplog):
-    # A 7-hour background run is the case that needs this: the summary is the part worth
-    # keeping, and print() never reaches logs/scrape/.
-    tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB"])
-    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"], 1.0)
-    tracker.fail_subject("BBBB", "boom")
+def test_the_run_ends_on_one_line_holding_its_tally(tmp_path, caplog):
+    # A 7-hour background run needs its tally in logs/scrape/, and the marker and the
+    # counts come from different objects.
+    scraper = _loop_scraper(tmp_path, failing=("BBBB",))
 
     with caplog.at_level(logging.INFO):
-        tracker.log_summary()
+        CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB"], mode="full")
 
-    summary = caplog.records[-1].message
-    assert "Total subjects: 2" in summary
-    assert "Completed: 1" in summary
-    assert "Failed: 1" in summary
-    assert "Failed subjects: BBBB" in summary
+    closing = [message for message in caplog.messages if "Scrape finished" in message]
+    assert len(closing) == 1
+    assert "1 of 2 subjects" in closing[0]
+    assert closing[0].endswith("1 failed: BBBB")
 
 
 # Each case below is one distinction: did this come back empty because it is empty, or
@@ -690,6 +687,39 @@ def test_exhausted_subject_raises_while_an_empty_subject_completes(monkeypatch):
     assert CuhkScraper.scrape_subject(_subject_scraper(NO_RECORDS_PAGE), "TEST") == []
 
 
+def test_a_captcha_result_carries_only_what_cuhk_said(monkeypatch, caplog):
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+    # CUHK sending the search form back says nothing beyond the classification itself.
+    redisplayed = '<input name="txt_captcha" />'
+    rejected = '<span id="lbl_error" class="errorLabel">Invalid Verification Code</span>'
+
+    validate = CuhkScraper._validate_captcha_response
+    assert validate(_live_scraper(), redisplayed)["error_message"] is None
+    assert validate(_live_scraper(), rejected)["error_message"] == "Invalid Verification Code"
+
+    # So the rejection line ends at the classification rather than trailing a "None".
+    with caplog.at_level(logging.INFO), pytest.raises(RuntimeError):
+        CuhkScraper.scrape_subject(_subject_scraper(redisplayed), "TEST")
+    rejection = next(m for m in caplog.messages if m.startswith("Captcha rejected"))
+    assert rejection.endswith("captcha_failed_form_redisplayed")
+
+
+def test_an_unrecognised_rejection_is_the_one_worth_marking(monkeypatch, caplog):
+    # A wrong OCR guess is what the captcha loop costs. Text we have no branch for is
+    # CUHK saying something new, and a later attempt succeeding would bury it.
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+    span = '<span id="lbl_error" class="errorLabel">%s</span>'
+
+    def rejection_level(page):
+        caplog.clear()
+        with caplog.at_level(logging.INFO), pytest.raises(RuntimeError):
+            CuhkScraper.scrape_subject(_subject_scraper(page), "TEST")
+        return next(r.levelno for r in caplog.records if "Captcha rejected" in r.message)
+
+    assert rejection_level(span % "Service temporarily unavailable") == logging.WARNING
+    assert rejection_level(span % "Invalid Verification Code") == logging.INFO
+
+
 def test_a_course_that_never_parses_gives_up_instead_of_looping(monkeypatch):
     # Retrying forever would strand every subject queued behind this one. Giving up fails
     # the subject, which blocks publishing and names it.
@@ -862,6 +892,24 @@ def test_missing_titles_abort_the_run_rather_than_blanking_every_subject_title()
         CuhkScraper.get_subjects_from_live_site(
             _live_scraper(_robust_request=lambda *a, **k: SimpleNamespace(text=empty))
         )
+
+
+def test_the_subject_catalog_is_fetched_once_per_run():
+    # The runner asks for the codes and the scrape asks for the titles, off one page.
+    page = '<select name="ddl_subject"><option value="TEST">TEST - Test Subject</option></select>'
+    requests = []
+
+    def request(*args, **kwargs):
+        requests.append(args)
+        return SimpleNamespace(text=page)
+
+    scraper = _live_scraper(_robust_request=request)
+    assert CuhkScraper.get_subjects_from_live_site(scraper) == ["TEST"]
+    assert CuhkScraper.get_subjects_with_titles_from_live_site(scraper) == [
+        {"code": "TEST", "title": "TEST - Test Subject"}
+    ]
+    assert len(requests) == 1
+    assert scraper.subject_titles_cache == {"TEST": "TEST - Test Subject"}
 
 
 REQUEST_DELAY = 0.5
@@ -1334,7 +1382,7 @@ def test_the_log_prefix_names_whatever_is_in_scope():
     with scraper._subject_scope("CSCI"):
         assert _log_context(scraper) == "[CSCI] "
         with scraper._course_scope(_course("1130", [])):
-            assert _log_context(scraper) == "[CSCI 1130] "
+            assert _log_context(scraper) == "[CSCI1130] "
 
 
 def test_the_console_renders_exactly_what_the_log_file_does(tmp_path):
@@ -1357,6 +1405,15 @@ def test_the_console_renders_exactly_what_the_log_file_does(tmp_path):
         console.getvalue().splitlines()[-1]
         == (next(tmp_path.iterdir()).read_text().splitlines()[-1])
     )
+
+
+def test_only_the_levels_worth_spotting_are_marked():
+    # Thresholds, not a lookup: an unlisted level still lands on the right side.
+    assert cuhk_scraper._level_icon(logging.CRITICAL) == "🔴"
+    assert cuhk_scraper._level_icon(logging.ERROR) == "🔴"
+    assert cuhk_scraper._level_icon(logging.WARNING) == "🟡"
+    assert cuhk_scraper._level_icon(logging.INFO) == cuhk_scraper._level_icon(logging.DEBUG)
+    assert not cuhk_scraper._level_icon(logging.INFO).strip()
 
 
 def test_a_handler_prefixes_on_its_own_filter_not_another_handlers():
@@ -1390,7 +1447,7 @@ def test_the_scrape_log_file_carries_the_prefix(tmp_path):
             scraper.logger.removeHandler(handler)
 
     lines = next(tmp_path.iterdir()).read_text().splitlines()
-    assert lines[-1].endswith("[CSCI 1130] scraping")
+    assert lines[-1].endswith("[CSCI1130] scraping")
     assert "[" not in lines[0].split(" - ", 2)[2]  # the setup line, logged before any subject
 
 
