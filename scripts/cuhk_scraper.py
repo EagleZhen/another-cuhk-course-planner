@@ -1844,48 +1844,43 @@ class CuhkScraper:
             Path(FAILED_COURSE_OUTCOMES_FILE).unlink(missing_ok=True)
             return
 
-        failure_count = len(self._failed_course_outcomes)
-        self.logger.info(f"\n{'=' * 60}")
-        self.logger.info(f"COURSE OUTCOME FAILURES DETECTED: {failure_count} courses")
-        self.logger.info(f"{'=' * 60}")
-
-        # Group failures by reason for cleaner reporting
-        failures_by_reason = {}
+        failures_by_reason: dict[str, list[str]] = {}
         for failure in self._failed_course_outcomes:
-            reason = failure["reason"]
-            if reason not in failures_by_reason:
-                failures_by_reason[reason] = []
-            failures_by_reason[reason].append(f"{failure['subject']}{failure['course_code']}")
+            failures_by_reason.setdefault(failure["reason"], []).append(
+                f"{failure['subject']}{failure['course_code']}"
+            )
 
-        for reason, courses in failures_by_reason.items():
-            self.logger.info(f"{reason.upper()}: {', '.join(courses)}")
-
-        self.logger.info("\nRECOMMENDATION:")
-        self.logger.info("   • Retrying will not help - CUHK's data for these courses is malformed")
-        self.logger.info("   • Report them to ITSC; only an upstream fix clears this")
-        self.logger.info("   • Until then these courses carry empty course outcome data")
-        self.logger.info(
-            f"   • The page each one returned is already saved in {self.config.debug_html_directory}"
+        # One record: this is a report about the run, not a sequence of events.
+        failure_count = len(self._failed_course_outcomes)
+        lines = [f"Course outcomes: {failure_count} failed"]
+        lines += [
+            f"    {reason.upper()}: {', '.join(codes)}"
+            for reason, codes in failures_by_reason.items()
+        ]
+        lines.append(
+            "    Retrying will not help — CUHK's data for these courses is malformed. Report them"
         )
+        lines.append(
+            "    to ITSC; until an upstream fix lands they carry empty course outcome data."
+        )
+        lines.append(f"    Each page CUHK returned is saved in {self.config.debug_html_directory}")
 
-        if not covered_every_subject:
-            self.logger.info("\nRun did not reach every subject: leaving the report file alone")
-            self.logger.info(f"{'=' * 60}")
-            return
+        if covered_every_subject:
+            # The list outlives the terminal: an upstream fix can take weeks.
+            failure_file = FAILED_COURSE_OUTCOMES_FILE
+            os.makedirs(os.path.dirname(failure_file), exist_ok=True)
+            with open(failure_file, "w") as f:
+                f.write("# Failed Course Outcomes - Needs an Upstream Fix from ITSC\n")
+                f.write(f"# Generated: {utc_now_iso()}\n\n")
+                for failure in self._failed_course_outcomes:
+                    f.write(
+                        f"{failure['subject']}{failure['course_code']} - {failure['reason']} ({failure['timestamp']})\n"
+                    )
+            lines.append(f"    Details saved to {failure_file}")
+        else:
+            lines.append("    Run did not reach every subject: leaving the report file alone")
 
-        # The list outlives the terminal: an upstream fix can take weeks.
-        failure_file = FAILED_COURSE_OUTCOMES_FILE
-        os.makedirs(os.path.dirname(failure_file), exist_ok=True)
-        with open(failure_file, "w") as f:
-            f.write("# Failed Course Outcomes - Needs an Upstream Fix from ITSC\n")
-            f.write(f"# Generated: {utc_now_iso()}\n\n")
-            for failure in self._failed_course_outcomes:
-                f.write(
-                    f"{failure['subject']}{failure['course_code']} - {failure['reason']} ({failure['timestamp']})\n"
-                )
-
-        self.logger.info(f"Failure details saved to: {failure_file}")
-        self.logger.info(f"{'=' * 60}")
+        self.logger.info("\n".join(lines))
 
     def _parse_course_outcome_content(self, html: str, course: Course) -> None:
         """Parse Course Outcome page content and extract all relevant information"""
