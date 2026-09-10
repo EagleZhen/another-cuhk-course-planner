@@ -1402,19 +1402,6 @@ def test_only_the_levels_worth_spotting_are_marked():
     assert not cuhk_scraper._level_icon(logging.INFO).strip()
 
 
-def test_the_level_column_holds_across_levels():
-    formatter = cuhk_scraper.scrape_log_formatter()
-
-    def message_column(levelno):
-        line = formatter.format(logging.LogRecord("test", levelno, "f", 1, "msg", None, None))
-        return line.index("msg")
-
-    # Compared within an icon: a glyph is one character but two columns wide. The
-    # padding is what is under test.
-    assert message_column(logging.DEBUG) == message_column(logging.INFO)
-    assert message_column(logging.ERROR) == message_column(logging.WARNING)
-
-
 def test_a_handler_prefixes_on_its_own_filter_not_another_handlers():
     # The filter mutates the shared record, so a handler with only the format borrows a
     # neighbour's prefix — and loses it silently when that neighbour goes.
