@@ -182,6 +182,9 @@ class ScrapingProgressTracker:
     invocation, from run state held here. `latest_full_scrape` reports one scrape of the
     whole catalog, which may span several runs. `subjects` is the cumulative registry of
     what is on disk, and outlives both.
+
+    It records; the scrape loop narrates. Each subject is announced there, where the
+    count, the duration and the files are.
     """
 
     def __init__(
@@ -316,7 +319,6 @@ class ScrapingProgressTracker:
         self._record_scrape_progress(subject, [])
         self._subject_statuses[subject] = "failed"
         self._save_progress()
-        self.logger.error(f"Failed {subject}: {error_message}")
 
     def finish_run(self):
         """Mark the run finished
