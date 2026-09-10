@@ -1858,10 +1858,7 @@ class CuhkScraper:
             for reason, codes in failures_by_reason.items()
         ]
         lines.append(
-            "    Retrying will not help — CUHK's data for these courses is malformed. Report them"
-        )
-        lines.append(
-            "    to ITSC; until an upstream fix lands they carry empty course outcome data."
+            "    Retrying will not help — CUHK's data for these courses is malformed. Report them to ITSC; until an upstream fix lands they carry empty course outcome data."
         )
         lines.append(f"    Each page CUHK returned is saved in {self.config.debug_html_directory}")
 
@@ -2047,8 +2044,8 @@ class CuhkScraper:
         tally = ""
         if self.progress_tracker:
             self.progress_tracker.finish_run()
-            tally = f" {self.progress_tracker.run_summary()}"
-        self.logger.info(f"🎉 SCRAPING COMPLETED!{tally}")
+            tally = f": {self.progress_tracker.run_summary()}"
+        self.logger.info(f"🏁 Scrape finished{tally}")
 
         return {
             "completed": completed_subjects,
@@ -2104,6 +2101,11 @@ class CuhkScraper:
 
         scrape = self.progress_tracker.latest_full_scrape
         scraped_at = scrape["started_at"]
+        if not scrape["directories"]:
+            # Only reachable when no subject completed, here or in the runs before it.
+            self.logger.warning("No directories to stamp: this scrape has written nothing")
+            return
+
         for directory in scrape["directories"]:
             (Path(directory) / SCRAPE_TIME_FILENAME).write_text(f"{scraped_at}\n", encoding="utf-8")
         self.logger.info(f"Stamped {len(scrape['directories'])} directories with {scraped_at}")

@@ -482,7 +482,7 @@ def test_the_run_ends_on_one_line_holding_its_tally(tmp_path, caplog):
     with caplog.at_level(logging.INFO):
         CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB"], mode="full")
 
-    closing = [message for message in caplog.messages if "SCRAPING COMPLETED" in message]
+    closing = [message for message in caplog.messages if "Scrape finished" in message]
     assert len(closing) == 1
     assert "1 of 2 subjects" in closing[0]
     assert closing[0].endswith("1 failed: BBBB")
