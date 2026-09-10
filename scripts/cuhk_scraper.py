@@ -894,9 +894,8 @@ class CuhkScraper:
                             detailed_courses.extend(courses[self.config.max_courses_per_subject :])
                         courses = detailed_courses
 
-                    # Log results based on validation type and course count
+                    # Both are successes; every other type falls through to a retry.
                     if validation["result_type"] == "no_records":
-                        self.logger.info("Valid search, no courses found (empty subject)")
                         return []  # Success - empty subject, no retry needed
                     elif validation["result_type"] == "has_courses":
                         return courses  # Success - return found courses
