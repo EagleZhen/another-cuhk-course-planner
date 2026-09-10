@@ -1629,6 +1629,7 @@ class CuhkScraper:
             enrollment_requirement = clean_html_text(enrl_elem.get_text())
 
         # Use the original section name from the schedule page
+        # TODO(#329): the shape every published section has, defined nowhere.
         return {
             "section": section_name,
             "meetings": meetings,
