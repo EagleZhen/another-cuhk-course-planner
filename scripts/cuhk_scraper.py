@@ -2047,6 +2047,8 @@ class CuhkScraper:
         self._report_course_outcome_failures(mode == "full" and not failed_subjects)
 
         tally = ""
+        # Last: a run that dies writing the files above is a killed run, and stays
+        # in_progress rather than being recorded as one that finished.
         if self.progress_tracker:
             self.progress_tracker.finish_run()
             tally = f": {self.progress_tracker.run_summary()}"
