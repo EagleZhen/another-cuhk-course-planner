@@ -290,7 +290,6 @@ class ScrapingProgressTracker:
         subjects = self.progress_data["subjects"]
         subjects[subject] = {"status": "in_progress", "started_at": utc_now_iso()}
         self._save_progress()
-        self.logger.info("Started scraping")
 
     def complete_subject(
         self,
@@ -310,9 +309,6 @@ class ScrapingProgressTracker:
         self._record_scrape_progress(subject, output_files)
         self._subject_statuses[subject] = "completed"
         self._save_progress()
-        self.logger.info(
-            f"Completed {subject}: {courses_count} courses in {duration_minutes:.1f} minutes"
-        )
 
     def fail_subject(self, subject: str, error_message: str):
         """Mark subject as failed"""
@@ -2198,8 +2194,6 @@ class CuhkScraper:
             # year keeps its file from the previous scrape, and the app still serves it.
             # TODO(#149): reconcile year subdirs the same way.
 
-            summary = ", ".join(written) if written else "(no file — empty subject)"
-            self.logger.info(f"SAVED {subject} → {summary}")
             return written
 
         except Exception as e:
