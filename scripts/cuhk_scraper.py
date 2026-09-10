@@ -421,7 +421,7 @@ class _ScrapeContextFilter(logging.Filter):
     def filter(self, record: logging.LogRecord) -> bool:
         subject, course = self.scraper.current_subject, self.scraper.current_course_code
         if subject and course:
-            record.context = f"[{subject} {course}] "
+            record.context = f"[{subject}{course}] "
         else:
             record.context = f"[{subject}] " if subject else ""
         return True

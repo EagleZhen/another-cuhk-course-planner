@@ -1334,7 +1334,7 @@ def test_the_log_prefix_names_whatever_is_in_scope():
     with scraper._subject_scope("CSCI"):
         assert _log_context(scraper) == "[CSCI] "
         with scraper._course_scope(_course("1130", [])):
-            assert _log_context(scraper) == "[CSCI 1130] "
+            assert _log_context(scraper) == "[CSCI1130] "
 
 
 def test_the_console_renders_exactly_what_the_log_file_does(tmp_path):
@@ -1412,7 +1412,7 @@ def test_the_scrape_log_file_carries_the_prefix(tmp_path):
             scraper.logger.removeHandler(handler)
 
     lines = next(tmp_path.iterdir()).read_text().splitlines()
-    assert lines[-1].endswith("[CSCI 1130] scraping")
+    assert lines[-1].endswith("[CSCI1130] scraping")
     assert "[" not in lines[0].split(" - ", 2)[2]  # the setup line, logged before any subject
 
 
