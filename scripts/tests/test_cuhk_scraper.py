@@ -704,6 +704,22 @@ def test_a_captcha_result_carries_only_what_cuhk_said(monkeypatch, caplog):
     assert rejection.endswith("captcha_failed_form_redisplayed")
 
 
+def test_an_unrecognised_rejection_is_the_one_worth_marking(monkeypatch, caplog):
+    # A wrong OCR guess is what the captcha loop costs. Text we have no branch for is
+    # CUHK saying something new, and a later attempt succeeding would bury it.
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+    span = '<span id="lbl_error" class="errorLabel">%s</span>'
+
+    def rejection_level(page):
+        caplog.clear()
+        with caplog.at_level(logging.INFO), pytest.raises(RuntimeError):
+            CuhkScraper.scrape_subject(_subject_scraper(page), "TEST")
+        return next(r.levelno for r in caplog.records if "Captcha rejected" in r.message)
+
+    assert rejection_level(span % "Service temporarily unavailable") == logging.WARNING
+    assert rejection_level(span % "Invalid Verification Code") == logging.INFO
+
+
 def test_a_course_that_never_parses_gives_up_instead_of_looping(monkeypatch):
     # Retrying forever would strand every subject queued behind this one. Giving up fails
     # the subject, which blocks publishing and names it.

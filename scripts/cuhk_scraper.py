@@ -831,10 +831,14 @@ class CuhkScraper:
                     validation = self._validate_captcha_response(response.text)
                     if not validation["captcha_accepted"]:
                         # Guessing a 4-character image wrong is what OCR costs, not a fault.
+                        # A server_error is not that: CUHK said something we have no
+                        # branch for, and a later attempt succeeding would bury it.
                         said = validation["error_message"]
-                        self.logger.info(
-                            f"Captcha rejected (attempt {attempt + 1}): "
-                            f"{validation['result_type']}" + (f" - {said}" if said else "")
+                        rejection = validation["result_type"]
+                        self.logger.log(
+                            logging.WARNING if rejection == "server_error" else logging.INFO,
+                            f"Captcha rejected (attempt {attempt + 1}): {rejection}"
+                            + (f" - {said}" if said else ""),
                         )
                         # Continue to next attempt
                         if attempt < self.config.max_subject_attempts - 1:
