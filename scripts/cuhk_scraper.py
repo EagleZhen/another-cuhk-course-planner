@@ -380,14 +380,32 @@ class ScrapingProgressTracker:
         self.logger.info("\n".join(lines))
 
 
-# How a scrape line looks, wherever it is shown. `context` is filled in by the filter
-# below, and defaults to empty for lines logged outside any scrape.
-SCRAPE_LOG_FORMAT = "%(asctime)s - %(levelname)s - %(context)s%(message)s"
+# How a scrape line looks, wherever it is shown. The formatter below fills `level_icon`
+# and the filter fills `context`, empty outside a scrape. The level is padded so the
+# names line up into a column.
+SCRAPE_LOG_FORMAT = "%(asctime)s - %(level_icon)s %(levelname)-7s - %(context)s%(message)s"
+
+
+def _level_icon(levelno: int) -> str:
+    """A glyph for the levels worth spotting. INFO is ~99% of a run, so it gets none."""
+    if levelno >= logging.ERROR:
+        return "🔴"
+    if levelno >= logging.WARNING:
+        return "🟡"
+    return "  "  # an emoji's width, so the column holds
+
+
+class _ScrapeLogFormatter(logging.Formatter):
+    """Fills `level_icon` from the record, so the glyph cannot disagree with the level."""
+
+    def format(self, record: logging.LogRecord) -> str:
+        record.level_icon = _level_icon(record.levelno)
+        return super().format(record)
 
 
 def scrape_log_formatter() -> logging.Formatter:
     """The scrape line format, for a handler that shows scrape output."""
-    return logging.Formatter(SCRAPE_LOG_FORMAT, defaults={"context": ""})
+    return _ScrapeLogFormatter(SCRAPE_LOG_FORMAT, defaults={"context": ""})
 
 
 class _ScrapeContextFilter(logging.Filter):
