@@ -70,10 +70,8 @@ def main():
     logging.basicConfig(level=logging.INFO, handlers=[console])
 
     logger = logging.getLogger(__name__)
-    logger.info("Starting CUHK course scraping for all subjects")
 
     try:
-        # Initialize production scraper with debug HTML saving enabled
         from cuhk_scraper import ScrapingConfig
 
         config = ScrapingConfig.for_production()
@@ -89,37 +87,13 @@ def main():
         elif args.subjects is not None:
             mode = "partial"
             subjects = args.subjects
-            logger.info(f"🎯 Debug mode: scraping {len(subjects)} subject(s): {subjects}")
+            # The only line here the scraper cannot log: which subjects were asked for.
+            logger.info(f"Partial scrape: {', '.join(subjects)}")
         else:
             mode = "full"
-            # Production mode: scrape all subjects from live website
-            logger.info("Getting subjects from live website...")
             subjects = scraper.get_subjects_from_live_site()
-            logger.info(
-                f"Found {len(subjects)} subjects: {subjects[:10]}{'...' if len(subjects) > 10 else ''}"
-            )
 
-        # Production scraping with full details
-        logger.info("Starting production scraping...")
-        logger.info("Configuration:")
-        logger.info("  - Unlimited courses per subject")
-        logger.info("  - Full course details enabled")
-        logger.info("  - Enrollment details enabled")
-        logger.info("  - Course outcome data enabled")
-        logger.info("  - Per-subject JSON files in /data/")
-        logger.info("  - Progress tracking enabled")
-        logger.info("  - Subject titles included in metadata")
-
-        # Use clean core API (separation of concerns)
-        results = scraper.scrape_all_subjects(subjects, mode=mode)
-
-        # Create summary (this is "what to scrape" logic, not core scraping)
-        completed_count = len(results["completed"])
-        failed_count = len(results["failed"])
-        summary = f"Production scraping completed: {completed_count} subjects successful, {failed_count} failed"
-
-        logger.info("Scraping completed!")
-        logger.info(f"Summary: {summary}")
+        scraper.scrape_all_subjects(subjects, mode=mode)
 
     # Both say what is wrong and what to do; neither is a scrape that half-happened.
     except (NothingToResume, UnreadableProgressLog) as e:
