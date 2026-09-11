@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "HSOC",
     "subject_title": "Health Sociomedical Sciences",
     "total_courses": 2
@@ -40,7 +40,8 @@
                 "available_seats": "88",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -106,7 +107,8 @@
                 "available_seats": "66",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }

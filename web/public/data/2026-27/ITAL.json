@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "ITAL",
     "subject_title": "Italian",
     "total_courses": 2
@@ -40,7 +40,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "Italian and English"
+              "class_attributes": "Italian and English",
+              "enrollment_requirement": ""
             },
             {
               "section": "BC01-CLW (9756)",
@@ -66,7 +67,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "Italian and English"
+              "class_attributes": "Italian and English",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -104,7 +106,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Italian and English"
+              "class_attributes": "Italian and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -166,7 +169,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Italian and English"
+              "class_attributes": "Italian and English",
+              "enrollment_requirement": ""
             }
           ]
         }

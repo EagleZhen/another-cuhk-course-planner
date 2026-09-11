@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "PHED",
     "subject_title": "Physical Education",
     "total_courses": 45
@@ -34,7 +34,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -96,7 +97,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8782)",
@@ -134,7 +136,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8783)",
@@ -166,7 +169,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8784)",
@@ -192,7 +196,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (9177)",
@@ -218,7 +223,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -280,7 +286,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8785)",
@@ -306,7 +313,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (9180)",
@@ -338,7 +346,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (9178)",
@@ -370,7 +379,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -426,7 +436,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (9181)",
@@ -452,7 +463,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (9176)",
@@ -466,13 +478,14 @@
               ],
               "availability": {
                 "capacity": "28",
-                "enrolled": "33",
+                "enrolled": "34",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8775)",
@@ -492,7 +505,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -530,7 +544,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (9076)",
@@ -562,7 +577,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (9093)",
@@ -594,7 +610,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (9081)",
@@ -626,7 +643,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (9083)",
@@ -658,7 +676,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8777)",
@@ -690,7 +709,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (9082)",
@@ -728,7 +748,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -778,7 +799,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8837)",
@@ -804,7 +826,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (9187)",
@@ -824,7 +847,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8823)",
@@ -850,7 +874,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8807)",
@@ -870,7 +895,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (9189)",
@@ -896,7 +922,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (9193)",
@@ -916,7 +943,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -954,7 +982,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8778)",
@@ -986,7 +1015,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8926)",
@@ -1018,7 +1048,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8779)",
@@ -1056,7 +1087,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8780)",
@@ -1094,7 +1126,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1144,7 +1177,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (9008)",
@@ -1170,7 +1204,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8798)",
@@ -1190,7 +1225,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8797)",
@@ -1216,7 +1252,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (9007)",
@@ -1242,7 +1279,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8938)",
@@ -1268,7 +1306,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8795)",
@@ -1288,7 +1327,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (8787)",
@@ -1308,7 +1348,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "J-LEC (10116)",
@@ -1334,7 +1375,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -1378,7 +1420,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8781)",
@@ -1410,7 +1453,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8782)",
@@ -1448,7 +1492,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8797)",
@@ -1480,7 +1525,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8798)",
@@ -1512,7 +1558,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8799)",
@@ -1544,7 +1591,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8919)",
@@ -1576,7 +1624,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (8800)",
@@ -1608,7 +1657,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "J-LEC (8791)",
@@ -1640,7 +1690,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1690,7 +1741,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8806)",
@@ -1710,7 +1762,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8904)",
@@ -1736,7 +1789,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8819)",
@@ -1756,7 +1810,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8839)",
@@ -1782,7 +1837,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8981)",
@@ -1802,7 +1858,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -1840,7 +1897,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8802)",
@@ -1872,7 +1930,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8903)",
@@ -1904,7 +1963,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8803)",
@@ -1936,7 +1996,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8804)",
@@ -1974,7 +2035,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8805)",
@@ -2012,7 +2074,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8818)",
@@ -2044,7 +2107,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2094,7 +2158,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8651)",
@@ -2114,7 +2179,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2152,7 +2218,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8820)",
@@ -2184,7 +2251,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8821)",
@@ -2222,7 +2290,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2278,7 +2347,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8800)",
@@ -2304,7 +2374,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8836)",
@@ -2324,7 +2395,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8655)",
@@ -2344,7 +2416,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8721)",
@@ -2370,7 +2443,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8720)",
@@ -2396,7 +2470,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (10117)",
@@ -2416,7 +2491,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2454,7 +2530,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8867)",
@@ -2486,7 +2563,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8868)",
@@ -2518,7 +2596,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8715)",
@@ -2556,7 +2635,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8716)",
@@ -2594,7 +2674,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8792)",
@@ -2632,7 +2713,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2688,7 +2770,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8824)",
@@ -2708,7 +2791,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (9190)",
@@ -2728,7 +2812,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (9019)",
@@ -2748,7 +2833,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2792,7 +2878,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8822)",
@@ -2824,7 +2911,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8565)",
@@ -2856,7 +2944,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2912,7 +3001,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8809)",
@@ -2938,7 +3028,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (9020)",
@@ -2958,7 +3049,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (9004)",
@@ -2978,7 +3070,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "M-LEC (10113)",
@@ -3004,7 +3097,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -3048,7 +3142,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8824)",
@@ -3080,7 +3175,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8825)",
@@ -3112,7 +3208,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8838)",
@@ -3150,7 +3247,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (9095)",
@@ -3182,7 +3280,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8931)",
@@ -3220,7 +3319,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8930)",
@@ -3252,7 +3352,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3302,7 +3403,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (9021)",
@@ -3328,7 +3430,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (9024)",
@@ -3348,7 +3451,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (9023)",
@@ -3374,7 +3478,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (9191)",
@@ -3394,7 +3499,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (9192)",
@@ -3414,7 +3520,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8711)",
@@ -3434,7 +3541,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (9025)",
@@ -3460,7 +3568,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -3498,7 +3607,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8928)",
@@ -3530,7 +3640,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (9094)",
@@ -3568,7 +3679,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8840)",
@@ -3600,7 +3712,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8634)",
@@ -3638,7 +3751,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (9096)",
@@ -3670,7 +3784,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8929)",
@@ -3708,7 +3823,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (9068)",
@@ -3740,7 +3856,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "J-LEC (9069)",
@@ -3772,7 +3889,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3822,7 +3940,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8933)",
@@ -3842,7 +3961,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8825)",
@@ -3862,7 +3982,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8940)",
@@ -3882,7 +4003,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8941)",
@@ -3908,7 +4030,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8869)",
@@ -3934,7 +4057,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -3972,7 +4096,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8842)",
@@ -4004,7 +4129,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8843)",
@@ -4036,7 +4162,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8844)",
@@ -4068,7 +4195,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8806)",
@@ -4100,7 +4228,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8807)",
@@ -4132,7 +4261,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4182,7 +4312,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (9184)",
@@ -4202,7 +4333,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8934)",
@@ -4222,7 +4354,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (9175)",
@@ -4248,7 +4381,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (9185)",
@@ -4268,7 +4402,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (9028)",
@@ -4288,7 +4423,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (9026)",
@@ -4308,13 +4444,14 @@
               ],
               "availability": {
                 "capacity": "26",
-                "enrolled": "32",
+                "enrolled": "31",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "J-LEC (9032)",
@@ -4334,7 +4471,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "M-LEC (10114)",
@@ -4360,7 +4498,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -4398,7 +4537,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (9078)",
@@ -4430,7 +4570,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (9085)",
@@ -4468,7 +4609,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (9077)",
@@ -4500,7 +4642,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8620)",
@@ -4532,7 +4675,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8877)",
@@ -4564,7 +4708,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8932)",
@@ -4596,7 +4741,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (8933)",
@@ -4628,7 +4774,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "J-LEC (8934)",
@@ -4660,7 +4807,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4728,7 +4876,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4778,7 +4927,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8951)",
@@ -4804,7 +4954,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8950)",
@@ -4830,7 +4981,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8952)",
@@ -4850,7 +5002,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8790)",
@@ -4870,7 +5023,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8791)",
@@ -4896,7 +5050,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8903)",
@@ -4916,7 +5071,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -4954,7 +5110,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8566)",
@@ -4986,7 +5143,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8567)",
@@ -5018,7 +5176,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8690)",
@@ -5050,7 +5209,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8724)",
@@ -5088,7 +5248,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8692)",
@@ -5120,7 +5281,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5170,7 +5332,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8803)",
@@ -5190,7 +5353,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8954)",
@@ -5216,7 +5380,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8955)",
@@ -5236,7 +5401,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8792)",
@@ -5262,7 +5428,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8718)",
@@ -5288,7 +5455,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -5332,7 +5500,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8743)",
@@ -5370,7 +5539,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8858)",
@@ -5402,7 +5572,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8741)",
@@ -5434,7 +5605,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8689)",
@@ -5466,7 +5638,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8708)",
@@ -5498,7 +5671,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8680)",
@@ -5530,7 +5704,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5586,7 +5761,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8865)",
@@ -5606,7 +5782,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8957)",
@@ -5632,7 +5809,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8958)",
@@ -5658,7 +5836,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8804)",
@@ -5678,7 +5857,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -5716,7 +5896,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8693)",
@@ -5754,7 +5935,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8859)",
@@ -5786,7 +5968,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8710)",
@@ -5818,7 +6001,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5868,7 +6052,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (9015)",
@@ -5894,7 +6079,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (9009)",
@@ -5920,7 +6106,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8960)",
@@ -5940,7 +6127,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8961)",
@@ -5966,7 +6154,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8801)",
@@ -5986,7 +6175,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8793)",
@@ -6006,7 +6196,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (9012)",
@@ -6026,7 +6217,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "J-LEC (8719)",
@@ -6046,7 +6238,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "K-LEC (8878)",
@@ -6066,7 +6259,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -6104,7 +6298,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8555)",
@@ -6136,7 +6331,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8873)",
@@ -6168,7 +6364,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8921)",
@@ -6200,7 +6397,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8594)",
@@ -6232,7 +6430,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8740)",
@@ -6264,7 +6463,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8586)",
@@ -6302,7 +6502,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (8649)",
@@ -6340,7 +6541,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "J-LEC (8711)",
@@ -6372,7 +6574,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "M-LEC (8834)",
@@ -6410,7 +6613,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -6466,7 +6670,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -6504,7 +6709,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -6548,13 +6754,14 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "26",
+                "enrolled": "27",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (9182)",
@@ -6580,7 +6787,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (9005)",
@@ -6606,7 +6814,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (9027)",
@@ -6626,7 +6835,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8859)",
@@ -6646,7 +6856,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -6684,7 +6895,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (9079)",
@@ -6722,7 +6934,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (9087)",
@@ -6754,7 +6967,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (9086)",
@@ -6786,7 +7000,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8935)",
@@ -6818,7 +7033,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -6868,7 +7084,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8966)",
@@ -6894,7 +7111,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (10118)",
@@ -6914,7 +7132,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -6952,7 +7171,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8564)",
@@ -6984,7 +7204,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8751)",
@@ -7022,7 +7243,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8556)",
@@ -7054,7 +7276,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "M-LEC (8871)",
@@ -7086,7 +7309,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -7136,7 +7360,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8864)",
@@ -7150,13 +7375,14 @@
               ],
               "availability": {
                 "capacity": "26",
-                "enrolled": "30",
+                "enrolled": "29",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8968)",
@@ -7182,7 +7408,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8969)",
@@ -7208,7 +7435,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "M-LEC (10115)",
@@ -7234,7 +7462,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -7272,7 +7501,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8875)",
@@ -7304,7 +7534,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8742)",
@@ -7336,7 +7567,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8889)",
@@ -7374,7 +7606,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8902)",
@@ -7412,7 +7645,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -7462,7 +7696,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8971)",
@@ -7482,7 +7717,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8974)",
@@ -7508,7 +7744,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8972)",
@@ -7528,7 +7765,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8973)",
@@ -7554,7 +7792,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (9014)",
@@ -7574,7 +7813,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8794)",
@@ -7600,7 +7840,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (8838)",
@@ -7626,7 +7867,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "J-LEC (10222)",
@@ -7646,7 +7888,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "K-LEC (9013)",
@@ -7666,7 +7909,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "L-LEC (8709)",
@@ -7686,7 +7930,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -7724,7 +7969,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8895)",
@@ -7756,7 +8002,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8876)",
@@ -7788,7 +8035,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8701)",
@@ -7820,7 +8068,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8704)",
@@ -7852,7 +8101,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8705)",
@@ -7890,7 +8140,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8890)",
@@ -7928,7 +8179,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (8816)",
@@ -7966,7 +8218,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "J-LEC (8815)",
@@ -7998,7 +8251,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "K-LEC (8817)",
@@ -8030,7 +8284,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "L-LEC (8869)",
@@ -8068,7 +8323,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "N-LEC (8870)",
@@ -8100,7 +8356,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8156,7 +8413,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8985)",
@@ -8182,7 +8440,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8986)",
@@ -8208,7 +8467,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8987)",
@@ -8234,7 +8494,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8988)",
@@ -8254,7 +8515,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8989)",
@@ -8274,7 +8536,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8990)",
@@ -8300,7 +8563,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (8811)",
@@ -8320,7 +8584,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "J-LEC (8789)",
@@ -8340,7 +8605,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "K-LEC (10119)",
@@ -8360,7 +8626,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "L-LEC (10224)",
@@ -8386,7 +8653,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "N-LEC (10225)",
@@ -8406,7 +8674,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -8450,7 +8719,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8712)",
@@ -8482,7 +8752,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8894)",
@@ -8520,7 +8791,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8725)",
@@ -8552,7 +8824,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8691)",
@@ -8584,7 +8857,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8723)",
@@ -8616,7 +8890,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8707)",
@@ -8654,7 +8929,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (8752)",
@@ -8686,7 +8962,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "J-LEC (8681)",
@@ -8718,7 +8995,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "K-LEC (8682)",
@@ -8750,7 +9028,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "L-LEC (8795)",
@@ -8782,7 +9061,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8844,7 +9124,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8900,7 +9181,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8962,7 +9244,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9018,7 +9301,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8765)",
@@ -9038,7 +9322,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8650)",
@@ -9064,7 +9349,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -9102,7 +9388,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8666)",
@@ -9134,7 +9421,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8813)",
@@ -9166,7 +9454,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9216,7 +9505,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8868)",
@@ -9236,7 +9526,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8741)",
@@ -9256,7 +9547,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -9294,7 +9586,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8772)",
@@ -9326,7 +9619,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9388,7 +9682,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9444,7 +9739,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (10120)",
@@ -9458,13 +9754,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "21",
+                "enrolled": "22",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -9502,7 +9799,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9564,7 +9862,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9620,7 +9919,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8710)",
@@ -9640,7 +9940,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8872)",
@@ -9660,7 +9961,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "M-LEC (10122)",
@@ -9686,7 +9988,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -9724,7 +10027,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8794)",
@@ -9762,7 +10066,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8812)",
@@ -9800,7 +10105,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8793)",
@@ -9832,7 +10138,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9882,7 +10189,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (9031)",
@@ -9908,7 +10216,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (9030)",
@@ -9928,7 +10237,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (9029)",
@@ -9954,7 +10264,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (9042)",
@@ -9980,7 +10291,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (9040)",
@@ -10006,7 +10318,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8877)",
@@ -10026,7 +10339,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (9037)",
@@ -10046,7 +10360,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "J-LEC (8874)",
@@ -10072,7 +10387,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "K-LEC (9036)",
@@ -10092,7 +10408,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "L-LEC (10121)",
@@ -10118,7 +10435,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "M-LEC (10123)",
@@ -10138,7 +10456,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -10182,7 +10501,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8937)",
@@ -10214,7 +10534,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8860)",
@@ -10246,7 +10567,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (8960)",
@@ -10278,7 +10600,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (8796)",
@@ -10316,7 +10639,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (8959)",
@@ -10354,7 +10678,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8958)",
@@ -10386,7 +10711,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (8956)",
@@ -10418,7 +10744,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "J-LEC (8955)",
@@ -10456,7 +10783,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "K-LEC (8940)",
@@ -10488,7 +10816,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "M-LEC (9091)",
@@ -10526,7 +10855,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -10576,7 +10906,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -10614,7 +10945,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -10676,7 +11008,8 @@
                 "available_seats": "16",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -10732,7 +11065,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -10782,7 +11116,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8739)",
@@ -10808,7 +11143,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -10846,7 +11182,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8641)",
@@ -10878,7 +11215,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -10934,7 +11272,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (9041)",
@@ -10954,7 +11293,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -10998,7 +11338,8 @@
                 "available_seats": "16",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8745)",
@@ -11030,7 +11371,8 @@
                 "available_seats": "16",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -11086,7 +11428,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (5130)",
@@ -11112,7 +11455,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -11150,7 +11494,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (5238)",
@@ -11188,7 +11533,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -11238,7 +11584,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (9039)",
@@ -11258,7 +11605,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -11302,7 +11650,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8939)",
@@ -11334,7 +11683,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -11384,7 +11734,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "XB-LEC (8873)",
@@ -11410,7 +11761,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -11454,7 +11806,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "XB-LEC (8938)",
@@ -11486,7 +11839,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -11554,7 +11908,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -11604,7 +11959,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (9038)",
@@ -11630,7 +11986,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -11674,7 +12031,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8790)",
@@ -11706,7 +12064,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }

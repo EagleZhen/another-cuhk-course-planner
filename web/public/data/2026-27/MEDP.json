@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "MEDP",
     "subject_title": "Molecular Medicine and Biostatistics",
     "total_courses": 3
@@ -40,7 +40,8 @@
                 "available_seats": "99",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -115,7 +116,8 @@
                 "available_seats": "85",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -187,7 +189,8 @@
                 "available_seats": "91",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }

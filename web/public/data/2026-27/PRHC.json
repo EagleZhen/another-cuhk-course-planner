@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "PRHC",
     "subject_title": "Primary Healthcare",
     "total_courses": 1
@@ -40,7 +40,8 @@
                 "available_seats": "85",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }

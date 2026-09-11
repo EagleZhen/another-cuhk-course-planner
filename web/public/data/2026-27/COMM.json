@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "COMM",
     "subject_title": "Communication",
     "total_courses": 146
@@ -34,7 +34,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for COMMN majors and GCOMN majors"
             },
             {
               "section": "B-LEC (8277)",
@@ -60,7 +61,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for COMMN majors and GCOMN majors"
             }
           ]
         },
@@ -98,7 +100,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (5656)",
@@ -130,7 +133,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -185,7 +189,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (5486)",
@@ -211,7 +216,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -255,7 +261,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -312,7 +319,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For UG COMM Major"
             }
           ]
         },
@@ -350,7 +358,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -400,7 +409,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For UG COMM Major"
             }
           ]
         }
@@ -457,7 +467,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For UG COMM & GCOM Major"
             }
           ]
         }
@@ -507,7 +518,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8673)",
@@ -533,7 +545,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (8662)",
@@ -559,7 +572,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -614,7 +628,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -676,7 +691,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (9532)",
@@ -708,7 +724,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -756,13 +773,14 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "9",
+                "enrolled": "8",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For UG COMM & GCOM Major"
             },
             {
               "section": "AL01-LAB (9069)",
@@ -776,13 +794,14 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "9",
+                "enrolled": "8",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For UG COMM & GCOM Major"
             }
           ]
         },
@@ -820,7 +839,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BL01-LAB (6194)",
@@ -852,7 +872,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -918,7 +939,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (8750)",
@@ -956,7 +978,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1019,7 +1042,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1073,7 +1097,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For UG COMM & GCOM Major"
             }
           ]
         },
@@ -1117,7 +1142,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1159,13 +1185,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "11",
+                "enrolled": "12",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1228,7 +1255,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1278,7 +1306,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": "For UG COMM Major"
             },
             {
               "section": "B-LEC (9645)",
@@ -1298,7 +1327,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": "For UG COMM Major"
             }
           ]
         }
@@ -1358,7 +1388,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             },
             {
               "section": "-P01-PRA (8659)",
@@ -1390,7 +1421,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1456,7 +1488,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1507,7 +1540,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -1551,7 +1585,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1600,7 +1635,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For UG COMM & GCOM Major"
             }
           ]
         }
@@ -1663,7 +1699,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-F01-FLD (9294)",
@@ -1695,7 +1732,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1744,7 +1782,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1805,7 +1844,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1873,7 +1913,8 @@
                 "available_seats": "45",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1930,7 +1971,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1981,7 +2023,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For UG COMM & GCOM Major"
             }
           ]
         },
@@ -2019,7 +2062,8 @@
                 "available_seats": "16",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2080,7 +2124,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2135,7 +2180,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2179,7 +2225,8 @@
                 "available_seats": "45",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2234,7 +2281,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2303,7 +2351,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2353,7 +2402,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2391,7 +2441,8 @@
                 "available_seats": "45",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2458,7 +2509,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (7110)",
@@ -2490,7 +2542,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2546,7 +2599,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8757)",
@@ -2566,7 +2620,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2604,7 +2659,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (9901)",
@@ -2636,7 +2692,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2693,7 +2750,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2741,7 +2799,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2785,7 +2844,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2839,7 +2899,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2877,7 +2938,8 @@
                 "available_seats": "45",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2933,7 +2995,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2995,7 +3058,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3045,7 +3109,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For UG COMM & GCOM Major"
             }
           ]
         },
@@ -3083,7 +3148,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3134,7 +3200,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For UG COMM Major"
             }
           ]
         },
@@ -3190,7 +3257,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3250,7 +3318,8 @@
                 "available_seats": "45",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3312,7 +3381,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3356,13 +3426,14 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "93",
+                "enrolled": "92",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -3388,7 +3459,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3433,7 +3505,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For UG COMM Major"
             },
             {
               "section": "-P01-PRA (8642)",
@@ -3453,7 +3526,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For UG COMM Major"
             }
           ]
         }
@@ -3501,7 +3575,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": "For UG COMM Major"
             }
           ]
         },
@@ -3539,7 +3614,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3587,7 +3663,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3638,13 +3715,14 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "65",
+                "enrolled": "63",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For UG COMM & GCOM Major"
             }
           ]
         }
@@ -3694,7 +3772,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -3732,7 +3811,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3788,7 +3868,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3843,7 +3924,8 @@
                 "available_seats": "33",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3909,7 +3991,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3953,13 +4036,14 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "19",
+                "enrolled": "18",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4027,7 +4111,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4095,7 +4180,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4146,7 +4232,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4195,7 +4282,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4245,7 +4333,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -4289,7 +4378,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4350,7 +4440,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4412,7 +4503,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4457,7 +4549,8 @@
                 "available_seats": "16",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4518,7 +4611,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4579,7 +4673,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4633,7 +4728,8 @@
                 "available_seats": "19",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4695,7 +4791,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4752,7 +4849,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4807,7 +4905,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4855,7 +4954,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -4893,7 +4993,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4947,7 +5048,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5004,7 +5106,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5049,7 +5152,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -5087,7 +5191,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5149,7 +5254,8 @@
                 "available_seats": "45",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5209,7 +5315,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5277,7 +5384,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5326,7 +5434,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -5352,7 +5461,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5406,7 +5516,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -5444,7 +5555,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5489,7 +5601,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5537,7 +5650,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all postgraduate students under Division of Communication"
             }
           ]
         }
@@ -5582,13 +5696,14 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "21",
+                "enrolled": "22",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all postgraduate students under Division of Communication"
             }
           ]
         },
@@ -5620,7 +5735,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all postgraduate students under Division of Communication"
             }
           ]
         }
@@ -5671,7 +5787,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in M.S.Sc. in Advertising, M.S.Sc. in Corporate Communication, M.A. in Journalism, M.A. in Global Communication, M.Sc. in New Media"
             }
           ]
         }
@@ -5722,7 +5839,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5779,7 +5897,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5824,7 +5943,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5875,7 +5995,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5926,7 +6047,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5977,7 +6099,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English",
+              "enrollment_requirement": ""
             },
             {
               "section": "BS01-SEM (2823)",
@@ -6003,7 +6126,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -6066,7 +6190,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -6123,13 +6248,14 @@
               ],
               "availability": {
                 "capacity": "54",
-                "enrolled": "35",
+                "enrolled": "32",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MSc New Media"
             },
             {
               "section": "BS01-SEM (2310)",
@@ -6155,7 +6281,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MSSc Corporate Communication"
             },
             {
               "section": "CS01-SEM (1134)",
@@ -6175,13 +6302,14 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "48",
+                "enrolled": "47",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MA Journalism"
             },
             {
               "section": "HS01-SEM (1395)",
@@ -6201,13 +6329,14 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "34",
+                "enrolled": "33",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MSSc Corporate Communication"
             }
           ]
         },
@@ -6263,7 +6392,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MSSc Advertising"
             },
             {
               "section": "GS01-SEM (1661)",
@@ -6289,7 +6419,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MA Global Communication"
             }
           ]
         }
@@ -6340,7 +6471,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in M.S.Sc. in Advertising, M.S.Sc. in Corporate Communication, M.A. in Journalism, M.A. in Global Communication, M.Sc. in New Media"
             },
             {
               "section": "BS01-SEM (2636)",
@@ -6360,7 +6492,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MSSc Corporate Communication"
             }
           ]
         }
@@ -6417,7 +6550,8 @@
                 "available_seats": "31",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in M.S.Sc. in Advertising, M.S.Sc. in Corporate Communication, M.A. in Journalism, M.A. in Global Communication, M.Sc. in New Media"
             }
           ]
         }
@@ -6456,13 +6590,14 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "38",
+                "enrolled": "39",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English",
+              "enrollment_requirement": "For MSSc Corporate Communication"
             }
           ]
         }
@@ -6525,7 +6660,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MSSc Corporate Communication"
             }
           ]
         }
@@ -6576,7 +6712,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MSSc Corporate Communication"
             }
           ]
         }
@@ -6633,7 +6770,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MSSc Corporate Communication"
             }
           ]
         }
@@ -6690,7 +6828,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -6741,7 +6880,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MSSc Corporate Communication"
             }
           ]
         }
@@ -6792,7 +6932,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MA Global Communication"
             }
           ]
         }
@@ -6837,7 +6978,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BS01-SEM (2638)",
@@ -6857,7 +6999,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -6902,7 +7045,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Putonghua and Cantonese"
+              "class_attributes": "Putonghua and Cantonese",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -6953,7 +7097,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MA Journalism"
             }
           ]
         }
@@ -7016,7 +7161,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MA Journalism"
             }
           ]
         }
@@ -7073,7 +7219,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and Cantonese"
+              "class_attributes": "Putonghua and Cantonese",
+              "enrollment_requirement": "For MA Journalism"
             }
           ]
         }
@@ -7124,7 +7271,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English",
+              "enrollment_requirement": "For students in M.A. in Journalism and M.A. in Global Communication"
             }
           ]
         }
@@ -7163,13 +7311,14 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "20",
+                "enrolled": "21",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -7214,13 +7363,14 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "24",
+                "enrolled": "27",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -7265,13 +7415,14 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "59",
+                "enrolled": "58",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all postgraduate students under Division of Communication"
             }
           ]
         }
@@ -7334,7 +7485,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -7385,7 +7537,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -7460,7 +7613,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -7511,7 +7665,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and Cantonese"
+              "class_attributes": "Putonghua and Cantonese",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -7562,7 +7717,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in M.S.Sc. in Advertising, M.S.Sc. in Corporate Communication, M.A. in Journalism, M.A. in Global Communication, M.Sc. in New Media"
             }
           ]
         }
@@ -7607,7 +7763,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in M.S.Sc. in Advertising, M.S.Sc. in Corporate Communication, M.A. in Journalism, M.A. in Global Communication, M.Sc. in New Media"
             }
           ]
         }
@@ -7664,7 +7821,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -7703,13 +7861,14 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "4",
+                "enrolled": "2",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "31",
+                "available_seats": "33",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -7760,7 +7919,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -7811,7 +7971,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in M.S.Sc. in Advertising, M.S.Sc. in Corporate Communication, M.A. in Journalism, M.A. in Global Communication, M.Sc. in New Media"
             }
           ]
         }
@@ -7856,7 +8017,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -7907,7 +8069,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BS01-SEM (1144)",
@@ -7927,7 +8090,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -7978,7 +8142,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8029,7 +8194,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8092,7 +8258,8 @@
                 "available_seats": "16",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and Cantonese"
+              "class_attributes": "Putonghua and Cantonese",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8155,7 +8322,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8200,13 +8368,14 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "30",
+                "enrolled": "31",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For MSSc Advertising"
             }
           ]
         }
@@ -8245,13 +8414,14 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "27",
+                "enrolled": "28",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8296,13 +8466,14 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "34",
+                "enrolled": "32",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8341,13 +8512,14 @@
               ],
               "availability": {
                 "capacity": "51",
-                "enrolled": "46",
+                "enrolled": "45",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all postgraduate students under Division of Communication"
             }
           ]
         }
@@ -8398,7 +8570,8 @@
                 "available_seats": "21",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MSc New Media"
             }
           ]
         }
@@ -8455,7 +8628,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8506,13 +8680,14 @@
               ],
               "availability": {
                 "capacity": "52",
-                "enrolled": "46",
+                "enrolled": "45",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8557,13 +8732,14 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "28",
+                "enrolled": "27",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "7",
+                "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8626,7 +8802,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8683,13 +8860,14 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "25",
+                "enrolled": "24",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8734,7 +8912,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For CPCM; NMDA"
             }
           ]
         }
@@ -8773,13 +8952,14 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "47",
+                "enrolled": "46",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in M.S.Sc. in Advertising, M.S.Sc. in Corporate Communication, M.A. in Journalism, M.A. in Global Communication, M.Sc. in New Media"
             }
           ]
         }
@@ -8824,13 +9004,14 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "38",
+                "enrolled": "37",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8875,7 +9056,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -8901,7 +9083,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -8952,7 +9135,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9003,7 +9187,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9054,7 +9239,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in M.S.Sc. in Advertising, M.S.Sc. in Corporate Communication, M.A. in Journalism, M.A. in Global Communication, M.Sc. in New Media"
             }
           ]
         }
@@ -9111,7 +9297,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and Cantonese"
+              "class_attributes": "Putonghua and Cantonese",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9156,7 +9343,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9201,13 +9389,14 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "26",
+                "enrolled": "24",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9258,7 +9447,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9315,7 +9505,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BS01-SEM (1125)",
@@ -9347,7 +9538,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9398,7 +9590,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9443,7 +9636,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9488,7 +9682,8 @@
                 "available_seats": "31",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -9514,7 +9709,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -9559,7 +9755,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -9585,7 +9782,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }

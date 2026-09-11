@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "CSAT",
     "subject_title": "Creative Sustainable Arts Technology",
     "total_courses": 2
@@ -34,7 +34,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -84,7 +85,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -122,7 +124,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
