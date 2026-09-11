@@ -29,7 +29,6 @@ import {
   splitInstructorsCompact,
   instructorSortKey,
   formatSyncTimestamp,
-  formatClassAttributesCompact,
   getAvailabilityBadges,
   getAvailabilityBadgeStyle,
   checkSectionConflict,
@@ -71,6 +70,7 @@ import { TermSelector } from '@/components/TermSelector'
 import { CuhkLibraryImageIcon } from '@/components/icons/CuhkLibraryImageIcon'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { MeetingRowCard } from '@/components/MeetingRowCard'
+import { ClassAttributesRow, EnrollmentRequirementRow } from '@/components/SectionAttributeRow'
 
 // Using clean internal types only
 
@@ -2240,17 +2240,10 @@ function CourseCard({
                               </div>
 
                               {/* Row 3: Class attributes */}
-                              {section.classAttributes && (
-                                <div className="flex items-start gap-1 text-gray-500 text-[11px]">
-                                  <span className="flex-shrink-0">🌐</span>
-                                  <span
-                                    className="min-w-0"
-                                    title={`Class attributes: ${section.classAttributes}`}
-                                  >
-                                    {formatClassAttributesCompact(section.classAttributes)}
-                                  </span>
-                                </div>
-                              )}
+                              <ClassAttributesRow
+                                value={section.classAttributes}
+                                className="text-gray-500 text-[11px]"
+                              />
 
                               {/* Meeting rows are normalized and deduped by sectionSignature. */}
                               <div className="space-y-1">
@@ -2265,23 +2258,10 @@ function CourseCard({
                               {/* What this section requires beyond its course. Last because it is
                                   the only row that can run to several lines — above the meetings
                                   it would push them out of line with the cards beside it. */}
-                              {section.enrollmentRequirement && (
-                                <div className="flex items-start gap-1 text-gray-400 text-[10px]">
-                                  <span className="flex-shrink-0">🔒</span>
-                                  {/* One block per rule, so a wrapped line is not mistaken for
-                                      the next rule. */}
-                                  <div
-                                    className="min-w-0 space-y-1"
-                                    title={`Enrollment requirement: ${section.enrollmentRequirement}`}
-                                  >
-                                    {section.enrollmentRequirement
-                                      .split('\n')
-                                      .map((rule, index) => (
-                                        <p key={index}>{rule}</p>
-                                      ))}
-                                  </div>
-                                </div>
-                              )}
+                              <EnrollmentRequirementRow
+                                value={section.enrollmentRequirement}
+                                className="text-gray-400 text-[10px]"
+                              />
                             </div>
                           </div>
                         )

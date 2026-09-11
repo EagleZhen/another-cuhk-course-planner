@@ -15,7 +15,6 @@ import {
   getAvailabilityBadges,
   getComputedBorderColor,
   formatCourseCodeWithPrefix,
-  formatClassAttributesCompact,
   checkSectionConflict,
   diffSectionDetail,
   getChangedCourseIds,
@@ -30,7 +29,8 @@ import type {
   MeetingRow,
 } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
-import { MeetingRowCard, changedText } from '@/components/MeetingRowCard'
+import { MeetingRowCard } from '@/components/MeetingRowCard'
+import { ClassAttributesRow, EnrollmentRequirementRow } from '@/components/SectionAttributeRow'
 
 // Shared style for the change-banner actions; the grid gives both equal width.
 const bannerButtonClass =
@@ -605,21 +605,12 @@ export default function ShoppingCart({
                             </div>
 
                             {/* Row 3: Class attributes */}
-                            {section.classAttributes && (
-                              <div className="flex items-start gap-1 text-[9px] mb-2 text-gray-500">
-                                <span className="flex-shrink-0">🌐</span>
-                                <span
-                                  className={`min-w-0 ${changeDetail?.classAttributesChanged ? changedText : ''}`}
-                                  title={
-                                    changeDetail?.classAttributesChanged && sectionChange
-                                      ? `Previously ${sectionChange.before.classAttributes || 'not specified'}`
-                                      : `Class attributes: ${section.classAttributes}`
-                                  }
-                                >
-                                  {formatClassAttributesCompact(section.classAttributes)}
-                                </span>
-                              </div>
-                            )}
+                            <ClassAttributesRow
+                              value={section.classAttributes}
+                              className="text-[9px] mb-2 text-gray-500"
+                              changed={changeDetail?.classAttributesChanged}
+                              previous={sectionChange?.before.classAttributes}
+                            />
 
                             {/* Meeting rows are normalized and deduped by sectionSignature. */}
                             <div className="space-y-1">
@@ -630,23 +621,12 @@ export default function ShoppingCart({
 
                             {/* What this section requires beyond its course. Below the meetings,
                                 as in the search card, since it can run to several lines. */}
-                            {section.enrollmentRequirement && (
-                              <div className="mt-2 flex items-start gap-1 text-[9px] text-gray-400">
-                                <span className="flex-shrink-0">🔒</span>
-                                <div
-                                  className={`min-w-0 space-y-1 ${changeDetail?.requirementChanged ? changedText : ''}`}
-                                  title={
-                                    changeDetail?.requirementChanged && sectionChange
-                                      ? `Previously ${sectionChange.before.requirement || 'not specified'}`
-                                      : `Enrollment requirement: ${section.enrollmentRequirement}`
-                                  }
-                                >
-                                  {section.enrollmentRequirement.split('\n').map((rule, index) => (
-                                    <p key={index}>{rule}</p>
-                                  ))}
-                                </div>
-                              </div>
-                            )}
+                            <EnrollmentRequirementRow
+                              value={section.enrollmentRequirement}
+                              className="mt-2 text-[9px] text-gray-400"
+                              changed={changeDetail?.requirementChanged}
+                              previous={sectionChange?.before.requirement}
+                            />
                           </div>
                         )
                       })}
