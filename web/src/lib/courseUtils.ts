@@ -650,8 +650,9 @@ export function readStoredEnrollments(parsed: unknown): CourseEnrollment[] | nul
 const norm = (s: string): string => (s ?? '').trim().replace(/\s+/g, ' ')
 
 // A section's own facts state one item per line, and the rows render those lines, so the
-// signature keeps them. TODO(#332): lines the model carried would need no splitting here. Comparison flattens both sides instead: snapshots stored before this
+// signature keeps them. Comparison flattens both sides instead: snapshots stored before this
 // kept no line breaks, and a section is not "changed" because we started recording them.
+// TODO(#332): lines carried by the model would need no splitting here.
 const normLines = (s: string): string => (s ?? '').split('\n').map(norm).filter(Boolean).join('\n')
 
 const sameText = (a: string, b: string): boolean => norm(a) === norm(b)

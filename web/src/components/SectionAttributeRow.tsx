@@ -36,7 +36,7 @@ function AttributeRow({
       <span className="flex-shrink-0">{icon}</span>
       {/* One block per line, so a wrapped line isn't mistaken for the next one. */}
       <div
-        className={`min-w-0 space-y-1 ${changed ? changedText : ''} ${state.removed ? 'line-through' : ''}`}
+        className={`min-w-0 space-y-1 ${changed ? `${changedText} w-fit` : ''} ${state.removed ? 'line-through' : ''}`}
         title={
           state.removed
             ? removedTooltip
