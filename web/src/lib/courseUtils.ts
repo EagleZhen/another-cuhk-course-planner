@@ -649,6 +649,13 @@ export function readStoredEnrollments(parsed: unknown): CourseEnrollment[] | nul
 // Collapses whitespace so formatting noise doesn't look like a change.
 const norm = (s: string): string => (s ?? '').trim().replace(/\s+/g, ' ')
 
+// A section's own facts state one item per line, and the rows render those lines, so the
+// signature keeps them. Comparison flattens both sides instead: snapshots stored before this
+// kept no line breaks, and a section is not "changed" because we started recording them.
+const normLines = (s: string): string => (s ?? '').split('\n').map(norm).filter(Boolean).join('\n')
+
+const sameText = (a: string, b: string): boolean => norm(a) === norm(b)
+
 // A meeting's normalized comparable fields (drops `dates`).
 const meetingRow = (m: InternalMeeting): SectionMeetingSignature => ({
   time: norm(m.time),
@@ -666,7 +673,9 @@ const sameDates = (a: SectionMeetingSignature, b: SectionMeetingSignature): bool
 // Like `sameDates`: a snapshot stored before the field cannot say whether it moved, so an
 // absent value means "no change" rather than "changed to nothing".
 const sameRequirement = (a: SectionSignature, b: SectionSignature): boolean =>
-  a.requirement === undefined || b.requirement === undefined || a.requirement === b.requirement
+  a.requirement === undefined ||
+  b.requirement === undefined ||
+  sameText(a.requirement, b.requirement)
 
 const sameMeeting = (a: SectionMeetingSignature, b: SectionMeetingSignature): boolean =>
   a.time === b.time && a.location === b.location && a.instructor === b.instructor && sameDates(a, b)
@@ -695,8 +704,8 @@ export function sectionSignature(section: InternalSection): SectionSignature {
 
   return {
     meetings: [...byRow.values()],
-    classAttributes: norm(section.classAttributes),
-    requirement: norm(section.enrollmentRequirement),
+    classAttributes: normLines(section.classAttributes),
+    requirement: normLines(section.enrollmentRequirement),
   }
 }
 
@@ -737,7 +746,7 @@ export function diffEnrollment(enrollment: CourseEnrollment): SectionChange[] {
     if (before === undefined) continue
     const after = sectionSignature(section)
     if (
-      before.classAttributes !== after.classAttributes ||
+      !sameText(before.classAttributes, after.classAttributes) ||
       !sameRequirement(before, after) ||
       !sameMeetings(before.meetings, after.meetings)
     ) {
@@ -881,7 +890,7 @@ export function diffSectionDetail(
 
   return {
     rows,
-    classAttributesChanged: before.classAttributes !== current.classAttributes,
+    classAttributesChanged: !sameText(before.classAttributes, current.classAttributes),
     requirementChanged: !sameRequirement(before, current),
   }
 }

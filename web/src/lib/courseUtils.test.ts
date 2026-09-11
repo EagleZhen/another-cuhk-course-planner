@@ -1803,3 +1803,40 @@ describe('attributeRowState', () => {
     })
   })
 })
+
+describe('a section signature keeps its lines', () => {
+  const stated = (id: string) =>
+    mkSection(
+      id,
+      [],
+      'Cantonese only\nService Learning Course',
+      'For BBA students only\nYear 3 or above'
+    )
+
+  it('records one line per stated item', () => {
+    expect(sig(stated('1'))).toMatchObject({
+      classAttributes: 'Cantonese only\nService Learning Course',
+      requirement: 'For BBA students only\nYear 3 or above',
+    })
+  })
+
+  // Snapshots stored before the lines were kept hold one flattened run. Comparing them
+  // verbatim would flag every multi-line section the day this ships.
+  it('reports no change against a snapshot stored before the lines were kept', () => {
+    const flattened: SectionSignature = {
+      meetings: [],
+      classAttributes: 'Cantonese only Service Learning Course',
+      requirement: 'For BBA students only Year 3 or above',
+    }
+    expect(diffEnrollment(mkEnrollment([stated('1')], { '1': flattened }))).toEqual([])
+  })
+
+  it('still reports a line that changed', () => {
+    const was: SectionSignature = {
+      ...sig(stated('1')),
+      classAttributes: 'English only\nService Learning Course',
+    }
+    expect(diffEnrollment(mkEnrollment([stated('1')], { '1': was }))).toHaveLength(1)
+    expect(diffSectionDetail(stated('1'), was).classAttributesChanged).toBe(true)
+  })
+})

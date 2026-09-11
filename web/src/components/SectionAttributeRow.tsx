@@ -1,7 +1,7 @@
 'use client'
 
 import { attributeRowState, formatClassAttributesCompact } from '@/lib/courseUtils'
-import { changedText } from '@/components/MeetingRowCard'
+import { changedText, changedTooltip } from '@/components/MeetingRowCard'
 
 // One of a section's own facts, on the search card and in the cart. Shared so the two
 // surfaces can't drift, and so each change state is written once.
@@ -27,6 +27,10 @@ function AttributeRow({
   const state = attributeRowState(value, previous, changed)
   if (!state) return null
 
+  // Tooltips quote the row's own wording, never the stored form, so the two can't disagree.
+  const lines = format(state.text)
+  const asShown = (text: string) => format(text).join('\n')
+
   return (
     <div className={`flex items-start gap-1 ${className}`}>
       <span className="flex-shrink-0">{icon}</span>
@@ -37,11 +41,11 @@ function AttributeRow({
           state.removed
             ? removedTooltip
             : changed && previous !== undefined
-              ? `Previously ${previous || 'not specified'}`
-              : `${label}: ${value}`
+              ? changedTooltip(previous ? asShown(previous) : 'not specified', asShown(value))
+              : `${label}: ${asShown(value)}`
         }
       >
-        {format(state.text).map((line, index) => (
+        {lines.map((line, index) => (
           <p key={index}>{line}</p>
         ))}
       </div>

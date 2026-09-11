@@ -15,9 +15,9 @@ import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 // Exported for the cart's class-attribute and enrollment-requirement lines, which use the same treatment.
 export const changedText = 'rounded bg-amber-100 text-amber-800 cursor-help'
 
-// A changed value shows both, since the row truncates and the arrow says which
-// way it went. Labelling them would only repeat what the arrow already states.
-function changedTooltip(before: string, now: string): string {
+// A changed value shows both: the row shows a shortened or compacted form, and the arrow
+// says which way it went. Labelling them would only repeat what the arrow already states.
+export function changedTooltip(before: string, now: string): string {
   return `${before}\n↓\n${now}`
 }
 
