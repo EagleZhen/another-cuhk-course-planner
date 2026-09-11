@@ -442,6 +442,27 @@ describe('readStoredEnrollments', () => {
     expect(loaded?.[0].lastSynced).toEqual(new Date('2026-07-14T13:27:10.392Z'))
   })
 
+  it("renames a snapshot's language to classAttributes, so it still reports a change", () => {
+    // MUSC3530 was published blank and now states a language: the snapshot must carry the old
+    // value over, or the change re-baselines silently.
+    const stored = [
+      { courseId: 'MUSC3530', lastSeenSections: { lec: { meetings: [], language: '' } } },
+    ] as unknown as CourseEnrollment[]
+
+    const loaded = readStoredEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments: stored })
+    const now = mkSection('lec', [mkMeeting({})], 'Cantonese and English')
+
+    expect(loaded?.[0].lastSeenSections!['lec'].classAttributes).toBe('')
+    expect(
+      diffEnrollment({ ...loaded![0], selectedSections: [now] } as CourseEnrollment)
+    ).toHaveLength(1)
+
+    // Idempotent: a second load must not change it.
+    expect(readStoredEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments: loaded! })).toEqual(
+      loaded
+    )
+  })
+
   it('renames the derived wait list status in selected and removed sections', () => {
     const stored = [
       {
@@ -649,7 +670,7 @@ describe('getChangedCourseIds', () => {
       ...mkEnrollment([section], {
         '8818': {
           meetings: [sigRow('stale', 'stale', 'stale')],
-          language: '',
+          classAttributes: '',
         },
       }),
       isInvalid: true,
@@ -1053,7 +1074,7 @@ describe('sectionSignature', () => {
       ).rows[0].status
     ).toBe('unchanged')
   })
-  it('reflects time, location, instructor and language', () => {
+  it('reflects time, location, instructor and class attributes', () => {
     const base = mkSection('1', [mkMeeting({})], 'English only')
     expect(sig(base)).not.toEqual(
       sig(mkSection('1', [mkMeeting({ time: 'Mo 2:30PM - 5:15PM' })], 'English only'))
@@ -1083,7 +1104,7 @@ describe('diffEnrollment', () => {
     ])
     const stale: SectionSignature = {
       meetings: [sigRow('stale', 'stale', 'stale')],
-      language: '',
+      classAttributes: '',
     }
     const changes = diffEnrollment(mkEnrollment([now], { '8818': stale }))
     expect(changes).toHaveLength(1)
@@ -1105,7 +1126,10 @@ describe('diffEnrollment', () => {
   })
   it('reads a snapshot stored before requirements as no change, not as an empty one', () => {
     const now = mkSection('8818', [mkMeeting({})], 'English only', 'For Year 3 students only')
-    const preField: SectionSignature = { meetings: sig(now).meetings, language: sig(now).language }
+    const preField: SectionSignature = {
+      meetings: sig(now).meetings,
+      classAttributes: sig(now).classAttributes,
+    }
     expect(diffEnrollment(mkEnrollment([now], { '8818': preField }))).toHaveLength(0)
   })
   it('leaves a section that has never stated a requirement alone', () => {
@@ -1117,7 +1141,7 @@ describe('diffEnrollment', () => {
     const s2 = mkSection('2', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
     const e = mkEnrollment([s1, s2], {
       '1': sig(s1),
-      '2': { meetings: [sigRow('stale', 'stale', 'stale')], language: '' },
+      '2': { meetings: [sigRow('stale', 'stale', 'stale')], classAttributes: '' },
     })
     const before = JSON.stringify(e)
     expect(diffEnrollment(e).map((c) => c.sectionId)).toEqual(['2'])
@@ -1128,8 +1152,8 @@ describe('diffEnrollment', () => {
 describe('recordSeenSections', () => {
   it('onlyMissing seeds missing, keeps existing, prunes de-selected ids', () => {
     const now = mkSection('8818', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
-    const kept: SectionSignature = { meetings: [], language: 'kept', requirement: '' }
-    const gone: SectionSignature = { meetings: [], language: 'gone', requirement: '' }
+    const kept: SectionSignature = { meetings: [], classAttributes: 'kept', requirement: '' }
+    const gone: SectionSignature = { meetings: [], classAttributes: 'gone', requirement: '' }
     const seeded = recordSeenSections(mkEnrollment([now], { '8818': kept, '9999': gone }), {
       onlyMissing: true,
     })
@@ -1138,7 +1162,10 @@ describe('recordSeenSections', () => {
   })
   it('fills the requirement into a snapshot stored before the field, so the next change flags', () => {
     const now = mkSection('8818', [mkMeeting({})], 'English only', 'For Year 3 students only')
-    const preField: SectionSignature = { meetings: sig(now).meetings, language: sig(now).language }
+    const preField: SectionSignature = {
+      meetings: sig(now).meetings,
+      classAttributes: sig(now).classAttributes,
+    }
     const synced = recordSeenSections(mkEnrollment([now], { '8818': preField }), {
       onlyMissing: true,
     })
@@ -1159,7 +1186,7 @@ describe('recordSeenSections', () => {
     const now = mkSection('8818', [mkMeeting({ time: 'Mo 2:30PM - 5:15PM' })])
     const stale: SectionSignature = {
       meetings: [sigRow('stale', 'stale', 'stale')],
-      language: '',
+      classAttributes: '',
     }
     expect(
       diffEnrollment(
@@ -1187,7 +1214,7 @@ describe('recordSeenSections', () => {
 })
 
 describe('diffSectionDetail', () => {
-  it('returns unchanged live rows and no language change when before matches current', () => {
+  it('returns unchanged live rows and no attribute change when before matches current', () => {
     const now = mkSection('1', [mkMeeting({})], 'English only')
     const detail = diffSectionDetail(now, sig(now))
     expect(detail.rows).toEqual([
@@ -1196,7 +1223,7 @@ describe('diffSectionDetail', () => {
         meeting: sigRow('We 2:30PM - 5:15PM'),
       },
     ])
-    expect(detail.languageChanged).toBe(false)
+    expect(detail.classAttributesChanged).toBe(false)
   })
 
   it('pairs an equal-count change without also returning a removed row', () => {
@@ -1347,13 +1374,13 @@ describe('diffSectionDetail', () => {
     ])
   })
 
-  it('reports a language-only change with unchanged meeting rows', () => {
+  it('reports an attribute-only change with unchanged meeting rows', () => {
     const before = mkSection('1', [mkMeeting({})], 'English only')
     const now = mkSection('1', [mkMeeting({})], 'Putonghua and English')
     const detail = diffSectionDetail(now, sig(before))
     expect(detail.rows).toHaveLength(1)
     expect(detail.rows[0].status).toBe('unchanged')
-    expect(detail.languageChanged).toBe(true)
+    expect(detail.classAttributesChanged).toBe(true)
   })
 })
 

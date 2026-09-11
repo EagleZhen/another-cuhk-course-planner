@@ -596,11 +596,35 @@ function renameStoredWaitlistStatus(enrollments: CourseEnrollment[]): CourseEnro
   }))
 }
 
+// `language` was this field's old name. Renaming the stored key, rather than tolerating its
+// absence, keeps a carted section reporting the change when publishing corrects it (#323).
+function renameStoredClassAttributes(enrollments: CourseEnrollment[]): CourseEnrollment[] {
+  return enrollments.map((enrollment) => {
+    const snaps = enrollment.lastSeenSections
+    if (!snaps) return enrollment
+
+    return {
+      ...enrollment,
+      lastSeenSections: Object.fromEntries(
+        Object.entries(snaps).map(([id, snap]) => [
+          id,
+          {
+            ...snap,
+            classAttributes: snap.classAttributes ?? (snap as { language?: string }).language ?? '',
+          },
+        ])
+      ),
+    }
+  })
+}
+
 // Every step is idempotent, so re-normalizing current-version data is a no-op.
 function normalizeStoredEnrollments(enrollments: CourseEnrollment[]): CourseEnrollment[] {
   return reviveEnrollmentDates(
     stripLegacyInvalidStateFields(
-      renameStoredWaitlistStatus(migrateLegacyPartialRemovals(enrollments))
+      renameStoredClassAttributes(
+        renameStoredWaitlistStatus(migrateLegacyPartialRemovals(enrollments))
+      )
     )
   )
 }
@@ -647,7 +671,7 @@ const sameRequirement = (a: SectionSignature, b: SectionSignature): boolean =>
 const sameMeeting = (a: SectionMeetingSignature, b: SectionMeetingSignature): boolean =>
   a.time === b.time && a.location === b.location && a.instructor === b.instructor && sameDates(a, b)
 
-// A section's deduped meetings (in source order) plus language — the comparison key for
+// A section's deduped meetings (in source order) plus its class attributes — the comparison key for
 // change detection. Pure data; ignores `dates`. MeetingRowCard formats it for display.
 /** Identifies a displayed meeting row — exactly the fields the row shows. */
 export function meetingRowKey(row: SectionMeetingSignature): string {
@@ -671,7 +695,7 @@ export function sectionSignature(section: InternalSection): SectionSignature {
 
   return {
     meetings: [...byRow.values()],
-    language: norm(section.classAttributes),
+    classAttributes: norm(section.classAttributes),
     requirement: norm(section.enrollmentRequirement),
   }
 }
@@ -713,7 +737,7 @@ export function diffEnrollment(enrollment: CourseEnrollment): SectionChange[] {
     if (before === undefined) continue
     const after = sectionSignature(section)
     if (
-      before.language !== after.language ||
+      before.classAttributes !== after.classAttributes ||
       !sameRequirement(before, after) ||
       !sameMeetings(before.meetings, after.meetings)
     ) {
@@ -857,7 +881,7 @@ export function diffSectionDetail(
 
   return {
     rows,
-    languageChanged: before.language !== current.language,
+    classAttributesChanged: before.classAttributes !== current.classAttributes,
     requirementChanged: !sameRequirement(before, current),
   }
 }

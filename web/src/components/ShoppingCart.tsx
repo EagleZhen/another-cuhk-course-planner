@@ -609,11 +609,11 @@ export default function ShoppingCart({
                               <div className="flex items-start gap-1 text-[9px] mb-2 text-gray-500">
                                 <span className="flex-shrink-0">🌐</span>
                                 <span
-                                  className={`min-w-0 ${changeDetail?.languageChanged ? changedText : ''}`}
+                                  className={`min-w-0 ${changeDetail?.classAttributesChanged ? changedText : ''}`}
                                   title={
-                                    changeDetail?.languageChanged && sectionChange
-                                      ? `Previously ${sectionChange.before.language || 'not specified'}`
-                                      : `Language of instruction: ${section.classAttributes}`
+                                    changeDetail?.classAttributesChanged && sectionChange
+                                      ? `Previously ${sectionChange.before.classAttributes || 'not specified'}`
+                                      : `Class attributes: ${section.classAttributes}`
                                   }
                                 >
                                   {formatClassAttributesCompact(section.classAttributes)}

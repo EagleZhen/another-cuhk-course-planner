@@ -2245,7 +2245,7 @@ function CourseCard({
                                   <span className="flex-shrink-0">🌐</span>
                                   <span
                                     className="min-w-0"
-                                    title={`Language of instruction: ${section.classAttributes}`}
+                                    title={`Class attributes: ${section.classAttributes}`}
                                   >
                                     {formatClassAttributesCompact(section.classAttributes)}
                                   </span>
