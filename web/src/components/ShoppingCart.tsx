@@ -631,14 +631,16 @@ export default function ShoppingCart({
                             {/* What this section requires beyond its course. Below the meetings,
                                 as in the search card, since it can run to several lines. */}
                             {section.enrollmentRequirement && (
-                              <div className="mt-2 flex items-start gap-1 text-[9px] text-gray-500">
+                              <div className="mt-2 flex items-start gap-1 text-[9px] text-gray-400">
                                 <span className="flex-shrink-0">🔒</span>
-                                <span
-                                  className="min-w-0 whitespace-pre-line"
+                                <div
+                                  className="min-w-0 space-y-1"
                                   title={`Enrollment requirement: ${section.enrollmentRequirement}`}
                                 >
-                                  {section.enrollmentRequirement}
-                                </span>
+                                  {section.enrollmentRequirement.split('\n').map((rule, index) => (
+                                    <p key={index}>{rule}</p>
+                                  ))}
+                                </div>
                               </div>
                             )}
                           </div>

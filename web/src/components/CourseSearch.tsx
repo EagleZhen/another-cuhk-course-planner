@@ -2266,14 +2266,20 @@ function CourseCard({
                                   the only row that can run to several lines — above the meetings
                                   it would push them out of line with the cards beside it. */}
                               {section.enrollmentRequirement && (
-                                <div className="flex items-start gap-1 text-gray-500 text-[11px]">
+                                <div className="flex items-start gap-1 text-gray-400 text-[10px]">
                                   <span className="flex-shrink-0">🔒</span>
-                                  <span
-                                    className="min-w-0 whitespace-pre-line"
+                                  {/* One block per rule, so a wrapped line is not mistaken for
+                                      the next rule. */}
+                                  <div
+                                    className="min-w-0 space-y-1"
                                     title={`Enrollment requirement: ${section.enrollmentRequirement}`}
                                   >
-                                    {section.enrollmentRequirement}
-                                  </span>
+                                    {section.enrollmentRequirement
+                                      .split('\n')
+                                      .map((rule, index) => (
+                                        <p key={index}>{rule}</p>
+                                      ))}
+                                  </div>
                                 </div>
                               )}
                             </div>
