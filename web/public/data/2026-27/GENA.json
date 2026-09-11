@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "GENA",
     "subject_title": "General Education - New Asia College",
     "total_courses": 21
@@ -34,7 +34,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": ""
             },
             {
               "section": "AA01-ASB (8984)",
@@ -48,13 +49,14 @@
               ],
               "availability": {
                 "capacity": "2000",
-                "enrolled": "1059",
+                "enrolled": "1058",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "941",
+                "available_seats": "942",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -98,7 +100,8 @@
                 "available_seats": "1438",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": ""
             },
             {
               "section": "AA01-ASB (8808)",
@@ -136,7 +139,8 @@
                 "available_seats": "2000",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -175,13 +179,14 @@
               ],
               "availability": {
                 "capacity": "1100",
-                "enrolled": "975",
+                "enrolled": "974",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "125",
+                "available_seats": "126",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -235,7 +240,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BF01-FLD (8606)",
@@ -255,7 +261,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -293,7 +300,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "AF01-FLD (6486)",
@@ -313,7 +321,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (9360)",
@@ -351,7 +360,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "CF01-FLD (6693)",
@@ -371,7 +381,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (5351)",
@@ -403,7 +414,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "DF01-FLD (8093)",
@@ -423,7 +435,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -473,7 +486,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "AF01-FLD (6047)",
@@ -493,7 +507,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (7026)",
@@ -519,7 +534,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BF01-FLD (6048)",
@@ -539,7 +555,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (5171)",
@@ -559,7 +576,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "CF01-FLD (8031)",
@@ -579,7 +597,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -617,7 +636,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "DF01-FLD (6231)",
@@ -637,7 +657,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (5499)",
@@ -669,7 +690,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "EF01-FLD (6232)",
@@ -689,7 +711,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -745,7 +768,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "AF01-FLD (6270)",
@@ -765,7 +789,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8533)",
@@ -791,7 +816,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BF01-FLD (6300)",
@@ -811,7 +837,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (9373)",
@@ -837,7 +864,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "CF01-FLD (6368)",
@@ -857,7 +885,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "H-LEC (9374)",
@@ -883,7 +912,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "HF01-FLD (6046)",
@@ -903,7 +933,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "Q-LEC (5219)",
@@ -923,7 +954,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "QF01-FLD (8417)",
@@ -943,7 +975,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -987,7 +1020,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "DF01-FLD (6227)",
@@ -1007,7 +1041,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (9264)",
@@ -1039,7 +1074,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "EF01-FLD (6225)",
@@ -1059,7 +1095,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "F-LEC (7710)",
@@ -1091,7 +1128,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "FF01-FLD (7928)",
@@ -1111,7 +1149,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (8500)",
@@ -1143,7 +1182,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "GF01-FLD (6228)",
@@ -1163,7 +1203,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "I-LEC (9265)",
@@ -1195,7 +1236,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "IF01-FLD (6229)",
@@ -1215,7 +1257,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "J-LEC (5021)",
@@ -1253,7 +1296,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "JF01-FLD (6230)",
@@ -1273,7 +1317,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "K-LEC (9266)",
@@ -1305,7 +1350,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "KF01-FLD (6226)",
@@ -1325,7 +1371,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "L-LEC (6008)",
@@ -1357,7 +1404,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "LF01-FLD (8366)",
@@ -1377,7 +1425,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "M-LEC (9281)",
@@ -1409,7 +1458,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "MF01-FLD (6415)",
@@ -1429,7 +1479,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "N-LEC (8448)",
@@ -1461,7 +1512,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "NF01-FLD (7977)",
@@ -1481,7 +1533,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "O-LEC (9282)",
@@ -1519,7 +1572,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "OF01-FLD (6416)",
@@ -1539,7 +1593,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "P-LEC (7723)",
@@ -1577,7 +1632,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "PF01-FLD (7976)",
@@ -1597,7 +1653,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1665,7 +1722,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "AF01-FLD (6647)",
@@ -1685,7 +1743,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (6969)",
@@ -1717,7 +1776,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BF01-FLD (7978)",
@@ -1737,7 +1797,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1787,7 +1848,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1832,7 +1894,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1887,7 +1950,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -1931,7 +1995,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1997,7 +2062,8 @@
                 "available_seats": "55",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2058,7 +2124,8 @@
                 "available_seats": "55",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2107,7 +2174,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2157,7 +2225,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2201,7 +2270,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2246,7 +2316,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2308,7 +2379,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2357,7 +2429,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2401,7 +2474,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2461,7 +2535,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (9328)",
@@ -2493,7 +2568,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T02-TUT (6496)",
@@ -2513,7 +2589,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2563,7 +2640,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2611,7 +2689,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (5867)",
@@ -2631,7 +2710,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T02-TUT (6537)",
@@ -2651,7 +2731,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2718,7 +2799,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2779,7 +2861,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }

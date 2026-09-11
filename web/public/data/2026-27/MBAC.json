@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "MBAC",
     "subject_title": "MBA Programmes",
     "total_courses": 11
@@ -34,7 +34,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -60,7 +61,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -86,7 +88,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -112,7 +115,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -214,7 +218,8 @@
                 "available_seats": "16",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -286,7 +291,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -361,7 +367,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -439,7 +446,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -513,7 +521,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -593,7 +602,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -673,7 +683,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -717,7 +728,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "S-LEC (1239)",
@@ -755,7 +767,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -781,7 +794,8 @@
                 "available_seats": "43",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -873,13 +887,14 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "8",
+                "enrolled": "10",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "52",
+                "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -934,7 +949,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1003,7 +1019,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -1053,7 +1070,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             }
           ]
         }

@@ -70,6 +70,7 @@ import { TermSelector } from '@/components/TermSelector'
 import { CuhkLibraryImageIcon } from '@/components/icons/CuhkLibraryImageIcon'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { MeetingRowCard } from '@/components/MeetingRowCard'
+import { ClassAttributesRow, EnrollmentRequirementRow } from '@/components/SectionAttributeRow'
 
 // Using clean internal types only
 
@@ -2238,31 +2239,11 @@ function CourseCard({
                                 ))}
                               </div>
 
-                              {/* Row 3: Teaching Language */}
-                              {section.classAttributes && (
-                                <div className="flex items-center gap-1 text-gray-500 text-[11px]">
-                                  <span className="flex-shrink-0">🌐</span>
-                                  <span
-                                    className="truncate"
-                                    title={`Language of instruction: ${section.classAttributes}`}
-                                  >
-                                    {section.classAttributes}
-                                  </span>
-                                </div>
-                              )}
-
-                              {/* Row 4: What this section requires beyond its course */}
-                              {section.enrollmentRequirement && (
-                                <div className="flex items-center gap-1 text-gray-500 text-[11px]">
-                                  <span className="flex-shrink-0">🔒</span>
-                                  <span
-                                    className="truncate"
-                                    title={`Enrollment requirement: ${section.enrollmentRequirement}`}
-                                  >
-                                    {section.enrollmentRequirement}
-                                  </span>
-                                </div>
-                              )}
+                              {/* Row 3: Class attributes */}
+                              <ClassAttributesRow
+                                value={section.classAttributes}
+                                className="text-gray-500 text-[11px]"
+                              />
 
                               {/* Meeting rows are normalized and deduped by sectionSignature. */}
                               <div className="space-y-1">
@@ -2273,6 +2254,14 @@ function CourseCard({
                                   />
                                 ))}
                               </div>
+
+                              {/* What this section requires beyond its course. Last because it is
+                                  the only row that can run to several lines — above the meetings
+                                  it would push them out of line with the cards beside it. */}
+                              <EnrollmentRequirementRow
+                                value={section.enrollmentRequirement}
+                                className="text-gray-400 text-[10px]"
+                              />
                             </div>
                           </div>
                         )

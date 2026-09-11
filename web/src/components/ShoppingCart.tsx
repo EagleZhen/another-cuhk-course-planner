@@ -29,7 +29,8 @@ import type {
   MeetingRow,
 } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
-import { MeetingRowCard, changedText } from '@/components/MeetingRowCard'
+import { MeetingRowCard } from '@/components/MeetingRowCard'
+import { ClassAttributesRow, EnrollmentRequirementRow } from '@/components/SectionAttributeRow'
 
 // Shared style for the change-banner actions; the grid gives both equal width.
 const bannerButtonClass =
@@ -279,7 +280,7 @@ export default function ShoppingCart({
       {changedCourseIds.length > 0 ? (
         <div
           className="flex flex-col gap-1.5 border-y border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800"
-          title={`CUHK course data changed for ${changedCourseIds.join(', ')}. Review the highlighted cards and update any saved calendar or screenshot.`}
+          title={`Course data changed for ${changedCourseIds.join(', ')}. Review the highlighted cards and update any saved calendar or screenshot.`}
         >
           <span className="flex items-center gap-1.5 leading-4">
             <AlertTriangle className="size-3.5 shrink-0 text-amber-600" />
@@ -603,22 +604,13 @@ export default function ShoppingCart({
                               ))}
                             </div>
 
-                            {/* Row 3: Teaching Language */}
-                            {section.classAttributes && (
-                              <div className="flex items-center gap-1 text-[9px] mb-2 text-gray-500">
-                                <span className="flex-shrink-0">🌐</span>
-                                <span
-                                  className={`truncate ${changeDetail?.languageChanged ? changedText : ''}`}
-                                  title={
-                                    changeDetail?.languageChanged && sectionChange
-                                      ? `Previously ${sectionChange.before.language || 'not specified'}`
-                                      : `Language of instruction: ${section.classAttributes}`
-                                  }
-                                >
-                                  {section.classAttributes}
-                                </span>
-                              </div>
-                            )}
+                            {/* Row 3: Class attributes */}
+                            <ClassAttributesRow
+                              value={section.classAttributes}
+                              className="text-[9px] mb-2 text-gray-500"
+                              changed={changeDetail?.classAttributesChanged}
+                              previous={sectionChange?.before.classAttributes}
+                            />
 
                             {/* Meeting rows are normalized and deduped by sectionSignature. */}
                             <div className="space-y-1">
@@ -626,6 +618,15 @@ export default function ShoppingCart({
                                 <MeetingRowCard key={index} row={row} />
                               ))}
                             </div>
+
+                            {/* What this section requires beyond its course. Below the meetings,
+                                as in the search card, since it can run to several lines. */}
+                            <EnrollmentRequirementRow
+                              value={section.enrollmentRequirement}
+                              className="mt-2 text-[9px] text-gray-400"
+                              changed={changeDetail?.requirementChanged}
+                              previous={sectionChange?.before.requirement}
+                            />
                           </div>
                         )
                       })}

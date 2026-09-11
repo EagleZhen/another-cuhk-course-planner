@@ -42,7 +42,7 @@ const ExternalSectionSchema = z.object({
     waitlist_capacity: '0',
     waitlist_total: '0',
   }),
-  class_attributes: z.string().default(''), // Language of instruction
+  class_attributes: z.string().default(''), // What the class page states about itself, one per line
   enrollment_requirement: z.string().default(''), // What the section adds to its course's
 })
 
@@ -205,6 +205,7 @@ export function transformExternalCourse(external: unknown): InternalCourse {
     const terms = (validated.terms || []).map((term) => transformTerm(term, courseKey))
 
     // Parse and validate credits
+    // TODO(#331): 170 courses state a range ("1.50 - 2.00"); parseFloat keeps only the lower bound
     let credits = 0.0 // Default value
     if (validated.credits) {
       const parsed = parseFloat(validated.credits)

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "HPSB",
     "subject_title": "Master of Public Health",
     "total_courses": 4
@@ -34,7 +34,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "- Master of Public Health / Postgraduate Diploma in Public Health; - MSc/PgD in Epidemiology and Biostatistics; - MSc in Health Services Management;"
             }
           ]
         },
@@ -60,13 +61,14 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "78",
+                "enrolled": "77",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "23",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "- Master of Public Health / Postgraduate Diploma in Public Health; - MSc/PgD in Epidemiology and Biostatistics; - MSc in Health Services Management;"
             }
           ]
         }
@@ -122,7 +124,8 @@
                 "available_seats": "44",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "- Master of Public Health / Postgraduate Diploma in Public Health; - MSc in Epidemiology and Biostatistics; - MSc/PgD in Health Services Management;"
             }
           ]
         }
@@ -170,7 +173,8 @@
                 "available_seats": "69",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "- Master of Public Health / Postgraduate Diploma in Public Health; - MSc/PgD in Epidemiology and Biostatistics; - MSc in Health Services Management;"
             }
           ]
         }
@@ -225,7 +229,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "- Master of Public Health / Postgraduate Diploma in Public Health;- MSc/PgD in Epidemiology and Biostatistics;- MSc in Health Services Management."
             }
           ]
         }

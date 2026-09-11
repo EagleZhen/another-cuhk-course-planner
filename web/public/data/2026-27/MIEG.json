@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "MIEG",
     "subject_title": "Mathematics and Information Engineering",
     "total_courses": 2
@@ -40,7 +40,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ENGG1125 or ESTR1007 or MATH1010 or MATH1510"
             },
             {
               "section": "-T01-TUT (6444)",
@@ -60,7 +61,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ENGG1125 or ESTR1007 or MATH1010 or MATH1510"
             }
           ]
         }
@@ -145,7 +147,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6426)",
@@ -165,7 +168,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }

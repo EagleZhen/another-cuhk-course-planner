@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "IEMS",
     "subject_title": "Information Engineering (TPg)",
     "total_courses": 21
@@ -40,13 +40,14 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "35",
+                "enrolled": "43",
                 "waitlist_capacity": "10",
                 "waitlist_total": "1",
-                "available_seats": "65",
+                "available_seats": "57",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -100,13 +101,14 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "25",
+                "enrolled": "26",
                 "waitlist_capacity": "10",
                 "waitlist_total": "0",
-                "available_seats": "75",
+                "available_seats": "74",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -161,13 +163,14 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "59",
+                "enrolled": "61",
                 "waitlist_capacity": "10",
                 "waitlist_total": "2",
-                "available_seats": "61",
+                "available_seats": "59",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -222,7 +225,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -260,7 +264,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -303,13 +308,14 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "151",
+                "enrolled": "150",
                 "waitlist_capacity": "10",
                 "waitlist_total": "10",
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -341,7 +347,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -402,7 +409,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -463,7 +471,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (2510)",
@@ -495,7 +504,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -550,7 +560,8 @@
                 "available_seats": "86",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -592,13 +603,14 @@
               ],
               "availability": {
                 "capacity": "140",
-                "enrolled": "58",
+                "enrolled": "87",
                 "waitlist_capacity": "10",
                 "waitlist_total": "2",
-                "available_seats": "82",
+                "available_seats": "53",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -630,7 +642,8 @@
                 "available_seats": "44",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -691,7 +704,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -743,11 +757,12 @@
                 "capacity": "150",
                 "enrolled": "150",
                 "waitlist_capacity": "10",
-                "waitlist_total": "8",
+                "waitlist_total": "9",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -796,7 +811,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -840,13 +856,14 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "121",
+                "enrolled": "120",
                 "waitlist_capacity": "20",
-                "waitlist_total": "14",
+                "waitlist_total": "18",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -895,13 +912,14 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "134",
+                "enrolled": "135",
                 "waitlist_capacity": "10",
-                "waitlist_total": "9",
-                "available_seats": "16",
+                "waitlist_total": "8",
+                "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -945,7 +963,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1006,13 +1025,14 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "85",
+                "enrolled": "68",
                 "waitlist_capacity": "10",
-                "waitlist_total": "9",
-                "available_seats": "35",
+                "waitlist_total": "5",
+                "available_seats": "52",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -1062,7 +1082,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1117,7 +1138,8 @@
                 "available_seats": "108",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1185,7 +1207,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1234,7 +1257,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (1354)",
@@ -1254,7 +1278,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1322,7 +1347,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (1075)",
@@ -1360,7 +1386,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1445,7 +1472,8 @@
                 "available_seats": "49",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1493,7 +1521,8 @@
                 "available_seats": "99",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }

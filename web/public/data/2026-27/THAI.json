@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "THAI",
     "subject_title": "Thai",
     "total_courses": 2
@@ -34,7 +34,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "Thai and English"
+              "class_attributes": "Thai and English",
+              "enrollment_requirement": ""
             },
             {
               "section": "BC01-CLW (5820)",
@@ -54,7 +55,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Thai and English"
+              "class_attributes": "Thai and English",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -92,7 +94,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Thai and English"
+              "class_attributes": "Thai and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -153,7 +156,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Thai and English"
+              "class_attributes": "Thai and English",
+              "enrollment_requirement": ""
             }
           ]
         }

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "UGEA",
     "subject_title": "UGEA: Chinese Cultural Heritage",
     "total_courses": 25
@@ -34,7 +34,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and Cantonese"
+              "class_attributes": "Putonghua and Cantonese",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -82,7 +83,8 @@
                 "available_seats": "66",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -149,7 +151,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "AT01-TUT (9583)",
@@ -181,7 +184,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "B-LEC (6138)",
@@ -219,7 +223,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "BT01-TUT (9584)",
@@ -251,7 +256,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "BT02-TUT (9585)",
@@ -283,7 +289,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         }
@@ -338,7 +345,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -399,7 +407,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (8145)",
@@ -431,7 +440,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -492,7 +502,8 @@
                 "available_seats": "55",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -540,7 +551,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "AT01-TUT (5122)",
@@ -560,7 +572,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (5123)",
@@ -586,7 +599,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BT01-TUT (5121)",
@@ -612,7 +626,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (5124)",
@@ -632,7 +647,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             },
             {
               "section": "CT01-TUT (5125)",
@@ -652,7 +668,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (5126)",
@@ -672,7 +689,8 @@
                 "available_seats": "37",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "DT01-TUT (5127)",
@@ -692,7 +710,8 @@
                 "available_seats": "37",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -730,7 +749,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "AT01-TUT (5229)",
@@ -762,7 +782,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (5242)",
@@ -800,7 +821,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BT01-TUT (5243)",
@@ -838,7 +860,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "C-LEC (5244)",
@@ -870,7 +893,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "CT01-TUT (5245)",
@@ -902,7 +926,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "D-LEC (5246)",
@@ -934,7 +959,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             },
             {
               "section": "DT01-TUT (5247)",
@@ -966,7 +992,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             },
             {
               "section": "E-LEC (5264)",
@@ -998,7 +1025,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "ET01-TUT (5265)",
@@ -1030,7 +1058,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1098,7 +1127,8 @@
                 "available_seats": "340",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1153,7 +1183,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "B-LEC (7446)",
@@ -1179,7 +1210,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "C-LEC (4964)",
@@ -1205,7 +1237,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "D-LEC (7447)",
@@ -1225,7 +1258,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "E-LEC (7448)",
@@ -1251,7 +1285,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "F-LEC (7449)",
@@ -1271,7 +1306,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "G-LEC (4966)",
@@ -1297,7 +1333,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "H-LEC (9095)",
@@ -1323,7 +1360,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "I-LEC (7768)",
@@ -1343,7 +1381,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "J-LEC (9458)",
@@ -1363,7 +1402,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         },
@@ -1407,7 +1447,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "B-LEC (7511)",
@@ -1439,7 +1480,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "C-LEC (7467)",
@@ -1477,7 +1519,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "D-LEC (4807)",
@@ -1509,7 +1552,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "E-LEC (9668)",
@@ -1541,7 +1585,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "F-LEC (7461)",
@@ -1573,7 +1618,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "G-LEC (9447)",
@@ -1605,7 +1651,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "H-LEC (4808)",
@@ -1643,7 +1690,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "I-LEC (9483)",
@@ -1681,7 +1729,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "J-LEC (9250)",
@@ -1713,7 +1762,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "K-LEC (5507)",
@@ -1745,7 +1795,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         }
@@ -1799,7 +1850,8 @@
                 "available_seats": "58",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "B-LEC (9527)",
@@ -1819,7 +1871,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         },
@@ -1857,7 +1910,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "B-LEC (5951)",
@@ -1895,7 +1949,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "C-LEC (4809)",
@@ -1927,7 +1982,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         }
@@ -1982,7 +2038,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         },
@@ -2020,7 +2077,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         }
@@ -2070,7 +2128,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         },
@@ -2108,7 +2167,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         }
@@ -2157,7 +2217,8 @@
                 "available_seats": "33",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Not for Philosophy Majors; and students who have taken PHIL2020, 2030 or UGEA2160.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "B-LEC (9842)",
@@ -2183,7 +2244,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Not for Philosophy Majors; and students who have taken PHIL2020, 2030 or UGEA2160.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "C-LEC (7359)",
@@ -2209,7 +2271,8 @@
                 "available_seats": "44",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Not for Philosophy Majors; and students who have taken PHIL2020, 2030 or UGEA2160.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         },
@@ -2247,7 +2310,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Not for Philosophy Majors; and students who have taken PHIL2020, 2030 or UGEA2160.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "B-LEC (7468)",
@@ -2279,7 +2343,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Not for Philosophy Majors; and students who have taken PHIL2020, 2030 or UGEA2160.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "C-LEC (9669)",
@@ -2311,7 +2376,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Not for Philosophy Majors; and students who have taken PHIL2020, 2030 or UGEA2160.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         }
@@ -2359,7 +2425,8 @@
                 "available_seats": "36",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "B-LEC (5680)",
@@ -2379,7 +2446,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         },
@@ -2417,7 +2485,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "B-LEC (7416)",
@@ -2449,7 +2518,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         }
@@ -2498,7 +2568,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2542,7 +2613,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2603,7 +2675,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (7611)",
@@ -2635,7 +2708,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T02-TUT (7610)",
@@ -2667,7 +2741,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2722,7 +2797,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (5156)",
@@ -2742,7 +2818,8 @@
                 "available_seats": "96",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2780,7 +2857,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2835,7 +2913,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2879,7 +2958,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "G-LEC (4950)",
@@ -2917,7 +2997,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2971,7 +3052,8 @@
                 "available_seats": "62",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         }
@@ -3019,7 +3101,8 @@
                 "available_seats": "47",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         }
@@ -3074,7 +3157,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -3118,7 +3202,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3178,7 +3263,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "-T01-TUT (6035)",
@@ -3210,7 +3296,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "-T02-TUT (6608)",
@@ -3230,7 +3317,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         }
@@ -3286,7 +3374,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "UGEA2332 is double-coded with ANTH2420.\nNot for Anthropology Majors; and students who have taken ANTH2420, UGEA2140 or 2190.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix"
             },
             {
               "section": "-T01-TUT (7563)",
@@ -3312,7 +3401,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "UGEA2332 is double-coded with ANTH2420.\nNot for Anthropology Majors; and students who have taken ANTH2420, UGEA2140 or 2190.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix"
             }
           ]
         }
@@ -3362,7 +3452,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "AT01-TUT (7564)",
@@ -3382,7 +3473,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (7567)",
@@ -3402,7 +3494,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BT01-TUT (7566)",
@@ -3422,7 +3515,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -3466,7 +3560,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "AT01-TUT (6166)",
@@ -3504,7 +3599,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (7613)",
@@ -3536,7 +3632,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BT01-TUT (7612)",
@@ -3568,7 +3665,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3624,7 +3722,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }

@@ -42,7 +42,11 @@ export interface InternalSection {
   sectionType: SectionType
   meetings: InternalMeeting[]
   availability: SectionAvailability
-  classAttributes: string // Language of instruction (e.g., "English only", "Putonghua and English", or "")
+  // What the class page states about itself, one per line: usually a language, sometimes a
+  // teaching mode or course type. CUHK's own name for the field, since what the lines mean
+  // is not something we know.
+  // TODO(#332): both fields are lists of lines; every consumer re-splits the string
+  classAttributes: string
   enrollmentRequirement: string // What this section requires beyond its course, or ""
 }
 
@@ -65,12 +69,16 @@ export interface SectionMeetingSignature {
   dates?: string[]
 }
 
-// A section's comparable facts: deduped meetings (source order) plus language of
-// instruction. Pure data — MeetingRowCard formats it for display, so a future formatting
-// change can't retroactively look like a data change.
+// A section's comparable facts: deduped meetings (source order) plus its own class attributes
+// and enrollment requirement. Pure data — MeetingRowCard formats it for display, so a future
+// formatting change can't retroactively look like a data change.
 export interface SectionSignature {
   meetings: SectionMeetingSignature[]
-  language: string
+  // Renamed from `language` on load, so an old snapshot still reports a change.
+  classAttributes: string
+  // Optional like `dates`. Such a field needs both halves: a tolerance so absent reads as "no
+  // change", and a fill in `withFieldsAddedSinceStored` so the snapshot stops being blind.
+  requirement?: string
 }
 
 // A section whose sectionSignature no longer matches what the user last saw.
@@ -92,7 +100,8 @@ export interface MeetingRow {
 
 export interface SectionDiffDetail {
   rows: MeetingRow[]
-  languageChanged: boolean
+  classAttributesChanged: boolean
+  requirementChanged: boolean
 }
 
 export interface SectionAvailability {

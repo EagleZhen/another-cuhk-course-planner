@@ -596,11 +596,35 @@ function renameStoredWaitlistStatus(enrollments: CourseEnrollment[]): CourseEnro
   }))
 }
 
+// `language` was this field's old name. Renaming the stored key, rather than tolerating its
+// absence, keeps a carted section reporting the change when publishing corrects it (#323).
+function renameStoredClassAttributes(enrollments: CourseEnrollment[]): CourseEnrollment[] {
+  return enrollments.map((enrollment) => {
+    const snaps = enrollment.lastSeenSections
+    if (!snaps) return enrollment
+
+    return {
+      ...enrollment,
+      lastSeenSections: Object.fromEntries(
+        Object.entries(snaps).map(([id, snap]) => [
+          id,
+          {
+            ...snap,
+            classAttributes: snap.classAttributes ?? (snap as { language?: string }).language ?? '',
+          },
+        ])
+      ),
+    }
+  })
+}
+
 // Every step is idempotent, so re-normalizing current-version data is a no-op.
 function normalizeStoredEnrollments(enrollments: CourseEnrollment[]): CourseEnrollment[] {
   return reviveEnrollmentDates(
     stripLegacyInvalidStateFields(
-      renameStoredWaitlistStatus(migrateLegacyPartialRemovals(enrollments))
+      renameStoredClassAttributes(
+        renameStoredWaitlistStatus(migrateLegacyPartialRemovals(enrollments))
+      )
     )
   )
 }
@@ -625,6 +649,16 @@ export function readStoredEnrollments(parsed: unknown): CourseEnrollment[] | nul
 // Collapses whitespace so formatting noise doesn't look like a change.
 const norm = (s: string): string => (s ?? '').trim().replace(/\s+/g, ' ')
 
+// A section's own facts state one item per line, and the rows render those lines, so the
+// signature keeps them. Comparison flattens both sides instead: snapshots stored before this
+// kept no line breaks, and a section is not "changed" because we started recording them.
+// TODO(#332): lines carried by the model would need no splitting here.
+const normLines = (s: string): string => (s ?? '').split('\n').map(norm).filter(Boolean).join('\n')
+
+// Permanent: nothing marks a snapshot as predating the line breaks, so a change that only
+// regroups them never flags. TODO(#332): a stored list would end both.
+const sameText = (a: string, b: string): boolean => norm(a) === norm(b)
+
 // A meeting's normalized comparable fields (drops `dates`).
 const meetingRow = (m: InternalMeeting): SectionMeetingSignature => ({
   time: norm(m.time),
@@ -639,10 +673,17 @@ const sameDates = (a: SectionMeetingSignature, b: SectionMeetingSignature): bool
   !b.dates ||
   (a.dates.length === b.dates.length && a.dates.every((run, i) => run === b.dates![i]))
 
+// Like `sameDates`: a snapshot stored before the field cannot say whether it moved, so an
+// absent value means "no change" rather than "changed to nothing".
+const sameRequirement = (a: SectionSignature, b: SectionSignature): boolean =>
+  a.requirement === undefined ||
+  b.requirement === undefined ||
+  sameText(a.requirement, b.requirement)
+
 const sameMeeting = (a: SectionMeetingSignature, b: SectionMeetingSignature): boolean =>
   a.time === b.time && a.location === b.location && a.instructor === b.instructor && sameDates(a, b)
 
-// A section's deduped meetings (in source order) plus language — the comparison key for
+// A section's deduped meetings (in source order) plus its class attributes — the comparison key for
 // change detection. Pure data; ignores `dates`. MeetingRowCard formats it for display.
 /** Identifies a displayed meeting row — exactly the fields the row shows. */
 export function meetingRowKey(row: SectionMeetingSignature): string {
@@ -664,7 +705,11 @@ export function sectionSignature(section: InternalSection): SectionSignature {
     else if (dates && !existing.dates!.includes(dates)) existing.dates!.push(dates)
   }
 
-  return { meetings: [...byRow.values()], language: norm(section.classAttributes) }
+  return {
+    meetings: [...byRow.values()],
+    classAttributes: normLines(section.classAttributes),
+    requirement: normLines(section.enrollmentRequirement),
+  }
 }
 
 /**
@@ -703,7 +748,11 @@ export function diffEnrollment(enrollment: CourseEnrollment): SectionChange[] {
     const before = snaps[section.id]
     if (before === undefined) continue
     const after = sectionSignature(section)
-    if (before.language !== after.language || !sameMeetings(before.meetings, after.meetings)) {
+    if (
+      !sameText(before.classAttributes, after.classAttributes) ||
+      !sameRequirement(before, after) ||
+      !sameMeetings(before.meetings, after.meetings)
+    ) {
       changes.push({ sectionId: section.id, sectionCode: section.sectionCode, before, after })
     }
   }
@@ -758,31 +807,38 @@ export function recordSeenSections(
   for (const section of [...enrollment.selectedSections, ...(enrollment.removedSections ?? [])]) {
     next[section.id] =
       opts.onlyMissing && prev[section.id] !== undefined
-        ? withCurrentDates(prev[section.id], section)
+        ? withFieldsAddedSinceStored(prev[section.id], section)
         : sectionSignature(section)
   }
   return { ...enrollment, lastSeenSections: next }
 }
 
 /**
- * Fills dates into a snapshot stored before they were compared, taking them from
- * the section as it stands so the entry reads as "no date change yet".
+ * Fills the fields a snapshot predates — dates and the enrollment requirement — from the
+ * section as it stands, so it reads as "no change yet" and can report the next one.
  *
- * Without this the entry stays date-blind for good: kept as-is on every sync, it
- * would only gain dates if some unrelated change happened and was dismissed. A
- * row that no longer matches is left alone — it has changed, and gets reported.
+ * Without this a snapshot stays blind to them for good: kept as-is on every sync, it would
+ * only gain them if some unrelated change happened and was dismissed. A meeting row that no
+ * longer matches is left alone — it has changed, and gets reported.
  */
-function withCurrentDates(stored: SectionSignature, section: InternalSection): SectionSignature {
-  if (stored.meetings.every((meeting) => meeting.dates)) return stored
+function withFieldsAddedSinceStored(
+  stored: SectionSignature,
+  section: InternalSection
+): SectionSignature {
+  if (stored.requirement !== undefined && stored.meetings.every((meeting) => meeting.dates)) {
+    return stored
+  }
 
-  const current = new Map(
-    sectionSignature(section).meetings.map((meeting) => [meetingRowKey(meeting), meeting.dates])
+  const current = sectionSignature(section)
+  const datesByRow = new Map(
+    current.meetings.map((meeting) => [meetingRowKey(meeting), meeting.dates])
   )
 
   return {
     ...stored,
+    requirement: stored.requirement ?? current.requirement,
     meetings: stored.meetings.map((meeting) =>
-      meeting.dates ? meeting : { ...meeting, dates: current.get(meetingRowKey(meeting)) }
+      meeting.dates ? meeting : { ...meeting, dates: datesByRow.get(meetingRowKey(meeting)) }
     ),
   }
 }
@@ -835,7 +891,11 @@ export function diffSectionDetail(
     rows.push(...removed.map((meeting): MeetingRow => ({ status: 'removed', meeting })))
   }
 
-  return { rows, languageChanged: before.language !== current.language }
+  return {
+    rows,
+    classAttributesChanged: !sameText(before.classAttributes, current.classAttributes),
+    requirementChanged: !sameRequirement(before, current),
+  }
 }
 
 /**
@@ -1142,6 +1202,34 @@ export function splitInstructorsCompact(instructorString: string): string[] {
 export function formatInstructorsCompact(instructorString: string): string {
   const instructors = splitInstructorsCompact(instructorString)
   return instructors.length > 0 ? instructors.join(', ') : 'TBA'
+}
+
+/**
+ * Puts a section's class attributes on one row.
+ *
+ * CUSIS writes one per line, and a section can state a language beside a course type. The
+ * middot is ours — a semicolon would read as CUHK's own punctuation next to values like
+ * "Hokkien, Cantonese and Putonghua".
+ */
+export function formatClassAttributesCompact(classAttributes: string): string {
+  return classAttributes.split('\n').join(' · ')
+}
+
+/**
+ * What an attribute row shows: the current value, the previous one struck through if it was
+ * deleted since the user last looked, or nothing.
+ *
+ * A deleted value stays on screen because the change marker lives inside the row — drop the
+ * row and a flagged section shows nothing changed.
+ */
+export function attributeRowState(
+  value: string,
+  previous: string | undefined,
+  changed: boolean
+): { text: string; removed: boolean } | null {
+  if (value) return { text: value, removed: false }
+  if (changed && previous) return { text: previous, removed: true }
+  return null
 }
 
 // Every title the scraped data uses, dotted or not. "Staff" and the "***" prefix are
