@@ -65,12 +65,15 @@ export interface SectionMeetingSignature {
   dates?: string[]
 }
 
-// A section's comparable facts: deduped meetings (source order) plus language of
-// instruction. Pure data — MeetingRowCard formats it for display, so a future formatting
-// change can't retroactively look like a data change.
+// A section's comparable facts: deduped meetings (source order) plus its own language and
+// enrollment requirement. Pure data — MeetingRowCard formats it for display, so a future
+// formatting change can't retroactively look like a data change.
 export interface SectionSignature {
   meetings: SectionMeetingSignature[]
   language: string
+  // Optional like `dates`. Such a field needs both halves: a tolerance so absent reads as "no
+  // change", and a fill in `withFieldsAddedSinceStored` so the snapshot stops being blind.
+  requirement?: string
 }
 
 // A section whose sectionSignature no longer matches what the user last saw.
@@ -93,6 +96,7 @@ export interface MeetingRow {
 export interface SectionDiffDetail {
   rows: MeetingRow[]
   languageChanged: boolean
+  requirementChanged: boolean
 }
 
 export interface SectionAvailability {

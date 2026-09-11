@@ -639,6 +639,11 @@ const sameDates = (a: SectionMeetingSignature, b: SectionMeetingSignature): bool
   !b.dates ||
   (a.dates.length === b.dates.length && a.dates.every((run, i) => run === b.dates![i]))
 
+// Like `sameDates`: a snapshot stored before the field cannot say whether it moved, so an
+// absent value means "no change" rather than "changed to nothing".
+const sameRequirement = (a: SectionSignature, b: SectionSignature): boolean =>
+  a.requirement === undefined || b.requirement === undefined || a.requirement === b.requirement
+
 const sameMeeting = (a: SectionMeetingSignature, b: SectionMeetingSignature): boolean =>
   a.time === b.time && a.location === b.location && a.instructor === b.instructor && sameDates(a, b)
 
@@ -664,7 +669,11 @@ export function sectionSignature(section: InternalSection): SectionSignature {
     else if (dates && !existing.dates!.includes(dates)) existing.dates!.push(dates)
   }
 
-  return { meetings: [...byRow.values()], language: norm(section.classAttributes) }
+  return {
+    meetings: [...byRow.values()],
+    language: norm(section.classAttributes),
+    requirement: norm(section.enrollmentRequirement),
+  }
 }
 
 /**
@@ -703,7 +712,11 @@ export function diffEnrollment(enrollment: CourseEnrollment): SectionChange[] {
     const before = snaps[section.id]
     if (before === undefined) continue
     const after = sectionSignature(section)
-    if (before.language !== after.language || !sameMeetings(before.meetings, after.meetings)) {
+    if (
+      before.language !== after.language ||
+      !sameRequirement(before, after) ||
+      !sameMeetings(before.meetings, after.meetings)
+    ) {
       changes.push({ sectionId: section.id, sectionCode: section.sectionCode, before, after })
     }
   }
@@ -758,31 +771,38 @@ export function recordSeenSections(
   for (const section of [...enrollment.selectedSections, ...(enrollment.removedSections ?? [])]) {
     next[section.id] =
       opts.onlyMissing && prev[section.id] !== undefined
-        ? withCurrentDates(prev[section.id], section)
+        ? withFieldsAddedSinceStored(prev[section.id], section)
         : sectionSignature(section)
   }
   return { ...enrollment, lastSeenSections: next }
 }
 
 /**
- * Fills dates into a snapshot stored before they were compared, taking them from
- * the section as it stands so the entry reads as "no date change yet".
+ * Fills the fields a snapshot predates — dates and the enrollment requirement — from the
+ * section as it stands, so it reads as "no change yet" and can report the next one.
  *
- * Without this the entry stays date-blind for good: kept as-is on every sync, it
- * would only gain dates if some unrelated change happened and was dismissed. A
- * row that no longer matches is left alone — it has changed, and gets reported.
+ * Without this a snapshot stays blind to them for good: kept as-is on every sync, it would
+ * only gain them if some unrelated change happened and was dismissed. A meeting row that no
+ * longer matches is left alone — it has changed, and gets reported.
  */
-function withCurrentDates(stored: SectionSignature, section: InternalSection): SectionSignature {
-  if (stored.meetings.every((meeting) => meeting.dates)) return stored
+function withFieldsAddedSinceStored(
+  stored: SectionSignature,
+  section: InternalSection
+): SectionSignature {
+  if (stored.requirement !== undefined && stored.meetings.every((meeting) => meeting.dates)) {
+    return stored
+  }
 
-  const current = new Map(
-    sectionSignature(section).meetings.map((meeting) => [meetingRowKey(meeting), meeting.dates])
+  const current = sectionSignature(section)
+  const datesByRow = new Map(
+    current.meetings.map((meeting) => [meetingRowKey(meeting), meeting.dates])
   )
 
   return {
     ...stored,
+    requirement: stored.requirement ?? current.requirement,
     meetings: stored.meetings.map((meeting) =>
-      meeting.dates ? meeting : { ...meeting, dates: current.get(meetingRowKey(meeting)) }
+      meeting.dates ? meeting : { ...meeting, dates: datesByRow.get(meetingRowKey(meeting)) }
     ),
   }
 }
@@ -835,7 +855,11 @@ export function diffSectionDetail(
     rows.push(...removed.map((meeting): MeetingRow => ({ status: 'removed', meeting })))
   }
 
-  return { rows, languageChanged: before.language !== current.language }
+  return {
+    rows,
+    languageChanged: before.language !== current.language,
+    requirementChanged: !sameRequirement(before, current),
+  }
 }
 
 /**

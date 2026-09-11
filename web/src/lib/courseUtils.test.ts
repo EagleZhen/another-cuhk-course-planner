@@ -561,14 +561,19 @@ function mkMeeting(p: Partial<InternalMeeting>): InternalMeeting {
     ...p,
   }
 }
-function mkSection(id: string, meetings: InternalMeeting[], classAttributes = ''): InternalSection {
+function mkSection(
+  id: string,
+  meetings: InternalMeeting[],
+  classAttributes = '',
+  enrollmentRequirement = ''
+): InternalSection {
   return {
     id,
     sectionCode: `--LEC (${id})`,
     sectionType: 'LEC',
     meetings,
     classAttributes,
-    enrollmentRequirement: '',
+    enrollmentRequirement,
     availability: {
       capacity: 1,
       enrolled: 0,
@@ -1093,6 +1098,20 @@ describe('diffEnrollment', () => {
     expect(diffEnrollment(mkEnrollment([now]))).toHaveLength(0)
     expect(diffEnrollment(mkEnrollment([now], { '8818': sig(now) }))).toHaveLength(0)
   })
+  it('flags a section whose enrollment requirement changed', () => {
+    const now = mkSection('8818', [mkMeeting({})], 'English only', 'For Year 3 students only')
+    const before = { ...sig(now), requirement: '' }
+    expect(diffEnrollment(mkEnrollment([now], { '8818': before }))).toHaveLength(1)
+  })
+  it('reads a snapshot stored before requirements as no change, not as an empty one', () => {
+    const now = mkSection('8818', [mkMeeting({})], 'English only', 'For Year 3 students only')
+    const preField: SectionSignature = { meetings: sig(now).meetings, language: sig(now).language }
+    expect(diffEnrollment(mkEnrollment([now], { '8818': preField }))).toHaveLength(0)
+  })
+  it('leaves a section that has never stated a requirement alone', () => {
+    const now = mkSection('8818', [mkMeeting({})], 'English only')
+    expect(diffEnrollment(mkEnrollment([now], { '8818': sig(now) }))).toHaveLength(0)
+  })
   it('isolates the changed section among several and does not mutate input', () => {
     const s1 = mkSection('1', [mkMeeting({})])
     const s2 = mkSection('2', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
@@ -1109,13 +1128,26 @@ describe('diffEnrollment', () => {
 describe('recordSeenSections', () => {
   it('onlyMissing seeds missing, keeps existing, prunes de-selected ids', () => {
     const now = mkSection('8818', [mkMeeting({ time: 'Mo 9AM - 10AM' })])
-    const kept: SectionSignature = { meetings: [], language: 'kept' }
-    const gone: SectionSignature = { meetings: [], language: 'gone' }
+    const kept: SectionSignature = { meetings: [], language: 'kept', requirement: '' }
+    const gone: SectionSignature = { meetings: [], language: 'gone', requirement: '' }
     const seeded = recordSeenSections(mkEnrollment([now], { '8818': kept, '9999': gone }), {
       onlyMissing: true,
     })
     expect(seeded.lastSeenSections!['8818']).toBe(kept)
     expect(seeded.lastSeenSections!['9999']).toBeUndefined()
+  })
+  it('fills the requirement into a snapshot stored before the field, so the next change flags', () => {
+    const now = mkSection('8818', [mkMeeting({})], 'English only', 'For Year 3 students only')
+    const preField: SectionSignature = { meetings: sig(now).meetings, language: sig(now).language }
+    const synced = recordSeenSections(mkEnrollment([now], { '8818': preField }), {
+      onlyMissing: true,
+    })
+
+    expect(synced.lastSeenSections!['8818'].requirement).toBe('For Year 3 students only')
+    expect(diffEnrollment(synced)).toHaveLength(0)
+
+    const changed = mkSection('8818', [mkMeeting({})], 'English only', 'For Year 4 students only')
+    expect(diffEnrollment({ ...synced, selectedSections: [changed] })).toHaveLength(1)
   })
   it('seeds a section with no snapshot to its current signature', () => {
     const now = mkSection('8818', [mkMeeting({})])

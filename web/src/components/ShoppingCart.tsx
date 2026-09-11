@@ -634,8 +634,12 @@ export default function ShoppingCart({
                               <div className="mt-2 flex items-start gap-1 text-[9px] text-gray-400">
                                 <span className="flex-shrink-0">🔒</span>
                                 <div
-                                  className="min-w-0 space-y-1"
-                                  title={`Enrollment requirement: ${section.enrollmentRequirement}`}
+                                  className={`min-w-0 space-y-1 ${changeDetail?.requirementChanged ? changedText : ''}`}
+                                  title={
+                                    changeDetail?.requirementChanged && sectionChange
+                                      ? `Previously ${sectionChange.before.requirement || 'not specified'}`
+                                      : `Enrollment requirement: ${section.enrollmentRequirement}`
+                                  }
                                 >
                                   {section.enrollmentRequirement.split('\n').map((rule, index) => (
                                     <p key={index}>{rule}</p>
