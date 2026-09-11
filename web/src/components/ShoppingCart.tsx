@@ -279,7 +279,7 @@ export default function ShoppingCart({
       {changedCourseIds.length > 0 ? (
         <div
           className="flex flex-col gap-1.5 border-y border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800"
-          title={`CUHK course data changed for ${changedCourseIds.join(', ')}. Review the highlighted cards and update any saved calendar or screenshot.`}
+          title={`Course data changed for ${changedCourseIds.join(', ')}. Review the highlighted cards and update any saved calendar or screenshot.`}
         >
           <span className="flex items-center gap-1.5 leading-4">
             <AlertTriangle className="size-3.5 shrink-0 text-amber-600" />
