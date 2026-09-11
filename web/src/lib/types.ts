@@ -45,6 +45,7 @@ export interface InternalSection {
   // What the class page states about itself, one per line: usually a language, sometimes a
   // teaching mode or course type. CUHK's own name for the field, since what the lines mean
   // is not something we know.
+  // TODO(#332): both fields are lists of lines; every consumer re-splits the string
   classAttributes: string
   enrollmentRequirement: string // What this section requires beyond its course, or ""
 }
