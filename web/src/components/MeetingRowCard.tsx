@@ -12,7 +12,7 @@ import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 
 // Amber text marks a changed value without shifting the surrounding row.
-// Exported for the cart's language-of-instruction line, which uses the same treatment.
+// Exported for the cart's class-attribute and enrollment-requirement lines, which use the same treatment.
 export const changedText = 'rounded bg-amber-100 text-amber-800 cursor-help'
 
 // A changed value shows both, since the row truncates and the arrow says which

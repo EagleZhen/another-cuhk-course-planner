@@ -42,7 +42,7 @@ const ExternalSectionSchema = z.object({
     waitlist_capacity: '0',
     waitlist_total: '0',
   }),
-  class_attributes: z.string().default(''), // Language of instruction
+  class_attributes: z.string().default(''), // What the class page states about itself, one per line
   enrollment_requirement: z.string().default(''), // What the section adds to its course's
 })
 

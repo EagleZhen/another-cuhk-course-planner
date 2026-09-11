@@ -42,7 +42,10 @@ export interface InternalSection {
   sectionType: SectionType
   meetings: InternalMeeting[]
   availability: SectionAvailability
-  classAttributes: string // Language of instruction (e.g., "English only", "Putonghua and English", or "")
+  // What the class page states about itself, one per line: usually a language, sometimes a
+  // teaching mode or course type. CUHK's own name for the field, since what the lines mean
+  // is not something we know.
+  classAttributes: string
   enrollmentRequirement: string // What this section requires beyond its course, or ""
 }
 
