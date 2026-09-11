@@ -267,8 +267,8 @@ Both `class_attributes` and `enrollment_requirement` are thinned ([#327](https:/
 
 ## Reshape At Publish, Reduce At Use
 
-Splitting `class_attributes` on the newline CUSIS wrote rebuilds the cell exactly. Thinning a section's lines ([#323](https://github.com/EagleZhen/another-cuhk-course-planner/issues/323)) or reading `1.50 - 2.00` as `1.5` ([#331](https://github.com/EagleZhen/another-cuhk-course-planner/issues/331)) does not.
+Splitting `class_attributes` on the line breaks CUSIS writes into the cell rebuilds it exactly. Thinning a section's lines ([#323](https://github.com/EagleZhen/another-cuhk-course-planner/issues/323)) or reading `1.50 - 2.00` as `1.5` ([#331](https://github.com/EagleZhen/another-cuhk-course-planner/issues/331)) does not.
 
 Decision: if the cell rebuilds from what we saved, reshape it at publish — versioned, visible as a diff, one shape for every consumer. If it does not, reduce at the point of use, where the value it consumed still sits beside it ([Derive Display Forms, Keep Scraped Values](#derive-display-forms-keep-scraped-values)).
 
-The rebuild is the test, not the layer: [Thin Enrollment Information At Publish](#thin-enrollment-information-at-publish) reduces at publish, which is why it needed a guard per field. A guessed delimiter is not a reading — instructors are separated by `, \n` but split on `,` alone, so that one stays a string.
+The rebuild is the test, not the layer: [Thin Enrollment Information At Publish](#thin-enrollment-information-at-publish) reduces at publish, which is why it needed a guard per field. And split on the separator the source wrote, not one that happens to work: CUSIS separates instructors with a comma and a blank line, but `splitInstructorsCompact` splits on the comma alone, which a name could contain.
