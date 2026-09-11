@@ -41,7 +41,7 @@ function AttributeRow({
           state.removed
             ? removedTooltip
             : changed && previous !== undefined
-              ? changedTooltip(previous ? asShown(previous) : 'not specified', asShown(value))
+              ? changedTooltip(previous ? asShown(previous) : 'Not specified', asShown(value))
               : `${label}: ${asShown(value)}`
         }
       >
