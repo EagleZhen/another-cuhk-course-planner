@@ -256,4 +256,11 @@ Watch out: `skipAutoScale: true` has no counterpart and needs none — `modern-s
 
 The scraper dropped a course's attribute lines from each of its sections before the first save, to leave the teaching language. Where both levels state the same line — MUSC 3530's `Cantonese and English` — the section was stored blank: 493 sections, uncorrectable without a re-scrape ([#323](https://github.com/EagleZhen/another-cuhk-course-planner/issues/323)).
 
-Decision: the scraper stores what the class page states; publishing drops the lines the course repeats (`class_only_lines` in [publish_course_data.py](../scripts/publish_course_data.py)). `enrollment_requirement` is thinned the same way ([#327](https://github.com/EagleZhen/another-cuhk-course-planner/issues/327)). Like [Derive Display Forms, Keep Scraped Values](#derive-display-forms-keep-scraped-values), but at publish rather than in the browser, so changing the rule shows up as a diff of every section it moves. `class_attributes` keeps CUHK's name: 306 sections carry a teaching mode or an SDG-GE tag, so calling it a language would claim more than we know.
+Decision: the scraper stores what the class page states, and publishing drops the lines the course repeats ([publish_course_data.py](../scripts/publish_course_data.py)). Like [Derive Display Forms, Keep Scraped Values](#derive-display-forms-keep-scraped-values), but at publish rather than in the browser, so changing the rule shows up as a diff of every section it moves.
+
+Both `class_attributes` and `enrollment_requirement` are thinned ([#327](https://github.com/EagleZhen/another-cuhk-course-planner/issues/327)), but an empty result means opposite things, so each has its own name:
+
+- `lines_the_class_adds` — a requirement cell is the class's own rules followed by its course's, so what is left is what the section adds. Empty means it adds nothing.
+- `lines_the_class_states` — attributes say what a section is, and no class page states none. Empty would be our doing, so the class page's words stand instead.
+
+2025-26 was thinned before its first save, so its blank sections stay blank. `class_attributes` keeps CUHK's name: sections also carry a teaching mode or an SDG-GE tag there, so calling it a language would claim more than we know.

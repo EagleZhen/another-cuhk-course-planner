@@ -534,8 +534,8 @@ def report_term_manifest_changes(old_content: str, new_content: str) -> None:
     print()
 
 
-def class_only_lines(class_value: str, course_value: str) -> str:
-    """Drop the lines a section's course already states, which the course block renders.
+def _without_the_course_lines(class_value: str, course_value: str) -> str:
+    """Drop the lines a section's course also states, which the course block renders.
 
     Keep this at publish. At scrape time it overwrote the page's own words before the first
     save, so a section whose course repeated its lines was stored blank and could only be
@@ -549,6 +549,25 @@ def class_only_lines(class_value: str, course_value: str) -> str:
     return "\n".join(line for line in class_lines if line not in course_lines)
 
 
+def lines_the_class_adds(class_value: str, course_value: str) -> str:
+    """What a section requires beyond its course. Empty means it adds nothing.
+
+    CUSIS writes the class cell as the class's own rules followed by its course's, so taking
+    the course's away leaves what the section adds — for most sections, nothing.
+    """
+    return _without_the_course_lines(class_value, course_value)
+
+
+def lines_the_class_states(class_value: str, course_value: str) -> str:
+    """A section's own attributes, minus the lines its course repeats — never nothing.
+
+    No class page states no attributes, so an empty result is ours, not the source's — and it
+    reads as "not specified" when it means "deleted". In PGDE5311 it hid the Cantonese
+    sections' language while the English ones showed theirs (#323).
+    """
+    return _without_the_course_lines(class_value, course_value) or class_value
+
+
 def thin_enrollment_information(course: dict) -> None:
     """Publish each section without the Enrollment Information lines its course states.
 
@@ -557,10 +576,10 @@ def thin_enrollment_information(course: dict) -> None:
     """
     for term in course["terms"]:
         for section in term["schedule"]:
-            section["class_attributes"] = class_only_lines(
+            section["class_attributes"] = lines_the_class_states(
                 section["class_attributes"], course["course_attributes"]
             )
-            section["enrollment_requirement"] = class_only_lines(
+            section["enrollment_requirement"] = lines_the_class_adds(
                 section["enrollment_requirement"], course["enrollment_requirement"]
             )
 

@@ -422,11 +422,11 @@ def _scraped_attributes(course_page, class_page):
             "Class Details - CSCI 1020 - - Hands-On Intro to C++ (6161).html",
             "English only",
         ),
-        # Both state the same line, so nothing is left — #323, pinned so a fix shows here.
+        # Both state the same line, so the subtraction empties it and the page's words stand.
         (
             "Course Details - MUSC 3530 - Music Performer\u2019s Issues.html",
             "Class Details - MUSC 3530 - - Music Performer\u2019s Issues (8858).html",
-            "",
+            "Cantonese and English",
         ),
     ],
 )
@@ -435,7 +435,33 @@ def test_publish_drops_the_attribute_lines_the_course_page_states(
 ):
     class_attrs, course_attrs = _scraped_attributes(course_page, class_page)
 
-    assert publish_course_data.class_only_lines(class_attrs, course_attrs) == expected
+    assert publish_course_data.lines_the_class_states(class_attrs, course_attrs) == expected
+
+
+def test_publish_keeps_the_language_a_section_states_even_when_its_course_agrees():
+    # PGDE5311's real values: its sections state both languages, its course only one. Thinning
+    # emptied the Cantonese ones, so the card showed a language only where it said English.
+    course_attributes = "Cantonese only"
+
+    assert publish_course_data.lines_the_class_states("English only", course_attributes) == (
+        "English only"
+    )
+    assert publish_course_data.lines_the_class_states("Cantonese only", course_attributes) == (
+        "Cantonese only"
+    )
+
+
+def test_publish_empties_a_requirement_a_section_only_repeats():
+    # Empty is the right answer here: the section adds nothing to what its course requires.
+    course_requirement = "For students of Faculty of Business Administration"
+
+    assert publish_course_data.lines_the_class_adds(course_requirement, course_requirement) == ""
+    assert (
+        publish_course_data.lines_the_class_adds(
+            f"For year 1 students only\n{course_requirement}", course_requirement
+        )
+        == "For year 1 students only"
+    )
 
 
 def test_publish_thins_sections_parsed_without_their_class_pages():
