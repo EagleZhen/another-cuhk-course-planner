@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "MUSC",
     "subject_title": "Music",
     "total_courses": 128
@@ -40,7 +40,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -99,7 +100,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -163,7 +165,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -215,7 +218,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -264,7 +268,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -313,13 +318,14 @@
               ],
               "availability": {
                 "capacity": "15",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -368,7 +374,8 @@
                 "available_seats": "36",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -417,7 +424,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -460,13 +468,14 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -515,7 +524,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -564,7 +574,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -613,7 +624,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -662,7 +674,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -723,7 +736,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -778,7 +792,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -848,7 +863,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -900,7 +916,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -964,7 +981,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1016,7 +1034,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1065,7 +1084,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1114,7 +1134,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -1180,7 +1201,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "Prerequisite: MUSC1212"
             }
           ]
         }
@@ -1240,7 +1262,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -1304,7 +1327,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1356,7 +1380,8 @@
                 "available_seats": "37",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1405,7 +1430,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1454,13 +1480,14 @@
               ],
               "availability": {
                 "capacity": "15",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1509,7 +1536,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1558,7 +1586,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1601,13 +1630,14 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1656,7 +1686,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1705,7 +1736,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1754,7 +1786,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1803,7 +1836,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1864,7 +1898,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1919,7 +1954,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -1989,7 +2025,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2041,7 +2078,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -2105,7 +2143,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2157,7 +2196,8 @@
                 "available_seats": "37",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2206,7 +2246,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2261,7 +2302,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors\nPrerequisite: MUSC1222 or by consent of the instructor"
             }
           ]
         }
@@ -2322,7 +2364,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "Prerequisite: MUSC2252 OR by consent of the instructor."
             }
           ]
         }
@@ -2389,7 +2432,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": ""
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2460,7 +2504,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2526,7 +2571,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2592,7 +2638,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2651,7 +2698,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -2705,7 +2753,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -2770,7 +2819,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2823,7 +2873,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2849,7 +2900,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2904,7 +2956,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -2968,7 +3021,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3020,7 +3074,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3069,7 +3124,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3118,13 +3174,14 @@
               ],
               "availability": {
                 "capacity": "15",
-                "enrolled": "1",
+                "enrolled": "9",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3173,7 +3230,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3222,7 +3280,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3265,13 +3324,14 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "2",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3320,7 +3380,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3369,7 +3430,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3418,7 +3480,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3467,7 +3530,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3528,7 +3592,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3583,7 +3648,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -3653,7 +3719,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3705,7 +3772,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -3769,7 +3837,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3821,7 +3890,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3870,7 +3940,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3919,7 +3990,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For UG MUSC Major (New Curriculum)\nPre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor."
             }
           ]
         }
@@ -3973,7 +4045,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For UG MUSC Major (New Curriculum)\nPre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor."
             }
           ]
         }
@@ -4034,7 +4107,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For UG MUSC Major (New Curriculum)\nPrerequisite: MUSC2262 or permission by the instructor."
             }
           ]
         }
@@ -4105,7 +4179,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Prerequisite: MUSC2262 or permission by the instructor."
             }
           ]
         }
@@ -4170,7 +4245,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Prerequisite: Grade B or above in MUSC3212 or MUSC2262, and departmental permission must be obtained prior to registration."
             }
           ]
         }
@@ -4241,7 +4317,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: MUSC3343"
             }
           ]
         }
@@ -4299,7 +4376,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course",
+              "enrollment_requirement": "For UG MUSC Major (New Curriculum)\nPrerequisite: MUSC3353."
             }
           ]
         }
@@ -4364,7 +4442,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4429,7 +4508,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4488,7 +4568,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": ""
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -4559,7 +4640,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Prerequisite: MUSC2562 or permission by the instructor."
             }
           ]
         }
@@ -4626,7 +4708,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: MUSC2813 and 2823 (for 3-year cohort) OR MUSC2872 and 2882 (for 4-year cohort) OR by consent of the instructor."
             }
           ]
         }
@@ -4679,7 +4762,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (10110)",
@@ -4699,7 +4783,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -4725,7 +4810,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4774,7 +4860,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -4800,7 +4887,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4849,7 +4937,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4904,7 +4993,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -4968,7 +5058,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5020,7 +5111,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Prerequisite: MUSC4000"
             }
           ]
         }
@@ -5069,7 +5161,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5118,13 +5211,14 @@
               ],
               "availability": {
                 "capacity": "15",
-                "enrolled": "1",
+                "enrolled": "5",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5173,7 +5267,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5216,13 +5311,14 @@
               ],
               "availability": {
                 "capacity": "15",
-                "enrolled": "2",
+                "enrolled": "3",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5265,13 +5361,14 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "3",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5320,7 +5417,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5369,7 +5467,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5418,7 +5517,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5479,7 +5579,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5534,7 +5635,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -5604,7 +5706,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5656,7 +5759,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": "For MUSC Majors & any MUSC Minors"
             }
           ]
         }
@@ -5720,7 +5824,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Can, change to Eng if needed"
+              "class_attributes": "Can, change to Eng if needed",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5772,7 +5877,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5821,7 +5927,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -5888,7 +5995,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "Prerequisite(s): MUSC2262 and MUSC2882 (or permission by the instructor)"
             }
           ]
         }
@@ -5941,7 +6049,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Co-requisite(s): MUSC4243"
             },
             {
               "section": "B-LEC (6337)",
@@ -5961,7 +6070,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Co-requisite(s): MUSC4243"
             },
             {
               "section": "C-LEC (6338)",
@@ -5981,7 +6091,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Co-requisite(s): MUSC4243"
             },
             {
               "section": "D-LEC (6339)",
@@ -6001,7 +6112,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Co-requisite(s): MUSC4243"
             },
             {
               "section": "E-LEC (6340)",
@@ -6021,7 +6133,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Co-requisite(s): MUSC4243"
             },
             {
               "section": "F-LEC (8077)",
@@ -6041,7 +6154,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Co-requisite(s): MUSC4243"
             }
           ]
         }
@@ -6094,7 +6208,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Prerequisite: MUSC4513"
             }
           ]
         },
@@ -6120,7 +6235,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Prerequisite: MUSC4513"
             },
             {
               "section": "B-LEC (6511)",
@@ -6140,7 +6256,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Prerequisite: MUSC4513"
             },
             {
               "section": "C-LEC (6512)",
@@ -6160,7 +6277,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Prerequisite: MUSC4513"
             },
             {
               "section": "D-LEC (6513)",
@@ -6180,7 +6298,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Prerequisite: MUSC4513"
             },
             {
               "section": "E-LEC (6514)",
@@ -6200,7 +6319,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Prerequisite: MUSC4513"
             },
             {
               "section": "F-LEC (8063)",
@@ -6220,7 +6340,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Prerequisite: MUSC4513"
             }
           ]
         }
@@ -6272,7 +6393,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -6321,7 +6443,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Pre-requisite: MUSC4613"
             },
             {
               "section": "B-LEC (9880)",
@@ -6341,7 +6464,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Pre-requisite: MUSC4613"
             }
           ]
         }
@@ -6390,7 +6514,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Co-requisite(s): MUSC4243"
             },
             {
               "section": "B-LEC (8024)",
@@ -6410,7 +6535,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Co-requisite(s): MUSC4243"
             },
             {
               "section": "C-LEC (10111)",
@@ -6430,7 +6556,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Co-requisite(s): MUSC4243"
             },
             {
               "section": "D-LEC (10112)",
@@ -6450,7 +6577,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Co-requisite(s): MUSC4243"
             }
           ]
         }
@@ -6499,7 +6627,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Prerequisite: MUSC4813"
             },
             {
               "section": "B-LEC (8014)",
@@ -6519,7 +6648,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Prerequisite: MUSC4813"
             },
             {
               "section": "C-LEC (9881)",
@@ -6539,7 +6669,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Prerequisite: MUSC4813"
             },
             {
               "section": "D-LEC (9882)",
@@ -6559,7 +6690,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Prerequisite: MUSC4813"
             }
           ]
         }
@@ -6608,7 +6740,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -6634,7 +6767,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -6683,7 +6817,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For MA Music"
             }
           ]
         }
@@ -6747,7 +6882,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For MA Music"
             }
           ]
         }
@@ -6806,7 +6942,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MA Music"
             }
           ]
         }
@@ -6865,7 +7002,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For MA Music"
             }
           ]
         }
@@ -6918,7 +7056,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MA Music"
             }
           ]
         }
@@ -6977,7 +7116,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": ""
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For MA Music"
             }
           ]
         }
@@ -7042,7 +7182,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For MA Music"
             }
           ]
         }
@@ -7101,7 +7242,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For MA Music"
             }
           ]
         }
@@ -7153,7 +7295,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For MA Music"
             }
           ]
         }
@@ -7212,7 +7355,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For MA Music"
             },
             {
               "section": "-P02-PRA (2846)",
@@ -7238,7 +7382,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For MA Music"
             }
           ]
         }
@@ -7293,11 +7438,12 @@
                 "capacity": "40",
                 "enrolled": "40",
                 "waitlist_capacity": "99",
-                "waitlist_total": "8",
+                "waitlist_total": "11",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For MA Music"
             }
           ]
         }
@@ -7348,11 +7494,12 @@
                 "capacity": "25",
                 "enrolled": "25",
                 "waitlist_capacity": "99",
-                "waitlist_total": "3",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For MA Music"
             }
           ]
         }
@@ -7412,7 +7559,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For MA Music"
             }
           ]
         }
@@ -7466,7 +7614,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Music, Master of Music, MPhil Music or PhD Music"
             }
           ]
         }
@@ -7515,7 +7664,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in PhD/MPhil/DMus/MMus in Music"
             }
           ]
         }
@@ -7564,7 +7714,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in Master of Music or MPhil Music"
             },
             {
               "section": "HM01-TMC (3604)",
@@ -7584,7 +7735,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in Master of Music or MPhil Music"
             }
           ]
         },
@@ -7610,7 +7762,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in Master of Music or MPhil Music"
             },
             {
               "section": "HM01-TMC (2812)",
@@ -7630,7 +7783,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in Master of Music or MPhil Music"
             }
           ]
         }
@@ -7679,7 +7833,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in Doctor of Music or PhD Music"
             },
             {
               "section": "BM01-TMC (3855)",
@@ -7699,7 +7854,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in Doctor of Music or PhD Music"
             },
             {
               "section": "CM01-TMC (2404)",
@@ -7719,7 +7875,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in Doctor of Music or PhD Music"
             },
             {
               "section": "DM01-TMC (2839)",
@@ -7739,7 +7896,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in Doctor of Music or PhD Music"
             },
             {
               "section": "EM01-TMC (1902)",
@@ -7759,7 +7917,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Music or PhD Music"
             },
             {
               "section": "GM01-TMC (2884)",
@@ -7779,7 +7938,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in Doctor of Music or PhD Music"
             }
           ]
         },
@@ -7805,7 +7965,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in Doctor of Music or PhD Music"
             },
             {
               "section": "BM01-TMC (3168)",
@@ -7825,7 +7986,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in Doctor of Music or PhD Music"
             },
             {
               "section": "CM01-TMC (2353)",
@@ -7845,7 +8007,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in Doctor of Music or PhD Music"
             },
             {
               "section": "DM01-TMC (2759)",
@@ -7865,7 +8028,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in Doctor of Music or PhD Music"
             },
             {
               "section": "EM01-TMC (2810)",
@@ -7885,7 +8049,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Music or PhD Music"
             },
             {
               "section": "GM01-TMC (2814)",
@@ -7905,7 +8070,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in Doctor of Music or PhD Music"
             }
           ]
         }

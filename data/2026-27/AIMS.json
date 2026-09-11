@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "AIMS",
     "subject_title": "Artificial Intelligence",
     "total_courses": 15
@@ -34,7 +34,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence; Not For students who have taken CSCI5150 or ELEG5760 or CSCI3320 or CSCI3230"
             }
           ]
         }
@@ -93,7 +94,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence"
             }
           ]
         }
@@ -151,7 +153,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence"
             }
           ]
         }
@@ -216,7 +219,8 @@
                 "available_seats": "16",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence;Pre-requisites: Linear algebra, probability, statistics; Not for students who have taken CSCI5030"
             }
           ]
         }
@@ -263,13 +267,14 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "129",
+                "enrolled": "128",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence; Not for students who have taken ELEG5491 or ELEG5760 or CMSC5743 or AIST4010"
             }
           ]
         }
@@ -327,7 +332,8 @@
                 "available_seats": "85",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence; Not for students who have taken ENGG5104 or CMSC5711 or CSCI5280 or MAEG5720"
             }
           ]
         }
@@ -398,7 +404,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence;Not for students who have taken CSCI5640"
             }
           ]
         }
@@ -463,7 +470,8 @@
                 "available_seats": "74",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence;Not for students who have taken AIST5030 or SEEM5030"
             }
           ]
         }
@@ -540,7 +548,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence; or\nFor all MSc Programmes in Faculty of Engineering;Exclusion: CMSC5730 or ENGG3802/3803/5700 or ESTR3502 or FTEC5570 or IEMS5712 or SEEM3450 or IERG5340 or ROSE5790"
             }
           ]
         }
@@ -611,7 +620,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence; or \nFor all MSc Programmes in Faculty of Engineering;Pre-requisite: AIMS5760 or IEMS5712 or IERG5340;A team with AI application ideas for commercialization in mind"
             }
           ]
         }
@@ -665,7 +675,8 @@
                 "available_seats": "46",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence"
             }
           ]
         }
@@ -714,11 +725,12 @@
                 "capacity": "66",
                 "enrolled": "66",
                 "waitlist_capacity": "20",
-                "waitlist_total": "1",
+                "waitlist_total": "5",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence"
             }
           ]
         }
@@ -771,7 +783,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence"
             }
           ]
         }
@@ -824,7 +837,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence"
             }
           ]
         }
@@ -877,7 +891,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence; Pre-requisite: AIMS5790"
             },
             {
               "section": "-J02-PRJ (10131)",
@@ -897,7 +912,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence; Pre-requisite: AIMS5790"
             },
             {
               "section": "-J03-PRJ (10132)",
@@ -917,7 +933,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence; Pre-requisite: AIMS5790"
             },
             {
               "section": "-J04-PRJ (10133)",
@@ -937,7 +954,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence; Pre-requisite: AIMS5790"
             },
             {
               "section": "-J05-PRJ (10134)",
@@ -957,7 +975,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence; Pre-requisite: AIMS5790"
             },
             {
               "section": "-J06-PRJ (10135)",
@@ -977,7 +996,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence; Pre-requisite: AIMS5790"
             },
             {
               "section": "-J07-PRJ (10136)",
@@ -997,7 +1017,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence; Pre-requisite: AIMS5790"
             },
             {
               "section": "-J08-PRJ (10137)",
@@ -1017,7 +1038,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence; Pre-requisite: AIMS5790"
             },
             {
               "section": "-J09-PRJ (10143)",
@@ -1037,7 +1059,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Artificial Intelligence; Pre-requisite: AIMS5790"
             }
           ]
         }

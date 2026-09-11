@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "CMSC",
     "subject_title": "Computer Science (TPg)",
     "total_courses": 16
@@ -40,13 +40,14 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "61",
+                "enrolled": "64",
                 "waitlist_capacity": "30",
                 "waitlist_total": "0",
-                "available_seats": "59",
+                "available_seats": "56",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science"
             }
           ]
         }
@@ -92,13 +93,14 @@
               ],
               "availability": {
                 "capacity": "110",
-                "enrolled": "87",
+                "enrolled": "90",
                 "waitlist_capacity": "30",
                 "waitlist_total": "0",
-                "available_seats": "23",
+                "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science; and \nExclusion: CSCI6200 or ENGG5189"
             }
           ]
         }
@@ -156,7 +158,8 @@
                 "available_seats": "78",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science; and \nExclusion: CSCI5280 or ENGG5104"
             }
           ]
         }
@@ -214,7 +217,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Exclusion: DSME6730"
             }
           ]
         }
@@ -279,7 +283,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Not for students who have taken FTEC5610 or SEEM5820"
             }
           ]
         }
@@ -332,13 +337,14 @@
               ],
               "availability": {
                 "capacity": "200",
-                "enrolled": "152",
+                "enrolled": "151",
                 "waitlist_capacity": "30",
                 "waitlist_total": "0",
-                "available_seats": "48",
+                "available_seats": "49",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science"
             }
           ]
         }
@@ -387,7 +393,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J02-PRJ (2228)",
@@ -407,7 +414,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J03-PRJ (2229)",
@@ -427,7 +435,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J04-PRJ (2230)",
@@ -447,7 +456,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J05-PRJ (2231)",
@@ -467,7 +477,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J06-PRJ (4438)",
@@ -487,7 +498,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J07-PRJ (2232)",
@@ -507,7 +519,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J08-PRJ (4312)",
@@ -527,7 +540,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J09-PRJ (3035)",
@@ -547,7 +561,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J10-PRJ (3112)",
@@ -567,7 +582,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J11-PRJ (3111)",
@@ -587,7 +603,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J12-PRJ (2040)",
@@ -607,7 +624,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J13-PRJ (2227)",
@@ -627,7 +645,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J14-PRJ (3549)",
@@ -647,7 +666,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J15-PRJ (2794)",
@@ -667,7 +687,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J16-PRJ (2797)",
@@ -687,7 +708,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             }
           ]
         }
@@ -739,7 +761,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J02-PRJ (3491)",
@@ -759,7 +782,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J03-PRJ (3492)",
@@ -779,7 +803,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J04-PRJ (3493)",
@@ -799,7 +824,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J05-PRJ (3494)",
@@ -819,7 +845,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J06-PRJ (3836)",
@@ -839,7 +866,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J07-PRJ (3504)",
@@ -859,7 +887,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J08-PRJ (3840)",
@@ -879,7 +908,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J09-PRJ (3841)",
@@ -899,7 +929,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J10-PRJ (3839)",
@@ -919,7 +950,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J11-PRJ (3863)",
@@ -939,7 +971,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J12-PRJ (2040)",
@@ -959,7 +992,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J13-PRJ (2204)",
@@ -979,7 +1013,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J14-PRJ (3559)",
@@ -999,7 +1034,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J15-PRJ (2702)",
@@ -1019,7 +1055,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             },
             {
               "section": "-J16-PRJ (2705)",
@@ -1039,7 +1076,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Prerequisite: CMSC5720;Students must take both CMSC5720 and CMSC5721 in order to have the credits counted towards graduation"
             }
           ]
         }
@@ -1097,7 +1135,8 @@
                 "available_seats": "36",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Not for students who have taken CSCI5180 or ENGG5103"
             }
           ]
         }
@@ -1161,7 +1200,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science; and \nNot for students who have taken CSCI5470 or IERG5240 or ENGG5105 or ENGG5383"
             }
           ]
         }
@@ -1225,7 +1265,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science"
             }
           ]
         }
@@ -1277,7 +1318,8 @@
                 "available_seats": "38",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science; Not for students who have taken CSCI5350"
             }
           ]
         }
@@ -1335,7 +1377,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science"
             }
           ]
         }
@@ -1388,7 +1431,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Not for students who have taken CSCI5600"
             }
           ]
         }
@@ -1453,7 +1497,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science;Not for students who have taken CENG5030 or ELEG5491"
             }
           ]
         }
@@ -1506,7 +1551,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science"
             }
           ]
         }

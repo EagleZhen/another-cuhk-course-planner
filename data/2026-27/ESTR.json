@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "ESTR",
     "subject_title": "Courses for ELITE Stream",
     "total_courses": 30
@@ -52,7 +52,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI1020, CSCI1030, CSCI1110, CSCI1120, CSCI1130, CSCI1510, CSCI1520, CSCI1530, CSCI1540, ENGG1110, ESTR1100 or ESTR1102."
             },
             {
               "section": "-L01-LAB (8195)",
@@ -78,7 +79,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI1020, CSCI1030, CSCI1110, CSCI1120, CSCI1130, CSCI1510, CSCI1520, CSCI1530, CSCI1540, ENGG1110, ESTR1100 or ESTR1102."
             }
           ]
         }
@@ -168,7 +170,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG1310 or ENGG2520 or ESTR2006."
             },
             {
               "section": "-T01-TUT (9217)",
@@ -206,7 +209,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG1310 or ENGG2520 or ESTR2006."
             }
           ]
         }
@@ -296,7 +300,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG1120 or ENGG1410 or ESTR1004 or MATH1030 or MATH1038"
             },
             {
               "section": "-T01-TUT (9587)",
@@ -328,7 +333,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG1120 or ENGG1410 or ESTR1004 or MATH1030 or MATH1038"
             }
           ]
         }
@@ -411,7 +417,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): ENGG1125 or ESTR1007 or MATH1510\nNot for students who have taken ENGG1130 or ENGG1410 or ESTR1004 or MATH2010 or MATH2018 or MATH2020 or MATH2028"
             },
             {
               "section": "-T01-TUT (9574)",
@@ -443,7 +450,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): ENGG1125 or ESTR1007 or MATH1510\nNot for students who have taken ENGG1130 or ENGG1410 or ESTR1004 or MATH2010 or MATH2018 or MATH2020 or MATH2028"
             }
           ]
         }
@@ -508,7 +516,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG1125 or MATH1510"
             },
             {
               "section": "-T01-TUT (9495)",
@@ -528,7 +537,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG1125 or MATH1510"
             }
           ]
         }
@@ -600,7 +610,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI2110 or ENGG2440 or ENGG2460 or ESTR2010 or ESTR2362 or MIEG2440."
             },
             {
               "section": "-T01-TUT (8192)",
@@ -620,7 +631,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI2110 or ENGG2440 or ENGG2460 or ESTR2010 or ESTR2362 or MIEG2440."
             }
           ]
         }
@@ -678,13 +690,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "18",
+                "enrolled": "19",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2420 or ENGG2460 or ENGG2720 or ESTR2000 or ESTR2010"
             },
             {
               "section": "-T01-TUT (8246)",
@@ -704,13 +717,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "18",
+                "enrolled": "19",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2420 or ENGG2460 or ENGG2720 or ESTR2000 or ESTR2010"
             }
           ]
         }
@@ -805,7 +819,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2420 or ENGG2460 or ENGG2740 or ESTR2000 or ESTR2010"
             },
             {
               "section": "-T01-TUT (5830)",
@@ -837,7 +852,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2420 or ENGG2460 or ENGG2740 or ESTR2000 or ESTR2010"
             }
           ]
         }
@@ -902,7 +918,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2470 or ENGG2760 or ESTR2002 or ESTR2005 or ESTR2012 or ESTR2308 or ESTR2362 or IERG2470 or MIEG2440."
             },
             {
               "section": "-T01-TUT (5922)",
@@ -928,7 +945,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2470 or ENGG2760 or ESTR2002 or ESTR2005 or ESTR2012 or ESTR2308 or ESTR2362 or IERG2470 or MIEG2440."
             }
           ]
         }
@@ -1023,7 +1041,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2780 or ESTR2002 or ESTR2005.\nCo-requisite(s): ENGG2760 or ESTR2018 or ESTR2308 or IERG2470"
             },
             {
               "section": "-T01-TUT (5944)",
@@ -1055,7 +1074,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2430 or ENGG2450 or ENGG2780 or ESTR2002 or ESTR2005.\nCo-requisite(s): ENGG2760 or ESTR2018 or ESTR2308 or IERG2470"
             }
           ]
         }
@@ -1120,7 +1140,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CENG2400. Pre-requisite: ENGG2020 or ENGG2120 or ESTR2104."
             },
             {
               "section": "-L01-LAB (7209)",
@@ -1146,7 +1167,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CENG2400. Pre-requisite: ENGG2020 or ENGG2120 or ESTR2104."
             }
           ]
         }
@@ -1206,7 +1228,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI2100 or CSC2520.\nPre-requisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ESTR1100 or ESTR1102 or ESTR2306 or IERG2080. For senior-year entrants, the pre-requisite will be waived."
             },
             {
               "section": "BT01-TUT (5020)",
@@ -1232,7 +1255,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI2100 or CSC2520.\nPre-requisite: AIST1110 or CSCI1120 or 1130 or 1510 or 1520 or 1530 or 1540 or 1550 or ESTR1100 or ESTR1102 or ESTR2306 or IERG2080. For senior-year entrants, the pre-requisite will be waived."
             }
           ]
         }
@@ -1303,13 +1327,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "7",
+                "enrolled": "8",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI2720 or IERG3840.\nPrerequisite: AIST1110 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102 or MATH2221 or PHYS2061 or its equivalent."
             },
             {
               "section": "-T01-TUT (8919)",
@@ -1329,7 +1354,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI2720 or IERG3840.\nPrerequisite: AIST1110 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102 or MATH2221 or PHYS2061 or its equivalent."
             },
             {
               "section": "-T02-TUT (8921)",
@@ -1349,7 +1375,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI2720 or IERG3840.\nPrerequisite: AIST1110 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102 or MATH2221 or PHYS2061 or its equivalent."
             },
             {
               "section": "-T03-TUT (8920)",
@@ -1363,13 +1390,14 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "5",
+                "enrolled": "6",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI2720 or IERG3840.\nPrerequisite: AIST1110 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102 or MATH2221 or PHYS2061 or its equivalent."
             },
             {
               "section": "-T04-TUT (8922)",
@@ -1389,7 +1417,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI2720 or IERG3840.\nPrerequisite: AIST1110 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102 or MATH2221 or PHYS2061 or its equivalent."
             }
           ]
         }
@@ -1485,7 +1514,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051."
             },
             {
               "section": "-L01-LAB (6425)",
@@ -1505,7 +1535,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051."
             },
             {
               "section": "-T01-TUT (9435)",
@@ -1537,7 +1568,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051."
             },
             {
               "section": "-T02-TUT (9434)",
@@ -1569,7 +1601,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051."
             },
             {
               "section": "-T03-TUT (8347)",
@@ -1601,7 +1634,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051."
             },
             {
               "section": "-T04-TUT (6424)",
@@ -1621,7 +1655,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051."
             }
           ]
         }
@@ -1711,7 +1746,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: ENGG1110 or ESTR1002.\nNot for students who have taken CSCI1140 or CSCI1510 or IERG2080."
             },
             {
               "section": "-L01-LAB (5031)",
@@ -1749,7 +1785,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: ENGG1110 or ESTR1002.\nNot for students who have taken CSCI1140 or CSCI1510 or IERG2080."
             }
           ]
         }
@@ -1807,7 +1844,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: ENGG1125 or ESTR1007 or MATH1510. \nNot for students who have taken ENGG2030 or ESTR2206 or ESTR2302 or IERG2051 or MIEG2051."
             },
             {
               "section": "-T01-TUT (6044)",
@@ -1833,7 +1871,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: ENGG1125 or ESTR1007 or MATH1510. \nNot for students who have taken ENGG2030 or ESTR2206 or ESTR2302 or IERG2051 or MIEG2051."
             }
           ]
         }
@@ -1922,7 +1961,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: MATH1025/1028 and MATH1090/1098 \nNot for students who have taken CSCI2110, ENGG2430, ENGG2440, ENGG2450, ENGG2460, ENGG2470, ENGG2760, ESTR2002, ESTR2004, ESTR2005, ESTR2010, ESTR2012, ESTR2018, ESTR2308, IERG2470, MATH3280 or MIEG2440."
             },
             {
               "section": "-T01-TUT (6305)",
@@ -1948,7 +1988,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: MATH1025/1028 and MATH1090/1098 \nNot for students who have taken CSCI2110, ENGG2430, ENGG2440, ENGG2450, ENGG2460, ENGG2470, ENGG2760, ESTR2002, ESTR2004, ESTR2005, ESTR2010, ESTR2012, ESTR2018, ESTR2308, IERG2470, MATH3280 or MIEG2440."
             }
           ]
         }
@@ -2043,7 +2084,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3500 or FTEC2101 or SEEM2420 or SEEM3440."
             },
             {
               "section": "-T01-TUT (8323)",
@@ -2075,7 +2117,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3500 or FTEC2101 or SEEM2420 or SEEM3440."
             }
           ]
         }
@@ -2157,7 +2200,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CENG3430. Pre-requisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent. For senior-year entrants, the pre-requisite will be waived."
             },
             {
               "section": "-L01-LAB (8906)",
@@ -2189,7 +2233,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CENG3430. Pre-requisite: CSCI2510 or ENGG2020 or ENGG2120 or ESTR2104 or its equivalent. For senior-year entrants, the pre-requisite will be waived."
             }
           ]
         }
@@ -2296,7 +2341,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI3180. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived."
             },
             {
               "section": "-T01-TUT (7690)",
@@ -2328,7 +2374,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI3180. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived."
             },
             {
               "section": "-T02-TUT (6061)",
@@ -2360,7 +2407,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI3180. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived."
             },
             {
               "section": "-T03-TUT (5844)",
@@ -2392,7 +2440,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI3180. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102. For senior-year entrants, the pre-requisite will be waived."
             }
           ]
         }
@@ -2468,7 +2517,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI3230. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent."
             },
             {
               "section": "-T01-TUT (7211)",
@@ -2488,7 +2538,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI3230. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent."
             },
             {
               "section": "-T02-TUT (7212)",
@@ -2508,7 +2559,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI3230. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent."
             },
             {
               "section": "-T03-TUT (7213)",
@@ -2534,7 +2586,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI3230. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent."
             },
             {
               "section": "-T04-TUT (7214)",
@@ -2560,7 +2613,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI3230. Pre-requisite: CSCI2100 or CSCI2520 or ESTR2102 or equivalent."
             }
           ]
         }
@@ -2630,7 +2684,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510\nNot for students who have taken AIST3010 or AIST3030 or ESTR3112"
             },
             {
               "section": "-T01-TUT (5877)",
@@ -2650,7 +2705,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510\nNot for students who have taken AIST3010 or AIST3030 or ESTR3112"
             }
           ]
         }
@@ -2739,7 +2795,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206.\nNot for students who have taken IERG3320."
             },
             {
               "section": "-T01-TUT (4821)",
@@ -2765,7 +2822,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206.\nNot for students who have taken IERG3320."
             }
           ]
         }
@@ -2823,7 +2881,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: CSCI2100 or ESTR2102.\nNot for students who have taken CSCI4430 or ESTR4120 or IERG3310."
             },
             {
               "section": "-T01-TUT (7866)",
@@ -2849,7 +2908,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: CSCI2100 or ESTR2102.\nNot for students who have taken CSCI4430 or ESTR4120 or IERG3310."
             }
           ]
         },
@@ -2905,7 +2965,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: CSCI2100 or ESTR2102.\nNot for students who have taken CSCI4430 or ESTR4120 or IERG3310."
             },
             {
               "section": "-T01-TUT (7791)",
@@ -2931,7 +2992,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: CSCI2100 or ESTR2102.\nNot for students who have taken CSCI4430 or ESTR4120 or IERG3310."
             }
           ]
         }
@@ -3025,7 +3087,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken MAEG3060 or ELEG3103."
             },
             {
               "section": "-L01-LAB (6494)",
@@ -3045,7 +3108,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken MAEG3060 or ELEG3103."
             }
           ]
         }
@@ -3153,7 +3217,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken IERG3310 or CSCI4430 or ESTR3310. Pre-requisite: CSCI3150 or CENG3150 or ESTR3102."
             },
             {
               "section": "-T01-TUT (5333)",
@@ -3185,7 +3250,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken IERG3310 or CSCI4430 or ESTR3310. Pre-requisite: CSCI3150 or CENG3150 or ESTR3102."
             }
           ]
         }
@@ -3255,13 +3321,14 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "2",
+                "enrolled": "8",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: CSCI3230 or CSCI3320 or ESTR3108.\nNot for students who have taken AIST4010."
             },
             {
               "section": "-T01-TUT (7688)",
@@ -3281,13 +3348,14 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "2",
+                "enrolled": "8",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: CSCI3230 or CSCI3320 or ESTR3108.\nNot for students who have taken AIST4010."
             }
           ]
         }
@@ -3377,7 +3445,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI5510 or ENGG4030 or IERG4300."
             },
             {
               "section": "-T01-TUT (4836)",
@@ -3403,7 +3472,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI5510 or ENGG4030 or IERG4300."
             }
           ]
         }
@@ -3455,7 +3525,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "ACJ1-PRJ (6614)",
@@ -3475,7 +3546,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "ADJ1-PRJ (6615)",
@@ -3495,7 +3567,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "AEJ1-PRJ (6616)",
@@ -3515,7 +3588,8 @@
                 "available_seats": "31",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "AFJ1-PRJ (6617)",
@@ -3535,7 +3609,8 @@
                 "available_seats": "31",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "AGJ1-PRJ (6618)",
@@ -3555,7 +3630,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "AHJ1-PRJ (6613)",
@@ -3575,7 +3651,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "AIJ1-PRJ (6612)",
@@ -3595,7 +3672,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "AJJ1-PRJ (7988)",
@@ -3615,7 +3693,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "BAJ1-PRJ (6166)",
@@ -3635,7 +3714,8 @@
                 "available_seats": "31",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "BBJ1-PRJ (7957)",
@@ -3655,7 +3735,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "CAJ1-PRJ (6451)",
@@ -3675,7 +3756,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "CBJ1-PRJ (8083)",
@@ -3695,7 +3777,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "CCJ1-PRJ (7831)",
@@ -3715,7 +3798,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "CDJ1-PRJ (8621)",
@@ -3735,7 +3819,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "CEJ1-PRJ (8097)",
@@ -3755,7 +3840,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "DAJ1-PRJ (8098)",
@@ -3775,7 +3861,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "DBJ1-PRJ (8099)",
@@ -3795,7 +3882,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             },
             {
               "section": "EAJ1-PRJ (6452)",
@@ -3815,7 +3903,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4998 or CENG4998 or CSCI4998 or FTEC4998 or ELEG4998 or EEEN4998 or IERG4998 or MAEG4998 or SEEM4998."
             }
           ]
         }
@@ -3867,7 +3956,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             }
           ]
         },
@@ -3893,7 +3983,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "ACJ1-PRJ (6789)",
@@ -3913,7 +4004,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "ADJ1-PRJ (6790)",
@@ -3933,7 +4025,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "AEJ1-PRJ (6791)",
@@ -3953,7 +4046,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "AFJ1-PRJ (6792)",
@@ -3973,7 +4067,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "AGJ1-PRJ (6214)",
@@ -3993,7 +4088,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "AHJ1-PRJ (6630)",
@@ -4013,7 +4109,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "AIJ1-PRJ (6610)",
@@ -4033,7 +4130,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "AJJ1-PRJ (6611)",
@@ -4053,7 +4151,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "BAJ1-PRJ (6609)",
@@ -4073,7 +4172,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "BBJ1-PRJ (7877)",
@@ -4093,7 +4193,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "CAJ1-PRJ (6365)",
@@ -4113,7 +4214,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "CBJ1-PRJ (8070)",
@@ -4133,7 +4235,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "CCJ1-PRJ (8090)",
@@ -4153,7 +4256,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "CDJ1-PRJ (8091)",
@@ -4173,7 +4277,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "CEJ1-PRJ (7768)",
@@ -4193,7 +4298,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "DAJ1-PRJ (8519)",
@@ -4213,7 +4319,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "DBJ1-PRJ (8531)",
@@ -4233,7 +4340,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             },
             {
               "section": "EAJ1-PRJ (6366)",
@@ -4253,7 +4361,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken BMEG4999 or CENG4999 or CSCI4999 or FTEC4999 or ELEG4999 or EEEN4999 or IERG4999 or MAEG4999 or SEEM4999. Pre-requisite: ESTR4998."
             }
           ]
         }

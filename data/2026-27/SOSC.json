@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "SOSC",
     "subject_title": "Courses offered by Social Science Faculty",
     "total_courses": 17
@@ -34,7 +34,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (4774)",
@@ -54,7 +55,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -119,7 +121,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (7455)",
@@ -151,7 +154,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -210,7 +214,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             },
             {
               "section": "AT01-TUT (8224)",
@@ -236,7 +241,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -274,7 +280,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BT01-TUT (8169)",
@@ -306,7 +313,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -365,7 +373,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-F01-FLD (5128)",
@@ -385,7 +394,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -432,13 +442,14 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "17",
+                "enrolled": "18",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Students are required to have taken or be taking SOSC1001 or SOSC1002 before/while enrolling into SOSC4001."
             }
           ]
         },
@@ -464,7 +475,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Students are required to have taken or be taking SOSC1001 or SOSC1002 before/while enrolling into SOSC4001."
             }
           ]
         }
@@ -513,7 +525,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Students are required to have taken or be taking SOSC1001 or SOSC1002 before/while enrolling into SOSC4002."
             }
           ]
         },
@@ -539,7 +552,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Students are required to have taken or be taking SOSC1001 or SOSC1002 before/while enrolling into SOSC4002."
             }
           ]
         }
@@ -588,7 +602,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nInternship",
+              "enrollment_requirement": "Students are required to have taken or be taking SOSC1001 or SOSC1002 before/while enrolling into SOSC4010."
             }
           ]
         }
@@ -641,7 +656,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nInternship",
+              "enrollment_requirement": "Students are required to have taken or be taking SOSC1001 or SOSC1002 before/while enrolling into SOSC4020."
             }
           ]
         }
@@ -706,7 +722,8 @@
                 "available_seats": "21",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Social Science Programme in Applied Social Science"
             }
           ]
         }
@@ -755,7 +772,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Social Science Programme in Applied Social Science"
             }
           ]
         },
@@ -781,7 +799,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Social Science Programme in Applied Social Science"
             }
           ]
         }
@@ -830,7 +849,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Social Science Programme in Applied Social Science"
             }
           ]
         },
@@ -856,7 +876,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Social Science Programme in Applied Social Science"
             }
           ]
         }
@@ -905,7 +926,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Social Science Programme in Applied Social Science"
             }
           ]
         },
@@ -931,7 +953,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Social Science Programme in Applied Social Science"
             }
           ]
         }
@@ -980,7 +1003,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Social Science Programme in Applied Social Science"
             }
           ]
         },
@@ -1006,7 +1030,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Social Science Programme in Applied Social Science"
             }
           ]
         }
@@ -1055,7 +1080,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Social Science Programme in Applied Social Science"
             }
           ]
         },
@@ -1081,7 +1107,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Social Science Programme in Applied Social Science"
             }
           ]
         }
@@ -1130,7 +1157,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Social Science Programme in Applied Social Science"
             }
           ]
         },
@@ -1156,7 +1184,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Doctor of Social Science Programme in Applied Social Science"
             }
           ]
         }
@@ -1211,7 +1240,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture, PhD Communication, MPhil-PhD Psychology, MPhil-PhD Geography and Resource Management, MPhil-PhD Social Welfare, and MPhil-PhD Sociology"
             }
           ]
         },
@@ -1249,7 +1279,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture, PhD Communication, MPhil-PhD Psychology, MPhil-PhD Geography and Resource Management, MPhil-PhD Social Welfare, and MPhil-PhD Sociology"
             }
           ]
         }
@@ -1304,7 +1335,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture, PhD Communication, MPhil-PhD Psychology, MPhil-PhD Geography and Resource Management, MPhil-PhD Social Welfare, and MPhil-PhD Sociology"
             }
           ]
         },
@@ -1342,7 +1374,8 @@
                 "available_seats": "33",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture, PhD Communication, MPhil-PhD Psychology, MPhil-PhD Geography and Resource Management, MPhil-PhD Social Welfare, and MPhil-PhD Sociology"
             }
           ]
         }

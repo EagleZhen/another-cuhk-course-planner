@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "GENA",
     "subject_title": "General Education - New Asia College",
     "total_courses": 21
@@ -34,7 +34,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "New Asia College Assembly"
             },
             {
               "section": "AA01-ASB (8984)",
@@ -48,13 +49,14 @@
               ],
               "availability": {
                 "capacity": "2000",
-                "enrolled": "1059",
+                "enrolled": "1058",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "941",
+                "available_seats": "942",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "New Asia College Assembly"
             }
           ]
         },
@@ -98,7 +100,8 @@
                 "available_seats": "1438",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "New Asia College Assembly"
             },
             {
               "section": "AA01-ASB (8808)",
@@ -136,7 +139,8 @@
                 "available_seats": "2000",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "New Asia College Assembly"
             }
           ]
         }
@@ -179,13 +183,14 @@
               ],
               "availability": {
                 "capacity": "1100",
-                "enrolled": "975",
+                "enrolled": "974",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "125",
+                "available_seats": "126",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For New Asia College year 1 students only"
             }
           ]
         }
@@ -243,7 +248,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1115, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "BF01-FLD (8606)",
@@ -263,7 +269,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1115, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             }
           ]
         },
@@ -301,7 +308,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1115, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "AF01-FLD (6486)",
@@ -321,7 +329,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1115, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "C-LEC (9360)",
@@ -359,7 +368,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1115, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "CF01-FLD (6693)",
@@ -379,7 +389,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1115, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "D-LEC (5351)",
@@ -411,7 +422,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1115, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "DF01-FLD (8093)",
@@ -431,7 +443,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1115, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             }
           ]
         }
@@ -485,7 +498,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #1 No Poverty\nSDG-SE #7 Affordable and Clean Energy\nSDG-SE #14 Life Below Water\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "AF01-FLD (6047)",
@@ -505,7 +519,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #1 No Poverty\nSDG-SE #7 Affordable and Clean Energy\nSDG-SE #14 Life Below Water\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "B-LEC (7026)",
@@ -531,7 +546,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-SE #1 No Poverty\nSDG-SE #7 Affordable and Clean Energy\nSDG-SE #14 Life Below Water\nEnglish only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "BF01-FLD (6048)",
@@ -551,7 +567,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-SE #1 No Poverty\nSDG-SE #7 Affordable and Clean Energy\nSDG-SE #14 Life Below Water\nEnglish only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "C-LEC (5171)",
@@ -571,7 +588,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-SE #1 No Poverty\nSDG-SE #7 Affordable and Clean Energy\nSDG-SE #14 Life Below Water\nEnglish only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "CF01-FLD (8031)",
@@ -591,7 +609,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-SE #1 No Poverty\nSDG-SE #7 Affordable and Clean Energy\nSDG-SE #14 Life Below Water\nEnglish only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             }
           ]
         },
@@ -629,7 +648,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #1 No Poverty\nSDG-SE #7 Affordable and Clean Energy\nSDG-SE #14 Life Below Water\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "DF01-FLD (6231)",
@@ -649,7 +669,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #1 No Poverty\nSDG-SE #7 Affordable and Clean Energy\nSDG-SE #14 Life Below Water\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "E-LEC (5499)",
@@ -681,7 +702,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-SE #1 No Poverty\nSDG-SE #7 Affordable and Clean Energy\nSDG-SE #14 Life Below Water\nEnglish only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "EF01-FLD (6232)",
@@ -701,7 +723,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-SE #1 No Poverty\nSDG-SE #7 Affordable and Clean Energy\nSDG-SE #14 Life Below Water\nEnglish only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1116, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             }
           ]
         }
@@ -761,7 +784,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "AF01-FLD (6270)",
@@ -781,7 +805,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "B-LEC (8533)",
@@ -807,7 +832,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nEnglish only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "BF01-FLD (6300)",
@@ -827,7 +853,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nEnglish only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "C-LEC (9373)",
@@ -853,7 +880,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "CF01-FLD (6368)",
@@ -873,7 +901,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "H-LEC (9374)",
@@ -899,7 +928,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "HF01-FLD (6046)",
@@ -919,7 +949,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "Q-LEC (5219)",
@@ -939,7 +970,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "QF01-FLD (8417)",
@@ -959,7 +991,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             }
           ]
         },
@@ -1003,7 +1036,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "DF01-FLD (6227)",
@@ -1023,7 +1057,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "E-LEC (9264)",
@@ -1055,7 +1090,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "EF01-FLD (6225)",
@@ -1075,7 +1111,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "F-LEC (7710)",
@@ -1107,7 +1144,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "FF01-FLD (7928)",
@@ -1127,7 +1165,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "G-LEC (8500)",
@@ -1159,7 +1198,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "GF01-FLD (6228)",
@@ -1179,7 +1219,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "I-LEC (9265)",
@@ -1211,7 +1252,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nEnglish only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "IF01-FLD (6229)",
@@ -1231,7 +1273,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nEnglish only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "J-LEC (5021)",
@@ -1269,7 +1312,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "JF01-FLD (6230)",
@@ -1289,7 +1333,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "K-LEC (9266)",
@@ -1321,7 +1366,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "KF01-FLD (6226)",
@@ -1341,7 +1387,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "L-LEC (6008)",
@@ -1373,7 +1420,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "LF01-FLD (8366)",
@@ -1393,7 +1441,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "M-LEC (9281)",
@@ -1425,7 +1474,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "MF01-FLD (6415)",
@@ -1445,7 +1495,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "N-LEC (8448)",
@@ -1477,7 +1528,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nEnglish only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "NF01-FLD (7977)",
@@ -1497,7 +1549,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nEnglish only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "O-LEC (9282)",
@@ -1535,7 +1588,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "OF01-FLD (6416)",
@@ -1555,7 +1609,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "P-LEC (7723)",
@@ -1593,7 +1648,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "PF01-FLD (7976)",
@@ -1613,7 +1669,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #3 Good Health and Well-being\nSDG-SE #5 Gender Equality\nSDG-SE #10 Reducing Inequality\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1117, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             }
           ]
         }
@@ -1685,7 +1742,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #4 Quality Education\nSDG-SE #17 Partnerships for the Goals\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1116, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "AF01-FLD (6647)",
@@ -1705,7 +1763,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #4 Quality Education\nSDG-SE #17 Partnerships for the Goals\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1116, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "B-LEC (6969)",
@@ -1737,7 +1796,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #4 Quality Education\nSDG-SE #17 Partnerships for the Goals\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1116, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             },
             {
               "section": "BF01-FLD (7978)",
@@ -1757,7 +1817,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #4 Quality Education\nSDG-SE #17 Partnerships for the Goals\nCantonese only\nService Learning Course",
+              "enrollment_requirement": "1. Not for students who have taken GENA1114, 1115, 1116, 2352 or ELTU2008.\n2. For New Asia College year 1 students only."
             }
           ]
         }
@@ -1811,7 +1872,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For NA students. Not for History and Philosophy Majors and students who have taken HIST1002 or UGEC1221. Pre-requisite: GENA1112/GEJC1120 and GENA1113"
             }
           ]
         }
@@ -1860,7 +1922,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For NA students. Not for History Majors. Pre-requisite: GENA1112/GEJC1120 and GENA1113"
             }
           ]
         }
@@ -1919,7 +1982,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For NA students. Not for Chinese Language and Literature and English Majors. Pre-requisite: GENA1112/GEJC1120 and GENA1113"
             }
           ]
         },
@@ -1963,7 +2027,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For NA students. Not for Chinese Language and Literature and English Majors. Pre-requisite: GENA1112/GEJC1120 and GENA1113"
             }
           ]
         }
@@ -2033,7 +2098,8 @@
                 "available_seats": "55",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For NA students. Not for Fine Arts Majors and students who have taken GENA2262 or 2272. Pre-requisite: GENA1112/GEJC1120 and GENA1113"
             }
           ]
         }
@@ -2098,7 +2164,8 @@
                 "available_seats": "55",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For NA students. Not for Anthropology Majors and students who have taken ANTH2310/UGEC2653. Pre-requisite: GENA1112/GEJC1120 and GENA1113."
             }
           ]
         }
@@ -2151,7 +2218,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For NA students. Not for Anthropology Majors. Pre-requisite: GENA1112/GEJC1120 and GENA1113."
             }
           ]
         }
@@ -2205,7 +2273,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For NA students. Pre-requisite: GENA1112/GEJC1120 & GENA1113."
             }
           ]
         },
@@ -2249,7 +2318,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For NA students. Pre-requisite: GENA1112/GEJC1120 & GENA1113."
             }
           ]
         }
@@ -2298,7 +2368,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": "For NA students. Not for Fine Arts Majors and students who have taken GENA2152 or IASP2530. Pre-requisite: GENA1112/GEJC1120 and GENA1113."
             }
           ]
         }
@@ -2364,7 +2435,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For NA students. Not for English Majors. Pre-requisite: GENA1112/GEJC1120 and GENA1113."
             }
           ]
         }
@@ -2417,7 +2489,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For NA students. Not for History Majors and students who have taken UGEA2230. Pre-requisite: GENA1112/GEJC1120 and GENA1113."
             }
           ]
         },
@@ -2461,7 +2534,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For NA students. Not for History Majors and students who have taken UGEA2230. Pre-requisite: GENA1112/GEJC1120 and GENA1113."
             }
           ]
         }
@@ -2525,7 +2599,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For NA students. Not for Anthropology Majors and students who have taken ANTH2450. Pre-requisite: GENA1112/GEJC1120 and GENA1113"
             },
             {
               "section": "-T01-TUT (9328)",
@@ -2557,7 +2632,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For NA students. Not for Anthropology Majors and students who have taken ANTH2450. Pre-requisite: GENA1112/GEJC1120 and GENA1113"
             },
             {
               "section": "-T02-TUT (6496)",
@@ -2577,7 +2653,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For NA students. Not for Anthropology Majors and students who have taken ANTH2450. Pre-requisite: GENA1112/GEJC1120 and GENA1113"
             }
           ]
         }
@@ -2631,7 +2708,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For NA students. Not for Music Majors and students who have taken UGED2080. Pre-requisite: GENA1112/GEJC1120 and GENA1113."
             }
           ]
         }
@@ -2683,7 +2761,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For NA students. Not for Anthropology Majors and students who have taken ANTH2370. Pre-requisite: GENA1112/GEJC1120 and GENA1113"
             },
             {
               "section": "-T01-TUT (5867)",
@@ -2703,7 +2782,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For NA students. Not for Anthropology Majors and students who have taken ANTH2370. Pre-requisite: GENA1112/GEJC1120 and GENA1113"
             },
             {
               "section": "-T02-TUT (6537)",
@@ -2723,7 +2803,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For NA students. Not for Anthropology Majors and students who have taken ANTH2370. Pre-requisite: GENA1112/GEJC1120 and GENA1113"
             }
           ]
         }
@@ -2794,7 +2875,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-GE #5 Gender Equality\nSDG-GE #10 Reducing Inequality\nSDG-GE #16 Peace, Justice and Strong Institutions\nEnglish only\nExperiential Learning Course",
+              "enrollment_requirement": "1. For NA students\n2. Pre-requisite: GENA1112/GEJC1120 and GENA1113"
             }
           ]
         }
@@ -2859,7 +2941,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For NA students. Not for Journalism and Communication Majors and Global Communication Majors; and students who have taken COMM1110. Pre-requisite: GENA1112/GEJC1120 and GENA1113"
             }
           ]
         }

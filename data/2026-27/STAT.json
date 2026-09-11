@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "STAT",
     "subject_title": "Statistics",
     "total_courses": 61
@@ -34,7 +34,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT1012 or consent of the instructor."
             },
             {
               "section": "AT01-TUT (6131)",
@@ -54,7 +55,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT1012 or consent of the instructor."
             },
             {
               "section": "B-LEC (9334)",
@@ -92,7 +94,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT1012 or consent of the instructor."
             },
             {
               "section": "BT01-TUT (6133)",
@@ -112,7 +115,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT1012 or consent of the instructor."
             },
             {
               "section": "C-LEC (9415)",
@@ -126,13 +130,14 @@
               ],
               "availability": {
                 "capacity": "160",
-                "enrolled": "160",
+                "enrolled": "161",
                 "waitlist_capacity": "999",
-                "waitlist_total": "40",
+                "waitlist_total": "39",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT1012 or consent of the instructor."
             },
             {
               "section": "CT01-TUT (6317)",
@@ -146,13 +151,14 @@
               ],
               "availability": {
                 "capacity": "160",
-                "enrolled": "160",
+                "enrolled": "161",
                 "waitlist_capacity": "999",
-                "waitlist_total": "40",
+                "waitlist_total": "39",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT1012 or consent of the instructor."
             }
           ]
         },
@@ -190,7 +196,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT1012 or consent of the instructor."
             },
             {
               "section": "DT01-TUT (6223)",
@@ -210,7 +217,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT1012 or consent of the instructor."
             },
             {
               "section": "E-LEC (9492)",
@@ -242,7 +250,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT1012 or consent of the instructor."
             },
             {
               "section": "ET01-TUT (6700)",
@@ -262,7 +271,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT1012 or consent of the instructor."
             }
           ]
         }
@@ -327,7 +337,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT1011 or consent of the instructor."
             },
             {
               "section": "AT01-TUT (7907)",
@@ -347,7 +358,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT1011 or consent of the instructor."
             }
           ]
         },
@@ -409,7 +421,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT1011 or consent of the instructor."
             },
             {
               "section": "BT01-TUT (6747)",
@@ -429,7 +442,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT1011 or consent of the instructor."
             }
           ]
         }
@@ -494,7 +508,8 @@
                 "available_seats": "110",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6205)",
@@ -514,7 +529,8 @@
                 "available_seats": "110",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -579,7 +595,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "-"
             },
             {
               "section": "AT01-TUT (6522)",
@@ -599,7 +616,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "-"
             },
             {
               "section": "B-LEC (5310)",
@@ -625,13 +643,14 @@
               ],
               "availability": {
                 "capacity": "160",
-                "enrolled": "118",
+                "enrolled": "119",
                 "waitlist_capacity": "999",
                 "waitlist_total": "4",
-                "available_seats": "42",
+                "available_seats": "41",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "-"
             },
             {
               "section": "BT01-TUT (8096)",
@@ -645,13 +664,14 @@
               ],
               "availability": {
                 "capacity": "160",
-                "enrolled": "118",
+                "enrolled": "119",
                 "waitlist_capacity": "999",
                 "waitlist_total": "4",
-                "available_seats": "42",
+                "available_seats": "41",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "-"
             }
           ]
         },
@@ -707,7 +727,8 @@
                 "available_seats": "170",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "-"
             },
             {
               "section": "CT01-TUT (7997)",
@@ -727,7 +748,8 @@
                 "available_seats": "170",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "-"
             }
           ]
         }
@@ -792,7 +814,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "AT01-TUT (7906)",
@@ -812,7 +835,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -868,7 +892,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BT01-TUT (6553)",
@@ -888,7 +913,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -946,13 +972,14 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "92",
+                "enrolled": "93",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "58",
+                "available_seats": "57",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: STAT2001 or ENGG2760 or ESTR2018 or consent of instructor."
             },
             {
               "section": "AT01-TUT (6385)",
@@ -966,13 +993,14 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "92",
+                "enrolled": "93",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "58",
+                "available_seats": "57",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: STAT2001 or ENGG2760 or ESTR2018 or consent of instructor."
             }
           ]
         },
@@ -1034,7 +1062,8 @@
                 "available_seats": "200",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: STAT2001 or ENGG2760 or ESTR2018 or consent of instructor."
             },
             {
               "section": "BT01-TUT (8132)",
@@ -1054,7 +1083,8 @@
                 "available_seats": "200",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: STAT2001 or ENGG2760 or ESTR2018 or consent of instructor."
             },
             {
               "section": "C-LEC (5445)",
@@ -1110,7 +1140,8 @@
                 "available_seats": "200",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: STAT2001 or ENGG2760 or ESTR2018 or consent of instructor."
             },
             {
               "section": "CT01-TUT (6489)",
@@ -1130,7 +1161,8 @@
                 "available_seats": "200",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: STAT2001 or ENGG2760 or ESTR2018 or consent of instructor."
             }
           ]
         }
@@ -1196,7 +1228,8 @@
                 "available_seats": "105",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": "Co-requisite: STAT2005 or consent of instructor."
             },
             {
               "section": "-T01-TUT (8551)",
@@ -1228,7 +1261,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": "Co-requisite: STAT2005 or consent of instructor."
             },
             {
               "section": "-T02-TUT (8552)",
@@ -1260,7 +1294,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": "Co-requisite: STAT2005 or consent of instructor."
             },
             {
               "section": "-T03-TUT (8553)",
@@ -1298,7 +1333,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": "Co-requisite: STAT2005 or consent of instructor."
             },
             {
               "section": "-T04-TUT (8554)",
@@ -1330,7 +1366,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": "Co-requisite: STAT2005 or consent of instructor."
             }
           ]
         }
@@ -1395,7 +1432,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken or register concurrently for STAT2006."
             },
             {
               "section": "-T01-TUT (8133)",
@@ -1415,7 +1453,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken or register concurrently for STAT2006."
             }
           ]
         }
@@ -1504,7 +1543,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (8134)",
@@ -1524,7 +1564,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1577,7 +1618,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6233)",
@@ -1597,7 +1639,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1651,7 +1694,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (7920)",
@@ -1671,7 +1715,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1742,7 +1787,8 @@
                 "available_seats": "90",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6751)",
@@ -1762,7 +1808,8 @@
                 "available_seats": "90",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1820,7 +1867,8 @@
                 "available_seats": "31",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "AT01-TUT (8047)",
@@ -1840,7 +1888,8 @@
                 "available_seats": "31",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -1878,7 +1927,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BT01-TUT (6400)",
@@ -1898,7 +1948,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1951,7 +2002,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "AT01-TUT (8055)",
@@ -1971,7 +2023,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (5217)",
@@ -1991,13 +2044,14 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "120",
+                "enrolled": "123",
                 "waitlist_capacity": "999",
                 "waitlist_total": "15",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BT01-TUT (8616)",
@@ -2011,13 +2065,14 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "120",
+                "enrolled": "123",
                 "waitlist_capacity": "999",
                 "waitlist_total": "15",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2055,7 +2110,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "CT01-TUT (8527)",
@@ -2075,7 +2131,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2134,7 +2191,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6197)",
@@ -2154,7 +2212,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2219,7 +2278,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (8085)",
@@ -2239,7 +2299,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2304,7 +2365,8 @@
                 "available_seats": "130",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": "Prerequisite:STAT2011 or consent of instructor"
             },
             {
               "section": "-T01-TUT (8616)",
@@ -2342,7 +2404,8 @@
                 "available_seats": "33",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": "Prerequisite:STAT2011 or consent of instructor"
             },
             {
               "section": "-T02-TUT (8608)",
@@ -2374,7 +2437,8 @@
                 "available_seats": "33",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": "Prerequisite:STAT2011 or consent of instructor"
             },
             {
               "section": "-T03-TUT (8618)",
@@ -2406,7 +2470,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": "Prerequisite:STAT2011 or consent of instructor"
             },
             {
               "section": "-T04-TUT (8617)",
@@ -2438,7 +2503,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": "Prerequisite:STAT2011 or consent of instructor"
             }
           ]
         }
@@ -2491,13 +2557,14 @@
               ],
               "availability": {
                 "capacity": "110",
-                "enrolled": "83",
+                "enrolled": "82",
                 "waitlist_capacity": "999",
                 "waitlist_total": "6",
-                "available_seats": "27",
+                "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT3004"
             },
             {
               "section": "AT01-TUT (8085)",
@@ -2511,13 +2578,14 @@
               ],
               "availability": {
                 "capacity": "110",
-                "enrolled": "83",
+                "enrolled": "82",
                 "waitlist_capacity": "999",
                 "waitlist_total": "6",
-                "available_seats": "27",
+                "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT3004"
             }
           ]
         },
@@ -2561,7 +2629,8 @@
                 "available_seats": "110",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT3004"
             },
             {
               "section": "BT01-TUT (8088)",
@@ -2581,7 +2650,8 @@
                 "available_seats": "110",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken STAT3004"
             }
           ]
         }
@@ -2640,7 +2710,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6599)",
@@ -2660,7 +2731,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2724,7 +2796,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (8135)",
@@ -2744,7 +2817,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2803,7 +2877,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6132)",
@@ -2823,7 +2898,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2888,7 +2964,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "AT01-TUT (6173)",
@@ -2908,7 +2985,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2964,7 +3042,8 @@
                 "available_seats": "135",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BT01-TUT (8136)",
@@ -2984,7 +3063,8 @@
                 "available_seats": "135",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3037,7 +3117,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (8048)",
@@ -3057,7 +3138,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3122,7 +3204,8 @@
                 "available_seats": "110",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (8040)",
@@ -3142,7 +3225,8 @@
                 "available_seats": "110",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3207,7 +3291,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6220)",
@@ -3227,7 +3312,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3280,7 +3366,8 @@
                 "available_seats": "36",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "For UG STAT Major\nPrerequisite:STAT3011 or consent of instructor"
             },
             {
               "section": "-T01-TUT (8631)",
@@ -3306,7 +3393,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "For UG STAT Major\nPrerequisite:STAT3011 or consent of instructor"
             },
             {
               "section": "-T02-TUT (8633)",
@@ -3326,7 +3414,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "For UG STAT Major\nPrerequisite:STAT3011 or consent of instructor"
             },
             {
               "section": "-T03-TUT (8632)",
@@ -3346,7 +3435,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "For UG STAT Major\nPrerequisite:STAT3011 or consent of instructor"
             },
             {
               "section": "-T04-TUT (8634)",
@@ -3372,7 +3462,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "For UG STAT Major\nPrerequisite:STAT3011 or consent of instructor"
             }
           ]
         }
@@ -3436,7 +3527,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (8046)",
@@ -3456,7 +3548,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3509,7 +3602,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course\nInternship",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -3535,7 +3629,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course\nInternship",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3594,7 +3689,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "-T01-TUT (1503)",
@@ -3614,7 +3710,8 @@
                 "available_seats": "65",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             }
           ]
         }
@@ -3672,7 +3769,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil in Risk Management Science; or in MPhil-PhD in Statistics; or MSc in Advanced Studies in Statistics and Data Science"
             }
           ]
         }
@@ -3730,7 +3828,8 @@
                 "available_seats": "19",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             }
           ]
         }
@@ -3796,7 +3895,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "-T01-TUT (2501)",
@@ -3822,7 +3922,8 @@
                 "available_seats": "72",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             }
           ]
         }
@@ -3886,7 +3987,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "-T01-TUT (2502)",
@@ -3912,7 +4014,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             }
           ]
         }
@@ -3964,7 +4067,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "-T01-TUT (1505)",
@@ -3984,7 +4088,8 @@
                 "available_seats": "68",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             }
           ]
         }
@@ -4036,7 +4141,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             }
           ]
         }
@@ -4089,7 +4195,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Data Sci & Business Stat"
             }
           ]
         }
@@ -4147,7 +4254,8 @@
                 "available_seats": "45",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Data Sci & Business Stat"
             }
           ]
         }
@@ -4206,13 +4314,14 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "110",
+                "enrolled": "108",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Data Science and Business Statistics; or MSc Risk Management Science and Data Analytics"
             }
           ]
         }
@@ -4276,7 +4385,8 @@
                 "available_seats": "81",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Data Science and Business Statistics"
             }
           ]
         }
@@ -4341,7 +4451,8 @@
                 "available_seats": "71",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Data Science and Business Statistics or MSc Risk Management Science"
             }
           ]
         }
@@ -4399,7 +4510,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Data Sci & Business Stat"
             }
           ]
         }
@@ -4458,7 +4570,8 @@
                 "available_seats": "62",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Data Science and Business Statistics"
             }
           ]
         }
@@ -4516,7 +4629,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Advanced Studies in Statistics and Data Science"
             }
           ]
         }
@@ -4574,7 +4688,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Advanced Studies in Statistics and Data Science"
             }
           ]
         }
@@ -4627,7 +4742,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Advanced Studies in Statistics and Data Science"
             }
           ]
         }
@@ -4680,7 +4796,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Advanced Studies in Statistics and Data Science"
             }
           ]
         }
@@ -4739,7 +4856,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             }
           ]
         }
@@ -4797,7 +4915,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             }
           ]
         }
@@ -4858,7 +4977,8 @@
                 "available_seats": "53",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Data Science and Business Statistics and MSc Risk Management Science and Data Analytics"
             }
           ]
         }
@@ -4916,7 +5036,8 @@
                 "available_seats": "57",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc in Data Science and Business Statistics, MSc Risk Management Science and MSc in Risk Management Science and Data Analytics"
             }
           ]
         }
@@ -4968,13 +5089,14 @@
               ],
               "availability": {
                 "capacity": "130",
-                "enrolled": "115",
+                "enrolled": "116",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc in Data Science and Business Statistics"
             }
           ]
         }
@@ -5027,7 +5149,8 @@
                 "available_seats": "99",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Data Science and Business Statistics"
             }
           ]
         }
@@ -5082,7 +5205,8 @@
                 "available_seats": "90",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Advanced Studies in Statistics and Data Science; or MSc in Risk Management Science and Data Analytics"
             }
           ]
         }
@@ -5147,7 +5271,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Advanced Studies in Statistics and Data Science"
             }
           ]
         }
@@ -5205,7 +5330,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc in Advanced Studies in Statistics and Data Science"
             }
           ]
         }
@@ -5258,7 +5384,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Data Science and Business Statistics"
             }
           ]
         }
@@ -5323,7 +5450,8 @@
                 "available_seats": "21",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc in Advanced Studies in Statistics and Data Science;For students in MSc in Risk Management Science and Data Analytics"
             }
           ]
         }
@@ -5372,7 +5500,8 @@
                 "available_seats": "99",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Advanced Studies in Statistics and Data Science"
             }
           ]
         },
@@ -5398,7 +5527,8 @@
                 "available_seats": "99",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Advanced Studies in Statistics and Data Science"
             }
           ]
         }
@@ -5447,7 +5577,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             }
           ]
         }
@@ -5496,7 +5627,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "BM01-TMC (4194)",
@@ -5516,7 +5648,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "CM01-TMC (3858)",
@@ -5536,7 +5669,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "DM01-TMC (4224)",
@@ -5556,7 +5690,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "EM01-TMC (4199)",
@@ -5576,7 +5711,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "FM01-TMC (4195)",
@@ -5596,7 +5732,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "GM01-TMC (4073)",
@@ -5616,7 +5753,8 @@
                 "available_seats": "21",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "HM01-TMC (3457)",
@@ -5636,7 +5774,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "IM01-TMC (3795)",
@@ -5656,7 +5795,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "JM01-TMC (2658)",
@@ -5676,7 +5816,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "KM01-TMC (3882)",
@@ -5696,7 +5837,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "LM01-TMC (3883)",
@@ -5716,7 +5858,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "MM01-TMC (3884)",
@@ -5736,7 +5879,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "NM01-TMC (3232)",
@@ -5756,7 +5900,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "OM01-TMC (2032)",
@@ -5776,7 +5921,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "PM01-TMC (3231)",
@@ -5796,7 +5942,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "QM01-TMC (4621)",
@@ -5816,7 +5963,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "RM01-TMC (4618)",
@@ -5836,7 +5984,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "SM01-TMC (2818)",
@@ -5856,7 +6005,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "TM01-TMC (2819)",
@@ -5876,7 +6026,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             }
           ]
         },
@@ -5902,7 +6053,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "BM01-TMC (4276)",
@@ -5922,7 +6074,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "CM01-TMC (4273)",
@@ -5942,7 +6095,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "DM01-TMC (4270)",
@@ -5962,7 +6116,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "EM01-TMC (4269)",
@@ -5982,7 +6137,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "FM01-TMC (4275)",
@@ -6002,7 +6158,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "GM01-TMC (4274)",
@@ -6022,7 +6179,8 @@
                 "available_seats": "21",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "HM01-TMC (3441)",
@@ -6042,7 +6200,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "IM01-TMC (3857)",
@@ -6062,7 +6221,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "JM01-TMC (2585)",
@@ -6082,7 +6242,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "KM01-TMC (3969)",
@@ -6102,7 +6263,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "LM01-TMC (3967)",
@@ -6122,7 +6284,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "MM01-TMC (3968)",
@@ -6142,7 +6305,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "NM01-TMC (2029)",
@@ -6162,7 +6326,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "OM01-TMC (3199)",
@@ -6182,7 +6347,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "PM01-TMC (3198)",
@@ -6202,7 +6368,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "QM01-TMC (4084)",
@@ -6222,7 +6389,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "RM01-TMC (4726)",
@@ -6242,7 +6410,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "SM01-TMC (2737)",
@@ -6262,7 +6431,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "TM01-TMC (2738)",
@@ -6282,7 +6452,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             }
           ]
         }
@@ -6331,7 +6502,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "BM01-TMC (4193)",
@@ -6351,7 +6523,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "CM01-TMC (4200)",
@@ -6371,7 +6544,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "DM01-TMC (4197)",
@@ -6391,7 +6565,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "EM01-TMC (4198)",
@@ -6411,7 +6586,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "FM01-TMC (4196)",
@@ -6431,7 +6607,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "GM01-TMC (4192)",
@@ -6451,7 +6628,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "HM01-TMC (3796)",
@@ -6471,7 +6649,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "IM01-TMC (2659)",
@@ -6491,7 +6670,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "JM01-TMC (3885)",
@@ -6511,7 +6691,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "KM01-TMC (3532)",
@@ -6531,7 +6712,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "LM01-TMC (3533)",
@@ -6551,7 +6733,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "MM01-TMC (3233)",
@@ -6571,7 +6754,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "NM01-TMC (3534)",
@@ -6591,7 +6775,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "OM01-TMC (3230)",
@@ -6611,7 +6796,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "PM01-TMC (3234)",
@@ -6631,7 +6817,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "QM01-TMC (2827)",
@@ -6651,7 +6838,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "RM01-TMC (2815)",
@@ -6671,7 +6859,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "SM01-TMC (2816)",
@@ -6691,7 +6880,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "TM01-TMC (2817)",
@@ -6711,7 +6901,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             }
           ]
         },
@@ -6737,7 +6928,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "BM01-TMC (4272)",
@@ -6757,7 +6949,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "CM01-TMC (4317)",
@@ -6777,7 +6970,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "DM01-TMC (3229)",
@@ -6797,7 +6991,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "EM01-TMC (4277)",
@@ -6817,7 +7012,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "FM01-TMC (4318)",
@@ -6837,7 +7033,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "GM01-TMC (4271)",
@@ -6857,7 +7054,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "HM01-TMC (3858)",
@@ -6877,7 +7075,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "IM01-TMC (2586)",
@@ -6897,7 +7096,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "JM01-TMC (3970)",
@@ -6917,7 +7117,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "KM01-TMC (3542)",
@@ -6937,7 +7138,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "LM01-TMC (3543)",
@@ -6957,7 +7159,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "MM01-TMC (3541)",
@@ -6977,7 +7180,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "NM01-TMC (3200)",
@@ -6997,7 +7201,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "OM01-TMC (3201)",
@@ -7017,7 +7222,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "PM01-TMC (3202)",
@@ -7037,7 +7243,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "QM01-TMC (2740)",
@@ -7057,7 +7264,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "RM01-TMC (2720)",
@@ -7077,7 +7285,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "SM01-TMC (2721)",
@@ -7097,7 +7306,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             },
             {
               "section": "TM01-TMC (2722)",
@@ -7117,7 +7327,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Statistics"
             }
           ]
         }

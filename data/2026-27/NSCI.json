@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "NSCI",
     "subject_title": "Natural Sciences",
     "total_courses": 5
@@ -34,7 +34,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For UG NSCI Major"
             }
           ]
         }
@@ -105,7 +106,8 @@
                 "available_seats": "65",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -171,7 +173,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -224,7 +227,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -250,7 +254,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -302,7 +307,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course\nInternship",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -328,7 +334,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course\nInternship",
+              "enrollment_requirement": ""
             }
           ]
         }

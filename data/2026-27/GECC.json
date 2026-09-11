@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "GECC",
     "subject_title": "General Education - Chung Chi College",
     "total_courses": 8
@@ -28,13 +28,14 @@
               ],
               "availability": {
                 "capacity": "4000",
-                "enrolled": "2611",
+                "enrolled": "2610",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1389",
+                "available_seats": "1390",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "Chung Chi College Assembly"
             },
             {
               "section": "AA01-ASB (8888)",
@@ -48,13 +49,14 @@
               ],
               "availability": {
                 "capacity": "4000",
-                "enrolled": "1223",
+                "enrolled": "1222",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2777",
+                "available_seats": "2778",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "Chung Chi College Assembly"
             }
           ]
         },
@@ -98,7 +100,8 @@
                 "available_seats": "4000",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "Chung Chi College Assembly"
             },
             {
               "section": "AA01-ASB (8783)",
@@ -136,7 +139,8 @@
                 "available_seats": "4000",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "Chung Chi College Assembly"
             }
           ]
         }
@@ -179,13 +183,14 @@
               ],
               "availability": {
                 "capacity": "1000",
-                "enrolled": "771",
+                "enrolled": "769",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "229",
+                "available_seats": "231",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only. Not for students who have taken GECC1230."
             }
           ]
         }
@@ -234,7 +239,8 @@
                 "available_seats": "1200",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AAF1-FLD (9609)",
@@ -254,7 +260,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "ABF1-FLD (9608)",
@@ -274,7 +281,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "ACF1-FLD (9607)",
@@ -294,7 +302,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "ADF1-FLD (4844)",
@@ -314,7 +323,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AEF1-FLD (5976)",
@@ -328,13 +338,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "17",
+                "enrolled": "15",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AF01-FLD (10191)",
@@ -348,13 +359,14 @@
               ],
               "availability": {
                 "capacity": "500",
-                "enrolled": "17",
+                "enrolled": "0",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "483",
+                "available_seats": "500",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AFF1-FLD (5977)",
@@ -374,7 +386,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AGF1-FLD (5888)",
@@ -394,7 +407,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AHF1-FLD (5890)",
@@ -414,7 +428,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AIF1-FLD (5978)",
@@ -434,7 +449,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AJF1-FLD (5981)",
@@ -454,7 +470,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AKF1-FLD (5957)",
@@ -474,7 +491,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "ALF1-FLD (5979)",
@@ -494,7 +512,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AMF1-FLD (5984)",
@@ -514,7 +533,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "ANF1-FLD (5887)",
@@ -534,7 +554,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AOF1-FLD (5975)",
@@ -554,7 +575,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "APF1-FLD (4819)",
@@ -574,7 +596,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AQF1-FLD (5891)",
@@ -594,7 +617,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "ARF1-FLD (5889)",
@@ -614,7 +638,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "ASF1-FLD (5895)",
@@ -634,7 +659,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "ATF1-FLD (5980)",
@@ -654,7 +680,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AUF1-FLD (5894)",
@@ -674,7 +701,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AVF1-FLD (5974)",
@@ -694,7 +722,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AWF1-FLD (5948)",
@@ -714,7 +743,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AXF1-FLD (5983)",
@@ -734,7 +764,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AYF1-FLD (7204)",
@@ -754,7 +785,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "AZF1-FLD (5982)",
@@ -774,7 +806,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BAF1-FLD (7205)",
@@ -788,13 +821,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "16",
+                "enrolled": "15",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BBF1-FLD (4827)",
@@ -814,7 +848,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BCF1-FLD (4828)",
@@ -834,7 +869,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BDF1-FLD (4860)",
@@ -854,7 +890,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BEF1-FLD (4862)",
@@ -874,7 +911,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BFF1-FLD (4863)",
@@ -894,7 +932,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BGF1-FLD (4864)",
@@ -914,7 +953,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BHF1-FLD (4865)",
@@ -934,7 +974,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BIF1-FLD (4866)",
@@ -954,7 +995,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BJF1-FLD (4867)",
@@ -974,7 +1016,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BKF1-FLD (4868)",
@@ -994,7 +1037,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BLF1-FLD (4869)",
@@ -1014,7 +1058,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BMF1-FLD (4870)",
@@ -1034,7 +1079,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BNF1-FLD (4871)",
@@ -1048,13 +1094,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "16",
+                "enrolled": "17",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BOF1-FLD (4946)",
@@ -1074,7 +1121,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BPF1-FLD (4872)",
@@ -1094,7 +1142,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BQF1-FLD (4873)",
@@ -1114,7 +1163,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BRF1-FLD (4874)",
@@ -1134,7 +1184,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BSF1-FLD (5307)",
@@ -1154,7 +1205,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BTF1-FLD (5383)",
@@ -1174,7 +1226,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BUF1-FLD (7791)",
@@ -1194,7 +1247,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BVF1-FLD (4830)",
@@ -1214,7 +1268,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "BWF1-FLD (4815)",
@@ -1234,7 +1289,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "CAF1-FLD (4875)",
@@ -1254,7 +1310,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "CBF1-FLD (4822)",
@@ -1274,7 +1331,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "CCF1-FLD (4878)",
@@ -1294,7 +1352,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "CDF1-FLD (4879)",
@@ -1314,7 +1373,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "CEF1-FLD (5951)",
@@ -1334,7 +1394,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "CFF1-FLD (5949)",
@@ -1348,13 +1409,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "19",
+                "enrolled": "20",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "CGF1-FLD (5950)",
@@ -1374,7 +1436,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "CHF1-FLD (9463)",
@@ -1388,13 +1451,14 @@
               ],
               "availability": {
                 "capacity": "24",
-                "enrolled": "22",
+                "enrolled": "23",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "CIF1-FLD (9810)",
@@ -1408,13 +1472,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "0",
+                "enrolled": "16",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "CJF1-FLD (4880)",
@@ -1434,7 +1499,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "CKF1-FLD (4845)",
@@ -1454,7 +1520,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "DAF1-FLD (4881)",
@@ -1474,7 +1541,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "DBF1-FLD (4917)",
@@ -1494,7 +1562,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "DCF1-FLD (4919)",
@@ -1514,7 +1583,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "EAF1-FLD (4920)",
@@ -1534,7 +1604,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "EBF1-FLD (9548)",
@@ -1554,7 +1625,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "ECF1-FLD (9552)",
@@ -1568,13 +1640,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "20",
+                "enrolled": "19",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "EDF1-FLD (4921)",
@@ -1594,7 +1667,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "EEF1-FLD (4922)",
@@ -1614,7 +1688,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "EFF1-FLD (4924)",
@@ -1634,7 +1709,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "EGF1-FLD (4926)",
@@ -1654,7 +1730,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "EHF1-FLD (4928)",
@@ -1674,7 +1751,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             },
             {
               "section": "EQF1-FLD (4954)",
@@ -1688,13 +1766,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "16",
+                "enrolled": "17",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course\nService Learning Course",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only."
             }
           ]
         }
@@ -1741,13 +1820,14 @@
               ],
               "availability": {
                 "capacity": "500",
-                "enrolled": "13",
+                "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "487",
+                "available_seats": "500",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only. Not for students who have taken GECC1130."
             },
             {
               "section": "A-LEC (4942)",
@@ -1773,7 +1853,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only. Not for students who have taken GECC1130."
             },
             {
               "section": "B-LEC (4933)",
@@ -1793,7 +1874,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only. Not for students who have taken GECC1130."
             },
             {
               "section": "C-LEC (7087)",
@@ -1807,13 +1889,14 @@
               ],
               "availability": {
                 "capacity": "400",
-                "enrolled": "237",
+                "enrolled": "251",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "163",
+                "available_seats": "149",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 1 Chung Chi College students only. Not for students who have taken GECC1130."
             }
           ]
         }
@@ -1867,7 +1950,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AAJ1-PRJ (8102)",
@@ -1887,7 +1971,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AAS1-SEM (8103)",
@@ -1907,7 +1992,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AF01-FLD (8003)",
@@ -1927,7 +2013,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AJ01-PRJ (8004)",
@@ -1947,7 +2034,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AS01-SEM (7815)",
@@ -1967,7 +2055,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "BF01-FLD (8005)",
@@ -1987,7 +2076,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "BJ01-PRJ (8006)",
@@ -2007,7 +2097,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "BS01-SEM (7664)",
@@ -2027,7 +2118,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "CF01-FLD (6220)",
@@ -2047,7 +2139,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "CJ01-PRJ (6140)",
@@ -2067,7 +2160,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "CS01-SEM (6137)",
@@ -2087,7 +2181,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "DF01-FLD (6141)",
@@ -2107,7 +2202,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "DJ01-PRJ (6148)",
@@ -2127,7 +2223,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "DS01-SEM (6151)",
@@ -2147,7 +2244,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "EF01-FLD (6138)",
@@ -2167,7 +2265,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "EJ01-PRJ (6143)",
@@ -2187,7 +2286,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "ES01-SEM (5276)",
@@ -2207,7 +2307,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "FF01-FLD (6142)",
@@ -2227,7 +2328,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "FJ01-PRJ (6149)",
@@ -2247,7 +2349,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "FS01-SEM (7665)",
@@ -2267,7 +2370,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "GF01-FLD (6146)",
@@ -2287,7 +2391,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "GJ01-PRJ (6150)",
@@ -2307,7 +2412,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "GS01-SEM (5277)",
@@ -2327,7 +2433,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "HF01-FLD (6139)",
@@ -2347,7 +2454,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "HJ01-PRJ (6144)",
@@ -2367,7 +2475,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "HS01-SEM (5278)",
@@ -2387,7 +2496,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "IF01-FLD (6147)",
@@ -2407,7 +2517,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "IJ01-PRJ (6145)",
@@ -2427,7 +2538,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "IS01-SEM (4944)",
@@ -2447,7 +2559,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             }
           ]
         },
@@ -2473,7 +2586,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AAJ1-PRJ (6642)",
@@ -2493,7 +2607,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AAS1-SEM (6643)",
@@ -2513,7 +2628,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AF01-FLD (7843)",
@@ -2533,7 +2649,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AJ01-PRJ (7844)",
@@ -2553,7 +2670,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AS01-SEM (7845)",
@@ -2573,7 +2691,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "BF01-FLD (7895)",
@@ -2593,7 +2712,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "BJ01-PRJ (7896)",
@@ -2613,7 +2733,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "BS01-SEM (7897)",
@@ -2633,7 +2754,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "CF01-FLD (6532)",
@@ -2653,7 +2775,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "CJ01-PRJ (6561)",
@@ -2673,7 +2796,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "CS01-SEM (6562)",
@@ -2693,7 +2817,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "DF01-FLD (6504)",
@@ -2713,7 +2838,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "DJ01-PRJ (6411)",
@@ -2733,7 +2859,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "DS01-SEM (6412)",
@@ -2753,7 +2880,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3230, GECC3430, GECC4130 or IASP4280."
             }
           ]
         }
@@ -2809,7 +2937,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AAT1-TUT (8106)",
@@ -2829,7 +2958,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AF01-FLD (6326)",
@@ -2849,7 +2979,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AT01-TUT (6327)",
@@ -2869,7 +3000,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "BF01-FLD (6123)",
@@ -2889,7 +3021,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "BT01-TUT (6125)",
@@ -2909,7 +3042,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "CF01-FLD (6198)",
@@ -2929,7 +3063,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "CT01-TUT (6126)",
@@ -2949,7 +3084,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "DF01-FLD (6124)",
@@ -2969,7 +3105,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "DT01-TUT (6127)",
@@ -2989,7 +3126,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "EF01-FLD (8015)",
@@ -3009,7 +3147,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "ET01-TUT (6128)",
@@ -3029,7 +3168,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "FF01-FLD (7973)",
@@ -3049,7 +3189,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "FT01-TUT (6258)",
@@ -3069,7 +3210,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "HF01-FLD (6264)",
@@ -3089,7 +3231,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "HT01-TUT (6479)",
@@ -3109,7 +3252,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "IF01-FLD (6265)",
@@ -3129,7 +3273,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "IT01-TUT (6266)",
@@ -3149,7 +3294,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "JF01-FLD (8619)",
@@ -3169,7 +3315,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "JT01-TUT (6116)",
@@ -3189,7 +3336,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "KF01-FLD (8618)",
@@ -3209,7 +3357,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "KT01-TUT (7956)",
@@ -3229,7 +3378,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "LF01-FLD (8014)",
@@ -3249,7 +3399,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "LT01-TUT (8615)",
@@ -3269,7 +3420,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             }
           ]
         },
@@ -3295,7 +3447,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AAT1-TUT (8092)",
@@ -3315,7 +3468,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AF01-FLD (6414)",
@@ -3335,7 +3489,8 @@
                 "available_seats": "16",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             },
             {
               "section": "AT01-TUT (6413)",
@@ -3355,7 +3510,8 @@
                 "available_seats": "16",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3430, GECC4130 or IASP4280."
             }
           ]
         }
@@ -3410,7 +3566,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only\nExperiential Learning Course",
+              "enrollment_requirement": "Not for students who have taken GECC3130, GECC3230, GECC4130 or IASP4280."
             },
             {
               "section": "-F01-FLD (6638)",
@@ -3430,7 +3587,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only\nExperiential Learning Course",
+              "enrollment_requirement": "Not for students who have taken GECC3130, GECC3230, GECC4130 or IASP4280."
             },
             {
               "section": "-S01-SEM (6637)",
@@ -3450,7 +3608,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only\nExperiential Learning Course",
+              "enrollment_requirement": "Not for students who have taken GECC3130, GECC3230, GECC4130 or IASP4280."
             }
           ]
         }
@@ -3506,7 +3665,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "AS01-SEM (7476)",
@@ -3526,7 +3686,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "BS01-SEM (9139)",
@@ -3546,7 +3707,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "CS01-SEM (5841)",
@@ -3566,7 +3728,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "DS01-SEM (4877)",
@@ -3586,7 +3749,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "ES01-SEM (5963)",
@@ -3606,7 +3770,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "FS01-SEM (7206)",
@@ -3626,7 +3791,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "GS01-SEM (9128)",
@@ -3646,7 +3812,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "HS01-SEM (5961)",
@@ -3666,7 +3833,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "IS01-SEM (5340)",
@@ -3686,7 +3854,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "JS01-SEM (5914)",
@@ -3706,7 +3875,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "KS01-SEM (5960)",
@@ -3726,7 +3896,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "LS01-SEM (5937)",
@@ -3746,7 +3917,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "MS01-SEM (5964)",
@@ -3766,7 +3938,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "NS01-SEM (5892)",
@@ -3786,7 +3959,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "OS01-SEM (7207)",
@@ -3806,7 +3980,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "PS01-SEM (7792)",
@@ -3826,7 +4001,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "QS01-SEM (5962)",
@@ -3846,7 +4022,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "RS01-SEM (5905)",
@@ -3866,7 +4043,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "SS01-SEM (5928)",
@@ -3886,7 +4064,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             },
             {
               "section": "YAS1-SEM (7814)",
@@ -3906,7 +4085,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             }
           ]
         },
@@ -3932,7 +4112,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "- For Chung Chi Students only.\n- Not for students who have taken GECC3130, GECC3230, GECC3430 or IASP4280."
             }
           ]
         }

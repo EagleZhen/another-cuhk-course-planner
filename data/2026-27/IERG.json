@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "IERG",
     "subject_title": "Information Engineering",
     "total_courses": 60
@@ -34,7 +34,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For IERGN Year 1 students."
             },
             {
               "section": "-T01-TUT (6443)",
@@ -54,7 +55,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For IERGN Year 1 students."
             }
           ]
         }
@@ -137,7 +139,8 @@
                 "available_seats": "140",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken AIST1110 or CSCI1040 or CSCI1550 or CSCI2040."
             },
             {
               "section": "-L01-LAB (8872)",
@@ -169,7 +172,8 @@
                 "available_seats": "140",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken AIST1110 or CSCI1040 or CSCI1550 or CSCI2040."
             }
           ]
         }
@@ -227,7 +231,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For New Curriculum students of IERG and MIEG Major.\nPre-requisite/Co-requisite: IERG2060/ESTR2304"
             },
             {
               "section": "BL01-LAB (5108)",
@@ -247,7 +252,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For New Curriculum students of IERG and MIEG Major.\nPre-requisite/Co-requisite: IERG2060/ESTR2304"
             }
           ]
         }
@@ -311,7 +317,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: MATH1510.\nNot for students who have taken ENGG2030 or ESTR2206 or ESTR2302 or ESTR2360 or MIEG2051."
             },
             {
               "section": "-T01-TUT (6491)",
@@ -331,7 +338,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: MATH1510.\nNot for students who have taken ENGG2030 or ESTR2206 or ESTR2302 or ESTR2360 or MIEG2051."
             }
           ]
         }
@@ -392,7 +400,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For New Curriculum students of IERG and MIEG Major.\nNot for students who have taken ELEG2202 or ELEG2201 or ELEG1110 or ENGG2020 or ESTR2104 or ESTR2304"
             },
             {
               "section": "-T01-TUT (6183)",
@@ -412,7 +421,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For New Curriculum students of IERG and MIEG Major.\nNot for students who have taken ELEG2202 or ELEG2201 or ELEG1110 or ENGG2020 or ESTR2104 or ESTR2304"
             }
           ]
         }
@@ -501,7 +511,8 @@
                 "available_seats": "130",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: ENGG1110 or ESTR1002\nNot for students who have taken CSCI1140 or CSCI1510 or ESTR2306."
             },
             {
               "section": "-L01-LAB (8587)",
@@ -533,7 +544,8 @@
                 "available_seats": "130",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: ENGG1110 or ESTR1002\nNot for students who have taken CSCI1140 or CSCI1510 or ESTR2306."
             }
           ]
         }
@@ -621,7 +633,8 @@
                 "available_seats": "185",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051.\nNot for students who have taken ELEG2310 or ENGG2310 or ESTR2300"
             },
             {
               "section": "-T01-TUT (6604)",
@@ -641,7 +654,8 @@
                 "available_seats": "185",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ENGG2030 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051.\nNot for students who have taken ELEG2310 or ENGG2310 or ESTR2300"
             }
           ]
         }
@@ -724,7 +738,8 @@
                 "available_seats": "140",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2430, ENGG2450, ENGG2460, ENGG2470, ESTR2002, ESTR2005, ESTR2010, ESTR2012, ESTR2308, ESTR2362 or MIEG2440"
             },
             {
               "section": "-T01-TUT (4869)",
@@ -762,7 +777,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2430, ENGG2450, ENGG2460, ENGG2470, ESTR2002, ESTR2005, ESTR2010, ESTR2012, ESTR2308, ESTR2362 or MIEG2440"
             },
             {
               "section": "-T02-TUT (8242)",
@@ -794,7 +810,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2430, ENGG2450, ENGG2460, ENGG2470, ESTR2002, ESTR2005, ESTR2010, ESTR2012, ESTR2308, ESTR2362 or MIEG2440"
             }
           ]
         }
@@ -847,13 +864,14 @@
               ],
               "availability": {
                 "capacity": "66",
-                "enrolled": "56",
+                "enrolled": "57",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For IERGN and MIEGN Year 2 students only.\nPre-requisite/Co-requisite: IERG2060/ESTR2304\nNot for students who have taken IERG1810."
             },
             {
               "section": "BL01-LAB (8848)",
@@ -867,13 +885,14 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "43",
+                "enrolled": "42",
                 "waitlist_capacity": "999",
                 "waitlist_total": "1",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For IERGN and MIEGN Year 2 students only.\nPre-requisite/Co-requisite: IERG2060/ESTR2304\nNot for students who have taken IERG1810."
             },
             {
               "section": "CL01-LAB (8977)",
@@ -893,7 +912,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For IERGN and MIEGN Year 2 students only.\nPre-requisite/Co-requisite: IERG2060/ESTR2304\nNot for students who have taken IERG1810."
             }
           ]
         }
@@ -957,7 +977,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ENGG2310 or ESTR2300 or IERG2310.\nNot for students who have taken ESTR3300."
             },
             {
               "section": "-T01-TUT (6364)",
@@ -977,7 +998,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ENGG2310 or ESTR2300 or IERG2310.\nNot for students who have taken ESTR3300."
             }
           ]
         }
@@ -1065,7 +1087,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: IERG2470 or MIEG2440 or ENGG2430 or 2450 or 2460 or 2470 or ESTR2002 or 2005 or 2010 or 2012 or 2018 or 2308 or 2362"
             },
             {
               "section": "-T01-TUT (6563)",
@@ -1085,7 +1108,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: IERG2470 or MIEG2440 or ENGG2430 or 2450 or 2460 or 2470 or ESTR2002 or 2005 or 2010 or 2012 or 2018 or 2308 or 2362"
             }
           ]
         }
@@ -1167,7 +1191,8 @@
                 "available_seats": "116",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Co-requisite: IERG3810.\nNot for students who have taken ELEG2401 or ELEG3230 or ELEG3701."
             },
             {
               "section": "-T01-TUT (8035)",
@@ -1187,7 +1212,8 @@
                 "available_seats": "116",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Co-requisite: IERG3810.\nNot for students who have taken ELEG2401 or ELEG3230 or ELEG3701."
             }
           ]
         }
@@ -1271,7 +1297,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: CSCI2100 or ESTR2102"
             },
             {
               "section": "-T01-TUT (6447)",
@@ -1291,7 +1318,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: CSCI2100 or ESTR2102"
             }
           ]
         }
@@ -1356,7 +1384,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For New Curriculum students of IERG and MIEG Major.\nPre-requisite: CSCI2100 or ESTR2102\nNot for students who have taken CSCI3100 or ENGG3820 or ESTR3308."
             },
             {
               "section": "-T01-TUT (8812)",
@@ -1376,7 +1405,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For New Curriculum students of IERG and MIEG Major.\nPre-requisite: CSCI2100 or ESTR2102\nNot for students who have taken CSCI3100 or ENGG3820 or ESTR3308."
             }
           ]
         }
@@ -1434,7 +1464,8 @@
                 "available_seats": "44",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: CSCI2100 or ESTR2102\nNot for students who have taken CSCI4430 or ESTR4120 or ESTR3310."
             },
             {
               "section": "-T01-TUT (8040)",
@@ -1454,7 +1485,8 @@
                 "available_seats": "44",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: CSCI2100 or ESTR2102\nNot for students who have taken CSCI4430 or ESTR4120 or ESTR3310."
             }
           ]
         },
@@ -1510,7 +1542,8 @@
                 "available_seats": "127",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: CSCI2100 or ESTR2102\nNot for students who have taken CSCI4430 or ESTR4120 or ESTR3310."
             },
             {
               "section": "-T01-TUT (6778)",
@@ -1530,7 +1563,8 @@
                 "available_seats": "127",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: CSCI2100 or ESTR2102\nNot for students who have taken CSCI4430 or ESTR4120 or ESTR3310."
             }
           ]
         }
@@ -1618,7 +1652,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206\nNot for students who have taken ESTR3306."
             },
             {
               "section": "-T01-TUT (8124)",
@@ -1638,7 +1673,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: IERG2051 or MIEG2051 or ENGG2030 or ESTR2302 or ESTR2360 or ESTR2206\nNot for students who have taken ESTR3306."
             }
           ]
         }
@@ -1696,7 +1732,8 @@
                 "available_seats": "51",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For New Curriculum students of IERG and MIEG Major.\nCo-requisite: IERG3310 or ESTR3310\nNot for students who have taken IERG3921."
             }
           ]
         },
@@ -1740,7 +1777,8 @@
                 "available_seats": "125",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Co-requisite: IERG3310 or ESTR3310\nNot for students who have taken IERG3921."
             }
           ]
         }
@@ -1807,7 +1845,8 @@
                 "available_seats": "42",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Co-requisite: IERG3060."
             },
             {
               "section": "BL01-LAB (8762)",
@@ -1839,7 +1878,8 @@
                 "available_seats": "42",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Co-requisite: IERG3060."
             },
             {
               "section": "CL01-LAB (8746)",
@@ -1871,7 +1911,8 @@
                 "available_seats": "42",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Co-requisite: IERG3060."
             }
           ]
         }
@@ -1942,7 +1983,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Corequisite: ENGG2310 or ESTR2300 or IERG2310"
             },
             {
               "section": "BL01-LAB (8684)",
@@ -1974,7 +2016,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Corequisite: ENGG2310 or ESTR2300 or IERG2310"
             },
             {
               "section": "CL01-LAB (8863)",
@@ -2006,7 +2049,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Corequisite: ENGG2310 or ESTR2300 or IERG2310"
             },
             {
               "section": "DL01-LAB (8776)",
@@ -2038,7 +2082,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Corequisite: ENGG2310 or ESTR2300 or IERG2310"
             }
           ]
         }
@@ -2108,7 +2153,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "-"
             }
           ]
         }
@@ -2174,7 +2220,8 @@
                 "available_seats": "45",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Co-requisite: IERG3080 or ESTR3308.\nNot for students who have taken CSCI3310 or IEMS5722."
             }
           ]
         }
@@ -2239,7 +2286,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Co-requisite: IERG3080\nNot for students who have taken AIST4060"
             }
           ]
         }
@@ -2304,7 +2352,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "1.Not for students who have taken ELEG3303 or ESTR3206 or ESTR4320 or IEMS5705\n2.Pre-requisite(s): ENGG2310 or ESTR2300 or IERG2310 or with the approval of the course instructor."
             },
             {
               "section": "-T01-TUT (6365)",
@@ -2324,7 +2373,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "1.Not for students who have taken ELEG3303 or ESTR3206 or ESTR4320 or IEMS5705\n2.Pre-requisite(s): ENGG2310 or ESTR2300 or IERG2310 or with the approval of the course instructor."
             }
           ]
         }
@@ -2412,7 +2462,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: IERG3080. Not for students who have taken ESTR4312."
             },
             {
               "section": "-T01-TUT (8125)",
@@ -2432,7 +2483,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: IERG3080. Not for students who have taken ESTR4312."
             }
           ]
         }
@@ -2514,7 +2566,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: IERG3310 or ESTR3310\nNot for students who have taken ESTR4302."
             },
             {
               "section": "-T01-TUT (4879)",
@@ -2534,7 +2587,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: IERG3310 or ESTR3310\nNot for students who have taken ESTR4302."
             }
           ]
         }
@@ -2599,7 +2653,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ENGG2310 or ESTR2300 or ESTR3300 or IERG2310 or IERG3010.\nNot for students who have taken ESTR4304 or IEMS5701."
             },
             {
               "section": "-T01-TUT (8039)",
@@ -2619,7 +2674,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ENGG2310 or ESTR2300 or ESTR3300 or IERG2310 or IERG3010.\nNot for students who have taken ESTR4304 or IEMS5701."
             }
           ]
         }
@@ -2683,7 +2739,8 @@
                 "available_seats": "44",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI4130 or ESTR4306 or IEMS5710"
             },
             {
               "section": "-T01-TUT (4887)",
@@ -2703,7 +2760,8 @@
                 "available_seats": "44",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI4130 or ESTR4306 or IEMS5710"
             }
           ]
         }
@@ -2767,7 +2825,8 @@
                 "available_seats": "46",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4322"
             },
             {
               "section": "-T01-TUT (6237)",
@@ -2787,7 +2846,8 @@
                 "available_seats": "46",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4322"
             }
           ]
         }
@@ -2877,7 +2937,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ELEG4502 or ELEG4512."
             },
             {
               "section": "-T01-TUT (4880)",
@@ -2897,7 +2958,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ELEG4502 or ELEG4512."
             }
           ]
         }
@@ -2980,7 +3042,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4308."
             },
             {
               "section": "-T01-TUT (8123)",
@@ -3000,7 +3063,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4308."
             }
           ]
         }
@@ -3064,7 +3128,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ENGG2030 or ESTR2206 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051.\nNot for students who have taken IEMS5707."
             },
             {
               "section": "-T01-TUT (6453)",
@@ -3084,7 +3149,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ENGG2030 or ESTR2206 or ESTR2302 or ESTR2360 or IERG2051 or MIEG2051.\nNot for students who have taken IEMS5707."
             }
           ]
         }
@@ -3173,7 +3239,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken IEMS5718"
             },
             {
               "section": "-T01-TUT (6362)",
@@ -3193,7 +3260,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken IEMS5718"
             }
           ]
         }
@@ -3257,7 +3325,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6480)",
@@ -3277,7 +3346,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3330,13 +3400,14 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "47",
+                "enrolled": "49",
                 "waitlist_capacity": "999",
                 "waitlist_total": "1",
-                "available_seats": "13",
+                "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-L01-LAB (8918)",
@@ -3356,13 +3427,14 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "47",
+                "enrolled": "49",
                 "waitlist_capacity": "999",
                 "waitlist_total": "1",
-                "available_seats": "13",
+                "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3451,7 +3523,8 @@
                 "available_seats": "45",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: IERG2051 or ENGG2030 or MIEG2051 or ESTR2302 or ESTR2206 or ESTR2360"
             },
             {
               "section": "-L01-LAB (7262)",
@@ -3489,7 +3562,8 @@
                 "available_seats": "45",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: IERG2051 or ENGG2030 or MIEG2051 or ESTR2302 or ESTR2206 or ESTR2360"
             }
           ]
         }
@@ -3578,7 +3652,8 @@
                 "available_seats": "73",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI5510 or ENGG4030 or ESTR4300."
             },
             {
               "section": "-T01-TUT (8116)",
@@ -3598,7 +3673,8 @@
                 "available_seats": "73",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI5510 or ENGG4030 or ESTR4300."
             }
           ]
         }
@@ -3650,13 +3726,14 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "22",
+                "enrolled": "23",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "48",
+                "available_seats": "47",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4324"
             },
             {
               "section": "-T01-TUT (6378)",
@@ -3670,13 +3747,14 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "22",
+                "enrolled": "23",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "48",
+                "available_seats": "47",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4324"
             }
           ]
         }
@@ -3729,7 +3807,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI5590 or ESTR4326 or IEMS5725 or IERG5590"
             },
             {
               "section": "-T01-TUT (6476)",
@@ -3749,7 +3828,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI5590 or ESTR4326 or IEMS5725 or IERG5590"
             }
           ]
         }
@@ -3802,7 +3882,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For New Curriculum students of IERG and MIEG Major.\nCorequisite: IERG4090 or ESTR4302"
             }
           ]
         },
@@ -3828,7 +3909,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Corequisite: IERG4090 or ESTR4302"
             }
           ]
         }
@@ -3877,7 +3959,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For New Curriculum students of IERG and MIEG Major.\nPre-requisite: IERG3800"
             }
           ]
         },
@@ -3903,7 +3986,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: IERG3800"
             }
           ]
         }
@@ -3952,7 +4036,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: IERG4130 or CSCI4130 or ESTR4306, or instructor's written approval."
             }
           ]
         }
@@ -4004,7 +4089,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "ACJ1-PRJ (6207)",
@@ -4024,7 +4110,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "ADJ1-PRJ (8032)",
@@ -4044,7 +4131,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "AEJ1-PRJ (4889)",
@@ -4064,7 +4152,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "AJ01-PRJ (6567)",
@@ -4084,7 +4173,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "BJ01-PRJ (6329)",
@@ -4104,7 +4194,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "CJ01-PRJ (4890)",
@@ -4124,7 +4215,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "DJ01-PRJ (8035)",
@@ -4144,7 +4236,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "EJ01-PRJ (6466)",
@@ -4164,7 +4257,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "FJ01-PRJ (6465)",
@@ -4184,7 +4278,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "GJ01-PRJ (8016)",
@@ -4204,7 +4299,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "HJ01-PRJ (6330)",
@@ -4224,7 +4320,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "IJ01-PRJ (6331)",
@@ -4244,7 +4341,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "JJ01-PRJ (8033)",
@@ -4264,7 +4362,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "KJ01-PRJ (8034)",
@@ -4284,7 +4383,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "LJ01-PRJ (6332)",
@@ -4304,7 +4404,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "MJ01-PRJ (6333)",
@@ -4324,7 +4425,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "NJ01-PRJ (7893)",
@@ -4344,7 +4446,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "OJ01-PRJ (6464)",
@@ -4364,7 +4467,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "PJ01-PRJ (6034)",
@@ -4384,7 +4488,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "QJ01-PRJ (6184)",
@@ -4404,7 +4509,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "RJ01-PRJ (6104)",
@@ -4424,7 +4530,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "TJ01-PRJ (6038)",
@@ -4444,7 +4551,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "UJ01-PRJ (6284)",
@@ -4464,7 +4572,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "VJ01-PRJ (6185)",
@@ -4484,7 +4593,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "WJ01-PRJ (6467)",
@@ -4504,7 +4614,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "XJ01-PRJ (6334)",
@@ -4524,7 +4635,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "YJ01-PRJ (7894)",
@@ -4544,7 +4656,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             },
             {
               "section": "ZJ01-PRJ (6468)",
@@ -4564,7 +4677,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students."
             }
           ]
         },
@@ -4590,7 +4704,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "VJ01-PRJ (8520)",
@@ -4610,7 +4725,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -4662,7 +4778,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students.\nPre-requisites: IERG4998."
             },
             {
               "section": "AFJ1-PRJ (7828)",
@@ -4682,7 +4799,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students.\nPre-requisites: IERG4998."
             },
             {
               "section": "FJ01-PRJ (7895)",
@@ -4702,7 +4820,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students.\nPre-requisites: IERG4998."
             },
             {
               "section": "SJ01-PRJ (7948)",
@@ -4722,7 +4841,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students.\nPre-requisites: IERG4998."
             },
             {
               "section": "UJ01-PRJ (8036)",
@@ -4742,7 +4862,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students.\nPre-requisites: IERG4998."
             },
             {
               "section": "ZJ01-PRJ (8614)",
@@ -4762,7 +4883,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For IERGN, MIEGN Year 4 or above students.\nFor IERGN, MIEGN Year 2 or above AD/HD students.\nFor IERGN, MIEGN Year 3 or above Advanced Standing students.\nPre-requisites: IERG4998."
             }
           ]
         },
@@ -4788,7 +4910,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "ACJ1-PRJ (6488)",
@@ -4808,7 +4931,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "ADJ1-PRJ (7823)",
@@ -4828,7 +4952,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "AEJ1-PRJ (4898)",
@@ -4848,7 +4973,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "AJ01-PRJ (6776)",
@@ -4868,7 +4994,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "BJ01-PRJ (6240)",
@@ -4888,7 +5015,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "CJ01-PRJ (4899)",
@@ -4908,7 +5036,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "DJ01-PRJ (7851)",
@@ -4928,7 +5057,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "EJ01-PRJ (6622)",
@@ -4948,7 +5078,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "FJ01-PRJ (6624)",
@@ -4968,7 +5099,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "GJ01-PRJ (7853)",
@@ -4988,7 +5120,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "HJ01-PRJ (6241)",
@@ -5008,7 +5141,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "IJ01-PRJ (6242)",
@@ -5028,7 +5162,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "JJ01-PRJ (7824)",
@@ -5048,7 +5183,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "KJ01-PRJ (7852)",
@@ -5068,7 +5204,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "LJ01-PRJ (6556)",
@@ -5088,7 +5225,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "MJ01-PRJ (6314)",
@@ -5108,7 +5246,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "NJ01-PRJ (4918)",
@@ -5128,7 +5267,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "OJ01-PRJ (6623)",
@@ -5148,7 +5288,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "PJ01-PRJ (6364)",
@@ -5168,7 +5309,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "QJ01-PRJ (6387)",
@@ -5188,7 +5330,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "RJ01-PRJ (6300)",
@@ -5208,7 +5351,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "TJ01-PRJ (6218)",
@@ -5228,7 +5372,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "UJ01-PRJ (6393)",
@@ -5248,7 +5393,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "VJ01-PRJ (6386)",
@@ -5268,7 +5414,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "WJ01-PRJ (6546)",
@@ -5288,7 +5435,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "XJ01-PRJ (6315)",
@@ -5308,7 +5456,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "YJ01-PRJ (7854)",
@@ -5328,7 +5477,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             },
             {
               "section": "ZJ01-PRJ (6547)",
@@ -5348,7 +5498,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: IERG4998."
             }
           ]
         }
@@ -5412,7 +5563,8 @@
                 "available_seats": "64",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all students in Engineering Faculty;Course Exclusion: IERG4020 or ESTR4318"
             }
           ]
         }
@@ -5500,7 +5652,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all students in Engineering Faculty"
             }
           ]
         }
@@ -5547,13 +5700,14 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "66",
+                "enrolled": "69",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all students in Engineering Faculty"
             }
           ]
         }
@@ -5607,7 +5761,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all students in Engineering Faculty"
             }
           ]
         }
@@ -5661,13 +5816,14 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "48",
+                "enrolled": "45",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all students in Engineering Faculty"
             }
           ]
         }
@@ -5739,7 +5895,8 @@
                 "available_seats": "65",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all students in Engineering Faculty\nExclusion: IERG6154"
             }
           ]
         }
@@ -5804,7 +5961,8 @@
                 "available_seats": "48",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all students in Engineering Faculty"
             }
           ]
         }
@@ -5863,7 +6021,8 @@
                 "available_seats": "44",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all students in Engineering Faculty"
             }
           ]
         }
@@ -5927,7 +6086,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all students in Engineering Faculty; Exclusions: CMSC5730 or ENGG3802 or ENGG3803 or ENGG5700 or ESTR3502 or FTEC5570 or IEMS5712 or SEEM3450"
             }
           ]
         }
@@ -5986,7 +6146,8 @@
                 "available_seats": "69",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all students in Engineering Faculty"
             }
           ]
         }
@@ -6045,7 +6206,8 @@
                 "available_seats": "62",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all students in Engineering Faculty\nPre-requisite: IERG4130 or CSCI4130 or ESTR4306 or IEMS5710, or written waiver with endorsement from instructor."
             }
           ]
         }
@@ -6104,7 +6266,8 @@
                 "available_seats": "43",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all students in Engineering Faculty\nExclusion: CSCI5370 and MAEG5110"
             }
           ]
         }
@@ -6150,13 +6313,14 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "15",
+                "enrolled": "14",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "55",
+                "available_seats": "56",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all students in Engineering Faculty"
             }
           ]
         }
@@ -6215,7 +6379,8 @@
                 "available_seats": "62",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             }
           ]
         }
@@ -6268,7 +6433,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "BM01-TMC (4500)",
@@ -6288,7 +6454,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "CM01-TMC (4489)",
@@ -6308,7 +6475,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "DM01-TMC (4501)",
@@ -6328,7 +6496,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "EM01-TMC (4502)",
@@ -6348,7 +6517,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "FM01-TMC (4503)",
@@ -6368,7 +6538,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "GM01-TMC (4504)",
@@ -6388,7 +6559,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "HM01-TMC (4505)",
@@ -6408,7 +6580,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "IM01-TMC (1827)",
@@ -6428,7 +6601,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "JM01-TMC (4506)",
@@ -6448,7 +6622,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "KM01-TMC (4507)",
@@ -6468,7 +6643,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "LM01-TMC (4508)",
@@ -6488,7 +6664,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "MM01-TMC (4509)",
@@ -6508,7 +6685,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "NM01-TMC (4510)",
@@ -6528,7 +6706,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "OM01-TMC (4511)",
@@ -6548,7 +6727,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "PM01-TMC (4487)",
@@ -6568,7 +6748,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "QM01-TMC (4512)",
@@ -6588,7 +6769,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "RM01-TMC (4056)",
@@ -6608,7 +6790,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "SM01-TMC (4488)",
@@ -6628,7 +6811,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "TM01-TMC (4057)",
@@ -6648,7 +6832,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "UM01-TMC (4058)",
@@ -6668,7 +6853,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "VM01-TMC (4059)",
@@ -6688,7 +6874,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "WM01-TMC (4060)",
@@ -6708,7 +6895,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "XM01-TMC (4061)",
@@ -6728,7 +6916,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "YM01-TMC (2757)",
@@ -6748,7 +6937,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "ZM01-TMC (2758)",
@@ -6768,7 +6958,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             }
           ]
         },
@@ -6794,7 +6985,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "BM01-TMC (4576)",
@@ -6814,7 +7006,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "CM01-TMC (4139)",
@@ -6834,7 +7027,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "DM01-TMC (4140)",
@@ -6854,7 +7048,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "EM01-TMC (4141)",
@@ -6874,7 +7069,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "FM01-TMC (4142)",
@@ -6894,7 +7090,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "GM01-TMC (4143)",
@@ -6914,7 +7111,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "HM01-TMC (4144)",
@@ -6934,7 +7132,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "IM01-TMC (1832)",
@@ -6954,7 +7153,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "JM01-TMC (4145)",
@@ -6974,7 +7174,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "KM01-TMC (4146)",
@@ -6994,7 +7195,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "LM01-TMC (4147)",
@@ -7014,7 +7216,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "MM01-TMC (4148)",
@@ -7034,7 +7237,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "NM01-TMC (4149)",
@@ -7054,7 +7258,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "OM01-TMC (4150)",
@@ -7074,7 +7279,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "PM01-TMC (4574)",
@@ -7094,7 +7300,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "QM01-TMC (4151)",
@@ -7114,7 +7321,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "RM01-TMC (4152)",
@@ -7134,7 +7342,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "SM01-TMC (4575)",
@@ -7154,7 +7363,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "TM01-TMC (4153)",
@@ -7174,7 +7384,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "UM01-TMC (4154)",
@@ -7194,7 +7405,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "VM01-TMC (4155)",
@@ -7214,7 +7426,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "WM01-TMC (4156)",
@@ -7234,7 +7447,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "XM01-TMC (4157)",
@@ -7254,7 +7468,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "YM01-TMC (2673)",
@@ -7274,7 +7489,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "ZM01-TMC (2674)",
@@ -7294,7 +7510,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             }
           ]
         }
@@ -7346,7 +7563,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "BM01-TMC (4063)",
@@ -7366,7 +7584,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "CM01-TMC (4515)",
@@ -7386,7 +7605,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "DM01-TMC (4106)",
@@ -7406,7 +7626,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "EM01-TMC (4107)",
@@ -7426,7 +7647,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "FM01-TMC (4108)",
@@ -7446,7 +7668,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "GM01-TMC (4109)",
@@ -7466,7 +7689,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "HM01-TMC (4110)",
@@ -7486,7 +7710,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "IM01-TMC (1828)",
@@ -7506,7 +7731,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "JM01-TMC (4111)",
@@ -7526,7 +7752,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "KM01-TMC (4112)",
@@ -7546,7 +7773,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "LM01-TMC (4113)",
@@ -7566,7 +7794,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "MM01-TMC (4114)",
@@ -7586,7 +7815,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "NM01-TMC (4115)",
@@ -7606,7 +7836,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "OM01-TMC (4116)",
@@ -7626,7 +7857,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "PM01-TMC (4490)",
@@ -7646,7 +7878,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "QM01-TMC (4117)",
@@ -7666,7 +7899,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "RM01-TMC (4118)",
@@ -7686,7 +7920,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "SM01-TMC (4514)",
@@ -7706,7 +7941,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "TM01-TMC (4119)",
@@ -7726,7 +7962,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "UM01-TMC (4120)",
@@ -7746,7 +7983,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "VM01-TMC (4121)",
@@ -7766,7 +8004,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "WM01-TMC (4122)",
@@ -7786,7 +8025,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "XM01-TMC (4123)",
@@ -7806,7 +8046,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "YM01-TMC (1130)",
@@ -7826,7 +8067,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "ZM01-TMC (2759)",
@@ -7846,7 +8088,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             }
           ]
         },
@@ -7872,7 +8115,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "BM01-TMC (4195)",
@@ -7892,7 +8136,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "CM01-TMC (4591)",
@@ -7912,7 +8157,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "DM01-TMC (4196)",
@@ -7932,7 +8178,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "EM01-TMC (4197)",
@@ -7952,7 +8199,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "FM01-TMC (4198)",
@@ -7972,7 +8220,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "GM01-TMC (4199)",
@@ -7992,7 +8241,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "HM01-TMC (4200)",
@@ -8012,7 +8262,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "IM01-TMC (1833)",
@@ -8032,7 +8283,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "JM01-TMC (4201)",
@@ -8052,7 +8304,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "KM01-TMC (4202)",
@@ -8072,7 +8325,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "LM01-TMC (4203)",
@@ -8092,7 +8346,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "MM01-TMC (4204)",
@@ -8112,7 +8367,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "NM01-TMC (4205)",
@@ -8132,7 +8388,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "OM01-TMC (4248)",
@@ -8152,7 +8409,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "PM01-TMC (4592)",
@@ -8172,7 +8430,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "QM01-TMC (4249)",
@@ -8192,7 +8451,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "RM01-TMC (4250)",
@@ -8212,7 +8472,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "SM01-TMC (4593)",
@@ -8232,7 +8493,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "TM01-TMC (4251)",
@@ -8252,7 +8514,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "UM01-TMC (4252)",
@@ -8272,7 +8535,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "VM01-TMC (4253)",
@@ -8292,7 +8556,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "WM01-TMC (4254)",
@@ -8312,7 +8577,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "XM01-TMC (4255)",
@@ -8332,7 +8598,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "YM01-TMC (1120)",
@@ -8352,7 +8619,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "ZM01-TMC (2675)",
@@ -8372,7 +8640,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             }
           ]
         }
@@ -8424,7 +8693,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "BM01-TMC (4165)",
@@ -8444,7 +8714,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "CM01-TMC (4516)",
@@ -8464,7 +8735,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "DM01-TMC (4166)",
@@ -8484,7 +8756,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "EM01-TMC (4167)",
@@ -8504,7 +8777,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "FM01-TMC (4168)",
@@ -8524,7 +8798,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "GM01-TMC (4169)",
@@ -8544,7 +8819,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "HM01-TMC (4170)",
@@ -8564,7 +8840,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "IM01-TMC (1829)",
@@ -8584,7 +8861,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "JM01-TMC (4171)",
@@ -8604,7 +8882,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "KM01-TMC (4172)",
@@ -8624,7 +8903,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "LM01-TMC (4173)",
@@ -8644,7 +8924,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "MM01-TMC (4174)",
@@ -8664,7 +8945,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "NM01-TMC (4175)",
@@ -8684,7 +8966,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "OM01-TMC (4176)",
@@ -8704,7 +8987,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "PM01-TMC (4517)",
@@ -8724,7 +9008,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "QM01-TMC (4177)",
@@ -8744,7 +9029,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "RM01-TMC (4178)",
@@ -8764,7 +9050,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "SM01-TMC (4518)",
@@ -8784,7 +9071,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "TM01-TMC (4179)",
@@ -8804,7 +9092,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "UM01-TMC (4180)",
@@ -8824,7 +9113,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "VM01-TMC (4181)",
@@ -8844,7 +9134,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "WM01-TMC (4182)",
@@ -8864,7 +9155,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "XM01-TMC (4183)",
@@ -8884,7 +9176,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "YM01-TMC (2760)",
@@ -8904,7 +9197,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "ZM01-TMC (2761)",
@@ -8924,7 +9218,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             }
           ]
         },
@@ -8950,7 +9245,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "BM01-TMC (4312)",
@@ -8970,7 +9266,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "CM01-TMC (4594)",
@@ -8990,7 +9287,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "DM01-TMC (4293)",
@@ -9010,7 +9308,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "EM01-TMC (4294)",
@@ -9030,7 +9329,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "FM01-TMC (4295)",
@@ -9050,7 +9350,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "GM01-TMC (4296)",
@@ -9070,7 +9371,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "HM01-TMC (4297)",
@@ -9090,7 +9392,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "IM01-TMC (1834)",
@@ -9110,7 +9413,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "JM01-TMC (4298)",
@@ -9130,7 +9434,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "KM01-TMC (4299)",
@@ -9150,7 +9455,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "LM01-TMC (4300)",
@@ -9170,7 +9476,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "MM01-TMC (4301)",
@@ -9190,7 +9497,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "NM01-TMC (4302)",
@@ -9210,7 +9518,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "OM01-TMC (4303)",
@@ -9230,7 +9539,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "PM01-TMC (4595)",
@@ -9250,7 +9560,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "QM01-TMC (4304)",
@@ -9270,7 +9581,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "RM01-TMC (4305)",
@@ -9290,7 +9602,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "SM01-TMC (4596)",
@@ -9310,7 +9623,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "TM01-TMC (4306)",
@@ -9330,7 +9644,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "UM01-TMC (4307)",
@@ -9350,7 +9665,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "VM01-TMC (4308)",
@@ -9370,7 +9686,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "WM01-TMC (4309)",
@@ -9390,7 +9707,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "XM01-TMC (4310)",
@@ -9410,7 +9728,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "YM01-TMC (2676)",
@@ -9430,7 +9749,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             },
             {
               "section": "ZM01-TMC (2677)",
@@ -9450,7 +9770,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Information Engineering"
             }
           ]
         }

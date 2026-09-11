@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "SEEM",
     "subject_title": "Systems Engineering & Engineering Management",
     "total_courses": 56
@@ -64,7 +64,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR2520 or FTEC2101."
             },
             {
               "section": "-T01-TUT (6774)",
@@ -84,7 +85,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR2520 or FTEC2101."
             }
           ]
         }
@@ -143,7 +145,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken SEEM2510 or ESTR2500."
             },
             {
               "section": "-T01-TUT (6557)",
@@ -163,7 +166,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken SEEM2510 or ESTR2500."
             }
           ]
         }
@@ -251,7 +255,8 @@
                 "available_seats": "155",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR2540."
             },
             {
               "section": "-T01-TUT (6310)",
@@ -271,7 +276,8 @@
                 "available_seats": "155",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR2540."
             }
           ]
         }
@@ -331,13 +337,14 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "77",
+                "enrolled": "78",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "23",
+                "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6559)",
@@ -351,13 +358,14 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "77",
+                "enrolled": "78",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "23",
+                "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -421,7 +429,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2602."
             }
           ]
         }
@@ -482,7 +491,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisites: SEEM2430 or ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or (ENGG2760/ESTR2018 and ENGG2780/ESTR2020) or with the approval of the course instructor."
             },
             {
               "section": "-T01-TUT (6558)",
@@ -502,7 +512,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisites: SEEM2430 or ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or (ENGG2760/ESTR2018 and ENGG2780/ESTR2020) or with the approval of the course instructor."
             }
           ]
         }
@@ -555,7 +566,8 @@
                 "available_seats": "21",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (8046)",
@@ -575,7 +587,8 @@
                 "available_seats": "21",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -645,7 +658,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR2520 or ESTR3500 or FTEC2101."
             },
             {
               "section": "-T01-TUT (7155)",
@@ -671,7 +685,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR2520 or ESTR3500 or FTEC2101."
             }
           ]
         }
@@ -754,7 +769,8 @@
                 "available_seats": "65",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3502."
             },
             {
               "section": "-T01-TUT (6572)",
@@ -774,7 +790,8 @@
                 "available_seats": "65",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3502."
             }
           ]
         }
@@ -862,7 +879,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (9869)",
@@ -882,7 +900,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -970,7 +989,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisites: SEEM2430 or ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or (ENGG2760/ESTR2018 and ENGG2780/ESTR2020) with the approval of the course instructor."
             },
             {
               "section": "-T01-TUT (6261)",
@@ -990,7 +1010,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisites: SEEM2430 or ENGG2430 or ENGG2450 or ESTR2002 or ESTR2005 or (ENGG2760/ESTR2018 and ENGG2780/ESTR2020) with the approval of the course instructor."
             }
           ]
         }
@@ -1078,7 +1099,8 @@
                 "available_seats": "135",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3506."
             },
             {
               "section": "-T01-TUT (6773)",
@@ -1098,7 +1120,8 @@
                 "available_seats": "135",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3506."
             }
           ]
         }
@@ -1186,7 +1209,8 @@
                 "available_seats": "56",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6783)",
@@ -1206,7 +1230,8 @@
                 "available_seats": "56",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1277,7 +1302,8 @@
                 "available_seats": "39",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3509."
             },
             {
               "section": "-T01-TUT (6560)",
@@ -1297,7 +1323,8 @@
                 "available_seats": "39",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3509."
             }
           ]
         }
@@ -1385,7 +1412,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3514 or ESTR4500 or ESTR4502 or SEEM4600 or SEEM4610."
             },
             {
               "section": "-T01-TUT (7883)",
@@ -1405,7 +1433,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3514 or ESTR4500 or ESTR4502 or SEEM4600 or SEEM4610."
             }
           ]
         }
@@ -1470,7 +1499,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3510."
             },
             {
               "section": "-T01-TUT (6580)",
@@ -1490,7 +1520,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3510."
             }
           ]
         }
@@ -1572,7 +1603,8 @@
                 "available_seats": "86",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "1. Pre-requisites:\n(a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020 & MATH1510; or (b) with course instructor's approval.\n2. Not for students who have taken ESTR3516 or SEEM4480."
             },
             {
               "section": "-T01-TUT (6523)",
@@ -1592,7 +1624,8 @@
                 "available_seats": "86",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "1. Pre-requisites:\n(a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020 & MATH1510; or (b) with course instructor's approval.\n2. Not for students who have taken ESTR3516 or SEEM4480."
             }
           ]
         }
@@ -1657,7 +1690,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3512, ESTR4504 or SEEM4680."
             },
             {
               "section": "-T01-TUT (6077)",
@@ -1677,7 +1711,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3512, ESTR4504 or SEEM4680."
             }
           ]
         }
@@ -1768,7 +1803,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6750)",
@@ -1788,7 +1824,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1870,7 +1907,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6262)",
@@ -1890,7 +1928,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1950,7 +1989,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6070)",
@@ -1970,7 +2010,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2058,7 +2099,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4506."
             },
             {
               "section": "-T01-TUT (6524)",
@@ -2078,7 +2120,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4506."
             }
           ]
         }
@@ -2157,7 +2200,8 @@
                 "available_seats": "48",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4508."
             },
             {
               "section": "-T01-TUT (6586)",
@@ -2177,7 +2221,8 @@
                 "available_seats": "48",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4508."
             }
           ]
         }
@@ -2248,7 +2293,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4500 or ESTR4502 or ESTR4510 or SEEM4600 or SEEM4610."
             },
             {
               "section": "-T01-TUT (6377)",
@@ -2268,7 +2314,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4500 or ESTR4502 or ESTR4510 or SEEM4600 or SEEM4610."
             }
           ]
         }
@@ -2333,7 +2380,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "1. Pre-requisites:\n(a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020, MATH1510 and SEEM2420; or (b) with course instructor's approval.\n2. Not for students who have taken ESTR4512."
             },
             {
               "section": "-T01-TUT (8010)",
@@ -2353,7 +2401,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "1. Pre-requisites:\n(a) ENGG1110/ESTR1002, ENGG1120/ESTR1005, ENGG1130/ESTR1006, ENGG2440/ESTR2004, ENGG2760/ESTR2018, ENGG2780/ESTR2020, MATH1510 and SEEM2420; or (b) with course instructor's approval.\n2. Not for students who have taken ESTR4512."
             }
           ]
         }
@@ -2406,7 +2455,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "BJ01-PRJ (6577)",
@@ -2426,7 +2476,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "CJ01-PRJ (6578)",
@@ -2446,7 +2497,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "DJ01-PRJ (6579)",
@@ -2466,7 +2518,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "EJ01-PRJ (6234)",
@@ -2486,7 +2539,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "FJ01-PRJ (8112)",
@@ -2506,7 +2560,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "GJ01-PRJ (6581)",
@@ -2526,7 +2581,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "HJ01-PRJ (6582)",
@@ -2546,7 +2602,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "IJ01-PRJ (6583)",
@@ -2566,7 +2623,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "JJ01-PRJ (6584)",
@@ -2586,7 +2644,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "KJ01-PRJ (6585)",
@@ -2606,7 +2665,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "LJ01-PRJ (6314)",
@@ -2626,7 +2686,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "MJ01-PRJ (8017)",
@@ -2646,7 +2707,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "NJ01-PRJ (6315)",
@@ -2666,7 +2728,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "OJ01-PRJ (8113)",
@@ -2686,7 +2749,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "PJ01-PRJ (8114)",
@@ -2706,7 +2770,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "QJ01-PRJ (8115)",
@@ -2726,7 +2791,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "RJ01-PRJ (8116)",
@@ -2746,7 +2812,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "SJ01-PRJ (8178)",
@@ -2766,7 +2833,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "TJ01-PRJ (8179)",
@@ -2786,7 +2854,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "UJ01-PRJ (5057)",
@@ -2806,7 +2875,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2832,7 +2902,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2885,7 +2956,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             }
           ]
         },
@@ -2911,7 +2983,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "BJ01-PRJ (6764)",
@@ -2931,7 +3004,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "CJ01-PRJ (6765)",
@@ -2951,7 +3025,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "DJ01-PRJ (6766)",
@@ -2971,7 +3046,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "EJ01-PRJ (6421)",
@@ -2991,7 +3067,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "FJ01-PRJ (7940)",
@@ -3011,7 +3088,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "GJ01-PRJ (6767)",
@@ -3031,7 +3109,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "HJ01-PRJ (6768)",
@@ -3051,7 +3130,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "IJ01-PRJ (6769)",
@@ -3071,7 +3151,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "JJ01-PRJ (6784)",
@@ -3091,7 +3172,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "KJ01-PRJ (6770)",
@@ -3111,7 +3193,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "LJ01-PRJ (6771)",
@@ -3131,7 +3214,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "MJ01-PRJ (7836)",
@@ -3151,7 +3235,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "NJ01-PRJ (6772)",
@@ -3171,7 +3256,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "OJ01-PRJ (7880)",
@@ -3191,7 +3277,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "PJ01-PRJ (7837)",
@@ -3211,7 +3298,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "QJ01-PRJ (7998)",
@@ -3231,7 +3319,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "RJ01-PRJ (7820)",
@@ -3251,7 +3340,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "SJ01-PRJ (7821)",
@@ -3271,7 +3361,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "TJ01-PRJ (7822)",
@@ -3291,7 +3382,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             },
             {
               "section": "UJ01-PRJ (4805)",
@@ -3311,7 +3403,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: SEEM4998."
             }
           ]
         }
@@ -3376,7 +3469,8 @@
                 "available_seats": "33",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -3428,7 +3522,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -3489,7 +3584,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -3550,7 +3646,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": ""
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Mphil-PhD Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -3610,7 +3707,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": ""
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -3668,7 +3766,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": ""
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in SEEM MPhil/PhD programme and RPg programmes under Faculty of Engineering"
             }
           ]
         }
@@ -3720,7 +3819,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management\nExclusion= IERG5300"
             }
           ]
         }
@@ -3775,7 +3875,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -3839,7 +3940,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -3915,7 +4017,8 @@
                 "available_seats": "21",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -3969,7 +4072,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         },
@@ -4007,7 +4111,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -4059,13 +4164,14 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "80",
+                "enrolled": "79",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             },
             {
               "section": "C-LEC (10221)",
@@ -4097,7 +4203,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         },
@@ -4135,7 +4242,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -4190,7 +4298,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         },
@@ -4228,7 +4337,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -4286,7 +4396,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -4338,7 +4449,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -4391,7 +4503,8 @@
                 "available_seats": "45",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         },
@@ -4423,7 +4536,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -4487,7 +4601,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -4551,7 +4666,8 @@
                 "available_seats": "23",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         },
@@ -4583,7 +4699,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -4635,13 +4752,14 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "28",
+                "enrolled": "29",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "52",
+                "available_seats": "51",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -4693,13 +4811,14 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "44",
+                "enrolled": "45",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "36",
+                "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         },
@@ -4731,7 +4850,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -4795,7 +4915,8 @@
                 "available_seats": "56",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nPart-Time Course",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management\nExclusion = FTEC5530, FTEC5580"
             }
           ]
         }
@@ -4854,13 +4975,14 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "41",
+                "enrolled": "40",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "39",
+                "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         },
@@ -4898,7 +5020,8 @@
                 "available_seats": "74",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -4957,7 +5080,8 @@
                 "available_seats": "49",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -5015,7 +5139,8 @@
                 "available_seats": "69",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nPart-Time Course",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -5067,7 +5192,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         },
@@ -5093,7 +5219,8 @@
                 "available_seats": "68",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -5145,7 +5272,8 @@
                 "available_seats": "78",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -5192,13 +5320,14 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "12",
+                "enrolled": "14",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "78",
+                "available_seats": "76",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management"
             }
           ]
         },
@@ -5224,7 +5353,8 @@
                 "available_seats": "87",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -5267,13 +5397,14 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "75",
+                "enrolled": "74",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "16",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management"
             }
           ]
         },
@@ -5299,7 +5430,8 @@
                 "available_seats": "48",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management"
             }
           ]
         }
@@ -5342,13 +5474,14 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "46",
+                "enrolled": "49",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "44",
+                "available_seats": "41",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management"
             }
           ]
         },
@@ -5374,7 +5507,8 @@
                 "available_seats": "83",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management"
             }
           ]
         }

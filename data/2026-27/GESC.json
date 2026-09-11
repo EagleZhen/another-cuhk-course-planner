@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "GESC",
     "subject_title": "General Education - Shaw College",
     "total_courses": 20
@@ -28,13 +28,14 @@
               ],
               "availability": {
                 "capacity": "1400",
-                "enrolled": "2303",
+                "enrolled": "2302",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Shaw College Assembly"
             },
             {
               "section": "AA01-ASB (8781)",
@@ -54,7 +55,8 @@
                 "available_seats": "1002",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Shaw College Assembly"
             }
           ]
         },
@@ -98,7 +100,8 @@
                 "available_seats": "1400",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Shaw College Assembly"
             },
             {
               "section": "AA01-ASB (8623)",
@@ -136,7 +139,8 @@
                 "available_seats": "2000",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Shaw College Assembly"
             }
           ]
         }
@@ -185,7 +189,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "This course is for Shaw College students and first year students only."
             }
           ]
         }
@@ -238,7 +243,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For Shaw College students only. Not for Biology, Environmental Science and Geography and Resource Management Majors."
             }
           ]
         }
@@ -309,7 +315,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For Shaw College students. Not for students of Fac of Engineering; Fac of Medicine or Fac of Science. Not for students of Interdisciplinary Data Analytics & X; Aerospace Science and Earth Informatics & X; Materials Science and Engineering & X."
             }
           ]
         }
@@ -363,7 +370,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "BAJ1-PRJ (7070)",
@@ -383,7 +391,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "CAJ1-PRJ (5972)",
@@ -409,7 +418,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "CBJ1-PRJ (5968)",
@@ -429,7 +439,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "DAJ1-PRJ (7810)",
@@ -455,7 +466,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "EAJ1-PRJ (8689)",
@@ -475,7 +487,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "FAJ1-PRJ (5956)",
@@ -495,7 +508,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "GAJ1-PRJ (7793)",
@@ -515,7 +529,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "HAJ1-PRJ (7019)",
@@ -535,7 +550,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "KAJ1-PRJ (5973)",
@@ -555,7 +571,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "MAJ1-PRJ (6964)",
@@ -575,7 +592,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "PAJ1-PRJ (7216)",
@@ -595,7 +613,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "QAJ1-PRJ (4980)",
@@ -621,7 +640,8 @@
                 "available_seats": "19",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "RAJ1-PRJ (7021)",
@@ -641,7 +661,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "TAJ1-PRJ (7020)",
@@ -661,7 +682,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             }
           ]
         },
@@ -705,7 +727,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "BBJ1-PRJ (7009)",
@@ -743,7 +766,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "CCJ1-PRJ (6970)",
@@ -775,7 +799,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "DBJ1-PRJ (8626)",
@@ -807,7 +832,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "EBJ1-PRJ (8544)",
@@ -845,7 +871,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "FBJ1-PRJ (7025)",
@@ -883,7 +910,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "JAJ1-PRJ (6066)",
@@ -921,7 +949,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "KBJ1-PRJ (7478)",
@@ -959,7 +988,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "PBJ1-PRJ (6754)",
@@ -991,7 +1021,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             },
             {
               "section": "UAJ1-PRJ (7010)",
@@ -1029,7 +1060,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken GESC2330, 2360 or ELTU2008."
             }
           ]
         }
@@ -1090,7 +1122,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Putonghua and Cantonese"
+              "class_attributes": "SDG-GE #3 Good Health and Well-being\nPutonghua and Cantonese",
+              "enrollment_requirement": "1. For Shaw College students only. \n2. Not for Major of Cultural Studies or Religious Studies."
             }
           ]
         }
@@ -1144,7 +1177,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "SDG-GE #1 No Poverty\nSDG-GE #2 Zero Hunger\nSDG-GE #3 Good Health and Well-being\nSDG-GE #4 Quality Education\nSDG-GE #5 Gender Equality\nSDG-GE #6 Clean Water and Sanitation\nSDG-GE #7 Affordable and Clean Energy\nSDG-GE #8 Decent Work and Economic Growth\nSDG-GE #9 Industry, Innovation and Infrastructure\nSDG-GE #10 Reducing Inequality\nSDG-GE #11 Sustainable Cities and Communities\nSDG-GE #12 Responsible Consumption and Production\nSDG-GE #13 Climate Action\nSDG-GE #14 Life Below Water\nSDG-GE #15 Life On Land\nSDG-GE #16 Peace, Justice and Strong Institutions\nSDG-GE #17 Partnerships for the Goals\nCantonese and English",
+              "enrollment_requirement": "For Shaw College students only."
             }
           ]
         }
@@ -1197,7 +1231,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-GE #1 No Poverty\nSDG-GE #8 Decent Work and Economic Growth\nSDG-GE #10 Reducing Inequality\nSDG-GE #11 Sustainable Cities and Communities\nEnglish only\nVirtual Teaching & Learning Course",
+              "enrollment_requirement": "For Shaw College students only.\nNot for students who have taken GEJC1020, UGEC2865, SOCI1201 or SOCI2104."
             },
             {
               "section": "-X01-WBL (8418)",
@@ -1217,7 +1252,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-GE #1 No Poverty\nSDG-GE #8 Decent Work and Economic Growth\nSDG-GE #10 Reducing Inequality\nSDG-GE #11 Sustainable Cities and Communities\nEnglish only\nVirtual Teaching & Learning Course",
+              "enrollment_requirement": "For Shaw College students only.\nNot for students who have taken GEJC1020, UGEC2865, SOCI1201 or SOCI2104."
             }
           ]
         }
@@ -1276,7 +1312,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Shaw College students only. Journalism and Communication Majors and Global Communication Majors cannot take this course to fulfill General Education requirements."
             }
           ]
         }
@@ -1348,7 +1385,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-GE #1 No Poverty\nSDG-GE #2 Zero Hunger\nSDG-GE #3 Good Health and Well-being\nSDG-GE #8 Decent Work and Economic Growth\nSDG-GE #10 Reducing Inequality\nSDG-GE #11 Sustainable Cities and Communities\nSDG-GE #13 Climate Action\nSDG-GE #14 Life Below Water\nSDG-GE #16 Peace, Justice and Strong Institutions\nSDG-GE #17 Partnerships for the Goals\nCantonese only\nVirtual Teaching & Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken UGEC2514 or SOCI3201 (old code) or SOCI4203."
             },
             {
               "section": "-X01-WBL (6785)",
@@ -1368,7 +1406,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-GE #1 No Poverty\nSDG-GE #2 Zero Hunger\nSDG-GE #3 Good Health and Well-being\nSDG-GE #8 Decent Work and Economic Growth\nSDG-GE #10 Reducing Inequality\nSDG-GE #11 Sustainable Cities and Communities\nSDG-GE #13 Climate Action\nSDG-GE #14 Life Below Water\nSDG-GE #16 Peace, Justice and Strong Institutions\nSDG-GE #17 Partnerships for the Goals\nCantonese only\nVirtual Teaching & Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken UGEC2514 or SOCI3201 (old code) or SOCI4203."
             }
           ]
         }
@@ -1439,7 +1478,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For Shaw College Students only."
             }
           ]
         }
@@ -1504,7 +1544,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Shaw College students only. Students who have taken UGED1600 or SOWK1150 cannot take this course to fulfil General Education requirements."
             }
           ]
         }
@@ -1550,13 +1591,14 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "69",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
                 "waitlist_total": "25",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For Shaw College Students only. Not for Geography and Resource Management Majors."
             }
           ]
         }
@@ -1602,13 +1644,14 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "63",
+                "enrolled": "64",
                 "waitlist_capacity": "999",
                 "waitlist_total": "35",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken UGEC2935 or 2945."
             },
             {
               "section": "-T01-TUT (9806)",
@@ -1622,13 +1665,14 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "63",
+                "enrolled": "64",
                 "waitlist_capacity": "999",
                 "waitlist_total": "35",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For Shaw College students only. Not for students who have taken UGEC2935 or 2945."
             }
           ]
         }
@@ -1699,7 +1743,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For Shaw College Students only."
             }
           ]
         }
@@ -1771,7 +1816,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "SDG-SE #10 Reducing Inequality\nCantonese only\nExperiential Learning Course\nService Learning Course",
+              "enrollment_requirement": "For Shaw College students only. Not for Social Work Major, and students who have taken GESC1230, 2360 or ELTU2008."
             }
           ]
         }
@@ -1832,7 +1878,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Shaw College students only. Not for Faculty of Medicine and School of Life Sciences major students."
             }
           ]
         }
@@ -1905,7 +1952,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "1. For Shaw College student only\n2. Not for students who have taken UGED2144"
             }
           ]
         }
@@ -1970,7 +2018,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "1. For Shaw College students only.\n2. Not for Psychology Majors.\n3. Not for students who have taken UGED1571."
             }
           ]
         }
@@ -2041,7 +2090,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "1. For Shaw College students only.\n2. Not for students who have taken UGEB2510."
             },
             {
               "section": "-F01-FLD (9725)",
@@ -2061,7 +2111,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "1. For Shaw College students only.\n2. Not for students who have taken UGEB2510."
             }
           ]
         }

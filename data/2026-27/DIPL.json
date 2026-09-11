@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "DIPL",
     "subject_title": "Diplomacy and International Studies",
     "total_courses": 2
@@ -34,7 +34,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -100,7 +101,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "PHPC",
     "subject_title": "Public Health",
     "total_courses": 35
@@ -34,7 +34,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "PHPC1001 is double-coded with UGEC1920.\nNot for students who have taken MEDF1021, 1120, UGEC1920 or UGEC2930."
             }
           ]
         }
@@ -86,13 +87,14 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "47",
+                "enrolled": "46",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For PHPC Major (New Curriculum)."
             }
           ]
         }
@@ -162,7 +164,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken PHPC1004."
             }
           ]
         }
@@ -232,7 +235,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Not for students who have taken PHPC1004."
             }
           ]
         }
@@ -284,13 +288,14 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "45",
+                "enrolled": "44",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course",
+              "enrollment_requirement": "For PHPC Major (New Curriculum)."
             }
           ]
         }
@@ -354,7 +359,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nExperiential Learning Course",
+              "enrollment_requirement": "Pre-requisite: PHPC1019."
             }
           ]
         }
@@ -412,7 +418,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For Year 1 and Year 2 students\nNot for students who have taken PHPC2008."
             }
           ]
         }
@@ -471,7 +478,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For CHPRN and BSCGB Major\nNot for students who have taken -COMM3110, DSME2010,2020,2011,2021, ECON2121, GRMD2102, PHPC1015,2015, PSYC2010, SEEM2430, SOCI2004, SPED2600, STAT2101,2102,2001 or 2006"
             }
           ]
         }
@@ -529,7 +537,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisites: MEDF1021or MEDF1120 or (MEDF1041 and MEDF1042) PHPC1001 or PHPC1012 or UGEC1920 or UGEC2930."
             }
           ]
         }
@@ -587,7 +596,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CHPR2001"
             }
           ]
         }
@@ -639,7 +649,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For Year 2 or above students"
             }
           ]
         }
@@ -704,7 +715,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite:PHPC1001 or MEDF1021 or (MEDF1041 and MEDF1042) or UGEC1920 or UGEC2930"
             }
           ]
         }
@@ -756,7 +768,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Not for students who have taken -COMM3110, DSME2010,2020,DOTE 2011,2021, ECON2121, GRMD2102, PHPC1015, 2005, PSYC2010, SBMS2101, SEEM2430, SOCI2004, SPED2600, STAT2101,2102,2001 or 2006."
             }
           ]
         }
@@ -815,7 +828,8 @@
                 "available_seats": "23",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: PHPC1001 or PHPC1022 or PHPC2008.\nNot for students who have taken CHPR3002, 3008, 4008 or PHPC1016"
             }
           ]
         }
@@ -873,7 +887,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken PHPC1014 or SBMS2101"
             }
           ]
         }
@@ -938,7 +953,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students of new curriculum only.\nNot for studens who have taken PHPC1018.\nPre-requisite: PHPC1017."
             }
           ]
         }
@@ -1003,7 +1019,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: PHPC1001, MEDF1021 or UGEC1920 and PHPC2017."
             }
           ]
         }
@@ -1073,7 +1090,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Pre-requisite: PHPC1001 or UGEC1920 or MEDF1021 or (MEDF1041 and MEDF1042) or UGEC2930."
             }
           ]
         }
@@ -1143,7 +1161,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students of new curriculum only.\nNot for students who have taken PHPC2014.\nPre-requisites: PHPC2015 & PHPC2017."
             }
           ]
         }
@@ -1207,7 +1226,8 @@
                 "available_seats": "53",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Pre-requisites: PHPC1017"
             }
           ]
         }
@@ -1278,7 +1298,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1342,7 +1363,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1407,7 +1429,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisites: (PHPC1016 or PHPC2016) and (PHPC1022 or PHPC2008)."
             }
           ]
         }
@@ -1460,7 +1483,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For PHPC Major (New Curriculum).\nPre-requisite: PHPC1001 or UGEC1920 or MEDF1021or MEDF1120 or (MEDF1041 and medf1042) or UGEC2930"
             }
           ]
         }
@@ -1525,7 +1549,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken SOCI3229 Pre-requisites: (CHPR3117 or PHPC1014 or PHPC2017) and (CHPR3115 or PHPC1015 or PHPC2015)"
             }
           ]
         }
@@ -1577,7 +1602,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nExperiential Learning Course",
+              "enrollment_requirement": "For PHPC Major (New Curriculum)."
             },
             {
               "section": "B-LEC (5118)",
@@ -1597,7 +1623,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nExperiential Learning Course",
+              "enrollment_requirement": "FO-UG CHPR Major"
             },
             {
               "section": "C-LEC (5119)",
@@ -1617,7 +1644,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nExperiential Learning Course",
+              "enrollment_requirement": "For BSCGB Major"
             }
           ]
         }
@@ -1681,7 +1709,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1745,7 +1774,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1804,7 +1834,8 @@
                 "available_seats": "19",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1869,7 +1900,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: PHPC2015 and 2017 and PHPC3027 and 3028"
             }
           ]
         }
@@ -1922,7 +1954,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For PHPC Major (New Curriculum).\nPre-requisite: PHPC4912"
             }
           ]
         }
@@ -1987,7 +2020,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisites: PHPC2015 & 2017 & 3027 & 3028 \nCo-requisite: PHPC3014"
             }
           ]
         }
@@ -2040,7 +2074,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For PHPC Major (New Curriculum).\nPre-requisite: PHPC4921"
             }
           ]
         }
@@ -2093,7 +2128,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course\nInternship",
+              "enrollment_requirement": "For PHPC Major (New Curriculum).\nCo-requisite: PHPC4000"
             }
           ]
         }
@@ -2145,7 +2181,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course\nInternship",
+              "enrollment_requirement": ""
             }
           ]
         }

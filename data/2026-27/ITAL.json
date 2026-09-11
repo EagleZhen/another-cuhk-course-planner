@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "ITAL",
     "subject_title": "Italian",
     "total_courses": 2
@@ -40,7 +40,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "Italian and English"
+              "class_attributes": "Italian and English",
+              "enrollment_requirement": "Not for students who have taken ITAL2000,2001,2050,3000,3001,3002,3050 or 3051"
             },
             {
               "section": "BC01-CLW (9756)",
@@ -66,7 +67,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "Italian and English"
+              "class_attributes": "Italian and English",
+              "enrollment_requirement": "Not for students who have taken ITAL2000,2001,2050,3000,3001,3002,3050 or 3051"
             }
           ]
         },
@@ -104,7 +106,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Italian and English"
+              "class_attributes": "Italian and English",
+              "enrollment_requirement": "Not for students who have taken ITAL2000,2001,2050,3000,3001,3002,3050 or 3051"
             }
           ]
         }
@@ -170,7 +173,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "Italian and English"
+              "class_attributes": "Italian and English",
+              "enrollment_requirement": "1. Not for students who have taken ITAL2001,2050,3000,3001,3002,3050 or 3051 \n2. Prerequisite: ITAL1000"
             }
           ]
         }

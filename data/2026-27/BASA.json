@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "BASA",
     "subject_title": "General Business Administration",
     "total_courses": 2
@@ -28,13 +28,14 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "8",
+                "enrolled": "9",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "21",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Management; or MPhil-PhD Marketing"
             }
           ]
         }
@@ -99,7 +100,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Management; or MPhil-PhD Marketing; Prerequisite: BASA6001"
             }
           ]
         }

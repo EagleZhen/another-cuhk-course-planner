@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "EDUC",
     "subject_title": "Education",
     "total_courses": 14
@@ -46,7 +46,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (8454)",
@@ -78,7 +79,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -131,7 +133,8 @@
                 "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -175,7 +178,8 @@
                 "available_seats": "45",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -240,7 +244,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 2 or above students and all CHED majors"
             }
           ]
         },
@@ -284,7 +289,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -349,7 +355,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 or above students and all BMBL majors"
             }
           ]
         }
@@ -414,7 +421,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 2 or above students"
             }
           ]
         }
@@ -480,7 +488,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 2 or above students and Year 1 CHED Major"
             }
           ]
         },
@@ -524,7 +533,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -595,7 +605,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -660,7 +671,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 2 or above students\nNot for students who have taken PSYC3550."
             }
           ]
         },
@@ -704,7 +716,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken PSYC3550."
             }
           ]
         }
@@ -757,7 +770,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "B-LEC (5129)",
@@ -777,7 +791,8 @@
                 "available_seats": "39",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -878,7 +893,8 @@
                 "available_seats": "45",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "Not for students who have taken EDUC4010"
             },
             {
               "section": "BF01-FLD (7275)",
@@ -946,7 +962,8 @@
                 "available_seats": "45",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken EDUC4010"
             },
             {
               "section": "CF01-FLD (7276)",
@@ -1014,7 +1031,8 @@
                 "available_seats": "45",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Not for students who have taken EDUC4010"
             }
           ]
         }
@@ -1093,7 +1111,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For UG CLED Major\nNot for students who have taken EDUC4020"
             },
             {
               "section": "BF01-FLD (7202)",
@@ -1143,7 +1162,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For UG ELED Major\nNot for students who have taken EDUC4020"
             },
             {
               "section": "CF01-FLD (7203)",
@@ -1193,7 +1213,8 @@
                 "available_seats": "33",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For UG BMED Major\nNot for students who have taken EDUC4020"
             }
           ]
         }
@@ -1260,7 +1281,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1326,7 +1348,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 or above students and all BMBL majors"
             }
           ]
         }
@@ -1393,7 +1416,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 or above.\nNot for students who have taken LDTE4300."
             }
           ]
         },
@@ -1437,7 +1461,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken LDTE4300."
             }
           ]
         }

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "PSYC",
     "subject_title": "Psychology",
     "total_courses": 105
@@ -34,13 +34,14 @@
               ],
               "availability": {
                 "capacity": "400",
-                "enrolled": "390",
+                "enrolled": "391",
                 "waitlist_capacity": "999",
                 "waitlist_total": "14",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have obtained the following grade in Psychology: IB - 5 or above (HL)/GCE-AL - C or above (AL)/Cambridge Pre-U - P2 or above (Principal course)/HKALE - C or above (AL)/AP Exam - 3 or above. \nNot for students who have taken UGED2581."
             },
             {
               "section": "B-LEC (7626)",
@@ -66,7 +67,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For UG PSYC Major\nNot for students who have obtained the following grade in Psychology: IB - 5 or above (HL)/GCE-AL - C or above (AL)/Cambridge Pre-U - P2 or above (Principal course)/HKALE - C or above (AL)/AP Exam - 3 or above. \nNot for students who have taken UGED2581."
             },
             {
               "section": "BL01-LAB (7629)",
@@ -92,7 +94,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For UG PSYC Major\nNot for students who have obtained the following grade in Psychology: IB - 5 or above (HL)/GCE-AL - C or above (AL)/Cambridge Pre-U - P2 or above (Principal course)/HKALE - C or above (AL)/AP Exam - 3 or above. \nNot for students who have taken UGED2581."
             }
           ]
         },
@@ -130,7 +133,8 @@
                 "available_seats": "400",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have obtained the following grade in Psychology: IB - 5 or above (HL)/GCE-AL - C or above (AL)/Cambridge Pre-U - P2 or above (Principal course)/HKALE - C or above (AL)/AP Exam - 3 or above. \nNot for students who have taken UGED2581."
             }
           ]
         }
@@ -182,7 +186,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken UGED1553 and UGED1554."
             }
           ]
         },
@@ -208,7 +213,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken UGED1553 and UGED1554."
             }
           ]
         }
@@ -272,7 +278,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken UGED2591, UGED1600/SOWK1150 or SOWK1113."
             },
             {
               "section": "-T01-TUT (5420)",
@@ -304,7 +311,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken UGED2591, UGED1600/SOWK1150 or SOWK1113."
             }
           ]
         }
@@ -351,13 +359,14 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "114",
+                "enrolled": "113",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": "For UG PSYC Major\nNot for students who have taken PSYC1090."
             }
           ]
         }
@@ -421,7 +430,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken COMM3110, DSME2011, ECON2121, GRMD2102, LING3403, PHPC2015, SEEM2430, SOCI2004, SPED2600, STAT2101, 2102, 2001 or 2006."
             },
             {
               "section": "-L01-LAB (5772)",
@@ -453,7 +463,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken COMM3110, DSME2011, ECON2121, GRMD2102, LING3403, PHPC2015, SEEM2430, SOCI2004, SPED2600, STAT2101, 2102, 2001 or 2006."
             }
           ]
         }
@@ -499,13 +510,14 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "107",
+                "enrolled": "106",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "43",
+                "available_seats": "44",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-L01-LAB (5611)",
@@ -525,13 +537,14 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "107",
+                "enrolled": "106",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "43",
+                "available_seats": "44",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -595,7 +608,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC2010 or any of its equivalent courses (COMM3110, DSME2010 & 2020, ECON2121, GRMD2102, SEEM2430, SOCI1004, SPED2600, STAT2101 & 2102, or STAT2001 & 2006)."
             },
             {
               "section": "-L01-LAB (7530)",
@@ -627,7 +641,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC2010 or any of its equivalent courses (COMM3110, DSME2010 & 2020, ECON2121, GRMD2102, SEEM2430, SOCI1004, SPED2600, STAT2101 & 2102, or STAT2001 & 2006)."
             }
           ]
         }
@@ -687,7 +702,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGEC2581 or UGED2581."
             },
             {
               "section": "-T01-TUT (5242)",
@@ -713,7 +729,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGEC2581 or UGED2581."
             }
           ]
         }
@@ -780,7 +797,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGED2581."
             },
             {
               "section": "-L01-LAB (7534)",
@@ -818,7 +836,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGED2581."
             },
             {
               "section": "-L02-LAB (5718)",
@@ -856,7 +875,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGED2581."
             },
             {
               "section": "-L03-LAB (5954)",
@@ -894,7 +914,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGED2581."
             }
           ]
         }
@@ -952,7 +973,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: (PSYC1000 or UGEC2581 or UGED2581) and PSYC2010 or its equivalent courses (COMM3110, DSME2010 & 2020, ECON2121, GRMD2102, SEEM2430, SOCI1004, SPED2600, STAT2101 & 2102 or STAT2001 & 2006)."
             },
             {
               "section": "-L01-LAB (7641)",
@@ -978,7 +1000,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: (PSYC1000 or UGEC2581 or UGED2581) and PSYC2010 or its equivalent courses (COMM3110, DSME2010 & 2020, ECON2121, GRMD2102, SEEM2430, SOCI1004, SPED2600, STAT2101 & 2102 or STAT2001 & 2006)."
             }
           ]
         }
@@ -1048,7 +1071,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGEC2581 or UGED2581."
             },
             {
               "section": "-L01-LAB (7255)",
@@ -1080,7 +1104,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGEC2581 or UGED2581."
             }
           ]
         }
@@ -1127,13 +1152,14 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "144",
+                "enrolled": "143",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "1. Prerequisite: PSYC1000 or UGEC2581 or UGED2581.\n2. Not for students who have taken UGEB2721 or LING2201."
             },
             {
               "section": "-L01-LAB (7643)",
@@ -1147,13 +1173,14 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "144",
+                "enrolled": "143",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "1. Prerequisite: PSYC1000 or UGEC2581 or UGED2581.\n2. Not for students who have taken UGEB2721 or LING2201."
             }
           ]
         }
@@ -1224,7 +1251,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite:PSYC1000 or UGEC2581 or UGED2581.\nNot for students who have taken PSYC2530 or PSYC3540 or SOWK2110 or EDUC2310."
             },
             {
               "section": "-L01-LAB (7539)",
@@ -1262,7 +1290,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite:PSYC1000 or UGEC2581 or UGED2581.\nNot for students who have taken PSYC2530 or PSYC3540 or SOWK2110 or EDUC2310."
             }
           ]
         }
@@ -1310,13 +1339,14 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "152",
+                "enrolled": "151",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerepuisite: PSYC1000 or PSYC1620 or PSYC1630 or UGED2581."
             },
             {
               "section": "-L01-LAB (7678)",
@@ -1330,13 +1360,14 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "152",
+                "enrolled": "151",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerepuisite: PSYC1000 or PSYC1620 or PSYC1630 or UGED2581."
             }
           ]
         }
@@ -1401,7 +1432,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGEC2581 or UGED2581."
             },
             {
               "section": "-L01-LAB (5803)",
@@ -1439,7 +1471,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGEC2581 or UGED2581."
             }
           ]
         }
@@ -1499,7 +1532,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): PSYC1000 or UGED2581"
             }
           ]
         }
@@ -1560,7 +1594,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): PSYC1000 or UGED2581"
             }
           ]
         }
@@ -1621,7 +1656,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): PSYC1000 or UGED2581."
             },
             {
               "section": "-T01-TUT (5515)",
@@ -1653,7 +1689,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): PSYC1000 or UGED2581."
             }
           ]
         }
@@ -1711,7 +1748,8 @@
                 "available_seats": "19",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): PSYC1000 or UGED2581."
             },
             {
               "section": "-T01-TUT (5225)",
@@ -1731,7 +1769,8 @@
                 "available_seats": "19",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): PSYC1000 or UGED2581."
             }
           ]
         }
@@ -1789,7 +1828,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: PSYC1000 or UGEC2581 or UGED2581.\nNot for students who have taken EDUC3311."
             },
             {
               "section": "-T01-TUT (5241)",
@@ -1809,7 +1849,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: PSYC1000 or UGEC2581 or UGED2581.\nNot for students who have taken EDUC3311."
             }
           ]
         }
@@ -1881,7 +1922,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGEC2581 or UGED2581."
             },
             {
               "section": "-T01-TUT (5508)",
@@ -1913,7 +1955,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGEC2581 or UGED2581."
             }
           ]
         }
@@ -1985,7 +2028,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGEC2581 or UGED2581.\nNot for students who have taken SOWK2140."
             },
             {
               "section": "-T01-TUT (5939)",
@@ -2017,7 +2061,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGEC2581 or UGED2581.\nNot for students who have taken SOWK2140."
             }
           ]
         }
@@ -2081,7 +2126,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGEC2581 or UGED2581."
             },
             {
               "section": "-T01-TUT (8304)",
@@ -2113,7 +2159,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGEC2581 or UGED2581."
             }
           ]
         }
@@ -2179,7 +2226,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): PSYC1000"
             },
             {
               "section": "-T01-TUT (8306)",
@@ -2211,7 +2259,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): PSYC1000"
             },
             {
               "section": "-T02-TUT (5845)",
@@ -2243,7 +2292,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): PSYC1000"
             }
           ]
         }
@@ -2302,7 +2352,8 @@
                 "available_seats": "43",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): PSYC1000 or UGED2581"
             },
             {
               "section": "-T01-TUT (7680)",
@@ -2328,7 +2379,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): PSYC1000 or UGED2581"
             },
             {
               "section": "-T02-TUT (5789)",
@@ -2354,7 +2406,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): PSYC1000 or UGED2581"
             }
           ]
         }
@@ -2412,7 +2465,8 @@
                 "available_seats": "31",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): PSYC1000 or UGED2581"
             },
             {
               "section": "-L01-LAB (5356)",
@@ -2432,7 +2486,8 @@
                 "available_seats": "31",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): PSYC1000 or UGED2581"
             }
           ]
         }
@@ -2484,7 +2539,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For UG PSYC Major\nPre-requisite(s): PSYC3730 & PSYC3740"
             },
             {
               "section": "-T01-TUT (7682)",
@@ -2504,7 +2560,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For UG PSYC Major\nPre-requisite(s): PSYC3730 & PSYC3740"
             }
           ]
         }
@@ -2568,7 +2625,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Pre-requisite(s): PSYC3760"
             },
             {
               "section": "-T01-TUT (8335)",
@@ -2600,7 +2658,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Pre-requisite(s): PSYC3760"
             }
           ]
         }
@@ -2664,7 +2723,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGEC2581 or UGED2581."
             },
             {
               "section": "-L01-LAB (8337)",
@@ -2696,7 +2756,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGEC2581 or UGED2581."
             }
           ]
         }
@@ -2749,7 +2810,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "For UG PSYC Major\nPre-requisite(s): PSYC1000 or UGED2581"
             },
             {
               "section": "-T01-TUT (7684)",
@@ -2769,7 +2831,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "For UG PSYC Major\nPre-requisite(s): PSYC1000 or UGED2581"
             }
           ]
         }
@@ -2823,7 +2886,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course\nInternship",
+              "enrollment_requirement": "For UG PSYC Major\nPrerequisite: PSYC1000 or UGED2581, PSYC2530 or 2540 or 3540 or 3550, and permission of course teacher."
             }
           ]
         }
@@ -2883,7 +2947,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course\nInternship",
+              "enrollment_requirement": "For UG PSYC Major\nPrerequisite: PSYC1000 or UGED2581, PSYC2780 or 3700 or 3720 or 3730 or 3740, and permission of course teacher."
             }
           ]
         }
@@ -2949,7 +3014,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course\nInternship",
+              "enrollment_requirement": "Prerequisite: PSYC1000 or UGEC2581 or UGED2581, and permission of course teacher."
             }
           ]
         }
@@ -3002,7 +3068,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course\nInternship",
+              "enrollment_requirement": "For UG PSYC Major\nPre-requisite(s): PSYC3730, 3740, 3760, 3770 and permission of course instructor"
             }
           ]
         }
@@ -3067,7 +3134,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "Pre-requisite:PSYC4900"
             },
             {
               "section": "-T01-TUT (8339)",
@@ -3099,7 +3167,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nExperiential Learning Course",
+              "enrollment_requirement": "Pre-requisite:PSYC4900"
             }
           ]
         }
@@ -3153,7 +3222,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "For UG PSYC Major\nPre-requisite: PSYC1000, or permission of course teacher."
             }
           ]
         },
@@ -3179,7 +3249,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Pre-requisite: PSYC1000, or permission of course teacher."
             }
           ]
         }
@@ -3222,13 +3293,14 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "80",
+                "available_seats": "79",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "For UG PSYC Major\nPrerequisite: PSYC4910 and obtained accumulated major GPA of or over 3.30."
             }
           ]
         },
@@ -3254,7 +3326,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
+              "enrollment_requirement": "Prerequisite: PSYC4910 and obtained accumulated major GPA of or over 3.30."
             }
           ]
         }
@@ -3303,7 +3376,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology or MSSc Clinical Psychology"
             }
           ]
         }
@@ -3365,7 +3439,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSSc Ind-Organizational Psychology"
             }
           ]
         }
@@ -3418,7 +3493,8 @@
                 "available_seats": "23",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MA Psychology"
             }
           ]
         }
@@ -3477,7 +3553,8 @@
                 "available_seats": "19",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MA Psychology"
             },
             {
               "section": "-L01-LAB (1290)",
@@ -3503,7 +3580,8 @@
                 "available_seats": "19",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MA Psychology"
             }
           ]
         }
@@ -3569,7 +3647,8 @@
                 "available_seats": "23",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MA in Psychology programme"
             },
             {
               "section": "-J02-PRJ (1604)",
@@ -3601,7 +3680,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MA in Psychology programme"
             }
           ]
         }
@@ -3660,7 +3740,8 @@
                 "available_seats": "37",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MA in Psychology programme"
             }
           ]
         }
@@ -3719,7 +3800,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MA in Psychology Programme"
             }
           ]
         }
@@ -3778,7 +3860,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MA in Psychology programme"
             }
           ]
         }
@@ -3844,7 +3927,8 @@
                 "available_seats": "19",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MA Psychology"
             }
           ]
         }
@@ -3903,7 +3987,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MA Psychology"
             }
           ]
         }
@@ -3957,7 +4042,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MA Psychology"
             }
           ]
         }
@@ -4016,7 +4102,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MA Psychology"
             }
           ]
         }
@@ -4074,7 +4161,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MA Psychology"
             }
           ]
         }
@@ -4139,7 +4227,8 @@
                 "available_seats": "19",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MA Psychology"
             }
           ]
         }
@@ -4192,7 +4281,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MA in Psychology programme"
             }
           ]
         }
@@ -4253,7 +4343,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MSSc Ind-Organizational Psychology"
             }
           ]
         }
@@ -4307,7 +4398,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology"
             }
           ]
         }
@@ -4367,7 +4459,8 @@
                 "available_seats": "33",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology or PhD Clinical Psychology or PsyD Clinical Psychology"
             }
           ]
         }
@@ -4422,7 +4515,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -4475,7 +4569,8 @@
                 "available_seats": "99",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology"
             }
           ]
         },
@@ -4501,7 +4596,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology"
             }
           ]
         }
@@ -4550,7 +4646,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Psychology"
             }
           ]
         },
@@ -4576,7 +4673,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Psychology"
             }
           ]
         }
@@ -4625,7 +4723,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Psychology"
             }
           ]
         },
@@ -4651,7 +4750,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Psychology"
             }
           ]
         }
@@ -4700,7 +4800,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -4753,7 +4854,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -4802,7 +4904,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -4851,7 +4954,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology; Prerequisite: PSYC6230"
             }
           ]
         },
@@ -4877,7 +4981,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology; Prerequisite: PSYC6230"
             }
           ]
         }
@@ -4926,7 +5031,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "AS01-SEM (2870)",
@@ -4946,7 +5052,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "BL01-LAB (2871)",
@@ -4966,7 +5073,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "BS01-SEM (2860)",
@@ -4986,7 +5094,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -5052,7 +5161,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology or PhD Clinical Psychology"
             }
           ]
         }
@@ -5106,7 +5216,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -5159,7 +5270,8 @@
                 "available_seats": "47",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSSc Ind-Organizational Psychology"
             }
           ]
         },
@@ -5185,7 +5297,8 @@
                 "available_seats": "46",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSSc Ind-Organizational Psychology"
             }
           ]
         },
@@ -5211,7 +5324,8 @@
                 "available_seats": "41",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSSc Ind-Organizational Psychology"
             }
           ]
         }
@@ -5260,7 +5374,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSSc Ind-Organizational Psychology"
             }
           ]
         },
@@ -5286,7 +5401,8 @@
                 "available_seats": "46",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSSc Ind-Organizational Psychology"
             }
           ]
         },
@@ -5312,7 +5428,8 @@
                 "available_seats": "47",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSSc Ind-Organizational Psychology"
             }
           ]
         }
@@ -5367,7 +5484,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MSSc Ind-Organizational Psychology"
             }
           ]
         }
@@ -5428,7 +5546,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MSSc Ind-Organizational Psychology"
             }
           ]
         }
@@ -5482,7 +5601,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology"
             }
           ]
         },
@@ -5508,7 +5628,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology"
             }
           ]
         },
@@ -5534,7 +5655,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology"
             }
           ]
         }
@@ -5588,7 +5710,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSSc Ind-Organizational Psychology"
             }
           ]
         },
@@ -5614,7 +5737,8 @@
                 "available_seats": "44",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSSc Ind-Organizational Psychology"
             }
           ]
         },
@@ -5640,7 +5764,8 @@
                 "available_seats": "47",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSSc Ind-Organizational Psychology"
             }
           ]
         }
@@ -5698,7 +5823,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MSSc Ind-Organizational Psychology"
             }
           ]
         }
@@ -5752,7 +5878,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSSc Ind-Organizational Psychology"
             }
           ]
         }
@@ -5806,7 +5933,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSSc Ind-Organizational Psychology"
             }
           ]
         }
@@ -5860,7 +5988,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSSc Ind-Organizational Psychology"
             }
           ]
         }
@@ -5914,7 +6043,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -5968,7 +6098,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "-J01-PRJ (4562)",
@@ -5988,7 +6119,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -6042,7 +6174,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "AL01-LAB (4472)",
@@ -6062,7 +6195,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "B-LEC (2088)",
@@ -6082,7 +6216,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "BL01-LAB (2087)",
@@ -6102,7 +6237,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -6154,7 +6290,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "AL01-LAB (4474)",
@@ -6174,7 +6311,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "B-LEC (2090)",
@@ -6194,7 +6332,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "BL01-LAB (2089)",
@@ -6214,7 +6353,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -6268,7 +6408,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "AL01-LAB (4476)",
@@ -6288,7 +6429,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "B-LEC (2092)",
@@ -6308,7 +6450,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "BL01-LAB (2091)",
@@ -6328,7 +6471,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -6381,7 +6525,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "AL01-LAB (4563)",
@@ -6401,7 +6546,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "B-LEC (2080)",
@@ -6421,7 +6567,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "BL01-LAB (2079)",
@@ -6441,7 +6588,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -6493,7 +6641,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             },
             {
               "section": "-S01-SEM (3740)",
@@ -6513,7 +6662,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -6567,7 +6717,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         },
@@ -6593,7 +6744,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         },
@@ -6619,7 +6771,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -6668,7 +6821,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         },
@@ -6694,7 +6848,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         },
@@ -6720,7 +6875,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -6769,7 +6925,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         },
@@ -6795,7 +6952,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         },
@@ -6821,7 +6979,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -6870,7 +7029,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         },
@@ -6896,7 +7056,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         },
@@ -6922,7 +7083,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -6971,7 +7133,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         },
@@ -6997,7 +7160,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         },
@@ -7023,7 +7187,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -7072,7 +7237,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -7124,7 +7290,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -7176,7 +7343,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For students in MSSc Clinical Psychology"
             }
           ]
         }
@@ -7240,7 +7408,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology"
             }
           ]
         }
@@ -7298,7 +7467,8 @@
                 "available_seats": "19",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Psychology or MPhil-PhD Ind-Organizational Psychology"
             }
           ]
         }
@@ -7350,7 +7520,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For students in PhD Clinical Psychology or PsyD Clinical Psychology"
             }
           ]
         },
@@ -7376,7 +7547,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For students in PhD Clinical Psychology or PsyD Clinical Psychology"
             }
           ]
         }
@@ -7425,7 +7597,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For students in PsyD Clinical Psychology"
             }
           ]
         },
@@ -7451,7 +7624,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For students in PsyD Clinical Psychology"
             }
           ]
         }
@@ -7500,7 +7674,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For students in PhD Clinical Psychology or PsyD Clinical Psychology"
             }
           ]
         }
@@ -7549,7 +7724,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in PsyD Clinical Psychology"
             }
           ]
         },
@@ -7575,7 +7751,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in PsyD Clinical Psychology"
             }
           ]
         }
@@ -7624,7 +7801,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in PsyD Clinical Psychology"
             }
           ]
         },
@@ -7656,7 +7834,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in PsyD Clinical Psychology"
             }
           ]
         }
@@ -7705,7 +7884,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "For students in PhD Clinical Psychology"
             }
           ]
         }
@@ -7754,7 +7934,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For students in PhD Clinical Psychology or PsyD Clinical Psychology"
             }
           ]
         },
@@ -7786,7 +7967,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For students in PhD Clinical Psychology or PsyD Clinical Psychology"
             }
           ]
         }
@@ -7838,7 +8020,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For students in PhD Clinical Psychology or PsyD Clinical Psychology"
             }
           ]
         },
@@ -7870,7 +8053,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese and English"
+              "class_attributes": "Cantonese and English\nSTOT Course",
+              "enrollment_requirement": "For students in PhD Clinical Psychology or PsyD Clinical Psychology"
             }
           ]
         }
@@ -7922,7 +8106,8 @@
                 "available_seats": "98",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology"
             }
           ]
         },
@@ -7948,7 +8133,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology"
             }
           ]
         }
@@ -7997,7 +8183,8 @@
                 "available_seats": "68",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology"
             }
           ]
         },
@@ -8023,7 +8210,8 @@
                 "available_seats": "87",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology"
             }
           ]
         }
@@ -8072,7 +8260,8 @@
                 "available_seats": "78",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology"
             }
           ]
         },
@@ -8098,7 +8287,8 @@
                 "available_seats": "91",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Ind-Organizational Psychology or MPhil-PhD Psychology"
             }
           ]
         }
@@ -8147,7 +8337,8 @@
                 "available_seats": "99",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in PhD Clinical Psychology"
             }
           ]
         },
@@ -8173,7 +8364,8 @@
                 "available_seats": "99",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in PhD Clinical Psychology"
             }
           ]
         }

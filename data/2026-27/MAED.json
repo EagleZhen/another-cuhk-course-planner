@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "MAED",
     "subject_title": "Mathematics Education",
     "total_courses": 5
@@ -40,7 +40,8 @@
                 "available_seats": "956",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For MSc Mathematics Education\nFor students in MSc Mathematics Education and Master of Education Teach Key Sub Area (NETTI)"
             },
             {
               "section": "B-LEC (2586)",
@@ -60,7 +61,8 @@
                 "available_seats": "992",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Education Teach Key Sub Area (NETTI)\nFor students in MSc Mathematics Education and Master of Education Teach Key Sub Area (NETTI)"
             }
           ]
         }
@@ -118,7 +120,8 @@
                 "available_seats": "974",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Mathematics Education"
             }
           ]
         }
@@ -170,13 +173,14 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "30",
+                "enrolled": "28",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "969",
+                "available_seats": "971",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Mathematics Education"
             }
           ]
         }
@@ -229,7 +233,8 @@
                 "available_seats": "999",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "For students in MSc Mathematics Education"
             }
           ]
         },
@@ -255,7 +260,8 @@
                 "available_seats": "999",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "For students in MSc Mathematics Education"
             }
           ]
         }
@@ -304,7 +310,8 @@
                 "available_seats": "999",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "For students in MSc Mathematics Education"
             }
           ]
         },
@@ -330,7 +337,8 @@
                 "available_seats": "999",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "For students in MSc Mathematics Education"
             }
           ]
         }

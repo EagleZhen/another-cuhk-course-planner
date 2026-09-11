@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "IASP",
     "subject_title": "International Asian Studies",
     "total_courses": 4
@@ -34,13 +34,14 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "19",
+                "enrolled": "18",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-D01-DIS (6357)",
@@ -54,13 +55,14 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "19",
+                "enrolled": "18",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-F01-FLD (6106)",
@@ -74,13 +76,14 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "19",
+                "enrolled": "18",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -133,7 +136,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -159,7 +163,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -211,7 +216,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken GECC3130, 3230, 3430 or 4130."
             },
             {
               "section": "-S01-SEM (4893)",
@@ -249,7 +255,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken GECC3130, 3230, 3430 or 4130."
             }
           ]
         }
@@ -302,7 +309,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -328,7 +336,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "ARCH",
     "subject_title": "Architectural Studies",
     "total_courses": 45
@@ -46,7 +46,8 @@
                 "available_seats": "36",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BU01-STD (8607)",
@@ -78,7 +79,8 @@
                 "available_seats": "36",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "CU01-STD (8606)",
@@ -110,7 +112,8 @@
                 "available_seats": "36",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "DU01-STD (8605)",
@@ -142,7 +145,8 @@
                 "available_seats": "36",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -203,7 +207,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH2111."
             }
           ]
         }
@@ -264,7 +269,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -324,14 +330,15 @@
                 }
               ],
               "availability": {
-                "capacity": "20",
-                "enrolled": "15",
+                "capacity": "21",
+                "enrolled": "14",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "BU01-STD (8760)",
@@ -362,14 +369,15 @@
                 }
               ],
               "availability": {
-                "capacity": "20",
+                "capacity": "21",
                 "enrolled": "14",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "CU01-STD (8764)",
@@ -400,14 +408,15 @@
                 }
               ],
               "availability": {
-                "capacity": "20",
+                "capacity": "21",
                 "enrolled": "14",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "DU01-STD (8751)",
@@ -445,7 +454,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -530,7 +540,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ARCH2111."
             },
             {
               "section": "BU01-STD (8671)",
@@ -586,7 +597,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ARCH2111."
             },
             {
               "section": "CU01-STD (8672)",
@@ -642,7 +654,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ARCH2111."
             },
             {
               "section": "DU01-STD (8651)",
@@ -698,7 +711,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ARCH2111."
             }
           ]
         }
@@ -741,13 +755,14 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "46",
+                "enrolled": "45",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "24",
+                "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH3222"
             }
           ]
         }
@@ -794,13 +809,14 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "42",
+                "enrolled": "41",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "28",
+                "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH3322"
             }
           ]
         }
@@ -864,7 +880,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH4323"
             },
             {
               "section": "-T01-TUT (9610)",
@@ -896,7 +913,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH4323"
             },
             {
               "section": "-T02-TUT (7353)",
@@ -928,7 +946,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH4323"
             },
             {
               "section": "-T03-TUT (9611)",
@@ -960,7 +979,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH4323"
             },
             {
               "section": "-T04-TUT (7363)",
@@ -992,7 +1012,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH4323"
             }
           ]
         }
@@ -1057,7 +1078,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH3423"
             }
           ]
         }
@@ -1121,13 +1143,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "12",
+                "enrolled": "13",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ARCH2112."
             },
             {
               "section": "BU01-STD (8768)",
@@ -1159,13 +1182,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "12",
+                "enrolled": "13",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ARCH2112."
             },
             {
               "section": "CU01-STD (8771)",
@@ -1197,13 +1221,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "11",
+                "enrolled": "12",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ARCH2112."
             }
           ]
         }
@@ -1288,7 +1313,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ARCH3113."
             },
             {
               "section": "BU01-STD (5152)",
@@ -1344,7 +1370,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ARCH3113."
             },
             {
               "section": "CU01-STD (8539)",
@@ -1400,7 +1427,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ARCH3113."
             },
             {
               "section": "DU01-STD (8540)",
@@ -1456,7 +1484,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ARCH3113."
             }
           ]
         }
@@ -1498,14 +1527,15 @@
                 }
               ],
               "availability": {
-                "capacity": "70",
-                "enrolled": "39",
+                "capacity": "73",
+                "enrolled": "40",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "31",
+                "available_seats": "33",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH2321"
             },
             {
               "section": "-T01-TUT (8257)",
@@ -1518,14 +1548,15 @@
                 }
               ],
               "availability": {
-                "capacity": "20",
+                "capacity": "23",
                 "enrolled": "12",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH2321"
             },
             {
               "section": "-T02-TUT (8258)",
@@ -1539,13 +1570,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "9",
+                "enrolled": "10",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH2321"
             },
             {
               "section": "-T03-TUT (8259)",
@@ -1565,7 +1597,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH2321"
             },
             {
               "section": "-T04-TUT (8260)",
@@ -1585,7 +1618,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH2321"
             }
           ]
         }
@@ -1650,7 +1684,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1714,7 +1749,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH4721"
             },
             {
               "section": "-T01-TUT (5168)",
@@ -1746,7 +1782,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH4721"
             },
             {
               "section": "-T02-TUT (5165)",
@@ -1778,7 +1815,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH4721"
             },
             {
               "section": "-T03-TUT (5167)",
@@ -1810,7 +1848,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH4721"
             },
             {
               "section": "-T04-TUT (5166)",
@@ -1842,7 +1881,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH4721"
             }
           ]
         }
@@ -1913,7 +1953,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ARCH3114."
             },
             {
               "section": "BU01-STD (8778)",
@@ -1951,7 +1992,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ARCH3114."
             },
             {
               "section": "CU01-STD (5135)",
@@ -1983,13 +2025,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "9",
+                "enrolled": "8",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ARCH3114."
             },
             {
               "section": "DU01-STD (8770)",
@@ -2027,7 +2070,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ARCH3114."
             }
           ]
         }
@@ -2112,7 +2156,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: ARCH4115."
             },
             {
               "section": "BU01-STD (8542)",
@@ -2168,7 +2213,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: ARCH4115."
             },
             {
               "section": "CU01-STD (8662)",
@@ -2224,7 +2270,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: ARCH4115."
             },
             {
               "section": "DU01-STD (8538)",
@@ -2280,7 +2327,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: ARCH4115."
             }
           ]
         }
@@ -2329,7 +2377,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2390,7 +2439,8 @@
                 "available_seats": "16",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2439,7 +2489,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2482,13 +2533,14 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "45",
+                "enrolled": "44",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "25",
+                "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2552,7 +2604,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ARCH2320"
             }
           ]
         }
@@ -2593,13 +2646,13 @@
               "meetings": [
                 {
                   "time": "Th 9:30AM - 12:15PM",
-                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "location": "Wu Ho Man Yuen Bldg 504",
                   "instructor": "Professor WANG Shuaizhong",
                   "dates": "10/9, 17/9, 24/9"
                 },
                 {
                   "time": "Th 9:30AM - 12:15PM",
-                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "location": "Wu Ho Man Yuen Bldg 504",
                   "instructor": "Professor WANG Shuaizhong",
                   "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
                 }
@@ -2612,7 +2665,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2650,7 +2704,8 @@
                 "available_seats": "16",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2705,7 +2760,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "BU01-STD (1176)",
@@ -2731,7 +2787,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "CU01-STD (1160)",
@@ -2757,7 +2814,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "DU01-STD (1175)",
@@ -2783,7 +2841,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "EU01-STD (1178)",
@@ -2809,7 +2868,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "FU01-STD (1177)",
@@ -2835,7 +2895,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "GU01-STD (1179)",
@@ -2861,7 +2922,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "HU01-STD (1173)",
@@ -2887,7 +2949,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "IU01-STD (1174)",
@@ -2913,7 +2976,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "JU01-STD (1055)",
@@ -2939,7 +3003,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "KU01-STD (1056)",
@@ -2965,7 +3030,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "LU01-STD (1057)",
@@ -2991,7 +3057,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             }
           ]
         },
@@ -3023,7 +3090,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "BU01-STD (1162)",
@@ -3049,7 +3117,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "CU01-STD (1163)",
@@ -3075,7 +3144,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "DU01-STD (1164)",
@@ -3101,7 +3171,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "EU01-STD (1165)",
@@ -3127,7 +3198,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "FU01-STD (1153)",
@@ -3153,7 +3225,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "GU01-STD (1166)",
@@ -3179,7 +3252,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "HU01-STD (1167)",
@@ -3205,7 +3279,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "IU01-STD (1152)",
@@ -3231,7 +3306,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "JU01-STD (1056)",
@@ -3257,7 +3333,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "KU01-STD (1057)",
@@ -3283,7 +3360,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "LU01-STD (1058)",
@@ -3309,7 +3387,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             }
           ]
         }
@@ -3364,7 +3443,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "BU01-STD (1065)",
@@ -3390,7 +3470,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "CU01-STD (1066)",
@@ -3416,7 +3497,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "DU01-STD (1067)",
@@ -3442,7 +3524,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "EU01-STD (1150)",
@@ -3468,7 +3551,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "FU01-STD (1149)",
@@ -3494,7 +3578,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "GU01-STD (1151)",
@@ -3520,7 +3605,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "HU01-STD (1068)",
@@ -3546,7 +3632,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "IU01-STD (1063)",
@@ -3572,7 +3659,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "JU01-STD (1080)",
@@ -3598,7 +3686,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "KU01-STD (1148)",
@@ -3624,7 +3713,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             },
             {
               "section": "LU01-STD (1081)",
@@ -3650,7 +3740,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             }
           ]
         }
@@ -3705,7 +3796,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture\nPrerequisite: ARCH5111"
             },
             {
               "section": "BU01-STD (1147)",
@@ -3731,7 +3823,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture\nPrerequisite: ARCH5111"
             },
             {
               "section": "CU01-STD (1148)",
@@ -3757,7 +3850,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture\nPrerequisite: ARCH5111"
             },
             {
               "section": "DU01-STD (1149)",
@@ -3783,7 +3877,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture\nPrerequisite: ARCH5111"
             },
             {
               "section": "EU01-STD (1150)",
@@ -3809,7 +3904,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture\nPrerequisite: ARCH5111"
             },
             {
               "section": "FU01-STD (1134)",
@@ -3835,7 +3931,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture\nPrerequisite: ARCH5111"
             },
             {
               "section": "GU01-STD (1151)",
@@ -3861,7 +3958,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture\nPrerequisite: ARCH5111"
             },
             {
               "section": "HU01-STD (1136)",
@@ -3887,7 +3985,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture\nPrerequisite: ARCH5111"
             },
             {
               "section": "IU01-STD (1133)",
@@ -3913,7 +4012,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture\nPrerequisite: ARCH5111"
             },
             {
               "section": "JU01-STD (1135)",
@@ -3939,7 +4039,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture\nPrerequisite: ARCH5111"
             },
             {
               "section": "KU01-STD (1175)",
@@ -3965,7 +4066,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture\nPrerequisite: ARCH5111"
             },
             {
               "section": "LU01-STD (1137)",
@@ -3991,7 +4093,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture\nPrerequisite: ARCH5111"
             }
           ]
         }
@@ -4046,7 +4149,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students of Master of Architecture"
             },
             {
               "section": "B-LEC (2391)",
@@ -4066,7 +4170,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students of Master of Architecture"
             }
           ]
         }
@@ -4121,7 +4226,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             }
           ]
         }
@@ -4176,7 +4282,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students of Master of Architecture"
             }
           ]
         }
@@ -4249,7 +4356,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             }
           ]
         }
@@ -4303,7 +4411,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students of Master of Architecture"
             }
           ]
         }
@@ -4352,7 +4461,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             }
           ]
         },
@@ -4378,7 +4488,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             }
           ]
         }
@@ -4436,7 +4547,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             }
           ]
         }
@@ -4488,7 +4600,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students of Master of Architecture and BSSc Energy and Environmental Engineering"
             }
           ]
         }
@@ -4543,7 +4656,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             }
           ]
         }
@@ -4634,7 +4748,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture and MSc in Urban Design;Mutually exclusive to URBD5703"
             }
           ]
         }
@@ -4693,7 +4808,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture and MSc in Urban Design"
             },
             {
               "section": "B-LEC (2519)",
@@ -4719,7 +4835,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture and MSc in Urban Design"
             }
           ]
         },
@@ -4745,7 +4862,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture and MSc in Urban Design"
             }
           ]
         }
@@ -4800,7 +4918,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "BU01-STD (1137)",
@@ -4826,7 +4945,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "CU01-STD (1141)",
@@ -4852,7 +4972,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "DU01-STD (1138)",
@@ -4878,7 +4999,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "EU01-STD (1142)",
@@ -4904,7 +5026,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "FU01-STD (1084)",
@@ -4930,7 +5053,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "GU01-STD (1136)",
@@ -4956,7 +5080,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "HU01-STD (1140)",
@@ -4982,7 +5107,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "IU01-STD (1082)",
@@ -5008,7 +5134,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "JU01-STD (1147)",
@@ -5034,7 +5161,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "KU01-STD (1100)",
@@ -5060,7 +5188,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "LU01-STD (1135)",
@@ -5086,7 +5215,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             }
           ]
         },
@@ -5118,7 +5248,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "BU01-STD (1088)",
@@ -5144,7 +5275,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "CU01-STD (1091)",
@@ -5170,7 +5302,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "DU01-STD (1101)",
@@ -5196,7 +5329,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "EU01-STD (1089)",
@@ -5222,7 +5356,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "FU01-STD (1067)",
@@ -5248,7 +5383,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "GU01-STD (1090)",
@@ -5274,7 +5410,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "HU01-STD (1086)",
@@ -5300,7 +5437,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "IU01-STD (1066)",
@@ -5326,7 +5464,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "JU01-STD (1103)",
@@ -5352,7 +5491,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "KU01-STD (1084)",
@@ -5378,7 +5518,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "LU01-STD (1102)",
@@ -5404,7 +5545,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110, OR, ARCH5111 and 5112"
             }
           ]
         }
@@ -5459,7 +5601,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "BU01-STD (1112)",
@@ -5485,7 +5628,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "CU01-STD (1118)",
@@ -5511,7 +5655,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "DU01-STD (1127)",
@@ -5537,7 +5682,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "EU01-STD (1114)",
@@ -5563,7 +5709,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "FU01-STD (1085)",
@@ -5589,7 +5736,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "GU01-STD (1113)",
@@ -5615,7 +5763,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "HU01-STD (1115)",
@@ -5641,7 +5790,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "IU01-STD (1083)",
@@ -5667,7 +5817,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "JU01-STD (1116)",
@@ -5693,7 +5844,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "KU01-STD (1099)",
@@ -5719,7 +5871,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;ARCH5110, OR, ARCH5111 and 5112"
             },
             {
               "section": "LU01-STD (1117)",
@@ -5745,7 +5898,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;ARCH5110, OR, ARCH5111 and 5112"
             }
           ]
         }
@@ -5800,7 +5954,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110 and 6113 or 6213, OR, ARCH5111, 5112 and 6113 or 6213."
             },
             {
               "section": "BU01-STD (1112)",
@@ -5826,7 +5981,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110 and 6113 or 6213, OR, ARCH5111, 5112 and 6113 or 6213."
             },
             {
               "section": "CU01-STD (1116)",
@@ -5852,7 +6008,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110 and 6113 or 6213, OR, ARCH5111, 5112 and 6113 or 6213."
             },
             {
               "section": "DU01-STD (1119)",
@@ -5878,7 +6035,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110 and 6113 or 6213, OR, ARCH5111, 5112 and 6113 or 6213."
             },
             {
               "section": "EU01-STD (1117)",
@@ -5904,7 +6062,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110 and 6113 or 6213, OR, ARCH5111, 5112 and 6113 or 6213."
             },
             {
               "section": "FU01-STD (1068)",
@@ -5930,7 +6089,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110 and 6113 or 6213, OR, ARCH5111, 5112 and 6113 or 6213."
             },
             {
               "section": "GU01-STD (1113)",
@@ -5956,7 +6116,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110 and 6113 or 6213, OR, ARCH5111, 5112 and 6113 or 6213."
             },
             {
               "section": "HU01-STD (1114)",
@@ -5982,7 +6143,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110 and 6113 or 6213, OR, ARCH5111, 5112 and 6113 or 6213."
             },
             {
               "section": "IU01-STD (1065)",
@@ -6008,7 +6170,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110 and 6113 or 6213, OR, ARCH5111, 5112 and 6113 or 6213."
             },
             {
               "section": "JU01-STD (1118)",
@@ -6034,7 +6197,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110 and 6113 or 6213, OR, ARCH5111, 5112 and 6113 or 6213."
             },
             {
               "section": "KU01-STD (1085)",
@@ -6060,7 +6224,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110 and 6113 or 6213, OR, ARCH5111, 5112 and 6113 or 6213."
             },
             {
               "section": "LU01-STD (1127)",
@@ -6086,7 +6251,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture;Prerequisite: ARCH5110 and 6113 or 6213, OR, ARCH5111, 5112 and 6113 or 6213."
             }
           ]
         }
@@ -6135,7 +6301,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Master of Architecture"
             }
           ]
         }
@@ -6187,7 +6354,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "ABS1-SEM (3030)",
@@ -6207,7 +6375,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "ACS1-SEM (3031)",
@@ -6227,7 +6396,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "ADS1-SEM (3762)",
@@ -6247,7 +6417,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "AES1-SEM (3778)",
@@ -6267,7 +6438,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "AFS1-SEM (3760)",
@@ -6287,7 +6459,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "AGS1-SEM (3779)",
@@ -6307,7 +6480,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "AHS1-SEM (3761)",
@@ -6327,7 +6501,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "AIS1-SEM (3780)",
@@ -6347,7 +6522,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "AJS1-SEM (2843)",
@@ -6367,7 +6543,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "AKS1-SEM (2844)",
@@ -6387,7 +6564,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "ALS1-SEM (2863)",
@@ -6407,7 +6585,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "AMS1-SEM (2770)",
@@ -6427,7 +6606,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "ANS1-SEM (2771)",
@@ -6447,7 +6627,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "AOS1-SEM (2777)",
@@ -6467,7 +6648,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "APS1-SEM (2778)",
@@ -6487,7 +6669,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "AQS1-SEM (2775)",
@@ -6507,7 +6690,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "CS01-SEM (2833)",
@@ -6527,7 +6711,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             }
           ]
         },
@@ -6553,7 +6738,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "ABS1-SEM (3410)",
@@ -6573,7 +6759,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "ACS1-SEM (3411)",
@@ -6593,7 +6780,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "ADS1-SEM (3408)",
@@ -6613,7 +6801,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "AES1-SEM (3443)",
@@ -6633,7 +6822,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "AFS1-SEM (3444)",
@@ -6653,7 +6843,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "AGS1-SEM (3445)",
@@ -6673,7 +6864,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "AHS1-SEM (3446)",
@@ -6693,7 +6885,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "AIS1-SEM (3447)",
@@ -6713,7 +6906,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "BS01-SEM (2819)",
@@ -6745,7 +6939,8 @@
                 "available_seats": "21",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             }
           ]
         }
@@ -6794,7 +6989,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             }
           ]
         }
@@ -6843,7 +7039,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "BM01-TMC (2222)",
@@ -6863,7 +7060,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "CM01-TMC (1999)",
@@ -6883,7 +7081,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "DM01-TMC (3864)",
@@ -6903,7 +7102,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "EM01-TMC (2165)",
@@ -6923,7 +7123,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "FM01-TMC (2164)",
@@ -6943,7 +7144,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "GM01-TMC (2000)",
@@ -6963,7 +7165,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "HM01-TMC (2223)",
@@ -6983,7 +7186,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "IM01-TMC (1809)",
@@ -7003,7 +7207,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "JM01-TMC (1810)",
@@ -7023,7 +7228,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "KM01-TMC (1811)",
@@ -7043,7 +7249,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "LM01-TMC (1812)",
@@ -7063,7 +7270,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             }
           ]
         },
@@ -7089,7 +7297,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "BM01-TMC (2035)",
@@ -7109,7 +7318,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "CM01-TMC (2158)",
@@ -7129,7 +7339,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "DM01-TMC (2156)",
@@ -7149,7 +7360,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "EM01-TMC (3947)",
@@ -7169,7 +7381,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "FM01-TMC (3546)",
@@ -7189,7 +7402,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "GM01-TMC (2002)",
@@ -7209,7 +7423,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "HM01-TMC (1697)",
@@ -7229,7 +7444,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "IM01-TMC (1812)",
@@ -7249,7 +7465,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "JM01-TMC (1813)",
@@ -7269,7 +7486,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "KM01-TMC (1814)",
@@ -7289,7 +7507,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "LM01-TMC (2686)",
@@ -7309,7 +7528,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             }
           ]
         }
@@ -7358,7 +7578,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "BM01-TMC (1808)",
@@ -7378,7 +7599,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "CM01-TMC (2226)",
@@ -7398,7 +7620,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "DM01-TMC (3028)",
@@ -7418,7 +7641,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "EM01-TMC (3027)",
@@ -7438,7 +7662,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "FM01-TMC (2224)",
@@ -7458,7 +7683,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "GM01-TMC (2169)",
@@ -7478,7 +7704,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "HM01-TMC (2168)",
@@ -7498,7 +7725,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "IM01-TMC (4496)",
@@ -7518,7 +7746,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "JM01-TMC (2167)",
@@ -7538,7 +7767,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "KM01-TMC (2225)",
@@ -7558,7 +7788,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "LM01-TMC (2170)",
@@ -7578,7 +7809,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "MM01-TMC (3026)",
@@ -7598,7 +7830,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "NM01-TMC (3539)",
@@ -7618,7 +7851,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "OM01-TMC (2780)",
@@ -7638,7 +7872,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "PM01-TMC (2779)",
@@ -7658,7 +7893,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "QM01-TMC (2774)",
@@ -7678,7 +7914,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "RM01-TMC (2773)",
@@ -7698,7 +7935,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "SM01-TMC (2781)",
@@ -7718,7 +7956,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "TM01-TMC (2782)",
@@ -7738,7 +7977,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "UM01-TMC (2772)",
@@ -7758,7 +7998,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             }
           ]
         },
@@ -7784,7 +8025,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "BM01-TMC (2033)",
@@ -7804,7 +8046,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "CM01-TMC (2037)",
@@ -7824,7 +8067,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "DM01-TMC (3815)",
@@ -7844,7 +8088,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "EM01-TMC (2160)",
@@ -7864,7 +8109,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "FM01-TMC (2038)",
@@ -7884,7 +8130,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "GM01-TMC (2159)",
@@ -7904,7 +8151,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "HM01-TMC (2935)",
@@ -7924,7 +8172,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "IM01-TMC (2036)",
@@ -7944,7 +8193,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "JM01-TMC (2082)",
@@ -7964,7 +8214,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "KM01-TMC (2003)",
@@ -7984,7 +8235,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "LM01-TMC (2203)",
@@ -8004,7 +8256,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "MM01-TMC (2001)",
@@ -8024,7 +8277,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "NM01-TMC (3547)",
@@ -8044,7 +8298,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "OM01-TMC (3548)",
@@ -8064,7 +8319,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             }
           ]
         }
@@ -8113,7 +8369,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "BM01-TMC (3860)",
@@ -8133,7 +8390,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "CM01-TMC (3029)",
@@ -8153,7 +8411,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "DM01-TMC (2171)",
@@ -8173,7 +8432,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "EM01-TMC (4269)",
@@ -8193,7 +8453,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "FM01-TMC (4274)",
@@ -8213,7 +8474,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "GM01-TMC (3540)",
@@ -8233,7 +8495,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "HM01-TMC (3861)",
@@ -8253,7 +8516,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "IM01-TMC (2166)",
@@ -8273,7 +8537,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "JM01-TMC (3863)",
@@ -8293,7 +8558,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "KM01-TMC (3862)",
@@ -8313,7 +8579,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "LM01-TMC (3541)",
@@ -8333,7 +8600,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "MM01-TMC (3538)",
@@ -8353,7 +8621,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             }
           ]
         },
@@ -8379,7 +8648,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "BM01-TMC (2004)",
@@ -8399,7 +8669,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "CM01-TMC (3407)",
@@ -8419,7 +8690,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "DM01-TMC (4385)",
@@ -8439,7 +8711,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "EM01-TMC (4384)",
@@ -8459,7 +8732,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "FM01-TMC (2157)",
@@ -8479,7 +8753,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "GM01-TMC (3943)",
@@ -8499,7 +8774,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "HM01-TMC (3944)",
@@ -8519,7 +8795,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "IM01-TMC (3945)",
@@ -8539,7 +8816,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "JM01-TMC (3946)",
@@ -8559,7 +8837,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "KM01-TMC (3551)",
@@ -8579,7 +8858,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "LM01-TMC (3550)",
@@ -8599,7 +8879,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             },
             {
               "section": "MM01-TMC (3549)",
@@ -8619,7 +8900,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Architecture"
             }
           ]
         }

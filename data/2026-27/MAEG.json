@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "MAEG",
     "subject_title": "Mechanical & Automation Engineering",
     "total_courses": 46
@@ -46,7 +46,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-L01-LAB (8769)",
@@ -84,7 +85,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-L02-LAB (8768)",
@@ -116,7 +118,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-L03-LAB (8667)",
@@ -148,7 +151,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (7849)",
@@ -168,7 +172,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -222,7 +227,8 @@
                 "available_seats": "51",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken MAEG2010."
             },
             {
               "section": "-L01-LAB (8963)",
@@ -248,7 +254,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken MAEG2010."
             },
             {
               "section": "-L02-LAB (8978)",
@@ -268,7 +275,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken MAEG2010."
             }
           ]
         },
@@ -306,7 +314,8 @@
                 "available_seats": "120",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken MAEG2010."
             },
             {
               "section": "-L01-LAB (8885)",
@@ -344,7 +353,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken MAEG2010."
             },
             {
               "section": "-L02-LAB (8886)",
@@ -376,7 +386,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken MAEG2010."
             },
             {
               "section": "-L03-LAB (8884)",
@@ -408,7 +419,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken MAEG2010."
             }
           ]
         }
@@ -468,11 +480,12 @@
                 "capacity": "125",
                 "enrolled": "116",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
+                "waitlist_total": "0",
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR2400."
             },
             {
               "section": "-T01-TUT (8181)",
@@ -488,11 +501,12 @@
                 "capacity": "125",
                 "enrolled": "116",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
+                "waitlist_total": "0",
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR2400."
             }
           ]
         }
@@ -544,13 +558,14 @@
               ],
               "availability": {
                 "capacity": "200",
-                "enrolled": "167",
+                "enrolled": "166",
                 "waitlist_capacity": "999",
                 "waitlist_total": "1",
-                "available_seats": "33",
+                "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR2402."
             },
             {
               "section": "-T01-TUT (8091)",
@@ -564,13 +579,14 @@
               ],
               "availability": {
                 "capacity": "200",
-                "enrolled": "167",
+                "enrolled": "166",
                 "waitlist_capacity": "999",
                 "waitlist_total": "1",
-                "available_seats": "33",
+                "available_seats": "34",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR2402."
             }
           ]
         }
@@ -617,13 +633,14 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "21",
+                "enrolled": "22",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-W01-WKS (9158)",
@@ -637,13 +654,14 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "21",
+                "enrolled": "22",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -716,7 +734,8 @@
                 "available_seats": "115",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2601."
             }
           ]
         }
@@ -781,7 +800,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students."
             },
             {
               "section": "-T01-TUT (8182)",
@@ -801,7 +821,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students."
             }
           ]
         }
@@ -890,7 +911,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3404."
             },
             {
               "section": "-T01-TUT (8129)",
@@ -910,7 +932,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3404."
             }
           ]
         }
@@ -994,7 +1017,8 @@
                 "available_seats": "135",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "(ENR) PR-MAEG2030/ESTR2402/Consent of the course instructor."
             },
             {
               "section": "-T01-TUT (8130)",
@@ -1014,7 +1038,8 @@
                 "available_seats": "135",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "(ENR) PR-MAEG2030/ESTR2402/Consent of the course instructor."
             }
           ]
         }
@@ -1096,7 +1121,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (8131)",
@@ -1116,7 +1142,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1180,7 +1207,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students.\nNot for students who have taken ESTR3406."
             },
             {
               "section": "-T01-TUT (8183)",
@@ -1200,7 +1228,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students.\nNot for students who have taken ESTR3406."
             }
           ]
         }
@@ -1289,7 +1318,8 @@
                 "available_seats": "55",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3408 or ELEG3103."
             },
             {
               "section": "-L01-LAB (6269)",
@@ -1309,7 +1339,8 @@
                 "available_seats": "55",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3408 or ELEG3103."
             }
           ]
         }
@@ -1375,7 +1406,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students."
             },
             {
               "section": "-T01-TUT (6079)",
@@ -1395,7 +1427,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students."
             }
           ]
         }
@@ -1483,7 +1516,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6548)",
@@ -1503,7 +1537,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1561,7 +1596,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students."
             },
             {
               "section": "-J01-PRJ (6084)",
@@ -1581,7 +1617,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students."
             },
             {
               "section": "-T01-TUT (6085)",
@@ -1601,7 +1638,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students."
             }
           ]
         }
@@ -1689,7 +1727,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4408."
             },
             {
               "section": "-T01-TUT (6266)",
@@ -1709,7 +1748,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4408."
             }
           ]
         }
@@ -1775,7 +1815,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students.\nNot for students who have taken ESTR4410."
             },
             {
               "section": "-T01-TUT (6607)",
@@ -1795,7 +1836,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students.\nNot for students who have taken ESTR4410."
             }
           ]
         }
@@ -1861,7 +1903,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students.\nPre-requisite: MAEG2030/ESTR2402 and MAEG3030, or with the consent of the course instructor\nNot for students who have taken ESTR4412."
             },
             {
               "section": "-T01-TUT (6179)",
@@ -1881,7 +1924,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students.\nPre-requisite: MAEG2030/ESTR2402 and MAEG3030, or with the consent of the course instructor\nNot for students who have taken ESTR4412."
             }
           ]
         }
@@ -1945,7 +1989,8 @@
                 "available_seats": "33",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students.\nNot for students who have taken ESTR4414."
             },
             {
               "section": "-T01-TUT (6086)",
@@ -1965,7 +2010,8 @@
                 "available_seats": "33",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students.\nNot for students who have taken ESTR4414."
             }
           ]
         }
@@ -2055,7 +2101,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4416."
             },
             {
               "section": "-T01-TUT (6203)",
@@ -2075,7 +2122,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4416."
             }
           ]
         }
@@ -2157,7 +2205,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6549)",
@@ -2177,7 +2226,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2241,7 +2291,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students.\nNot for students who have taken ESTR4418."
             },
             {
               "section": "-T01-TUT (6232)",
@@ -2261,7 +2312,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 3 and above students. For AD/HD students. For advanced standing Year 2 and above students.\nNot for students who have taken ESTR4418."
             }
           ]
         }
@@ -2349,7 +2401,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: MAEG2030/ESTR2402 and MAEG3030.\nNot for students who have taken ESTR4420."
             },
             {
               "section": "-T01-TUT (6267)",
@@ -2369,7 +2422,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: MAEG2030/ESTR2402 and MAEG3030.\nNot for students who have taken ESTR4420."
             }
           ]
         }
@@ -2422,7 +2476,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For Year 4 or above students. For Advanced Standing Year 3 or above students. For AD/HD Year 2 or above students."
             }
           ]
         },
@@ -2448,7 +2503,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2500,7 +2556,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For Year 4 or above students. For Advanced Standing Year 3 or above students. For AD/HD Year 2 or above students.\nPre-requisite: MAEG4998."
             }
           ]
         },
@@ -2526,7 +2583,8 @@
                 "available_seats": "90",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: MAEG4998."
             }
           ]
         }
@@ -2590,13 +2648,14 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "39",
+                "enrolled": "40",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "36",
+                "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Mechanical and Automation Engineering;Pre-requisite: MAEG3070 (for UG students only)"
             }
           ]
         }
@@ -2662,7 +2721,8 @@
                 "available_seats": "52",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Mechanical and Automation Engineering;Not for students who have taken MAEG5760"
             }
           ]
         }
@@ -2741,7 +2801,8 @@
                 "available_seats": "61",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Mechanical and Automation Engineering"
             }
           ]
         }
@@ -2806,7 +2867,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": ""
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc/MPhil-PhD/UG Mechanical and Automation Engineering; or UG Energy and Environmental Engineering;Pre-requisite (for UG students only): [EEEN3030 or ESTR3402 (with grade B or above)] or [with the consent of the course instructor]"
             }
           ]
         }
@@ -2878,7 +2940,8 @@
                 "available_seats": "61",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Mechanical and Automation Engineering"
             }
           ]
         }
@@ -2937,13 +3000,14 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "100",
+                "enrolled": "101",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD/MSc/UG Mechanical and Automation Engineering; or UG Energy and Environmental Engineering;Pre-requisite (for UG students only): EEEN3030 or ESTR3402 (with grade B or above)"
             }
           ]
         }
@@ -3020,7 +3084,8 @@
                 "available_seats": "65",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Energy and Environmental Engineering; or For students in UG Mechanical and Automation Engineering"
             }
           ]
         }
@@ -3091,7 +3156,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering; or For students in MSc Mechanical and Automation Engineering; or For students in UG Mechanical and Automation Engineering - Major"
             }
           ]
         }
@@ -3145,7 +3211,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering;Not for students who have taken MAEG5030"
             }
           ]
         }
@@ -3203,7 +3270,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering"
             }
           ]
         }
@@ -3267,7 +3335,8 @@
                 "available_seats": "21",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering;Not for students who have taken ENGG5403"
             }
           ]
         }
@@ -3320,7 +3389,8 @@
                 "available_seats": "46",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering"
             }
           ]
         }
@@ -3378,7 +3448,8 @@
                 "available_seats": "31",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering;Not for students who have taken MAEG5090 or ENGG5402 or ROSE5710"
             }
           ]
         }
@@ -3430,13 +3501,14 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "51",
+                "enrolled": "48",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "49",
+                "available_seats": "52",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering;Not for students who have taken MAEG5080"
             }
           ]
         }
@@ -3485,13 +3557,14 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "81",
+                "enrolled": "80",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering"
             }
           ]
         }
@@ -3552,7 +3625,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering"
             }
           ]
         }
@@ -3618,7 +3692,8 @@
                 "available_seats": "55",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering"
             }
           ]
         }
@@ -3670,7 +3745,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Mechanical and Automation Engineering"
             }
           ]
         }
@@ -3719,7 +3795,8 @@
                 "available_seats": "974",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering"
             }
           ]
         },
@@ -3745,7 +3822,8 @@
                 "available_seats": "997",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering"
             }
           ]
         }
@@ -3794,7 +3872,8 @@
                 "available_seats": "870",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering"
             }
           ]
         },
@@ -3820,7 +3899,8 @@
                 "available_seats": "942",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering"
             }
           ]
         }
@@ -3869,7 +3949,8 @@
                 "available_seats": "907",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering"
             }
           ]
         },
@@ -3895,7 +3976,8 @@
                 "available_seats": "979",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Mechanical and Automation Engineering"
             }
           ]
         }

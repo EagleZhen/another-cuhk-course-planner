@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "RMSC",
     "subject_title": "Risk Management Science",
     "total_courses": 29
@@ -40,7 +40,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (9805)",
@@ -66,7 +67,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -126,13 +128,14 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "81",
+                "enrolled": "80",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "-"
             },
             {
               "section": "AT01-TUT (8049)",
@@ -146,13 +149,14 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "81",
+                "enrolled": "80",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "-"
             }
           ]
         },
@@ -190,7 +194,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "-"
             },
             {
               "section": "BT01-TUT (6678)",
@@ -210,7 +215,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "-"
             }
           ]
         }
@@ -275,7 +281,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: RMSC1101 or consent of instructor."
             },
             {
               "section": "-T01-TUT (9536)",
@@ -307,7 +314,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: RMSC1101 or consent of instructor."
             }
           ]
         }
@@ -397,7 +405,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: RMSC2001 or consent of instructor."
             },
             {
               "section": "-T01-TUT (6394)",
@@ -417,7 +426,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: RMSC2001 or consent of instructor."
             }
           ]
         }
@@ -482,7 +492,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (9644)",
@@ -514,7 +525,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -568,7 +580,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite:RMSC2001 or consent of instructor"
             },
             {
               "section": "AT01-TUT (7860)",
@@ -588,7 +601,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite:RMSC2001 or consent of instructor"
             }
           ]
         },
@@ -632,7 +646,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite:RMSC2001 or consent of instructor"
             },
             {
               "section": "BT01-TUT (8526)",
@@ -652,7 +667,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite:RMSC2001 or consent of instructor"
             }
           ]
         }
@@ -705,7 +721,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite:RMSC2001, STAT2001 and STAT2006, or consent of instructor"
             },
             {
               "section": "-T01-TUT (8184)",
@@ -725,7 +742,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite:RMSC2001, STAT2001 and STAT2006, or consent of instructor"
             }
           ]
         }
@@ -778,7 +796,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite:RMSC2001 or consent of instructor"
             },
             {
               "section": "-T01-TUT (8185)",
@@ -798,7 +817,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite:RMSC2001 or consent of instructor"
             }
           ]
         }
@@ -863,7 +883,8 @@
                 "available_seats": "110",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (6501)",
@@ -883,7 +904,8 @@
                 "available_seats": "110",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -948,7 +970,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite:RMSC2001 or consent of instructor"
             },
             {
               "section": "-T01-TUT (7783)",
@@ -968,7 +991,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite:RMSC2001 or consent of instructor"
             }
           ]
         }
@@ -1033,7 +1057,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: RMSC3101 or consent of instructor."
             },
             {
               "section": "-T01-TUT (6708)",
@@ -1053,7 +1078,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: RMSC3101 or consent of instructor."
             }
           ]
         }
@@ -1117,7 +1143,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: RMSC3101 or consent of instructor."
             },
             {
               "section": "-T01-TUT (6221)",
@@ -1137,7 +1164,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: RMSC3101 or consent of instructor."
             }
           ]
         }
@@ -1189,7 +1217,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course\nInternship",
+              "enrollment_requirement": "Prerequisite: RMSC2001 & FINA2010 or 2110 or consent of instructor."
             }
           ]
         },
@@ -1215,7 +1244,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course\nInternship",
+              "enrollment_requirement": "Prerequisite: RMSC2001 & FINA2010 or 2110 or consent of instructor."
             }
           ]
         }
@@ -1268,7 +1298,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course\nInternship",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -1294,7 +1325,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course\nExperiential Learning Course\nInternship",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1359,7 +1391,8 @@
                 "available_seats": "52",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics"
             }
           ]
         }
@@ -1418,7 +1451,8 @@
                 "available_seats": "48",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics"
             }
           ]
         }
@@ -1470,7 +1504,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MPhil Risk Management Science"
             }
           ]
         }
@@ -1535,7 +1570,8 @@
                 "available_seats": "54",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MPhil Risk Management Science"
             }
           ]
         }
@@ -1581,13 +1617,14 @@
               ],
               "availability": {
                 "capacity": "99",
-                "enrolled": "80",
+                "enrolled": "79",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc in Data Science and Business Statistics, MSc in Risk Management Science and Data Analytics and MSc in Advanced Studies in Statistics and Data Science"
             }
           ]
         }
@@ -1645,7 +1682,8 @@
                 "available_seats": "85",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics"
             }
           ]
         }
@@ -1703,7 +1741,8 @@
                 "available_seats": "76",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Risk Management Science, MSc in Risk Management Science and Data Analytics and MSc in Data Science and Business Statistics"
             }
           ]
         }
@@ -1755,13 +1794,14 @@
               ],
               "availability": {
                 "capacity": "99",
-                "enrolled": "58",
+                "enrolled": "56",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "41",
+                "available_seats": "43",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics"
             }
           ]
         }
@@ -1813,13 +1853,14 @@
               ],
               "availability": {
                 "capacity": "99",
-                "enrolled": "95",
+                "enrolled": "94",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc in Data Science and Business Statistics, MSc in Risk Management Science and Data Analytics, MSc in Advanced Studies in Statistics and Data Science and MPhil Risk Management Science"
             }
           ]
         }
@@ -1883,7 +1924,8 @@
                 "available_seats": "46",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Risk Management Science and Data Analytics; MSc in Data Science and Business Statistics"
             }
           ]
         }
@@ -1936,7 +1978,8 @@
                 "available_seats": "99",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Risk Management Science and MSc in Risk Management Science and Data Analytics"
             }
           ]
         }
@@ -1988,7 +2031,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "BM01-TMC (4490)",
@@ -2008,7 +2052,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "CM01-TMC (3433)",
@@ -2028,7 +2073,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "DM01-TMC (1707)",
@@ -2048,7 +2094,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "EM01-TMC (3432)",
@@ -2068,7 +2115,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "FM01-TMC (3402)",
@@ -2088,7 +2136,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "GM01-TMC (4268)",
@@ -2108,7 +2157,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "HM01-TMC (3434)",
@@ -2128,7 +2178,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "IM01-TMC (3435)",
@@ -2148,7 +2199,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "JM01-TMC (2581)",
@@ -2168,7 +2220,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "KM01-TMC (3539)",
@@ -2188,7 +2241,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "LM01-TMC (3537)",
@@ -2208,7 +2262,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "MM01-TMC (1979)",
@@ -2228,7 +2283,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "NM01-TMC (1980)",
@@ -2248,7 +2304,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "OM01-TMC (3194)",
@@ -2268,7 +2325,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "PM01-TMC (3195)",
@@ -2288,7 +2346,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             }
           ]
         }
@@ -2337,7 +2396,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             }
           ]
         }
@@ -2386,7 +2446,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "BM01-TMC (4395)",
@@ -2406,7 +2467,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "CM01-TMC (3455)",
@@ -2426,7 +2488,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "DM01-TMC (1711)",
@@ -2446,7 +2509,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "EM01-TMC (4432)",
@@ -2466,7 +2530,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "FM01-TMC (3456)",
@@ -2486,7 +2551,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "GM01-TMC (4433)",
@@ -2506,7 +2572,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "HM01-TMC (3792)",
@@ -2526,7 +2593,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "IM01-TMC (3793)",
@@ -2546,7 +2614,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "JM01-TMC (2655)",
@@ -2566,7 +2635,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "KM01-TMC (3531)",
@@ -2586,7 +2656,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "LM01-TMC (3530)",
@@ -2606,7 +2677,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "MM01-TMC (1987)",
@@ -2626,7 +2698,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "NM01-TMC (1986)",
@@ -2646,7 +2719,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "OM01-TMC (3227)",
@@ -2666,7 +2740,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "PM01-TMC (3228)",
@@ -2686,7 +2761,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             }
           ]
         }
@@ -2735,7 +2811,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "BM01-TMC (3399)",
@@ -2755,7 +2832,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "CM01-TMC (4526)",
@@ -2775,7 +2853,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "DM01-TMC (1708)",
@@ -2795,7 +2874,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "EM01-TMC (4525)",
@@ -2815,7 +2895,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "FM01-TMC (3403)",
@@ -2835,7 +2916,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "GM01-TMC (4267)",
@@ -2855,7 +2937,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "HM01-TMC (3854)",
@@ -2875,7 +2958,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "IM01-TMC (3853)",
@@ -2895,7 +2979,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "JM01-TMC (2582)",
@@ -2915,7 +3000,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "KM01-TMC (3540)",
@@ -2935,7 +3021,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "LM01-TMC (3538)",
@@ -2955,7 +3042,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "MM01-TMC (1981)",
@@ -2975,7 +3063,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "NM01-TMC (1982)",
@@ -2995,7 +3084,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "OM01-TMC (3196)",
@@ -3015,7 +3105,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             },
             {
               "section": "PM01-TMC (3197)",
@@ -3035,7 +3126,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil Risk Management Science"
             }
           ]
         }

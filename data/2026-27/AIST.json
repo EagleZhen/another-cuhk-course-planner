@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "AIST",
     "subject_title": "Artificial Intelligence: Systems and Technologies",
     "total_courses": 19
@@ -34,7 +34,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-J01-PRJ (7645)",
@@ -54,7 +55,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -137,7 +139,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: ENGG1110 or ESTR1002\nNot for students who have taken CSCI1040 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI2040 or ESTR1100 or ESTR1102 or IERG1080"
             },
             {
               "section": "-L01-LAB (7559)",
@@ -169,7 +172,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: ENGG1110 or ESTR1002\nNot for students who have taken CSCI1040 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI2040 or ESTR1100 or ESTR1102 or IERG1080"
             }
           ]
         }
@@ -233,7 +237,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: AIST1110 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102."
             },
             {
               "section": "-L01-LAB (4811)",
@@ -253,7 +258,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: AIST1110 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or ENGG1110 or ESTR1002 or ESTR1100 or ESTR1102."
             }
           ]
         }
@@ -319,7 +325,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI3250 or CSCI3251 or ENGG2601 or ENGG2602."
             }
           ]
         }
@@ -384,7 +391,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI3250 or CSCI3251 or ENGG2601 or ENGG2602."
             }
           ]
         }
@@ -466,7 +474,8 @@
                 "available_seats": "90",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI3150 or ESTR3102\nPrerequisite: (ENGG1110 or ESTR1002) AND (ENGG2440 or ESTR2004)"
             },
             {
               "section": "-L01-LAB (4875)",
@@ -498,7 +507,8 @@
                 "available_seats": "90",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI3150 or ESTR3102\nPrerequisite: (ENGG1110 or ESTR1002) AND (ENGG2440 or ESTR2004)"
             }
           ]
         }
@@ -564,7 +574,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510\nNot for students who have taken AIST3010 or ESTR3112 or ESTR3114"
             },
             {
               "section": "-T01-TUT (9742)",
@@ -584,7 +595,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: ENGG1120 or ENGG1130 or ESTR1005 or ESTR1006 or MATH1510\nNot for students who have taken AIST3010 or ESTR3112 or ESTR3114"
             }
           ]
         }
@@ -667,7 +679,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite/Co-requisite: AIST2010 or CSCI3280"
             },
             {
               "section": "-L01-LAB (8536)",
@@ -699,7 +712,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite/Co-requisite: AIST2010 or CSCI3280"
             }
           ]
         }
@@ -764,7 +778,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: (AIST1110 or CSCI1040 or CSCI1550 or CSCI2040) AND (ENGG1120 or ESTR1005) AND (ENGG2760 or ESTR2018)"
             },
             {
               "section": "-L01-LAB (9537)",
@@ -796,7 +811,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: (AIST1110 or CSCI1040 or CSCI1550 or CSCI2040) AND (ENGG1120 or ESTR1005) AND (ENGG2760 or ESTR2018)"
             },
             {
               "section": "-T01-TUT (9396)",
@@ -828,7 +844,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: (AIST1110 or CSCI1040 or CSCI1550 or CSCI2040) AND (ENGG1120 or ESTR1005) AND (ENGG2760 or ESTR2018)"
             }
           ]
         }
@@ -917,7 +934,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken SEEM3510"
             },
             {
               "section": "-T01-TUT (7658)",
@@ -949,7 +967,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken SEEM3510"
             }
           ]
         }
@@ -1009,11 +1028,12 @@
                 "capacity": "68",
                 "enrolled": "69",
                 "waitlist_capacity": "999",
-                "waitlist_total": "12",
+                "waitlist_total": "13",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4140\nPrerequisite: CSCI3230 or CSCI3320 or ESTR3108"
             },
             {
               "section": "-T01-TUT (7689)",
@@ -1035,11 +1055,12 @@
                 "capacity": "68",
                 "enrolled": "69",
                 "waitlist_capacity": "999",
-                "waitlist_total": "12",
+                "waitlist_total": "13",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4140\nPrerequisite: CSCI3230 or CSCI3320 or ESTR3108"
             }
           ]
         }
@@ -1111,7 +1132,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: AIST3020 or CSCI3150 or ESTR3102"
             },
             {
               "section": "-L01-LAB (5184)",
@@ -1143,7 +1165,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: AIST3020 or CSCI3150 or ESTR3102"
             }
           ]
         }
@@ -1202,7 +1225,8 @@
                 "available_seats": "41",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: (ENGG1120/ESTR1005 or ENGG1125/ESTR1007 or ENGG1130/ESTR1006 or ENGG2760/ESTR2018 or ENGG2780/ESTR2020) AND (AIST3030/ESTR3112)"
             },
             {
               "section": "-T01-TUT (5100)",
@@ -1222,7 +1246,8 @@
                 "available_seats": "41",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: (ENGG1120/ESTR1005 or ENGG1125/ESTR1007 or ENGG1130/ESTR1006 or ENGG2760/ESTR2018 or ENGG2780/ESTR2020) AND (AIST3030/ESTR3112)"
             }
           ]
         }
@@ -1293,7 +1318,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: AIST3020 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI3180 or ESTR1100 or ESTR1102 or ESTR3106\nNot for students who have taken IERG3844"
             },
             {
               "section": "-L01-LAB (5183)",
@@ -1325,7 +1351,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: AIST3020 or CSCI1120 or CSCI1130 or CSCI1510 or CSCI1520 or CSCI1530 or CSCI1540 or CSCI1550 or CSCI3180 or ESTR1100 or ESTR1102 or ESTR3106\nNot for students who have taken IERG3844"
             }
           ]
         }
@@ -1377,7 +1404,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "ABJ1-PRJ (6603)",
@@ -1397,7 +1425,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "ACJ1-PRJ (6604)",
@@ -1417,7 +1446,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "ADJ1-PRJ (6218)",
@@ -1437,7 +1467,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "AEJ1-PRJ (8152)",
@@ -1457,7 +1488,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "AFJ1-PRJ (8168)",
@@ -1477,7 +1509,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "AGJ1-PRJ (8169)",
@@ -1497,7 +1530,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "AHJ1-PRJ (6324)",
@@ -1517,7 +1551,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "AIJ1-PRJ (6230)",
@@ -1537,7 +1572,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "AJ01-PRJ (8131)",
@@ -1557,7 +1593,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "AJJ1-PRJ (8149)",
@@ -1577,7 +1614,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "AKJ1-PRJ (6211)",
@@ -1597,7 +1635,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "ALJ1-PRJ (8150)",
@@ -1617,7 +1656,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "AMJ1-PRJ (8170)",
@@ -1637,7 +1677,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "ANJ1-PRJ (8175)",
@@ -1657,7 +1698,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "AOJ1-PRJ (8117)",
@@ -1677,7 +1719,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "APJ1-PRJ (8094)",
@@ -1697,7 +1740,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "AQJ1-PRJ (8171)",
@@ -1717,7 +1761,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "BJ01-PRJ (4812)",
@@ -1737,7 +1782,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "CJ01-PRJ (6219)",
@@ -1757,7 +1803,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "DJ01-PRJ (8134)",
@@ -1777,7 +1824,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "EJ01-PRJ (6209)",
@@ -1797,7 +1845,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "FJ01-PRJ (6425)",
@@ -1817,7 +1866,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "GJ01-PRJ (8135)",
@@ -1837,7 +1887,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "HJ01-PRJ (8136)",
@@ -1857,7 +1908,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "IJ01-PRJ (8137)",
@@ -1877,7 +1929,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "JJ01-PRJ (8139)",
@@ -1897,7 +1950,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "KJ01-PRJ (6322)",
@@ -1917,7 +1971,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "LJ01-PRJ (8140)",
@@ -1937,7 +1992,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "MJ01-PRJ (8132)",
@@ -1957,7 +2013,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "NJ01-PRJ (8141)",
@@ -1977,7 +2034,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "OJ01-PRJ (8138)",
@@ -1997,7 +2055,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "PJ01-PRJ (6217)",
@@ -2017,7 +2076,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "QJ01-PRJ (8145)",
@@ -2037,7 +2097,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "RJ01-PRJ (8142)",
@@ -2057,7 +2118,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "SJ01-PRJ (8146)",
@@ -2077,7 +2139,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "TJ01-PRJ (8133)",
@@ -2097,7 +2160,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "UJ01-PRJ (6323)",
@@ -2117,7 +2181,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "VJ01-PRJ (8151)",
@@ -2137,7 +2202,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "WJ01-PRJ (8143)",
@@ -2157,7 +2223,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "XJ01-PRJ (6210)",
@@ -2177,7 +2244,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "YJ01-PRJ (8144)",
@@ -2197,7 +2265,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             },
             {
               "section": "ZJ01-PRJ (8147)",
@@ -2217,7 +2286,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -2243,7 +2313,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2296,7 +2367,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             }
           ]
         },
@@ -2322,7 +2394,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "ABJ1-PRJ (6207)",
@@ -2342,7 +2415,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "ACJ1-PRJ (6208)",
@@ -2362,7 +2436,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "ADJ1-PRJ (6286)",
@@ -2382,7 +2457,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "AEJ1-PRJ (8105)",
@@ -2402,7 +2478,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "AFJ1-PRJ (8109)",
@@ -2422,7 +2499,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "AGJ1-PRJ (7856)",
@@ -2442,7 +2520,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "AHJ1-PRJ (6287)",
@@ -2462,7 +2541,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "AIJ1-PRJ (6278)",
@@ -2482,7 +2562,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "AJ01-PRJ (7864)",
@@ -2502,7 +2583,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "AJJ1-PRJ (7857)",
@@ -2522,7 +2604,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "AKJ1-PRJ (6288)",
@@ -2542,7 +2625,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "ALJ1-PRJ (7858)",
@@ -2562,7 +2646,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "AMJ1-PRJ (7865)",
@@ -2582,7 +2667,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "ANJ1-PRJ (7923)",
@@ -2602,7 +2688,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "AOJ1-PRJ (7929)",
@@ -2622,7 +2709,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "APJ1-PRJ (7866)",
@@ -2642,7 +2730,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "AQJ1-PRJ (7867)",
@@ -2662,7 +2751,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "BJ01-PRJ (4890)",
@@ -2682,7 +2772,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "CJ01-PRJ (6282)",
@@ -2702,7 +2793,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "DJ01-PRJ (7860)",
@@ -2722,7 +2814,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "EJ01-PRJ (6277)",
@@ -2742,7 +2835,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "FJ01-PRJ (6782)",
@@ -2762,7 +2856,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "GJ01-PRJ (7914)",
@@ -2782,7 +2877,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "HJ01-PRJ (7861)",
@@ -2802,7 +2898,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "IJ01-PRJ (7915)",
@@ -2822,7 +2919,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "JJ01-PRJ (8103)",
@@ -2842,7 +2940,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "KJ01-PRJ (6212)",
@@ -2862,7 +2961,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "LJ01-PRJ (8104)",
@@ -2882,7 +2982,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "MJ01-PRJ (7916)",
@@ -2902,7 +3003,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "NJ01-PRJ (8106)",
@@ -2922,7 +3024,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "OJ01-PRJ (8107)",
@@ -2942,7 +3045,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "PJ01-PRJ (6283)",
@@ -2962,7 +3066,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "QJ01-PRJ (7917)",
@@ -2982,7 +3087,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "RJ01-PRJ (8108)",
@@ -3002,7 +3108,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "SJ01-PRJ (7918)",
@@ -3022,7 +3129,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "TJ01-PRJ (7855)",
@@ -3042,7 +3150,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "UJ01-PRJ (6284)",
@@ -3062,7 +3171,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "VJ01-PRJ (7919)",
@@ -3082,7 +3192,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "WJ01-PRJ (7920)",
@@ -3102,7 +3213,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "XJ01-PRJ (6285)",
@@ -3122,7 +3234,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "YJ01-PRJ (7921)",
@@ -3142,7 +3255,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             },
             {
               "section": "ZJ01-PRJ (7862)",
@@ -3162,7 +3276,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Prerequisite: AIST4998"
             }
           ]
         }
@@ -3221,7 +3336,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science; or \nFor students in MPhil-PhD Computer Science and Engineering;Not for students who have taken SEEM5030"
             }
           ]
         }
@@ -3269,13 +3385,14 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "59",
+                "enrolled": "60",
                 "waitlist_capacity": "2",
                 "waitlist_total": "2",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering; or\nFor students in UG AISTN or CDASN or CENGN or CSCIN"
             }
           ]
         }
@@ -3322,13 +3439,14 @@
               ],
               "availability": {
                 "capacity": "110",
-                "enrolled": "120",
+                "enrolled": "119",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering; or\nFor students in UG AISTN or CDASN or CENGN or CSCIN"
             },
             {
               "section": "-T01-TUT (3917)",
@@ -3342,13 +3460,14 @@
               ],
               "availability": {
                 "capacity": "110",
-                "enrolled": "120",
+                "enrolled": "119",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering; or\nFor students in UG AISTN or CDASN or CENGN or CSCIN"
             }
           ]
         }

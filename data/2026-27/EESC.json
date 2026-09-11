@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "EESC",
     "subject_title": "Earth and Environmental Sciences",
     "total_courses": 76
@@ -40,7 +40,8 @@
                 "available_seats": "23",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "SDG-GE #7 Affordable and Clean Energy\nSDG-GE #13 Climate Action\nSDG-GE #14 Life Below Water\nSDG-GE #15 Life On Land\nEnglish only\nExperiential Learning Course",
+              "enrollment_requirement": "Not for students who have taken ESSC1000."
             }
           ]
         }
@@ -130,7 +131,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC2010."
             },
             {
               "section": "-T01-TUT (7729)",
@@ -162,7 +164,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC2010."
             }
           ]
         }
@@ -228,7 +231,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC2020."
             },
             {
               "section": "-T01-TUT (7493)",
@@ -254,7 +258,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC2020."
             }
           ]
         }
@@ -345,7 +350,8 @@
                 "available_seats": "65",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI1040, CSCI2040 or ESSC2030."
             },
             {
               "section": "-T01-TUT (9290)",
@@ -377,7 +383,8 @@
                 "available_seats": "65",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CSCI1040, CSCI2040 or ESSC2030."
             }
           ]
         }
@@ -442,7 +449,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (8731)",
@@ -462,7 +470,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -534,7 +543,8 @@
                 "available_seats": "100",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENSC2270."
             }
           ]
         }
@@ -589,7 +599,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENSC2515. Pre-requisite: EESC2270 or ENSC2270 or permission of the instructor."
             }
           ]
         }
@@ -648,7 +659,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENSC2517. Co-requisite: EESC2515 or ENSC2515 or permission of the instructor."
             }
           ]
         }
@@ -703,13 +715,14 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "69",
+                "enrolled": "71",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "31",
+                "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC2800. Pre-requisite: MATH1010 or 1510 or 1520."
             },
             {
               "section": "-T01-TUT (9659)",
@@ -729,13 +742,14 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "69",
+                "enrolled": "71",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "31",
+                "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC2800. Pre-requisite: MATH1010 or 1510 or 1520."
             }
           ]
         }
@@ -824,7 +838,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC3100. Pre-requisite: EESC2010 or ESSC2010 or permission of instructor."
             },
             {
               "section": "-L01-LAB (8918)",
@@ -856,7 +871,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC3100. Pre-requisite: EESC2010 or ESSC2010 or permission of instructor."
             }
           ]
         }
@@ -922,7 +938,8 @@
                 "available_seats": "23",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC3120. Pre-requisite: EESC 2010 or ESSC2010 or permission of instructor."
             },
             {
               "section": "-T01-TUT (7495)",
@@ -948,7 +965,8 @@
                 "available_seats": "23",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC3120. Pre-requisite: EESC 2010 or ESSC2010 or permission of instructor."
             }
           ]
         }
@@ -1002,7 +1020,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1084,7 +1103,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: (EESC2010 or ESSC2010) or (EESC2130 or ESSC2130 or EESC2119 or EESC2129) or (EESC3100 or ESSC3100) or permission of instructor"
             },
             {
               "section": "-T01-TUT (8891)",
@@ -1116,7 +1136,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: (EESC2010 or ESSC2010) or (EESC2130 or ESSC2130 or EESC2119 or EESC2129) or (EESC3100 or ESSC3100) or permission of instructor"
             }
           ]
         }
@@ -1176,7 +1197,8 @@
                 "available_seats": "19",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "1) Pre-requisite: (EESC2020 or ESSC2020) or (MATH2550 or EESC2520 or PHYS2051) or permission of instructor.\n2) Not for students who have taken ESSC3200."
             }
           ]
         }
@@ -1260,7 +1282,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC3220. Pre-requisite: CHEM1070 or CHEM1072 or CHEM1280 or permission of instructor."
             },
             {
               "section": "-T01-TUT (7731)",
@@ -1292,7 +1315,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC3220. Pre-requisite: CHEM1070 or CHEM1072 or CHEM1280 or permission of instructor."
             }
           ]
         }
@@ -1358,7 +1382,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENSC3230 or GRMD3202. Pre-requisite: EESC2270 or ENSC2270 or permission of the instructor."
             }
           ]
         }
@@ -1449,7 +1474,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC3300. Pre-requisite: (EESC2010 or ESSC2010) and (EESC2020 or ESSC2020), or permission of instructor."
             },
             {
               "section": "-T01-TUT (8199)",
@@ -1481,7 +1507,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC3300. Pre-requisite: (EESC2010 or ESSC2010) and (EESC2020 or ESSC2020), or permission of instructor."
             }
           ]
         }
@@ -1535,7 +1562,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC3320. Pre-requisite: EESC 2010 or ESSC2010 or permission of instructor."
             }
           ]
         }
@@ -1600,7 +1628,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken CHEM2400 or CHEM3410 or ENSC3415. Pre-requisite: EESC2515 or ENSC2515."
             }
           ]
         }
@@ -1665,7 +1694,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENSC3417. Co-requisite: EESC3415 or ENSC3415 or permission of the instructor."
             }
           ]
         }
@@ -1717,7 +1747,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: LSCI1002 or LSCI1012 or EESC2270, or permission of the instructor."
             }
           ]
         }
@@ -1788,7 +1819,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENSC3520. Pre-requisite: EESC2270 or permission of the instructor."
             }
           ]
         }
@@ -1842,7 +1874,8 @@
                 "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Co-requisite: EESC3510 or EESC3520."
             }
           ]
         }
@@ -1931,7 +1964,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: (CHEM1070 or CHEM1072) or (EESC2515 or ENSC2515) or permission of the instructor."
             },
             {
               "section": "-T01-TUT (7732)",
@@ -1963,7 +1997,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: (CHEM1070 or CHEM1072) or (EESC2515 or ENSC2515) or permission of the instructor."
             }
           ]
         }
@@ -2053,7 +2088,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC3600 or EESC3601 or ESSC3601. Pre-requisite: EESC2020 or ESSC2020 or permission of instructor."
             },
             {
               "section": "-T01-TUT (9453)",
@@ -2085,7 +2121,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC3600 or EESC3601 or ESSC3601. Pre-requisite: EESC2020 or ESSC2020 or permission of instructor."
             }
           ]
         }
@@ -2157,7 +2194,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC3601 or EESC3600 or ESSC3600. Pre-requisite: EESC2020 or ESSC2020 or permission of instructor."
             }
           ]
         }
@@ -2222,7 +2260,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC3800."
             }
           ]
         }
@@ -2288,7 +2327,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2340,7 +2380,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nInternship",
+              "enrollment_requirement": "Not for students who have taken ESSC3900. Pre-requisite: (EESC2010 or ESSC2010) and (EESC2020 or ESSC2020), and have taken at least one course from (EESC3100/ 3120/ 3200/ 3220/ 3300/ 3320) or (ESSC3100/ 3120/ 3200/ 3220/ 3300/ 3320)."
             }
           ]
         }
@@ -2430,7 +2471,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC4020. Pre-requisite: [(MATH1010 or 1030 or 1510 or 1520) or (PHYS1001 or 1002 or 1111 or 1113)] and (EESC2010 or ESSC2010), or permission of instructor."
             },
             {
               "section": "-T01-TUT (7740)",
@@ -2462,7 +2504,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC4020. Pre-requisite: [(MATH1010 or 1030 or 1510 or 1520) or (PHYS1001 or 1002 or 1111 or 1113)] and (EESC2010 or ESSC2010), or permission of instructor."
             }
           ]
         }
@@ -2551,7 +2594,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC4030. Pre-requisite: [(EESC2130 or ESSC2130) or (EESC3100 or ESSC3100) or (EESC3110 or ESSC3110)] and EESC4040, or permission of instructor."
             },
             {
               "section": "-T01-TUT (8731)",
@@ -2589,7 +2633,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC4030. Pre-requisite: [(EESC2130 or ESSC2130) or (EESC3100 or ESSC3100) or (EESC3110 or ESSC3110)] and EESC4040, or permission of instructor."
             }
           ]
         }
@@ -2655,7 +2700,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC4120. Pre-requisite: EESC2010 or ESSC2010."
             },
             {
               "section": "-L01-LAB (9064)",
@@ -2681,7 +2727,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC4120. Pre-requisite: EESC2010 or ESSC2010."
             }
           ]
         }
@@ -2746,7 +2793,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC4140. Pre-requisite: (EESC3120 or ESSC3120) or ESSC3010."
             }
           ]
         }
@@ -2812,7 +2860,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: EESC2010 or ESSC2010."
             },
             {
               "section": "-T01-TUT (7496)",
@@ -2838,7 +2887,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: EESC2010 or ESSC2010."
             }
           ]
         }
@@ -2904,7 +2954,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC4210. Pre-requisite: (EESC2020 or ESSC2020) or (EESC3200 or ESSC3200) or permission of instructor."
             }
           ]
         }
@@ -2957,7 +3008,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC4240."
             }
           ]
         }
@@ -3028,7 +3080,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC4250. Pre-requisite: EESC3200 or ESSC3200 or permission of instructor."
             }
           ]
         }
@@ -3087,7 +3140,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3153,7 +3207,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "1) Pre-requisite: EESC/ESSC3020 or EESC/ESSC3220 or EESC3230 or EESC/ESSC3300 or EESC3510 or EESC3520 or EESC/ESSC3600 or EESC/ESSC3800.\n2) Not for those taken ENSC/EESC3330. \n3) Need basic knowledge in environmental science and chemistry."
             }
           ]
         }
@@ -3219,7 +3274,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENSC4240. Pre-requisite: (EESC2270 or ENSC2270) and BIOL2210."
             }
           ]
         }
@@ -3271,7 +3327,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENSC4242. Co-requisite: EESC4340 or ENSC4240."
             }
           ]
         }
@@ -3329,7 +3386,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENSC4250. Pre-requisite: EESC3520 or permission of instructor."
             }
           ]
         }
@@ -3388,7 +3446,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC4510. Pre-requisite: (STAT1011 or 1012), and ((EESC2030 or ESSC2030) or PHYS2061)."
             }
           ]
         }
@@ -3452,7 +3511,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC4520. Pre-requisite: (MATH1010 or 1030 or 1520), and ((EESC2030 or ESSC2030) or PHYS2061)."
             }
           ]
         }
@@ -3523,7 +3583,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESSC4540. Pre-requisite: (EESC2010 or ESSC2010) &(EESC2020 or ESSC2020) & (MATH1010 or 1030 or 1510 or 1520) & (PHYS1001 or 1002 or 1111 or 1113) & ((EESC2030 or ESSC2030) or PHYS2061), or permission of instructor."
             }
           ]
         }
@@ -3583,7 +3644,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: (EESC2020 or ESSC2020) and (MATH2550 or EESC2520 or PHYS2051) and (PHYS1001 or 1002 or 1111 or 1113), or permission of instructor."
             }
           ]
         }
@@ -3636,7 +3698,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3708,7 +3771,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -3762,7 +3826,8 @@
                 "available_seats": "40",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken ESSC4810 or PHYS4610. Pre-requisite: Permission of project advisor."
             }
           ]
         }
@@ -3814,7 +3879,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken ESSC4820 or PHYS4620. Pre-requisite: Permission of project advisor."
             }
           ]
         },
@@ -3840,7 +3906,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Not for students who have taken ESSC4820 or PHYS4620. Pre-requisite: Permission of project advisor."
             }
           ]
         }
@@ -3892,7 +3959,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC5001."
             }
           ]
         }
@@ -3980,7 +4048,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC5020."
             }
           ]
         }
@@ -4052,7 +4121,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC5104."
             }
           ]
         }
@@ -4116,7 +4186,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC5120."
             }
           ]
         }
@@ -4181,7 +4252,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC5140."
             }
           ]
         }
@@ -4247,7 +4319,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC5170."
             }
           ]
         }
@@ -4313,7 +4386,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC5210."
             }
           ]
         }
@@ -4367,7 +4441,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC5240."
             }
           ]
         }
@@ -4421,13 +4496,14 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "9",
+                "enrolled": "8",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Atmospheric Sciences or MPhil-PhD Earth and Environmental Sciences or MSc in Earth and Environmental Analytics for Sustainability\nExclusion(s): EESC4310"
             }
           ]
         }
@@ -4493,7 +4569,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Atmospheric Sciences or MPhil-PhD Earth and Environmental Sciences.\nThere is a basic course requirement in which we expect students to have fundamental knowledge in environmental science and chemistry."
             }
           ]
         }
@@ -4553,7 +4630,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EESC4350, LSCI5750"
             }
           ]
         }
@@ -4612,7 +4690,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences, \nExclusion: EASC5510"
             },
             {
               "section": "B-LEC (1062)",
@@ -4638,7 +4717,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Earth and Environmental Analytics for Sustainability, \nExclusion: EASC5510"
             }
           ]
         }
@@ -4702,7 +4782,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences, \nExclusion: EASC5520"
             },
             {
               "section": "B-LEC (2449)",
@@ -4734,7 +4815,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Earth and Environmental Analytics for Sustainability, \nExclusion: EASC5520"
             }
           ]
         }
@@ -4805,7 +4887,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences, \nExclusion: EASC5540"
             },
             {
               "section": "B-LEC (2450)",
@@ -4843,7 +4926,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Earth and Environmental Analytics for Sustainability, \nExclusion: EASC5540"
             }
           ]
         }
@@ -4902,7 +4986,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC5550 OR EESC4550"
             }
           ]
         }
@@ -4967,7 +5052,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Earth and Environmental Analytics for Sustainability"
             }
           ]
         }
@@ -5021,7 +5107,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Earth and Environmental Analytics for Sustainability"
             }
           ]
         }
@@ -5085,7 +5172,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Earth and Environmental Analytics for Sustainability"
             }
           ]
         }
@@ -5144,7 +5232,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Earth and Environmental Analytics for Sustainability"
             }
           ]
         }
@@ -5191,13 +5280,14 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "0",
+                "enrolled": "48",
                 "waitlist_capacity": "9999",
                 "waitlist_total": "0",
-                "available_seats": "65",
+                "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Earth and Environmental Analytics for Sustainability"
             }
           ]
         },
@@ -5223,7 +5313,8 @@
                 "available_seats": "65",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Earth and Environmental Analytics for Sustainability"
             }
           ]
         }
@@ -5275,7 +5366,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Earth and Environmental Analytics for Sustainability; or in MPhil-PhD Earth and Environmental Sciences"
             }
           ]
         }
@@ -5323,13 +5415,14 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "0",
+                "enrolled": "3",
                 "waitlist_capacity": "9999",
                 "waitlist_total": "0",
-                "available_seats": "65",
+                "available_seats": "62",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: EESC5750 or permission of instructor\nFor students in MSc Earth and Environmental Analytics for Sustainability"
             }
           ]
         },
@@ -5355,7 +5448,8 @@
                 "available_seats": "65",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite: EESC5750 or permission of instructor\nFor students in MSc Earth and Environmental Analytics for Sustainability"
             }
           ]
         }
@@ -5426,7 +5520,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc in Earth and Environmental Analytics for Sustainability\nExclusion(s): EESC4780"
             }
           ]
         }
@@ -5481,7 +5576,8 @@
                 "available_seats": "65",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite = EESC5750 and EESC5770 or permission of instructor\nFor students in MSc Earth and Environmental Analytics for Sustainability"
             }
           ]
         }
@@ -5534,7 +5630,8 @@
                 "available_seats": "58",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC8003."
             }
           ]
         },
@@ -5560,7 +5657,8 @@
                 "available_seats": "59",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC8003."
             }
           ]
         }
@@ -5606,13 +5704,14 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "44",
+                "enrolled": "45",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC8006."
             }
           ]
         },
@@ -5638,7 +5737,8 @@
                 "available_seats": "31",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Earth and Environmental Sciences;Exclusion: EASC8006."
             }
           ]
         }

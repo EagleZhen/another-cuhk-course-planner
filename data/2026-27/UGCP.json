@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "UGCP",
     "subject_title": "UGCP: China Programme",
     "total_courses": 2
@@ -30,11 +30,12 @@
                 "capacity": "2500",
                 "enrolled": "2500",
                 "waitlist_capacity": "999",
-                "waitlist_total": "900",
+                "waitlist_total": "899",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nVirtual Teaching & Learning Course",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -60,7 +61,8 @@
                 "available_seats": "2400",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English\nVirtual Teaching & Learning Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -106,13 +108,14 @@
               ],
               "availability": {
                 "capacity": "2500",
-                "enrolled": "2500",
+                "enrolled": "2501",
                 "waitlist_capacity": "999",
-                "waitlist_total": "567",
+                "waitlist_total": "566",
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nVirtual Teaching & Learning Course",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -138,7 +141,8 @@
                 "available_seats": "2400",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua\nVirtual Teaching & Learning Course",
+              "enrollment_requirement": ""
             }
           ]
         }

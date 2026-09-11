@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "SSMU",
     "subject_title": "Selected Study Modules",
     "total_courses": 1
@@ -304,7 +304,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Medical Study Year 4 (MYR4)"
             }
           ]
         }

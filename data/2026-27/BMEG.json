@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "BMEG",
     "subject_title": "Biomedical Engineering",
     "total_courses": 49
@@ -27,14 +27,15 @@
                 }
               ],
               "availability": {
-                "capacity": "95",
-                "enrolled": "95",
+                "capacity": "108",
+                "enrolled": "101",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "7",
+                "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nVirtual Teaching & Learning Course",
+              "enrollment_requirement": "Not for students who have taken BMEG1130 or BMEG2000 or BMEG2130 or ESTR2200 or ESTR2201."
             }
           ]
         }
@@ -106,7 +107,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken BMEG1130 or BMEG2010 or BMEG2011 or BMEG2130 or ESTR2202 or ESTR2203 or ESTR2602."
             },
             {
               "section": "-J01-PRJ (7847)",
@@ -126,7 +128,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken BMEG1130 or BMEG2010 or BMEG2011 or BMEG2130 or ESTR2202 or ESTR2203 or ESTR2602."
             },
             {
               "section": "-L01-LAB (8558)",
@@ -158,7 +161,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken BMEG1130 or BMEG2010 or BMEG2011 or BMEG2130 or ESTR2202 or ESTR2203 or ESTR2602."
             },
             {
               "section": "-L02-LAB (8557)",
@@ -190,7 +194,8 @@
                 "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken BMEG1130 or BMEG2010 or BMEG2011 or BMEG2130 or ESTR2202 or ESTR2203 or ESTR2602."
             }
           ]
         }
@@ -251,7 +256,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR2204 or MAEG2020."
             },
             {
               "section": "-T01-TUT (5015)",
@@ -271,7 +277,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR2204 or MAEG2020."
             }
           ]
         }
@@ -337,7 +344,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken BMEG1217 or UGEB1217"
             }
           ]
         }
@@ -426,7 +434,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ELEG2202 or ENGG2030 or ESTR2206 or ESTR2601."
             },
             {
               "section": "-T01-TUT (7259)",
@@ -458,7 +467,8 @@
                 "available_seats": "75",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ELEG2202 or ENGG2030 or ESTR2206 or ESTR2601."
             }
           ]
         }
@@ -529,7 +539,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2420 or 2460 or ESTR2000 or 2010"
             },
             {
               "section": "-T01-TUT (7172)",
@@ -555,7 +566,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2420 or 2460 or ESTR2000 or 2010"
             },
             {
               "section": "-T02-TUT (7173)",
@@ -581,7 +593,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG2420 or 2460 or ESTR2000 or 2010"
             }
           ]
         }
@@ -664,7 +677,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ELEG4120 or CSCI3220 or ESTR3110."
             },
             {
               "section": "-T01-TUT (7644)",
@@ -696,7 +710,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ELEG4120 or CSCI3220 or ESTR3110."
             }
           ]
         }
@@ -761,7 +776,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (8680)",
@@ -787,7 +803,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -846,7 +863,8 @@
                 "available_seats": "39",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3605."
             },
             {
               "section": "-T01-TUT (7175)",
@@ -866,7 +884,8 @@
                 "available_seats": "39",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3605."
             }
           ]
         }
@@ -925,7 +944,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken BMEG3101 or ELEG3101 or ESTR3210 or ESTR3601 or ESTR3603"
             },
             {
               "section": "-J01-PRJ (6388)",
@@ -945,7 +965,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken BMEG3101 or ELEG3101 or ESTR3210 or ESTR3601 or ESTR3603"
             },
             {
               "section": "-T01-TUT (7616)",
@@ -965,7 +986,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken BMEG3101 or ELEG3101 or ESTR3210 or ESTR3601 or ESTR3603"
             }
           ]
         }
@@ -1025,7 +1047,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students.\nNot for students who have taken ESTR3604."
             },
             {
               "section": "-L01-LAB (7178)",
@@ -1045,7 +1068,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students.\nNot for students who have taken ESTR3604."
             }
           ]
         }
@@ -1134,7 +1158,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken MAEG3030 or ESTR3212."
             },
             {
               "section": "-T01-TUT (7646)",
@@ -1166,7 +1191,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken MAEG3030 or ESTR3212."
             }
           ]
         }
@@ -1232,7 +1258,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: BMEG2300 or ENGG2030 or with the consent of the instructor."
             },
             {
               "section": "-T01-TUT (7224)",
@@ -1258,7 +1285,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: BMEG2300 or ENGG2030 or with the consent of the instructor."
             },
             {
               "section": "-T02-TUT (5757)",
@@ -1284,7 +1312,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: BMEG2300 or ENGG2030 or with the consent of the instructor."
             },
             {
               "section": "-T03-TUT (7225)",
@@ -1310,7 +1339,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: BMEG2300 or ENGG2030 or with the consent of the instructor."
             }
           ]
         }
@@ -1375,7 +1405,8 @@
                 "available_seats": "56",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3602."
             },
             {
               "section": "-T01-TUT (7182)",
@@ -1395,7 +1426,8 @@
                 "available_seats": "56",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3602."
             }
           ]
         }
@@ -1479,7 +1511,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (7265)",
@@ -1511,7 +1544,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1581,7 +1615,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3208."
             },
             {
               "section": "-T01-TUT (7183)",
@@ -1607,7 +1642,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR3208."
             }
           ]
         }
@@ -1661,7 +1697,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students.\nNot for students who have taken ENGG3920"
             },
             {
               "section": "-T02-TUT (8013)",
@@ -1681,7 +1718,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students.\nNot for students who have taken ENGG3920"
             },
             {
               "section": "-T03-TUT (8416)",
@@ -1701,7 +1739,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students.\nNot for students who have taken ENGG3920"
             }
           ]
         },
@@ -1727,7 +1766,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG3920"
             },
             {
               "section": "-T02-TUT (8365)",
@@ -1747,7 +1787,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG3920"
             },
             {
               "section": "-T03-TUT (8528)",
@@ -1767,7 +1808,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENGG3920"
             }
           ]
         }
@@ -1856,7 +1898,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken BMEG5850 or ESTR4601."
             },
             {
               "section": "-T01-TUT (7272)",
@@ -1888,7 +1931,8 @@
                 "available_seats": "80",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken BMEG5850 or ESTR4601."
             }
           ]
         }
@@ -1952,7 +1996,8 @@
                 "available_seats": "38",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-J01-PRJ (6122)",
@@ -1972,7 +2017,8 @@
                 "available_seats": "38",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (7189)",
@@ -1992,7 +2038,8 @@
                 "available_seats": "38",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2082,7 +2129,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4200. Prerequisite: BMEG3320 or with the consent of the instructor."
             },
             {
               "section": "-T01-TUT (7695)",
@@ -2114,7 +2162,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4200. Prerequisite: BMEG3320 or with the consent of the instructor."
             }
           ]
         }
@@ -2198,7 +2247,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken BMEG5760 or ESTR4202."
             },
             {
               "section": "-T01-TUT (7274)",
@@ -2230,7 +2280,8 @@
                 "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken BMEG5760 or ESTR4202."
             }
           ]
         }
@@ -2321,7 +2372,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4204. Pre-requisite: SBMS1440 or with the consent of the course instructor."
             },
             {
               "section": "-T01-TUT (7660)",
@@ -2359,7 +2411,8 @@
                 "available_seats": "70",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ESTR4204. Pre-requisite: SBMS1440 or with the consent of the course instructor."
             }
           ]
         }
@@ -2414,7 +2467,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "ABJ1-PRJ (6538)",
@@ -2434,7 +2488,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "ACJ1-PRJ (6541)",
@@ -2454,7 +2509,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "ADJ1-PRJ (6542)",
@@ -2474,7 +2530,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "AJ01-PRJ (5033)",
@@ -2494,7 +2551,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "BJ01-PRJ (6063)",
@@ -2514,7 +2572,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "CJ01-PRJ (6380)",
@@ -2534,7 +2593,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "DJ01-PRJ (6064)",
@@ -2554,7 +2614,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "EJ01-PRJ (4992)",
@@ -2574,7 +2635,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "FJ01-PRJ (6065)",
@@ -2594,7 +2656,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "GJ01-PRJ (6066)",
@@ -2614,7 +2677,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "HJ01-PRJ (6102)",
@@ -2634,7 +2698,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "IJ01-PRJ (6103)",
@@ -2654,7 +2719,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "LJ01-PRJ (4993)",
@@ -2674,7 +2740,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "MJ01-PRJ (6390)",
@@ -2694,7 +2761,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "NJ01-PRJ (6391)",
@@ -2714,7 +2782,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "QJ01-PRJ (6379)",
@@ -2734,7 +2803,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "RJ01-PRJ (7914)",
@@ -2754,7 +2824,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "SJ01-PRJ (7915)",
@@ -2774,7 +2845,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "TJ01-PRJ (7916)",
@@ -2794,7 +2866,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "VJ01-PRJ (7917)",
@@ -2814,7 +2887,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "XJ01-PRJ (7918)",
@@ -2834,7 +2908,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "YJ01-PRJ (7919)",
@@ -2854,7 +2929,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             },
             {
               "section": "ZJ01-PRJ (6490)",
@@ -2874,7 +2950,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students."
             }
           ]
         },
@@ -2900,7 +2977,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2953,7 +3031,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students.\nPre-requisite: BMEG4998"
             },
             {
               "section": "BJ01-PRJ (5001)",
@@ -2973,7 +3052,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students.\nPre-requisite: BMEG4998"
             },
             {
               "section": "DJ01-PRJ (5002)",
@@ -2993,7 +3073,8 @@
                 "available_seats": "11",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "For BMEG (New Curriculum) Major students.\nPre-requisite: BMEG4998"
             }
           ]
         },
@@ -3019,7 +3100,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "ABJ1-PRJ (6734)",
@@ -3039,7 +3121,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "ACJ1-PRJ (6503)",
@@ -3059,7 +3142,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "ADJ1-PRJ (6736)",
@@ -3079,7 +3163,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "AJ01-PRJ (5017)",
@@ -3099,7 +3184,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "BJ01-PRJ (6294)",
@@ -3119,7 +3205,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "CJ01-PRJ (6550)",
@@ -3139,7 +3226,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "DJ01-PRJ (6295)",
@@ -3159,7 +3247,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "EJ01-PRJ (5018)",
@@ -3179,7 +3268,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "FJ01-PRJ (6296)",
@@ -3199,7 +3289,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "GJ01-PRJ (6297)",
@@ -3219,7 +3310,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "HJ01-PRJ (6298)",
@@ -3239,7 +3331,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "IJ01-PRJ (6299)",
@@ -3259,7 +3352,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "KJ01-PRJ (6558)",
@@ -3279,7 +3373,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "LJ01-PRJ (5019)",
@@ -3299,7 +3394,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "MJ01-PRJ (6559)",
@@ -3319,7 +3415,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "NJ01-PRJ (6560)",
@@ -3339,7 +3436,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "RJ01-PRJ (6743)",
@@ -3359,7 +3457,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "SJ01-PRJ (6744)",
@@ -3379,7 +3478,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "TJ01-PRJ (6745)",
@@ -3399,7 +3499,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "VJ01-PRJ (6551)",
@@ -3419,7 +3520,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "XJ01-PRJ (6731)",
@@ -3439,7 +3541,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "YJ01-PRJ (6732)",
@@ -3459,7 +3562,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             },
             {
               "section": "ZJ01-PRJ (6733)",
@@ -3479,7 +3583,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only\nCapstone Course",
+              "enrollment_requirement": "Pre-requisite: BMEG4998"
             }
           ]
         }
@@ -3532,7 +3637,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "-O01-OTH (1965)",
@@ -3552,7 +3658,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             }
           ]
         }
@@ -3604,7 +3711,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering;Pre-requisite: BMEG5310 or with the consent of the instructor"
             },
             {
               "section": "-O01-OTH (1966)",
@@ -3624,7 +3732,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering;Pre-requisite: BMEG5310 or with the consent of the instructor"
             }
           ]
         }
@@ -3676,7 +3785,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering;Pre-requisites: BMEG5310 and BMEG5320 or with the consent of the instructor"
             },
             {
               "section": "-O01-OTH (1967)",
@@ -3696,7 +3806,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering;Pre-requisites: BMEG5310 and BMEG5320 or with the consent of the instructor"
             }
           ]
         }
@@ -3748,7 +3859,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering;Pre-requisites: BMEG5310, BMEG5320 and BMEG5330 or with the consent of the instructor"
             },
             {
               "section": "-O01-OTH (1968)",
@@ -3768,7 +3880,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering;Pre-requisites: BMEG5310, BMEG5320 and BMEG5330 or with the consent of the instructor"
             }
           ]
         }
@@ -3832,7 +3945,8 @@
                 "available_seats": "1",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemistry & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering"
             }
           ]
         }
@@ -3886,7 +4000,8 @@
                 "available_seats": "23",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemistry & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering"
             }
           ]
         }
@@ -3945,13 +4060,14 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "30",
+                "enrolled": "29",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "21",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering; or \nFor students in MSc Biomedical Engineering; or \nFor students in BEng Biomedical Engineering"
             }
           ]
         }
@@ -4004,13 +4120,14 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "14",
+                "enrolled": "15",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "36",
+                "available_seats": "35",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering; or\nFor students in MSc Biomedical Engineering; or\nFor students in BEng Biomedical Engineering.\nNot for students who have taken BMEG4510."
             },
             {
               "section": "-T01-TUT (3918)",
@@ -4024,13 +4141,14 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "10",
+                "enrolled": "11",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "40",
+                "available_seats": "39",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering; or\nFor students in MSc Biomedical Engineering; or\nFor students in BEng Biomedical Engineering.\nNot for students who have taken BMEG4510."
             }
           ]
         }
@@ -4088,13 +4206,14 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "109",
+                "enrolled": "107",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "13",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemistry & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering"
             }
           ]
         }
@@ -4137,13 +4256,14 @@
               ],
               "availability": {
                 "capacity": "110",
-                "enrolled": "107",
+                "enrolled": "105",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemistry & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering"
             }
           ]
         }
@@ -4201,7 +4321,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemistry & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering"
             }
           ]
         }
@@ -4260,13 +4381,14 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "77",
+                "enrolled": "76",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemistry & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering"
             }
           ]
         }
@@ -4324,7 +4446,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemistry & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering"
             }
           ]
         }
@@ -4370,13 +4493,14 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "50",
+                "enrolled": "49",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemistry & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering"
             }
           ]
         }
@@ -4428,13 +4552,14 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "88",
+                "enrolled": "86",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemistry & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering"
             }
           ]
         }
@@ -4498,13 +4623,14 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "66",
+                "enrolled": "65",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering"
             },
             {
               "section": "-L01-LAB (1454)",
@@ -4536,13 +4662,14 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "66",
+                "enrolled": "65",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering"
             }
           ]
         }
@@ -4594,13 +4721,14 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "80",
+                "enrolled": "79",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemistry & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering;Not for students who have taken BMEG4010"
             }
           ]
         }
@@ -4658,7 +4786,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemistry & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering"
             }
           ]
         }
@@ -4711,13 +4840,14 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "39",
+                "enrolled": "38",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemical & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering"
             }
           ]
         }
@@ -4764,13 +4894,14 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "44",
+                "enrolled": "43",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "36",
+                "available_seats": "37",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering; or\nFor students in MSc Biochemical & Biomedical Science; or\nFor students in MPhil-PhD Biomedical Engineering.\nNot for students who have taken BMEG4530."
             }
           ]
         }
@@ -4816,13 +4947,14 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "33",
+                "enrolled": "35",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering"
             }
           ]
         }
@@ -4874,7 +5006,8 @@
                 "available_seats": "31",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MSc Biomedical Engineering"
             }
           ]
         }
@@ -4926,7 +5059,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "BM01-TMC (3304)",
@@ -4946,7 +5080,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "CM01-TMC (3300)",
@@ -4966,7 +5101,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "DM01-TMC (3301)",
@@ -4986,7 +5122,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "EM01-TMC (3303)",
@@ -5006,7 +5143,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "FM01-TMC (3302)",
@@ -5026,7 +5164,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "GM01-TMC (2146)",
@@ -5046,7 +5185,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "HM01-TMC (2159)",
@@ -5066,7 +5206,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "IM01-TMC (4230)",
@@ -5086,7 +5227,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "JM01-TMC (2072)",
@@ -5106,7 +5248,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "KM01-TMC (2070)",
@@ -5126,7 +5269,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "LM01-TMC (2071)",
@@ -5146,7 +5290,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "MM01-TMC (3732)",
@@ -5166,7 +5311,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "NM01-TMC (4235)",
@@ -5186,7 +5332,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "OM01-TMC (4237)",
@@ -5206,7 +5353,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "PM01-TMC (3612)",
@@ -5226,7 +5374,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "QM01-TMC (3611)",
@@ -5246,7 +5395,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "RM01-TMC (3733)",
@@ -5266,7 +5416,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "SM01-TMC (4233)",
@@ -5286,7 +5437,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "TM01-TMC (3043)",
@@ -5306,7 +5458,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "UM01-TMC (3042)",
@@ -5326,7 +5479,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "VM01-TMC (3685)",
@@ -5346,7 +5500,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "WM01-TMC (3686)",
@@ -5366,7 +5521,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "XM01-TMC (3678)",
@@ -5386,7 +5542,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "YM01-TMC (3680)",
@@ -5406,7 +5563,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "ZM01-TMC (3684)",
@@ -5426,7 +5584,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             }
           ]
         },
@@ -5452,7 +5611,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "BM01-TMC (3270)",
@@ -5472,7 +5632,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "CM01-TMC (3271)",
@@ -5492,7 +5653,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "DM01-TMC (3272)",
@@ -5512,7 +5674,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "EM01-TMC (3269)",
@@ -5532,7 +5695,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "FM01-TMC (3268)",
@@ -5552,7 +5716,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "GM01-TMC (2152)",
@@ -5572,7 +5737,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "HM01-TMC (2153)",
@@ -5592,7 +5758,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "IM01-TMC (4325)",
@@ -5612,7 +5779,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "JM01-TMC (1993)",
@@ -5632,7 +5800,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "KM01-TMC (2055)",
@@ -5652,7 +5821,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "LM01-TMC (2054)",
@@ -5672,7 +5842,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "MM01-TMC (4330)",
@@ -5692,7 +5863,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "NM01-TMC (4329)",
@@ -5712,7 +5884,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "OM01-TMC (4328)",
@@ -5732,7 +5905,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "PM01-TMC (1992)",
@@ -5752,7 +5926,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "QM01-TMC (3628)",
@@ -5772,7 +5947,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "RM01-TMC (3782)",
@@ -5792,7 +5968,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "SM01-TMC (2944)",
@@ -5812,7 +5989,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "TM01-TMC (2945)",
@@ -5832,7 +6010,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "UM01-TMC (2946)",
@@ -5852,7 +6031,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "VM01-TMC (3741)",
@@ -5872,7 +6052,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "WM01-TMC (3740)",
@@ -5892,7 +6073,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "XM01-TMC (3735)",
@@ -5912,7 +6094,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "YM01-TMC (3734)",
@@ -5932,7 +6115,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "ZM01-TMC (3739)",
@@ -5952,7 +6136,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             }
           ]
         }
@@ -6001,7 +6186,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "BM01-TMC (1994)",
@@ -6021,7 +6207,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "CM01-TMC (1995)",
@@ -6041,7 +6228,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "DM01-TMC (1996)",
@@ -6061,7 +6249,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "EM01-TMC (1997)",
@@ -6081,7 +6270,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "FM01-TMC (1998)",
@@ -6101,7 +6291,8 @@
                 "available_seats": "22",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "GM01-TMC (2161)",
@@ -6121,7 +6312,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "HM01-TMC (2160)",
@@ -6135,13 +6327,14 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "IM01-TMC (4231)",
@@ -6161,7 +6354,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "JM01-TMC (1993)",
@@ -6181,7 +6375,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "KM01-TMC (2074)",
@@ -6201,7 +6396,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "LM01-TMC (2073)",
@@ -6221,7 +6417,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "MM01-TMC (1807)",
@@ -6241,7 +6438,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "NM01-TMC (4265)",
@@ -6261,7 +6459,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "OM01-TMC (4264)",
@@ -6281,7 +6480,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "QM01-TMC (3613)",
@@ -6301,7 +6501,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "RM01-TMC (3734)",
@@ -6321,7 +6522,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "SM01-TMC (3044)",
@@ -6341,7 +6543,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "TM01-TMC (3045)",
@@ -6361,7 +6564,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "UM01-TMC (3046)",
@@ -6381,7 +6585,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "VM01-TMC (3706)",
@@ -6401,7 +6606,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "WM01-TMC (3705)",
@@ -6421,7 +6627,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "XM01-TMC (3679)",
@@ -6441,7 +6648,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "YM01-TMC (3681)",
@@ -6461,7 +6669,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "ZM01-TMC (3683)",
@@ -6481,7 +6690,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             }
           ]
         },
@@ -6507,7 +6717,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "BM01-TMC (1996)",
@@ -6527,7 +6738,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "CM01-TMC (1997)",
@@ -6547,7 +6759,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "DM01-TMC (1998)",
@@ -6567,7 +6780,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "EM01-TMC (1999)",
@@ -6587,7 +6801,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "FM01-TMC (2000)",
@@ -6607,7 +6822,8 @@
                 "available_seats": "24",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "GM01-TMC (1695)",
@@ -6627,7 +6843,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "HM01-TMC (1991)",
@@ -6647,7 +6864,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "IM01-TMC (4326)",
@@ -6667,7 +6885,8 @@
                 "available_seats": "26",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "JM01-TMC (1994)",
@@ -6687,7 +6906,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "KM01-TMC (2056)",
@@ -6707,7 +6927,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "LM01-TMC (2083)",
@@ -6727,7 +6948,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "MM01-TMC (4380)",
@@ -6747,7 +6969,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "NM01-TMC (4379)",
@@ -6767,7 +6990,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "OM01-TMC (4378)",
@@ -6787,7 +7011,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "QM01-TMC (3629)",
@@ -6807,7 +7032,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "RM01-TMC (3783)",
@@ -6827,7 +7053,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "SM01-TMC (2949)",
@@ -6847,7 +7074,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "TM01-TMC (2947)",
@@ -6867,7 +7095,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "UM01-TMC (2948)",
@@ -6887,7 +7116,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "VM01-TMC (3758)",
@@ -6907,7 +7137,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "WM01-TMC (3757)",
@@ -6927,7 +7158,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "XM01-TMC (3736)",
@@ -6947,7 +7179,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "YM01-TMC (3737)",
@@ -6967,7 +7200,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "ZM01-TMC (3738)",
@@ -6987,7 +7221,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             }
           ]
         }
@@ -7036,7 +7271,8 @@
                 "available_seats": "23",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "BM01-TMC (3036)",
@@ -7056,7 +7292,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "CM01-TMC (3038)",
@@ -7076,7 +7313,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "DM01-TMC (3039)",
@@ -7096,7 +7334,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "EM01-TMC (3037)",
@@ -7116,7 +7355,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "FM01-TMC (3305)",
@@ -7136,7 +7376,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "GM01-TMC (2163)",
@@ -7156,7 +7397,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "HM01-TMC (2162)",
@@ -7176,7 +7418,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "IM01-TMC (4232)",
@@ -7196,7 +7439,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "JM01-TMC (2097)",
@@ -7216,7 +7460,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "KM01-TMC (2095)",
@@ -7236,7 +7481,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "LM01-TMC (2096)",
@@ -7256,7 +7502,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "MM01-TMC (4266)",
@@ -7276,7 +7523,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "NM01-TMC (4267)",
@@ -7296,7 +7544,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "OM01-TMC (4268)",
@@ -7316,7 +7565,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "QM01-TMC (3614)",
@@ -7336,7 +7586,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "RM01-TMC (3735)",
@@ -7356,7 +7607,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "SM01-TMC (4234)",
@@ -7376,7 +7628,8 @@
                 "available_seats": "19",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "TM01-TMC (3047)",
@@ -7396,7 +7649,8 @@
                 "available_seats": "19",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "UM01-TMC (3048)",
@@ -7416,7 +7670,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "VM01-TMC (3708)",
@@ -7436,7 +7691,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "WM01-TMC (3707)",
@@ -7456,7 +7712,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "XM01-TMC (3677)",
@@ -7476,7 +7733,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "YM01-TMC (3682)",
@@ -7496,7 +7754,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "ZM01-TMC (3676)",
@@ -7516,7 +7775,8 @@
                 "available_seats": "20",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             }
           ]
         },
@@ -7542,7 +7802,8 @@
                 "available_seats": "27",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "BM01-TMC (2939)",
@@ -7562,7 +7823,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "CM01-TMC (2940)",
@@ -7582,7 +7844,8 @@
                 "available_seats": "17",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "DM01-TMC (2942)",
@@ -7602,7 +7865,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "EM01-TMC (2938)",
@@ -7622,7 +7886,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "FM01-TMC (2941)",
@@ -7642,7 +7907,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "GM01-TMC (2154)",
@@ -7662,7 +7928,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "HM01-TMC (2155)",
@@ -7682,7 +7949,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "IM01-TMC (4327)",
@@ -7702,7 +7970,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "JM01-TMC (1995)",
@@ -7722,7 +7991,8 @@
                 "available_seats": "28",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "KM01-TMC (2084)",
@@ -7742,7 +8012,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "LM01-TMC (2085)",
@@ -7762,7 +8033,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "MM01-TMC (4382)",
@@ -7782,7 +8054,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "NM01-TMC (4383)",
@@ -7802,7 +8075,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "OM01-TMC (4381)",
@@ -7822,7 +8096,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "QM01-TMC (3630)",
@@ -7842,7 +8117,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "RM01-TMC (3784)",
@@ -7862,7 +8138,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "SM01-TMC (3412)",
@@ -7882,7 +8159,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "TM01-TMC (2951)",
@@ -7902,7 +8180,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "UM01-TMC (2950)",
@@ -7922,7 +8201,8 @@
                 "available_seats": "29",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "VM01-TMC (3793)",
@@ -7942,7 +8222,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "WM01-TMC (3794)",
@@ -7962,7 +8243,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "XM01-TMC (3790)",
@@ -7982,7 +8264,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "YM01-TMC (3791)",
@@ -8002,7 +8285,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             },
             {
               "section": "ZM01-TMC (3792)",
@@ -8022,7 +8306,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biomedical Engineering"
             }
           ]
         }

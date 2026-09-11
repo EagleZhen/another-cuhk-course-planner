@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "ASEI",
     "subject_title": "Aero Science and Earth Informatics & X D Maj Pgm",
     "total_courses": 3
@@ -64,7 +64,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (7737)",
@@ -96,7 +97,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -162,7 +164,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): ENGG1125 or MATH1010 or MATH1510 or MATH1520"
             },
             {
               "section": "-T01-TUT (7716)",
@@ -182,7 +185,8 @@
                 "available_seats": "32",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): ENGG1125 or MATH1010 or MATH1510 or MATH1520"
             }
           ]
         }
@@ -248,7 +252,8 @@
                 "available_seats": "38",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-T01-TUT (5071)",
@@ -274,7 +279,8 @@
                 "available_seats": "38",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }

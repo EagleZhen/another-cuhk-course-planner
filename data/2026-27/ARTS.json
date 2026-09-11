@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "ARTS",
     "subject_title": "Courses offered by Arts Faculty",
     "total_courses": 2
@@ -46,7 +46,8 @@
                 "available_seats": "50",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -99,7 +100,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Research Postgraduate Programmes under Faculty of Arts"
             }
           ]
         },
@@ -131,7 +133,8 @@
                 "available_seats": "18",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Research Postgraduate Programmes under Faculty of Arts"
             }
           ]
         }

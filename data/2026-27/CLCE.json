@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "CLCE",
     "subject_title": "CLC content courses",
     "total_courses": 1
@@ -34,7 +34,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English",
+              "enrollment_requirement": "CLCE1103 is double-coded with UGED1146. \nNot for students who have taken CCSS1010, UGED1146 and UGED2760."
             }
           ]
         },
@@ -72,7 +73,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua and English"
+              "class_attributes": "Putonghua and English",
+              "enrollment_requirement": "CLCE1103 is double-coded with UGED1146. \nNot for students who have taken CCSS1010, UGED1146 and UGED2760."
             }
           ]
         }

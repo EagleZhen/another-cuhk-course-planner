@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "LSCI",
     "subject_title": "Life Sciences Courses",
     "total_courses": 60
@@ -34,7 +34,8 @@
                 "available_seats": "62",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken LSCI1002 or 1003."
             }
           ]
         }
@@ -93,7 +94,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For all BSCIN students and Year 1 NSCIN Majors\n-"
             }
           ]
         },
@@ -131,7 +133,8 @@
                 "available_seats": "200",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "-"
             }
           ]
         }
@@ -195,7 +198,8 @@
                 "available_seats": "150",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -247,7 +251,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 1 and Year 2 students\nPre-requisite: LSCI1002."
             },
             {
               "section": "BL01-LAB (8694)",
@@ -267,7 +272,8 @@
                 "available_seats": "16",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For Year 1 and Year 2 students\nPre-requisite: LSCI1002."
             }
           ]
         }
@@ -325,7 +331,8 @@
                 "available_seats": "21",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For NSCI Major and Year 2 or above BCHEN, BIOLN, CMBIN, FNSCN, MBTEN and BMEDN Major\nPre-requisite: LSCI1002."
             }
           ]
         }
@@ -378,7 +385,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             },
             {
               "section": "-L01-LAB (5208)",
@@ -398,7 +406,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -486,7 +495,8 @@
                 "available_seats": "90",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ENSC3520. Pre-requisite: BCHE2030 and BIOL2120."
             }
           ]
         }
@@ -538,7 +548,8 @@
                 "available_seats": "189",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "-"
             }
           ]
         },
@@ -564,7 +575,8 @@
                 "available_seats": "250",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "-"
             }
           ]
         }
@@ -617,7 +629,8 @@
                 "available_seats": "25",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not to be taken with BCHE4902, BIOL4902, CMBI4902, ENSC4902, FNSC4902, MBTE4902 and LSCI4000 at the same term."
             }
           ]
         }
@@ -670,7 +683,8 @@
                 "available_seats": "30",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not to be taken with BCHE4903, BIOL4903, CMBI4903, ENSC4903, FNSC4903, MBTE4903 and LSCI4000 at the same term. Pre-requisite: LSCI4912."
             }
           ]
         }
@@ -724,7 +738,8 @@
                 "available_seats": "999",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese, English and Putonghua"
+              "class_attributes": "Cantonese, English and Putonghua",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         },
@@ -750,7 +765,8 @@
                 "available_seats": "999",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -802,7 +818,8 @@
                 "available_seats": "999",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         },
@@ -828,7 +845,8 @@
                 "available_seats": "999",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -880,7 +898,8 @@
                 "available_seats": "995",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         },
@@ -906,7 +925,8 @@
                 "available_seats": "999",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -988,7 +1008,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken BCHE4130"
             }
           ]
         }
@@ -1059,7 +1080,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken BCHE4040"
             }
           ]
         }
@@ -1117,7 +1139,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken BCHE4060"
             }
           ]
         }
@@ -1194,7 +1217,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken BBMS6300"
             }
           ]
         }
@@ -1253,7 +1277,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken BIOL4010"
             }
           ]
         }
@@ -1314,7 +1339,8 @@
                 "available_seats": "3",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken BIOL4120"
             }
           ]
         }
@@ -1381,7 +1407,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken BIOL4230"
             }
           ]
         }
@@ -1434,7 +1461,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken CMBI4001"
             }
           ]
         }
@@ -1481,13 +1509,14 @@
               ],
               "availability": {
                 "capacity": "5",
-                "enrolled": "5",
+                "enrolled": "4",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken CMBI4002"
             }
           ]
         }
@@ -1540,7 +1569,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken CMBI4003"
             }
           ]
         }
@@ -1599,7 +1629,8 @@
                 "available_seats": "14",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken CMBI4101"
             }
           ]
         }
@@ -1659,7 +1690,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken CMBI4102"
             }
           ]
         }
@@ -1711,7 +1743,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken CMBI4103"
             }
           ]
         }
@@ -1764,7 +1797,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken CMBI4301"
             }
           ]
         }
@@ -1818,7 +1852,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken CMBI4302"
             }
           ]
         }
@@ -1878,7 +1913,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken CMBI4303"
             }
           ]
         }
@@ -1937,7 +1973,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken ENSC4250"
             }
           ]
         }
@@ -1990,7 +2027,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken FNSC4101"
             }
           ]
         }
@@ -2060,7 +2098,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken FNSC4102"
             }
           ]
         }
@@ -2112,7 +2151,8 @@
                 "available_seats": "2",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken FNSC5110"
             }
           ]
         }
@@ -2170,7 +2210,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken FNSC5120"
             }
           ]
         }
@@ -2225,7 +2266,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken FNSC5210"
             }
           ]
         }
@@ -2274,7 +2316,8 @@
                 "available_seats": "7",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken FNSC5220"
             }
           ]
         }
@@ -2338,7 +2381,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken FNSC5320"
             }
           ]
         }
@@ -2405,7 +2449,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken FNSC5420"
             }
           ]
         }
@@ -2464,7 +2509,8 @@
                 "available_seats": "8",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken FNSC5430"
             }
           ]
         }
@@ -2529,7 +2575,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken MBTE4320"
             }
           ]
         }
@@ -2594,7 +2641,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken MBTE4510"
             }
           ]
         }
@@ -2683,7 +2731,8 @@
                 "available_seats": "10",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken MBTE4520"
             }
           ]
         }
@@ -2742,7 +2791,8 @@
                 "available_seats": "5",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sci; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell & Molecular Bio; or MSc Sustainable Glo Bus; or MSc Bio, Env Mgt, Sustn & Tech"
             }
           ]
         }
@@ -2796,7 +2846,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -2856,7 +2907,8 @@
                 "available_seats": "9",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -2908,7 +2960,8 @@
                 "available_seats": "12",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         },
@@ -2934,7 +2987,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -2986,7 +3040,8 @@
                 "available_seats": "15",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -3038,7 +3093,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or Biology; or Environmental Science; or Food & Nutritional Sciences; or Molecular Biotechnology; or Cell and Molecular Biology\nNot for students who have taken LSCI5012"
             }
           ]
         }
@@ -3101,7 +3157,8 @@
                 "available_seats": "6",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -3161,7 +3218,8 @@
                 "available_seats": "0",
                 "status": "Closed"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biology; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -3214,7 +3272,8 @@
                 "available_seats": "959",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         },
@@ -3240,7 +3299,8 @@
                 "available_seats": "998",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -3292,7 +3352,8 @@
                 "available_seats": "995",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         },
@@ -3318,7 +3379,8 @@
                 "available_seats": "972",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -3370,7 +3432,8 @@
                 "available_seats": "971",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         },
@@ -3396,7 +3459,8 @@
                 "available_seats": "998",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -3448,7 +3512,8 @@
                 "available_seats": "995",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         },
@@ -3474,7 +3539,8 @@
                 "available_seats": "986",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -3526,7 +3592,8 @@
                 "available_seats": "974",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         },
@@ -3552,7 +3619,8 @@
                 "available_seats": "999",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -3604,7 +3672,8 @@
                 "available_seats": "998",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         },
@@ -3630,7 +3699,8 @@
                 "available_seats": "990",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -3676,13 +3746,14 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "16",
+                "enrolled": "17",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "983",
+                "available_seats": "982",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         },
@@ -3708,7 +3779,8 @@
                 "available_seats": "999",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -3760,7 +3832,8 @@
                 "available_seats": "978",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         },
@@ -3786,7 +3859,8 @@
                 "available_seats": "992",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -3835,7 +3909,8 @@
                 "available_seats": "921",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         },
@@ -3861,7 +3936,8 @@
                 "available_seats": "960",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }
@@ -3904,13 +3980,14 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "40",
+                "enrolled": "41",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "959",
+                "available_seats": "958",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         },
@@ -3936,7 +4013,8 @@
                 "available_seats": "976",
                 "status": "Open"
               },
-              "class_attributes": "English only"
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Biochemistry; or MPhil-PhD Biology; or MPhil-PhD Environmental Science; or MPhil-PhD Food & Nutritional Sciences; or MPhil-PhD Molecular Biotechnology; or MPhil-PhD Cell and Molecular Biology"
             }
           ]
         }

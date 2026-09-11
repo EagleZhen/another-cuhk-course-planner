@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schema_version": 2,
+    "schema_version": 3,
     "subject": "MCLE",
     "subject_title": "Chinese Language Education (TPg)",
     "total_courses": 7
@@ -28,13 +28,14 @@
               ],
               "availability": {
                 "capacity": "999",
-                "enrolled": "44",
+                "enrolled": "42",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "955",
+                "available_seats": "957",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MA Chinese Language Education"
             }
           ]
         }
@@ -93,7 +94,8 @@
                 "available_seats": "4",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MA Chinese Language Education"
             }
           ]
         }
@@ -142,7 +144,8 @@
                 "available_seats": "938",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": "For students in MA Chinese Language Education"
             }
           ]
         }
@@ -197,7 +200,8 @@
                 "available_seats": "977",
                 "status": "Open"
               },
-              "class_attributes": "Putonghua only"
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": "For students in MA Chinese Language Education"
             }
           ]
         }
@@ -246,7 +250,8 @@
                 "available_seats": "998",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MA Chinese Language Education"
             }
           ]
         },
@@ -272,7 +277,8 @@
                 "available_seats": "999",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MA Chinese Language Education"
             }
           ]
         }
@@ -333,7 +339,8 @@
                 "available_seats": "949",
                 "status": "Open"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MA Chinese Language Education"
             }
           ]
         }
@@ -392,7 +399,8 @@
                 "available_seats": "0",
                 "status": "Wait List"
               },
-              "class_attributes": "Cantonese only"
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For students in MA Chinese Language Education"
             }
           ]
         }
