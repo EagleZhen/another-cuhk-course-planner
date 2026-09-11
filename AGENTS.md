@@ -32,7 +32,7 @@ Give a parser defaults a real value could never take. Empty strings that become 
 
 Name a function for the scope it operates on, and fix the name in the change that notices the gap. A wrong name outlives whoever still remembers which half was right.
 
-Give a value its shape where it enters the app, not at each use. A string re-read by every consumer — split into lines, parsed to a number, joined for display — has as many shapes as it has call sites, and they agree only until one of them changes.
+Reshape in the published data, never reduce. A split on the source's own delimiter rebuilds the cell exactly and shows in the diff; dropping, merging or rounding discards, so do that at the point of use, where the value it consumed still sits beside it.
 
 For generated or tool-managed files, prefer commands over manual edits.
 
