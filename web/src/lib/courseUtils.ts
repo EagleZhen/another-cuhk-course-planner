@@ -1203,6 +1203,23 @@ export function formatClassAttributesCompact(classAttributes: string): string {
   return classAttributes.split('\n').join(' · ')
 }
 
+/**
+ * What an attribute row shows: the current value, the previous one struck through if it was
+ * deleted since the user last looked, or nothing.
+ *
+ * A deleted value stays on screen because the change marker lives inside the row — drop the
+ * row and a flagged section shows nothing changed.
+ */
+export function attributeRowState(
+  value: string,
+  previous: string | undefined,
+  changed: boolean
+): { text: string; removed: boolean } | null {
+  if (value) return { text: value, removed: false }
+  if (changed && previous) return { text: previous, removed: true }
+  return null
+}
+
 // Every title the scraped data uses, dotted or not. "Staff" and the "***" prefix are
 // not titles and stay as they are — we don't know what "***" means.
 const INSTRUCTOR_TITLE = /^(Prof|Dr|Mrs|Miss|Mr|Ms|Rev)\.?\s+/i

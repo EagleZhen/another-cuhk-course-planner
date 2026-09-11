@@ -18,6 +18,7 @@ import {
   checkSectionConflict,
   hasConflictFreeEnrollment,
   pruneReplacedTombstones,
+  attributeRowState,
   syncCart,
   syncEnrollment,
   isEnrollmentOpen,
@@ -1771,5 +1772,34 @@ describe('processICSForUndo', () => {
     })
     expect(processICSForUndo('not a calendar')).toMatchObject({ success: false })
     expect(processICSForUndo('')).toMatchObject({ success: false, error: 'File is empty' })
+  })
+})
+
+describe('attributeRowState', () => {
+  it('shows the current value', () => {
+    expect(attributeRowState('English only', undefined, false)).toEqual({
+      text: 'English only',
+      removed: false,
+    })
+  })
+
+  it('keeps a value deleted since the last check on screen, struck through', () => {
+    expect(attributeRowState('', 'For BBA students only', true)).toEqual({
+      text: 'For BBA students only',
+      removed: true,
+    })
+  })
+
+  it('shows nothing where the section states nothing and nothing was deleted', () => {
+    expect(attributeRowState('', undefined, false)).toBeNull()
+    expect(attributeRowState('', 'For BBA students only', false)).toBeNull()
+    expect(attributeRowState('', '', true)).toBeNull()
+  })
+
+  it('shows the new value, not the old, when one replaces another', () => {
+    expect(attributeRowState('Cantonese only', 'English only', true)).toEqual({
+      text: 'Cantonese only',
+      removed: false,
+    })
   })
 })
