@@ -15,6 +15,7 @@ import {
   getAvailabilityBadges,
   getComputedBorderColor,
   formatCourseCodeWithPrefix,
+  formatClassAttributesCompact,
   checkSectionConflict,
   diffSectionDetail,
   getChangedCourseIds,
@@ -603,19 +604,19 @@ export default function ShoppingCart({
                               ))}
                             </div>
 
-                            {/* Row 3: Teaching Language */}
+                            {/* Row 3: Class attributes */}
                             {section.classAttributes && (
-                              <div className="flex items-center gap-1 text-[9px] mb-2 text-gray-500">
+                              <div className="flex items-start gap-1 text-[9px] mb-2 text-gray-500">
                                 <span className="flex-shrink-0">🌐</span>
                                 <span
-                                  className={`truncate ${changeDetail?.languageChanged ? changedText : ''}`}
+                                  className={`min-w-0 ${changeDetail?.languageChanged ? changedText : ''}`}
                                   title={
                                     changeDetail?.languageChanged && sectionChange
                                       ? `Previously ${sectionChange.before.language || 'not specified'}`
                                       : `Language of instruction: ${section.classAttributes}`
                                   }
                                 >
-                                  {section.classAttributes}
+                                  {formatClassAttributesCompact(section.classAttributes)}
                                 </span>
                               </div>
                             )}

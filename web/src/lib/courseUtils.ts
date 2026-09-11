@@ -1144,6 +1144,17 @@ export function formatInstructorsCompact(instructorString: string): string {
   return instructors.length > 0 ? instructors.join(', ') : 'TBA'
 }
 
+/**
+ * Puts a section's class attributes on one row.
+ *
+ * CUSIS writes one per line, and a section can state a language beside a course type. The
+ * middot is ours — a semicolon would read as CUHK's own punctuation next to values like
+ * "Hokkien, Cantonese and Putonghua".
+ */
+export function formatClassAttributesCompact(classAttributes: string): string {
+  return classAttributes.split('\n').join(' · ')
+}
+
 // Every title the scraped data uses, dotted or not. "Staff" and the "***" prefix are
 // not titles and stay as they are — we don't know what "***" means.
 const INSTRUCTOR_TITLE = /^(Prof|Dr|Mrs|Miss|Mr|Ms|Rev)\.?\s+/i
