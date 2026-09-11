@@ -655,6 +655,8 @@ const norm = (s: string): string => (s ?? '').trim().replace(/\s+/g, ' ')
 // TODO(#332): lines carried by the model would need no splitting here.
 const normLines = (s: string): string => (s ?? '').split('\n').map(norm).filter(Boolean).join('\n')
 
+// Permanent: nothing marks a snapshot as predating the line breaks, so a change that only
+// regroups them never flags. TODO(#332): a stored list would end both.
 const sameText = (a: string, b: string): boolean => norm(a) === norm(b)
 
 // A meeting's normalized comparable fields (drops `dates`).
