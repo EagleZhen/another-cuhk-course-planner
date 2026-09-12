@@ -262,9 +262,9 @@ Decision: the scraper stores what the class page states, and publishing drops th
 
 Not at scrape — that is what [#323](https://github.com/EagleZhen/another-cuhk-course-planner/issues/323) cost, and it is why the class page's own words now reach [data/](../data/) intact.
 
-Publish is where it landed, and by [Where A Transformation Belongs](#where-a-transformation-belongs) that is the wrong side of the line: thinning alters a value under a field name claiming it did not, and which course lines a section repeated cannot be recovered from the published file. It belongs in the browser, which already has both levels. Not moved yet — `data/` holds the untouched values, so it costs a re-publish and a cart migration whenever we decide, and the rule is new enough to deserve a second case first.
+Publish is where it landed, and by [Where A Transformation Belongs](#where-a-transformation-belongs) that is the wrong side of the line: the published `class_attributes` is no longer what the class page states, and which course lines a section repeated cannot be recovered from the file. It belongs in the browser, which already has both levels. Not moved yet — `data/` holds 2026-27's untouched values, so it costs a re-publish and a cart migration whenever we decide, and the rule is new enough to deserve a second case first.
 
-Both `class_attributes` and `enrollment_requirement` are thinned ([#327](https://github.com/EagleZhen/another-cuhk-course-planner/issues/327)), but an empty result means opposite things, so each has its own name:
+Both `class_attributes` and `enrollment_requirement` are thinned ([#327](https://github.com/EagleZhen/another-cuhk-course-planner/issues/327)). The published fields keep CUHK's names; it is the two functions that differ, because an empty result means opposite things:
 
 - `lines_the_class_adds` — a requirement cell is the class's own rules followed by its course's, so what is left is what the section adds. Empty means it adds nothing.
 - `lines_the_class_states` — attributes say what a section is, and no class page states none. Empty would be our doing, so the class page's words stand instead.
@@ -300,7 +300,7 @@ So the line is **omission versus alteration**. [Stripping unrendered fields](#st
 
 One limit, or this becomes "publish the page": record structure the source **marked** — delimiters, cells, rows — never structure we **infer**, like where a title ends and a name begins.
 
-Two of those are not yet where they belong: the `class_attributes` split ([#332](https://github.com/EagleZhen/another-cuhk-course-planner/issues/332)) and the `time` decomposition are still done in the browser. And [thinning](#thin-enrollment-information-at-publish) sits on the wrong side of this rule — it alters, under a field name claiming it did not. Recorded rather than fixed: `data/` still holds the untouched values, so it costs a re-publish whenever we decide.
+Three of those are not yet where they belong: the `class_attributes` split ([#332](https://github.com/EagleZhen/another-cuhk-course-planner/issues/332)), the `time` decomposition and the section code's parts are all still read out of a string in the browser. And [thinning](#thin-enrollment-information-at-publish) sits on the wrong side of this rule: what it publishes as `class_attributes` is no longer what the class page states. Recorded rather than fixed — `data/` still holds 2026-27's untouched values, so it costs a re-publish whenever we decide.
 
 **What publishing costs.** A cart's warning says _CUHK changed something you saved_, so a reshape of ours that trips it goes out under CUHK's name. It must not:
 
