@@ -479,60 +479,6 @@
       "credits": "2.00",
       "terms": [
         {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (9882)",
-              "meetings": [
-                {
-                  "time": "Mo 11:30AM - 1:15PM",
-                  "location": "Cheng Ming Building 207",
-                  "instructor": "Miss CHEUNG Fan Fong",
-                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-                },
-                {
-                  "time": "Mo 11:30AM - 1:15PM",
-                  "location": "Cheng Ming Building 207",
-                  "instructor": "Miss CHEUNG Fan Fong",
-                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
-                }
-              ],
-              "availability": {
-                "capacity": "20",
-                "enrolled": "3",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "17",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese only",
-              "enrollment_requirement": "Not for Fine Arts Major"
-            },
-            {
-              "section": "-E01-EXR (9883)",
-              "meetings": [
-                {
-                  "time": "We 10:30AM - 12:15PM",
-                  "location": "Cheng Ming Building 207",
-                  "instructor": "Miss CHEUNG Fan Fong",
-                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
-                }
-              ],
-              "availability": {
-                "capacity": "20",
-                "enrolled": "3",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "17",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese only",
-              "enrollment_requirement": "Not for Fine Arts Major"
-            }
-          ]
-        },
-        {
           "term_code": "2430",
           "term_name": "2026-27 Term 2",
           "schedule": [
@@ -7568,10 +7514,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only",
