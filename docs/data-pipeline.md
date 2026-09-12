@@ -165,6 +165,14 @@ Meeting rows take these shapes, with no exceptions across both published years:
 
 Dates carry no year — see [weekly-calendar.md](components/weekly-calendar.md#dates).
 
+### Instructor Cells
+
+A row's `instructor` holds every name teaching it, separated by a comma and a line break: `"Professor JIN Bangti, \nProfessor WANG Yi"`. CUSIS writes a blank line there, but `clean_html_text` collapses it before the cell is saved.
+
+The scraper stores the cell as written; the app splits it at use (`splitInstructorsCompact`). Both sides assert that exact string in their tests, so a change to CUSIS's markup or to `clean_html_text` fails a test instead of quietly merging two names.
+
+- [Three-instructor sample](<../lab/scraper/samples/webpages/Class Details - AISC 5000 - A Founda'n of Mach Learning & AI (3938).html>)
+
 ## Edge Cases
 
 ### Future-Dated Courses
