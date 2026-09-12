@@ -24,15 +24,15 @@ Tolerate malformed values from outside our control — scraped HTML, a hand-edit
 
 Check whether the source states a value before computing one. A derived value stored beside scraped ones looks exactly like them, and can never be checked afterwards.
 
-Record what the source said before deriving from it. A derivation made before the first save cannot be corrected without fetching everything again.
-
 Record a value at every level the source states it. Keep one and assume the rest agree, and nobody can ever check.
 
 Give a parser defaults a real value could never take. Empty strings that become zero turn a failed fetch into a plausible record.
 
 Name a function for the scope it operates on, and fix the name in the change that notices the gap. A wrong name outlives whoever still remembers which half was right.
 
-Reshape in the published data, never reduce. A split on the source's own delimiter rebuilds the cell exactly and shows in the diff; dropping, merging or rounding discards, so do that at the point of use, where the value it consumed still sits beside it.
+The scrape may not throw away what it cannot rebuild, and may not derive before it records. It is the one step we cannot redo; everything after it is fixed by publishing again.
+
+Publishing is a gate against a fragile scrape: it may omit, and may record structure the source itself marked — a delimiter it wrote, a compound it built — but it may never change what a field says. Omit what the app never renders, and leave everything we decide ourselves to the browser, where changing our mind costs no migration. See [Where A Transformation Belongs](docs/decisions.md#where-a-transformation-belongs).
 
 For generated or tool-managed files, prefer commands over manual edits.
 

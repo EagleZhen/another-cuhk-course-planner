@@ -11,6 +11,18 @@ CUHK course catalog
         -> web/src/lib/generated/{subjects,terms,scrape-times}.ts
 ```
 
+## Layers
+
+Course data passes through three steps, and they differ enormously in how hard a mistake is to undo. That is part of what decides what each step may do to a value — see [Where A Transformation Belongs](decisions.md#where-a-transformation-belongs).
+
+| step | fixing a mistake means |
+| --- | --- |
+| scrape | scraping everything again, around 9 hours — and for a year CUHK has dropped, there is no way to fix it at all |
+| publish | re-running the publisher on data we already have: minutes, landing as a reviewable diff. A schema change also costs us a migration for saved carts — our work, invisible to users. Changing the published _shape_ costs more than it should today: the only version counter is the scraper's, so bumping it makes publishing demand a re-scrape it does not need |
+| use | changing code; every user gets it on their next page load |
+
+Only the scrape is one-way for the year CUHK still serves: [data/](../data/) holds everything it wrote, so publishing can be redone. An archived year is one-way too — nothing re-copies it, and its files are older than the schema the publisher accepts, so what it serves is frozen.
+
 ## Quick Start
 
 Run these from the repository root.
@@ -152,6 +164,14 @@ Meeting rows take these shapes, with no exceptions across both published years:
 **A row that states a time always enumerates its dates.** The timetable expands that list to place classes; a row with no time has none, so it goes to the Unscheduled card. A timed row carrying a range instead would silently vanish.
 
 Dates carry no year — see [weekly-calendar.md](components/weekly-calendar.md#dates).
+
+### Instructor Cells
+
+A row's `instructor` holds every name teaching it, separated by a comma and a line break: `"Professor JIN Bangti, \nProfessor WANG Yi"`. CUSIS writes a blank line there, but `clean_html_text` collapses it before the cell is saved.
+
+The scraper stores the cell as written; the app splits it at use (`splitInstructorsCompact`), on the comma alone rather than the pair. Both sides assert that exact string in their tests, so a change to CUSIS's markup or to `clean_html_text` fails a test instead of quietly merging two names.
+
+- [Three-instructor sample](<../lab/scraper/samples/webpages/Class Details - AISC 5000 - A Founda'n of Mach Learning & AI (3938).html>)
 
 ## Edge Cases
 

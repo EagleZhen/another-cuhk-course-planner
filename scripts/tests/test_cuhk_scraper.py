@@ -1140,6 +1140,22 @@ def test_a_section_keeps_the_attributes_its_own_page_states(monkeypatch):
     assert course.terms[0].schedule[0]["class_attributes"] == "Cantonese and English"
 
 
+def test_a_meeting_names_every_instructor_the_page_lists():
+    # CUSIS separates the names with a comma and a line break; `clean_html_text` collapses
+    # its blank line to one "\n". The app splits on this exact string, so assert the literal
+    # — a change here or in CUSIS's markup surfaces as a failure, not as merged names.
+    section = CuhkScraper._parse_class_details(
+        _live_scraper(),
+        _sample_html("Class Details - AISC 5000 - A Founda'n of Mach Learning & AI (3938).html"),
+        "section",
+    )
+
+    assert (
+        section["meetings"][0]["instructor"]
+        == "Professor JIN Bangti, \nProfessor WANG Yi, \nProfessor ZHU Huichen"
+    )
+
+
 def _requirements(course_page, class_page):
     """The enrollment requirement each real page states, read by the scraper's parsers."""
     scraper = _live_scraper()
