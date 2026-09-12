@@ -1395,6 +1395,15 @@ describe('splitInstructorsCompact', () => {
       ['Prof. Noam NOKED', 'Dr. CHEONG Chi Hong'],
     ],
     ['drops blanks left by trailing commas', 'Professor CHAN Tai Man, ', ['Prof. CHAN Tai Man']],
+    [
+      // The literal a real class page produces, copied from the AISC 5000 case in
+      // scripts/tests/test_cuhk_scraper.py. vitest cannot run the scraper, so this shared
+      // string is the seam: CUSIS writes a comma AND a line break, and the hand-built cases
+      // above never exercise the line break.
+      'splits on the comma and line break a real page writes',
+      'Professor JIN Bangti, \nProfessor WANG Yi, \nProfessor ZHU Huichen',
+      ['Prof. JIN Bangti', 'Prof. WANG Yi', 'Prof. ZHU Huichen'],
+    ],
     ['treats TBA as no instructor', 'TBA', []],
     ['treats empty as no instructor', '', []],
   ])('%s', (_label, raw, expected) => {
