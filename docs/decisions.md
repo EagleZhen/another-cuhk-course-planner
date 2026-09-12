@@ -275,7 +275,7 @@ Both `class_attributes` and `enrollment_requirement` are thinned ([#327](https:/
 
 CUSIS gives us a cell holding `Cantonese and English` on one line and `Service Learning Course` on the next. Do we split it in the scraper, the publisher, or the browser? Same for dropping the lines a course already states, or showing `Professor CHAN` as `Prof. CHAN`.
 
-Every value here is either CUHK's or ours, and we have to be able to tell which — so we never put our own wording where CUHK's belongs ([Record The Catalog Status Verbatim](#record-the-catalog-status-verbatim)). Where each transformation goes follows from what a mistake costs at that step ([Layers](data-pipeline.md#layers)).
+Every value here is either CUHK's or ours, and we have to be able to tell which — so we never put our own wording where CUHK's belongs ([Record The Catalog Status Verbatim](#record-the-catalog-status-verbatim)). What each step may do to a value follows from what that step is for, and from what a mistake there costs ([Layers](data-pipeline.md#layers)).
 
 ### The scrape may not throw away what it cannot rebuild
 
