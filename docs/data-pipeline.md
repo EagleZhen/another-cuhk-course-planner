@@ -11,6 +11,18 @@ CUHK course catalog
         -> web/src/lib/generated/{subjects,terms,scrape-times}.ts
 ```
 
+## Layers
+
+Course data passes through three steps, and they differ enormously in how hard a mistake is to undo. That is what decides where each transformation belongs — see [Where A Transformation Belongs](decisions.md#where-a-transformation-belongs).
+
+| step | fixing a mistake means |
+| --- | --- |
+| scrape | scraping everything again, around 9 hours — and for a year CUHK has dropped, there is no way to fix it at all |
+| publish | re-running the publisher on data we already have: minutes, landing as a reviewable diff. A schema change also costs us a migration for saved carts — our work, invisible to users |
+| use | changing code; every user gets it on their next page load |
+
+Only the scrape is one-way. [data/](../data/) still holds everything it wrote, so the later steps can always be redone.
+
 ## Quick Start
 
 Run these from the repository root.
