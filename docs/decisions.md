@@ -79,7 +79,7 @@ Decision: keep volatile, rewritable text out of the prerendered HTML. The "Last 
 Why it fits:
 
 - removes the whole class at once — detectors and translators get nothing to act on, rather than patching each cause
-- the gate looks removable but isn't; deleting it reopens #418
+- the gate looks removable but isn't; deleting it reopens React #418
 
 Where:
 
@@ -260,7 +260,7 @@ The scraper dropped a course's attribute lines from each of its sections before 
 
 Decision: the scraper stores what the class page states, and publishing drops the lines the course repeats ([publish_course_data.py](../scripts/publish_course_data.py)).
 
-Not at scrape — that is what #323 cost. Not in the browser either: a section wrongly left blank looks exactly like one CUHK never filled in, so nobody would catch it on screen. At publish, every change to the rule arrives as a diff across all 36k sections, where a line that should not have moved is there to see — [Where A Transformation Belongs](#where-a-transformation-belongs).
+Not at scrape — that is what [#323](https://github.com/EagleZhen/another-cuhk-course-planner/issues/323) cost. Not in the browser either: a section wrongly left blank looks exactly like one CUHK never filled in, so nobody would catch it on screen. At publish, every change to the rule arrives as a diff across all 36k sections, where a line that should not have moved is there to see — [Where A Transformation Belongs](#where-a-transformation-belongs).
 
 Both `class_attributes` and `enrollment_requirement` are thinned ([#327](https://github.com/EagleZhen/another-cuhk-course-planner/issues/327)), but an empty result means opposite things, so each has its own name:
 
