@@ -296,6 +296,8 @@ So the test is **how would we find out this went wrong**, weighed against how of
 | merge meeting rows differing only by dates | on screen, at once | whenever we change what counts as one meeting | use |
 | a term's academic year | on screen, at once | it is a lookup, not a rule | use |
 
+Three of those are in place. The `class_attributes` split ([#332](https://github.com/EagleZhen/another-cuhk-course-planner/issues/332)), the `time` decomposition and the year lookup are still done at use — this table says where they belong, not where they are.
+
 `Prof.` is the surprising one: the app really does have to agree on it — [#287](https://github.com/EagleZhen/another-cuhk-course-planner/issues/287) was a filter that stopped matching — and it still belongs in the browser, because CUSIS writes `Professor`, `Dr.` and `Dr` for the same thing and that map keeps growing.
 
 **The cost.** A cart's warning says _CUHK changed something you saved_, so a reshape of ours that trips it goes out under CUHK's name. It must not:
@@ -304,9 +306,9 @@ So the test is **how would we find out this went wrong**, weighed against how of
 | --- | --- | --- |
 | migrate exactly | the old snapshot determines the new value | `renameStoredClassAttributes` |
 | backfill from current | it does not, but the row is still identifiable | `recordSeenSections` |
-| tolerate, with a stated end | neither works | `sameDates`, `sameRequirement` |
+| tolerate, with a stated end | neither works | `sameText`, ended by [#332](https://github.com/EagleZhen/another-cuhk-course-planner/issues/332) |
 
-Tolerate last, and say where it ends. `sameText` has no end, so it accepts a pre-line snapshot forever and cannot tell a regrouped section from an unchanged one.
+Backfilling is what ends the tolerance in `sameDates` and `sameRequirement`: a snapshot missing either gets it from the current data on the next sync. `sameText` cannot do that — nothing identifies a snapshot as predating the line breaks, so it accepts one forever and cannot tell a regrouped section from an unchanged one. That is why its end has to be filed rather than coded.
 
 ### Publishing is where an assumption can still be checked
 
