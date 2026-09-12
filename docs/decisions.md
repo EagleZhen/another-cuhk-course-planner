@@ -260,7 +260,9 @@ The scraper dropped a course's attribute lines from each of its sections before 
 
 Decision: the scraper stores what the class page states, and publishing drops the lines the course repeats ([publish_course_data.py](../scripts/publish_course_data.py)).
 
-Not at scrape — that is what [#323](https://github.com/EagleZhen/another-cuhk-course-planner/issues/323) cost. Not in the browser either: a section wrongly left blank looks exactly like one CUHK never filled in, so nobody would catch it on screen. At publish, every change to the rule arrives as a diff across the 18.5k sections of the year we still publish, where a line that should not have moved is there to see — [Where A Transformation Belongs](#where-a-transformation-belongs).
+Not at scrape — that is what [#323](https://github.com/EagleZhen/another-cuhk-course-planner/issues/323) cost, and it is why the class page's own words now reach [data/](../data/) intact.
+
+Publish is where it landed, and by [Where A Transformation Belongs](#where-a-transformation-belongs) that is the wrong side of the line: thinning alters a value under a field name claiming it did not, and which course lines a section repeated cannot be recovered from the published file. It belongs in the browser, which already has both levels. Not moved yet — `data/` holds the untouched values, so it costs a re-publish and a cart migration whenever we decide, and the rule is new enough to deserve a second case first.
 
 Both `class_attributes` and `enrollment_requirement` are thinned ([#327](https://github.com/EagleZhen/another-cuhk-course-planner/issues/327)), but an empty result means opposite things, so each has its own name:
 
@@ -281,26 +283,26 @@ It is the one step we cannot redo. CUHK has stopped serving 2025-26, so whatever
 
 Not "derive nothing", which the scraper does not follow: it turns HTML into text and collapses whitespace. Two of those cannot be undone, and both are open debts — descriptions become Markdown and the HTML is discarded ([#27](https://github.com/EagleZhen/another-cuhk-course-planner/issues/27)), and `clean_html_text` collapses the blank line CUSIS writes between instructor names.
 
-### Publishing decides the shape, the browser decides the look
+### Publishing is a gate, so it may omit but never alter
 
-Both are just code — nothing the publisher computes is beyond the browser. What differs is where the output goes. Publish writes files we commit, so changing the rule shows up as a **diff** we read before anyone else does. What the browser computes is never recorded anywhere, so changing the rule just ships, and a user finds it.
+The publish step exists because scraping is fragile and has no ground truth: a bad scrape must not reach production unexamined. That is what it is for. Transforming data is not.
 
-So the test is **how would we find out this went wrong**, weighed against how often the rule changes, since publishing freezes it into every saved cart:
+So the line is **omission versus alteration**. [Stripping unrendered fields](#strip-unrendered-fields-at-publish) omits — every field that survives is what the scrape recorded, and `data/` keeps the rest. Publishing `["Cantonese and English", "Service Learning Course"]` where CUSIS wrote two lines alters nothing either; it records structure CUSIS marked. Rewriting `Professor CHAN` as `Prof. CHAN` alters, and so does dropping the lines a course repeats.
 
-| transformation | a mistake surfaces as | the rule changes | where |
-| --- | --- | --- | --- |
-| split `class_attributes` on its line breaks | a user reports a garbled row | never — CUSIS chose the delimiter | publish |
-| drop the lines a course repeats | a user reports a blank field | three times so far | publish |
-| split `time` into a day and two times | a user reports a wrong calendar slot | never — the format is fixed | publish |
-| `Professor CHAN` → `Prof. CHAN` | on screen, at once | whenever CUSIS spells a title a new way | use |
-| merge meeting rows differing only by dates | on screen, at once | whenever we change what counts as one meeting | use |
-| a term's academic year | on screen, at once | it is a lookup, not a rule | use |
+|                                            | did the source state it?            | where   |
+| ------------------------------------------ | ----------------------------------- | ------- |
+| `class_attributes` as lines                | yes — its own line breaks           | publish |
+| the section code's type and cohort         | yes — its own delimiter             | publish |
+| `time` as a day and two times              | yes — a day and a range in one cell | publish |
+| `Professor CHAN` → `Prof. CHAN`            | no — substitutes our word           | use     |
+| merge meeting rows differing only by dates | no — our judgment of sameness       | use     |
+| a meeting's year                           | no — a timed row never states it    | use     |
 
-Three of those are in place. The `class_attributes` split ([#332](https://github.com/EagleZhen/another-cuhk-course-planner/issues/332)), the `time` decomposition and the year lookup are still done at use — this table says where they belong, not where they are.
+One limit, or this becomes "publish the page": record structure the source **marked** — delimiters, cells, rows — never structure we **infer**, like where a title ends and a name begins.
 
-`Prof.` is the surprising one: the app really does have to agree on it — [#287](https://github.com/EagleZhen/another-cuhk-course-planner/issues/287) was a filter that stopped matching — and it still belongs in the browser, because CUSIS writes `Professor`, `Dr.` and `Dr` for the same thing and that map keeps growing.
+Two of those are not yet where they belong: the `class_attributes` split ([#332](https://github.com/EagleZhen/another-cuhk-course-planner/issues/332)) and the `time` decomposition are still done in the browser. And [thinning](#thin-enrollment-information-at-publish) sits on the wrong side of this rule — it alters, under a field name claiming it did not. Recorded rather than fixed: `data/` still holds the untouched values, so it costs a re-publish whenever we decide.
 
-**The cost.** A cart's warning says _CUHK changed something you saved_, so a reshape of ours that trips it goes out under CUHK's name. It must not:
+**What publishing costs.** A cart's warning says _CUHK changed something you saved_, so a reshape of ours that trips it goes out under CUHK's name. It must not:
 
 |  | when | example |
 | --- | --- | --- |
@@ -308,7 +310,7 @@ Three of those are in place. The `class_attributes` split ([#332](https://github
 | backfill from current | it does not, but the row is still identifiable | `recordSeenSections` |
 | tolerate, with a stated end | neither works | `sameText`, ended by [#332](https://github.com/EagleZhen/another-cuhk-course-planner/issues/332) |
 
-Backfilling is what ends the tolerance in `sameDates` and `sameRequirement`: a snapshot missing either gets it from the current data on the next sync. `sameText` cannot do that — nothing identifies a snapshot as predating the line breaks, so it accepts one forever and cannot tell a regrouped section from an unchanged one. That is why its end has to be filed rather than coded.
+Backfilling is what ends the tolerance in `sameDates` and `sameRequirement`: a snapshot missing either gets it from the current data on the next sync. `sameText` cannot do that — nothing identifies a snapshot as predating the line breaks — so its end had to be filed rather than coded.
 
 ### Publishing is where an assumption can still be checked
 
@@ -318,4 +320,6 @@ Warn, do not block: the list is our assumption about CUHK's data, so a surprise 
 
 ### What this replaces
 
-"Reshape at publish, reduce at use", broken by its own examples — dropping a course's repeated lines discards information and still belongs at publish. Rebuilding is the test at the scrape, where nothing stands behind us, not at publish, where [data/](../data/) does.
+"Reshape at publish, reduce at use", which its own examples broke. Rebuilding is the test at the scrape, where nothing stands behind us — not at publish, where [data/](../data/) does.
+
+Three later attempts to say when publishing is worth its cost — that it delivers agreement, that it produces a reviewable diff, that a mistake would otherwise reach a user first — were all benefits of publishing mistaken for reasons to publish. A shared helper delivers agreement; a check over the catalog delivers most of the diff. What decides it is what the gate may do: omit, never alter.

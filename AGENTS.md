@@ -32,7 +32,7 @@ Name a function for the scope it operates on, and fix the name in the change tha
 
 The scrape may not throw away what it cannot rebuild, and may not derive before it records. It is the one step we cannot redo; everything after it is fixed by publishing again.
 
-Transform at publish when a mistake would reach a user before it reaches us: publish writes files we commit, so a change to the rule shows up as a diff, while what the browser computes is never recorded anywhere. Leave it in the browser when a mistake shows on screen at once, or when the rule keeps changing — publishing freezes it into every saved cart. See [Where A Transformation Belongs](docs/decisions.md#where-a-transformation-belongs).
+Publishing is a gate against a fragile scrape, so it may omit but never alter. Publish structure the source itself marked — a delimiter it wrote, a compound it built — omit what the app never renders, and leave everything we decide ourselves to the browser, where changing our mind costs no migration. See [Where A Transformation Belongs](docs/decisions.md#where-a-transformation-belongs).
 
 For generated or tool-managed files, prefer commands over manual edits.
 
