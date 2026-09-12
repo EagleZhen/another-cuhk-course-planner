@@ -13,7 +13,7 @@ CUHK course catalog
 
 ## Layers
 
-Course data passes through three steps, and they differ enormously in how hard a mistake is to undo. That is what decides where each transformation belongs — see [Where A Transformation Belongs](decisions.md#where-a-transformation-belongs).
+Course data passes through three steps, and they differ enormously in how hard a mistake is to undo. That is part of what decides what each step may do to a value — see [Where A Transformation Belongs](decisions.md#where-a-transformation-belongs).
 
 | step | fixing a mistake means |
 | --- | --- |
