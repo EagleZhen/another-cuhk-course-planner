@@ -36,7 +36,7 @@
                 "capacity": "80",
                 "enrolled": "80",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
+                "waitlist_total": "1",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -63,7 +63,7 @@
                 "capacity": "80",
                 "enrolled": "80",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
+                "waitlist_total": "1",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -163,10 +163,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "40",
+                "enrolled": "55",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "40",
+                "available_seats": "25",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -184,10 +184,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "40",
+                "enrolled": "55",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "40",
+                "available_seats": "25",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -328,10 +328,10 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "7",
+                "enrolled": "9",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -459,10 +459,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "22",
+                "enrolled": "25",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -596,10 +596,10 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "12",
+                "enrolled": "20",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -767,10 +767,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "16",
+                "enrolled": "15",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -788,11 +788,11 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "21",
+                "enrolled": "25",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "4",
-                "status": "Open"
+                "waitlist_total": "1",
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese only",
               "enrollment_requirement": "Not for students who have taken JASP1110 or UGEC1271"
@@ -809,10 +809,10 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "14",
+                "enrolled": "17",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -934,10 +934,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "16",
+                "enrolled": "17",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "44",
+                "available_seats": "43",
                 "status": "Open"
               },
               "class_attributes": "Putonghua and Cantonese",
@@ -1061,10 +1061,10 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "18",
+                "enrolled": "13",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "32",
                 "status": "Open"
               },
               "class_attributes": "Putonghua and Cantonese",
@@ -1204,10 +1204,10 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "15",
+                "enrolled": "12",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "7",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "Japanese and Cantonese",
@@ -1237,11 +1237,11 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "22",
+                "enrolled": "21",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "Japanese and English",
               "enrollment_requirement": "Not for students who have taken JASP2000,2450,2460,2470,2480,2490,3180,3310,3320,3330,3340,3350,3360,3370,3380,3390,3600,4180,4310,4330,4350,4360,4370,4380,4390,4440,4450,4510,4520"
@@ -1278,7 +1278,7 @@
                 "capacity": "22",
                 "enrolled": "22",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -1315,10 +1315,10 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "11",
+                "enrolled": "12",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "Japanese and English",
@@ -1348,7 +1348,7 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "23",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "3",
                 "available_seats": "0",
@@ -1381,10 +1381,10 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "16",
+                "enrolled": "15",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "Japanese and Cantonese",
@@ -1414,11 +1414,11 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "22",
+                "enrolled": "20",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "2",
+                "status": "Open"
               },
               "class_attributes": "Japanese and Cantonese",
               "enrollment_requirement": "Not for students who have taken JASP2000,2450,2460,2470,2480,2490,3180,3310,3320,3330,3340,3350,3360,3370,3380,3390,3600,4180,4310,4330,4350,4360,4370,4380,4390,4440,4450,4510,4520"
@@ -1447,10 +1447,10 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "17",
+                "enrolled": "20",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "Japanese and English",
@@ -1513,10 +1513,10 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "19",
+                "enrolled": "20",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "Japanese and English",
@@ -1546,11 +1546,11 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "21",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "Japanese and Cantonese",
               "enrollment_requirement": "Not for students who have taken JASP2000,2450,2460,2470,2480,2490,3180,3310,3320,3330,3340,3350,3360,3370,3380,3390,3600,4180,4310,4330,4350,4360,4370,4380,4390,4440,4450,4510,4520"
@@ -1573,11 +1573,11 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "17",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "5",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "Japanese and English",
               "enrollment_requirement": "Not for students who have taken JASP2000,2450,2460,2470,2480,2490,3180,3310,3320,3330,3340,3350,3360,3370,3380,3390,3600,4180,4310,4330,4350,4360,4370,4380,4390,4440,4450,4510,4520"
@@ -1606,10 +1606,10 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "4",
+                "enrolled": "7",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "Japanese and Putonghua",
@@ -1645,10 +1645,10 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "21",
+                "enrolled": "19",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "Japanese and Cantonese",
@@ -1711,11 +1711,11 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "20",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "waitlist_total": "1",
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "Japanese and Putonghua",
               "enrollment_requirement": "Not for students who have taken JASP2000,2450,2460,2470,2480,2490,3180,3310,3320,3330,3340,3350,3360,3370,3380,3390,3600,4180,4310,4330,4350,4360,4370,4380,4390,4440,4450,4510,4520"
@@ -1744,11 +1744,11 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "22",
+                "enrolled": "21",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "Japanese and Cantonese",
               "enrollment_requirement": "Not for students who have taken JASP2000,2450,2460,2470,2480,2490,3180,3310,3320,3330,3340,3350,3360,3370,3380,3390,3600,4180,4310,4330,4350,4360,4370,4380,4390,4440,4450,4510,4520"
@@ -1777,10 +1777,10 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "16",
+                "enrolled": "17",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "Japanese and Cantonese",
@@ -2755,10 +2755,10 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "3",
+                "enrolled": "6",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "Japanese and English",
@@ -3209,10 +3209,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "28",
+                "enrolled": "26",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "32",
+                "available_seats": "34",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -3265,10 +3265,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "5",
+                "enrolled": "4",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -3331,10 +3331,10 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "16",
+                "enrolled": "18",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "Japanese and Cantonese",
@@ -3366,7 +3366,7 @@
                 "capacity": "22",
                 "enrolled": "22",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
+                "waitlist_total": "1",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -3397,10 +3397,10 @@
               ],
               "availability": {
                 "capacity": "22",
-                "enrolled": "15",
+                "enrolled": "17",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "7",
+                "available_seats": "5",
                 "status": "Open"
               },
               "class_attributes": "Japanese and Cantonese",
@@ -4129,10 +4129,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "12",
+                "enrolled": "7",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -4258,10 +4258,10 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "12",
+                "enrolled": "14",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "33",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "Putonghua and Cantonese",
@@ -4378,10 +4378,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "11",
+                "enrolled": "10",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "49",
+                "available_seats": "50",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -4438,10 +4438,10 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "22",
+                "enrolled": "21",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "23",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
@@ -4703,10 +4703,10 @@
               ],
               "availability": {
                 "capacity": "26",
-                "enrolled": "18",
+                "enrolled": "19",
                 "waitlist_capacity": "999",
-                "waitlist_total": "4",
-                "available_seats": "8",
+                "waitlist_total": "2",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "Japanese and Cantonese",
@@ -4832,10 +4832,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "26",
+                "enrolled": "28",
                 "waitlist_capacity": "999",
-                "waitlist_total": "5",
-                "available_seats": "4",
+                "waitlist_total": "7",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "Japanese and Putonghua",
@@ -4951,10 +4951,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "27",
+                "enrolled": "26",
                 "waitlist_capacity": "999",
-                "waitlist_total": "8",
-                "available_seats": "3",
+                "waitlist_total": "11",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "Japanese and Putonghua",
@@ -5184,10 +5184,10 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "6",
+                "enrolled": "5",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "39",
+                "available_seats": "40",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -5372,10 +5372,10 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "9",
+                "enrolled": "12",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "Japanese and Cantonese",
@@ -5628,10 +5628,10 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "16",
+                "enrolled": "18",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "Japanese and English",
@@ -5774,10 +5774,10 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "15",
+                "enrolled": "16",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "Japanese and Putonghua",
@@ -6426,10 +6426,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "31",
+                "enrolled": "33",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "19",
+                "available_seats": "17",
                 "status": "Open"
               },
               "class_attributes": "Japanese and Putonghua",
@@ -6525,10 +6525,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "28",
+                "enrolled": "26",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -6585,10 +6585,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "42",
+                "enrolled": "43",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -6711,10 +6711,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "41",
+                "enrolled": "38",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "English only",

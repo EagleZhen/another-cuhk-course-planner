@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "UGEB",
     "subject_title": "UGEB: Nature, Science and Technology",
-    "total_courses": 45
+    "total_courses": 44
   },
   "courses": [
     {
@@ -28,10 +28,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "18",
+                "enrolled": "23",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "SDG-GE #7 Affordable and Clean Energy\nSDG-GE #9 Industry, Innovation and Infrastructure\nSDG-GE #13 Climate Action\nEnglish only",
@@ -49,10 +49,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "18",
+                "enrolled": "23",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "SDG-GE #7 Affordable and Clean Energy\nSDG-GE #9 Industry, Innovation and Infrastructure\nSDG-GE #13 Climate Action\nEnglish only",
@@ -175,11 +175,11 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "28",
+                "enrolled": "30",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only",
               "enrollment_requirement": "UGEB1407 is double-coded with ENGG1910. \nNot majors in Faculty of Engineering; IDA+X Double Maj Prog; ASEI+X Double Maj Prog; MASE+X Double Maj Prog; and students who have taken ENGG1910.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix."
@@ -196,11 +196,11 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "28",
+                "enrolled": "30",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only",
               "enrollment_requirement": "UGEB1407 is double-coded with ENGG1910. \nNot majors in Faculty of Engineering; IDA+X Double Maj Prog; ASEI+X Double Maj Prog; MASE+X Double Maj Prog; and students who have taken ENGG1910.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix."
@@ -217,11 +217,11 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "28",
+                "enrolled": "30",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only",
               "enrollment_requirement": "UGEB1407 is double-coded with ENGG1910. \nNot majors in Faculty of Engineering; IDA+X Double Maj Prog; ASEI+X Double Maj Prog; MASE+X Double Maj Prog; and students who have taken ENGG1910.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix."
@@ -542,10 +542,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "47",
+                "enrolled": "42",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "18",
                 "status": "Open"
               },
               "class_attributes": "SDG-GE #7 Affordable and Clean Energy\nSDG-GE #13 Climate Action\nSDG-GE #14 Life Below Water\nSDG-GE #15 Life On Land\nEnglish only\nExperiential Learning Course",
@@ -597,10 +597,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "26",
+                "enrolled": "23",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "34",
+                "available_seats": "37",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
@@ -963,88 +963,6 @@
     },
     {
       "subject": "UGEB",
-      "course_code": "2132",
-      "title": "Earth as Seen From Space",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "A-LEC (7458)",
-              "meetings": [
-                {
-                  "time": "Mo 2:30PM - 4:15PM",
-                  "location": "Chen Kou Bun Bldg LT3",
-                  "instructor": "Dr. WONG Kwan Kit",
-                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-                },
-                {
-                  "time": "Mo 2:30PM - 4:15PM",
-                  "location": "Chen Kou Bun Bldg LT3",
-                  "instructor": "Dr. WONG Kwan Kit",
-                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
-                }
-              ],
-              "availability": {
-                "capacity": "110",
-                "enrolled": "2",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "108",
-                "status": "Open"
-              },
-              "class_attributes": "SDG-GE #11 Sustainable Cities and Communities\nSDG-GE #13 Climate Action\nSDG-GE #15 Life On Land\nCantonese only",
-              "enrollment_requirement": "Not for Geography and Resource Management Majors; and students who have taken ESGS2101 or 2102.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix"
-            },
-            {
-              "section": "AT01-TUT (7820)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "TBA",
-                  "instructor": "Dr. WONG Kwan Kit",
-                  "dates": "07/09/2026 - 30/11/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "110",
-                "enrolled": "2",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "108",
-                "status": "Open"
-              },
-              "class_attributes": "SDG-GE #11 Sustainable Cities and Communities\nSDG-GE #13 Climate Action\nSDG-GE #15 Life On Land\nCantonese only",
-              "enrollment_requirement": "Not for Geography and Resource Management Majors; and students who have taken ESGS2101 or 2102.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix"
-            }
-          ]
-        }
-      ],
-      "description": "Climate change, sea level rise, deforestation, forest fire, severe typhoon, glacier melt, agricultural loss, overpopulation, etc. are terms that you might have heard of. And they are also real and hot crises affecting the sustainability of human beings. How do we know these are all happening? In fact, our earth is being overseen from space every day. One good example is Google Earth that takes us any part of the globe anytime and anywhere using fingertips. Have you wondered where do these images come from? How these images are captured? How can images be used to understand the happening on our earth? Most of these images are captured by giant machines hovering in space known as satellites. “Remote sensing” is the process to collect images from the space or in the air, which is one of the key tools in the regime of spatial information technology. Important information are extracted from these images to gain better understanding of status quo and be more sustainable and responsible to our home – Earth.\n\nThis course allows students to acquire basic knowledge of remote sensing and to understand how the technology is used to the study and monitor of our earth. The course is divided into two parts. The first part elucidates the basic concept of remote sensing as well as the skills in extracting information from images. The second part unveils the applications of remote sensing images to crucial sustainability issues such as urban development, agriculture, forest management, natural disaster, climate change, etc. These applications connect with three Sustainable Development Goals including #11 (sustainable cities and community), #13 (climate action) and #15 (life on land) set by the United Nations in 2015. Loads of remotely-sensed images are used to illustrate the natural process and human activities that alter the earth surface and to explore the issue of sustainability. Together with hands-on work in tutorials and interactive class activity, students would be aware of how this novel technology is exploring the future of human beings.",
-      "enrollment_requirement": "Not for Geography and Resource Management Majors; and students who have taken ESGS2101 or 2102.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix",
-      "course_attributes": "SDG-GE #11 Sustainable Cities and Communities\nSDG-GE #13 Climate Action\nSDG-GE #15 Life On Land",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Field Studies/Field-trip\nLecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Office of University GE",
-      "academic_org": "Dept of Geo & Resource Mgt",
-      "learning_outcomes": "1. Have basic understanding of remote sensing technology;\n\n2. Acquire preliminary skills of image interpretation;\n\n3. Understand the local, regional and global applications of remote sensing that link with sustainability; and\n\n4. Acknowledge the impact of the spatial information technology on the society and in daily life.",
-      "course_syllabus": "* *Part I. Remote Sensing: Beyond the Naked Eyes**\n\n1. Remote Sensing: Connection Between Earth and Us\n\n遙感：我們與地球的連線\n\n2. From Image to Information: Searching for Meaning\n\n從影像到信息：尋覓影像中意義\n\n3. Remotely-sensed Images: Getting to Know\n\n遙感影像：慢慢認識\n\n4. Aerial Photography: Flying in the Sky\n\n航空攝影：在天上飛\n\n5. Satellite: Sensing from Space\n\n衛星：太空中感應\n\n6. The Thinking Machine: The Best Image Assistant\n\n電腦：最佳影像助理\n\n* *Part II. Remote sensing applications and SDGs**\n\n7. Land Use and Cover: Revealing Our Valuable Earth Resource\n\n土地利用和覆蓋：揭示我們寶貴的地球資源\n\n8. Urban: Tracing the Rapid Transformations of Civilizations\n\n城市：追踪急速轉變中的文明\n\n9. Agriculture and Forest: Sustaining the Green Resources\n\n農業和森林：可持續的綠色資源\n\n10. Natural Disaster: Witnessing and Chasing the Rage of Earth\n\n自然災難：見證及追蹤地球的憤怒\n\n11. Mysterious Ocean: Monitoring the Secret of the Deep Blue\n\n神秘的海洋：監視深藍色的秘密\n\n12. Global Climate Change: Threats of Today and Tomorrow\n\n全球氣候變化：今天和明天的威脅\n\n13. GIS: Merging Spatial Data for Sustainable Home\n\n地理資訊系統： 合併空間數據以建設可持續家園",
-      "assessment_types": {
-        "Homework or assignment": "30",
-        "Participation": "10",
-        "Report": "40",
-        "Short answer test or exam": "20"
-      },
-      "feedback_evaluation": "1. Course and Teaching Evaluation Survey\n2. Internal Course Review",
-      "required_readings": "* *Remote Sensing: A new information technology for our everyday life**\n\nHarris, R., 1987, *Satellite Remote Sensing: An Introduction*, Chapter 1&2, London: Routledge & K. Paul,\n\n* *From data to information: making sense of mystified images**\n\nAvery, T.E. and G.L. Berlin (1992), **Chapter 3** Principles of airphoto interpretation, In Avery, T.E. and G.L. Berlin *Fundamentals of Remote Sensing and Airphoto Interpretation*, 5th edition, New York: Macmillan Publishing Company, pp. 51-70\n\n* *Types of remote sensing images: capturing information on Earth**\n\nAvery, T.E. and G.L. Berlin (1992), Chapter 1 Overview of remote and sensing, and **Chapter 2** Cameras, films and filters, In Avery, T.E. and G.L. Berlin *Fundamentals of Remote Sensing and Airphoto Interpretation*, 5th edition, New York: Macmillan Publishing Company, pp. 1-50\n\n* *Satellite remote sensing: monitoring the earth from the above**\n\nHarris, R. (1987), Chapter 5 Satellite systems, in Harris R. *Satellite Remote Sensing: An Introduction*, London: Routledge & K. Paul, pp. 49-79\n\n* *Using computers for image analysis**\n\nAvery, T.E. and G.L. Berlin (1992), Chapter 15, in Avery, T.E. and G.L. Berlin *Fundamentals of Remote Sensing and Airphoto Interpretation*, 5th edition, New York: Macmillan: Maxwell Macmillan International\n\n* *Assessing land use and cover for sustainable development**\n\nAvery, T.E. and G.L. Berlin (1992), Chapter 8 GIS and land use and land cover mapping, In Avery, T.E. and G.L. *Berlin Fundamentals of Remote Sensing and Airphoto Interpretation*, 5th edition, New York:\n\nMacmillan Publishing Company, pp. 201-224\n\n* *Tracing historical changes: birth and death of cities**\n\nMesev Victor (2003), Remotely sensed cities: an introduction, in Victor Mesev (ed), *Remoted Sense Cities*, London: Taylor & Francis, pp. 1-20\n\n* *Agriculture and forestry: scientific management for food security**\n\nParkinson Claire L. (1997), **Chapter 7** Land vegetation, In Parkinson Claire L. *Earth From Above: Using* *Color-Coded Satellite Images to Examine the Global Environment,* Sausalito, - California: University Science Books, pp. 95-118\n\n* *Mystified Ocean: tap the new resources for future**\n\nGarrison Tom (2005), Knowing the ocean world, In Garrison Tom *Oceanography: An Invitation Marine Science* (5thedition), USA: Brooks/Cole, pp.1-36\n\n* *Global climate change: threats or opportunities for our tomorrow**\n\nCracknell A. P. (1994), Climate change -The background, in Robin A. Vaughan and Arthur P. Cracknel (eds), *Remote Sensing and Global Climate Change,* Berlin: Springer-Verlag, pp. 1-34\n\n* *Natural hazard and disaster: from forecast to management**\n\nJensen John R. and Michael E. Hodgson (2006), Chapter 8: Remote Sensing of Natural and Man-Made Hazards and Disasters, In Merrill K. Ridd and James D. Hipple (eds), *Remote Sensing of Human Settlements: Manual of Remote Sensing Third Edition, Vo1 5,* Bethesda, Maryland: American Society for Photogrammetry and Remote Sensing, pp. 40-430\n\n* *GIS:** **merging RS data with non RS data in our society**\n\nDavis David E. (2003). **Chapter 5** Building the Digital Map, In Davis David E. *GIS for Everyone. Exploring Your Neighborhood and Your World with a Geographic Information System,* Publisher Redlands, Calif.: ESRI Press, pp. 87-106 (G70.212 D385 2003)",
-      "recommended_readings": "Lillesand, T.M., R.W. Kiefer and J. W. Chipman (2004), *Remote Sensing and Image Interpretation*, 5th edition, New York: Wiley & Sons.\n\nArnold, R.H. (1997), *Interpretation of Airphotos and Remotely Sensed Images,* New York: Prentice-Hall.\n\nDrury, S.A. (1998), *Images of the Earth: A Guide to Remote Sensing,* 2nd edition, Oxford: Oxford University Press.\n\nLo, C.P. (1986), *Applied Remote Sensing,* Hong Kong: Longman.\n\nParkinson, C.L. (1997), *Earth from above: using color-coded satellite images to examine the global, environment,* Sausalito, California: University Science Books.\n\nStrain, P. and F**.** Engle (1992), *Looking at Earth,* Atlanta: Turner Pub."
-    },
-    {
-      "subject": "UGEB",
       "course_code": "2149",
       "title": "Music, Mind and Artificial Intelligence",
       "credits": "2.00",
@@ -1343,10 +1261,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "29",
+                "enrolled": "28",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "51",
+                "available_seats": "52",
                 "status": "Open"
               },
               "class_attributes": "SDG-GE #11 Sustainable Cities and Communities\nSDG-GE #13 Climate Action\nCantonese and English",
@@ -1476,10 +1394,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "16",
+                "enrolled": "15",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "44",
+                "available_seats": "45",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -1529,10 +1447,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "40",
+                "enrolled": "48",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "SDG-GE #3 Good Health and Well-being\nSDG-GE #7 Affordable and Clean Energy\nSDG-GE #13 Climate Action\nSDG-GE #15 Life On Land\nCantonese and English",
@@ -1727,10 +1645,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "10",
+                "enrolled": "14",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "46",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
@@ -1790,7 +1708,7 @@
                 "capacity": "60",
                 "enrolled": "60",
                 "waitlist_capacity": "999",
-                "waitlist_total": "31",
+                "waitlist_total": "15",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -1914,10 +1832,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "23",
+                "enrolled": "31",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "27",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -1935,10 +1853,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "35",
+                "enrolled": "42",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "Putonghua and English",
@@ -2184,10 +2102,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "82",
+                "enrolled": "83",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "17",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -2205,10 +2123,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "53",
+                "enrolled": "49",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "47",
+                "available_seats": "51",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -2226,10 +2144,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "76",
+                "enrolled": "84",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "24",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only",
@@ -2325,11 +2243,11 @@
               ],
               "availability": {
                 "capacity": "61",
-                "enrolled": "60",
+                "enrolled": "61",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
-                "available_seats": "1",
-                "status": "Open"
+                "waitlist_total": "5",
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese only",
               "enrollment_requirement": "Not for majors in Faculty of Medicine, CHEM Majors, NSCI major concentration (Analytical and Testing Sciences or Chemical Sciences); students who have taken CHEM2382, UGEB2370,2380,2381,2410,2440\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix"
@@ -2590,11 +2508,11 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "46",
+                "enrolled": "60",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "14",
-                "status": "Open"
+                "waitlist_total": "1",
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only",
               "enrollment_requirement": "Not for RMSC,STAT,QFRM,CDAS Majors, students in Data Science or Mathematical Sciences concentration areas of Natural Sciences Programme, and students who have taken RMSC2001\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix"
@@ -2651,10 +2569,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "5",
+                "enrolled": "4",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -2678,10 +2596,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "5",
+                "enrolled": "4",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -2732,11 +2650,11 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "94",
+                "enrolled": "100",
                 "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "6",
-                "status": "Open"
+                "waitlist_total": "2",
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese and English",
               "enrollment_requirement": "Not for MATH, MIEG, BMED majors; students in the concen areas of Natural Sci Prog: Data Sci or Mathematical Sci; and students taken ECON3160 or MATH4250.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix"
@@ -2869,10 +2787,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "36",
+                "enrolled": "38",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "64",
+                "available_seats": "62",
                 "status": "Open"
               },
               "class_attributes": "SDG-GE #7 Affordable and Clean Energy\nSDG-GE #9 Industry, Innovation and Infrastructure\nSDG-GE #11 Sustainable Cities and Communities\nSDG-GE #13 Climate Action\nSDG-GE #14 Life Below Water\nSDG-GE #15 Life On Land\nSDG-GE #17 Partnerships for the Goals\nCantonese only",
@@ -2923,10 +2841,10 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "18",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "57",
+                "available_seats": "53",
                 "status": "Open"
               },
               "class_attributes": "SDG-GE #7 Affordable and Clean Energy\nSDG-GE #9 Industry, Innovation and Infrastructure\nSDG-GE #10 Reducing Inequality\nSDG-GE #12 Responsible Consumption and Production\nSDG-GE #14 Life Below Water\nCantonese only",
@@ -3089,10 +3007,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "10",
+                "enrolled": "9",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "51",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -3110,10 +3028,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "10",
+                "enrolled": "9",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "51",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -3380,10 +3298,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "48",
+                "enrolled": "82",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "72",
+                "available_seats": "38",
                 "status": "Open"
               },
               "class_attributes": "SDG-GE #3 Good Health and Well-being\nSDG-GE #4 Quality Education\nSDG-GE #10 Reducing Inequality\nCantonese and English\nVirtual Teaching & Learning Course",
@@ -3401,10 +3319,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "48",
+                "enrolled": "82",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "72",
+                "available_seats": "38",
                 "status": "Open"
               },
               "class_attributes": "SDG-GE #3 Good Health and Well-being\nSDG-GE #4 Quality Education\nSDG-GE #10 Reducing Inequality\nCantonese and English\nVirtual Teaching & Learning Course",
@@ -3460,10 +3378,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "12",
+                "enrolled": "13",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "48",
+                "available_seats": "47",
                 "status": "Open"
               },
               "class_attributes": "SDG-GE #13 Climate Action\nSDG-GE #14 Life Below Water\nCantonese and English",
