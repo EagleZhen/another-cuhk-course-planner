@@ -6,6 +6,10 @@ const term = '2026-27 Term 1'
 const storageKey = `schedule_${term}`
 const slot = 'Fr 2:30PM - 5:15PM'
 
+// Term 2's dates are Fridays in 2027 only, so they resolve to its second year.
+const termTwo = '2026-27 Term 2'
+const storageKeyTwo = `schedule_${termTwo}`
+
 // The shown week is today's, clamped to the cart's range, so the wall clock would
 // otherwise decide which week these assertions run against.
 const TODAY = new Date('2026-09-08T10:00:00+08:00')
@@ -28,37 +32,66 @@ function section(id: string, sectionCode: string, sectionType: string, dates: st
   }
 }
 
-async function openPlanner(page: Page, tutorialDates: string, lectureDates = '11/9') {
-  const sections = [
-    section('lec', '--LEC (1)', 'LEC', lectureDates),
-    section('tut', '-T01-TUT (2)', 'TUT', tutorialDates),
-  ]
+function storedSchedule(
+  termCode: string,
+  termName: string,
+  sections: ReturnType<typeof section>[]
+) {
+  return JSON.stringify({
+    version: 3,
+    enrollments: [
+      {
+        courseId: 'GEWS1011',
+        course: {
+          subject: 'GEWS',
+          courseCode: '1011',
+          title: 'College Induction Course',
+          credits: 3,
+          terms: [{ termCode, termName, sections }],
+        },
+        selectedSections: sections,
+        color: 'bg-teal-700',
+        isVisible: true,
+        isInvalid: false,
+      },
+    ],
+  })
+}
 
+async function seed(page: Page, schedules: Record<string, string>) {
   await page.clock.setFixedTime(TODAY)
   await page.route('**/data/**', (route) => route.abort())
-  await page.addInitScript(({ key, value }) => localStorage.setItem(key, value), {
-    key: storageKey,
-    value: JSON.stringify({
-      version: 3,
-      enrollments: [
-        {
-          courseId: 'GEWS1011',
-          course: {
-            subject: 'GEWS',
-            courseCode: '1011',
-            title: 'College Induction Course',
-            credits: 3,
-            terms: [{ termCode: '2610', termName: term, sections }],
-          },
-          selectedSections: sections,
-          color: 'bg-teal-700',
-          isVisible: true,
-          isInvalid: false,
-        },
-      ],
-    }),
-  })
+  await page.addInitScript((stored: Record<string, string>) => {
+    for (const [key, value] of Object.entries(stored)) localStorage.setItem(key, value)
+  }, schedules)
   await page.goto('/')
+}
+
+async function openPlanner(page: Page, tutorialDates: string, lectureDates = '11/9') {
+  await seed(page, {
+    [storageKey]: storedSchedule('2610', term, [
+      section('lec', '--LEC (1)', 'LEC', lectureDates),
+      section('tut', '-T01-TUT (2)', 'TUT', tutorialDates),
+    ]),
+  })
+}
+
+// Two constraints the ring counts rest on: both terms have dated meetings, or
+// there are no cards to ring; and they land on different weeks, or the shown week
+// never changes and the cue compares it against itself.
+async function openBothTerms(page: Page) {
+  await seed(page, {
+    [storageKey]: storedSchedule('2610', term, [section('lec', '--LEC (1)', 'LEC', '11/9')]),
+    [storageKeyTwo]: storedSchedule('2620', termTwo, [
+      section('lec', '--LEC (1)', 'LEC', '8/1, 15/1'),
+      section('tut', '-T01-TUT (2)', 'TUT', '15/1'),
+    ]),
+  })
+}
+
+async function switchToTerm(page: Page, label: string) {
+  await page.getByTitle('Click to change term').first().click()
+  await page.getByRole('button', { name: label, exact: true }).click()
 }
 
 const cards = (page: Page) => page.locator('[data-course-card]')
@@ -169,4 +202,29 @@ test('rings the card that was not on the timetable it came from', async ({ page 
 
   // It is navigation state, not schedule content, so it lets go by itself.
   await expect(page.locator('.changed-ring')).toHaveCount(0, { timeout: 6000 })
+})
+
+// Switching term swaps the timetable, so the week arrived at shares nothing with
+// the week left behind.
+test('rings every card a term switch brings in', async ({ page }) => {
+  await openBothTerms(page)
+  await expect(cards(page)).toHaveCount(1)
+
+  await switchToTerm(page, 'Term 2')
+
+  await expect(page.getByText('Week 1 of 2')).toBeVisible()
+  await expect(cards(page)).toHaveCount(1)
+  // The ring lets go by itself, so a late count reads zero either way.
+  await expect(page.locator('.changed-ring')).toHaveCount(1, { timeout: 1000 })
+})
+
+test('rings a step through the weeks of the term switched to', async ({ page }) => {
+  await openBothTerms(page)
+  await switchToTerm(page, 'Term 2')
+  await expect(page.getByText('Week 1 of 2')).toBeVisible()
+
+  await page.getByRole('button', { name: 'Next week' }).click()
+
+  await expect(page.getByText('Week 2 of 2')).toBeVisible()
+  await expect(page.locator('.changed-ring')).toHaveCount(1, { timeout: 1000 })
 })
