@@ -204,9 +204,9 @@ test('rings the card that was not on the timetable it came from', async ({ page 
   await expect(page.locator('.changed-ring')).toHaveCount(0, { timeout: 6000 })
 })
 
-// Switching term swaps the timetable, so the week arrived at shares nothing with
-// the week left behind.
-test('rings every card a term switch brings in', async ({ page }) => {
+// A term switch replaces the timetable rather than stepping through one, so every
+// card is new by definition and saying so of all of them says nothing.
+test('rings nothing when a term switch swaps the timetable', async ({ page }) => {
   await openBothTerms(page)
   await expect(cards(page)).toHaveCount(1)
 
@@ -215,7 +215,7 @@ test('rings every card a term switch brings in', async ({ page }) => {
   await expect(page.getByText('Week 1 of 2')).toBeVisible()
   await expect(cards(page)).toHaveCount(1)
   // The ring lets go by itself, so a late count reads zero either way.
-  await expect(page.locator('.changed-ring')).toHaveCount(1, { timeout: 1000 })
+  await expect(page.locator('.changed-ring')).toHaveCount(0, { timeout: 1000 })
 })
 
 test('rings a step through the weeks of the term switched to', async ({ page }) => {
