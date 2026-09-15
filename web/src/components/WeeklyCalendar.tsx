@@ -458,8 +458,8 @@ export default function WeeklyCalendar({
   const previousStop = step(-1)
   const nextStop = step(1)
 
-  // Only paging earns the cue: it marks what this step revealed. A term switch
-  // moves the shown week too, and ringing that says "everything is new".
+  // Only a move between weeks earns the cue: it marks what the move revealed. A
+  // term switch moves the shown week too, and ringing that says "everything is new".
   const goToWeek = (week: Date) => {
     if (activeWeek) setChangedIds(changedEventIds(events, week, activeWeek))
     setSelectedWeekTime(week.getTime())
