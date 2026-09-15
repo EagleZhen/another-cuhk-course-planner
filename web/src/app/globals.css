@@ -127,8 +127,8 @@
   }
 }
 
-/* Marks a card the shown week gained or changed. Purely an arrival cue, so it
-   clears itself: WeeklyCalendar drops the state after CHANGED_HIGHLIGHT_MS,
+/* Breathes on a card the week moved to gained or changed. Navigation state only,
+   so it clears itself: WeeklyCalendar drops it after CHANGED_HIGHLIGHT_MS,
    which keeps it out of screenshots whether or not the animation runs.
 
    Neutral rather than coloured: the glow falls outside the card, onto the white
@@ -145,12 +145,12 @@
 
 @layer utilities {
   /* Two slow breaths, each ending where it began, so it stops without a cut. */
-  .changed-ring {
+  .changed-breathing {
     animation: changed-breathe 1.5s ease-in-out 2;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .changed-ring {
+    .changed-breathing {
       animation: none;
       box-shadow: 0 0 7px 6px rgb(15 23 42 / 0.55);
     }

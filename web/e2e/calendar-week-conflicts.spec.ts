@@ -76,9 +76,9 @@ async function openPlanner(page: Page, tutorialDates: string, lectureDates = '11
   })
 }
 
-// Two constraints the ring counts rest on: both terms have dated meetings, or
-// there are no cards to ring; and they land on different weeks, or the shown week
-// never changes and the cue compares it against itself.
+// Two constraints the breathing counts rest on: both terms have dated meetings,
+// or there are no cards to breathe on; and they land on different weeks, or the
+// shown week never changes and the comparison runs against itself.
 async function openBothTerms(page: Page) {
   await seed(page, {
     [storageKey]: storedSchedule('2610', term, [section('lec', '--LEC (1)', 'LEC', '11/9')]),
@@ -190,23 +190,23 @@ test('back clears the run it is standing in', async ({ page }) => {
   await expect(page.getByTitle('Every earlier week shows the same classes')).toBeVisible()
 })
 
-test('rings the card that was not on the timetable it came from', async ({ page }) => {
+test('breathes on the card that was not on the timetable it came from', async ({ page }) => {
   await openPlanner(page, '25/9, 2/10, 9/10', '11/9, 18/9')
 
-  // Week 1 is arrived at with nothing before it, so nothing rings.
-  await expect(page.locator('.changed-ring')).toHaveCount(0)
+  // Week 1 is arrived at with nothing before it, so nothing breathes.
+  await expect(page.locator('.changed-breathing')).toHaveCount(0)
 
   await page.getByRole('button', { name: 'Next week' }).click()
   await expect(page.getByText('Week 3 of 5')).toBeVisible()
-  await expect(page.locator('.changed-ring')).toHaveCount(1)
+  await expect(page.locator('.changed-breathing')).toHaveCount(1)
 
   // It is navigation state, not schedule content, so it lets go by itself.
-  await expect(page.locator('.changed-ring')).toHaveCount(0, { timeout: 6000 })
+  await expect(page.locator('.changed-breathing')).toHaveCount(0, { timeout: 6000 })
 })
 
 // A term switch replaces the timetable rather than stepping through one, so every
 // card is new by definition and saying so of all of them says nothing.
-test('rings nothing when a term switch swaps the timetable', async ({ page }) => {
+test('breathes on nothing when a term switch swaps the timetable', async ({ page }) => {
   await openBothTerms(page)
   await expect(cards(page)).toHaveCount(1)
 
@@ -214,11 +214,11 @@ test('rings nothing when a term switch swaps the timetable', async ({ page }) =>
 
   await expect(page.getByText('Week 1 of 2')).toBeVisible()
   await expect(cards(page)).toHaveCount(1)
-  // The ring lets go by itself, so a late count reads zero either way.
-  await expect(page.locator('.changed-ring')).toHaveCount(0, { timeout: 1000 })
+  // The breathing lets go by itself, so a late count reads zero either way.
+  await expect(page.locator('.changed-breathing')).toHaveCount(0, { timeout: 1000 })
 })
 
-test('rings a step through the weeks of the term switched to', async ({ page }) => {
+test('breathes on what a step reveals in the term switched to', async ({ page }) => {
   await openBothTerms(page)
   await switchToTerm(page, 'Term 2')
   await expect(page.getByText('Week 1 of 2')).toBeVisible()
@@ -226,5 +226,5 @@ test('rings a step through the weeks of the term switched to', async ({ page }) 
   await page.getByRole('button', { name: 'Next week' }).click()
 
   await expect(page.getByText('Week 2 of 2')).toBeVisible()
-  await expect(page.locator('.changed-ring')).toHaveCount(1, { timeout: 1000 })
+  await expect(page.locator('.changed-breathing')).toHaveCount(1, { timeout: 1000 })
 })

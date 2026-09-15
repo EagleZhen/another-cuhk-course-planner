@@ -266,7 +266,7 @@ describe('weeksWithConflict', () => {
 // The rule's three past bugs all came from carts no unit test held: a section
 // swapping type, a lecture moving building, a class returning mid-term. Driven by
 // the real producer, so a change in how occurrences are built shows up here.
-describe('the arrival cue over a real cart', () => {
+describe('the breathing over a real cart', () => {
   const TERM = '2026-27 Term 1'
 
   const published = (subject: string, courseCode: string): InternalCourse => {

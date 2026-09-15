@@ -103,7 +103,7 @@ function dateOfDay(weekStart: Date | null, day: WeekDay): Date | null {
   )
 }
 
-/** Just past two breaths of `changed-ring`, so the cue ends on its own. */
+/** Just past two breaths of `changed-breathing`, so it ends on its own. */
 const CHANGED_HIGHLIGHT_MS = 3100
 
 interface WeeklyCalendarProps {
@@ -144,7 +144,7 @@ export default function WeeklyCalendar({
   const [isIcsMenuExpanded, setIsIcsMenuExpanded] = useState(false)
   const [selectedWeekTime, setSelectedWeekTime] = useState<number | null>(null)
   const [skipRepeatWeeks, setSkipRepeatWeeks] = useState(true)
-  // Cards showing something not seen in an earlier week. An arrival cue only, so
+  // Cards showing something not seen in an earlier week. Navigation state only, so
   // it expires rather than sitting in the view, and never lands in a screenshot.
   const [changedIds, setChangedIds] = useState<Set<string>>(new Set())
 
@@ -269,7 +269,7 @@ export default function WeeklyCalendar({
     setScreenshotError(null)
     setIsCapturing(true)
     try {
-      // The change cue is navigation state, not schedule content, so it must not
+      // The breathing is navigation state, not schedule content, so it must not
       // reach the image. Clearing it is not enough on its own — wait for the
       // frame that paints without it before reading the DOM.
       setChangedIds(new Set())
@@ -448,7 +448,7 @@ export default function WeeklyCalendar({
     : undefined
 
   // Skipping repeats steps to the nearest week showing something this one does not,
-  // so every click lands on something new. Same comparison as the rings.
+  // so every click lands on something new. Same comparison as the breathing.
   const step = (direction: 1 | -1) => {
     if (!activeWeek) return undefined
     if (!skipRepeatWeeks) return weeks[weekIndex + direction]
@@ -458,8 +458,9 @@ export default function WeeklyCalendar({
   const previousStop = step(-1)
   const nextStop = step(1)
 
-  // Only a move between weeks earns the cue: it marks what the move revealed. A
-  // term switch moves the shown week too, and ringing that says "everything is new".
+  // Only a move between weeks earns the breathing: it marks what the move
+  // revealed. A term switch moves the shown week too, and breathing there would
+  // say "everything is new".
   const goToWeek = (week: Date) => {
     if (activeWeek) setChangedIds(changedEventIds(events, week, activeWeek))
     setSelectedWeekTime(week.getTime())
@@ -992,7 +993,7 @@ export default function WeeklyCalendar({
                               hover:scale-105 transition-all duration-300 cursor-pointer
                               overflow-hidden group
                               ${isSelected ? 'scale-105' : ''}
-                              ${changedIds.has(event.id) ? 'changed-ring' : ''}
+                              ${changedIds.has(event.id) ? 'changed-breathing' : ''}
                             `}
                                 onClick={() => {
                                   if (onSelectEnrollment && event.enrollmentId) {
