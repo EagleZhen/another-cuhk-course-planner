@@ -8,8 +8,7 @@ export default defineConfig({
   reporter: 'list',
   use: {
     baseURL: 'http://localhost:3000',
-    // Retries stay off so a flake shows as one, which leaves the trace as the only
-    // record of a CI-only failure. `on-first-retry` would never fire here.
+    // Retries are off, so `on-first-retry` would never fire.
     trace: 'retain-on-failure',
   },
   webServer: {

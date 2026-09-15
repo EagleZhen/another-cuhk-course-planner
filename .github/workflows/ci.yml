@@ -88,9 +88,8 @@ jobs:
 
       - run: npm run format:check
 
-  # Separate from the web job: it is the slow one, and the only cover for anything
-  # above `lib/`. Unit tests reach pure logic only, so a regression in component
-  # wiring reaches main green without this.
+  # Its own job: the slow one, and the only cover above `lib/`. Unit tests reach
+  # pure logic, so component wiring reaches main green without this.
   e2e:
     name: web (e2e)
     runs-on: ubuntu-latest
@@ -118,13 +117,11 @@ jobs:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.version }}
 
-      # Only the two the config runs, not the default set. Unconditional: the cache
-      # restores the binaries but not their apt dependencies, which live in system
-      # paths, and installing over binaries already present is a no-op.
+      # Only the two the config runs. Unconditional: the cache restores the binaries
+      # but not their apt dependencies, and reinstalling present binaries is a no-op.
       - run: npx playwright install --with-deps chromium webkit
 
-      # No retries on purpose: the breathing expires on a timer, so the suite races
-      # its own 3.1s lifetime. Retrying would hide the flake worth knowing about.
+      # No retries: the breathing expires on a timer, so a flake here is worth seeing.
       - run: npx playwright test
 
       - if: failure()

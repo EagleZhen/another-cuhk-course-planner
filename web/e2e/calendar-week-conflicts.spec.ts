@@ -89,9 +89,8 @@ async function openBothTerms(page: Page) {
   })
 }
 
-// Sampling the DOM cannot prove a negative here: the breathing clears itself after
-// CHANGED_HIGHLIGHT_MS, so a late count reads zero whether or not it ever appeared.
-// Watch from before the action instead, and the answer stops depending on timing.
+// The breathing clears itself, so counting after the fact reads zero whether or not
+// it ever appeared. Watch from before the action instead.
 async function watchForBreathing(page: Page) {
   await page.evaluate(() => {
     const flag = window as unknown as { breathed: boolean }
