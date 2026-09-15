@@ -458,9 +458,9 @@ export default function WeeklyCalendar({
   const previousStop = step(-1)
   const nextStop = step(1)
 
-  // Only a move between weeks earns the breathing: it marks what the move
-  // revealed. A term switch moves the shown week too, and breathing there would
-  // say "everything is new".
+  // Raised by the navigation rather than by the week changing: a term switch
+  // changes it too, and breathing for that would say "everything is new". Paging
+  // and the conflict jump are the only callers.
   const goToWeek = (week: Date) => {
     if (activeWeek) setChangedIds(changedEventIds(events, week, activeWeek))
     setSelectedWeekTime(week.getTime())

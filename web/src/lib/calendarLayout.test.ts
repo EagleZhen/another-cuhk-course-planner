@@ -210,7 +210,7 @@ describe('what changes between weeks', () => {
   })
 
   // A class that stops leaves no card, so the arrival has nothing to mark. That is
-  // the only reason a skipped step can land on a week showing no ring at all.
+  // the only reason a skipped step can land on a week showing no breathing at all.
   it('marks nothing when the difference is a class leaving', () => {
     const events = [card(0, 'LEC'), card(1, 'LEC'), card(1, 'TUT')]
 
