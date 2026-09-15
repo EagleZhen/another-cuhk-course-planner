@@ -6,6 +6,10 @@ const term = '2026-27 Term 1'
 const storageKey = `schedule_${term}`
 const slot = 'Fr 2:30PM - 5:15PM'
 
+// Term 2's dates are Fridays in 2027 only, so they resolve to its second year.
+const termTwo = '2026-27 Term 2'
+const storageKeyTwo = `schedule_${termTwo}`
+
 // The shown week is today's, clamped to the cart's range, so the wall clock would
 // otherwise decide which week these assertions run against.
 const TODAY = new Date('2026-09-08T10:00:00+08:00')
@@ -28,37 +32,87 @@ function section(id: string, sectionCode: string, sectionType: string, dates: st
   }
 }
 
-async function openPlanner(page: Page, tutorialDates: string, lectureDates = '11/9') {
-  const sections = [
-    section('lec', '--LEC (1)', 'LEC', lectureDates),
-    section('tut', '-T01-TUT (2)', 'TUT', tutorialDates),
-  ]
+function storedSchedule(
+  termCode: string,
+  termName: string,
+  sections: ReturnType<typeof section>[]
+) {
+  return JSON.stringify({
+    version: 3,
+    enrollments: [
+      {
+        courseId: 'GEWS1011',
+        course: {
+          subject: 'GEWS',
+          courseCode: '1011',
+          title: 'College Induction Course',
+          credits: 3,
+          terms: [{ termCode, termName, sections }],
+        },
+        selectedSections: sections,
+        color: 'bg-teal-700',
+        isVisible: true,
+        isInvalid: false,
+      },
+    ],
+  })
+}
 
+async function seed(page: Page, schedules: Record<string, string>) {
   await page.clock.setFixedTime(TODAY)
   await page.route('**/data/**', (route) => route.abort())
-  await page.addInitScript(({ key, value }) => localStorage.setItem(key, value), {
-    key: storageKey,
-    value: JSON.stringify({
-      version: 3,
-      enrollments: [
-        {
-          courseId: 'GEWS1011',
-          course: {
-            subject: 'GEWS',
-            courseCode: '1011',
-            title: 'College Induction Course',
-            credits: 3,
-            terms: [{ termCode: '2610', termName: term, sections }],
-          },
-          selectedSections: sections,
-          color: 'bg-teal-700',
-          isVisible: true,
-          isInvalid: false,
-        },
-      ],
-    }),
-  })
+  await page.addInitScript((stored: Record<string, string>) => {
+    for (const [key, value] of Object.entries(stored)) localStorage.setItem(key, value)
+  }, schedules)
   await page.goto('/')
+}
+
+async function openPlanner(page: Page, tutorialDates: string, lectureDates = '11/9') {
+  await seed(page, {
+    [storageKey]: storedSchedule('2610', term, [
+      section('lec', '--LEC (1)', 'LEC', lectureDates),
+      section('tut', '-T01-TUT (2)', 'TUT', tutorialDates),
+    ]),
+  })
+}
+
+// Two constraints the breathing counts rest on: both terms have dated meetings,
+// or there are no cards to breathe on; and they land on different weeks, or the
+// shown week never changes and the comparison runs against itself.
+async function openBothTerms(page: Page) {
+  await seed(page, {
+    [storageKey]: storedSchedule('2610', term, [section('lec', '--LEC (1)', 'LEC', '11/9')]),
+    [storageKeyTwo]: storedSchedule('2620', termTwo, [
+      section('lec', '--LEC (1)', 'LEC', '8/1, 15/1'),
+      section('tut', '-T01-TUT (2)', 'TUT', '15/1'),
+    ]),
+  })
+}
+
+// The breathing clears itself, so counting after the fact reads zero whether or not
+// it ever appeared. Watch from before the action instead.
+async function watchForBreathing(page: Page) {
+  await page.evaluate(() => {
+    const flag = window as unknown as { breathed: boolean }
+    flag.breathed = false
+    new MutationObserver(() => {
+      if (document.querySelector('.changed-breathing')) flag.breathed = true
+    }).observe(document.body, { subtree: true, attributes: true, childList: true })
+  })
+
+  return async () => {
+    // The class lands a commit after the cards, so settle before reading.
+    await page.evaluate(
+      () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
+    )
+
+    return page.evaluate(() => (window as unknown as { breathed: boolean }).breathed)
+  }
+}
+
+async function switchToTerm(page: Page, label: string) {
+  await page.getByTitle('Click to change term').first().click()
+  await page.getByRole('button', { name: label, exact: true }).click()
 }
 
 const cards = (page: Page) => page.locator('[data-course-card]')
@@ -157,16 +211,41 @@ test('back clears the run it is standing in', async ({ page }) => {
   await expect(page.getByTitle('Every earlier week shows the same classes')).toBeVisible()
 })
 
-test('rings the card that was not on the timetable it came from', async ({ page }) => {
+test('breathes on the card that was not on the timetable it came from', async ({ page }) => {
   await openPlanner(page, '25/9, 2/10, 9/10', '11/9, 18/9')
 
-  // Week 1 is arrived at with nothing before it, so nothing rings.
-  await expect(page.locator('.changed-ring')).toHaveCount(0)
+  // Week 1 is arrived at with nothing before it, so nothing breathes.
+  await expect(page.locator('.changed-breathing')).toHaveCount(0)
 
   await page.getByRole('button', { name: 'Next week' }).click()
   await expect(page.getByText('Week 3 of 5')).toBeVisible()
-  await expect(page.locator('.changed-ring')).toHaveCount(1)
+  await expect(page.locator('.changed-breathing')).toHaveCount(1)
 
   // It is navigation state, not schedule content, so it lets go by itself.
-  await expect(page.locator('.changed-ring')).toHaveCount(0, { timeout: 6000 })
+  await expect(page.locator('.changed-breathing')).toHaveCount(0, { timeout: 6000 })
+})
+
+// A term switch replaces the timetable rather than stepping through one, so every
+// card is new by definition and saying so of all of them says nothing.
+test('breathes on nothing when a term switch swaps the timetable', async ({ page }) => {
+  await openBothTerms(page)
+  await expect(cards(page)).toHaveCount(1)
+
+  const breathed = await watchForBreathing(page)
+  await switchToTerm(page, 'Term 2')
+
+  await expect(page.getByText('Week 1 of 2')).toBeVisible()
+  await expect(cards(page)).toHaveCount(1)
+  expect(await breathed()).toBe(false)
+})
+
+test('breathes on what a step reveals in the term switched to', async ({ page }) => {
+  await openBothTerms(page)
+  await switchToTerm(page, 'Term 2')
+  await expect(page.getByText('Week 1 of 2')).toBeVisible()
+
+  await page.getByRole('button', { name: 'Next week' }).click()
+
+  await expect(page.getByText('Week 2 of 2')).toBeVisible()
+  await expect(page.locator('.changed-breathing')).toHaveCount(1, { timeout: 1000 })
 })

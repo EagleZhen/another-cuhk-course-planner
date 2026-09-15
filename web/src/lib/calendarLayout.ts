@@ -154,7 +154,7 @@ export function eventsInWeek(events: CalendarEvent[], weekStart: Date): Calendar
 // === WHAT CHANGES BETWEEN WEEKS ===
 //
 // A week is identified by what it shows, not when: same classes, same rooms, same
-// instructors. Skipping repeats and ringing what changed read a week through that
+// instructors. Skipping repeats and breathing on what changed read a week through
 // one key, so the two can never disagree about what a week holds.
 
 /** A card's content, with its date left out. */

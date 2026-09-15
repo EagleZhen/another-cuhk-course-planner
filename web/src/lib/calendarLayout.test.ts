@@ -210,7 +210,7 @@ describe('what changes between weeks', () => {
   })
 
   // A class that stops leaves no card, so the arrival has nothing to mark. That is
-  // the only reason a skipped step can land on a week showing no ring at all.
+  // the only reason a skipped step can land on a week showing no breathing at all.
   it('marks nothing when the difference is a class leaving', () => {
     const events = [card(0, 'LEC'), card(1, 'LEC'), card(1, 'TUT')]
 
@@ -266,7 +266,7 @@ describe('weeksWithConflict', () => {
 // The rule's three past bugs all came from carts no unit test held: a section
 // swapping type, a lecture moving building, a class returning mid-term. Driven by
 // the real producer, so a change in how occurrences are built shows up here.
-describe('the arrival cue over a real cart', () => {
+describe('the breathing over a real cart', () => {
   const TERM = '2026-27 Term 1'
 
   const published = (subject: string, courseCode: string): InternalCourse => {

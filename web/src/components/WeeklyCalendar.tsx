@@ -103,7 +103,7 @@ function dateOfDay(weekStart: Date | null, day: WeekDay): Date | null {
   )
 }
 
-/** Just past two breaths of `changed-ring`, so the cue ends on its own. */
+/** Just past two breaths of `changed-breathing`, so it ends on its own. */
 const CHANGED_HIGHLIGHT_MS = 3100
 
 interface WeeklyCalendarProps {
@@ -144,7 +144,7 @@ export default function WeeklyCalendar({
   const [isIcsMenuExpanded, setIsIcsMenuExpanded] = useState(false)
   const [selectedWeekTime, setSelectedWeekTime] = useState<number | null>(null)
   const [skipRepeatWeeks, setSkipRepeatWeeks] = useState(true)
-  // Cards showing something not seen in an earlier week. An arrival cue only, so
+  // Cards showing something not seen in an earlier week. Navigation state only, so
   // it expires rather than sitting in the view, and never lands in a screenshot.
   const [changedIds, setChangedIds] = useState<Set<string>>(new Set())
 
@@ -161,8 +161,6 @@ export default function WeeklyCalendar({
     scrollbarWidth: 0,
   })
 
-  // The week we came from, so a change reads the same going back as forwards.
-  const lastShownWeekRef = useRef<number | null>(null)
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const calendarRef = useRef<HTMLDivElement>(null)
 
@@ -271,7 +269,7 @@ export default function WeeklyCalendar({
     setScreenshotError(null)
     setIsCapturing(true)
     try {
-      // The change cue is navigation state, not schedule content, so it must not
+      // The breathing is navigation state, not schedule content, so it must not
       // reach the image. Clearing it is not enough on its own — wait for the
       // frame that paints without it before reading the DOM.
       setChangedIds(new Set())
@@ -428,8 +426,8 @@ export default function WeeklyCalendar({
   }
 
   // The cart's own weeks, first occurrence to last. The selection is derived
-  // rather than synced, so a cart or term change that drops the chosen week
-  // falls back to today's without an effect to keep in step.
+  // rather than synced: a cart or term change keeps the chosen week where the new
+  // range still holds it, and falls back to today's where it does not.
   const weeks = useMemo(() => weekRange(events), [events])
   const landingWeek = useMemo(() => defaultWeek(weeks, new Date()), [weeks])
   const chosenWeek = weeks.find((week) => week.getTime() === selectedWeekTime)
@@ -450,7 +448,7 @@ export default function WeeklyCalendar({
     : undefined
 
   // Skipping repeats steps to the nearest week showing something this one does not,
-  // so every click lands on something new. Same comparison as the rings.
+  // so every click lands on something new. Same comparison as the breathing.
   const step = (direction: 1 | -1) => {
     if (!activeWeek) return undefined
     if (!skipRepeatWeeks) return weeks[weekIndex + direction]
@@ -459,6 +457,14 @@ export default function WeeklyCalendar({
   }
   const previousStop = step(-1)
   const nextStop = step(1)
+
+  // Raised by the navigation rather than by the week changing: a term switch
+  // changes it too, and breathing for that would say "everything is new". Paging
+  // and the conflict jump are the only callers.
+  const goToWeek = (week: Date) => {
+    if (activeWeek) setChangedIds(changedEventIds(events, week, activeWeek))
+    setSelectedWeekTime(week.getTime())
+  }
 
   // A dead chevron says why: an end of the range, or nothing new left that way.
   const noPreviousReason = previousStop
@@ -472,25 +478,13 @@ export default function WeeklyCalendar({
       ? 'This is the last week of your timetable'
       : 'Every later week shows the same classes'
 
-  const activeWeekTime = activeWeek?.getTime() ?? null
-
   useEffect(() => {
-    if (activeWeekTime === null) return
+    if (changedIds.size === 0) return
 
-    const lastShown = lastShownWeekRef.current
-    lastShownWeekRef.current = activeWeekTime
-
-    setChangedIds(
-      changedEventIds(
-        events,
-        new Date(activeWeekTime),
-        lastShown === null ? null : new Date(lastShown)
-      )
-    )
     const timer = setTimeout(() => setChangedIds(new Set()), CHANGED_HIGHLIGHT_MS)
 
     return () => clearTimeout(timer)
-  }, [events, activeWeekTime])
+  }, [changedIds])
 
   // Columns and hours span every week, so paging does not shift the grid.
   const days = getRequiredDays(events)
@@ -742,7 +736,7 @@ export default function WeeklyCalendar({
                   variant="outline"
                   size="sm"
                   title={`${conflictWeeks.length} of ${weeks.length} weeks have a conflict`}
-                  onClick={() => setSelectedWeekTime(conflictToReview.getTime())}
+                  onClick={() => goToWeek(conflictToReview)}
                   // Same shape as the skip toggle beside the navigator; purple only
                   // because purple is what marks a conflict everywhere else.
                   className="h-6 border-1 border-purple-300 px-2 text-xs font-normal text-purple-700 cursor-pointer hover:bg-purple-50 hover:text-purple-800 focus-visible:ring-1 max-md:order-last"
@@ -763,7 +757,7 @@ export default function WeeklyCalendar({
                   className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
                   disabled={!previousStop}
                   aria-label="Previous week"
-                  onClick={() => previousStop && setSelectedWeekTime(previousStop.getTime())}
+                  onClick={() => previousStop && goToWeek(previousStop)}
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
@@ -779,7 +773,7 @@ export default function WeeklyCalendar({
                   className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
                   disabled={!nextStop}
                   aria-label="Next week"
-                  onClick={() => nextStop && setSelectedWeekTime(nextStop.getTime())}
+                  onClick={() => nextStop && goToWeek(nextStop)}
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -999,7 +993,7 @@ export default function WeeklyCalendar({
                               hover:scale-105 transition-all duration-300 cursor-pointer
                               overflow-hidden group
                               ${isSelected ? 'scale-105' : ''}
-                              ${changedIds.has(event.id) ? 'changed-ring' : ''}
+                              ${changedIds.has(event.id) ? 'changed-breathing' : ''}
                             `}
                                 onClick={() => {
                                   if (onSelectEnrollment && event.enrollmentId) {
