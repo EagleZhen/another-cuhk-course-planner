@@ -101,7 +101,14 @@ async function watchForBreathing(page: Page) {
     }).observe(document.body, { subtree: true, attributes: true, childList: true })
   })
 
-  return () => page.evaluate(() => (window as unknown as { breathed: boolean }).breathed)
+  return async () => {
+    // The class lands a commit after the cards, so settle before reading.
+    await page.evaluate(
+      () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
+    )
+
+    return page.evaluate(() => (window as unknown as { breathed: boolean }).breathed)
+  }
 }
 
 async function switchToTerm(page: Page, label: string) {
