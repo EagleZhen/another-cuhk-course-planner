@@ -89,6 +89,21 @@ async function openBothTerms(page: Page) {
   })
 }
 
+// Sampling the DOM cannot prove a negative here: the breathing clears itself after
+// CHANGED_HIGHLIGHT_MS, so a late count reads zero whether or not it ever appeared.
+// Watch from before the action instead, and the answer stops depending on timing.
+async function watchForBreathing(page: Page) {
+  await page.evaluate(() => {
+    const flag = window as unknown as { breathed: boolean }
+    flag.breathed = false
+    new MutationObserver(() => {
+      if (document.querySelector('.changed-breathing')) flag.breathed = true
+    }).observe(document.body, { subtree: true, attributes: true, childList: true })
+  })
+
+  return () => page.evaluate(() => (window as unknown as { breathed: boolean }).breathed)
+}
+
 async function switchToTerm(page: Page, label: string) {
   await page.getByTitle('Click to change term').first().click()
   await page.getByRole('button', { name: label, exact: true }).click()
@@ -210,12 +225,12 @@ test('breathes on nothing when a term switch swaps the timetable', async ({ page
   await openBothTerms(page)
   await expect(cards(page)).toHaveCount(1)
 
+  const breathed = await watchForBreathing(page)
   await switchToTerm(page, 'Term 2')
 
   await expect(page.getByText('Week 1 of 2')).toBeVisible()
   await expect(cards(page)).toHaveCount(1)
-  // The breathing lets go by itself, so a late count reads zero either way.
-  await expect(page.locator('.changed-breathing')).toHaveCount(0, { timeout: 1000 })
+  expect(await breathed()).toBe(false)
 })
 
 test('breathes on what a step reveals in the term switched to', async ({ page }) => {
