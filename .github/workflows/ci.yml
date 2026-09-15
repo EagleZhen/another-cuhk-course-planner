@@ -87,3 +87,49 @@ jobs:
       - run: npm ci
 
       - run: npm run format:check
+
+  # Separate from the web job: it is the slow one, and the only cover for anything
+  # above `lib/`. Unit tests reach pure logic only, so a regression in component
+  # wiring reaches main green without this.
+  e2e:
+    name: web (e2e)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: web/.nvmrc
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - run: npm ci
+
+      # The browsers are ~500MB and change only with Playwright itself.
+      - id: playwright
+        run: echo "version=$(node -p 'require("@playwright/test/package.json").version')" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/cache@v6
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.version }}
+
+      # Only the two the config runs, not the default set. Unconditional: the cache
+      # restores the binaries but not their apt dependencies, which live in system
+      # paths, and installing over binaries already present is a no-op.
+      - run: npx playwright install --with-deps chromium webkit
+
+      # No retries on purpose: the breathing expires on a timer, so the suite races
+      # its own 3.1s lifetime. Retrying would hide the flake worth knowing about.
+      - run: npx playwright test
+
+      - if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-results
+          path: web/test-results/
+          retention-days: 7
