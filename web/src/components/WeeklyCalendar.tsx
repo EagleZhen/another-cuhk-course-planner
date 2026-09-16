@@ -811,20 +811,34 @@ export default function WeeklyCalendar({
             </button>
           )}
 
+          {/* A week can be genuinely empty. Say so, so it does not read as a bug.
+              Outside the scroller so it centres on the visible area rather than the
+              scrollable width, which on a phone is off the screen. The padding drops
+              the edges that are not day grid; the horizontal scrollbar is not worth
+              measuring for the few pixels it moves. */}
+          {activeWeek && weekEvents.length === 0 && (
+            <div
+              className="absolute inset-y-0 left-4 right-4 z-30 flex items-center justify-center pointer-events-none"
+              style={{
+                paddingLeft: `${CALENDAR_LAYOUT_CONSTANTS.TIME_LABEL_COLUMN_WIDTH}px`,
+                paddingRight: `${scrollState.scrollbarWidth}px`,
+                paddingTop: `${CALENDAR_LAYOUT_CONSTANTS.STICKY_HEADER_HEIGHT}px`,
+              }}
+            >
+              {/* The fill is not decoration: bare text is judged against whichever
+                  rule runs beside it, and reads as off-centre. */}
+              <span className="rounded-lg bg-white px-5 py-3 text-sm text-gray-500 shadow-sm">
+                No classes this week
+              </span>
+            </div>
+          )}
+
           <div className="h-full overflow-auto" ref={scrollContainerRef} onScroll={handleScroll}>
             <div
               ref={calendarRef}
               className="h-full relative"
               style={{ minWidth: `${minimumCalendarWidth}px` }}
             >
-              {/* A week can be genuinely empty. Say so, so it does not read as a bug. */}
-              {activeWeek && weekEvents.length === 0 && (
-                <div className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none">
-                  <span className="rounded-full bg-white/90 px-3 py-1 text-xs text-gray-500 shadow-xs">
-                    No classes this week
-                  </span>
-                </div>
-              )}
               {/* Sticky Header Row */}
               <div
                 className="grid border-gray-200 bg-white sticky top-0 z-50 shadow-xs"
