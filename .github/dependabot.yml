@@ -1,11 +1,15 @@
 # Version-update PRs. Security updates run separately from repo settings.
 # Minor/patch grouped into one weekly PR; majors come separately for a closer look.
+# Friday evening HKT, so the batch is waiting at the start of the weekend rather than the end of it.
 version: 2
 updates:
   - package-ecosystem: npm
     directory: /web
     schedule:
       interval: weekly
+      day: friday
+      time: '18:00'
+      timezone: Asia/Hong_Kong
     labels:
       - dependencies
     # ESLint v10 crashes eslint-config-next's bundled plugins; see docs/decisions.md.
@@ -23,6 +27,9 @@ updates:
     directory: /
     schedule:
       interval: weekly
+      day: friday
+      time: '18:00'
+      timezone: Asia/Hong_Kong
     labels:
       - dependencies
     groups:
@@ -35,6 +42,9 @@ updates:
     directory: /
     schedule:
       interval: weekly
+      day: friday
+      time: '18:00'
+      timezone: Asia/Hong_Kong
     labels:
       - dependencies
     groups:
@@ -47,6 +57,9 @@ updates:
     directory: /
     schedule:
       interval: weekly
+      day: friday
+      time: '18:00'
+      timezone: Asia/Hong_Kong
     labels:
       - dependencies
     groups:
