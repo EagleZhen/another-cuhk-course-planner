@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "UGEB",
     "subject_title": "UGEB: Nature, Science and Technology",
-    "total_courses": 44
+    "total_courses": 43
   },
   "courses": [
     {
@@ -28,10 +28,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "22",
+                "enrolled": "21",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -49,10 +49,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "22",
+                "enrolled": "21",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -167,11 +167,11 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "30",
+                "enrolled": "29",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": ""
@@ -188,11 +188,11 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "30",
+                "enrolled": "29",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": ""
@@ -209,11 +209,11 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "30",
+                "enrolled": "29",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": ""
@@ -569,10 +569,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "25",
+                "enrolled": "24",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "35",
+                "available_seats": "36",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
@@ -1616,7 +1616,7 @@
                 "capacity": "60",
                 "enrolled": "60",
                 "waitlist_capacity": "999",
-                "waitlist_total": "11",
+                "waitlist_total": "10",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -1732,10 +1732,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "33",
+                "enrolled": "34",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "17",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -1753,10 +1753,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "46",
+                "enrolled": "47",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "Putonghua and English",
@@ -2011,10 +2011,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "50",
+                "enrolled": "51",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "49",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -2127,10 +2127,10 @@
               ],
               "availability": {
                 "capacity": "61",
-                "enrolled": "60",
+                "enrolled": "59",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
-                "available_seats": "1",
+                "waitlist_total": "0",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -2411,89 +2411,6 @@
     },
     {
       "subject": "UGEB",
-      "course_code": "2502",
-      "title": "Human Evolution",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (7568)",
-              "meetings": [
-                {
-                  "time": "Mo 2:30PM - 4:15PM",
-                  "location": "T.C. Cheng Bldg C4",
-                  "instructor": "Dr. FUNG Ying Tung",
-                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-                },
-                {
-                  "time": "Mo 2:30PM - 4:15PM",
-                  "location": "T.C. Cheng Bldg C4",
-                  "instructor": "Dr. FUNG Ying Tung",
-                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
-                }
-              ],
-              "availability": {
-                "capacity": "20",
-                "enrolled": "0",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "20",
-                "status": "Open"
-              },
-              "class_attributes": "English only",
-              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
-            },
-            {
-              "section": "-T01-TUT (7569)",
-              "meetings": [
-                {
-                  "time": "Mo 4:30PM - 5:15PM",
-                  "location": "T.C. Cheng Bldg C4",
-                  "instructor": "Dr. FUNG Ying Tung",
-                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
-                },
-                {
-                  "time": "Mo 4:30PM - 5:15PM",
-                  "location": "T.C. Cheng Bldg C4",
-                  "instructor": "Dr. FUNG Ying Tung",
-                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
-                }
-              ],
-              "availability": {
-                "capacity": "20",
-                "enrolled": "0",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "20",
-                "status": "Open"
-              },
-              "class_attributes": "English only",
-              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
-            }
-          ]
-        }
-      ],
-      "description": "(UGEB2502 is double-coded with ANTH2810.)\n\nWhat does it mean to be human? Where did we come from? Where are we going? This course investigates long-term evolutionary perspectives on the human species. The basics of evolution and natural selection as scientific theories are clearly set out and examined, and common misconceptions discussed. Evidence for the evolution of mammals and primates is reviewed and discussed, and the common characteristics of these species are highlighted, demonstrating the connections between humans and other forms of life. The course covers what we know about human ancestors and the evolution of modern humans. Students are introduced to the wide range of human adaptations to local conditions across contemporary cultures and the variety of relationships that human populations have with the environment. Students are encouraged to use the knowledge they have acquired to ask: are these relationships always sustainable? Looking to the future: what are our responsibilities both to future generations of humans and towards other species with which we share our world? This course aims to give students an understanding and appreciation of evolutionary perspectives on the place of humans in the world, the variety of contemporary human societies, and a broad perspective on the complexity of the relationship between humans, the environment and other species.",
-      "enrollment_requirement": "UGEB2502 is double-coded with ANTH2810. \nNot for Anthropology Majors; and students who have taken ANTH2810. \nCo-requisite: UGFH1000, UGFN1000 or UGFN1001 (only applicable to students admitted to the 4-year curriculum)",
-      "course_attributes": "Shared Learning Activities with ANTH5810",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Office of University GE",
-      "academic_org": "Dept of Anthropology",
-      "learning_outcomes": "In this course students learn about the nature of scientific theories and their development, as well as the use of evidence in evaluating hypotheses. Students are also exposed to the potential for misunderstandings of scientific theory and the distinction between fact and value. Comparative abilities are emphasised through reviewing common features of the life-course of a variety of animals and the influence of animal habitats, with particular focus on closely related primate species.\n\nThe history of human evolution is introduced to students, focussing on the emergence of universal capacities such as language, technology, art and culture. Students are encouraged to learn about and appreciate the variety of human cultures and the flexibility of humans in adapting to local environments. A comparative perspective on human culture is encouraged through a focus on the common subsistence needs of all humans, and the variety of practices by which these needs are met.\n\nStudents are exposed to a wide perspective on the place of the human species in the world. They are encouraged to exercise long-term evaluations of, and exercise a sense of judgement about the impact and sustainability of human action, both in relation to the environment and other species as well as future generations of the human species. Students are thus encouraged to think about their own place in society.",
-      "assessment_types": {
-        "Essays": "45",
-        "Essay test or exam": "25",
-        "Others": "30"
-      }
-    },
-    {
-      "subject": "UGEB",
       "course_code": "2530",
       "title": "Games and Strategic Thinking",
       "credits": "3.00",
@@ -2647,10 +2564,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "41",
+                "enrolled": "42",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "59",
+                "available_seats": "58",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -2697,10 +2614,10 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "22",
+                "enrolled": "21",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "53",
+                "available_seats": "54",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -3130,10 +3047,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "90",
+                "enrolled": "96",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
@@ -3151,10 +3068,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "90",
+                "enrolled": "96",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",

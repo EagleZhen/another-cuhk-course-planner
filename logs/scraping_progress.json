@@ -1,8 +1,8 @@
 {
   "latest_run": {
-    "started_at": "2026-09-16 22:22:03 HK",
-    "last_updated": "2026-09-17 07:40:27 HK",
-    "duration": "9h 18m 23s",
+    "started_at": "2026-09-17 22:22:03 HK",
+    "last_updated": "2026-09-18 07:37:34 HK",
+    "duration": "9h 15m 31s",
     "status": "completed",
     "mode": "full",
     "subjects_total": 270,
@@ -15,7 +15,7 @@
     }
   },
   "latest_full_scrape": {
-    "started_at": "2026-09-16T14:22:03.558576+00:00",
+    "started_at": "2026-09-17T14:22:03.403133+00:00",
     "remaining": [],
     "directories": [
       "data/2026-27",
@@ -691,7 +691,7 @@
     "GRMD": {
       "status": "completed",
       "courses_count": 86,
-      "output_file": "data/2026-27/GRMD.json, data/no-terms/GRMD.json"
+      "output_file": "data/no-terms/GRMD.json, data/2026-27/GRMD.json"
     },
     "GRON": {
       "status": "completed",
