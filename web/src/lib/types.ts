@@ -185,7 +185,6 @@ export interface CalendarEvent {
   time: string
   location: string
   instructors: string // Scraped form ("Professor CHAN"); display via formatInstructorsCompact
-  credits: number
   color: string
   isVisible: boolean
   hasConflict: boolean

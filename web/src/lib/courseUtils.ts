@@ -217,7 +217,6 @@ export function enrollmentsToCalendarEvents(
             time: meeting.time,
             location: meeting.location,
             instructors: meeting.instructors,
-            credits: enrollment.course.credits,
             color: enrollment.color,
             isVisible: enrollment.isVisible,
             hasConflict: false, // Will be computed later
