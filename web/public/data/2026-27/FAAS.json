@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "FAAS",
     "subject_title": "Fine Arts",
-    "total_courses": 75
+    "total_courses": 74
   },
   "courses": [
     {
@@ -1173,7 +1173,7 @@
                 "capacity": "70",
                 "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -1194,7 +1194,7 @@
                 "capacity": "70",
                 "enrolled": "70",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -1242,10 +1242,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "32",
+                "enrolled": "33",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only",
@@ -1263,10 +1263,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "32",
+                "enrolled": "33",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "Putonghua only",
@@ -1611,11 +1611,11 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "20",
+                "enrolled": "17",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "3",
+                "status": "Open"
               },
               "class_attributes": "Cantonese only",
               "enrollment_requirement": ""
@@ -1632,11 +1632,11 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "20",
+                "enrolled": "17",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "3",
+                "status": "Open"
               },
               "class_attributes": "Cantonese only",
               "enrollment_requirement": ""
@@ -1653,11 +1653,11 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "20",
+                "enrolled": "17",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "3",
+                "status": "Open"
               },
               "class_attributes": "Cantonese only",
               "enrollment_requirement": ""
@@ -2245,73 +2245,6 @@
     },
     {
       "subject": "FAAS",
-      "course_code": "3112",
-      "title": "Auspicious Metal: the Ritual Bronzes of Ancient China",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (4768)",
-              "meetings": [
-                {
-                  "time": "Tu 10:30AM - 12:15PM",
-                  "location": "T.C. Cheng Bldg 201",
-                  "instructor": "Professor PENG Peng",
-                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
-                }
-              ],
-              "availability": {
-                "capacity": "50",
-                "enrolled": "3",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "47",
-                "status": "Open"
-              },
-              "class_attributes": "Putonghua only",
-              "enrollment_requirement": ""
-            },
-            {
-              "section": "-T01-TUT (4769)",
-              "meetings": [
-                {
-                  "time": "Tu 12:30PM - 1:15PM",
-                  "location": "T.C. Cheng Bldg 201",
-                  "instructor": "Professor PENG Peng",
-                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
-                }
-              ],
-              "availability": {
-                "capacity": "50",
-                "enrolled": "3",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "47",
-                "status": "Open"
-              },
-              "class_attributes": "Putonghua only",
-              "enrollment_requirement": ""
-            }
-          ]
-        }
-      ],
-      "description": "With special emphasis on recent excavations, this course will look at the artistic and technological development of cast-bronze artifacts from around 1600 BCE to the last few centuries BCE, in an attempt to understand China’s unique achievements in relation to other ancient Bronze Age civilizations. Ritual bronze vessels and weapons will be studied as reflections not only of artistic developments, but also of political, social, religious, and economic developments of the time. Original works of art will be used as teaching material when appropriate.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Fine Arts",
-      "academic_org": "Dept of Fine Arts",
-      "learning_outcomes": "After completing the course, student will:\n\n- have a firm grasp of the “masterpieces” of ancient China’s bronze-casting tradition from the 2nd millennium B.C. to the beginning of the Christian era, from both archaeological excavations and museum collections worldwide;\n- understand the special characteristics of bronze-casting techniques in ancient China and how it developed to meet different needs of the society – as props for state and religious rituals, as functional weapons for battle, as luxury status symbols for the elite etc. ;\n- appreciate the unique qualities of ancient China’s bronze-casting technology as a reflection not only of artistic sensibilities, but also as reflections of political, social, religious, and economic developments of the time; and\n\n- be prepared to pursue in-depth (including graduation-level independent thesis research) some of the key issues related to metal technologies and their artistic, cultural, and economic role in ancient China and/or early societies in general",
-      "assessment_types": {}
-    },
-    {
-      "subject": "FAAS",
       "course_code": "3119",
       "title": "Western Art II: from Impressionism to the Late 1940s",
       "credits": "3.00",
@@ -2794,11 +2727,11 @@
               ],
               "availability": {
                 "capacity": "14",
-                "enrolled": "12",
+                "enrolled": "14",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese only",
               "enrollment_requirement": ""
@@ -2815,11 +2748,11 @@
               ],
               "availability": {
                 "capacity": "14",
-                "enrolled": "12",
+                "enrolled": "14",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "Cantonese only",
               "enrollment_requirement": ""
@@ -3211,9 +3144,9 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "22",
+                "enrolled": "21",
                 "waitlist_capacity": "999",
-                "waitlist_total": "4",
+                "waitlist_total": "3",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -3232,9 +3165,9 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "22",
+                "enrolled": "21",
                 "waitlist_capacity": "999",
-                "waitlist_total": "4",
+                "waitlist_total": "3",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -3288,10 +3221,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "19",
+                "enrolled": "18",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -3315,10 +3248,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "19",
+                "enrolled": "18",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -4230,10 +4163,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "5",
+                "enrolled": "4",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
@@ -6947,10 +6880,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "0",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only",
