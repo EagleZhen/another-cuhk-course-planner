@@ -5,13 +5,9 @@
 // Single-host to match the old rewrite exactly.
 // TODO(#177): route /static/* to the assets host.
 
-interface Env {
-  POSTHOG_HOST?: string // optional binding to override the region host
-}
-
-export const onRequest: PagesFunction<Env> = async (context) => {
-  const { request, params, env } = context
-  const host = env.POSTHOG_HOST ?? 'https://us.i.posthog.com'
+export const onRequest: PagesFunction = async (context) => {
+  const { request, params } = context
+  const host = 'https://us.i.posthog.com'
 
   // Catch-all segments: array for a/b, string for a, undefined for the bare path.
   const path = Array.isArray(params.path) ? params.path.join('/') : (params.path ?? '')

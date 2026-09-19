@@ -9,12 +9,10 @@ afterEach(() => {
   upstream.mockClear()
 })
 
-// onRequest reads only these three; the cast stands in for the rest of the
-// Pages context (waitUntil, next, data, …), which never runs.
+// onRequest reads only these two; the cast stands in for the rest of the Pages
+// context (env, waitUntil, next, …), which never runs.
 async function proxy(path: string | string[] | undefined, request: Request) {
-  await onRequest({ request, params: { path }, env: {} } as unknown as Parameters<
-    typeof onRequest
-  >[0])
+  await onRequest({ request, params: { path } } as unknown as Parameters<typeof onRequest>[0])
   return upstream.mock.calls[0] as unknown as [url: string, init: RequestInit]
 }
 
