@@ -1864,7 +1864,7 @@ describe('formatCredits', () => {
     expect(formatCredits({ min: 3, max: 3 })).toBe('3')
   })
 
-  it('shows both bounds of a range, en-dashed', () => {
+  it('shows both bounds of a range', () => {
     expect(formatCredits({ min: 1.5, max: 2 })).toBe('1.5-2')
   })
 })
@@ -1901,6 +1901,8 @@ describe('sumCredits', () => {
 })
 
 describe('stored carts across the credits reshape (#331)', () => {
+  const saved = mkSection('PGDE5101_A', [mkMeeting({})], 'Cantonese only')
+
   const storedWithCredits = (credits: unknown) =>
     [
       {
@@ -1924,12 +1926,30 @@ describe('stored carts across the credits reshape (#331)', () => {
     expect(loaded?.[0].course.credits).toEqual({ min: 1.5, max: 2 })
   })
 
+  const storedWithSnapshot = (snapshot: SectionSignature) =>
+    [
+      {
+        courseId: 'PGDE5101',
+        course: { subject: 'PGDE', courseCode: '5101', title: 'x', credits: 3, terms: [] },
+        selectedSections: [saved],
+        lastSeenSections: { [saved.id]: snapshot },
+        color: 'bg-blue-500',
+        isVisible: true,
+      },
+    ] as unknown as CourseEnrollment[]
+
   it('does not report a section change, since credits are not in the signature', () => {
     // The reshape must not make the cart claim CUHK changed something the user saved.
-    const section = makeSection({ id: 'PGDE5101_A' })
-    const before = sectionSignature(section)
-    const after = sectionSignature(section)
+    const loaded = readStoredEnrollments(storedWithSnapshot(sectionSignature(saved)))
 
-    expect(before).toEqual(after)
+    expect(loaded?.[0].course.credits).toEqual({ min: 3, max: 3 })
+    expect(diffEnrollment(loaded![0])).toEqual([])
+  })
+
+  it('still reports a section CUHK did change, so the check above could have failed', () => {
+    const wasEnglish = { ...sectionSignature(saved), classAttributes: 'English only' }
+    const loaded = readStoredEnrollments(storedWithSnapshot(wasEnglish))
+
+    expect(diffEnrollment(loaded![0])).toHaveLength(1)
   })
 })
