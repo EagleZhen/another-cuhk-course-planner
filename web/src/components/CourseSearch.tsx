@@ -71,6 +71,7 @@ import { CuhkLibraryImageIcon } from '@/components/icons/CuhkLibraryImageIcon'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { MeetingRowCard } from '@/components/MeetingRowCard'
 import { ClassAttributesRow, EnrollmentRequirementRow } from '@/components/SectionAttributeRow'
+import { CreditsBadge } from '@/components/CreditsBadge'
 
 // Using clean internal types only
 
@@ -1679,22 +1680,7 @@ function CourseCard({
 
         {/* Desktop: badges + instructor filters - full width, decoupled from action button count */}
         <div className="hidden sm:flex items-center gap-2 mt-2 flex-wrap">
-          {/* Interactive Credits Badge */}
-          <a
-            href="https://www.oalglobal.cuhk.edu.hk/academics/#:~:text=At%20CUHK%2C%20one%20credit%20or,one%20of%20tutorials%20each%20week."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block"
-          >
-            <Badge
-              variant="secondary"
-              className="cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
-              title="At CUHK, 1 credit ≈ 1 hour of instruction per week. Most 3-unit courses consist of 3 hours of lectures or 2 hours of lectures and 1 hour of tutorials each week."
-            >
-              {course.credits} credits
-              <Info className="w-2.5 h-2.5 opacity-60" />
-            </Badge>
-          </a>
+          <CreditsBadge credits={course.credits} />
           {course.gradingBasis && (
             /* Interactive Grading Basis Badge */
             <a
@@ -1811,22 +1797,7 @@ function CourseCard({
           {/* Course metadata */}
           <div>
             <div className="flex items-center gap-2 mt-2 flex-wrap">
-              {/* Interactive Credits Badge */}
-              <a
-                href="https://www.oalglobal.cuhk.edu.hk/academics/#:~:text=At%20CUHK%2C%20one%20credit%20or,one%20of%20tutorials%20each%20week."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block"
-              >
-                <Badge
-                  variant="secondary"
-                  className="cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
-                  title="At CUHK, 1 credit ≈ 1 hour of instruction per week. Most 3-unit courses consist of 3 hours of lectures or 2 hours of lectures and 1 hour of tutorials each week."
-                >
-                  {course.credits} credits
-                  <Info className="w-2.5 h-2.5 opacity-60" />
-                </Badge>
-              </a>
+              <CreditsBadge credits={course.credits} />
               {course.gradingBasis && (
                 /* Interactive Grading Basis Badge */
                 <a
