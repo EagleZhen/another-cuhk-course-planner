@@ -294,13 +294,14 @@ So the line is **omission versus alteration**. [Stripping unrendered fields](#st
 | `class_attributes` as lines                | yes — its own line breaks           | publish |
 | the section code's type and cohort         | yes — its own delimiter             | publish |
 | `time` as a day and two times              | yes — a day and a range in one cell | publish |
+| `credits` as one or two numbers            | yes — its own delimiter             | publish |
 | `Professor CHAN` → `Prof. CHAN`            | no — substitutes our word           | use     |
 | merge meeting rows differing only by dates | no — our judgment of sameness       | use     |
 | a meeting's year                           | no — a timed row never states it    | use     |
 
 One limit, or this becomes "publish the page": record structure the source **marked** — delimiters, cells, rows — never structure we **infer**, like where a title ends and a name begins.
 
-Three of those are not yet where they belong: the `class_attributes` split ([#332](https://github.com/EagleZhen/another-cuhk-course-planner/issues/332)), the `time` decomposition and the section code's parts are all still read out of a string in the browser. And [thinning](#thin-enrollment-information-at-publish) sits on the wrong side of this rule: what it publishes as `class_attributes` is no longer what the class page states. Recorded rather than fixed — `data/` still holds 2026-27's untouched values, so it costs a re-publish whenever we decide.
+Four of those are not yet where they belong: the `class_attributes` split ([#332](https://github.com/EagleZhen/another-cuhk-course-planner/issues/332)), the `time` decomposition, the section code's parts and the `credits` range ([#331](https://github.com/EagleZhen/another-cuhk-course-planner/issues/331)) are all still read out of a string in the browser. All four wait on one obstacle: `SCHEMA_VERSION` versions the scraped and the published shape together, so a publish-only change would force a pointless re-scrape. And [thinning](#thin-enrollment-information-at-publish) sits on the wrong side of this rule: what it publishes as `class_attributes` is no longer what the class page states. Recorded rather than fixed — `data/` still holds 2026-27's untouched values, so it costs a re-publish whenever we decide.
 
 **What publishing costs.** A cart's warning says _CUHK changed something you saved_, so a reshape of ours that trips it goes out under CUHK's name. It must not:
 
@@ -317,6 +318,8 @@ Backfilling is what ends the tolerance in `sameDates` and `sameRequirement`: a s
 A check persists nothing, so it costs none of the above. `INSTRUCTOR_TITLE` in [courseUtils.ts](../web/src/lib/courseUtils.ts) matches `Prof`, `Dr`, `Mrs`, `Miss`, `Mr`, `Ms` and `Rev` — not `Professor`, half of all instructor names, which only sorts right because the abbreviation runs first. `Rev` got into the list because someone happened to notice it.
 
 Warn, do not block: the list is our assumption about CUHK's data, so a surprise is theirs to produce and ours to absorb. We fail loudly on our own output and tolerate theirs.
+
+Unless the app cannot use the value: a credit string the browser cannot read leaves the course with no badge, no filter chip and a wrong cart total, so `unknown_credit_shapes` aborts the publish ([#331](https://github.com/EagleZhen/another-cuhk-course-planner/issues/331)). The test is whether every feature still works, not whether the value surprised us.
 
 ### What this replaces
 
