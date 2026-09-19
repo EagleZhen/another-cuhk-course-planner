@@ -670,6 +670,105 @@ def test_publish_clears_scrape_times_for_years_without_a_stamp(tmp_path, monkeyp
     assert (generated_dir / "scrape-times.ts").read_text() == render_scrape_times_module({})
 
 
+def _write_credits_file(source_dir, credit_strings, *, subject="AAAA", year="2025-26"):
+    """A course file whose courses state the given credit strings, one course each."""
+    year_dir = source_dir / year
+    year_dir.mkdir(parents=True, exist_ok=True)
+    courses = [
+        {
+            "subject": subject,
+            "course_code": str(1000 + index),
+            "title": f"Course {index}",
+            "credits": credits,
+            "terms": [{"term_name": f"{year} Term 1", "schedule": []}],
+        }
+        for index, credits in enumerate(credit_strings)
+    ]
+    (year_dir / f"{subject}.json").write_text(
+        json.dumps(
+            {
+                "metadata": {
+                    "schema_version": SCHEMA_VERSION,
+                    "subject": subject,
+                    "subject_title": "Subject A",
+                    "total_courses": len(courses),
+                },
+                "courses": courses,
+            }
+        )
+    )
+
+
+def test_publish_accepts_the_credit_shapes_cuhk_states(tmp_path, monkeypatch, capsys):
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_credits_file(source_dir, ["3.00", "0.00", "1.50 - 2.00"])
+
+    publish_course_data.main()
+
+    assert (published_dir / "2025-26" / "AAAA.json").exists()
+    assert "unrecognized" not in capsys.readouterr().out.lower()
+
+
+def test_publish_aborts_on_an_unrecognized_credit_shape(tmp_path, monkeypatch, capsys):
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_credits_file(source_dir, ["3.00", "3.50 to 4.00"])
+
+    with pytest.raises(SystemExit, match="1"):
+        publish_course_data.main()
+
+    output = capsys.readouterr().out
+    assert 'AAAA1001 "3.50 to 4.00"' in output
+    assert "teach parseCredits" in output
+    assert not (published_dir / "2025-26" / "AAAA.json").exists()
+
+
+def test_publish_aborts_when_a_credit_string_loses_its_padding(tmp_path, monkeypatch, capsys):
+    source_dir, _, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_credits_file(source_dir, ["3"])
+
+    with pytest.raises(SystemExit, match="1"):
+        publish_course_data.main()
+
+    assert 'AAAA1000 "3"' in capsys.readouterr().out
+
+
+def test_the_credit_check_reads_past_the_courses_validation_samples(tmp_path, monkeypatch, capsys):
+    source_dir, _, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_credits_file(source_dir, ["3.00"] * 50 + ["3.50 to 4.00"])
+
+    with pytest.raises(SystemExit, match="1"):
+        publish_course_data.main()
+
+    assert 'AAAA1050 "3.50 to 4.00"' in capsys.readouterr().out
+
+
+def test_credit_issue_caps_examples_and_counts_the_rest(tmp_path, monkeypatch, capsys):
+    source_dir, _, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_credits_file(source_dir, ["TBA"] * (publish_course_data.MAX_CREDIT_EXAMPLES + 2))
+
+    with pytest.raises(SystemExit, match="1"):
+        publish_course_data.main()
+
+    output = capsys.readouterr().out
+    assert (
+        f"Credits in unrecognized shapes ({publish_course_data.MAX_CREDIT_EXAMPLES + 2})" in output
+    )
+    assert "… and 2 more" in output
+
+
+def test_publish_skips_the_no_terms_bucket(tmp_path, monkeypatch):
+    # Courses with no scheduled term are parked in data/no-terms/ and never served. It is
+    # the only reason the app never meets the 0.00 - 99.00 exemption placeholders.
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(source_dir)
+    _write_course_file(source_dir, year="no-terms", extra_course_fields={"terms": []})
+
+    publish_course_data.main()
+
+    assert (published_dir / "2025-26" / "AAAA.json").exists()
+    assert not (published_dir / "no-terms").exists()
+
+
 def test_publish_blocks_on_unversioned_data(tmp_path, monkeypatch, capsys):
     # Blocks, not warns: an unrecognized shape must never reach the app. Pre-versioned
     # data omits the key, so treating "absent" as current would let all of it through.
