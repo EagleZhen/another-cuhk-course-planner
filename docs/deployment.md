@@ -18,13 +18,13 @@ Cloudflare serves assets first — HTML, course JSON under [web/public/data/](..
 
 ### Stale chunks in long-lived tabs
 
-Each build hashes its chunks afresh, and a newer build stops the old ones being served, so a tab that outlived any deploy since it loaded throws `ChunkLoadError`. Deploys are frequent and the planner sits in a background tab, so the tabs that break are typically days to weeks behind — not caught mid-deploy. [error.tsx](../web/src/app/error.tsx) recovers by navigating to `?refreshed=1` — at most once per build — and `StaleVersionNotice` explains the refresh on the page that comes back.
+Each build hashes its chunks afresh, and a newer build stops the old ones being served, so a tab that outlived any deploy since it loaded throws `ChunkLoadError`. Deploys are frequent and the planner sits in a background tab, so the tabs that break are typically days to weeks behind — not caught mid-deploy. Recovery navigates to `?refreshed=1` — at most once per build — and `StaleVersionNotice` explains the refresh on the page that comes back.
 
 Repeats are blocked twice ([staleChunk.ts](../web/src/lib/staleChunk.ts)): only a page that mounts strips the `?refreshed=1` marker, so a failure that never mounts leaves it in the URL; and a tab records the build it recovered from. A later deploy is a different build, arriving without a marker, and recovers normally.
 
 `StaleVersionNotice` renders from `page.tsx`, not the layout — `error.js` replaces the page and leaves the layout standing, so only that placement keeps the notice off the error page.
 
-A recovered chunk reports `chunk_load_recovered` rather than an exception, so routine deploys no longer raise Error Tracking issues. One that reaches the error page still does. A chunk that fails before hydration leaves no boundary mounted at all: it autocaptures unhandled, and this recovery never runs.
+Two callers recover: [error.tsx](../web/src/app/error.tsx) when a boundary catches the error, and a window listener registered from [instrumentation-client.ts](../web/src/instrumentation-client.ts) for the ones React never sees — a chunk failing before hydration leaves no boundary mounted. Either way the recovered chunk reports `chunk_load_recovered` rather than an exception, so routine deploys no longer raise Error Tracking issues; one that reaches the error page still does.
 
 ## Analytics
 
