@@ -6,7 +6,7 @@ import { hasRefreshMarker, withoutRefreshMarker } from '@/lib/staleChunk'
 
 const AUTO_HIDE_MS = 10_000
 
-// Explains the reload that error.tsx just fired.
+// Explains the reload that stale-chunk recovery just fired.
 export default function StaleVersionNotice() {
   const [show, setShow] = useState(false)
 

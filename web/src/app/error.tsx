@@ -4,38 +4,23 @@ import { useEffect, useState } from 'react'
 import { RefreshCw, TriangleAlert } from 'lucide-react'
 import posthog from 'posthog-js'
 import { Button } from '@/components/ui/button'
-import { analytics } from '@/lib/analytics'
 import {
+  canRecoverFromStaleChunk,
   hasRefreshMarker,
-  isStaleChunkError,
-  readStaleChunkReload,
-  rememberStaleChunkReload,
-  shouldReloadForStaleChunk,
+  recoverFromStaleChunk,
   withoutRefreshMarker,
-  withRefreshMarker,
 } from '@/lib/staleChunk'
-
-const BUILD_ID = process.env.NEXT_PUBLIC_BUILD_ID ?? null
 
 export default function ErrorPage({ error }: { error: Error & { digest?: string } }) {
   // Decided during render, not in an effect, so this page never flashes before the reload.
   const [recovering] = useState(
-    () =>
-      typeof window !== 'undefined' &&
-      isStaleChunkError(error) &&
-      shouldReloadForStaleChunk({
-        href: window.location.href,
-        lastBuildId: readStaleChunkReload(),
-        buildId: BUILD_ID,
-      })
+    () => typeof window !== 'undefined' && canRecoverFromStaleChunk(error)
   )
 
   useEffect(() => {
     if (recovering) {
-      if (BUILD_ID) rememberStaleChunkReload(BUILD_ID)
-      // Handled — the user sees a reload, not a failure, so this is not one to triage.
-      analytics.chunkLoadRecovered()
-      window.location.replace(withRefreshMarker(window.location.href))
+      // Asks again; nothing since the render can have changed the answer.
+      recoverFromStaleChunk(error)
       return
     }
 

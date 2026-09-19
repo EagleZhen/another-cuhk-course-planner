@@ -1,21 +1,19 @@
+import { analytics } from './analytics'
 import { STALE_CHUNK_REFRESH_PARAM, STALE_CHUNK_RELOAD_KEY } from './constants'
 
-// A deploy removes the chunk an open tab asks for; navigating again picks up the new
-// build. Two facts with different lifetimes: which build we last tried this from (the
-// loop guard, in session storage) and whether the navigation just made was ours (the URL).
+const BUILD_ID = process.env.NEXT_PUBLIC_BUILD_ID ?? null
+
+// A deploy retires the chunk an open tab asks for; navigating again picks up the new build.
 
 // PostHog groups these by error.name, and our events show this string.
 export function isStaleChunkError(error: Error): boolean {
   return error.name === 'ChunkLoadError'
 }
 
-// Recover only from a navigation we have not already made. The marker says one just
-// brought us here — only a successful page mount strips it — and the build id says we
-// already tried this one. Either way, repeating cannot help; a later deploy is a
-// different build, arriving without a marker, and recovers normally.
-//
-// Callers check isStaleChunkError first, so reading storage stays off the path of every
-// other error the boundary handles.
+// Recover only from a navigation we have not already made: the URL marker says one just
+// brought us here (only a page that mounts strips it), and the recorded build id says we
+// already tried this one. Repeating either cannot help. A later deploy is a different
+// build, arriving without a marker, and recovers normally.
 export function shouldReloadForStaleChunk({
   href,
   lastBuildId,
@@ -30,9 +28,8 @@ export function shouldReloadForStaleChunk({
   return buildId === null || lastBuildId !== buildId
 }
 
-// Recovering navigates to this rather than reloading, so the marker rides the navigation
-// instead of existing in the page we are leaving — which is what would let the notice
-// fire a moment too early.
+// Recovery navigates to this instead of reloading, so the marker arrives with the new
+// page. Written into the page we are leaving, it would show the notice a moment early.
 export function withRefreshMarker(href: string): string {
   const url = new URL(href)
   url.searchParams.set(STALE_CHUNK_REFRESH_PARAM, '1')
@@ -57,4 +54,41 @@ export function readStaleChunkReload(): string | null {
 
 export function rememberStaleChunkReload(buildId: string): void {
   sessionStorage.setItem(STALE_CHUNK_RELOAD_KEY, buildId)
+}
+
+// Split from the recovery below because a React boundary must answer this while
+// rendering, before it is allowed to navigate.
+export function canRecoverFromStaleChunk(error: Error): boolean {
+  return (
+    // Checked first, so no other error pays for the storage read below.
+    isStaleChunkError(error) &&
+    shouldReloadForStaleChunk({
+      href: window.location.href,
+      lastBuildId: readStaleChunkReload(),
+      buildId: BUILD_ID,
+    })
+  )
+}
+
+// Decides and acts in one call, for a caller that has no separate render to gate.
+export function recoverFromStaleChunk(error: Error): boolean {
+  if (!canRecoverFromStaleChunk(error)) return false
+
+  if (BUILD_ID) rememberStaleChunkReload(BUILD_ID)
+  // Handled — the user sees a reload, not a failure, so this is not one to triage.
+  analytics.chunkLoadRecovered()
+  window.location.replace(withRefreshMarker(window.location.href))
+  return true
+}
+
+// A chunk failing before hydration leaves no boundary mounted, so React never sees it.
+// Registered ahead of posthog's lazily loaded autocapture, so a recovered chunk stops
+// here and reports chunk_load_recovered instead of an exception.
+export function registerStaleChunkRecovery(): void {
+  const recover = (event: Event, thrown: unknown) => {
+    if (thrown instanceof Error && recoverFromStaleChunk(thrown)) event.stopImmediatePropagation()
+  }
+
+  window.addEventListener('error', (event) => recover(event, event.error))
+  window.addEventListener('unhandledrejection', (event) => recover(event, event.reason))
 }

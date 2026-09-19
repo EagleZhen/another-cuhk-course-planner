@@ -7,11 +7,54 @@ const notice = (page: Page) => page.locator('[data-stale-version-notice]')
 // absence check against un-hydrated server HTML would otherwise pass for the wrong reason.
 const hydrated = (page: Page) => page.getByText('failed to load due to a network error')
 
-// `recovered` lands on the URL error.tsx navigates to when it recovers.
+// `recovered` lands on the URL a recovery navigates to.
 async function open(page: Page, { recovered = false } = {}) {
   await page.route('**/data/**', (route) => route.abort())
   await page.goto(recovered ? '/?refreshed=1' : '/')
   await expect(hydrated(page)).toBeVisible()
+}
+
+// A chunk error no boundary sees. From a timeout, so the evaluate returns before the
+// recovery navigates.
+async function throwChunkLoadError(page: Page, path: EscapedPath) {
+  await page.evaluate((path) => {
+    setTimeout(() => {
+      const error = new Error('Loading chunk 123 failed.')
+      error.name = 'ChunkLoadError'
+      if (path === 'unhandledrejection') void Promise.reject(error)
+      else window.dispatchEvent(new ErrorEvent('error', { error }))
+    })
+  }, path)
+}
+
+// Stands in for posthog's autocapture, which registers after the recovery listener and
+// wraps each path separately. Session storage, because the recovery navigates away.
+async function watchForReports(page: Page) {
+  await page.evaluate(() => {
+    for (const path of ['error', 'unhandledrejection']) {
+      window.addEventListener(path, () => sessionStorage.setItem('reported', '1'))
+    }
+  })
+}
+
+const reported = (page: Page) => page.evaluate(() => sessionStorage.getItem('reported'))
+
+// Both paths run the same recovery; they differ in which property carries the error.
+type EscapedPath = 'error' | 'unhandledrejection'
+
+for (const path of ['error', 'unhandledrejection'] as EscapedPath[]) {
+  test(`recovers an escaped chunk error, and reports one it cannot (${path})`, async ({ page }) => {
+    await open(page)
+    await watchForReports(page)
+    await throwChunkLoadError(page, path)
+    await expect(notice(page)).toBeVisible()
+    expect(await reported(page)).toBeNull()
+
+    // Same build, already tried: nothing to recover, so this one is worth reporting.
+    await watchForReports(page)
+    await throwChunkLoadError(page, path)
+    await expect.poll(() => reported(page)).toBe('1')
+  })
 }
 
 test('explains the refresh after a stale-chunk reload', async ({ page }) => {
