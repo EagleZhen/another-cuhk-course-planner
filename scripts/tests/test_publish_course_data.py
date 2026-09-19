@@ -718,7 +718,7 @@ def test_publish_aborts_on_an_unrecognized_credit_shape(tmp_path, monkeypatch, c
 
     output = capsys.readouterr().out
     assert 'AAAA1001 "3.50 to 4.00"' in output
-    assert "teach parseCredits" in output
+    assert "re-scrape if the detail page failed" in output
     assert not (published_dir / "2025-26" / "AAAA.json").exists()
 
 

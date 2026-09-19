@@ -127,7 +127,7 @@ def is_expected_credit_shape(value: str) -> bool:
 
 
 def unknown_credit_shapes(courses: list[dict]) -> str | None:
-    """One issue summarizing all courses whose credits the web app cannot read, or None.
+    """One issue naming every course whose credits are not the shape we expect, or None.
 
     Every course, not the three validate_course_file samples: a shape carried by 170 of
     14,000 records is not something sampling can find.
@@ -146,7 +146,8 @@ def unknown_credit_shapes(courses: list[dict]) -> str | None:
     )
     return (
         f"Credits in unrecognized shapes ({len(bad)}): {examples}{tail}"
-        " — the web app cannot read these; teach parseCredits the new shape, then re-publish"
+        ' — we expected "3.00" or "1.50 - 2.00": re-scrape if the detail page failed,'
+        " else widen is_expected_credit_shape once parseCredits reads the new shape"
     )
 
 

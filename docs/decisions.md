@@ -319,7 +319,7 @@ A check persists nothing, so it costs none of the above. `INSTRUCTOR_TITLE` in [
 
 Warn, do not block: the list is our assumption about CUHK's data, so a surprise is theirs to produce and ours to absorb. We fail loudly on our own output and tolerate theirs.
 
-Unless the app cannot use the value: a credit string the browser cannot read leaves the course with no badge, no filter chip and a wrong cart total, so `unknown_credit_shapes` aborts the publish ([#331](https://github.com/EagleZhen/another-cuhk-course-planner/issues/331)). The test is whether every feature still works, not whether the value surprised us.
+Unless it is our last chance to notice: `unknown_credit_shapes` aborts ([#331](https://github.com/EagleZhen/another-cuhk-course-planner/issues/331)). It is stricter than `parseCredits` on purpose — an unpadded `3` the browser reads fine still stops — because nothing downstream reports a credit string we did not expect, and clearing a false alarm costs one pattern update.
 
 ### What this replaces
 
