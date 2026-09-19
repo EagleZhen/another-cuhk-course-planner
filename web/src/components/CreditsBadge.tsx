@@ -5,8 +5,8 @@ import { Badge } from '@/components/ui/badge'
 import { formatCredits } from '@/lib/courseUtils'
 import type { Credits } from '@/lib/types'
 
-// The search card and its detail panel, shared so the two can't drift. Not the cart, which
-// shows credits as plain text beside the course code.
+// Rendered by the card's desktop and mobile layouts, so the two can't drift. The cart has
+// its own: this one is a link with fixed padding, which its h-5 row can't fit.
 export function CreditsBadge({ credits }: { credits?: Credits }) {
   if (!credits) return null
 

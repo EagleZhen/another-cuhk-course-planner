@@ -57,7 +57,7 @@ Flags an enrolled section that changed (time, location, instructor, dates, class
 ## Summary Semantics
 
 - A course counts as **Open** only when _every_ selected section is open, but as **Wait List**/**Closed** when _any_ section is. The asymmetry is deliberate: one problematic section blocks clean enrollment.
-- Credit totals exclude invalid enrollments; all counts split into visible/total when some courses are hidden.
+- Credit totals exclude invalid enrollments; all counts split into visible/total when some courses are hidden. A course CUHK states as a range (`1.50 - 2.00`) makes the total a range too — nothing below the course says which value applies.
 
 ## Section Ordering
 
