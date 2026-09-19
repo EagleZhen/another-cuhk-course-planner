@@ -11,8 +11,12 @@
 
 import posthog from 'posthog-js'
 import { getClientExceptionContext, preparePostHogEvent } from '@/lib/posthogEvent'
+import { registerStaleChunkRecovery } from '@/lib/staleChunk'
 
 const posthogKey = process.env.NEXT_PUBLIC_POSTHOG_KEY
+
+// Before posthog.init, and never gated on the key: recovering is not analytics.
+if (typeof window !== 'undefined') registerStaleChunkRecovery()
 
 // Initialize PostHog for all environments (filter in dashboard by hostname)
 if (typeof window !== 'undefined' && posthogKey) {

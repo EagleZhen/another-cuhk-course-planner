@@ -80,3 +80,15 @@ export function recoverFromStaleChunk(error: Error): boolean {
   window.location.replace(withRefreshMarker(window.location.href))
   return true
 }
+
+// A chunk failing before hydration leaves no boundary mounted, so React never sees it.
+// Registered ahead of posthog's lazily loaded autocapture, so a recovered chunk stops
+// here and reports chunk_load_recovered instead of an exception.
+export function registerStaleChunkRecovery(): void {
+  const recover = (event: Event, thrown: unknown) => {
+    if (thrown instanceof Error && recoverFromStaleChunk(thrown)) event.stopImmediatePropagation()
+  }
+
+  window.addEventListener('error', (event) => recover(event, event.error))
+  window.addEventListener('unhandledrejection', (event) => recover(event, event.reason))
+}

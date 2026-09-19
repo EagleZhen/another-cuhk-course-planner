@@ -14,6 +14,54 @@ async function open(page: Page, { recovered = false } = {}) {
   await expect(hydrated(page)).toBeVisible()
 }
 
+// A chunk error no boundary sees. From a timeout, so the evaluate returns before the
+// recovery navigates.
+async function throwChunkLoadError(page: Page, { rejected = false } = {}) {
+  await page.evaluate((rejected) => {
+    setTimeout(() => {
+      const error = new Error('Loading chunk 123 failed.')
+      error.name = 'ChunkLoadError'
+      if (rejected) void Promise.reject(error)
+      else window.dispatchEvent(new ErrorEvent('error', { error }))
+    })
+  }, rejected)
+}
+
+test('recovers a chunk error that escapes React', async ({ page }) => {
+  await open(page)
+  await throwChunkLoadError(page)
+  await expect(notice(page)).toBeVisible()
+})
+
+test('recovers one that surfaces as an unhandled rejection', async ({ page }) => {
+  await open(page)
+  await throwChunkLoadError(page, { rejected: true })
+  await expect(notice(page)).toBeVisible()
+})
+
+// Stands in for posthog's autocapture, which registers after the recovery listener.
+// Session storage, because the recovery navigates away.
+async function watchForReports(page: Page) {
+  await page.evaluate(() => {
+    window.addEventListener('error', () => sessionStorage.setItem('reported', '1'))
+  })
+}
+
+const reported = (page: Page) => page.evaluate(() => sessionStorage.getItem('reported'))
+
+test('reports a chunk error only when it cannot recover', async ({ page }) => {
+  await open(page)
+  await watchForReports(page)
+  await throwChunkLoadError(page)
+  await expect(notice(page)).toBeVisible()
+  expect(await reported(page)).toBeNull()
+
+  // Same build, already tried: nothing to recover, so this one is worth reporting.
+  await watchForReports(page)
+  await throwChunkLoadError(page)
+  await expect.poll(() => reported(page)).toBe('1')
+})
+
 test('explains the refresh after a stale-chunk reload', async ({ page }) => {
   await open(page)
   await expect(notice(page)).toHaveCount(0)
