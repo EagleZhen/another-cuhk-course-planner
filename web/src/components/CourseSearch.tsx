@@ -71,7 +71,7 @@ import { CuhkLibraryImageIcon } from '@/components/icons/CuhkLibraryImageIcon'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { MeetingRowCard } from '@/components/MeetingRowCard'
 import { ClassAttributesRow, EnrollmentRequirementRow } from '@/components/SectionAttributeRow'
-import { CreditsBadge } from '@/components/CreditsBadge'
+import { CreditsBadge, GradingBadge } from '@/components/InfoBadge'
 
 // Using clean internal types only
 
@@ -1681,24 +1681,7 @@ function CourseCard({
         {/* Desktop: badges + instructor filters - full width, decoupled from action button count */}
         <div className="hidden sm:flex items-center gap-2 mt-2 flex-wrap">
           <CreditsBadge credits={course.credits} />
-          {course.gradingBasis && (
-            /* Interactive Grading Basis Badge */
-            <a
-              href="https://www.res.cuhk.edu.hk/general-information/grading-system-of-undergraduate-programmes/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block"
-            >
-              <Badge
-                variant="secondary"
-                className="text-xs cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
-                title="Click to learn about CUHK grading systems"
-              >
-                {course.gradingBasis}
-                <Info className="w-2.5 h-2.5 opacity-60" />
-              </Badge>
-            </a>
-          )}
+          <GradingBadge gradingBasis={course.gradingBasis} />
           {/* Seat Availability Badge */}
           {(() => {
             const seatInfo = getAggregateSeatInfo(course, currentTerm)
@@ -1798,24 +1781,7 @@ function CourseCard({
           <div>
             <div className="flex items-center gap-2 mt-2 flex-wrap">
               <CreditsBadge credits={course.credits} />
-              {course.gradingBasis && (
-                /* Interactive Grading Basis Badge */
-                <a
-                  href="https://www.res.cuhk.edu.hk/general-information/grading-system-of-undergraduate-programmes/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block"
-                >
-                  <Badge
-                    variant="secondary"
-                    className="text-xs cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
-                    title="Click to learn about CUHK grading systems"
-                  >
-                    {course.gradingBasis}
-                    <Info className="w-2.5 h-2.5 opacity-60" />
-                  </Badge>
-                </a>
-              )}
+              <GradingBadge gradingBasis={course.gradingBasis} />
               {/* Seat Availability Badge */}
               {(() => {
                 const seatInfo = getAggregateSeatInfo(course, currentTerm)
