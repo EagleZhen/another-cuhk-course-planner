@@ -7,7 +7,7 @@ const notice = (page: Page) => page.locator('[data-stale-version-notice]')
 // absence check against un-hydrated server HTML would otherwise pass for the wrong reason.
 const hydrated = (page: Page) => page.getByText('failed to load due to a network error')
 
-// `recovered` lands on the URL error.tsx navigates to when it recovers.
+// `recovered` lands on the URL a recovery navigates to.
 async function open(page: Page, { recovered = false } = {}) {
   await page.route('**/data/**', (route) => route.abort())
   await page.goto(recovered ? '/?refreshed=1' : '/')
