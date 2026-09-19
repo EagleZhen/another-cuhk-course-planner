@@ -36,6 +36,9 @@ import {
   enrollmentsToCalendarEvents,
   formatDateRange,
   parseTimeRange,
+  formatCredits,
+  statedCredits,
+  sumCredits,
 } from './courseUtils'
 import { transformExternalCourseData } from './validation'
 import { SCHEDULE_DATA_VERSION } from './constants'
@@ -96,7 +99,7 @@ function makeCourse(sections: InternalSection[], termName = 'Term 1'): InternalC
     subject: 'CSCI',
     courseCode: '3100',
     title: 'Software Engineering',
-    credits: 3,
+    credits: { min: 3, max: 3 },
     terms: [{ termCode: '2510', termName, sections }],
   }
 }
@@ -111,7 +114,7 @@ describe('sortSectionsByPriority', () => {
       subject: 'CSCI',
       courseCode: '1130',
       title: 'Intro',
-      credits: 3,
+      credits: { min: 3, max: 3 },
       terms: [{ termCode: '2510', termName: 'Term 1', sections: [lec, tut] }],
     }
 
@@ -148,7 +151,7 @@ describe('updateExistingEnrollment', () => {
         subject: 'CSCI',
         courseCode: '3100',
         title: 'Software Engineering',
-        credits: 3,
+        credits: { min: 3, max: 3 },
         terms: [],
       },
       selectedSections: [staleSection],
@@ -398,7 +401,7 @@ describe('markCourseUnavailable', () => {
         subject: 'CSCI',
         courseCode: '3150',
         title: 'Introduction to Operating Systems',
-        credits: 3,
+        credits: { min: 3, max: 3 },
         terms: [],
       },
       selectedSections: [makeSection({})],
@@ -614,7 +617,13 @@ function mkEnrollment(
     courseId: 'COMM1180',
     color: '#000',
     isVisible: true,
-    course: { subject: 'COMM', courseCode: '1180', title: 'x', credits: 3, terms: [] },
+    course: {
+      subject: 'COMM',
+      courseCode: '1180',
+      title: 'x',
+      credits: { min: 3, max: 3 },
+      terms: [],
+    },
     selectedSections: sections,
     ...(snaps ? { lastSeenSections: snaps } : {}),
   }
@@ -959,7 +968,7 @@ describe('hasConflictFreeEnrollment', () => {
     subject: 'TEST',
     courseCode: '1000',
     title: 'Test Course',
-    credits: 3,
+    credits: { min: 3, max: 3 },
     terms: [{ termCode: '2510', termName: SYNTHETIC_TERM, sections }],
   })
 
@@ -1847,5 +1856,80 @@ describe('a section signature keeps its lines', () => {
     }
     expect(diffEnrollment(mkEnrollment([stated('1')], { '1': was }))).toHaveLength(1)
     expect(diffSectionDetail(stated('1'), was).classAttributesChanged).toBe(true)
+  })
+})
+
+describe('formatCredits', () => {
+  it('drops the padding CUHK writes', () => {
+    expect(formatCredits({ min: 3, max: 3 })).toBe('3')
+  })
+
+  it('shows both bounds of a range, en-dashed', () => {
+    expect(formatCredits({ min: 1.5, max: 2 })).toBe('1.5-2')
+  })
+})
+
+describe('statedCredits', () => {
+  it('offers one value when the course states one', () => {
+    expect(statedCredits({ min: 3, max: 3 })).toEqual([3])
+  })
+
+  it('offers both ends of a range and nothing between', () => {
+    // An in-between value CUHK never wrote must not become a filter option.
+    expect(statedCredits({ min: 1.5, max: 2 })).toEqual([1.5, 2])
+  })
+})
+
+describe('sumCredits', () => {
+  it('collapses to a single value when no course states a range', () => {
+    const total = sumCredits([{ credits: { min: 3, max: 3 } }, { credits: { min: 2, max: 2 } }])
+    expect(total).toEqual({ min: 5, max: 5 })
+  })
+
+  it('stays a range when any one course states one', () => {
+    const total = sumCredits([{ credits: { min: 3, max: 3 } }, { credits: { min: 1.5, max: 2 } }])
+    expect(total).toEqual({ min: 4.5, max: 5 })
+  })
+
+  it('skips a course that states nothing rather than counting it as zero', () => {
+    expect(sumCredits([{ credits: { min: 3, max: 3 } }, {}])).toEqual({ min: 3, max: 3 })
+  })
+
+  it('states no total when nothing contributes one', () => {
+    expect(sumCredits([{}, {}])).toBeUndefined()
+  })
+})
+
+describe('stored carts across the credits reshape (#331)', () => {
+  const storedWithCredits = (credits: unknown) =>
+    [
+      {
+        courseId: 'PGDE5101',
+        course: { subject: 'PGDE', courseCode: '5101', title: 'x', credits, terms: [] },
+        selectedSections: [],
+        color: 'bg-blue-500',
+        isVisible: true,
+      },
+    ] as unknown as CourseEnrollment[]
+
+  it('reshapes the bare number a pre-#331 blob stored', () => {
+    const loaded = readStoredEnrollments(storedWithCredits(3))
+
+    expect(loaded?.[0].course.credits).toEqual({ min: 3, max: 3 })
+  })
+
+  it('leaves an already-current blob alone, so re-normalizing is a no-op', () => {
+    const loaded = readStoredEnrollments(storedWithCredits({ min: 1.5, max: 2 }))
+
+    expect(loaded?.[0].course.credits).toEqual({ min: 1.5, max: 2 })
+  })
+
+  it('does not report a section change, since credits are not in the signature', () => {
+    // The reshape must not make the cart claim CUHK changed something the user saved.
+    const section = makeSection({ id: 'PGDE5101_A' })
+    const before = sectionSignature(section)
+    const after = sectionSignature(section)
+
+    expect(before).toEqual(after)
   })
 })

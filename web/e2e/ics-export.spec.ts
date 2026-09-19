@@ -44,7 +44,7 @@ test('exports the August lecture in the year its weekday states', async ({ page 
             subject: 'EMBA',
             courseCode: '5011',
             title: 'Management of the Corporation',
-            credits: 3,
+            credits: { min: 3, max: 3 },
             terms: [{ termCode: '2610', termName: term, sections: [section] }],
           },
           selectedSections: [section],

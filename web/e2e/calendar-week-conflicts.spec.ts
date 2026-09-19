@@ -46,7 +46,7 @@ function storedSchedule(
           subject: 'GEWS',
           courseCode: '1011',
           title: 'College Induction Course',
-          credits: 3,
+          credits: { min: 3, max: 3 },
           terms: [{ termCode, termName, sections }],
         },
         selectedSections: sections,

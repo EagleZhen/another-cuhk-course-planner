@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, it, expect } from 'vitest'
 import { ACADEMIC_CAREERS } from './types'
-import { transformExternalCourseData } from './validation'
+import { parseCredits, transformExternalCourse, transformExternalCourseData } from './validation'
 
 type PublishedCourse = {
   academic_career?: unknown
@@ -235,5 +235,63 @@ describe('transformExternalCourseData', () => {
     expect(course.requiredReadings).toBeUndefined()
     expect(course.recommendedReadings).toBeUndefined()
     expect(course.feedbackEvaluation).toBeUndefined()
+  })
+})
+
+describe('parseCredits', () => {
+  it('reads a single value CUHK states', () => {
+    expect(parseCredits('3.00')).toEqual({ min: 3, max: 3 })
+  })
+
+  it('keeps both bounds of a range (#331)', () => {
+    // parseFloat returned 1.5 here, silently dropping the upper bound.
+    expect(parseCredits('1.50 - 2.00')).toEqual({ min: 1.5, max: 2 })
+  })
+
+  it('reads a genuine zero rather than treating it as a failed parse', () => {
+    // 264 published courses state 0.00, so 0 can never double as "unreadable".
+    expect(parseCredits('0.00')).toEqual({ min: 0, max: 0 })
+  })
+
+  it.each([
+    ['a word between the bounds', '3.50 to 4.00'],
+    ['a unit suffix', '3 units'],
+    ['nothing numeric', 'TBA'],
+    ['an empty string', ''],
+    ['a missing field', undefined],
+    ['bounds in the wrong order', '4.00 - 3.00'],
+  ])('states no credits for %s', (_label, value) => {
+    expect(parseCredits(value)).toBeUndefined()
+  })
+
+  it('reads an unpadded value, since their formatting is not ours to depend on', () => {
+    expect(parseCredits('3')).toEqual({ min: 3, max: 3 })
+    expect(parseCredits('1.5-2')).toEqual({ min: 1.5, max: 2 })
+  })
+})
+
+describe('the credits seam, against what we actually publish', () => {
+  // Every credits test hand-built '3.00'. A fixture only carries shapes its author knew
+  // about, so this reads the real column instead.
+  it('reads every credit string in web/public/data through the real transform', () => {
+    const unreadable: string[] = []
+    let ranges = 0
+
+    forEachPublishedFile((path, contents) => {
+      const { courses = [] } = contents as { courses?: unknown[] }
+      for (const raw of courses) {
+        const course = transformExternalCourse(raw)
+        const stated = (raw as { credits?: string }).credits
+        if (course.credits === undefined) {
+          unreadable.push(`${path}: ${JSON.stringify(stated)}`)
+        } else if (course.credits.min !== course.credits.max) {
+          ranges += 1
+        }
+      }
+    })
+
+    expect(unreadable).toEqual([])
+    // The reported symptom: these are the records parseFloat was truncating.
+    expect(ranges).toBeGreaterThan(0)
   })
 })

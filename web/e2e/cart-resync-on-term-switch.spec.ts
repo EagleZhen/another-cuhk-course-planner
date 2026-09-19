@@ -56,6 +56,8 @@ function storedCourse() {
     subject: 'ACCT',
     courseCode: '1111',
     title: 'Foundations in Financial Accounting',
+    // Deliberately the pre-#331 number: seeds a legacy cart, so this run exercises
+    // normalizeStoredCredits.
     credits: 3,
     terms: [
       { termCode: '2610', termName: TERM_ONE, sections: [storedSection] },

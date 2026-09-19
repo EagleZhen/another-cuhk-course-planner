@@ -10,11 +10,17 @@ export const ACADEMIC_CAREERS = [
 ] as const
 export type AcademicCareer = (typeof ACADEMIC_CAREERS)[number]
 
+/** What CUHK states a course is worth. `min === max` when it states a single value. */
+export interface Credits {
+  min: number
+  max: number
+}
+
 export interface InternalCourse {
   subject: string
   courseCode: string
   title: string
-  credits: number
+  credits?: Credits // absent when the source string is missing or unreadable
   career?: AcademicCareer // absent when the source value is missing or unrecognized
   description?: string
   enrollmentRequirement?: string

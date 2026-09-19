@@ -39,7 +39,7 @@ async function openCart(page: Page, lastSeenMeeting: Record<string, unknown> = {
             subject: 'GEWS',
             courseCode: '1011',
             title: 'College Induction Course',
-            credits: 3,
+            credits: { min: 3, max: 3 },
             terms: [{ termCode: '2610', termName: term, sections: [section] }],
           },
           selectedSections: [section],

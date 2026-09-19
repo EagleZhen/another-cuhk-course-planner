@@ -43,7 +43,7 @@ async function openCart(page: Page, alternatives: ReturnType<typeof section>[]) 
           subject: 'ACCT',
           courseCode: '1111',
           title: 'Foundations in Financial Accounting',
-          credits: 3,
+          credits: { min: 3, max: 3 },
           terms: [{ termCode: '2420', termName: term, sections: alternatives }],
         },
         selectedSections: [],
