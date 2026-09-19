@@ -42,6 +42,22 @@ describe('the proxied URL', () => {
   })
 })
 
+describe('the upstream host', () => {
+  const assets = 'https://us-assets.i.posthog.com'
+  const ingest = 'https://us.i.posthog.com'
+
+  it.each([
+    ['static/1.433.4/exception-autocapture.js', assets],
+    ['array/phc_test/config.js', assets],
+    ['e', ingest],
+    // The prefix is anchored: `static/` deeper in the path is not an asset.
+    ['e/static/x', ingest],
+  ])('serves %s from %s', async (path, expected) => {
+    const [url] = await proxyGet(path.split('/'))
+    expect(url).toBe(`${expected}/${path}`)
+  })
+})
+
 describe('the proxied request', () => {
   it('forwards method, headers and body unchanged', async () => {
     const request = new Request('https://planner.test/x8m2k/e', {

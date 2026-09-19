@@ -52,7 +52,7 @@ Tradeoffs:
 
 - no SSR or middleware (fine — the app is frontend-only anyway)
 - `next/image` ships unoptimized (`images.unoptimized`) without a server
-- the proxy moved from a `next.config` rewrite to a Function (`web/functions/x8m2k/[[path]].ts`), kept single-host (assets-host split is [#177](https://github.com/EagleZhen/another-cuhk-course-planner/issues/177))
+- the proxy moved from a `next.config` rewrite to a Function (`web/functions/x8m2k/[[path]].ts`)
 
 ## PostHog Over Vercel Analytics
 

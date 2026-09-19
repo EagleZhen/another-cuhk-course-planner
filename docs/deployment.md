@@ -30,9 +30,9 @@ Two callers recover: [error.tsx](../web/src/app/error.tsx) when a boundary catch
 
 Analytics use PostHog, initialized in `web/src/instrumentation-client.ts`.
 
-posthog-js sends everything to `/x8m2k` (its `api_host`) — a same-origin path, so ad blockers don't recognize PostHog's domain — and a catch-all Pages Function (`web/functions/x8m2k/[[path]].ts`) forwards it to PostHog's ingest host, `us.i.posthog.com`. The Function runs only at the edge (production or `wrangler pages dev`, not plain `npm run dev`) and is the app's only Function. Local dev works without analytics when `NEXT_PUBLIC_POSTHOG_KEY` is unset.
+posthog-js sends everything to `/x8m2k` (its `api_host`) — a same-origin path, so ad blockers don't recognize PostHog's domain — and a catch-all Pages Function (`web/functions/x8m2k/[[path]].ts`) forwards it to PostHog: `static/*` (SDK bundles) and `array/*` (remote config) to `us-assets.i.posthog.com`, everything else to the ingest host `us.i.posthog.com`. The Function runs only at the edge (production or `wrangler pages dev`, not plain `npm run dev`) and is the app's only Function. Local dev works without analytics when `NEXT_PUBLIC_POSTHOG_KEY` is unset.
 
-Don't confuse that with `ui_host` (`us.posthog.com`): that's PostHog's separate dashboard host, referenced only so the SDK can link back to it. No events go there, so it isn't proxied.
+`ui_host` (`us.posthog.com`) is a third host but not a proxied one: it's PostHog's dashboard, referenced only so the SDK can link back to it. No events go there.
 
 The entry pageview captures UTM attribution before `utm_*` parameters are removed, and captured URLs omit query parameters. Error Tracking records unhandled errors plus explicit captures from boundaries and critical caught failures. Exceptions include the build ID, page visibility, navigation type, and time since page load; session recording remains disabled.
 
