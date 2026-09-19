@@ -450,7 +450,10 @@ export default function ShoppingCart({
                         // line below spells "credits" out.
                         <Badge
                           variant="secondary"
-                          className="h-full min-w-0 shrink truncate rounded px-1.5 py-0 text-xs font-medium text-gray-600"
+                          // px-1, not Badge's px-2: narrow enough to fit this row without
+                          // shrinking, which would clip the text and make the padding look
+                          // uneven between a single value and a range.
+                          className="h-full min-w-0 shrink justify-start rounded px-1 py-0 text-xs font-medium text-gray-600"
                           title={`${formatCredits(enrollment.course.credits)} credits`}
                         >
                           {formatCredits(enrollment.course.credits)} cr
