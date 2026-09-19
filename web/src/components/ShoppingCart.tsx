@@ -46,9 +46,8 @@ const sameCredits = (a: Credits | undefined, b: Credits | undefined): boolean =>
   a?.min === b?.min && a?.max === b?.max
 
 /**
- * The cart's credit line, empty when there is no total to state rather than claiming 0.0.
- * That means every enrollment is invalid: the publish gate keeps credit strings the app
- * cannot read out of the data, so a valid course always states a value.
+ * The cart's credit line, empty when no enrolled course states a total rather than
+ * claiming 0.0, which hundreds of courses genuinely are.
  * A blank *visible* sum does mean 0.0: nothing visible is a real thing to show.
  */
 function creditSummaryOf(visible: Credits | undefined, total: Credits | undefined) {
