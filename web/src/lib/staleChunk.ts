@@ -1,4 +1,7 @@
+import { analytics } from './analytics'
 import { STALE_CHUNK_REFRESH_PARAM, STALE_CHUNK_RELOAD_KEY } from './constants'
+
+const BUILD_ID = process.env.NEXT_PUBLIC_BUILD_ID ?? null
 
 // A deploy removes the chunk an open tab asks for; navigating again picks up the new
 // build. Two facts with different lifetimes: which build we last tried this from (the
@@ -57,4 +60,28 @@ export function readStaleChunkReload(): string | null {
 
 export function rememberStaleChunkReload(buildId: string): void {
   sessionStorage.setItem(STALE_CHUNK_RELOAD_KEY, buildId)
+}
+
+// Split from the recovery below because a React boundary must answer this while
+// rendering, before it is allowed to navigate.
+export function canRecoverFromStaleChunk(error: Error): boolean {
+  return (
+    isStaleChunkError(error) &&
+    shouldReloadForStaleChunk({
+      href: window.location.href,
+      lastBuildId: readStaleChunkReload(),
+      buildId: BUILD_ID,
+    })
+  )
+}
+
+// Decides and acts in one call, for a caller that has no separate render to gate.
+export function recoverFromStaleChunk(error: Error): boolean {
+  if (!canRecoverFromStaleChunk(error)) return false
+
+  if (BUILD_ID) rememberStaleChunkReload(BUILD_ID)
+  // Handled — the user sees a reload, not a failure, so this is not one to triage.
+  analytics.chunkLoadRecovered()
+  window.location.replace(withRefreshMarker(window.location.href))
+  return true
 }
