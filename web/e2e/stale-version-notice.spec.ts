@@ -16,45 +16,46 @@ async function open(page: Page, { recovered = false } = {}) {
 
 // A chunk error no boundary sees. From a timeout, so the evaluate returns before the
 // recovery navigates.
-async function throwChunkLoadError(page: Page, { rejected = false } = {}) {
-  await page.evaluate((rejected) => {
+async function throwChunkLoadError(page: Page, path: EscapedPath) {
+  await page.evaluate((path) => {
     setTimeout(() => {
       const error = new Error('Loading chunk 123 failed.')
       error.name = 'ChunkLoadError'
-      if (rejected) void Promise.reject(error)
+      if (path === 'unhandledrejection') void Promise.reject(error)
       else window.dispatchEvent(new ErrorEvent('error', { error }))
     })
-  }, rejected)
+  }, path)
 }
 
-// Stands in for posthog's autocapture, which registers after the recovery listener.
-// Session storage, because the recovery navigates away.
+// Stands in for posthog's autocapture, which registers after the recovery listener and
+// wraps each path separately. Session storage, because the recovery navigates away.
 async function watchForReports(page: Page) {
   await page.evaluate(() => {
-    window.addEventListener('error', () => sessionStorage.setItem('reported', '1'))
+    for (const path of ['error', 'unhandledrejection']) {
+      window.addEventListener(path, () => sessionStorage.setItem('reported', '1'))
+    }
   })
 }
 
 const reported = (page: Page) => page.evaluate(() => sessionStorage.getItem('reported'))
 
-test('recovers an escaped chunk error, and reports one it cannot', async ({ page }) => {
-  await open(page)
-  await watchForReports(page)
-  await throwChunkLoadError(page)
-  await expect(notice(page)).toBeVisible()
-  expect(await reported(page)).toBeNull()
+// Both paths run the same recovery; they differ in which property carries the error.
+type EscapedPath = 'error' | 'unhandledrejection'
 
-  // Same build, already tried: nothing to recover, so this one is worth reporting.
-  await watchForReports(page)
-  await throwChunkLoadError(page)
-  await expect.poll(() => reported(page)).toBe('1')
-})
+for (const path of ['error', 'unhandledrejection'] as EscapedPath[]) {
+  test(`recovers an escaped chunk error, and reports one it cannot (${path})`, async ({ page }) => {
+    await open(page)
+    await watchForReports(page)
+    await throwChunkLoadError(page, path)
+    await expect(notice(page)).toBeVisible()
+    expect(await reported(page)).toBeNull()
 
-test('recovers one that arrives as an unhandled rejection', async ({ page }) => {
-  await open(page)
-  await throwChunkLoadError(page, { rejected: true })
-  await expect(notice(page)).toBeVisible()
-})
+    // Same build, already tried: nothing to recover, so this one is worth reporting.
+    await watchForReports(page)
+    await throwChunkLoadError(page, path)
+    await expect.poll(() => reported(page)).toBe('1')
+  })
+}
 
 test('explains the refresh after a stale-chunk reload', async ({ page }) => {
   await open(page)
