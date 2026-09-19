@@ -27,18 +27,6 @@ async function throwChunkLoadError(page: Page, { rejected = false } = {}) {
   }, rejected)
 }
 
-test('recovers a chunk error that escapes React', async ({ page }) => {
-  await open(page)
-  await throwChunkLoadError(page)
-  await expect(notice(page)).toBeVisible()
-})
-
-test('recovers one that surfaces as an unhandled rejection', async ({ page }) => {
-  await open(page)
-  await throwChunkLoadError(page, { rejected: true })
-  await expect(notice(page)).toBeVisible()
-})
-
 // Stands in for posthog's autocapture, which registers after the recovery listener.
 // Session storage, because the recovery navigates away.
 async function watchForReports(page: Page) {
@@ -49,7 +37,7 @@ async function watchForReports(page: Page) {
 
 const reported = (page: Page) => page.evaluate(() => sessionStorage.getItem('reported'))
 
-test('reports a chunk error only when it cannot recover', async ({ page }) => {
+test('recovers an escaped chunk error, and reports one it cannot', async ({ page }) => {
   await open(page)
   await watchForReports(page)
   await throwChunkLoadError(page)
@@ -60,6 +48,12 @@ test('reports a chunk error only when it cannot recover', async ({ page }) => {
   await watchForReports(page)
   await throwChunkLoadError(page)
   await expect.poll(() => reported(page)).toBe('1')
+})
+
+test('recovers one that arrives as an unhandled rejection', async ({ page }) => {
+  await open(page)
+  await throwChunkLoadError(page, { rejected: true })
+  await expect(notice(page)).toBeVisible()
 })
 
 test('explains the refresh after a stale-chunk reload', async ({ page }) => {
