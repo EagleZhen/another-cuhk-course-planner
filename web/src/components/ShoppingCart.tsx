@@ -444,6 +444,22 @@ export default function ShoppingCart({
                           enrollment.selectedSections[0]?.sectionCode || ''
                         )}
                       </span>
+                      {enrollment.course.credits && (
+                        // The only thing in this row that may shrink: the code is the card's
+                        // identity and the actions are fixed. Abbreviated because the summary
+                        // line below spells "credits" out.
+                        <Badge
+                          variant="secondary"
+                          className="h-full min-w-0 shrink truncate rounded px-1.5 py-0 text-xs font-medium text-gray-600"
+                          title={`${formatCredits(enrollment.course.credits)} credits`}
+                        >
+                          {formatCredits(enrollment.course.credits)} cr
+                        </Badge>
+                      )}
+                    </div>
+
+                    {/* Quick Actions */}
+                    <div className="flex shrink-0 items-stretch gap-1">
                       {onShowCourseDetails && (
                         <Button
                           variant="ghost"
@@ -457,18 +473,10 @@ export default function ShoppingCart({
                           className="size-5 p-0 cursor-pointer"
                           title="View course details"
                         >
-                          <Search className="size-3.5 text-gray-400 hover:text-gray-600" />
+                          {/* gray-600 like the open Eye: gray-400 is this row's "off" state. */}
+                          <Search className="size-3.5 text-gray-600 hover:text-gray-900" />
                         </Button>
                       )}
-                      {enrollment.course.credits && (
-                        <span className="flex h-full shrink-0 items-center text-xs font-medium leading-5 text-gray-500">
-                          {formatCredits(enrollment.course.credits)} credits
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Quick Actions */}
-                    <div className="flex shrink-0 items-stretch gap-1">
                       <Button
                         variant="ghost"
                         size="sm"
