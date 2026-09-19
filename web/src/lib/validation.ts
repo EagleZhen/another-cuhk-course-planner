@@ -5,6 +5,7 @@ import { z } from 'zod'
 import { ACADEMIC_CAREERS } from './types'
 import type {
   AcademicCareer,
+  Credits,
   InternalCourse,
   InternalTerm,
   InternalSection,
@@ -126,6 +127,8 @@ function parseSectionType(sectionCode: string): SectionType {
 function transformAvailability(
   external: z.infer<typeof ExternalAvailabilitySchema>
 ): SectionAvailability {
+  // TODO(#349): parseInt("1,200") is 1, and `|| 0` makes a failed parse a real seat count;
+  // availableSeats has no fallback at all and can be NaN.
   const capacity = parseInt(external.capacity) || 0
   const enrolled = parseInt(external.enrolled) || 0
   const availableSeats = parseInt(external.available_seats)
@@ -194,6 +197,25 @@ function transformTerm(
   }
 }
 
+// "3.00", or a range CUHK hyphenates as "1.50 - 2.00". Looser than the two-decimal padding
+// every record carries today, so a future bare "3" still reads.
+const CREDITS_RE = /^(\d+(?:\.\d+)?)(?:\s*-\s*(\d+(?:\.\d+)?))?$/
+
+/**
+ * What CUHK states a course is worth, or undefined when it states nothing readable.
+ *
+ * Number, not parseFloat: parseFloat("1.50 - 2.00") silently returns 1.5 (#331). Undefined
+ * rather than 0, which 264 courses genuinely state.
+ */
+export function parseCredits(value: string | undefined): Credits | undefined {
+  const match = value?.trim().match(CREDITS_RE)
+  if (!match) return undefined
+
+  const min = Number(match[1])
+  const max = match[2] === undefined ? min : Number(match[2])
+  return max < min ? undefined : { min, max }
+}
+
 // Main transformation function: External course -> Internal course
 export function transformExternalCourse(external: unknown): InternalCourse {
   // Runtime validation with detailed error reporting
@@ -204,15 +226,7 @@ export function transformExternalCourse(external: unknown): InternalCourse {
     // Transform to internal types
     const terms = (validated.terms || []).map((term) => transformTerm(term, courseKey))
 
-    // Parse and validate credits
-    // TODO(#331): 170 courses state a range ("1.50 - 2.00"); parseFloat keeps only the lower bound
-    let credits = 0.0 // Default value
-    if (validated.credits) {
-      const parsed = parseFloat(validated.credits)
-      if (!isNaN(parsed) && parsed >= 0) {
-        credits = parsed
-      }
-    }
+    const credits = parseCredits(validated.credits)
 
     // Narrow the free-form career string to a known value; drop anything unexpected
     const career = ACADEMIC_CAREERS.includes(validated.academic_career as AcademicCareer)

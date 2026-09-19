@@ -59,7 +59,7 @@ function makeCourse(overrides: Partial<InternalCourse> = {}): InternalCourse {
     subject: 'CSCI',
     courseCode: '1130',
     title: 'Intro to Computing',
-    credits: 3,
+    credits: { min: 3, max: 3 },
     terms: [{ termCode: '2510', termName: TERM, sections: [makeSection()] }],
     ...overrides,
   }
@@ -130,8 +130,8 @@ describe('filterCourses', () => {
   })
 
   it('filters by credits when credit values are selected', () => {
-    const three = makeCourse({ courseCode: '1000', credits: 3 })
-    const one = makeCourse({ courseCode: '2000', credits: 1 })
+    const three = makeCourse({ courseCode: '1000', credits: { min: 3, max: 3 } })
+    const one = makeCourse({ courseCode: '2000', credits: { min: 1, max: 1 } })
     const result = filterCourses([three, one], { ...noFilters, credits: new Set([3]) }, ctx)
     expect(result).toEqual([three])
   })
@@ -337,9 +337,9 @@ describe('availableValues (dayDimension)', () => {
 
 describe('availableValues (creditsDimension)', () => {
   it('collects the distinct credit values present, reacting to other filters', () => {
-    const three = makeCourse({ subject: 'CSCI', courseCode: '1000', credits: 3 })
-    const one = makeCourse({ subject: 'CSCI', courseCode: '2000', credits: 1 })
-    const engg = makeCourse({ subject: 'ENGG', courseCode: '3000', credits: 6 })
+    const three = makeCourse({ subject: 'CSCI', courseCode: '1000', credits: { min: 3, max: 3 } })
+    const one = makeCourse({ subject: 'CSCI', courseCode: '2000', credits: { min: 1, max: 1 } })
+    const engg = makeCourse({ subject: 'ENGG', courseCode: '3000', credits: { min: 6, max: 6 } })
     expect(availableValues(creditsDimension, [three, one, engg], noFilters, ctx).sort()).toEqual([
       1, 3, 6,
     ])
@@ -350,7 +350,7 @@ describe('availableValues (creditsDimension)', () => {
   })
 
   it('keeps a selected credit value even when no course still has it', () => {
-    const three = makeCourse({ credits: 3 })
+    const three = makeCourse({ credits: { min: 3, max: 3 } })
     const selected = new Set([1])
     expect(availableValues(creditsDimension, [three], noFilters, ctx, selected).sort()).toEqual([
       1, 3,
@@ -430,5 +430,39 @@ describe('hasActiveFilters', () => {
   it('is false when only careers are selected', () => {
     const criteria = { ...noFilters, careers: new Set<AcademicCareer>(['Undergraduate']) }
     expect(hasActiveFilters(criteria)).toBe(false)
+  })
+})
+
+describe('credit filters over a range course (#331)', () => {
+  // PGDE5131 states "1.50 - 2.00". parseFloat kept 1.5, so the 2 chip never returned it.
+  const ranged = makeCourse({ courseCode: '5131', credits: { min: 1.5, max: 2 } })
+  const plain = makeCourse({ courseCode: '1000', credits: { min: 3, max: 3 } })
+
+  it('returns the course from its upper bound, the reported symptom', () => {
+    expect(filterCourses([ranged, plain], { ...noFilters, credits: new Set([2]) }, ctx)).toEqual([
+      ranged,
+    ])
+  })
+
+  it('still returns it from its lower bound', () => {
+    expect(filterCourses([ranged, plain], { ...noFilters, credits: new Set([1.5]) }, ctx)).toEqual([
+      ranged,
+    ])
+  })
+
+  it('does not return an unrelated course, so the predicate is not merely wide', () => {
+    expect(filterCourses([ranged, plain], { ...noFilters, credits: new Set([3]) }, ctx)).toEqual([
+      plain,
+    ])
+  })
+
+  it('offers both stated bounds as chips and nothing between them', () => {
+    expect(availableValues(creditsDimension, [ranged], noFilters, ctx).sort()).toEqual([1.5, 2])
+  })
+
+  it('matches no chip and offers none when the course states nothing readable', () => {
+    const unstated = makeCourse({ courseCode: '9999', credits: undefined })
+    expect(availableValues(creditsDimension, [unstated], noFilters, ctx)).toEqual([])
+    expect(filterCourses([unstated], { ...noFilters, credits: new Set([3]) }, ctx)).toEqual([])
   })
 })

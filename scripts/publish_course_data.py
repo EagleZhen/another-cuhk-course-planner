@@ -15,6 +15,7 @@ Usage: python publish_course_data.py [--dry-run]
 import glob
 import json
 import os
+import re
 import shutil
 import sys
 from collections.abc import Iterable, Iterator
@@ -46,6 +47,11 @@ from data_utils import (
 
 # Validation messages
 EMPTY_COURSES_ISSUE = "No courses found in file"
+
+# A credit bound as CUSIS writes it today: every scraped record is padded to two decimals.
+CREDIT_BOUND_RE = re.compile(r"\d+\.\d{2}")
+
+MAX_CREDIT_EXAMPLES = 3
 
 # Log inputs and outputs
 LOGS_DIR = "logs"
@@ -106,6 +112,43 @@ def load_scraping_progress() -> dict | None:
 def subject_code_of(file_path: str) -> str:
     """Course filenames are <subject>.json."""
     return os.path.splitext(os.path.basename(file_path))[0]
+
+
+def is_expected_credit_shape(value: str) -> bool:
+    """Whether a credits string looks the way CUSIS has always written it.
+
+    Deliberately stricter than parseCredits in web/src/lib/validation.ts, which reads any
+    number: an unpadded "3" is news worth a line here, not a reason to drop the value there.
+    """
+    bounds = [part.strip() for part in value.strip().split("-")]
+    if len(bounds) > 2 or not all(CREDIT_BOUND_RE.fullmatch(bound) for bound in bounds):
+        return False
+    return len(bounds) == 1 or float(bounds[0]) <= float(bounds[1])
+
+
+def unknown_credit_shapes(courses: list[dict]) -> str | None:
+    """One issue naming every course whose credits are not the shape we expect, or None.
+
+    Every course, not the three validate_course_file samples: a shape carried by 170 of
+    14,000 records is not something sampling can find.
+    """
+    bad = []
+    for course in courses:
+        credits = course.get("credits")
+        if isinstance(credits, str) and not is_expected_credit_shape(credits):
+            code = f"{course.get('subject', '')}{course.get('course_code', '')}"
+            bad.append(f'{code} "{credits}"')
+    if not bad:
+        return None
+    examples = ", ".join(bad[:MAX_CREDIT_EXAMPLES])
+    tail = (
+        f", … and {len(bad) - MAX_CREDIT_EXAMPLES} more" if len(bad) > MAX_CREDIT_EXAMPLES else ""
+    )
+    return (
+        f"Credits in unrecognized shapes ({len(bad)}): {examples}{tail}"
+        ' — we expected "3.00" or "1.50 - 2.00": re-scrape if the detail page failed,'
+        " else widen is_expected_credit_shape once parseCredits reads the new shape"
+    )
 
 
 def validate_course_file(
@@ -177,6 +220,10 @@ def validate_course_file(
             issues.append(
                 f"Course {i + 1} subject mismatch: '{course.get('subject')}' vs '{subject_code}'"
             )
+
+    credit_issue = unknown_credit_shapes(courses)
+    if credit_issue:
+        issues.append(credit_issue)
 
     return len(issues) == 0, issues
 

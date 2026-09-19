@@ -20,10 +20,13 @@ import {
   getChangedCourseIds,
   hasUnseenInvalidChange,
   isEnrollmentOpen,
+  formatCredits,
+  sumCredits,
 } from '@/lib/courseUtils'
 import type {
   CourseEnrollment,
   CalendarEvent,
+  Credits,
   SectionType,
   SectionChange,
   MeetingRow,
@@ -31,6 +34,36 @@ import type {
 import { analytics } from '@/lib/analytics'
 import { MeetingRowCard } from '@/components/MeetingRowCard'
 import { ClassAttributesRow, EnrollmentRequirementRow } from '@/components/SectionAttributeRow'
+
+// Not formatCredits: a sum keeps one decimal, since values like 2.3 + 3.4 drift.
+function formatCreditTotal(credits: Credits): string {
+  return credits.min === credits.max
+    ? credits.min.toFixed(1)
+    : `${credits.min.toFixed(1)}-${credits.max.toFixed(1)}`
+}
+
+const sameCredits = (a: Credits | undefined, b: Credits | undefined): boolean =>
+  a?.min === b?.min && a?.max === b?.max
+
+/**
+ * The cart's credit line, empty when no enrolled course states a total rather than
+ * claiming 0.0, which hundreds of courses genuinely are.
+ * A blank *visible* sum does mean 0.0: nothing visible is a real thing to show.
+ */
+function creditSummaryOf(visible: Credits | undefined, total: Credits | undefined) {
+  if (!total) return { label: '', title: '' }
+  if (sameCredits(visible, total)) {
+    const value = formatCreditTotal(total)
+    return { label: `${value} credits`, title: `${value} total credits from enrolled courses` }
+  }
+
+  const visibleValue = visible ? formatCreditTotal(visible) : '0.0'
+  const totalValue = formatCreditTotal(total)
+  return {
+    label: `${visibleValue} / ${totalValue} credits`,
+    title: `${visibleValue} visible credits, ${totalValue} total credits from enrolled courses`,
+  }
+}
 
 // Shared style for the change-banner actions; the grid gives both equal width.
 const bannerButtonClass =
@@ -180,14 +213,8 @@ export default function ShoppingCart({
 
     return {
       // Credit counts
-      visibleCredits: visibleValidEnrollments.reduce(
-        (sum, enrollment) => sum + enrollment.course.credits,
-        0
-      ),
-      totalCredits: validEnrollments.reduce(
-        (sum, enrollment) => sum + enrollment.course.credits,
-        0
-      ),
+      visibleCredits: sumCredits(visibleValidEnrollments.map((e) => e.course)),
+      totalCredits: sumCredits(validEnrollments.map((e) => e.course)),
 
       // Status counts
       open: {
@@ -224,6 +251,7 @@ export default function ShoppingCart({
   }
 
   const statusCounts = getStatusCounts()
+  const creditSummary = creditSummaryOf(statusCounts.visibleCredits, statusCounts.totalCredits)
 
   // Review reuses the cart/calendar focus state. Invalid enrollments have no calendar events,
   // so focusing one highlights only its cart card.
@@ -415,6 +443,23 @@ export default function ShoppingCart({
                           enrollment.selectedSections[0]?.sectionCode || ''
                         )}
                       </span>
+                      {enrollment.course.credits && (
+                        // The only thing here that may shrink — the code is the card's
+                        // identity, the actions are fixed — so keep px-1: any wider and it
+                        // shrinks instead, clipping the text. "cr" since the summary below
+                        // spells it out.
+                        <Badge
+                          variant="secondary"
+                          className="h-full min-w-0 shrink justify-start rounded px-1 py-0 text-xs font-medium text-gray-600"
+                          title={`${formatCredits(enrollment.course.credits)} credits`}
+                        >
+                          {formatCredits(enrollment.course.credits)} cr
+                        </Badge>
+                      )}
+                    </div>
+
+                    {/* Quick Actions */}
+                    <div className="flex shrink-0 items-stretch gap-1">
                       {onShowCourseDetails && (
                         <Button
                           variant="ghost"
@@ -428,16 +473,10 @@ export default function ShoppingCart({
                           className="size-5 p-0 cursor-pointer"
                           title="View course details"
                         >
-                          <Search className="size-3.5 text-gray-400 hover:text-gray-600" />
+                          {/* gray-600 like the open Eye: gray-400 is this row's "off" state. */}
+                          <Search className="size-3.5 text-gray-600 hover:text-gray-900" />
                         </Button>
                       )}
-                      <span className="flex h-full shrink-0 items-center text-xs font-medium leading-5 text-gray-500">
-                        {enrollment.course.credits} credits
-                      </span>
-                    </div>
-
-                    {/* Quick Actions */}
-                    <div className="flex shrink-0 items-stretch gap-1">
                       <Button
                         variant="ghost"
                         size="sm"
@@ -712,29 +751,22 @@ export default function ShoppingCart({
       {/* Schedule Summary - Outside scrollable area */}
       {courseEnrollments.length > 0 && (
         <div className="border-t px-3 py-2 flex-shrink-0 space-y-2">
-          {/* Row 1: Credits + time conflicts (optional) */}
-          <div className="flex justify-between text-xs text-gray-600">
-            <span
-              title={
-                statusCounts.visibleCredits === statusCounts.totalCredits
-                  ? `${statusCounts.totalCredits.toFixed(1)} total credits from enrolled courses`
-                  : `${statusCounts.visibleCredits.toFixed(1)} visible credits, ${statusCounts.totalCredits.toFixed(1)} total credits from enrolled courses`
-              }
-            >
-              {statusCounts.visibleCredits === statusCounts.totalCredits
-                ? `${statusCounts.totalCredits.toFixed(1)} credits`
-                : `${statusCounts.visibleCredits.toFixed(1)} / ${statusCounts.totalCredits.toFixed(1)} credits`}
-            </span>
-            {statusCounts.conflicts.total > 0 && (
-              <div
-                className="flex items-center gap-1 text-purple-500"
-                title="Selected sections have time conflicts"
-              >
-                <AlertTriangle className="w-3 h-3" />
-                <span>Conflicts Detected</span>
-              </div>
-            )}
-          </div>
+          {/* Row 1: Credits + time conflicts. An all-invalid cart has neither — invalid
+              enrollments raise no calendar events — so the row would only add space. */}
+          {(creditSummary.label !== '' || statusCounts.conflicts.total > 0) && (
+            <div className="flex justify-between text-xs text-gray-600">
+              <span title={creditSummary.title}>{creditSummary.label}</span>
+              {statusCounts.conflicts.total > 0 && (
+                <div
+                  className="flex items-center gap-1 text-purple-500"
+                  title="Selected sections have time conflicts"
+                >
+                  <AlertTriangle className="w-3 h-3" />
+                  <span>Conflicts Detected</span>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Row 2: Open, Wait List, Closed (all optional) */}
           {(() => {

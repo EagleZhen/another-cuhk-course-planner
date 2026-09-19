@@ -6,6 +6,7 @@ import type {
   TimeRange,
   CalendarEvent,
   CourseEnrollment,
+  Credits,
   InternalCourse,
   InternalSection,
   InternalMeeting,
@@ -217,7 +218,6 @@ export function enrollmentsToCalendarEvents(
             time: meeting.time,
             location: meeting.location,
             instructors: meeting.instructors,
-            credits: enrollment.course.credits,
             color: enrollment.color,
             isVisible: enrollment.isVisible,
             hasConflict: false, // Will be computed later
@@ -618,12 +618,28 @@ function renameStoredClassAttributes(enrollments: CourseEnrollment[]): CourseEnr
   })
 }
 
+// Shape only: a pre-#331 blob holds the truncated number, so a range course stays wrong
+// ({1.5, 1.5}) until the next sync replaces the course wholesale.
+function normalizeStoredCredits(enrollments: CourseEnrollment[]): CourseEnrollment[] {
+  return enrollments.map((enrollment) => {
+    const credits = enrollment.course?.credits as Credits | number | undefined
+    if (typeof credits !== 'number') return enrollment
+
+    return {
+      ...enrollment,
+      course: { ...enrollment.course, credits: { min: credits, max: credits } },
+    }
+  })
+}
+
 // Every step is idempotent, so re-normalizing current-version data is a no-op.
 function normalizeStoredEnrollments(enrollments: CourseEnrollment[]): CourseEnrollment[] {
   return reviveEnrollmentDates(
     stripLegacyInvalidStateFields(
       renameStoredClassAttributes(
-        renameStoredWaitlistStatus(migrateLegacyPartialRemovals(enrollments))
+        renameStoredWaitlistStatus(
+          normalizeStoredCredits(migrateLegacyPartialRemovals(enrollments))
+        )
       )
     )
   )
@@ -1202,6 +1218,30 @@ export function splitInstructorsCompact(instructorString: string): string[] {
 export function formatInstructorsCompact(instructorString: string): string {
   const instructors = splitInstructorsCompact(instructorString)
   return instructors.length > 0 ? instructors.join(', ') : 'TBA'
+}
+
+/** "3" for a single value, "1.5-2" for a range. */
+export function formatCredits(credits: Credits): string {
+  return credits.min === credits.max ? String(credits.min) : `${credits.min}-${credits.max}`
+}
+
+/**
+ * The values a course states: [3] or [1.5, 2]. The chip list and the filter predicate share
+ * this, so a chip always matches the course that offered it.
+ */
+export function statedCredits(credits: Credits): number[] {
+  return credits.min === credits.max ? [credits.min] : [credits.min, credits.max]
+}
+
+/** Totals each bound separately; undefined when no course states a value. */
+export function sumCredits(courses: { credits?: Credits }[]): Credits | undefined {
+  const stated = courses.map((course) => course.credits).filter((c) => c !== undefined)
+  if (stated.length === 0) return undefined
+
+  return stated.reduce((total, credits) => ({
+    min: total.min + credits.min,
+    max: total.max + credits.max,
+  }))
 }
 
 /**

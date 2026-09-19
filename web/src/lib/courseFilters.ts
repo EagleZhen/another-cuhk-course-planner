@@ -8,6 +8,7 @@ import {
   getDayIndex,
   hasConflictFreeEnrollment,
   isVisibleAndValid,
+  statedCredits,
 } from './courseUtils'
 
 /** The user's active selections. An empty/blank field means "no constraint". */
@@ -93,8 +94,14 @@ const buildDayPredicate: PredicateBuilder = (criteria, context) =>
           sectionMatchesDays(section, criteria.days)
         )
 
+// Either endpoint, nothing between: "1.50 - 2.00" names the variants a course comes in,
+// not a continuum.
 const buildCreditsPredicate: PredicateBuilder = (criteria) =>
-  criteria.credits.size === 0 ? TRUE : (course) => criteria.credits.has(course.credits)
+  criteria.credits.size === 0
+    ? TRUE
+    : (course) =>
+        course.credits !== undefined &&
+        statedCredits(course.credits).some((value) => criteria.credits.has(value))
 
 const buildLevelPredicate: PredicateBuilder = (criteria) =>
   criteria.levels.size === 0
@@ -222,10 +229,10 @@ export function availableValues<T>(
   return [...values]
 }
 
-/** A course's credit value. */
+/** Both ends of a range, so no chip offers a value CUHK never wrote. */
 export const creditsDimension: ChipDimension<number> = {
   key: 'credits',
-  valuesOf: (course) => [course.credits],
+  valuesOf: (course) => (course.credits ? statedCredits(course.credits) : []),
 }
 
 /** A course's level, derived from the leading digit of its code. */
