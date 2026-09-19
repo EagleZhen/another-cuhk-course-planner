@@ -127,6 +127,8 @@ function parseSectionType(sectionCode: string): SectionType {
 function transformAvailability(
   external: z.infer<typeof ExternalAvailabilitySchema>
 ): SectionAvailability {
+  // TODO(#349): parseInt half-succeeds — parseInt("1,200") is 1, and `|| 0` turns a failed
+  // parse into a real seat count. availableSeats has no fallback and can be NaN.
   const capacity = parseInt(external.capacity) || 0
   const enrolled = parseInt(external.enrolled) || 0
   const availableSeats = parseInt(external.available_seats)
