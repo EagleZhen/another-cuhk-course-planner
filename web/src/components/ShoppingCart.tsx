@@ -46,8 +46,10 @@ const sameCredits = (a: Credits | undefined, b: Credits | undefined): boolean =>
   a?.min === b?.min && a?.max === b?.max
 
 /**
- * The cart's credit line, blank when no course states a value rather than claiming 0.0.
- * A blank *visible* sum does mean 0.0 — nothing visible is a real thing to show.
+ * The cart's credit line, empty when there is no total to state rather than claiming 0.0.
+ * That means every enrollment is invalid: the publish gate keeps credit strings the app
+ * cannot read out of the data, so a valid course always states a value.
+ * A blank *visible* sum does mean 0.0: nothing visible is a real thing to show.
  */
 function creditSummaryOf(visible: Credits | undefined, total: Credits | undefined) {
   if (!total) return { label: '', title: '' }
@@ -750,19 +752,22 @@ export default function ShoppingCart({
       {/* Schedule Summary - Outside scrollable area */}
       {courseEnrollments.length > 0 && (
         <div className="border-t px-3 py-2 flex-shrink-0 space-y-2">
-          {/* Row 1: Credits + time conflicts (optional) */}
-          <div className="flex justify-between text-xs text-gray-600">
-            <span title={creditSummary.title}>{creditSummary.label}</span>
-            {statusCounts.conflicts.total > 0 && (
-              <div
-                className="flex items-center gap-1 text-purple-500"
-                title="Selected sections have time conflicts"
-              >
-                <AlertTriangle className="w-3 h-3" />
-                <span>Conflicts Detected</span>
-              </div>
-            )}
-          </div>
+          {/* Row 1: Credits + time conflicts. An all-invalid cart has neither — invalid
+              enrollments raise no calendar events — so the row would only add space. */}
+          {(creditSummary.label !== '' || statusCounts.conflicts.total > 0) && (
+            <div className="flex justify-between text-xs text-gray-600">
+              <span title={creditSummary.title}>{creditSummary.label}</span>
+              {statusCounts.conflicts.total > 0 && (
+                <div
+                  className="flex items-center gap-1 text-purple-500"
+                  title="Selected sections have time conflicts"
+                >
+                  <AlertTriangle className="w-3 h-3" />
+                  <span>Conflicts Detected</span>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Row 2: Open, Wait List, Closed (all optional) */}
           {(() => {
