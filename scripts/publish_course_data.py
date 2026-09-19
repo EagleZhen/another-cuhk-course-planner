@@ -48,8 +48,7 @@ from data_utils import (
 # Validation messages
 EMPTY_COURSES_ISSUE = "No courses found in file"
 
-# A credit bound, exactly as CUSIS writes it today: every one of the 14,394 scraped
-# records is padded to two decimals.
+# A credit bound as CUSIS writes it today: every scraped record is padded to two decimals.
 CREDIT_BOUND_RE = re.compile(r"\d+\.\d{2}")
 
 MAX_CREDIT_EXAMPLES = 3

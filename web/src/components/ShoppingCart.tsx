@@ -46,10 +46,8 @@ const sameCredits = (a: Credits | undefined, b: Credits | undefined): boolean =>
   a?.min === b?.min && a?.max === b?.max
 
 /**
- * The cart's credit line, blank when no enrolled course states a value — the row keeps its
- * shape rather than claiming a total of 0.0.
- *
- * A visible sum of undefined does mean 0.0: nothing visible is a real thing to show.
+ * The cart's credit line, blank when no course states a value rather than claiming 0.0.
+ * A blank *visible* sum does mean 0.0 — nothing visible is a real thing to show.
  */
 function creditSummaryOf(visible: Credits | undefined, total: Credits | undefined) {
   if (!total) return { label: '', title: '' }
@@ -445,14 +443,12 @@ export default function ShoppingCart({
                         )}
                       </span>
                       {enrollment.course.credits && (
-                        // The only thing in this row that may shrink: the code is the card's
-                        // identity and the actions are fixed. Abbreviated because the summary
-                        // line below spells "credits" out.
+                        // The only thing here that may shrink — the code is the card's
+                        // identity, the actions are fixed — so keep px-1: any wider and it
+                        // shrinks instead, clipping the text. "cr" since the summary below
+                        // spells it out.
                         <Badge
                           variant="secondary"
-                          // px-1, not Badge's px-2: narrow enough to fit this row without
-                          // shrinking, which would clip the text and make the padding look
-                          // uneven between a single value and a range.
                           className="h-full min-w-0 shrink justify-start rounded px-1 py-0 text-xs font-medium text-gray-600"
                           title={`${formatCredits(enrollment.course.credits)} credits`}
                         >

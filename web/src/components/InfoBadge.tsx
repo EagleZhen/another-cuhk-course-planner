@@ -6,9 +6,8 @@ import { Badge } from '@/components/ui/badge'
 import { formatCredits } from '@/lib/courseUtils'
 import type { Credits } from '@/lib/types'
 
-// A course fact linking to the CUHK page that explains it. Shared so the card's desktop and
-// mobile layouts can't drift. Not the cart, whose h-5 row fits neither this padding nor a
-// nested link.
+// A course fact linking to CUHK's page about it, shared so the card's desktop and mobile
+// layouts can't drift. Not the cart, whose h-5 row fits neither this padding nor a link.
 function InfoBadge({
   href,
   title,
