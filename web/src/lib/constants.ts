@@ -29,9 +29,5 @@ export const DEFAULT_CURRENT_TERM = '2026-27 Term 1'
 // is "YYYY-YY <suffix>"). The single current-year knob is DEFAULT_CURRENT_TERM.
 export const CURRENT_ACADEMIC_YEAR = DEFAULT_CURRENT_TERM.split(' ')[0]
 
-// The build a tab was on when it last tried to recover from a stale chunk. The loop
-// guard: getting that same build back means recovering again cannot help.
-export const STALE_CHUNK_RELOAD_KEY = 'stale-chunk-reloaded'
-
 // Marks the recovery navigation itself, so the page it lands on can explain the refresh.
 export const STALE_CHUNK_REFRESH_PARAM = 'refreshed'
