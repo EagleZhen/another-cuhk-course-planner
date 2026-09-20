@@ -18,9 +18,9 @@ Cloudflare serves assets first — HTML, course JSON under [web/public/data/](..
 
 ### Stale chunks in long-lived tabs
 
-Each build hashes its chunks afresh, and a newer build stops the old ones being served, so a tab that outlived any deploy since it loaded throws `ChunkLoadError`. Deploys are frequent and the planner sits in a background tab, so the tabs that break are typically days to weeks behind — not caught mid-deploy. Recovery navigates to `?refreshed=1` — at most once per build — and `StaleVersionNotice` explains the refresh on the page that comes back.
+Each build hashes its chunks afresh, and a newer build stops the old ones being served, so a tab that outlived any deploy since it loaded throws `ChunkLoadError`. Deploys are frequent and the planner sits in a background tab, so the tabs that break are typically days to weeks behind — not caught mid-deploy. Recovery navigates to `?refreshed=1`, and `StaleVersionNotice` explains the refresh on the page that comes back.
 
-Repeats are blocked twice ([staleChunk.ts](../web/src/lib/staleChunk.ts)): only a page that mounts strips the `?refreshed=1` marker, so a failure that never mounts leaves it in the URL; and a tab records the build it recovered from. A later deploy is a different build, arriving without a marker, and recovers normally.
+The `?refreshed=1` marker blocks a repeat ([staleChunk.ts](../web/src/lib/staleChunk.ts)): only a page that mounts strips it, so a failure that never mounts keeps it and refuses a second try. That suffices because deploys are atomic and content-hashed — a live build never 404s its own chunks, so every failure is a retired-build document one reload replaces, and one that reappears unmarked (bfcache, back/forward, a restored tab) recovers again.
 
 `StaleVersionNotice` renders from `page.tsx`, not the layout — `error.js` replaces the page and leaves the layout standing, so only that placement keeps the notice off the error page.
 

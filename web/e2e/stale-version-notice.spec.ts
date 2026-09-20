@@ -15,16 +15,22 @@ async function open(page: Page, { recovered = false } = {}) {
 }
 
 // A chunk error no boundary sees. From a timeout, so the evaluate returns before the
-// recovery navigates.
-async function throwChunkLoadError(page: Page, path: EscapedPath) {
-  await page.evaluate((path) => {
-    setTimeout(() => {
-      const error = new Error('Loading chunk 123 failed.')
-      error.name = 'ChunkLoadError'
-      if (path === 'unhandledrejection') void Promise.reject(error)
-      else window.dispatchEvent(new ErrorEvent('error', { error }))
-    })
-  }, path)
+// recovery navigates. `marked` re-adds the `?refreshed=1` marker just before the throw: the
+// mounted notice strips it, so a test needing a still-marked page (a recovery that landed on
+// a broken target) has to restore it.
+async function throwChunkLoadError(page: Page, path: EscapedPath, { marked = false } = {}) {
+  await page.evaluate(
+    ({ path, marked }) => {
+      setTimeout(() => {
+        if (marked) window.history.replaceState(null, '', '/?refreshed=1')
+        const error = new Error('Loading chunk 123 failed.')
+        error.name = 'ChunkLoadError'
+        if (path === 'unhandledrejection') void Promise.reject(error)
+        else window.dispatchEvent(new ErrorEvent('error', { error }))
+      })
+    },
+    { path, marked }
+  )
 }
 
 // Stands in for posthog's autocapture, which registers after the recovery listener and
@@ -50,12 +56,29 @@ for (const path of ['error', 'unhandledrejection'] as EscapedPath[]) {
     await expect(notice(page)).toBeVisible()
     expect(await reported(page)).toBeNull()
 
-    // Same build, already tried: nothing to recover, so this one is worth reporting.
+    // The marker still on the URL means a recovery already landed here and failed again:
+    // recovering once more is the loop, so this one is worth reporting.
     await watchForReports(page)
-    await throwChunkLoadError(page, path)
+    await throwChunkLoadError(page, path, { marked: true })
     await expect.poll(() => reported(page)).toBe('1')
   })
 }
+
+// A stale document reappears unmarked (bfcache, back/forward, a restored tab): the same
+// build we just recovered from, but with no marker recovery must fire again, not give up.
+test('recovers again when the stale document reappears unmarked', async ({ page }) => {
+  await open(page)
+  await throwChunkLoadError(page, 'error')
+  await expect(notice(page)).toBeVisible()
+
+  // The notice stripped the marker, so the page is now unmarked, as a resurrected one is.
+  // Dismiss it so its return proves the second recovery navigated rather than lingered.
+  await notice(page).getByRole('button', { name: 'Dismiss' }).click()
+  await watchForReports(page)
+  await throwChunkLoadError(page, 'error')
+  await expect(notice(page)).toBeVisible()
+  expect(await reported(page)).toBeNull()
+})
 
 test('explains the refresh after a stale-chunk reload', async ({ page }) => {
   await open(page)
