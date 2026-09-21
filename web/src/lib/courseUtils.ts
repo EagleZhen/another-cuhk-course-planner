@@ -1988,6 +1988,9 @@ export function generateICSCalendar(
   icsContent?: string
   filename?: string
   error?: string
+  // The caught error itself, so the caller can report it. Without this the exception reaches
+  // the user as a message and reaches Error Tracking not at all.
+  cause?: unknown
 } {
   try {
     const allEvents: ICSEvent[] = []
@@ -2030,7 +2033,10 @@ export function generateICSCalendar(
     }
   } catch (error) {
     console.error('Unexpected error during ICS generation:', error)
-    return { error: 'An unexpected error occurred while generating the calendar file.' }
+    return {
+      error: 'An unexpected error occurred while generating the calendar file.',
+      cause: error,
+    }
   }
 }
 

@@ -315,6 +315,9 @@ export default function WeeklyCalendar({
     const result = generateICSCalendar(courseEnrollments, selectedTerm)
 
     if (result.error) {
+      if (result.cause) {
+        posthog.captureException(result.cause, { error_context: 'ics_export' })
+      }
       console.error('Export failed:', result.error)
       alert(result.error)
       return

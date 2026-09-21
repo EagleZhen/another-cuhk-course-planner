@@ -1953,13 +1953,15 @@ describe('generateICSCalendar', () => {
     const section = makeSection({ id: 'a', sectionCode: 'AE-LEC', meetings: [meeting] })
     const course = makeCourse([section], SYNTHETIC_TERM)
 
-    const { icsContent, error } = generateICSCalendar(
+    const { icsContent, error, cause } = generateICSCalendar(
       [makeEnrollment(course, [section])],
       SYNTHETIC_TERM
     )
 
     expect(icsContent).toBeUndefined()
     expect(error).toMatch(/unexpected error/i)
+    // The error travels with the message, so the caller can report it to Error Tracking.
+    expect(cause).toBeInstanceOf(Error)
   })
 
   it('excludes hidden enrollments and reports when nothing is left to export', () => {
