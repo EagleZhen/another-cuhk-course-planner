@@ -52,7 +52,7 @@ import {
   type CalendarDisplayConfig,
   type CalendarLayoutConfig,
 } from '@/lib/calendarConfig'
-import type { CalendarEvent, CourseEnrollment, InternalSection, InternalMeeting } from '@/lib/types'
+import type { CalendarEvent, CourseEnrollment, UnscheduledSection } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
 
 /**
@@ -108,12 +108,7 @@ const CHANGED_HIGHLIGHT_MS = 3100
 
 interface WeeklyCalendarProps {
   events: CalendarEvent[]
-  unscheduledSections?: Array<{
-    enrollment: CourseEnrollment
-    section: InternalSection
-    meeting: InternalMeeting
-    cohortKey: string
-  }>
+  unscheduledSections?: UnscheduledSection[]
   courseEnrollments: CourseEnrollment[]
   selectedTerm?: string
   availableTerms?: string[]
@@ -1149,12 +1144,7 @@ function UnscheduledSectionsCard({
   onToggleVisibility,
   displayConfig,
 }: {
-  unscheduledSections: Array<{
-    enrollment: CourseEnrollment
-    section: InternalSection
-    meeting: InternalMeeting
-    cohortKey: string
-  }>
+  unscheduledSections: UnscheduledSection[]
   selectedEnrollment?: string | null
   onSelectEnrollment?: (enrollmentId: string | null) => void
   onToggleVisibility?: (enrollmentId: string) => void

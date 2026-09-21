@@ -19,6 +19,7 @@ import type {
   SectionDiffDetail,
   MeetingRow,
   InvalidEnrollmentState,
+  UnscheduledSection,
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
 import { HONG_KONG_TIMEZONE, HONG_KONG_TIMEZONE_LABEL, SCHEDULE_DATA_VERSION } from './constants'
@@ -229,18 +230,8 @@ export function enrollmentsToCalendarEvents(
 export function getUnscheduledSections(
   enrollments: CourseEnrollment[],
   termName: string
-): Array<{
-  enrollment: CourseEnrollment
-  section: InternalSection
-  meeting: InternalMeeting
-  cohortKey: string
-}> {
-  const unscheduledSections: Array<{
-    enrollment: CourseEnrollment
-    section: InternalSection
-    meeting: InternalMeeting
-    cohortKey: string
-  }> = []
+): UnscheduledSection[] {
+  const unscheduledSections: UnscheduledSection[] = []
 
   enrollments.filter(isVisibleAndValid).forEach((enrollment) => {
     const cohortKeys = cohortKeysForTerm(enrollment.course, termName)

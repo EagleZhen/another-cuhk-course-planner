@@ -206,6 +206,14 @@ export interface CalendarEvent {
   endMinute: number
 }
 
+// A selected section's meeting with no placeable time (TBA): shown in a list, not on the grid.
+export interface UnscheduledSection {
+  enrollment: CourseEnrollment
+  section: InternalSection
+  meeting: InternalMeeting
+  cohortKey: string
+}
+
 // Section type display information
 export interface SectionTypeInfo {
   type: SectionType
