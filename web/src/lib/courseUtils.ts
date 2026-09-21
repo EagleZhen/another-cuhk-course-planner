@@ -1443,37 +1443,6 @@ export function categorizeCompatibleSections(
 }
 
 /**
- * Get compatible alternative sections for cycling in shopping cart
- * Only returns sections of same type that work with current enrollment
- */
-export function getCompatibleAlternatives(
-  selectedSection: InternalSection,
-  enrollment: CourseEnrollment,
-  termName: string
-): InternalSection[] {
-  const currentTerm = enrollment.course.terms.find((t) => t.termName === termName)
-  if (!currentTerm) return []
-
-  const cohortKeys = computeCohortKeys(currentTerm.sections)
-
-  // Get sections of same type (LEC → LEC alternatives only)
-  const sameTypeSections = currentTerm.sections.filter(
-    (s) => s.sectionType === selectedSection.sectionType && s.id !== selectedSection.id
-  )
-
-  // Filter by compatibility with OTHER selected sections (different types)
-  const otherSelectedSections = enrollment.selectedSections.filter(
-    (s) => s.sectionType !== selectedSection.sectionType
-  )
-
-  return sameTypeSections.filter((candidateSection) =>
-    otherSelectedSections.every((otherSection) =>
-      areSectionsCompatible(candidateSection, otherSection, cohortKeys)
-    )
-  )
-}
-
-/**
  * Get the priority index of a section type within course section types
  */
 export function getSectionTypePriority(
@@ -1482,59 +1451,6 @@ export function getSectionTypePriority(
 ): number {
   const typeGroup = sectionTypes.find((group) => group.type === sectionType)
   return typeGroup?.priority ?? 999 // High number = low priority if not found
-}
-
-/**
- * Clear lower-priority section selections that become incompatible
- * This implements the cascade reset behavior
- */
-export function clearIncompatibleLowerSelections(
-  selectedSections: Map<string, string>,
-  courseKey: string,
-  changedSectionType: SectionType,
-  newSectionId: string,
-  sectionTypes: SectionTypeGroup[],
-  course: InternalCourse,
-  termName: string
-): Map<string, string> {
-  const newMap = new Map(selectedSections)
-  const changedPriority = getSectionTypePriority(changedSectionType, sectionTypes)
-
-  // Get the new section object
-  const termData = course.terms.find((t) => t.termName === termName)
-  const newSection = termData?.sections.find((s) => s.id === newSectionId)
-  if (!newSection) return newMap
-
-  const cohortKeys = computeCohortKeys(termData?.sections ?? [])
-
-  // Check all lower-priority section types
-  sectionTypes
-    .filter((typeGroup) => typeGroup.priority > changedPriority) // Lower priority (higher number)
-    .forEach((lowerTypeGroup) => {
-      const lowerSelectionKey = `${courseKey}_${lowerTypeGroup.type}`
-      const currentLowerSelectionId = newMap.get(lowerSelectionKey)
-
-      if (currentLowerSelectionId) {
-        // Find the currently selected lower section
-        const currentLowerSection = lowerTypeGroup.sections.find(
-          (s) => s.id === currentLowerSelectionId
-        )
-
-        // Check if it's still compatible with the new higher-priority selection
-        if (
-          currentLowerSection &&
-          !areSectionsCompatible(newSection, currentLowerSection, cohortKeys)
-        ) {
-          // Clear the incompatible selection
-          newMap.delete(lowerSelectionKey)
-          console.debug(
-            `Cascade cleared ${lowerTypeGroup.type} selection: ${currentLowerSection.sectionCode} (incompatible with ${newSection.sectionCode})`
-          )
-        }
-      }
-    })
-
-  return newMap
 }
 
 /**
