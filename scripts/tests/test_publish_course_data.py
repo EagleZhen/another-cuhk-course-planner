@@ -756,6 +756,98 @@ def test_credit_issue_caps_examples_and_counts_the_rest(tmp_path, monkeypatch, c
     assert "… and 2 more" in output
 
 
+# === Section-code shape and cohort-key guards (browser preconditions) ===
+
+
+def _course_with_sections(sections, *, subject="TEST", code="1000", term="2025-26 Term 1"):
+    """A course dict whose single term's schedule holds the given section codes."""
+    return {
+        "subject": subject,
+        "course_code": code,
+        "title": "Course",
+        "terms": [{"term_name": term, "schedule": [{"section": s} for s in sections]}],
+    }
+
+
+def test_malformed_section_codes_accepts_the_shapes_the_browser_parses():
+    course = _course_with_sections(["A-LEC (1)", "--LEC (2)", "-T01-TUT (3)", "AAL1-LAB (4)"])
+    assert publish_course_data.malformed_section_codes([course]) is None
+
+
+def test_malformed_section_codes_flags_a_code_missing_its_class_number():
+    issue = publish_course_data.malformed_section_codes([_course_with_sections(["A-LEC"])])
+    assert issue is not None and 'TEST1000 "A-LEC"' in issue
+
+
+def test_ambiguous_cohort_accepts_prefix_free_two_letter_roots():
+    # ENGG1003 shape: two-letter lecture roots, a lab reduces to its own lecture.
+    course = _course_with_sections(["AA-LEC (1)", "AB-LEC (2)", "AAL1-LAB (3)"])
+    assert publish_course_data.ambiguous_cohort_courses([course]) is None
+
+
+def test_ambiguous_cohort_flags_overlapping_roots_across_types():
+    # Two types, and the lecture roots {A, AA} overlap, so a lab can't reduce to one cohort.
+    course = _course_with_sections(["A-LEC (1)", "AA-LEC (2)", "AT01-TUT (3)"])
+    issue = publish_course_data.ambiguous_cohort_courses([course])
+    assert issue is not None and "TEST1000" in issue
+
+
+def test_ambiguous_cohort_allows_overlapping_roots_in_a_single_type():
+    # MESC/GESC shape: A and AA are both lectures with no other type, so compatibility never
+    # runs — prefix-freeness isn't required, and the guard must not flag it.
+    course = _course_with_sections(["A-LEC (1)", "AA-LEC (2)"])
+    assert publish_course_data.ambiguous_cohort_courses([course]) is None
+
+
+def test_ambiguous_cohort_ignores_an_all_universal_course():
+    course = _course_with_sections(["--LEC (1)", "--TUT (2)"])
+    assert publish_course_data.ambiguous_cohort_courses([course]) is None
+
+
+def _write_sections_file(source_dir, sections, *, subject="AAAA", year="2025-26"):
+    """A course file with one course whose term schedule holds the given section codes."""
+    year_dir = source_dir / year
+    year_dir.mkdir(parents=True, exist_ok=True)
+    course = _course_with_sections(sections, subject=subject, term=f"{year} Term 1")
+    course["credits"] = "3.00"
+    (year_dir / f"{subject}.json").write_text(
+        json.dumps(
+            {
+                "metadata": {
+                    "schema_version": SCHEMA_VERSION,
+                    "subject": subject,
+                    "subject_title": "Subject A",
+                    "total_courses": 1,
+                },
+                "courses": [course],
+            }
+        )
+    )
+
+
+def test_publish_aborts_on_a_malformed_section_code(tmp_path, monkeypatch, capsys):
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_sections_file(source_dir, ["A-LEC (1)", "BROKEN"])
+
+    with pytest.raises(SystemExit, match="1"):
+        publish_course_data.main()
+
+    output = capsys.readouterr().out
+    assert 'AAAA1000 "BROKEN"' in output
+    assert not (published_dir / "2025-26" / "AAAA.json").exists()
+
+
+def test_publish_aborts_on_ambiguous_cohort_roots(tmp_path, monkeypatch, capsys):
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_sections_file(source_dir, ["A-LEC (1)", "AA-LEC (2)", "AT01-TUT (3)"])
+
+    with pytest.raises(SystemExit, match="1"):
+        publish_course_data.main()
+
+    assert "prefix-free" in capsys.readouterr().out
+    assert not (published_dir / "2025-26" / "AAAA.json").exists()
+
+
 def test_publish_skips_the_no_terms_bucket(tmp_path, monkeypatch):
     # Courses with no scheduled term are parked in data/no-terms/ and never served. It is
     # the only reason the app never meets the 0.00 - 99.00 exemption placeholders.

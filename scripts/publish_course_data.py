@@ -51,7 +51,12 @@ EMPTY_COURSES_ISSUE = "No courses found in file"
 # A credit bound as CUSIS writes it today: every scraped record is padded to two decimals.
 CREDIT_BOUND_RE = re.compile(r"\d+\.\d{2}")
 
+# A section code: `<label>-<COMP> (<classNbr>)`, e.g. "AC01-CLW (9615)" or "--LEC (5015)". The
+# browser keys the .ics UID on the class number and the cohort on the label, so both must exist.
+SECTION_CODE_RE = re.compile(r"^(?P<label>.*)-(?P<comp>[A-Z]+) \((?P<nbr>\d+)\)$")
+
 MAX_CREDIT_EXAMPLES = 3
+MAX_SECTION_EXAMPLES = 5
 
 # Log inputs and outputs
 LOGS_DIR = "logs"
@@ -151,6 +156,94 @@ def unknown_credit_shapes(courses: list[dict]) -> str | None:
     )
 
 
+def _iter_sections(courses: list[dict]) -> Iterator[tuple[str, dict]]:
+    """Every section of every term, paired with its course code."""
+    for course in courses:
+        code = f"{course.get('subject', '')}{course.get('course_code', '')}"
+        for term in course.get("terms", []):
+            for section in term.get("schedule", []):
+                yield code, section
+
+
+def malformed_section_codes(courses: list[dict]) -> str | None:
+    """One issue naming every section code not matching `<label>-<COMP> (<classNbr>)`, or None.
+
+    Every section, not a sample: one broken code silently ships a wrong UID or cohort.
+    """
+    bad = [
+        f'{code} "{s}"'
+        for code, section in _iter_sections(courses)
+        if not SECTION_CODE_RE.fullmatch(s := section.get("section", ""))
+    ]
+    if not bad:
+        return None
+    examples = ", ".join(bad[:MAX_SECTION_EXAMPLES])
+    tail = (
+        f", … and {len(bad) - MAX_SECTION_EXAMPLES} more" if len(bad) > MAX_SECTION_EXAMPLES else ""
+    )
+    return (
+        f"Section codes not of the form <label>-<COMP> (<classNbr>) ({len(bad)}): {examples}{tail}"
+        " — re-scrape if the schedule page failed, else update computeCohortKeys and the .ics UID"
+    )
+
+
+def cohort_roots(schedule: list[dict]) -> list[str] | None:
+    """A term's cohort roots — the first section type's specific (letter-initial) labels, as
+    computeCohortKeys derives them — or None when there's one type or no specific labels (cases
+    where prefix-freeness isn't required).
+    """
+    order: list[str] = []
+    labels_by_type: dict[str, list[str]] = {}
+    for section in schedule:
+        match = SECTION_CODE_RE.fullmatch(section.get("section", ""))
+        if not match:
+            continue  # malformed codes are reported by malformed_section_codes
+        comp = match.group("comp")
+        if comp not in labels_by_type:
+            labels_by_type[comp] = []
+            order.append(comp)
+        labels_by_type[comp].append(section["section"].split("-", 1)[0])  # '' = universal
+
+    if len(order) < 2:
+        return None  # single type: compatibility never runs, so roots may overlap (MESC/GESC)
+    for comp in order:
+        specific = [label for label in labels_by_type[comp] if label]
+        if specific:
+            return specific
+    return None  # every type is open-to-everyone
+
+
+def ambiguous_cohort_courses(courses: list[dict]) -> str | None:
+    """One issue naming every term whose cohort roots aren't prefix-free, or None.
+
+    When one root prefixes another (e.g. `A` and `AA`), a lower-priority section like `AAL1`
+    can't reduce to a unique cohort, so the browser could allow an invalid enrollment (#294).
+    """
+    bad = []
+    for course in courses:
+        for term in course.get("terms", []):
+            roots = cohort_roots(term.get("schedule", []))
+            if roots and not _is_prefix_free(roots):
+                code = f"{course.get('subject', '')}{course.get('course_code', '')}"
+                bad.append(f"{code} {term.get('term_name', '')} {sorted(set(roots))}")
+    if not bad:
+        return None
+    examples = "; ".join(bad[:MAX_SECTION_EXAMPLES])
+    tail = (
+        f"; … and {len(bad) - MAX_SECTION_EXAMPLES} more" if len(bad) > MAX_SECTION_EXAMPLES else ""
+    )
+    return (
+        f"Cohort roots not prefix-free ({len(bad)}): {examples}{tail}"
+        " — a lower-priority section can't map to one cohort; re-check the scrape or computeCohortKeys"
+    )
+
+
+def _is_prefix_free(labels: list[str]) -> bool:
+    """Whether no label is a prefix of another distinct label."""
+    unique = set(labels)
+    return not any(a != b and b.startswith(a) for a in unique for b in unique)
+
+
 def validate_course_file(
     file_path: str, subject_code: str, *, check_schema_version: bool = True
 ) -> tuple[bool, list[str]]:
@@ -221,9 +314,13 @@ def validate_course_file(
                 f"Course {i + 1} subject mismatch: '{course.get('subject')}' vs '{subject_code}'"
             )
 
-    credit_issue = unknown_credit_shapes(courses)
-    if credit_issue:
-        issues.append(credit_issue)
+    for issue in (
+        unknown_credit_shapes(courses),
+        malformed_section_codes(courses),
+        ambiguous_cohort_courses(courses),
+    ):
+        if issue:
+            issues.append(issue)
 
     return len(issues) == 0, issues
 
