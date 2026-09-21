@@ -169,7 +169,6 @@ export function enrollmentsToCalendarEvents(
   const seen = new Set<string>()
 
   enrollments.filter(isVisibleAndValid).forEach((enrollment) => {
-    const cohortKeys = cohortKeysForTerm(enrollment.course, termName)
     enrollment.selectedSections.forEach((section) => {
       section.meetings.forEach((meeting) => {
         const timeRange = parseTimeRange(meeting.time)
@@ -201,7 +200,6 @@ export function enrollmentsToCalendarEvents(
             title: enrollment.course.title,
             sectionCode: section.sectionCode,
             sectionType: section.sectionType,
-            cohortKey: cohortKeys.get(section.id) ?? '',
             time: meeting.time,
             location: meeting.location,
             instructors: meeting.instructors,
@@ -223,18 +221,11 @@ export function enrollmentsToCalendarEvents(
   return events
 }
 
-/**
- * Get unscheduled course sections (TBA meetings) from enrollments, each with its cohort key
- * for display.
- */
-export function getUnscheduledSections(
-  enrollments: CourseEnrollment[],
-  termName: string
-): UnscheduledSection[] {
+/** Get unscheduled course sections (TBA meetings) from enrollments. */
+export function getUnscheduledSections(enrollments: CourseEnrollment[]): UnscheduledSection[] {
   const unscheduledSections: UnscheduledSection[] = []
 
   enrollments.filter(isVisibleAndValid).forEach((enrollment) => {
-    const cohortKeys = cohortKeysForTerm(enrollment.course, termName)
     enrollment.selectedSections.forEach((section) => {
       section.meetings.forEach((meeting) => {
         const timeRange = parseTimeRange(meeting.time)
@@ -246,7 +237,6 @@ export function getUnscheduledSections(
             enrollment,
             section,
             meeting,
-            cohortKey: cohortKeys.get(section.id) ?? '',
           })
         }
       })
@@ -348,7 +338,6 @@ export function isCourseEnrollmentComplete(
   localSelections: Map<string, string>
 ): boolean {
   const sectionTypes = parseSectionTypes(course, termName)
-  const cohortKeys = cohortKeysForTerm(course, termName)
 
   // If no selections, not complete
   if (localSelections.size === 0) return false
@@ -382,8 +371,7 @@ export function isCourseEnrollmentComplete(
 
     const { compatible } = categorizeCompatibleSections(
       typeGroup.sections,
-      higherPrioritySelections,
-      cohortKeys
+      higherPrioritySelections
     )
 
     // If no compatible sections exist, this type is not required
@@ -1272,62 +1260,20 @@ export function instructorSortKey(instructor: string): string {
 // Section Compatibility & Selection Logic
 // ========================================
 
-// A section's label: the code before the component marker (`AAL1-LAB (9242)` → `AAL1`).
-// Labels never contain '-', so splitting on the first one works. Dash-initial codes
-// (`--LEC`, `-T01-TUT`) yield '' — CUHK's "open to everyone" marker.
-function sectionLabel(sectionCode: string): string {
-  return sectionCode.split('-', 1)[0]
-}
-
-function cohortKeyFor(label: string, roots: readonly string[]): string {
-  if (label === '') return '' // universal
-  if (roots.includes(label)) return label // its own cohort
-  // A tutorial/lab reduces to the root prefixing it — unique since roots are prefix-free.
-  return roots.find((root) => label.startsWith(root)) ?? label
-}
-
 /**
- * Map each of a term's sections to its cohort key: '' for universal, else a specific cohort.
+ * A section's cohort: the group a student enrols into, or '' when the section is open to everyone.
  *
- * Cohort roots are the labels of the first section type that has any specific (letter-initial)
- * section, in catalog order. A section whose own label is a root keeps it (`AH`→`AH`); a
- * lower-priority one reduces to the root prefixing it (`AT01`→`A`, `AAL1`→`AA`). See #294.
+ * CUHK codes a section as `<cohort-or-dash><type-letter><index>-<COMPONENT> (<classNbr>)`. Every
+ * component except LEC adds a letter standing for itself plus an index, so the cohort is the label
+ * with that trailing marker removed: `AT01-TUT` → `A`, `AAL1-LAB` → `AA`, `A-LEC` → `A`. A leading
+ * dash means no cohort (`--LEC`, `-T01-TUT` → '').
  */
-export function computeCohortKeys(
-  termSections: readonly Pick<InternalSection, 'id' | 'sectionCode' | 'sectionType'>[]
-): Map<string, string> {
-  // Group by section type in first-occurrence (catalog) order, as parseSectionTypes does.
-  const typeOrder: SectionType[] = []
-  const byType = new Map<SectionType, string[]>() // type -> its sections' labels
-  for (const section of termSections) {
-    if (!byType.has(section.sectionType)) {
-      byType.set(section.sectionType, [])
-      typeOrder.push(section.sectionType)
-    }
-    byType.get(section.sectionType)!.push(sectionLabel(section.sectionCode))
-  }
-
-  // Roots = the specific labels of the first type that has any specific section.
-  let roots: string[] = []
-  for (const type of typeOrder) {
-    const specific = byType.get(type)!.filter((label) => label !== '')
-    if (specific.length > 0) {
-      roots = specific
-      break
-    }
-  }
-
-  const keys = new Map<string, string>()
-  for (const section of termSections) {
-    keys.set(section.id, cohortKeyFor(sectionLabel(section.sectionCode), roots))
-  }
-  return keys
-}
-
-/** A course term's cohort keys by section id; empty when the term is absent. */
-export function cohortKeysForTerm(course: InternalCourse, termName: string): Map<string, string> {
-  const term = course.terms.find((t) => t.termName === termName)
-  return computeCohortKeys(term?.sections ?? [])
+export function cohortOf(sectionCode: string): string {
+  const label = sectionCode.split('-', 1)[0]
+  // {2,} because the marker needs a cohort in front of it; a bare `A1` stays its own cohort
+  // rather than collapsing to '' and pairing with everything.
+  const marked = /^([A-Z]{2,})\d+$/.exec(label)
+  return marked ? marked[1].slice(0, -1) : label
 }
 
 // Append the cohort key to the course code ('' shows no prefix): "CSCI3320AH", "CSCI3320".
@@ -1351,18 +1297,15 @@ export function formatCourseCodeWithSection(
 }
 
 /**
- * Whether two sections can be enrolled together: compatible when either is universal ('') or
- * they share a cohort. cohortKeys comes from cohortKeysForTerm for the sections' term; a section
- * absent from it can't be validated, so it's treated as incompatible (never silently paired).
+ * Whether two sections can be enrolled together: compatible when either is open to everyone
+ * (no cohort) or they share a cohort.
  */
 export function areSectionsCompatible(
   section1: InternalSection,
-  section2: InternalSection,
-  cohortKeys: Map<string, string>
+  section2: InternalSection
 ): boolean {
-  const key1 = cohortKeys.get(section1.id)
-  const key2 = cohortKeys.get(section2.id)
-  if (key1 === undefined || key2 === undefined) return false
+  const key1 = cohortOf(section1.sectionCode)
+  const key2 = cohortOf(section2.sectionCode)
   return key1 === '' || key2 === '' || key1 === key2
 }
 
@@ -1379,12 +1322,11 @@ export function hasConflictFreeEnrollment(
   const sectionTypes = parseSectionTypes(course, termName)
   if (sectionTypes.length === 0) return false
 
-  const cohortKeys = cohortKeysForTerm(course, termName)
   const search = (typeIndex: number, selectedSections: InternalSection[]): boolean => {
     if (typeIndex === sectionTypes.length) return true
 
     const compatibleSections = sectionTypes[typeIndex].sections.filter((candidate) =>
-      selectedSections.every((selected) => areSectionsCompatible(candidate, selected, cohortKeys))
+      selectedSections.every((selected) => areSectionsCompatible(candidate, selected))
     )
 
     if (compatibleSections.length === 0) {
@@ -1409,8 +1351,7 @@ export function hasConflictFreeEnrollment(
  */
 export function categorizeCompatibleSections(
   availableSections: InternalSection[],
-  selectedSections: InternalSection[],
-  cohortKeys: Map<string, string>
+  selectedSections: InternalSection[]
 ): {
   compatible: InternalSection[]
   incompatible: InternalSection[]
@@ -1427,12 +1368,11 @@ export function categorizeCompatibleSections(
 
   // Check compatibility with all currently selected sections
   const compatible = availableSections.filter((candidate) =>
-    selectedSections.every((selected) => areSectionsCompatible(candidate, selected, cohortKeys))
+    selectedSections.every((selected) => areSectionsCompatible(candidate, selected))
   )
 
   const incompatible = availableSections.filter(
-    (candidate) =>
-      !selectedSections.every((selected) => areSectionsCompatible(candidate, selected, cohortKeys))
+    (candidate) => !selectedSections.every((selected) => areSectionsCompatible(candidate, selected))
   )
 
   return {
@@ -1484,8 +1424,6 @@ export function autoCompleteEnrollmentSections(
   const newSection = termData?.sections.find((s) => s.id === newSectionId)
   if (!newSection) return enrollment.selectedSections
 
-  const cohortKeys = computeCohortKeys(termData?.sections ?? [])
-
   // Start with current sections, replacing the changed one
   let updatedSections = enrollment.selectedSections.map((section) =>
     section.sectionType === changedSectionType ? newSection : section
@@ -1504,7 +1442,7 @@ export function autoCompleteEnrollmentSections(
     if (sectionPriority <= changedPriority) return true // Keep higher/equal priority sections
 
     // Check if this lower-priority section is still compatible with the new section
-    const isCompatible = areSectionsCompatible(newSection, section, cohortKeys)
+    const isCompatible = areSectionsCompatible(newSection, section)
     if (!isCompatible) {
       console.debug(
         `Auto-removing incompatible ${section.sectionType}: ${section.sectionCode} (incompatible with ${newSection.sectionCode})`
@@ -1525,8 +1463,7 @@ export function autoCompleteEnrollmentSections(
         const currentlySelected = updatedSections
         const { compatible } = categorizeCompatibleSections(
           lowerTypeGroup.sections,
-          currentlySelected,
-          cohortKeys
+          currentlySelected
         )
 
         // Auto-add the first compatible section if available
@@ -1971,7 +1908,7 @@ export function createICSEventsForMeeting(
   }
 
   const formattedInstructors = formatInstructorsCompact(meeting.instructors)
-  const cohortKey = cohortKeysForTerm(course, termName).get(section.id) ?? ''
+  const cohortKey = cohortOf(section.sectionCode)
 
   // Create description with better formatting and structure
   const description = [

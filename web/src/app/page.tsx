@@ -599,7 +599,7 @@ export default function Home() {
             <div className="h-[800px] isolate">
               <WeeklyCalendar
                 events={calendarEvents}
-                unscheduledSections={getUnscheduledSections(courseEnrollments, currentTerm)}
+                unscheduledSections={getUnscheduledSections(courseEnrollments)}
                 courseEnrollments={courseEnrollments}
                 selectedTerm={currentTerm}
                 availableTerms={availableTerms}

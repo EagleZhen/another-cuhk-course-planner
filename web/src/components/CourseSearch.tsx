@@ -23,7 +23,7 @@ import {
   parseSectionTypes,
   isCourseEnrollmentComplete,
   sectionSignature,
-  cohortKeysForTerm,
+  cohortOf,
   categorizeCompatibleSections,
   getSectionTypePriority,
   splitInstructorsCompact,
@@ -1313,7 +1313,6 @@ function CourseCard({
 
   const courseKey = `${course.subject}${course.courseCode}`
   const sectionTypes = parseSectionTypes(course, currentTerm)
-  const cohortKeys = cohortKeysForTerm(course, currentTerm)
 
   // Toggle handler with smart analytics (only tracks expansion)
   const handleToggle = () => {
@@ -1926,8 +1925,7 @@ function CourseCard({
               // Categorize sections as compatible/incompatible based on higher priority selections only
               const { incompatible } = categorizeCompatibleSections(
                 typeGroup.sections,
-                higherPrioritySelections,
-                cohortKeys
+                higherPrioritySelections
               )
 
               // Note: Higher priority sections can always be changed freely (implemented in logic above)
@@ -2032,7 +2030,7 @@ function CourseCard({
                       .map((section) => {
                         const isSelected = localSelections.get(typeGroup.type) === section.id
                         const isIncompatible = incompatible.includes(section)
-                        const sectionCohortKey = cohortKeys.get(section.id) ?? ''
+                        const sectionCohortKey = cohortOf(section.sectionCode)
 
                         // Check for time conflicts with current schedule
                         const conflictInfo = checkSectionConflict(
@@ -2099,8 +2097,7 @@ function CourseCard({
                                         if (otherSection) {
                                           const { incompatible } = categorizeCompatibleSections(
                                             otherTypeGroup.sections,
-                                            [section], // New higher-priority selection as constraint
-                                            cohortKeys
+                                            [section] // New higher-priority selection as constraint
                                           )
 
                                           // If the other section is now incompatible, clear it

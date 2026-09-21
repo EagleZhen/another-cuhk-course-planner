@@ -21,6 +21,7 @@ import {
 import {
   formatTimeCompact,
   formatInstructorsCompact,
+  cohortOf,
   formatCourseCodeWithPrefix,
   formatCourseCodeWithSection,
   generateICSCalendar,
@@ -1040,7 +1041,7 @@ export default function WeeklyCalendar({
                                   {formatCourseCodeWithSection(
                                     event.subject,
                                     event.courseCode,
-                                    event.cohortKey,
+                                    cohortOf(event.sectionCode),
                                     event.sectionType
                                   )}
                                 </div>
@@ -1218,7 +1219,7 @@ function UnscheduledSectionsCard({
                       {formatCourseCodeWithPrefix(
                         item.enrollment.course.subject,
                         item.enrollment.course.courseCode,
-                        item.cohortKey
+                        cohortOf(item.section.sectionCode)
                       )}
                     </span>
                   )
@@ -1277,7 +1278,7 @@ function UnscheduledSectionsCard({
                       {formatCourseCodeWithSection(
                         item.enrollment.course.subject,
                         item.enrollment.course.courseCode,
-                        item.cohortKey,
+                        cohortOf(item.section.sectionCode),
                         item.section.sectionType
                       )}
                     </div>

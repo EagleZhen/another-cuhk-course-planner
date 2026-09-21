@@ -73,7 +73,7 @@ Major responsibilities:
 - format course codes and instructors
 - generate ICS exports and undo files
 
-Section compatibility follows CUHK cohorts: two sections pair when they share a cohort key, while open-to-everyone sections act as wildcards. The key (`computeCohortKeys`) is the full cohort, not just the first letter, so multi-character cohorts like `AA` and `AB` stay distinct. This is used when auto-completing section selections.
+Section compatibility follows CUHK cohorts: two sections pair when they share a cohort, while open-to-everyone sections act as wildcards. `cohortOf` reads the cohort from a section code alone, dropping the marker every non-lecture component carries (`AAL1-LAB` → `AA`), so `AA` and `AB` stay distinct and a lab pairs only with its own lecture. This is used when auto-completing section selections.
 
 Conflict detection is a two-step model:
 

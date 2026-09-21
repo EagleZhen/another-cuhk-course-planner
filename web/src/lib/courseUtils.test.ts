@@ -39,7 +39,7 @@ import {
   formatCredits,
   statedCredits,
   sumCredits,
-  computeCohortKeys,
+  cohortOf,
   areSectionsCompatible,
 } from './courseUtils'
 import { transformExternalCourseData } from './validation'
@@ -106,84 +106,28 @@ function makeCourse(sections: InternalSection[], termName = 'Term 1'): InternalC
   }
 }
 
-describe('computeCohortKeys', () => {
-  // Minimal section descriptors; the id doubles as a readable handle for the result.
-  type Sec = Pick<InternalSection, 'id' | 'sectionCode' | 'sectionType'>
-  const sec = (sectionCode: string, sectionType: InternalSection['sectionType']): Sec => ({
-    id: sectionCode,
-    sectionCode,
-    sectionType,
-  })
-  // sectionCode → cohortKey, so assertions read against the code the user sees.
-  const keysByCode = (sections: Sec[]): Record<string, string> => {
-    const keys = computeCohortKeys(sections)
-    return Object.fromEntries(sections.map((s) => [s.sectionCode, keys.get(s.id)!]))
-  }
+describe('cohortOf', () => {
+  const cohorts = (codes: string[]): Record<string, string> =>
+    Object.fromEntries(codes.map((code) => [code, cohortOf(code)]))
 
-  it('keeps a single-letter cohort as itself (unchanged from the old prefix)', () => {
-    expect(keysByCode([sec('A-LEC (1)', 'LEC'), sec('B-LEC (2)', 'LEC')])).toEqual({
+  it('reads a bare label as the whole cohort', () => {
+    expect(cohorts(['A-LEC (1)', 'AE-LEC (2)'])).toEqual({
       'A-LEC (1)': 'A',
-      'B-LEC (2)': 'B',
+      'AE-LEC (2)': 'AE',
     })
   })
 
-  it('keeps a two-letter cohort whole (issue #294 display fix)', () => {
-    expect(keysByCode([sec('AE-LEC (1)', 'LEC'), sec('P-LEC (2)', 'LEC')])).toEqual({
-      'AE-LEC (1)': 'AE',
-      'P-LEC (2)': 'P',
+  it('drops the marker a non-lecture label carries for its own component', () => {
+    // `AT01` is cohort A, T for TUT, index 01 — neither letter nor index is part of the cohort.
+    expect(cohorts(['AT01-TUT (1)', 'BT01-TUT (2)', 'AVC1-CLW (3)'])).toEqual({
+      'AT01-TUT (1)': 'A',
+      'BT01-TUT (2)': 'B',
+      'AVC1-CLW (3)': 'AV',
     })
   })
 
-  it('keeps a letters-plus-digits cohort whole', () => {
-    expect(keysByCode([sec('AVC1-CLW (1)', 'CLW'), sec('BC01-CLW (2)', 'CLW')])).toEqual({
-      'AVC1-CLW (1)': 'AVC1',
-      'BC01-CLW (2)': 'BC01',
-    })
-  })
-
-  it('reduces a lower-priority section to the lecture cohort that prefixes it', () => {
-    // LEC defines the roots {A, B}; the tutorial number is not part of the cohort.
-    expect(
-      keysByCode([
-        sec('A-LEC (1)', 'LEC'),
-        sec('B-LEC (2)', 'LEC'),
-        sec('AT01-TUT (3)', 'TUT'),
-        sec('BT01-TUT (4)', 'TUT'),
-      ])
-    ).toEqual({
-      'A-LEC (1)': 'A',
-      'B-LEC (2)': 'B',
-      'AT01-TUT (3)': 'A',
-      'BT01-TUT (4)': 'B',
-    })
-  })
-
-  it('maps open-to-everyone (dash-initial) sections to the universal key', () => {
-    expect(keysByCode([sec('--LEC (1)', 'LEC'), sec('-T01-TUT (2)', 'TUT')])).toEqual({
-      '--LEC (1)': '',
-      '-T01-TUT (2)': '',
-    })
-  })
-
-  it('keeps A and AA distinct in a single-type non-prefix-free course (MESC shape)', () => {
-    // Both are the defining type, so each is its own root — AA must not collapse to A.
-    expect(keysByCode([sec('A-LEC (1)', 'LEC'), sec('AA-LEC (2)', 'LEC')])).toEqual({
-      'A-LEC (1)': 'A',
-      'AA-LEC (2)': 'AA',
-    })
-  })
-
-  it('anchors two-letter cohorts on the lecture roots (ENGG1003 shape)', () => {
-    // The bug: single-letter prefixing merged AAL1 with AB. The lecture roots are prefix-free
-    // two-letter labels, so the lab reduces to its own lecture, not to "A".
-    expect(
-      keysByCode([
-        sec('AA-LEC (1)', 'LEC'),
-        sec('AB-LEC (2)', 'LEC'),
-        sec('AAL1-LAB (3)', 'LAB'),
-        sec('ABL1-LAB (4)', 'LAB'),
-      ])
-    ).toEqual({
+  it('finds a two-letter cohort by the marker position, not the label length (ENGG1003)', () => {
+    expect(cohorts(['AA-LEC (1)', 'AB-LEC (2)', 'AAL1-LAB (3)', 'ABL1-LAB (4)'])).toEqual({
       'AA-LEC (1)': 'AA',
       'AB-LEC (2)': 'AB',
       'AAL1-LAB (3)': 'AA',
@@ -191,19 +135,40 @@ describe('computeCohortKeys', () => {
     })
   })
 
-  it('derives roots from the first type that has a specific section, skipping universal-only types', () => {
-    // The LEC type is entirely open-to-everyone, so cohort roots come from the TUT labels.
-    expect(
-      keysByCode([sec('--LEC (1)', 'LEC'), sec('A-TUT (2)', 'TUT'), sec('B-TUT (3)', 'TUT')])
-    ).toEqual({
-      '--LEC (1)': '',
-      'A-TUT (2)': 'A',
-      'B-TUT (3)': 'B',
+  it('keeps one- and two-letter cohorts apart within one term (GECC3130)', () => {
+    // `AAF1` is cohort AA (one index digit), `AF01` is cohort A (two): width is per section.
+    expect(cohorts(['AAF1-FLD (1)', 'AAJ1-PRJ (2)', 'AF01-FLD (3)', 'AJ01-PRJ (4)'])).toEqual({
+      'AAF1-FLD (1)': 'AA',
+      'AAJ1-PRJ (2)': 'AA',
+      'AF01-FLD (3)': 'A',
+      'AJ01-PRJ (4)': 'A',
     })
+  })
+
+  it('groups components that each carry their own marker (GECC3230)', () => {
+    expect(cohorts(['AF01-FLD (1)', 'AT01-TUT (2)', 'BF01-FLD (3)', 'BT01-TUT (4)'])).toEqual({
+      'AF01-FLD (1)': 'A',
+      'AT01-TUT (2)': 'A',
+      'BF01-FLD (3)': 'B',
+      'BT01-TUT (4)': 'B',
+    })
+  })
+
+  it('reads a dash-initial label as open to everyone', () => {
+    expect(cohorts(['--LEC (1)', '-T01-TUT (2)'])).toEqual({
+      '--LEC (1)': '',
+      '-T01-TUT (2)': '',
+    })
+  })
+
+  it('leaves a label with no room for a marker as its own cohort', () => {
+    // CUHK never writes this and the publish gate rejects it; isolating it is the safe
+    // degradation, where collapsing to '' would pair the section with everything.
+    expect(cohortOf('A1-LEC (1)')).toBe('A1')
   })
 })
 
-describe('cohortKey via the real transform (seam)', () => {
+describe('cohortOf via the real transform (seam)', () => {
   const build = (sections: string[]): InternalSection[] => {
     const { courses } = transformExternalCourseData({
       metadata: { subject: 'TEST', total_courses: 1 },
@@ -225,10 +190,9 @@ describe('cohortKey via the real transform (seam)', () => {
     return courses[0].terms[0].sections
   }
 
-  it('keys real transformed sections (parse produces the labels computeCohortKeys expects)', () => {
+  it('keys real transformed sections (the parse preserves what cohortOf reads)', () => {
     const sections = build(['AA-LEC (1)', 'AB-LEC (2)', 'AAL1-LAB (3)', '--TUT (4)'])
-    const keys = computeCohortKeys(sections)
-    expect(sections.map((s) => [s.sectionCode, keys.get(s.id)])).toEqual([
+    expect(sections.map((s) => [s.sectionCode, cohortOf(s.sectionCode)])).toEqual([
       ['AA-LEC (1)', 'AA'],
       ['AB-LEC (2)', 'AB'],
       ['AAL1-LAB (3)', 'AA'],
@@ -259,9 +223,8 @@ describe('areSectionsCompatible', () => {
       ],
     })
     const sections = courses[0].terms[0].sections
-    const keys = computeCohortKeys(sections)
     const byCode = (code: string) => sections.find((s) => s.sectionCode === code)!
-    return (a: string, b: string) => areSectionsCompatible(byCode(a), byCode(b), keys)
+    return (a: string, b: string) => areSectionsCompatible(byCode(a), byCode(b))
   }
 
   it('pairs a lecture with a same-cohort tutorial, not a different one', () => {
@@ -291,6 +254,14 @@ describe('areSectionsCompatible', () => {
     expect(compatible('AA-LEC (1)', 'AAL1-LAB (3)')).toBe(true)
     // The bug this fixes: single-letter prefixing used to call this compatible.
     expect(compatible('AB-LEC (2)', 'AAL1-LAB (3)')).toBe(false)
+  })
+
+  it('pairs components that each carry their own marker (GECC3230 regression)', () => {
+    // The previous rule anchored cohorts on the first type's labels, so `AF01` could never
+    // prefix `AT01`: every tutorial became its own cohort and none could be selected.
+    const compatible = build(['AF01-FLD (1)', 'AT01-TUT (2)', 'BF01-FLD (3)', 'BT01-TUT (4)'])
+    expect(compatible('AF01-FLD (1)', 'AT01-TUT (2)')).toBe(true)
+    expect(compatible('AF01-FLD (1)', 'BT01-TUT (4)')).toBe(false)
   })
 
   it('treats an all-universal course as fully compatible (MEDU3160 shape)', () => {

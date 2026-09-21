@@ -15,7 +15,7 @@ import {
   getAvailabilityBadges,
   getComputedBorderColor,
   formatCourseCodeWithPrefix,
-  cohortKeysForTerm,
+  cohortOf,
   checkSectionConflict,
   diffSectionDetail,
   getChangedCourseIds,
@@ -111,9 +111,7 @@ export default function ShoppingCart({
       return priority < currentPriority
     })
 
-    const cohortKeys = cohortKeysForTerm(enrollment.course, currentTerm)
-    return categorizeCompatibleSections(typeGroup.sections, higherPrioritySelections, cohortKeys)
-      .compatible
+    return categorizeCompatibleSections(typeGroup.sections, higherPrioritySelections).compatible
   }
 
   // Helper function to cycle to next/previous section (compatible sections only - hierarchical priority)
@@ -368,9 +366,7 @@ export default function ShoppingCart({
             {courseEnrollments.map((enrollment) => {
               // The header shows the first selected section's cohort, or nothing if none is picked.
               const firstSection = enrollment.selectedSections[0]
-              const headerCohortKey = firstSection
-                ? (cohortKeysForTerm(enrollment.course, currentTerm).get(firstSection.id) ?? '')
-                : ''
+              const headerCohortKey = firstSection ? cohortOf(firstSection.sectionCode) : ''
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
