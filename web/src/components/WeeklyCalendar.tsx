@@ -21,6 +21,7 @@ import {
 import {
   formatTimeCompact,
   formatInstructorsCompact,
+  cohortOf,
   formatCourseCodeWithPrefix,
   formatCourseCodeWithSection,
   generateICSCalendar,
@@ -52,7 +53,7 @@ import {
   type CalendarDisplayConfig,
   type CalendarLayoutConfig,
 } from '@/lib/calendarConfig'
-import type { CalendarEvent, CourseEnrollment, InternalSection, InternalMeeting } from '@/lib/types'
+import type { CalendarEvent, CourseEnrollment, UnscheduledSection } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
 
 /**
@@ -108,11 +109,7 @@ const CHANGED_HIGHLIGHT_MS = 3100
 
 interface WeeklyCalendarProps {
   events: CalendarEvent[]
-  unscheduledSections?: Array<{
-    enrollment: CourseEnrollment
-    section: InternalSection
-    meeting: InternalMeeting
-  }>
+  unscheduledSections?: UnscheduledSection[]
   courseEnrollments: CourseEnrollment[]
   selectedTerm?: string
   availableTerms?: string[]
@@ -318,6 +315,9 @@ export default function WeeklyCalendar({
     const result = generateICSCalendar(courseEnrollments, selectedTerm)
 
     if (result.error) {
+      if (result.cause) {
+        posthog.captureException(result.cause, { error_context: 'ics_export' })
+      }
       console.error('Export failed:', result.error)
       alert(result.error)
       return
@@ -1044,7 +1044,8 @@ export default function WeeklyCalendar({
                                   {formatCourseCodeWithSection(
                                     event.subject,
                                     event.courseCode,
-                                    event.sectionCode
+                                    cohortOf(event.sectionCode),
+                                    event.sectionType
                                   )}
                                 </div>
 
@@ -1147,11 +1148,7 @@ function UnscheduledSectionsCard({
   onToggleVisibility,
   displayConfig,
 }: {
-  unscheduledSections: Array<{
-    enrollment: CourseEnrollment
-    section: InternalSection
-    meeting: InternalMeeting
-  }>
+  unscheduledSections: UnscheduledSection[]
   selectedEnrollment?: string | null
   onSelectEnrollment?: (enrollmentId: string | null) => void
   onToggleVisibility?: (enrollmentId: string) => void
@@ -1225,7 +1222,7 @@ function UnscheduledSectionsCard({
                       {formatCourseCodeWithPrefix(
                         item.enrollment.course.subject,
                         item.enrollment.course.courseCode,
-                        item.section.sectionCode
+                        cohortOf(item.section.sectionCode)
                       )}
                     </span>
                   )
@@ -1284,7 +1281,8 @@ function UnscheduledSectionsCard({
                       {formatCourseCodeWithSection(
                         item.enrollment.course.subject,
                         item.enrollment.course.courseCode,
-                        item.section.sectionCode
+                        cohortOf(item.section.sectionCode),
+                        item.section.sectionType
                       )}
                     </div>
 

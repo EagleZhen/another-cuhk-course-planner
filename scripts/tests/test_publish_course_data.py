@@ -756,6 +756,249 @@ def test_credit_issue_caps_examples_and_counts_the_rest(tmp_path, monkeypatch, c
     assert "… and 2 more" in output
 
 
+# === Section-code shape and cohort-key guards (browser preconditions) ===
+
+
+def _course_with_sections(sections, *, subject="TEST", code="1000", term="2025-26 Term 1"):
+    """A course dict whose single term's schedule holds the given section codes."""
+    return {
+        "subject": subject,
+        "course_code": code,
+        "title": "Course",
+        "terms": [{"term_name": term, "schedule": [{"section": s} for s in sections]}],
+    }
+
+
+def test_summarize_shows_every_item_up_to_the_cap():
+    items = [str(n) for n in range(publish_course_data.MAX_SECTION_EXAMPLES)]
+    assert publish_course_data._summarize(items) == ", ".join(items)
+
+
+def test_summarize_caps_examples_and_counts_the_rest():
+    items = [str(n) for n in range(publish_course_data.MAX_SECTION_EXAMPLES + 2)]
+    summary = publish_course_data._summarize(items)
+    assert summary.startswith(", ".join(items[: publish_course_data.MAX_SECTION_EXAMPLES]))
+    assert summary.endswith("… and 2 more")
+
+
+def test_malformed_section_codes_accepts_the_shapes_the_browser_parses():
+    course = _course_with_sections(["A-LEC (1)", "--LEC (2)", "-T01-TUT (3)", "AAL1-LAB (4)"])
+    assert publish_course_data.malformed_section_codes([course]) is None
+
+
+def test_malformed_section_codes_flags_a_code_missing_its_class_number():
+    issue = publish_course_data.malformed_section_codes([_course_with_sections(["A-LEC"])])
+    assert issue is not None and 'TEST1000 "A-LEC"' in issue
+
+
+def test_undecodable_labels_accept_the_shapes_cuhk_writes():
+    course = _course_with_sections(
+        ["A-LEC (1)", "AE-LEC (2)", "--LEC (3)", "-T01-TUT (4)", "AAL1-LAB (5)"]
+    )
+    assert publish_course_data.undecodable_cohort_labels([course]) is None
+
+
+def test_undecodable_labels_flag_a_label_too_short_to_hold_a_marker():
+    # `A1` has digits but only one letter, so there is no room for both a cohort and a marker.
+    issue = publish_course_data.undecodable_cohort_labels([_course_with_sections(["A1-LEC (1)"])])
+    assert issue is not None and 'TEST1000 "A1-LEC (1)"' in issue
+
+
+def test_enrollable_when_every_type_offers_the_same_cohort():
+    course = _course_with_sections(["A-LEC (1)", "B-LEC (2)", "AT01-TUT (3)", "BT01-TUT (4)"])
+    assert publish_course_data.unenrollable_course_terms([course]) is None
+
+
+def test_enrollable_when_only_some_cohorts_offer_the_lower_type():
+    # Real and confirmed in CUSIS, not hypothetical: PSYC1000 cohort A (362 enrolled) has no
+    # lab, and PHYS1110 cohort F has neither tutorial nor exercise. One complete combination is
+    # enough, so requiring every cohort to offer every type would abort on live courses.
+    course = _course_with_sections(["A-LEC (1)", "B-LEC (2)", "AT01-TUT (3)"])
+    assert publish_course_data.unenrollable_course_terms([course]) is None
+
+
+def test_enrollable_when_both_the_unnamed_and_named_streams_are_complete():
+    # PHYS5330: `--LEC`+`-L01-LAB` and `M-LEC`+`ML01-LAB` are two complete parallel streams.
+    course = _course_with_sections(["--LEC (1)", "-L01-LAB (2)", "M-LEC (3)", "ML01-LAB (4)"])
+    assert publish_course_data.unenrollable_course_terms([course]) is None
+
+
+def test_unenrollable_when_a_type_offers_only_the_unnamed_cohort():
+    # The unnamed cohort is a cohort, not a wildcard, so a tutorial no lecture shares would
+    # leave the course impossible. No CUHK course is shaped this way today.
+    course = _course_with_sections(["A-LEC (1)", "B-LEC (2)", "--TUT (3)"])
+    assert publish_course_data.unenrollable_course_terms([course]) is not None
+
+
+def test_enrollable_with_a_single_section_type():
+    course = _course_with_sections(["A-LEC (1)", "B-LEC (2)"])
+    assert publish_course_data.unenrollable_course_terms([course]) is None
+
+
+def test_unenrollable_when_two_types_share_no_cohort():
+    # The #294 symptom: the lecture's cohort offers no tutorial and vice versa, so whatever the
+    # labels mean, cohortOf has read them into a course nobody could complete.
+    course = _course_with_sections(["AF01-FLD (1)", "BT01-TUT (2)"])
+    issue = publish_course_data.unenrollable_course_terms([course])
+    assert issue is not None
+    assert "TEST1000 2025-26 Term 1" in issue and "FLD ['A']" in issue and "TUT ['B']" in issue
+
+
+def test_component_markers_accept_one_letter_per_component():
+    by_file = {"a.json": [_course_with_sections(["AT01-TUT (1)", "BT01-TUT (2)", "AAL1-LAB (3)"])]}
+    assert publish_course_data.inconsistent_component_markers(by_file) == []
+
+
+def test_component_markers_flag_a_cohort_letter_read_as_a_marker():
+    # If CUHK wrote two-letter cohorts with no marker, TUT's "letter" would track the cohort:
+    # AA01/AB01 give T-slot letters A and B, so the cohort under them cannot be trusted.
+    by_file = {"a.json": [_course_with_sections(["AA01-TUT (1)", "AB01-TUT (2)"])]}
+    found = publish_course_data.inconsistent_component_markers(by_file)
+    assert [path for path, _ in found] == ["a.json"]
+    assert "TUT is marked by more than one letter" in found[0][1]
+
+
+def test_component_markers_allow_two_components_sharing_a_letter():
+    # A shared letter never breaks the read — the cohort is what precedes it either way — so
+    # flagging it would abort a publish over data the browser handles correctly.
+    by_file = {"a.json": [_course_with_sections(["AT01-TUT (1)", "AT01-TMC (2)"])]}
+    assert publish_course_data.inconsistent_component_markers(by_file) == []
+
+
+def test_component_markers_compare_across_subject_files():
+    # The convention is CUHK-wide, so a disagreement between two subjects must still surface.
+    by_file = {
+        "a.json": [_course_with_sections(["AT01-TUT (1)"], subject="AAAA")],
+        "b.json": [_course_with_sections(["AQ01-TUT (2)"], subject="BBBB")],
+    }
+    found = publish_course_data.inconsistent_component_markers(by_file)
+    assert [path for path, _ in found] == ["b.json"]
+
+
+def test_reused_class_numbers_allow_one_number_per_term():
+    by_file = {"a.json": [_course_with_sections(["A-LEC (1)", "B-LEC (2)"])]}
+    assert publish_course_data.reused_class_numbers(by_file) == []
+
+
+def test_reused_class_numbers_allow_the_same_number_in_another_term():
+    by_file = {
+        "a.json": [
+            _course_with_sections(["A-LEC (1)"], term="2025-26 Term 1"),
+            _course_with_sections(["A-LEC (1)"], code="1001", term="2025-26 Term 2"),
+        ]
+    }
+    assert publish_course_data.reused_class_numbers(by_file) == []
+
+
+def test_reused_class_numbers_flag_a_collision_across_subjects():
+    # The .ics export spans a whole term, so the clash need not be inside one course.
+    by_file = {
+        "a.json": [_course_with_sections(["A-LEC (7)"], subject="AAAA")],
+        "b.json": [_course_with_sections(["B-LEC (7)"], subject="BBBB")],
+    }
+    found = publish_course_data.reused_class_numbers(by_file)
+    assert sorted(path for path, _ in found) == ["a.json", "b.json"]
+    assert "Class number 7 is used by 2 sections" in found[0][1]
+
+
+def _write_sections_file(source_dir, sections, *, subject="AAAA", year="2025-26"):
+    """A course file with one course whose term schedule holds the given section codes."""
+    year_dir = source_dir / year
+    year_dir.mkdir(parents=True, exist_ok=True)
+    course = _course_with_sections(sections, subject=subject, term=f"{year} Term 1")
+    course["credits"] = "3.00"
+    (year_dir / f"{subject}.json").write_text(
+        json.dumps(
+            {
+                "metadata": {
+                    "schema_version": SCHEMA_VERSION,
+                    "subject": subject,
+                    "subject_title": "Subject A",
+                    "total_courses": 1,
+                },
+                "courses": [course],
+            }
+        )
+    )
+
+
+def test_publish_aborts_on_a_malformed_section_code(tmp_path, monkeypatch, capsys):
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_sections_file(source_dir, ["A-LEC (1)", "BROKEN"])
+
+    with pytest.raises(SystemExit, match="1"):
+        publish_course_data.main()
+
+    output = capsys.readouterr().out
+    assert 'AAAA1000 "BROKEN"' in output
+    assert not (published_dir / "2025-26" / "AAAA.json").exists()
+
+
+def test_publish_aborts_when_a_component_has_two_marker_letters(tmp_path, monkeypatch, capsys):
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_sections_file(source_dir, ["AA01-TUT (1)", "AB01-TUT (2)"])
+
+    with pytest.raises(SystemExit, match="1"):
+        publish_course_data.main()
+
+    assert "TUT is marked by more than one letter" in capsys.readouterr().out
+    assert not (published_dir / "2025-26" / "AAAA.json").exists()
+
+
+def test_publish_aborts_on_a_class_number_reused_in_a_term(tmp_path, monkeypatch, capsys):
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_sections_file(source_dir, ["A-LEC (7)", "B-LEC (7)"])
+
+    with pytest.raises(SystemExit, match="1"):
+        publish_course_data.main()
+
+    assert "Class number 7 is used by 2 sections" in capsys.readouterr().out
+    assert not (published_dir / "2025-26" / "AAAA.json").exists()
+
+
+def test_publish_aborts_on_a_class_number_shared_by_two_subjects(tmp_path, monkeypatch, capsys):
+    # Proves the check runs over the whole year: neither file is wrong on its own.
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_sections_file(source_dir, ["A-LEC (7)"], subject="AAAA")
+    _write_sections_file(source_dir, ["A-LEC (7)"], subject="BBBB")
+
+    with pytest.raises(SystemExit, match="1"):
+        publish_course_data.main()
+
+    output = capsys.readouterr().out
+    assert "Class number 7 is used by 2 sections" in output
+    assert not (published_dir / "2025-26" / "AAAA.json").exists()
+    assert not (published_dir / "2025-26" / "BBBB.json").exists()
+
+
+def test_publish_aborts_when_a_course_term_cannot_be_completed(tmp_path, monkeypatch, capsys):
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_sections_file(source_dir, ["AF01-FLD (1)", "BT01-TUT (2)"])
+
+    with pytest.raises(SystemExit, match="1"):
+        publish_course_data.main()
+
+    assert "offering no cohort with one section of every type" in capsys.readouterr().out
+    assert not (published_dir / "2025-26" / "AAAA.json").exists()
+
+
+def test_publish_accepts_the_section_shapes_cuhk_writes(tmp_path, monkeypatch):
+    # The other side of the gate: the shapes CUHK actually writes must still publish.
+    source_dir, published_dir, _ = _configure_publisher(tmp_path, monkeypatch)
+    _write_course_file(
+        source_dir,
+        schedule=[
+            {"section": code, "class_attributes": "", "enrollment_requirement": ""}
+            # PHYS5330's shape with a two-letter cohort: two complete parallel streams.
+            for code in ["AA-LEC (1)", "AAL1-LAB (2)", "--LEC (3)", "-L01-LAB (4)"]
+        ],
+    )
+
+    publish_course_data.main()
+
+    assert (published_dir / "2025-26" / "AAAA.json").exists()
+
+
 def test_publish_skips_the_no_terms_bucket(tmp_path, monkeypatch):
     # Courses with no scheduled term are parked in data/no-terms/ and never served. It is
     # the only reason the app never meets the 0.00 - 99.00 exemption placeholders.

@@ -19,27 +19,12 @@ import type {
   SectionDiffDetail,
   MeetingRow,
   InvalidEnrollmentState,
+  UnscheduledSection,
 } from './types'
 import { SECTION_TYPE_CONFIG } from './types'
 import { HONG_KONG_TIMEZONE, HONG_KONG_TIMEZONE_LABEL, SCHEDULE_DATA_VERSION } from './constants'
 import { createEvents } from 'ics'
 import moment from 'moment-timezone'
-
-/**
- * Extract section type from section code using centralized config
- * Internal helper - use formatCourseCodeWithSection() for display
- */
-function extractSectionType(sectionCode: string): string {
-  const sectionTypes = Object.keys(SECTION_TYPE_CONFIG)
-  const foundType = sectionTypes.find(
-    (type) =>
-      sectionCode.includes(type) ||
-      SECTION_TYPE_CONFIG[type as keyof typeof SECTION_TYPE_CONFIG].aliases.some((alias) =>
-        sectionCode.includes(alias)
-      )
-  )
-  return foundType || '?'
-}
 
 /**
  * Parse time string like "Mo 14:30 - 15:15" or "Sa 2:00PM - 5:15PM" into structured time range
@@ -236,19 +221,9 @@ export function enrollmentsToCalendarEvents(
   return events
 }
 
-/**
- * Get unscheduled course sections (TBA meetings) from enrollments
- */
-export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
-  enrollment: CourseEnrollment
-  section: InternalSection
-  meeting: InternalMeeting
-}> {
-  const unscheduledSections: Array<{
-    enrollment: CourseEnrollment
-    section: InternalSection
-    meeting: InternalMeeting
-  }> = []
+/** Get unscheduled course sections (TBA meetings) from enrollments. */
+export function getUnscheduledSections(enrollments: CourseEnrollment[]): UnscheduledSection[] {
+  const unscheduledSections: UnscheduledSection[] = []
 
   enrollments.filter(isVisibleAndValid).forEach((enrollment) => {
     enrollment.selectedSections.forEach((section) => {
@@ -1286,71 +1261,49 @@ export function instructorSortKey(instructor: string): string {
 // ========================================
 
 /**
- * Extract section prefix for compatibility matching
- * Examples:
- *   A-LEC → "A"        (letter prefix - specific cohort)
- *   AE01-EXR → "A"     (letter prefix - specific cohort)
- *   AT01-TUT → "A"     (letter prefix - specific cohort)
- *   --LEC → null       (dash prefix - universal wildcard)
- *   -E01-EXR → null    (dash prefix - universal wildcard)
+ * A section's cohort — the group you enrol into. A leading dash names a cohort whose name is
+ * empty; it is not a wildcard. CUSIS offers `--LEC` with `-L01`, never with `ML01`.
+ *
+ *   A-LEC    → 'A'    a lecture is labelled by its cohort alone
+ *   AT01-TUT → 'A'    every other component adds its own letter, then an index
+ *   AAL1-LAB → 'AA'   so a cohort may be two letters
+ *   -T01-TUT → ''     the unnamed cohort
+ *
+ * Only the letter's position matters, never which component it stands for, so a component we
+ * have never seen still reads correctly.
  */
-export function getSectionPrefix(sectionCode: string): string | null {
-  // Check if starts with letter (not dash) - indicates specific cohort
-  const match = sectionCode.match(/^([A-Z])/)
-  return match ? match[1] : null // null = universal wildcard section
+export function cohortOf(sectionCode: string): string {
+  const label = sectionCode.split('-', 1)[0] // 'AT01' from 'AT01-TUT (5921)'; '' if dash-initial
+  const marked = /^([A-Z]+)[A-Z]\d+$/.exec(label) // <cohort><component letter><index>
+  return marked ? marked[1] : label
 }
 
-/**
- * Format course code with cohort prefix if exists
- * Examples:
- *   ("CSCI", "3320", "A-LEC") → "CSCI3320A"
- *   ("CSCI", "3320", "--LEC") → "CSCI3320"
- */
+// Append the cohort key to the course code ('' shows no prefix): "CSCI3320AH", "CSCI3320".
 export function formatCourseCodeWithPrefix(
   subject: string,
   courseCode: string,
-  sectionCode: string
+  cohortKey: string
 ): string {
-  const prefix = getSectionPrefix(sectionCode) ?? ''
-  return `${subject}${courseCode}${prefix}`
+  return `${subject}${courseCode}${cohortKey}`
 }
 
-/**
- * Format full course code display with section type
- * Examples:
- *   ("CSCI", "3320", "A-LEC") → "CSCI3320A LEC"
- *   ("CSCI", "3320", "--LEC") → "CSCI3320 LEC"
- */
+// As above, plus the section type: "CSCI3320A LEC", "CSCI3320 LEC".
 export function formatCourseCodeWithSection(
   subject: string,
   courseCode: string,
-  sectionCode: string
+  cohortKey: string,
+  sectionType: string
 ): string {
-  const formattedCode = formatCourseCodeWithPrefix(subject, courseCode, sectionCode)
-  const sectionType = extractSectionType(sectionCode)
+  const formattedCode = formatCourseCodeWithPrefix(subject, courseCode, cohortKey)
   return `${formattedCode} ${sectionType}`
 }
 
-/**
- * Check if two sections are compatible for pairing based on CUHK cohort rules
- * Rules:
- * - Letter-prefixed sections (A-LEC, AE01-EXR, AT01-TUT) must match same letter
- * - Dash-prefixed sections (--LEC, -E01-EXR) are wildcards, match anything
- * - Universal sections can pair with any specific cohort
- * - Specific cohorts can only pair with same cohort or universal sections
- */
+/** Whether two sections can be enrolled together: only within one cohort. */
 export function areSectionsCompatible(
   section1: InternalSection,
   section2: InternalSection
 ): boolean {
-  const prefix1 = getSectionPrefix(section1.sectionCode)
-  const prefix2 = getSectionPrefix(section2.sectionCode)
-
-  // Universal sections (null prefix) can pair with anything
-  if (prefix1 === null || prefix2 === null) return true
-
-  // Same letter prefix sections can pair together
-  return prefix1 === prefix2
+  return cohortOf(section1.sectionCode) === cohortOf(section2.sectionCode)
 }
 
 /**
@@ -1427,35 +1380,6 @@ export function categorizeCompatibleSections(
 }
 
 /**
- * Get compatible alternative sections for cycling in shopping cart
- * Only returns sections of same type that work with current enrollment
- */
-export function getCompatibleAlternatives(
-  selectedSection: InternalSection,
-  enrollment: CourseEnrollment,
-  termName: string
-): InternalSection[] {
-  const currentTerm = enrollment.course.terms.find((t) => t.termName === termName)
-  if (!currentTerm) return []
-
-  // Get sections of same type (LEC → LEC alternatives only)
-  const sameTypeSections = currentTerm.sections.filter(
-    (s) => s.sectionType === selectedSection.sectionType && s.id !== selectedSection.id
-  )
-
-  // Filter by compatibility with OTHER selected sections (different types)
-  const otherSelectedSections = enrollment.selectedSections.filter(
-    (s) => s.sectionType !== selectedSection.sectionType
-  )
-
-  return sameTypeSections.filter((candidateSection) =>
-    otherSelectedSections.every((otherSection) =>
-      areSectionsCompatible(candidateSection, otherSection)
-    )
-  )
-}
-
-/**
  * Get the priority index of a section type within course section types
  */
 export function getSectionTypePriority(
@@ -1464,54 +1388,6 @@ export function getSectionTypePriority(
 ): number {
   const typeGroup = sectionTypes.find((group) => group.type === sectionType)
   return typeGroup?.priority ?? 999 // High number = low priority if not found
-}
-
-/**
- * Clear lower-priority section selections that become incompatible
- * This implements the cascade reset behavior
- */
-export function clearIncompatibleLowerSelections(
-  selectedSections: Map<string, string>,
-  courseKey: string,
-  changedSectionType: SectionType,
-  newSectionId: string,
-  sectionTypes: SectionTypeGroup[],
-  course: InternalCourse,
-  termName: string
-): Map<string, string> {
-  const newMap = new Map(selectedSections)
-  const changedPriority = getSectionTypePriority(changedSectionType, sectionTypes)
-
-  // Get the new section object
-  const termData = course.terms.find((t) => t.termName === termName)
-  const newSection = termData?.sections.find((s) => s.id === newSectionId)
-  if (!newSection) return newMap
-
-  // Check all lower-priority section types
-  sectionTypes
-    .filter((typeGroup) => typeGroup.priority > changedPriority) // Lower priority (higher number)
-    .forEach((lowerTypeGroup) => {
-      const lowerSelectionKey = `${courseKey}_${lowerTypeGroup.type}`
-      const currentLowerSelectionId = newMap.get(lowerSelectionKey)
-
-      if (currentLowerSelectionId) {
-        // Find the currently selected lower section
-        const currentLowerSection = lowerTypeGroup.sections.find(
-          (s) => s.id === currentLowerSelectionId
-        )
-
-        // Check if it's still compatible with the new higher-priority selection
-        if (currentLowerSection && !areSectionsCompatible(newSection, currentLowerSection)) {
-          // Clear the incompatible selection
-          newMap.delete(lowerSelectionKey)
-          console.debug(
-            `Cascade cleared ${lowerTypeGroup.type} selection: ${currentLowerSection.sectionCode} (incompatible with ${newSection.sectionCode})`
-          )
-        }
-      }
-    })
-
-  return newMap
 }
 
 /**
@@ -1524,33 +1400,6 @@ export function canFreelySectionType(
   const priority = getSectionTypePriority(sectionType, sectionTypes)
   // Higher priority sections (lower numbers) can always be changed freely
   return priority <= 1 // Allow top 2 priority levels to be changed freely
-}
-
-/**
- * Validate course enrollment for section compatibility
- * Returns validation result with detailed conflict information for debugging
- */
-export function validateSectionCompatibility(enrollment: CourseEnrollment): {
-  isValid: boolean
-  conflicts: string[]
-} {
-  const conflicts: string[] = []
-  const sections = enrollment.selectedSections
-
-  // Check all pairs of sections for compatibility
-  for (let i = 0; i < sections.length; i++) {
-    for (let j = i + 1; j < sections.length; j++) {
-      if (!areSectionsCompatible(sections[i], sections[j])) {
-        const prefix1 = getSectionPrefix(sections[i].sectionCode) || 'universal'
-        const prefix2 = getSectionPrefix(sections[j].sectionCode) || 'universal'
-        conflicts.push(
-          `${sections[i].sectionCode} (${prefix1}-cohort) and ${sections[j].sectionCode} (${prefix2}-cohort) are incompatible`
-        )
-      }
-    }
-  }
-
-  return { isValid: conflicts.length === 0, conflicts }
 }
 
 /**
@@ -2056,6 +1905,7 @@ export function createICSEventsForMeeting(
   }
 
   const formattedInstructors = formatInstructorsCompact(meeting.instructors)
+  const cohortKey = cohortOf(section.sectionCode)
 
   // Create description with better formatting and structure
   const description = [
@@ -2068,16 +1918,20 @@ export function createICSEventsForMeeting(
     'https://another-cuhk-course-planner.com/',
   ].join('\n')
 
+  // CUHK's per-section identity, term-unique, so the UID needs nothing else. The publish gate
+  // rejects a code without one; raise rather than emit a UID that would collide and make the
+  // calendar drop an event on import.
+  const classNumber = section.sectionCode.match(/\((\d+)\)/)?.[1]
+  if (!classNumber) {
+    throw new Error(`Section code has no class number: ${section.sectionCode}`)
+  }
+
   // Create one event for each date
   return meetingDates.map((date) => {
-    // Generate deterministic UID for consistent event identification
-    // Example with prefix: "CSCI1234-A-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
-    // Example without prefix: "CSCI1234-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
+    // Deterministic UID (stable across exports): "9615-2026-01-06-0930-1015@another-cuhk-course-planner.com"
     const dateStr = formatDateKey(date)
     const timeStr = `${timeRange.startHour.toString().padStart(2, '0')}${timeRange.startMinute.toString().padStart(2, '0')}-${timeRange.endHour.toString().padStart(2, '0')}${timeRange.endMinute.toString().padStart(2, '0')}`
-    const prefix = getSectionPrefix(section.sectionCode)
-    const prefixPart = prefix ? `${prefix}-` : ''
-    const uid = `${course.subject}${course.courseCode}-${prefixPart}${section.sectionType}-${dateStr}-${timeStr}@another-cuhk-course-planner.com`
+    const uid = `${classNumber}-${dateStr}-${timeStr}@another-cuhk-course-planner.com`
 
     // Convert to UTC using Hong Kong timezone
     const startUTC = convertToHongKongUTC(date, timeRange.startHour, timeRange.startMinute)
@@ -2102,7 +1956,12 @@ export function createICSEventsForMeeting(
 
     return {
       uid,
-      title: formatCourseCodeWithSection(course.subject, course.courseCode, section.sectionCode),
+      title: formatCourseCodeWithSection(
+        course.subject,
+        course.courseCode,
+        cohortKey,
+        section.sectionType
+      ),
       description,
       location: meeting.location,
       start,
@@ -2129,6 +1988,9 @@ export function generateICSCalendar(
   icsContent?: string
   filename?: string
   error?: string
+  // The caught error itself, so the caller can report it. Without this the exception reaches
+  // the user as a message and reaches Error Tracking not at all.
+  cause?: unknown
 } {
   try {
     const allEvents: ICSEvent[] = []
@@ -2171,7 +2033,10 @@ export function generateICSCalendar(
     }
   } catch (error) {
     console.error('Unexpected error during ICS generation:', error)
-    return { error: 'An unexpected error occurred while generating the calendar file.' }
+    return {
+      error: 'An unexpected error occurred while generating the calendar file.',
+      cause: error,
+    }
   }
 }
 

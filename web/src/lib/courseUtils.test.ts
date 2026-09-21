@@ -21,6 +21,7 @@ import {
   attributeRowState,
   syncCart,
   syncEnrollment,
+  autoCompleteEnrollmentSections,
   isEnrollmentOpen,
   splitInstructorsCompact,
   instructorSortKey,
@@ -39,6 +40,8 @@ import {
   formatCredits,
   statedCredits,
   sumCredits,
+  cohortOf,
+  areSectionsCompatible,
 } from './courseUtils'
 import { transformExternalCourseData } from './validation'
 import { SCHEDULE_DATA_VERSION } from './constants'
@@ -103,6 +106,252 @@ function makeCourse(sections: InternalSection[], termName = 'Term 1'): InternalC
     terms: [{ termCode: '2510', termName, sections }],
   }
 }
+
+describe('cohortOf', () => {
+  const cohorts = (codes: string[]): Record<string, string> =>
+    Object.fromEntries(codes.map((code) => [code, cohortOf(code)]))
+
+  it('reads a bare label as the whole cohort', () => {
+    expect(cohorts(['A-LEC (1)', 'AE-LEC (2)'])).toEqual({
+      'A-LEC (1)': 'A',
+      'AE-LEC (2)': 'AE',
+    })
+  })
+
+  it('drops the marker a non-lecture label carries for its own component', () => {
+    // `AT01` is cohort A, T for TUT, index 01 — neither letter nor index is part of the cohort.
+    expect(cohorts(['AT01-TUT (1)', 'BT01-TUT (2)', 'AVC1-CLW (3)'])).toEqual({
+      'AT01-TUT (1)': 'A',
+      'BT01-TUT (2)': 'B',
+      'AVC1-CLW (3)': 'AV',
+    })
+  })
+
+  it('finds a two-letter cohort by the marker position, not the label length (ENGG1003)', () => {
+    expect(cohorts(['AA-LEC (1)', 'AB-LEC (2)', 'AAL1-LAB (3)', 'ABL1-LAB (4)'])).toEqual({
+      'AA-LEC (1)': 'AA',
+      'AB-LEC (2)': 'AB',
+      'AAL1-LAB (3)': 'AA',
+      'ABL1-LAB (4)': 'AB',
+    })
+  })
+
+  it('keeps one- and two-letter cohorts apart within one term (GECC3130)', () => {
+    // `AAF1` is cohort AA (one index digit), `AF01` is cohort A (two): width is per section.
+    expect(cohorts(['AAF1-FLD (1)', 'AAJ1-PRJ (2)', 'AF01-FLD (3)', 'AJ01-PRJ (4)'])).toEqual({
+      'AAF1-FLD (1)': 'AA',
+      'AAJ1-PRJ (2)': 'AA',
+      'AF01-FLD (3)': 'A',
+      'AJ01-PRJ (4)': 'A',
+    })
+  })
+
+  it('groups components that each carry their own marker (GECC3230)', () => {
+    expect(cohorts(['AF01-FLD (1)', 'AT01-TUT (2)', 'BF01-FLD (3)', 'BT01-TUT (4)'])).toEqual({
+      'AF01-FLD (1)': 'A',
+      'AT01-TUT (2)': 'A',
+      'BF01-FLD (3)': 'B',
+      'BT01-TUT (4)': 'B',
+    })
+  })
+
+  it('reads a dash-initial label as the unnamed cohort', () => {
+    expect(cohorts(['--LEC (1)', '-T01-TUT (2)'])).toEqual({
+      '--LEC (1)': '',
+      '-T01-TUT (2)': '',
+    })
+  })
+
+  it('leaves a label with no room for a marker as its own cohort', () => {
+    // CUHK never writes this and the publish gate rejects it; isolating it is the safe
+    // degradation, where collapsing to '' would pair the section with everything.
+    expect(cohortOf('A1-LEC (1)')).toBe('A1')
+  })
+})
+
+describe('cohortOf via the real transform (seam)', () => {
+  const build = (sections: string[]): InternalSection[] => {
+    const { courses } = transformExternalCourseData({
+      metadata: { subject: 'TEST', total_courses: 1 },
+      courses: [
+        {
+          subject: 'TEST',
+          course_code: '1000',
+          title: 'T',
+          terms: [
+            {
+              term_code: '2510',
+              term_name: 'Term 1',
+              schedule: sections.map((section) => ({ section })),
+            },
+          ],
+        },
+      ],
+    })
+    return courses[0].terms[0].sections
+  }
+
+  it('keys real transformed sections (the parse preserves what cohortOf reads)', () => {
+    const sections = build(['AA-LEC (1)', 'AB-LEC (2)', 'AAL1-LAB (3)', '--TUT (4)'])
+    expect(sections.map((s) => [s.sectionCode, cohortOf(s.sectionCode)])).toEqual([
+      ['AA-LEC (1)', 'AA'],
+      ['AB-LEC (2)', 'AB'],
+      ['AAL1-LAB (3)', 'AA'],
+      ['--TUT (4)', ''],
+    ])
+  })
+})
+
+describe('areSectionsCompatible', () => {
+  // Build a term's sections + cohort keys from raw section strings (real transform), and expose
+  // a compatibility check by section code.
+  const build = (codes: string[]) => {
+    const { courses } = transformExternalCourseData({
+      metadata: { subject: 'TEST', total_courses: 1 },
+      courses: [
+        {
+          subject: 'TEST',
+          course_code: '1000',
+          title: 'T',
+          terms: [
+            {
+              term_code: '2510',
+              term_name: 'Term 1',
+              schedule: codes.map((section) => ({ section })),
+            },
+          ],
+        },
+      ],
+    })
+    const sections = courses[0].terms[0].sections
+    const byCode = (code: string) => sections.find((s) => s.sectionCode === code)!
+    return (a: string, b: string) => areSectionsCompatible(byCode(a), byCode(b))
+  }
+
+  it('pairs a lecture with a same-cohort tutorial, not a different one', () => {
+    const compatible = build(['A-LEC (1)', 'B-LEC (2)', 'AT01-TUT (3)', 'BT01-TUT (4)'])
+    expect(compatible('A-LEC (1)', 'AT01-TUT (3)')).toBe(true)
+    expect(compatible('A-LEC (1)', 'BT01-TUT (4)')).toBe(false)
+  })
+
+  it('rejects two different single-letter cohorts', () => {
+    const compatible = build(['A-LEC (1)', 'B-LEC (2)'])
+    expect(compatible('A-LEC (1)', 'B-LEC (2)')).toBe(false)
+  })
+
+  it('pairs two lower-priority sections of the same cohort', () => {
+    const compatible = build(['A-LEC (1)', 'AT01-TUT (2)', 'AE01-EXR (3)'])
+    expect(compatible('AT01-TUT (2)', 'AE01-EXR (3)')).toBe(true)
+  })
+
+  it('keeps the unnamed cohort apart from a named one (PHYS5330)', () => {
+    // A dash names the cohort, it does not waive it: CUSIS offers `--LEC` with `-L01`/`-L02`
+    // and `M-LEC` with `ML01`/`ML02`, and no option crossing the two.
+    const compatible = build(['--LEC (1)', '-L01-LAB (2)', 'M-LEC (3)', 'ML01-LAB (4)'])
+    expect(compatible('--LEC (1)', '-L01-LAB (2)')).toBe(true)
+    expect(compatible('M-LEC (3)', 'ML01-LAB (4)')).toBe(true)
+    expect(compatible('--LEC (1)', 'ML01-LAB (4)')).toBe(false)
+    expect(compatible('M-LEC (3)', '-L01-LAB (2)')).toBe(false)
+  })
+
+  it('anchors two-letter cohorts so a lab pairs only with its own lecture (ENGG1003)', () => {
+    const compatible = build(['AA-LEC (1)', 'AB-LEC (2)', 'AAL1-LAB (3)', 'ABL1-LAB (4)'])
+    expect(compatible('AA-LEC (1)', 'AAL1-LAB (3)')).toBe(true)
+    // The bug this fixes: single-letter prefixing used to call this compatible.
+    expect(compatible('AB-LEC (2)', 'AAL1-LAB (3)')).toBe(false)
+  })
+
+  it('pairs components that each carry their own marker (GECC3230 regression)', () => {
+    // The previous rule anchored cohorts on the first type's labels, so `AF01` could never
+    // prefix `AT01`: every tutorial became its own cohort and none could be selected.
+    const compatible = build(['AF01-FLD (1)', 'AT01-TUT (2)', 'BF01-FLD (3)', 'BT01-TUT (4)'])
+    expect(compatible('AF01-FLD (1)', 'AT01-TUT (2)')).toBe(true)
+    expect(compatible('AF01-FLD (1)', 'BT01-TUT (4)')).toBe(false)
+  })
+
+  it('pairs sections that all share the unnamed cohort (MEDU3160 shape)', () => {
+    const compatible = build(['--LEC (1)', '--TUT (2)', '--LAB (3)'])
+    expect(compatible('--LEC (1)', '--TUT (2)')).toBe(true)
+    expect(compatible('--TUT (2)', '--LAB (3)')).toBe(true)
+  })
+})
+
+describe('autoCompleteEnrollmentSections', () => {
+  const buildCourse = (codes: string[]): InternalCourse =>
+    transformExternalCourseData({
+      metadata: { subject: 'TEST', total_courses: 1 },
+      courses: [
+        {
+          subject: 'TEST',
+          course_code: '1000',
+          title: 'T',
+          terms: [
+            {
+              term_code: '2510',
+              term_name: 'Term 1',
+              schedule: codes.map((section) => ({ section })),
+            },
+          ],
+        },
+      ],
+    }).courses[0]
+
+  /** Cycle the picked sections onto `newCode`, and report what the enrollment holds after. */
+  const cycleTo = (codes: string[], picked: string[], newCode: string): string[] => {
+    const course = buildCourse(codes)
+    const byCode = (code: string) => course.terms[0].sections.find((s) => s.sectionCode === code)!
+    const target = byCode(newCode)
+    return autoCompleteEnrollmentSections(
+      makeEnrollment(course, picked.map(byCode)),
+      target.sectionType,
+      target.id,
+      course,
+      'Term 1'
+    )
+      .map((s) => s.sectionCode)
+      .sort()
+  }
+
+  it('swaps the tutorial to the new cohort rather than dropping it', () => {
+    const codes = ['A-LEC (1)', 'B-LEC (2)', 'AT01-TUT (3)', 'BT01-TUT (4)']
+    expect(cycleTo(codes, ['A-LEC (1)', 'AT01-TUT (3)'], 'B-LEC (2)')).toEqual([
+      'B-LEC (2)',
+      'BT01-TUT (4)',
+    ])
+  })
+
+  it('swaps between the unnamed and a named cohort (PHYS5330)', () => {
+    const codes = ['--LEC (1)', '-L01-LAB (2)', 'M-LEC (3)', 'ML01-LAB (4)']
+    expect(cycleTo(codes, ['--LEC (1)', '-L01-LAB (2)'], 'M-LEC (3)')).toEqual([
+      'M-LEC (3)',
+      'ML01-LAB (4)',
+    ])
+  })
+
+  it('swaps components that each carry their own marker (GECC3230)', () => {
+    const codes = ['AF01-FLD (1)', 'AT01-TUT (2)', 'BF01-FLD (3)', 'BT01-TUT (4)']
+    expect(cycleTo(codes, ['AF01-FLD (1)', 'AT01-TUT (2)'], 'BF01-FLD (3)')).toEqual([
+      'BF01-FLD (3)',
+      'BT01-TUT (4)',
+    ])
+  })
+
+  it('keeps a stored pair that a rule change made incompatible', () => {
+    // `--LEC` with `ML01-LAB` was legal while a dash read as a wildcard. Loading must not drop
+    // either side — the picker surfaces them as incompatible so the user chooses.
+    const course = buildCourse(['--LEC (1)', '-L01-LAB (2)', 'M-LEC (3)', 'ML01-LAB (4)'])
+    const byCode = (code: string) => course.terms[0].sections.find((s) => s.sectionCode === code)!
+    const stored = makeEnrollment(course, [byCode('--LEC (1)'), byCode('ML01-LAB (4)')])
+
+    const synced = syncEnrollment(stored, [course], 'Term 1', new Date('2026-07-18T12:00:00.000Z'))
+
+    expect(synced.selectedSections.map((s) => s.sectionCode).sort()).toEqual([
+      '--LEC (1)',
+      'ML01-LAB (4)',
+    ])
+    expect(synced.removedSections).toBeUndefined()
+  })
+})
 
 describe('sortSectionsByPriority', () => {
   it('orders sections by section-type priority regardless of input order', () => {
@@ -1717,10 +1966,9 @@ describe('createICSEventsForMeeting', () => {
     // 14:30-17:15 HKT on 4 Sep 2025 is 06:30-09:15 UTC.
     expect(events[0].start).toEqual([2025, 9, 4, 6, 30])
     expect(events[0].end).toEqual([2025, 9, 4, 9, 15])
-    expect(events[0].uid).toBe(
-      'ACCT1111-B-LEC-2025-09-04-1430-1715@another-cuhk-course-planner.com'
-    )
-    // The cohort letter joins the course code; the type follows.
+    // UID is the section's class number (B-LEC is 6012), not a reconstructed cohort+type.
+    expect(events[0].uid).toBe('6012-2025-09-04-1430-1715@another-cuhk-course-planner.com')
+    // The cohort joins the course code; the type follows.
     expect(events[0].title).toBe('ACCT1111B LEC')
     expect(events[0].location).toBe('Lee Shau Kee Archi Bldg G03')
   })
@@ -1729,10 +1977,26 @@ describe('createICSEventsForMeeting', () => {
     const course = emba5011()
     const section = findPublishedSection(course, EMBA5011_TERM, 'AE-LEC')
 
-    // Only the first cohort letter reaches the UID, so "AE-LEC" prints as "A".
+    // AE-LEC's class number is 4304.
     expect(
       createICSEventsForMeeting(mondayOf(section), course, section, EMBA5011_TERM)[0].uid
-    ).toBe('EMBA5011-A-LEC-2025-08-25-0845-1845@another-cuhk-course-planner.com')
+    ).toBe('4304-2025-08-25-0845-1845@another-cuhk-course-planner.com')
+  })
+
+  it('gives two same-type sections at the same time distinct UIDs (class number drives it)', () => {
+    // Under the old cohort+type scheme both would be "…-A-LEC-…" and collide.
+    const meeting = mkMeeting({ time: 'Mo 9:00AM - 10:00AM' })
+    const lecA = makeSection({ id: 'a', sectionCode: 'AA-LEC (100)', meetings: [meeting] })
+    const lecB = makeSection({ id: 'b', sectionCode: 'AB-LEC (200)', meetings: [meeting] })
+    const course = makeCourse([lecA, lecB], SYNTHETIC_TERM)
+
+    const uidA = createICSEventsForMeeting(meeting, course, lecA, SYNTHETIC_TERM)[0].uid
+    const uidB = createICSEventsForMeeting(meeting, course, lecB, SYNTHETIC_TERM)[0].uid
+
+    expect(uidA.startsWith('100-')).toBe(true)
+    expect(uidB.startsWith('200-')).toBe(true)
+    // Only the class number differs; the occurrence (date/time) is identical.
+    expect(uidA.slice(3)).toBe(uidB.slice(3))
   })
 
   it('skips a meeting with no parseable time', () => {
@@ -1758,6 +2022,24 @@ describe('generateICSCalendar', () => {
     expect(filename).toMatch(/^2025-26-Term-1-Schedule-\d{4}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}\.ics$/)
     expect(icsContent!.match(/BEGIN:VEVENT/g)).toHaveLength(6)
     expect(icsContent).toContain('PRODID:Another CUHK Course Planner')
+  })
+
+  it('reports an error for a code with no class number instead of writing a bad UID', () => {
+    // The publish gate rejects such a code, so reaching here means our own data broke. The UID
+    // keys on the class number, and inventing one would collide and silently drop an event.
+    const meeting = mkMeeting({ time: 'Mo 9:00AM - 10:00AM' })
+    const section = makeSection({ id: 'a', sectionCode: 'AE-LEC', meetings: [meeting] })
+    const course = makeCourse([section], SYNTHETIC_TERM)
+
+    const { icsContent, error, cause } = generateICSCalendar(
+      [makeEnrollment(course, [section])],
+      SYNTHETIC_TERM
+    )
+
+    expect(icsContent).toBeUndefined()
+    expect(error).toMatch(/unexpected error/i)
+    // The error travels with the message, so the caller can report it to Error Tracking.
+    expect(cause).toBeInstanceOf(Error)
   })
 
   it('excludes hidden enrollments and reports when nothing is left to export', () => {

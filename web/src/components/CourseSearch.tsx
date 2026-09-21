@@ -23,7 +23,7 @@ import {
   parseSectionTypes,
   isCourseEnrollmentComplete,
   sectionSignature,
-  getSectionPrefix,
+  areSectionsCompatible,
   categorizeCompatibleSections,
   getSectionTypePriority,
   splitInstructorsCompact,
@@ -2030,7 +2030,11 @@ function CourseCard({
                       .map((section) => {
                         const isSelected = localSelections.get(typeGroup.type) === section.id
                         const isIncompatible = incompatible.includes(section)
-                        const sectionPrefix = getSectionPrefix(section.sectionCode)
+                        // Which of the picks above this type it clashes with — naming them
+                        // tells the user what to change, and reads for an unnamed cohort too.
+                        const clashesWith = higherPrioritySelections.filter(
+                          (selected) => !areSectionsCompatible(section, selected)
+                        )
 
                         // Check for time conflicts with current schedule
                         const conflictInfo = checkSectionConflict(
@@ -2116,7 +2120,9 @@ function CourseCard({
                             }}
                             title={
                               isIncompatible
-                                ? `Incompatible with selected ${sectionPrefix || 'universal'}-cohort sections`
+                                ? `Can't be taken with: ${clashesWith
+                                    .map((selected) => selected.sectionCode)
+                                    .join(', ')}`
                                 : hasTimeConflict
                                   ? `Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`
                                   : undefined

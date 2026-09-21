@@ -61,7 +61,7 @@ It ignores the skip toggle: where the clash is and which weeks are worth steppin
 
 - Exports only visible, valid enrollments — the visibility toggle silently doubles as an export filter.
 - Times are parsed as `Asia/Hong_Kong` and exported as UTC, so exchange students in other timezones get correct local times.
-- UIDs are deterministic (course + section + date + time), so re-importing an export overwrites events instead of duplicating them.
+- UIDs are deterministic (class number + date + time), so re-importing an export overwrites events instead of duplicating them. An export made before the scheme changed carries the old UIDs, so it re-imports as duplicates.
 - Export is per-occurrence and always was; the on-screen timetable now matches it. UIDs carry the date, so correcting a year rewrites them — anyone who imported a misdated August event cannot undo it with a corrected export.
 
 ## ICS Undo

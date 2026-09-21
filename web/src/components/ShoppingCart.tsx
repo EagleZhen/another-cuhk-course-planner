@@ -15,6 +15,7 @@ import {
   getAvailabilityBadges,
   getComputedBorderColor,
   formatCourseCodeWithPrefix,
+  cohortOf,
   checkSectionConflict,
   diffSectionDetail,
   getChangedCourseIds,
@@ -363,6 +364,9 @@ export default function ShoppingCart({
             className="space-y-3 overflow-y-auto h-full p-1.5 pr-2 pt-2 pb-2"
           >
             {courseEnrollments.map((enrollment) => {
+              // The header shows the first selected section's cohort, or nothing if none is picked.
+              const firstSection = enrollment.selectedSections[0]
+              const headerCohortKey = firstSection ? cohortOf(firstSection.sectionCode) : ''
               const isVisible = enrollment.isVisible // Use enrollment visibility directly
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
@@ -440,7 +444,7 @@ export default function ShoppingCart({
                         {formatCourseCodeWithPrefix(
                           enrollment.course.subject,
                           enrollment.course.courseCode,
-                          enrollment.selectedSections[0]?.sectionCode || ''
+                          headerCohortKey
                         )}
                       </span>
                       {enrollment.course.credits && (
