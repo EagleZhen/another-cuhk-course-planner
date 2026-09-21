@@ -39,6 +39,7 @@ import {
   formatCredits,
   statedCredits,
   sumCredits,
+  computeCohortKeys,
 } from './courseUtils'
 import { transformExternalCourseData } from './validation'
 import { SCHEDULE_DATA_VERSION } from './constants'
@@ -103,6 +104,137 @@ function makeCourse(sections: InternalSection[], termName = 'Term 1'): InternalC
     terms: [{ termCode: '2510', termName, sections }],
   }
 }
+
+describe('computeCohortKeys', () => {
+  // Minimal section descriptors; the id doubles as a readable handle for the result.
+  type Sec = Pick<InternalSection, 'id' | 'sectionCode' | 'sectionType'>
+  const sec = (sectionCode: string, sectionType: InternalSection['sectionType']): Sec => ({
+    id: sectionCode,
+    sectionCode,
+    sectionType,
+  })
+  // sectionCode → cohortKey, so assertions read against the code the user sees.
+  const keysByCode = (sections: Sec[]): Record<string, string> => {
+    const keys = computeCohortKeys(sections)
+    return Object.fromEntries(sections.map((s) => [s.sectionCode, keys.get(s.id)!]))
+  }
+
+  it('keeps a single-letter cohort as itself (unchanged from the old prefix)', () => {
+    expect(keysByCode([sec('A-LEC (1)', 'LEC'), sec('B-LEC (2)', 'LEC')])).toEqual({
+      'A-LEC (1)': 'A',
+      'B-LEC (2)': 'B',
+    })
+  })
+
+  it('keeps a two-letter cohort whole (issue #294 display fix)', () => {
+    expect(keysByCode([sec('AE-LEC (1)', 'LEC'), sec('P-LEC (2)', 'LEC')])).toEqual({
+      'AE-LEC (1)': 'AE',
+      'P-LEC (2)': 'P',
+    })
+  })
+
+  it('keeps a letters-plus-digits cohort whole', () => {
+    expect(keysByCode([sec('AVC1-CLW (1)', 'CLW'), sec('BC01-CLW (2)', 'CLW')])).toEqual({
+      'AVC1-CLW (1)': 'AVC1',
+      'BC01-CLW (2)': 'BC01',
+    })
+  })
+
+  it('reduces a lower-priority section to the lecture cohort that prefixes it', () => {
+    // LEC defines the roots {A, B}; the tutorial number is not part of the cohort.
+    expect(
+      keysByCode([
+        sec('A-LEC (1)', 'LEC'),
+        sec('B-LEC (2)', 'LEC'),
+        sec('AT01-TUT (3)', 'TUT'),
+        sec('BT01-TUT (4)', 'TUT'),
+      ])
+    ).toEqual({
+      'A-LEC (1)': 'A',
+      'B-LEC (2)': 'B',
+      'AT01-TUT (3)': 'A',
+      'BT01-TUT (4)': 'B',
+    })
+  })
+
+  it('maps open-to-everyone (dash-initial) sections to the universal key', () => {
+    expect(keysByCode([sec('--LEC (1)', 'LEC'), sec('-T01-TUT (2)', 'TUT')])).toEqual({
+      '--LEC (1)': '',
+      '-T01-TUT (2)': '',
+    })
+  })
+
+  it('keeps A and AA distinct in a single-type non-prefix-free course (MESC shape)', () => {
+    // Both are the defining type, so each is its own root — AA must not collapse to A.
+    expect(keysByCode([sec('A-LEC (1)', 'LEC'), sec('AA-LEC (2)', 'LEC')])).toEqual({
+      'A-LEC (1)': 'A',
+      'AA-LEC (2)': 'AA',
+    })
+  })
+
+  it('anchors two-letter cohorts on the lecture roots (ENGG1003 shape)', () => {
+    // The bug: single-letter prefixing merged AAL1 with AB. The lecture roots are prefix-free
+    // two-letter labels, so the lab reduces to its own lecture, not to "A".
+    expect(
+      keysByCode([
+        sec('AA-LEC (1)', 'LEC'),
+        sec('AB-LEC (2)', 'LEC'),
+        sec('AAL1-LAB (3)', 'LAB'),
+        sec('ABL1-LAB (4)', 'LAB'),
+      ])
+    ).toEqual({
+      'AA-LEC (1)': 'AA',
+      'AB-LEC (2)': 'AB',
+      'AAL1-LAB (3)': 'AA',
+      'ABL1-LAB (4)': 'AB',
+    })
+  })
+
+  it('derives roots from the first type that has a specific section, skipping universal-only types', () => {
+    // The LEC type is entirely open-to-everyone, so cohort roots come from the TUT labels.
+    expect(
+      keysByCode([sec('--LEC (1)', 'LEC'), sec('A-TUT (2)', 'TUT'), sec('B-TUT (3)', 'TUT')])
+    ).toEqual({
+      '--LEC (1)': '',
+      'A-TUT (2)': 'A',
+      'B-TUT (3)': 'B',
+    })
+  })
+})
+
+describe('cohortKey via the real transform (seam)', () => {
+  const build = (sections: string[]): InternalSection[] => {
+    const { courses } = transformExternalCourseData({
+      metadata: { subject: 'TEST', total_courses: 1 },
+      courses: [
+        {
+          subject: 'TEST',
+          course_code: '1000',
+          title: 'T',
+          terms: [
+            {
+              term_code: '2510',
+              term_name: 'Term 1',
+              schedule: sections.map((section) => ({ section })),
+            },
+          ],
+        },
+      ],
+    })
+    return courses[0].terms[0].sections
+  }
+
+  it('keys real transformed sections (parse produces the labels computeCohortKeys expects)', () => {
+    const sections = build(['AA-LEC (1)', 'AB-LEC (2)', 'AAL1-LAB (3)', '--TUT (4)'])
+    const keys = computeCohortKeys(sections)
+    expect(sections.map((s) => [s.sectionCode, keys.get(s.id)])).toEqual([
+      ['AA-LEC (1)', 'AA'],
+      ['AB-LEC (2)', 'AB'],
+      ['AAL1-LAB (3)', 'AA'],
+      ['--TUT (4)', ''],
+    ])
+  })
+})
 
 describe('sortSectionsByPriority', () => {
   it('orders sections by section-type priority regardless of input order', () => {

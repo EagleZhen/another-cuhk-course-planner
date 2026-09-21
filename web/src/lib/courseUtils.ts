@@ -26,22 +26,6 @@ import { createEvents } from 'ics'
 import moment from 'moment-timezone'
 
 /**
- * Extract section type from section code using centralized config
- * Internal helper - use formatCourseCodeWithSection() for display
- */
-function extractSectionType(sectionCode: string): string {
-  const sectionTypes = Object.keys(SECTION_TYPE_CONFIG)
-  const foundType = sectionTypes.find(
-    (type) =>
-      sectionCode.includes(type) ||
-      SECTION_TYPE_CONFIG[type as keyof typeof SECTION_TYPE_CONFIG].aliases.some((alias) =>
-        sectionCode.includes(alias)
-      )
-  )
-  return foundType || '?'
-}
-
-/**
  * Parse time string like "Mo 14:30 - 15:15" or "Sa 2:00PM - 5:15PM" into structured time range
  * Now supports weekend days: Saturday (Sa) and Sunday (Su)
  */
@@ -184,6 +168,7 @@ export function enrollmentsToCalendarEvents(
   const seen = new Set<string>()
 
   enrollments.filter(isVisibleAndValid).forEach((enrollment) => {
+    const cohortKeys = cohortKeysForTerm(enrollment.course, termName)
     enrollment.selectedSections.forEach((section) => {
       section.meetings.forEach((meeting) => {
         const timeRange = parseTimeRange(meeting.time)
@@ -215,6 +200,7 @@ export function enrollmentsToCalendarEvents(
             title: enrollment.course.title,
             sectionCode: section.sectionCode,
             sectionType: section.sectionType,
+            cohortKey: cohortKeys.get(section.id) ?? '',
             time: meeting.time,
             location: meeting.location,
             instructors: meeting.instructors,
@@ -237,20 +223,27 @@ export function enrollmentsToCalendarEvents(
 }
 
 /**
- * Get unscheduled course sections (TBA meetings) from enrollments
+ * Get unscheduled course sections (TBA meetings) from enrollments, each with its cohort key
+ * for display.
  */
-export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
+export function getUnscheduledSections(
+  enrollments: CourseEnrollment[],
+  termName: string
+): Array<{
   enrollment: CourseEnrollment
   section: InternalSection
   meeting: InternalMeeting
+  cohortKey: string
 }> {
   const unscheduledSections: Array<{
     enrollment: CourseEnrollment
     section: InternalSection
     meeting: InternalMeeting
+    cohortKey: string
   }> = []
 
   enrollments.filter(isVisibleAndValid).forEach((enrollment) => {
+    const cohortKeys = cohortKeysForTerm(enrollment.course, termName)
     enrollment.selectedSections.forEach((section) => {
       section.meetings.forEach((meeting) => {
         const timeRange = parseTimeRange(meeting.time)
@@ -262,6 +255,7 @@ export function getUnscheduledSections(enrollments: CourseEnrollment[]): Array<{
             enrollment,
             section,
             meeting,
+            cohortKey: cohortKeys.get(section.id) ?? '',
           })
         }
       })
@@ -1300,34 +1294,81 @@ export function getSectionPrefix(sectionCode: string): string | null {
   return match ? match[1] : null // null = universal wildcard section
 }
 
-/**
- * Format course code with cohort prefix if exists
- * Examples:
- *   ("CSCI", "3320", "A-LEC") → "CSCI3320A"
- *   ("CSCI", "3320", "--LEC") → "CSCI3320"
- */
-export function formatCourseCodeWithPrefix(
-  subject: string,
-  courseCode: string,
-  sectionCode: string
-): string {
-  const prefix = getSectionPrefix(sectionCode) ?? ''
-  return `${subject}${courseCode}${prefix}`
+// A section's label: the code before the component marker (`AAL1-LAB (9242)` → `AAL1`).
+// Labels never contain '-', so splitting on the first one works. Dash-initial codes
+// (`--LEC`, `-T01-TUT`) yield '' — CUHK's "open to everyone" marker.
+function sectionLabel(sectionCode: string): string {
+  return sectionCode.split('-', 1)[0]
+}
+
+function cohortKeyFor(label: string, roots: readonly string[]): string {
+  if (label === '') return '' // universal
+  if (roots.includes(label)) return label // its own cohort
+  // A tutorial/lab reduces to the root prefixing it — unique since roots are prefix-free.
+  return roots.find((root) => label.startsWith(root)) ?? label
 }
 
 /**
- * Format full course code display with section type
- * Examples:
- *   ("CSCI", "3320", "A-LEC") → "CSCI3320A LEC"
- *   ("CSCI", "3320", "--LEC") → "CSCI3320 LEC"
+ * Map each of a term's sections to its cohort key: '' for universal, else a specific cohort.
+ *
+ * Cohort roots are the labels of the first section type that has any specific (letter-initial)
+ * section, in catalog order. A section whose own label is a root keeps it (`AH`→`AH`); a
+ * lower-priority one reduces to the root prefixing it (`AT01`→`A`, `AAL1`→`AA`). See #294.
  */
+export function computeCohortKeys(
+  termSections: readonly Pick<InternalSection, 'id' | 'sectionCode' | 'sectionType'>[]
+): Map<string, string> {
+  // Group by section type in first-occurrence (catalog) order, as parseSectionTypes does.
+  const typeOrder: SectionType[] = []
+  const byType = new Map<SectionType, string[]>() // type -> its sections' labels
+  for (const section of termSections) {
+    if (!byType.has(section.sectionType)) {
+      byType.set(section.sectionType, [])
+      typeOrder.push(section.sectionType)
+    }
+    byType.get(section.sectionType)!.push(sectionLabel(section.sectionCode))
+  }
+
+  // Roots = the specific labels of the first type that has any specific section.
+  let roots: string[] = []
+  for (const type of typeOrder) {
+    const specific = byType.get(type)!.filter((label) => label !== '')
+    if (specific.length > 0) {
+      roots = specific
+      break
+    }
+  }
+
+  const keys = new Map<string, string>()
+  for (const section of termSections) {
+    keys.set(section.id, cohortKeyFor(sectionLabel(section.sectionCode), roots))
+  }
+  return keys
+}
+
+/** A course term's cohort keys by section id; empty when the term is absent. */
+export function cohortKeysForTerm(course: InternalCourse, termName: string): Map<string, string> {
+  const term = course.terms.find((t) => t.termName === termName)
+  return computeCohortKeys(term?.sections ?? [])
+}
+
+// Append the cohort key to the course code ('' shows no prefix): "CSCI3320AH", "CSCI3320".
+export function formatCourseCodeWithPrefix(
+  subject: string,
+  courseCode: string,
+  cohortKey: string
+): string {
+  return `${subject}${courseCode}${cohortKey}`
+}
+
+// As above, plus the section type: "CSCI3320A LEC", "CSCI3320 LEC".
 export function formatCourseCodeWithSection(
   subject: string,
   courseCode: string,
-  sectionCode: string
+  cohortKey: string,
+  sectionType: string
 ): string {
-  const formattedCode = formatCourseCodeWithPrefix(subject, courseCode, sectionCode)
-  const sectionType = extractSectionType(sectionCode)
+  const formattedCode = formatCourseCodeWithPrefix(subject, courseCode, cohortKey)
   return `${formattedCode} ${sectionType}`
 }
 
@@ -2056,6 +2097,7 @@ export function createICSEventsForMeeting(
   }
 
   const formattedInstructors = formatInstructorsCompact(meeting.instructors)
+  const cohortKey = cohortKeysForTerm(course, termName).get(section.id) ?? ''
 
   // Create description with better formatting and structure
   const description = [
@@ -2102,7 +2144,12 @@ export function createICSEventsForMeeting(
 
     return {
       uid,
-      title: formatCourseCodeWithSection(course.subject, course.courseCode, section.sectionCode),
+      title: formatCourseCodeWithSection(
+        course.subject,
+        course.courseCode,
+        cohortKey,
+        section.sectionType
+      ),
       description,
       location: meeting.location,
       start,

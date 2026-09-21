@@ -188,6 +188,9 @@ export interface CalendarEvent {
   title: string
   sectionCode: string
   sectionType: SectionType
+  // Cohort for the displayed code; '' = universal (no prefix). Computed from the term via
+  // computeCohortKeys when the event is built — an ephemeral view field, never persisted.
+  cohortKey: string
   time: string
   location: string
   instructors: string // Scraped form ("Professor CHAN"); display via formatInstructorsCompact

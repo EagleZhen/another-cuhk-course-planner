@@ -112,6 +112,7 @@ interface WeeklyCalendarProps {
     enrollment: CourseEnrollment
     section: InternalSection
     meeting: InternalMeeting
+    cohortKey: string
   }>
   courseEnrollments: CourseEnrollment[]
   selectedTerm?: string
@@ -1044,7 +1045,8 @@ export default function WeeklyCalendar({
                                   {formatCourseCodeWithSection(
                                     event.subject,
                                     event.courseCode,
-                                    event.sectionCode
+                                    event.cohortKey,
+                                    event.sectionType
                                   )}
                                 </div>
 
@@ -1151,6 +1153,7 @@ function UnscheduledSectionsCard({
     enrollment: CourseEnrollment
     section: InternalSection
     meeting: InternalMeeting
+    cohortKey: string
   }>
   selectedEnrollment?: string | null
   onSelectEnrollment?: (enrollmentId: string | null) => void
@@ -1225,7 +1228,7 @@ function UnscheduledSectionsCard({
                       {formatCourseCodeWithPrefix(
                         item.enrollment.course.subject,
                         item.enrollment.course.courseCode,
-                        item.section.sectionCode
+                        item.cohortKey
                       )}
                     </span>
                   )
@@ -1284,7 +1287,8 @@ function UnscheduledSectionsCard({
                       {formatCourseCodeWithSection(
                         item.enrollment.course.subject,
                         item.enrollment.course.courseCode,
-                        item.section.sectionCode
+                        item.cohortKey,
+                        item.section.sectionType
                       )}
                     </div>
 
