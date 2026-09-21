@@ -233,6 +233,10 @@ def unenrollable_course_terms(courses: list[dict]) -> str | None:
 
     One complete combination is enough — a cohort with no tutorial is normal. A dash-initial
     label is the unnamed cohort, counted like any other.
+
+    Stricter than the browser on purpose. Given LEC {A,B}, TUT {A}, LAB {B} the browser drops
+    whichever type its pick cannot satisfy and carries on, while this aborts because no one
+    cohort covers all three. No course is shaped that way today.
     """
     bad = []
     for course in courses:
