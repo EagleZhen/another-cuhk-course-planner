@@ -21,6 +21,7 @@ import {
   attributeRowState,
   syncCart,
   syncEnrollment,
+  autoCompleteEnrollmentSections,
   isEnrollmentOpen,
   splitInstructorsCompact,
   instructorSortKey,
@@ -272,6 +273,83 @@ describe('areSectionsCompatible', () => {
     const compatible = build(['--LEC (1)', '--TUT (2)', '--LAB (3)'])
     expect(compatible('--LEC (1)', '--TUT (2)')).toBe(true)
     expect(compatible('--TUT (2)', '--LAB (3)')).toBe(true)
+  })
+})
+
+describe('autoCompleteEnrollmentSections', () => {
+  const buildCourse = (codes: string[]): InternalCourse =>
+    transformExternalCourseData({
+      metadata: { subject: 'TEST', total_courses: 1 },
+      courses: [
+        {
+          subject: 'TEST',
+          course_code: '1000',
+          title: 'T',
+          terms: [
+            {
+              term_code: '2510',
+              term_name: 'Term 1',
+              schedule: codes.map((section) => ({ section })),
+            },
+          ],
+        },
+      ],
+    }).courses[0]
+
+  /** Cycle the picked sections onto `newCode`, and report what the enrollment holds after. */
+  const cycleTo = (codes: string[], picked: string[], newCode: string): string[] => {
+    const course = buildCourse(codes)
+    const byCode = (code: string) => course.terms[0].sections.find((s) => s.sectionCode === code)!
+    const target = byCode(newCode)
+    return autoCompleteEnrollmentSections(
+      makeEnrollment(course, picked.map(byCode)),
+      target.sectionType,
+      target.id,
+      course,
+      'Term 1'
+    )
+      .map((s) => s.sectionCode)
+      .sort()
+  }
+
+  it('swaps the tutorial to the new cohort rather than dropping it', () => {
+    const codes = ['A-LEC (1)', 'B-LEC (2)', 'AT01-TUT (3)', 'BT01-TUT (4)']
+    expect(cycleTo(codes, ['A-LEC (1)', 'AT01-TUT (3)'], 'B-LEC (2)')).toEqual([
+      'B-LEC (2)',
+      'BT01-TUT (4)',
+    ])
+  })
+
+  it('swaps between the unnamed and a named cohort (PHYS5330)', () => {
+    const codes = ['--LEC (1)', '-L01-LAB (2)', 'M-LEC (3)', 'ML01-LAB (4)']
+    expect(cycleTo(codes, ['--LEC (1)', '-L01-LAB (2)'], 'M-LEC (3)')).toEqual([
+      'M-LEC (3)',
+      'ML01-LAB (4)',
+    ])
+  })
+
+  it('swaps components that each carry their own marker (GECC3230)', () => {
+    const codes = ['AF01-FLD (1)', 'AT01-TUT (2)', 'BF01-FLD (3)', 'BT01-TUT (4)']
+    expect(cycleTo(codes, ['AF01-FLD (1)', 'AT01-TUT (2)'], 'BF01-FLD (3)')).toEqual([
+      'BF01-FLD (3)',
+      'BT01-TUT (4)',
+    ])
+  })
+
+  it('keeps a stored pair that a rule change made incompatible', () => {
+    // `--LEC` with `ML01-LAB` was legal while a dash read as a wildcard. Loading must not drop
+    // either side — the picker surfaces them as incompatible so the user chooses.
+    const course = buildCourse(['--LEC (1)', '-L01-LAB (2)', 'M-LEC (3)', 'ML01-LAB (4)'])
+    const byCode = (code: string) => course.terms[0].sections.find((s) => s.sectionCode === code)!
+    const stored = makeEnrollment(course, [byCode('--LEC (1)'), byCode('ML01-LAB (4)')])
+
+    const synced = syncEnrollment(stored, [course], 'Term 1', new Date('2026-07-18T12:00:00.000Z'))
+
+    expect(synced.selectedSections.map((s) => s.sectionCode).sort()).toEqual([
+      '--LEC (1)',
+      'ML01-LAB (4)',
+    ])
+    expect(synced.removedSections).toBeUndefined()
   })
 })
 
