@@ -93,9 +93,9 @@ export function MeetingRowCard({
           </span>
           {dateRanges.length > 0 && (
             <div
-              className={`truncate text-[10px] ${
-                fields?.dates ? `${changedText} w-fit` : 'text-gray-400'
-              }`}
+              // w-fit on both branches: as the only block-level row it would otherwise
+              // stretch full width, and its tooltip would fire across the empty space.
+              className={`w-fit truncate text-[10px] ${fields?.dates ? changedText : 'text-gray-400'}`}
               title={datesTooltip}
             >
               {dateRanges.join(', ')}
