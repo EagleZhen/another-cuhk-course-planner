@@ -72,6 +72,7 @@ test('exports the August lecture in the year its weekday states', async ({ page 
 
   // 08:45 Hong Kong on 24 August 2026 is 00:45 UTC the same day.
   expect(ics).toContain('DTSTART:20260824T004500Z')
-  expect(ics).toContain('UID:EMBA5011-A-LEC-2026-08-24-0845-1845@another-cuhk-course-planner.com')
+  // The UID keys on the class number: the fixture section is `AE-LEC (4304)`.
+  expect(ics).toContain('UID:4304-2026-08-24-0845-1845@another-cuhk-course-planner.com')
   expect(ics).not.toContain('2027')
 })

@@ -1918,18 +1918,20 @@ export function createICSEventsForMeeting(
     'https://another-cuhk-course-planner.com/',
   ].join('\n')
 
-  // The class number is CUHK's per-section identity, term-unique — a stable UID with no
-  // collisions (unlike reconstructing one from cohort + type). Fall back to the raw code only
-  // if a malformed scrape omits it.
+  // CUHK's per-section identity, term-unique, so the UID needs nothing else. The publish gate
+  // rejects a code without one; raise rather than emit a UID that would collide and make the
+  // calendar drop an event on import.
   const classNumber = section.sectionCode.match(/\((\d+)\)/)?.[1]
-  const sectionKey = classNumber ?? section.sectionCode.replace(/\s+/g, '')
+  if (!classNumber) {
+    throw new Error(`Section code has no class number: ${section.sectionCode}`)
+  }
 
   // Create one event for each date
   return meetingDates.map((date) => {
     // Deterministic UID (stable across exports): "9615-2026-01-06-0930-1015@another-cuhk-course-planner.com"
     const dateStr = formatDateKey(date)
     const timeStr = `${timeRange.startHour.toString().padStart(2, '0')}${timeRange.startMinute.toString().padStart(2, '0')}-${timeRange.endHour.toString().padStart(2, '0')}${timeRange.endMinute.toString().padStart(2, '0')}`
-    const uid = `${sectionKey}-${dateStr}-${timeStr}@another-cuhk-course-planner.com`
+    const uid = `${classNumber}-${dateStr}-${timeStr}@another-cuhk-course-planner.com`
 
     // Convert to UTC using Hong Kong timezone
     const startUTC = convertToHongKongUTC(date, timeRange.startHour, timeRange.startMinute)

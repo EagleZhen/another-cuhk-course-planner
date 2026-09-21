@@ -1946,6 +1946,22 @@ describe('generateICSCalendar', () => {
     expect(icsContent).toContain('PRODID:Another CUHK Course Planner')
   })
 
+  it('reports an error for a code with no class number instead of writing a bad UID', () => {
+    // The publish gate rejects such a code, so reaching here means our own data broke. The UID
+    // keys on the class number, and inventing one would collide and silently drop an event.
+    const meeting = mkMeeting({ time: 'Mo 9:00AM - 10:00AM' })
+    const section = makeSection({ id: 'a', sectionCode: 'AE-LEC', meetings: [meeting] })
+    const course = makeCourse([section], SYNTHETIC_TERM)
+
+    const { icsContent, error } = generateICSCalendar(
+      [makeEnrollment(course, [section])],
+      SYNTHETIC_TERM
+    )
+
+    expect(icsContent).toBeUndefined()
+    expect(error).toMatch(/unexpected error/i)
+  })
+
   it('excludes hidden enrollments and reports when nothing is left to export', () => {
     const course = emba5011()
     const section = findPublishedSection(course, EMBA5011_TERM, 'AE-LEC')
