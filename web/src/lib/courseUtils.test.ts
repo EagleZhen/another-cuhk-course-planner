@@ -40,6 +40,7 @@ import {
   statedCredits,
   sumCredits,
   computeCohortKeys,
+  areSectionsCompatible,
 } from './courseUtils'
 import { transformExternalCourseData } from './validation'
 import { SCHEDULE_DATA_VERSION } from './constants'
@@ -233,6 +234,69 @@ describe('cohortKey via the real transform (seam)', () => {
       ['AAL1-LAB (3)', 'AA'],
       ['--TUT (4)', ''],
     ])
+  })
+})
+
+describe('areSectionsCompatible', () => {
+  // Build a term's sections + cohort keys from raw section strings (real transform), and expose
+  // a compatibility check by section code.
+  const build = (codes: string[]) => {
+    const { courses } = transformExternalCourseData({
+      metadata: { subject: 'TEST', total_courses: 1 },
+      courses: [
+        {
+          subject: 'TEST',
+          course_code: '1000',
+          title: 'T',
+          terms: [
+            {
+              term_code: '2510',
+              term_name: 'Term 1',
+              schedule: codes.map((section) => ({ section })),
+            },
+          ],
+        },
+      ],
+    })
+    const sections = courses[0].terms[0].sections
+    const keys = computeCohortKeys(sections)
+    const byCode = (code: string) => sections.find((s) => s.sectionCode === code)!
+    return (a: string, b: string) => areSectionsCompatible(byCode(a), byCode(b), keys)
+  }
+
+  it('pairs a lecture with a same-cohort tutorial, not a different one', () => {
+    const compatible = build(['A-LEC (1)', 'B-LEC (2)', 'AT01-TUT (3)', 'BT01-TUT (4)'])
+    expect(compatible('A-LEC (1)', 'AT01-TUT (3)')).toBe(true)
+    expect(compatible('A-LEC (1)', 'BT01-TUT (4)')).toBe(false)
+  })
+
+  it('rejects two different single-letter cohorts', () => {
+    const compatible = build(['A-LEC (1)', 'B-LEC (2)'])
+    expect(compatible('A-LEC (1)', 'B-LEC (2)')).toBe(false)
+  })
+
+  it('pairs two lower-priority sections of the same cohort', () => {
+    const compatible = build(['A-LEC (1)', 'AT01-TUT (2)', 'AE01-EXR (3)'])
+    expect(compatible('AT01-TUT (2)', 'AE01-EXR (3)')).toBe(true)
+  })
+
+  it('pairs a universal (open-to-everyone) section with anything, either order', () => {
+    const compatible = build(['A-LEC (1)', '--TUT (2)'])
+    expect(compatible('A-LEC (1)', '--TUT (2)')).toBe(true)
+    expect(compatible('--TUT (2)', 'A-LEC (1)')).toBe(true)
+  })
+
+  it('anchors two-letter cohorts so a lab pairs only with its own lecture (ENGG1003)', () => {
+    const compatible = build(['AA-LEC (1)', 'AB-LEC (2)', 'AAL1-LAB (3)', 'ABL1-LAB (4)'])
+    expect(compatible('AA-LEC (1)', 'AAL1-LAB (3)')).toBe(true)
+    // The bug this fixes: single-letter prefixing used to call this compatible.
+    expect(compatible('AB-LEC (2)', 'AAL1-LAB (3)')).toBe(false)
+  })
+
+  it('treats an all-universal course as fully compatible (MEDU3160 shape)', () => {
+    const compatible = build(['--LEC (1)', '--TUT (2)', '--LAB (3)'])
+    expect(compatible('--LEC (1)', '--TUT (2)')).toBe(true)
+    expect(compatible('--TUT (2)', '--LAB (3)')).toBe(true)
   })
 })
 

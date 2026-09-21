@@ -73,7 +73,7 @@ Major responsibilities:
 - format course codes and instructors
 - generate ICS exports and undo files
 
-Section compatibility follows CUHK cohort prefixes: sections with the same letter prefix are compatible, while prefixless sections act as wildcards. This is used when auto-completing section selections.
+Section compatibility follows CUHK cohorts: two sections pair when they share a cohort key, while open-to-everyone sections act as wildcards. The key (`computeCohortKeys`) is the full cohort, not just the first letter, so multi-character cohorts like `AA` and `AB` stay distinct. This is used when auto-completing section selections.
 
 Conflict detection is a two-step model:
 

@@ -348,6 +348,7 @@ export function isCourseEnrollmentComplete(
   localSelections: Map<string, string>
 ): boolean {
   const sectionTypes = parseSectionTypes(course, termName)
+  const cohortKeys = cohortKeysForTerm(course, termName)
 
   // If no selections, not complete
   if (localSelections.size === 0) return false
@@ -381,7 +382,8 @@ export function isCourseEnrollmentComplete(
 
     const { compatible } = categorizeCompatibleSections(
       typeGroup.sections,
-      higherPrioritySelections
+      higherPrioritySelections,
+      cohortKeys
     )
 
     // If no compatible sections exist, this type is not required
@@ -1364,25 +1366,19 @@ export function formatCourseCodeWithSection(
 }
 
 /**
- * Check if two sections are compatible for pairing based on CUHK cohort rules
- * Rules:
- * - Letter-prefixed sections (A-LEC, AE01-EXR, AT01-TUT) must match same letter
- * - Dash-prefixed sections (--LEC, -E01-EXR) are wildcards, match anything
- * - Universal sections can pair with any specific cohort
- * - Specific cohorts can only pair with same cohort or universal sections
+ * Whether two sections can be enrolled together: compatible when either is universal ('') or
+ * they share a cohort. cohortKeys comes from cohortKeysForTerm for the sections' term; a section
+ * absent from it can't be validated, so it's treated as incompatible (never silently paired).
  */
 export function areSectionsCompatible(
   section1: InternalSection,
-  section2: InternalSection
+  section2: InternalSection,
+  cohortKeys: Map<string, string>
 ): boolean {
-  const prefix1 = getSectionPrefix(section1.sectionCode)
-  const prefix2 = getSectionPrefix(section2.sectionCode)
-
-  // Universal sections (null prefix) can pair with anything
-  if (prefix1 === null || prefix2 === null) return true
-
-  // Same letter prefix sections can pair together
-  return prefix1 === prefix2
+  const key1 = cohortKeys.get(section1.id)
+  const key2 = cohortKeys.get(section2.id)
+  if (key1 === undefined || key2 === undefined) return false
+  return key1 === '' || key2 === '' || key1 === key2
 }
 
 /**
@@ -1398,11 +1394,12 @@ export function hasConflictFreeEnrollment(
   const sectionTypes = parseSectionTypes(course, termName)
   if (sectionTypes.length === 0) return false
 
+  const cohortKeys = cohortKeysForTerm(course, termName)
   const search = (typeIndex: number, selectedSections: InternalSection[]): boolean => {
     if (typeIndex === sectionTypes.length) return true
 
     const compatibleSections = sectionTypes[typeIndex].sections.filter((candidate) =>
-      selectedSections.every((selected) => areSectionsCompatible(candidate, selected))
+      selectedSections.every((selected) => areSectionsCompatible(candidate, selected, cohortKeys))
     )
 
     if (compatibleSections.length === 0) {
@@ -1427,7 +1424,8 @@ export function hasConflictFreeEnrollment(
  */
 export function categorizeCompatibleSections(
   availableSections: InternalSection[],
-  selectedSections: InternalSection[]
+  selectedSections: InternalSection[],
+  cohortKeys: Map<string, string>
 ): {
   compatible: InternalSection[]
   incompatible: InternalSection[]
@@ -1444,11 +1442,12 @@ export function categorizeCompatibleSections(
 
   // Check compatibility with all currently selected sections
   const compatible = availableSections.filter((candidate) =>
-    selectedSections.every((selected) => areSectionsCompatible(candidate, selected))
+    selectedSections.every((selected) => areSectionsCompatible(candidate, selected, cohortKeys))
   )
 
   const incompatible = availableSections.filter(
-    (candidate) => !selectedSections.every((selected) => areSectionsCompatible(candidate, selected))
+    (candidate) =>
+      !selectedSections.every((selected) => areSectionsCompatible(candidate, selected, cohortKeys))
   )
 
   return {
@@ -1470,6 +1469,8 @@ export function getCompatibleAlternatives(
   const currentTerm = enrollment.course.terms.find((t) => t.termName === termName)
   if (!currentTerm) return []
 
+  const cohortKeys = computeCohortKeys(currentTerm.sections)
+
   // Get sections of same type (LEC → LEC alternatives only)
   const sameTypeSections = currentTerm.sections.filter(
     (s) => s.sectionType === selectedSection.sectionType && s.id !== selectedSection.id
@@ -1482,7 +1483,7 @@ export function getCompatibleAlternatives(
 
   return sameTypeSections.filter((candidateSection) =>
     otherSelectedSections.every((otherSection) =>
-      areSectionsCompatible(candidateSection, otherSection)
+      areSectionsCompatible(candidateSection, otherSection, cohortKeys)
     )
   )
 }
@@ -1519,6 +1520,8 @@ export function clearIncompatibleLowerSelections(
   const newSection = termData?.sections.find((s) => s.id === newSectionId)
   if (!newSection) return newMap
 
+  const cohortKeys = computeCohortKeys(termData?.sections ?? [])
+
   // Check all lower-priority section types
   sectionTypes
     .filter((typeGroup) => typeGroup.priority > changedPriority) // Lower priority (higher number)
@@ -1533,7 +1536,10 @@ export function clearIncompatibleLowerSelections(
         )
 
         // Check if it's still compatible with the new higher-priority selection
-        if (currentLowerSection && !areSectionsCompatible(newSection, currentLowerSection)) {
+        if (
+          currentLowerSection &&
+          !areSectionsCompatible(newSection, currentLowerSection, cohortKeys)
+        ) {
           // Clear the incompatible selection
           newMap.delete(lowerSelectionKey)
           console.debug(
@@ -1559,33 +1565,6 @@ export function canFreelySectionType(
 }
 
 /**
- * Validate course enrollment for section compatibility
- * Returns validation result with detailed conflict information for debugging
- */
-export function validateSectionCompatibility(enrollment: CourseEnrollment): {
-  isValid: boolean
-  conflicts: string[]
-} {
-  const conflicts: string[] = []
-  const sections = enrollment.selectedSections
-
-  // Check all pairs of sections for compatibility
-  for (let i = 0; i < sections.length; i++) {
-    for (let j = i + 1; j < sections.length; j++) {
-      if (!areSectionsCompatible(sections[i], sections[j])) {
-        const prefix1 = getSectionPrefix(sections[i].sectionCode) || 'universal'
-        const prefix2 = getSectionPrefix(sections[j].sectionCode) || 'universal'
-        conflicts.push(
-          `${sections[i].sectionCode} (${prefix1}-cohort) and ${sections[j].sectionCode} (${prefix2}-cohort) are incompatible`
-        )
-      }
-    }
-  }
-
-  return { isValid: conflicts.length === 0, conflicts }
-}
-
-/**
  * Smart auto-completion: Updates enrollment sections when cycling creates new compatibility opportunities
  * This implements the hierarchical auto-completion logic for shopping cart section cycling
  */
@@ -1603,6 +1582,8 @@ export function autoCompleteEnrollmentSections(
   const termData = course.terms.find((t) => t.termName === termName)
   const newSection = termData?.sections.find((s) => s.id === newSectionId)
   if (!newSection) return enrollment.selectedSections
+
+  const cohortKeys = computeCohortKeys(termData?.sections ?? [])
 
   // Start with current sections, replacing the changed one
   let updatedSections = enrollment.selectedSections.map((section) =>
@@ -1622,7 +1603,7 @@ export function autoCompleteEnrollmentSections(
     if (sectionPriority <= changedPriority) return true // Keep higher/equal priority sections
 
     // Check if this lower-priority section is still compatible with the new section
-    const isCompatible = areSectionsCompatible(newSection, section)
+    const isCompatible = areSectionsCompatible(newSection, section, cohortKeys)
     if (!isCompatible) {
       console.debug(
         `Auto-removing incompatible ${section.sectionType}: ${section.sectionCode} (incompatible with ${newSection.sectionCode})`
@@ -1643,7 +1624,8 @@ export function autoCompleteEnrollmentSections(
         const currentlySelected = updatedSections
         const { compatible } = categorizeCompatibleSections(
           lowerTypeGroup.sections,
-          currentlySelected
+          currentlySelected,
+          cohortKeys
         )
 
         // Auto-add the first compatible section if available

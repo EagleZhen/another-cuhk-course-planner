@@ -23,7 +23,7 @@ import {
   parseSectionTypes,
   isCourseEnrollmentComplete,
   sectionSignature,
-  getSectionPrefix,
+  cohortKeysForTerm,
   categorizeCompatibleSections,
   getSectionTypePriority,
   splitInstructorsCompact,
@@ -1313,6 +1313,7 @@ function CourseCard({
 
   const courseKey = `${course.subject}${course.courseCode}`
   const sectionTypes = parseSectionTypes(course, currentTerm)
+  const cohortKeys = cohortKeysForTerm(course, currentTerm)
 
   // Toggle handler with smart analytics (only tracks expansion)
   const handleToggle = () => {
@@ -1925,7 +1926,8 @@ function CourseCard({
               // Categorize sections as compatible/incompatible based on higher priority selections only
               const { incompatible } = categorizeCompatibleSections(
                 typeGroup.sections,
-                higherPrioritySelections
+                higherPrioritySelections,
+                cohortKeys
               )
 
               // Note: Higher priority sections can always be changed freely (implemented in logic above)
@@ -2030,7 +2032,7 @@ function CourseCard({
                       .map((section) => {
                         const isSelected = localSelections.get(typeGroup.type) === section.id
                         const isIncompatible = incompatible.includes(section)
-                        const sectionPrefix = getSectionPrefix(section.sectionCode)
+                        const sectionCohortKey = cohortKeys.get(section.id) ?? ''
 
                         // Check for time conflicts with current schedule
                         const conflictInfo = checkSectionConflict(
@@ -2097,7 +2099,8 @@ function CourseCard({
                                         if (otherSection) {
                                           const { incompatible } = categorizeCompatibleSections(
                                             otherTypeGroup.sections,
-                                            [section] // New higher-priority selection as constraint
+                                            [section], // New higher-priority selection as constraint
+                                            cohortKeys
                                           )
 
                                           // If the other section is now incompatible, clear it
@@ -2116,7 +2119,7 @@ function CourseCard({
                             }}
                             title={
                               isIncompatible
-                                ? `Incompatible with selected ${sectionPrefix || 'universal'}-cohort sections`
+                                ? `Incompatible with selected ${sectionCohortKey || 'universal'}-cohort sections`
                                 : hasTimeConflict
                                   ? `Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`
                                   : undefined

@@ -111,7 +111,9 @@ export default function ShoppingCart({
       return priority < currentPriority
     })
 
-    return categorizeCompatibleSections(typeGroup.sections, higherPrioritySelections).compatible
+    const cohortKeys = cohortKeysForTerm(enrollment.course, currentTerm)
+    return categorizeCompatibleSections(typeGroup.sections, higherPrioritySelections, cohortKeys)
+      .compatible
   }
 
   // Helper function to cycle to next/previous section (compatible sections only - hierarchical priority)
