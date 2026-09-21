@@ -214,7 +214,7 @@ def undecodable_cohort_labels(courses: list[dict]) -> str | None:
     if not bad:
         return None
     return (
-        f"Section labels cohortOf cannot split into cohort and marker ({len(bad)}): "
+        f"Section labels carrying digits with no room for a cohort and marker ({len(bad)}): "
         f"{_summarize(bad)} — re-check the scrape, else update cohortOf"
     )
 
