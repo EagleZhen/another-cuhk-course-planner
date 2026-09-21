@@ -107,6 +107,9 @@ The publish script checks:
 - scraping progress metadata
 - zero-course subjects and structural issues
 - credit strings, over every course — an unexpected shape aborts ([#331](https://github.com/EagleZhen/another-cuhk-course-planner/issues/331))
+- section codes — each must read as `<label>-<COMP> (<classNbr>)`, with a label that splits into a cohort and its type letter
+- course terms — one where no cohort offers a section of every type aborts; nobody could complete it ([grammar](decisions.md#read-the-cohort-from-the-section-code-grammar))
+- across a whole year — a component marked by two letters, or a class number reused within a term, aborts
 
 A year the latest full scrape did not produce is **archived**: CUHK no longer serves it, so no scrape can rewrite its files and the schema check could only reject them forever. Such a year is neither version-checked nor re-copied, since its published copy is complete and can no longer change. It still feeds the manifests — dropping it would erase the year from the app — but its subjects and terms are read from the published copy, so a manifest can never name a subject that was never copied. Its scrape time still comes from the stamp in [data/](../data/).
 
