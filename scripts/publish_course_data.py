@@ -55,6 +55,12 @@ CREDIT_BOUND_RE = re.compile(r"\d+\.\d{2}")
 # browser keys the .ics UID on the class number and the cohort on the label, so both must exist.
 SECTION_CODE_RE = re.compile(r"^(?P<label>.*)-(?P<comp>[A-Z]+) \((?P<nbr>\d+)\)$")
 
+# A label the browser can read a cohort from: empty (open to everyone), a bare cohort, or
+# `<cohort><component letter><index>`. `A1` is neither — too short to hold both a cohort and a
+# marker — so cohortOf would read the whole thing as a cohort and it would pair with nothing.
+DECODABLE_LABEL_RE = re.compile(r"[A-Z]*|[A-Z]{2,}\d+")
+MARKED_LABEL_RE = re.compile(r"(?P<cohort>[A-Z]+)(?P<letter>[A-Z])(?P<index>\d+)")
+
 MAX_CREDIT_EXAMPLES = 3
 MAX_SECTION_EXAMPLES = 5
 
@@ -157,12 +163,19 @@ def unknown_credit_shapes(courses: list[dict]) -> str | None:
 
 
 def _iter_sections(courses: list[dict]) -> Iterator[tuple[str, dict]]:
-    """Every section of every term, paired with its course code."""
+    """Every section of every term, paired with its course code and term name."""
     for course in courses:
         code = f"{course.get('subject', '')}{course.get('course_code', '')}"
         for term in course.get("terms", []):
             for section in term.get("schedule", []):
-                yield code, section
+                yield code, term.get("term_name", ""), section
+
+
+def _summarize(items: list[str], sep: str = ", ") -> str:
+    """The first few items, with a count of the rest."""
+    extra = len(items) - MAX_SECTION_EXAMPLES
+    shown = sep.join(items[:MAX_SECTION_EXAMPLES])
+    return f"{shown}{sep}… and {extra} more" if extra > 0 else shown
 
 
 def malformed_section_codes(courses: list[dict]) -> str | None:
@@ -172,76 +185,174 @@ def malformed_section_codes(courses: list[dict]) -> str | None:
     """
     bad = [
         f'{code} "{s}"'
-        for code, section in _iter_sections(courses)
+        for code, _, section in _iter_sections(courses)
         if not SECTION_CODE_RE.fullmatch(s := section.get("section", ""))
     ]
     if not bad:
         return None
-    examples = ", ".join(bad[:MAX_SECTION_EXAMPLES])
-    tail = (
-        f", … and {len(bad) - MAX_SECTION_EXAMPLES} more" if len(bad) > MAX_SECTION_EXAMPLES else ""
-    )
     return (
-        f"Section codes not of the form <label>-<COMP> (<classNbr>) ({len(bad)}): {examples}{tail}"
-        " — re-scrape if the schedule page failed, else update computeCohortKeys and the .ics UID"
+        f"Section codes not of the form <label>-<COMP> (<classNbr>) ({len(bad)}): "
+        f"{_summarize(bad)}"
+        " — re-scrape if the schedule page failed, else update cohortOf and the .ics UID"
     )
 
 
-def cohort_roots(schedule: list[dict]) -> list[str] | None:
-    """A term's cohort roots — the first section type's specific (letter-initial) labels, as
-    computeCohortKeys derives them — or None when there's one type or no specific labels (cases
-    where prefix-freeness isn't required).
+def undecodable_cohort_labels(courses: list[dict]) -> str | None:
+    """One issue naming every label cohortOf cannot read a cohort from, or None.
+
+    A label carrying digits must hold a cohort *and* the component's marker letter. `AT01` does;
+    `A1` does not, so cohortOf would keep it whole and the section would pair with nothing.
     """
-    order: list[str] = []
-    labels_by_type: dict[str, list[str]] = {}
-    for section in schedule:
+    bad = []
+    for code, _, section in _iter_sections(courses):
         match = SECTION_CODE_RE.fullmatch(section.get("section", ""))
         if not match:
-            continue  # malformed codes are reported by malformed_section_codes
-        comp = match.group("comp")
-        if comp not in labels_by_type:
-            labels_by_type[comp] = []
-            order.append(comp)
-        labels_by_type[comp].append(section["section"].split("-", 1)[0])  # '' = universal
-
-    if len(order) < 2:
-        return None  # single type: compatibility never runs, so roots may overlap (MESC/GESC)
-    for comp in order:
-        specific = [label for label in labels_by_type[comp] if label]
-        if specific:
-            return specific
-    return None  # every type is open-to-everyone
+            continue  # malformed_section_codes reports these
+        label = match.group("label").split("-", 1)[0]
+        if not DECODABLE_LABEL_RE.fullmatch(label):
+            bad.append(f'{code} "{section["section"]}"')
+    if not bad:
+        return None
+    return (
+        f"Section labels cohortOf cannot split into cohort and marker ({len(bad)}): "
+        f"{_summarize(bad)} — re-check the scrape, else update cohortOf"
+    )
 
 
-def ambiguous_cohort_courses(courses: list[dict]) -> str | None:
-    """One issue naming every term whose cohort roots aren't prefix-free, or None.
+def cohort_of(label: str) -> str:
+    """The cohort a label names, as the browser's cohortOf reads it."""
+    marked = MARKED_LABEL_RE.fullmatch(label)
+    return marked.group("cohort") if marked else label
 
-    When one root prefixes another (e.g. `A` and `AA`), a lower-priority section like `AAL1`
-    can't reduce to a unique cohort, so the browser could allow an invalid enrollment (#294).
+
+def unenrollable_course_terms(courses: list[dict]) -> str | None:
+    """One issue naming every course term no student could complete, or None.
+
+    Every other check asks whether a section code parses. This one asks whether the cohorts we
+    read still leave a schedule to build: a student picks one section per type, all of the same
+    cohort, so if two types that must be paired share no cohort the course is impossible.
+
+    That makes it the one check that does not take cohortOf's word for anything — it would have
+    caught #294, where 90 sections became unpairable while the guard of the day passed clean.
+
+    Not every cohort need offer every type (a cohort with no tutorial is normal); one complete
+    combination is enough. A dash-initial label is the unnamed cohort, counted like any other.
     """
     bad = []
     for course in courses:
+        code = f"{course.get('subject', '')}{course.get('course_code', '')}"
         for term in course.get("terms", []):
-            roots = cohort_roots(term.get("schedule", []))
-            if roots and not _is_prefix_free(roots):
-                code = f"{course.get('subject', '')}{course.get('course_code', '')}"
-                bad.append(f"{code} {term.get('term_name', '')} {sorted(set(roots))}")
+            by_comp: dict[str, set[str]] = {}
+            for section in term.get("schedule", []):
+                match = SECTION_CODE_RE.fullmatch(section.get("section", ""))
+                if not match:
+                    continue  # malformed_section_codes reports these
+                label = match.group("label").split("-", 1)[0]
+                by_comp.setdefault(match.group("comp"), set()).add(cohort_of(label))
+
+            if len(by_comp) >= 2 and not set.intersection(*by_comp.values()):
+                offer = "; ".join(f"{comp} {sorted(c)[:4]}" for comp, c in sorted(by_comp.items()))
+                bad.append(f"{code} {term.get('term_name', '')} ({offer})")
+
     if not bad:
         return None
-    examples = "; ".join(bad[:MAX_SECTION_EXAMPLES])
-    tail = (
-        f"; … and {len(bad) - MAX_SECTION_EXAMPLES} more" if len(bad) > MAX_SECTION_EXAMPLES else ""
-    )
     return (
-        f"Cohort roots not prefix-free ({len(bad)}): {examples}{tail}"
-        " — a lower-priority section can't map to one cohort; re-check the scrape or computeCohortKeys"
+        f"Course terms offering no cohort with one section of every type ({len(bad)}): "
+        f"{_summarize(bad, '; ')} — a student could not complete the course, so either the"
+        " scrape is short a section or cohortOf is misreading these labels"
     )
 
 
-def _is_prefix_free(labels: list[str]) -> bool:
-    """Whether no label is a prefix of another distinct label."""
-    unique = set(labels)
-    return not any(a != b and b.startswith(a) for a in unique for b in unique)
+def inconsistent_component_markers(
+    courses_by_file: dict[str, list[dict]],
+) -> list[tuple[str, str]]:
+    """(file, issue) for each component whose sections disagree about its marker letter.
+
+    cohortOf reads a cohort by dropping the letter before the index, trusting that the letter
+    marks the component rather than belonging to the cohort. That holds only while a component
+    is always marked by the same letter: two letters for one component means one of them is
+    cohort material, and every cohort under it is wrong (the #294 class of bug).
+
+    The mapping is derived from the data being published, never a fixed table — a component
+    CUHK adds later needs no change here, and only a real disagreement aborts.
+    """
+    seen: dict[str, dict[str, list[tuple[str, str]]]] = {}
+    for file_path, courses in courses_by_file.items():
+        for code, _, section in _iter_sections(courses):
+            match = SECTION_CODE_RE.fullmatch(section.get("section", ""))
+            if not match:
+                continue
+            marked = MARKED_LABEL_RE.fullmatch(match.group("label").split("-", 1)[0])
+            if not marked:
+                continue  # bare or open-to-everyone: no marker to disagree about
+            by_letter = seen.setdefault(match.group("comp"), {})
+            hit = (file_path, f'{code} "{section["section"]}"')
+            by_letter.setdefault(marked.group("letter"), []).append(hit)
+
+    found = []
+    for comp, by_letter in sorted(seen.items()):
+        if len(by_letter) < 2:
+            continue
+        usual = max(by_letter, key=lambda letter: len(by_letter[letter]))
+        tally = ", ".join(f"{letter}×{len(hits)}" for letter, hits in sorted(by_letter.items()))
+        for letter, hits in sorted(by_letter.items()):
+            if letter == usual:
+                continue
+            for file_path in sorted({path for path, _ in hits}):
+                examples = _summarize([text for path, text in hits if path == file_path])
+                found.append(
+                    (
+                        file_path,
+                        f"{comp} is marked by more than one letter ({tally}): {examples}"
+                        f" — if {letter} is part of the cohort rather than a marker, every cohort"
+                        " under it is wrong; re-check the scrape, else update cohortOf",
+                    )
+                )
+    return found
+
+
+def reused_class_numbers(courses_by_file: dict[str, list[dict]]) -> list[tuple[str, str]]:
+    """(file, issue) for each class number used by more than one section in a term.
+
+    The .ics UID is the class number plus the meeting time, so a reused number makes two events
+    collide and a calendar drops one silently on import.
+    """
+    seen: dict[tuple[str, str], list[tuple[str, str]]] = {}
+    for file_path, courses in courses_by_file.items():
+        for code, term_name, section in _iter_sections(courses):
+            match = SECTION_CODE_RE.fullmatch(section.get("section", ""))
+            if not match:
+                continue
+            hit = (file_path, f'{code} "{section["section"]}"')
+            seen.setdefault((term_name, match.group("nbr")), []).append(hit)
+
+    found = []
+    for (term_name, nbr), hits in sorted(seen.items()):
+        if len(hits) < 2:
+            continue
+        shared = ", ".join(text for _, text in hits)
+        for file_path in sorted({path for path, _ in hits}):
+            found.append(
+                (
+                    file_path,
+                    f"Class number {nbr} is used by {len(hits)} sections in {term_name}: {shared}"
+                    " — the .ics UID keys on it, so one event would overwrite the other",
+                )
+            )
+    return found
+
+
+def cross_subject_issues(courses_by_file: dict[str, list[dict]]) -> dict[str, list[str]]:
+    """Issues invisible to a single file, keyed by the file to re-scrape.
+
+    A component's marker letter is a CUHK-wide convention and a class number is unique within a
+    term, so both only mean something once every subject of the year is on the table.
+    """
+    issues: dict[str, list[str]] = {}
+    for check in (inconsistent_component_markers, reused_class_numbers):
+        for file_path, issue in check(courses_by_file):
+            issues.setdefault(file_path, []).append(issue)
+    return issues
 
 
 def validate_course_file(
@@ -317,7 +428,8 @@ def validate_course_file(
     for issue in (
         unknown_credit_shapes(courses),
         malformed_section_codes(courses),
-        ambiguous_cohort_courses(courses),
+        undecodable_cohort_labels(courses),
+        unenrollable_course_terms(courses),
     ):
         if issue:
             issues.append(issue)
@@ -431,7 +543,21 @@ def categorize_year_files(
             # Only issue is "no courses" - still publishable.
             files_to_copy.append(file_path)
 
+    blocking_failures.extend(sorted(cross_subject_issues(_load_courses(files_to_copy)).items()))
+
     return files_to_copy, blocking_failures, empty_codes
+
+
+def _load_courses(course_files: list[str]) -> dict[str, list[dict]]:
+    """The courses of each file, skipping any that failed to parse (already reported)."""
+    loaded: dict[str, list[dict]] = {}
+    for file_path in course_files:
+        try:
+            with open(file_path, encoding="utf-8") as f:
+                loaded[file_path] = json.load(f).get("courses", [])
+        except Exception:
+            continue
+    return loaded
 
 
 class PublishPlan(NamedTuple):
