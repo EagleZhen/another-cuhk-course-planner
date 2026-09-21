@@ -40,11 +40,13 @@ For generated or tool-managed files, prefer commands over manual edits.
 
 Run checks proportional to the change. Avoid full scrapes or full builds unless they are relevant, requested, or needed.
 
-Confirm each new test fails with its change undone.
+Confirm each new test fails with its change undone, and each new guard fires on data it should reject. A guard that passes on a known break is checking something other than its name claims.
 
 When a change adds a limit or threshold, test both sides: that it stops past the limit, and that normal work still happens below it. A one-sided test stays green against a badly wrong limit.
 
 Where one module hands data to another, test the seam with the real producer. Hand-building the input tests the consumer against a fiction, and stays green while the two drift apart.
+
+A gate needs at least one check on its result, not only on the shape of its input. Shape checks share the assumptions of the code they protect, so they stay green when those assumptions are wrong.
 
 ### Docs
 

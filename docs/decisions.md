@@ -246,11 +246,21 @@ The `localStorage` freeze is this rule's cost, not its reason: a wrong abbreviat
 
 Nothing enforces this: a lint rule flags only correct call sites, since reading the field to pass it into the helper is the intended use.
 
+## Read The Cohort From The Section-Code Grammar
+
+CUHK writes a section as `<cohort-or-dash><type-letter><index>-<COMPONENT> (<classNbr>)`. Every component except LEC adds one letter standing for itself, then an index. A leading dash is a cohort whose name is empty, not a wildcard — CUSIS pairs PHYS5330's `--LEC` only with `-L01`/`-L02`, never with `ML01`.
+
+Decision: `cohortOf` strips the trailing `<letter><digits>` from the label. A pure function of one section code — no roots, no section-type order, no dependency on `SECTION_TYPE_CONFIG` — so a component CUHK adds later still reads correctly.
+
+Two earlier readings failed and should not return. The label's first letter merges `AA` with `AB`. Reducing a label to whichever "root" prefixes it breaks wherever each component carries its own marker: `AF01-FLD` cannot prefix `AT01-TUT` though both are cohort A (#294).
+
+Verified across all 36,288 sections of both years; [publish_course_data.py](../scripts/publish_course_data.py) keeps it true of new data.
+
 ## Identify By The Class Number, Not A Reconstructed Cohort
 
 The `.ics` UID was built from cohort prefix + section type. The cohort was a lossy first-letter parse (`AE` read as `A`), and two same-type sections at the same time reconstructed the _same_ UID — a silent collision that drops an event on import (#294).
 
-Decision: key the UID on the section's **class number**, CUHK's own per-section identity, term-unique with no collisions. Fall back to the raw code only if a scrape omits it.
+Decision: key the UID on the section's **class number**, CUHK's own per-section identity, term-unique with no collisions. A code without one means the publish gate failed, so the export raises and reports rather than inventing a UID that would collide.
 
 The lesson behind #294: identify by what the source states, not a lossy reconstruction; and derive a value like the cohort in the browser (`cohortOf`), never persisted — same rule as [Derive Display Forms, Keep Scraped Values](#derive-display-forms-keep-scraped-values).
 
