@@ -1913,10 +1913,9 @@ describe('createICSEventsForMeeting', () => {
     // 14:30-17:15 HKT on 4 Sep 2025 is 06:30-09:15 UTC.
     expect(events[0].start).toEqual([2025, 9, 4, 6, 30])
     expect(events[0].end).toEqual([2025, 9, 4, 9, 15])
-    expect(events[0].uid).toBe(
-      'ACCT1111-B-LEC-2025-09-04-1430-1715@another-cuhk-course-planner.com'
-    )
-    // The cohort letter joins the course code; the type follows.
+    // UID is the section's class number (B-LEC is 6012), not a reconstructed cohort+type.
+    expect(events[0].uid).toBe('6012-2025-09-04-1430-1715@another-cuhk-course-planner.com')
+    // The cohort joins the course code; the type follows.
     expect(events[0].title).toBe('ACCT1111B LEC')
     expect(events[0].location).toBe('Lee Shau Kee Archi Bldg G03')
   })
@@ -1925,10 +1924,26 @@ describe('createICSEventsForMeeting', () => {
     const course = emba5011()
     const section = findPublishedSection(course, EMBA5011_TERM, 'AE-LEC')
 
-    // Only the first cohort letter reaches the UID, so "AE-LEC" prints as "A".
+    // AE-LEC's class number is 4304.
     expect(
       createICSEventsForMeeting(mondayOf(section), course, section, EMBA5011_TERM)[0].uid
-    ).toBe('EMBA5011-A-LEC-2025-08-25-0845-1845@another-cuhk-course-planner.com')
+    ).toBe('4304-2025-08-25-0845-1845@another-cuhk-course-planner.com')
+  })
+
+  it('gives two same-type sections at the same time distinct UIDs (class number drives it)', () => {
+    // Under the old cohort+type scheme both would be "…-A-LEC-…" and collide.
+    const meeting = mkMeeting({ time: 'Mo 9:00AM - 10:00AM' })
+    const lecA = makeSection({ id: 'a', sectionCode: 'AA-LEC (100)', meetings: [meeting] })
+    const lecB = makeSection({ id: 'b', sectionCode: 'AB-LEC (200)', meetings: [meeting] })
+    const course = makeCourse([lecA, lecB], SYNTHETIC_TERM)
+
+    const uidA = createICSEventsForMeeting(meeting, course, lecA, SYNTHETIC_TERM)[0].uid
+    const uidB = createICSEventsForMeeting(meeting, course, lecB, SYNTHETIC_TERM)[0].uid
+
+    expect(uidA.startsWith('100-')).toBe(true)
+    expect(uidB.startsWith('200-')).toBe(true)
+    // Only the class number differs; the occurrence (date/time) is identical.
+    expect(uidA.slice(3)).toBe(uidB.slice(3))
   })
 
   it('skips a meeting with no parseable time', () => {

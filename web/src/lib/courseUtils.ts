@@ -1272,21 +1272,6 @@ export function instructorSortKey(instructor: string): string {
 // Section Compatibility & Selection Logic
 // ========================================
 
-/**
- * Extract section prefix for compatibility matching
- * Examples:
- *   A-LEC → "A"        (letter prefix - specific cohort)
- *   AE01-EXR → "A"     (letter prefix - specific cohort)
- *   AT01-TUT → "A"     (letter prefix - specific cohort)
- *   --LEC → null       (dash prefix - universal wildcard)
- *   -E01-EXR → null    (dash prefix - universal wildcard)
- */
-export function getSectionPrefix(sectionCode: string): string | null {
-  // Check if starts with letter (not dash) - indicates specific cohort
-  const match = sectionCode.match(/^([A-Z])/)
-  return match ? match[1] : null // null = universal wildcard section
-}
-
 // A section's label: the code before the component marker (`AAL1-LAB (9242)` → `AAL1`).
 // Labels never contain '-', so splitting on the first one works. Dash-initial codes
 // (`--LEC`, `-T01-TUT`) yield '' — CUHK's "open to everyone" marker.
@@ -2083,16 +2068,18 @@ export function createICSEventsForMeeting(
     'https://another-cuhk-course-planner.com/',
   ].join('\n')
 
+  // The class number is CUHK's per-section identity, term-unique — a stable UID with no
+  // collisions (unlike reconstructing one from cohort + type). Fall back to the raw code only
+  // if a malformed scrape omits it.
+  const classNumber = section.sectionCode.match(/\((\d+)\)/)?.[1]
+  const sectionKey = classNumber ?? section.sectionCode.replace(/\s+/g, '')
+
   // Create one event for each date
   return meetingDates.map((date) => {
-    // Generate deterministic UID for consistent event identification
-    // Example with prefix: "CSCI1234-A-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
-    // Example without prefix: "CSCI1234-LEC-2026-01-06-0930-1015@another-cuhk-course-planner.com"
+    // Deterministic UID (stable across exports): "9615-2026-01-06-0930-1015@another-cuhk-course-planner.com"
     const dateStr = formatDateKey(date)
     const timeStr = `${timeRange.startHour.toString().padStart(2, '0')}${timeRange.startMinute.toString().padStart(2, '0')}-${timeRange.endHour.toString().padStart(2, '0')}${timeRange.endMinute.toString().padStart(2, '0')}`
-    const prefix = getSectionPrefix(section.sectionCode)
-    const prefixPart = prefix ? `${prefix}-` : ''
-    const uid = `${course.subject}${course.courseCode}-${prefixPart}${section.sectionType}-${dateStr}-${timeStr}@another-cuhk-course-planner.com`
+    const uid = `${sectionKey}-${dateStr}-${timeStr}@another-cuhk-course-planner.com`
 
     // Convert to UTC using Hong Kong timezone
     const startUTC = convertToHongKongUTC(date, timeRange.startHour, timeRange.startMinute)

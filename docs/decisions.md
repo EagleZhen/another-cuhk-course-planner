@@ -246,6 +246,14 @@ The `localStorage` freeze is this rule's cost, not its reason: a wrong abbreviat
 
 Nothing enforces this: a lint rule flags only correct call sites, since reading the field to pass it into the helper is the intended use.
 
+## Identify By The Class Number, Not A Reconstructed Cohort
+
+The `.ics` UID was built from cohort prefix + section type. The cohort was a lossy first-letter parse (`AE` read as `A`), and two same-type sections at the same time reconstructed the _same_ UID — a silent collision that drops an event on import (#294).
+
+Decision: key the UID on the section's **class number**, CUHK's own per-section identity, term-unique with no collisions. Fall back to the raw code only if a scrape omits it.
+
+The lesson behind #294: identify by what the source states, not a lossy reconstruction; and derive a value like the cohort once in the browser (`computeCohortKeys`), never persisted — same rule as [Derive Display Forms, Keep Scraped Values](#derive-display-forms-keep-scraped-values).
+
 ## Replace html-to-image With modern-screenshot
 
 `html-to-image` read `rule.style.fontFamily`, which came back `undefined` for an `@font-face` rule on Firefox/Android and threw, killing the export. The package has not shipped since April 2025.
