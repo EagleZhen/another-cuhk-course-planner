@@ -1261,19 +1261,20 @@ export function instructorSortKey(instructor: string): string {
 // ========================================
 
 /**
- * A section's cohort: the group a student enrols into, or '' when the section is open to everyone.
+ * A section's cohort — the group you enrol into. '' means the section is open to everyone.
  *
- * CUHK codes a section as `<cohort-or-dash><type-letter><index>-<COMPONENT> (<classNbr>)`. Every
- * component except LEC adds a letter standing for itself plus an index, so the cohort is the label
- * with that trailing marker removed: `AT01-TUT` → `A`, `AAL1-LAB` → `AA`, `A-LEC` → `A`. A leading
- * dash means no cohort (`--LEC`, `-T01-TUT` → '').
+ *   A-LEC    → 'A'    a lecture is labelled by its cohort alone
+ *   AT01-TUT → 'A'    every other component adds its own letter, then an index
+ *   AAL1-LAB → 'AA'   so a cohort may be two letters
+ *   -T01-TUT → ''     a leading dash means no cohort
+ *
+ * Only the letter's position matters, never which component it stands for, so a component we
+ * have never seen still reads correctly.
  */
 export function cohortOf(sectionCode: string): string {
-  const label = sectionCode.split('-', 1)[0]
-  // {2,} because the marker needs a cohort in front of it; a bare `A1` stays its own cohort
-  // rather than collapsing to '' and pairing with everything.
-  const marked = /^([A-Z]{2,})\d+$/.exec(label)
-  return marked ? marked[1].slice(0, -1) : label
+  const label = sectionCode.split('-', 1)[0] // 'AT01' from 'AT01-TUT (5921)'; '' if dash-initial
+  const marked = /^([A-Z]+)[A-Z]\d+$/.exec(label) // <cohort><component letter><index>
+  return marked ? marked[1] : label
 }
 
 // Append the cohort key to the course code ('' shows no prefix): "CSCI3320AH", "CSCI3320".
