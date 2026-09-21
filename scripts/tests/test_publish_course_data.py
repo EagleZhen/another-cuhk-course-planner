@@ -769,6 +769,18 @@ def _course_with_sections(sections, *, subject="TEST", code="1000", term="2025-2
     }
 
 
+def test_summarize_shows_every_item_up_to_the_cap():
+    items = [str(n) for n in range(publish_course_data.MAX_SECTION_EXAMPLES)]
+    assert publish_course_data._summarize(items) == ", ".join(items)
+
+
+def test_summarize_caps_examples_and_counts_the_rest():
+    items = [str(n) for n in range(publish_course_data.MAX_SECTION_EXAMPLES + 2)]
+    summary = publish_course_data._summarize(items)
+    assert summary.startswith(", ".join(items[: publish_course_data.MAX_SECTION_EXAMPLES]))
+    assert summary.endswith("… and 2 more")
+
+
 def test_malformed_section_codes_accepts_the_shapes_the_browser_parses():
     course = _course_with_sections(["A-LEC (1)", "--LEC (2)", "-T01-TUT (3)", "AAL1-LAB (4)"])
     assert publish_course_data.malformed_section_codes([course]) is None
