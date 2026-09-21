@@ -154,7 +154,7 @@ describe('cohortOf', () => {
     })
   })
 
-  it('reads a dash-initial label as open to everyone', () => {
+  it('reads a dash-initial label as the unnamed cohort', () => {
     expect(cohorts(['--LEC (1)', '-T01-TUT (2)'])).toEqual({
       '--LEC (1)': '',
       '-T01-TUT (2)': '',
@@ -243,10 +243,14 @@ describe('areSectionsCompatible', () => {
     expect(compatible('AT01-TUT (2)', 'AE01-EXR (3)')).toBe(true)
   })
 
-  it('pairs a universal (open-to-everyone) section with anything, either order', () => {
-    const compatible = build(['A-LEC (1)', '--TUT (2)'])
-    expect(compatible('A-LEC (1)', '--TUT (2)')).toBe(true)
-    expect(compatible('--TUT (2)', 'A-LEC (1)')).toBe(true)
+  it('keeps the unnamed cohort apart from a named one (PHYS5330)', () => {
+    // A dash names the cohort, it does not waive it: CUSIS offers `--LEC` with `-L01`/`-L02`
+    // and `M-LEC` with `ML01`/`ML02`, and no option crossing the two.
+    const compatible = build(['--LEC (1)', '-L01-LAB (2)', 'M-LEC (3)', 'ML01-LAB (4)'])
+    expect(compatible('--LEC (1)', '-L01-LAB (2)')).toBe(true)
+    expect(compatible('M-LEC (3)', 'ML01-LAB (4)')).toBe(true)
+    expect(compatible('--LEC (1)', 'ML01-LAB (4)')).toBe(false)
+    expect(compatible('M-LEC (3)', '-L01-LAB (2)')).toBe(false)
   })
 
   it('anchors two-letter cohorts so a lab pairs only with its own lecture (ENGG1003)', () => {
@@ -264,7 +268,7 @@ describe('areSectionsCompatible', () => {
     expect(compatible('AF01-FLD (1)', 'BT01-TUT (4)')).toBe(false)
   })
 
-  it('treats an all-universal course as fully compatible (MEDU3160 shape)', () => {
+  it('pairs sections that all share the unnamed cohort (MEDU3160 shape)', () => {
     const compatible = build(['--LEC (1)', '--TUT (2)', '--LAB (3)'])
     expect(compatible('--LEC (1)', '--TUT (2)')).toBe(true)
     expect(compatible('--TUT (2)', '--LAB (3)')).toBe(true)

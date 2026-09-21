@@ -1261,12 +1261,13 @@ export function instructorSortKey(instructor: string): string {
 // ========================================
 
 /**
- * A section's cohort — the group you enrol into. '' means the section is open to everyone.
+ * A section's cohort — the group you enrol into. A leading dash names a cohort whose name is
+ * empty; it is not a wildcard. CUSIS offers `--LEC` with `-L01`, never with `ML01`.
  *
  *   A-LEC    → 'A'    a lecture is labelled by its cohort alone
  *   AT01-TUT → 'A'    every other component adds its own letter, then an index
  *   AAL1-LAB → 'AA'   so a cohort may be two letters
- *   -T01-TUT → ''     a leading dash means no cohort
+ *   -T01-TUT → ''     the unnamed cohort
  *
  * Only the letter's position matters, never which component it stands for, so a component we
  * have never seen still reads correctly.
@@ -1297,17 +1298,12 @@ export function formatCourseCodeWithSection(
   return `${formattedCode} ${sectionType}`
 }
 
-/**
- * Whether two sections can be enrolled together: compatible when either is open to everyone
- * (no cohort) or they share a cohort.
- */
+/** Whether two sections can be enrolled together: only within one cohort. */
 export function areSectionsCompatible(
   section1: InternalSection,
   section2: InternalSection
 ): boolean {
-  const key1 = cohortOf(section1.sectionCode)
-  const key2 = cohortOf(section2.sectionCode)
-  return key1 === '' || key2 === '' || key1 === key2
+  return cohortOf(section1.sectionCode) === cohortOf(section2.sectionCode)
 }
 
 /**
