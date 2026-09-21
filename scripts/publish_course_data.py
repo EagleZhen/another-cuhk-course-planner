@@ -228,15 +228,11 @@ def cohort_of(label: str) -> str:
 def unenrollable_course_terms(courses: list[dict]) -> str | None:
     """One issue naming every course term no student could complete, or None.
 
-    Every other check asks whether a section code parses. This one asks whether the cohorts we
-    read still leave a schedule to build: a student picks one section per type, all of the same
-    cohort, so if two types that must be paired share no cohort the course is impossible.
+    The other checks ask whether a section code parses; this one asks whether the cohorts we
+    read still leave a schedule to build, so it catches a misreading, not just malformed data.
 
-    That makes it the one check that does not take cohortOf's word for anything — it would have
-    caught #294, where 90 sections became unpairable while the guard of the day passed clean.
-
-    Not every cohort need offer every type (a cohort with no tutorial is normal); one complete
-    combination is enough. A dash-initial label is the unnamed cohort, counted like any other.
+    One complete combination is enough — a cohort with no tutorial is normal. A dash-initial
+    label is the unnamed cohort, counted like any other.
     """
     bad = []
     for course in courses:
@@ -268,13 +264,11 @@ def inconsistent_component_markers(
 ) -> list[tuple[str, str]]:
     """(file, issue) for each component whose sections disagree about its marker letter.
 
-    cohortOf reads a cohort by dropping the letter before the index, trusting that the letter
-    marks the component rather than belonging to the cohort. That holds only while a component
-    is always marked by the same letter: two letters for one component means one of them is
-    cohort material, and every cohort under it is wrong (the #294 class of bug).
+    cohortOf drops the letter before the index, trusting it marks the component rather than
+    belonging to the cohort. Two letters for one component means one is cohort material, and
+    every cohort under it is wrong.
 
-    The mapping is derived from the data being published, never a fixed table — a component
-    CUHK adds later needs no change here, and only a real disagreement aborts.
+    Derived from the data, never a fixed table, so a component CUHK adds later still passes.
     """
     seen: dict[str, dict[str, list[tuple[str, str]]]] = {}
     for file_path, courses in courses_by_file.items():
