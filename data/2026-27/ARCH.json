@@ -2373,7 +2373,7 @@
                 "capacity": "16",
                 "enrolled": "16",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -2485,7 +2485,7 @@
                 "capacity": "16",
                 "enrolled": "16",
                 "waitlist_capacity": "999",
-                "waitlist_total": "3",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -4220,10 +4220,10 @@
               ],
               "availability": {
                 "capacity": "94",
-                "enrolled": "90",
+                "enrolled": "91",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -4650,11 +4650,11 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "25",
+                "enrolled": "22",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "3",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": "For students in Master of Architecture"

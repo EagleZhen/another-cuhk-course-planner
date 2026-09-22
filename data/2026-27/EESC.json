@@ -227,7 +227,7 @@
                 "capacity": "110",
                 "enrolled": "110",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -254,7 +254,7 @@
                 "capacity": "110",
                 "enrolled": "110",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -3002,10 +3002,10 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "35",
+                "enrolled": "36",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -3439,12 +3439,12 @@
                 }
               ],
               "availability": {
-                "capacity": "50",
+                "capacity": "53",
                 "enrolled": "50",
                 "waitlist_capacity": "999",
-                "waitlist_total": "3",
-                "available_seats": "0",
-                "status": "Wait List"
+                "waitlist_total": "0",
+                "available_seats": "3",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": "Not for students who have taken ESSC4510. Pre-requisite: (STAT1011 or 1012), and ((EESC2030 or ESSC2030) or PHYS2061)."
@@ -5704,10 +5704,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "44",
+                "enrolled": "45",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "English only",

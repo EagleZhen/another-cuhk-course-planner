@@ -36,7 +36,7 @@
                 "capacity": "50",
                 "enrolled": "50",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -57,7 +57,7 @@
                 "capacity": "50",
                 "enrolled": "50",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -312,7 +312,7 @@
                 "capacity": "30",
                 "enrolled": "30",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -333,7 +333,7 @@
                 "capacity": "30",
                 "enrolled": "30",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -762,7 +762,7 @@
                 "capacity": "40",
                 "enrolled": "40",
                 "waitlist_capacity": "999",
-                "waitlist_total": "3",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -783,7 +783,7 @@
                 "capacity": "40",
                 "enrolled": "40",
                 "waitlist_capacity": "999",
-                "waitlist_total": "3",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -837,7 +837,7 @@
                 "capacity": "30",
                 "enrolled": "30",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -858,7 +858,7 @@
                 "capacity": "30",
                 "enrolled": "30",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -1011,7 +1011,7 @@
                 "capacity": "30",
                 "enrolled": "30",
                 "waitlist_capacity": "999",
-                "waitlist_total": "7",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -1032,7 +1032,7 @@
                 "capacity": "30",
                 "enrolled": "30",
                 "waitlist_capacity": "999",
-                "waitlist_total": "7",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -1524,12 +1524,12 @@
                 }
               ],
               "availability": {
-                "capacity": "40",
+                "capacity": "45",
                 "enrolled": "40",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
-                "available_seats": "0",
-                "status": "Wait List"
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
               },
               "class_attributes": "Putonghua and English",
               "enrollment_requirement": ""
@@ -1545,12 +1545,12 @@
                 }
               ],
               "availability": {
-                "capacity": "40",
+                "capacity": "45",
                 "enrolled": "40",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
-                "available_seats": "0",
-                "status": "Wait List"
+                "waitlist_total": "0",
+                "available_seats": "5",
+                "status": "Open"
               },
               "class_attributes": "Putonghua and English",
               "enrollment_requirement": ""
@@ -1606,11 +1606,11 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "30",
+                "enrolled": "29",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
-                "available_seats": "0",
-                "status": "Wait List"
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "Putonghua and English",
               "enrollment_requirement": ""
@@ -1633,11 +1633,11 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "30",
+                "enrolled": "29",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
-                "available_seats": "0",
-                "status": "Wait List"
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "Putonghua and English",
               "enrollment_requirement": ""
@@ -2223,10 +2223,10 @@
                 }
               ],
               "availability": {
-                "capacity": "40",
-                "enrolled": "40",
+                "capacity": "45",
+                "enrolled": "45",
                 "waitlist_capacity": "999",
-                "waitlist_total": "4",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -2244,10 +2244,10 @@
                 }
               ],
               "availability": {
-                "capacity": "40",
-                "enrolled": "40",
+                "capacity": "45",
+                "enrolled": "45",
                 "waitlist_capacity": "999",
-                "waitlist_total": "4",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -3466,7 +3466,7 @@
                 "capacity": "45",
                 "enrolled": "45",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -3590,10 +3590,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "37",
+                "enrolled": "36",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "4",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -3778,10 +3778,10 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "33",
+                "enrolled": "32",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "Putonghua and English",
@@ -3904,10 +3904,10 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "30",
+                "enrolled": "29",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -3960,7 +3960,7 @@
                 "capacity": "45",
                 "enrolled": "45",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
+                "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -4132,10 +4132,10 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "25",
+                "enrolled": "24",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "21",
                 "status": "Open"
               },
               "class_attributes": "Putonghua and English",
@@ -4547,7 +4547,7 @@
                 "capacity": "18",
                 "enrolled": "18",
                 "waitlist_capacity": "999",
-                "waitlist_total": "6",
+                "waitlist_total": "5",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -4723,7 +4723,7 @@
                 "capacity": "30",
                 "enrolled": "30",
                 "waitlist_capacity": "999",
-                "waitlist_total": "6",
+                "waitlist_total": "4",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -4778,7 +4778,7 @@
                 "capacity": "30",
                 "enrolled": "30",
                 "waitlist_capacity": "999",
-                "waitlist_total": "4",
+                "waitlist_total": "3",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -4905,7 +4905,7 @@
                 "capacity": "30",
                 "enrolled": "30",
                 "waitlist_capacity": "999",
-                "waitlist_total": "9",
+                "waitlist_total": "5",
                 "available_seats": "0",
                 "status": "Wait List"
               },

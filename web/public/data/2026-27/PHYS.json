@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "PHYS",
     "subject_title": "Physics",
-    "total_courses": 77
+    "total_courses": 78
   },
   "courses": [
     {
@@ -3132,10 +3132,10 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "66",
+                "enrolled": "67",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "24",
+                "available_seats": "23",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -3159,10 +3159,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "20",
+                "enrolled": "21",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -3222,10 +3222,10 @@
               ],
               "availability": {
                 "capacity": "90",
-                "enrolled": "66",
+                "enrolled": "67",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "24",
+                "available_seats": "23",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -3994,6 +3994,56 @@
       "assessment_types": {
         "Homework or assignment": "25",
         "Presentation": "75"
+      }
+    },
+    {
+      "subject": "PHYS",
+      "course_code": "2610",
+      "title": "Short Project I",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "AJ01-PRJ (10255)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor ONG Hock Chun Daniel",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
+            }
+          ]
+        }
+      ],
+      "description": "This course aims at providing students with project learning experience in physical science. Students are required to complete a short project with a topic decided by the supervisor. The project may focus on research or literature review or experiential learning activities in science. At the end of the term, students are required to submit a written report and/or give an oral presentation.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Project",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Physics",
+      "academic_org": "Dept of Physics",
+      "learning_outcomes": "By the end of the course, students will be able to:\n1. review the knowledge of a given problem in depth and identify the key issues.\n2. grasp the relevant problem-solving skills.\n3. present the findings of the project in written report or oral presentation in a clear, concise and logical manner.\n4. be self-motivated in learning new ideas and skills.",
+      "assessment_types": {
+        "Discussion": "40",
+        "Presentation": "30",
+        "Report": "30"
       }
     },
     {
@@ -6214,6 +6264,27 @@
               },
               "class_attributes": "English only",
               "enrollment_requirement": ""
+            },
+            {
+              "section": "BJ01-PRJ (10254)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHU Ming Chung",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         },
@@ -6655,11 +6726,11 @@
                 }
               ],
               "availability": {
-                "capacity": "20",
+                "capacity": "15",
                 "enrolled": "8",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "12",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -6676,11 +6747,11 @@
                 }
               ],
               "availability": {
-                "capacity": "35",
+                "capacity": "40",
                 "enrolled": "33",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -6868,10 +6939,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "29",
+                "enrolled": "30",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -6889,10 +6960,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "21",
+                "enrolled": "22",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -6937,10 +7008,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "29",
+                "enrolled": "30",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -7095,10 +7166,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "13",
+                "enrolled": "14",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "7",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -7122,10 +7193,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "13",
+                "enrolled": "14",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "7",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -7143,10 +7214,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "13",
+                "enrolled": "14",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "7",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -12637,10 +12708,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "3",
+                "enrolled": "4",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "7",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -13494,10 +13565,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "2",
+                "enrolled": "1",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -14305,10 +14376,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "84",
+                "enrolled": "86",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "14",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -14454,10 +14525,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "71",
+                "enrolled": "72",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -14527,10 +14598,10 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "33",
+                "enrolled": "35",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "67",
+                "available_seats": "65",
                 "status": "Open"
               },
               "class_attributes": "English only",
