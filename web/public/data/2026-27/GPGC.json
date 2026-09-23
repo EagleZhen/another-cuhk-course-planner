@@ -410,22 +410,16 @@
               "section": "--LEC (1073)",
               "meetings": [
                 {
-                  "time": "Fr 6:45PM - 9:30PM",
-                  "location": "Esther Lee Bldg 302",
+                  "time": "Tu 6:45PM - 9:30PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
                   "instructor": "Staff",
-                  "dates": "15/1, 22/1, 29/1"
+                  "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
-                  "time": "Fr 6:45PM - 9:30PM",
-                  "location": "Esther Lee Bldg 302",
+                  "time": "Tu 6:45PM - 9:30PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
                   "instructor": "Staff",
-                  "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
-                },
-                {
-                  "time": "Fr 6:45PM - 9:30PM",
-                  "location": "Esther Lee Bldg 302",
-                  "instructor": "Staff",
-                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4"
+                  "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
               ],
               "availability": {
@@ -472,16 +466,22 @@
               "section": "--LEC (1606)",
               "meetings": [
                 {
-                  "time": "Tu 6:45PM - 9:30PM",
-                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "time": "Fr 6:45PM - 9:30PM",
+                  "location": "Esther Lee Bldg 302",
                   "instructor": "Professor CHOW Po Chung",
-                  "dates": "12/1, 19/1, 26/1, 2/2"
+                  "dates": "15/1, 22/1, 29/1"
                 },
                 {
-                  "time": "Tu 6:45PM - 9:30PM",
-                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "time": "Fr 6:45PM - 9:30PM",
+                  "location": "Esther Lee Bldg 302",
                   "instructor": "Professor CHOW Po Chung",
-                  "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                  "dates": "2/4, 9/4, 16/4, 23/4, 30/4"
+                },
+                {
+                  "time": "Fr 6:45PM - 9:30PM",
+                  "location": "Esther Lee Bldg 302",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
                 }
               ],
               "availability": {
@@ -591,12 +591,12 @@
                 }
               ],
               "availability": {
-                "capacity": "45",
+                "capacity": "50",
                 "enrolled": "48",
                 "waitlist_capacity": "15",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "2",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": "For MSSc in Global Political Economy and MSSc in Government and Politics (Greater China)"

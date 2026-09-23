@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "MGNT",
     "subject_title": "Management",
-    "total_courses": 72
+    "total_courses": 73
   },
   "courses": [
     {
@@ -93,7 +93,7 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "70",
+                "enrolled": "71",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -237,7 +237,7 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "71",
+                "enrolled": "72",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -285,7 +285,7 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "70",
+                "enrolled": "71",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -1071,11 +1071,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "69",
+                "enrolled": "70",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Closed"
               },
               "class_attributes": "English only\nExperiential Learning Course\nVirtual Teaching & Learning Course",
               "enrollment_requirement": "1. Pre-requisites: MGNT2511\n2. Not for students who have taken MGNT2510"
@@ -2184,7 +2184,7 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "45",
+                "enrolled": "46",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -3330,10 +3330,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "46",
+                "enrolled": "47",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "9",
+                "available_seats": "8",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -6180,26 +6180,26 @@
                 {
                   "time": "Fr 8:30AM - 6:30PM",
                   "location": "No Room Required",
-                  "instructor": "Ms. YANG Zehua",
-                  "dates": "20/11"
+                  "instructor": "Ms. YANG Zehua, \nProfessor LIU Ming",
+                  "dates": "20/11, 27/11"
                 },
                 {
                   "time": "Su 8:30AM - 6:30PM",
                   "location": "No Room Required",
-                  "instructor": "Ms. YANG Zehua",
-                  "dates": "22/11"
+                  "instructor": "Ms. YANG Zehua, \nProfessor LIU Ming",
+                  "dates": "22/11, 29/11"
                 },
                 {
                   "time": "Sa 8:30AM - 6:30PM",
                   "location": "No Room Required",
-                  "instructor": "Ms. YANG Zehua",
-                  "dates": "21/11"
+                  "instructor": "Ms. YANG Zehua, \nProfessor LIU Ming",
+                  "dates": "21/11, 28/11"
                 },
                 {
                   "time": "Th 8:30AM - 6:30PM",
                   "location": "No Room Required",
-                  "instructor": "Ms. YANG Zehua",
-                  "dates": "19/11"
+                  "instructor": "Ms. YANG Zehua, \nProfessor LIU Ming",
+                  "dates": "19/11, 26/11"
                 }
               ],
               "availability": {
@@ -6388,6 +6388,74 @@
       "feedback_evaluation": "Course and Teaching Evaluation Survey",
       "required_readings": "Research papers from major journals and other readings that explain the research methods or illustrate how the research methods are being employed in strategic management research are adopted as course readings.",
       "recommended_readings": "Econometric Analysis of Cross Section and Panel Data by Jeffrey Wooldridge"
+    },
+    {
+      "subject": "MGNT",
+      "course_code": "6282",
+      "title": "Special Topics in Management Research",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-S01-SEM (9909)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 1:00PM",
+                  "location": "Cheng Yu Tung Building 830",
+                  "instructor": "Staff",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 1:00PM",
+                  "location": "Cheng Yu Tung Building 830",
+                  "instructor": "Staff",
+                  "dates": "16/2, 23/2, 2/3, 9/3, 16/3"
+                },
+                {
+                  "time": "Fr 9:30AM - 1:00PM",
+                  "location": "Cheng Yu Tung Building 830",
+                  "instructor": "Staff",
+                  "dates": "12/2"
+                },
+                {
+                  "time": "Tu 9:00AM - 1:00PM",
+                  "location": "Cheng Yu Tung Building 830",
+                  "instructor": "Staff",
+                  "dates": "23/3"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in MPhil-PhD Management"
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to focus on the current themes and special issues in the field of management research. It includes, but is not limited to, contemporary discussions in human resource management, strategic management, organization behaviour, leadership and entrepreneurship. The topics of the course may vary according to the area of expertise of the instructor and the interest of the class.",
+      "enrollment_requirement": "For students in MPhil-PhD Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Seminar",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "After completing the course, students will be able to understand and analyse current and crucial issues in management research from both micro and macro perspectives.",
+      "course_syllabus": "To be assigned by course instructor",
+      "assessment_types": {},
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course",
+      "required_readings": "To be assigned by course instructor",
+      "recommended_readings": "To be assigned by course instructor"
     },
     {
       "subject": "MGNT",

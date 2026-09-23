@@ -745,17 +745,29 @@
                   "location": "Town Centre Diamond Room",
                   "instructor": "Professor CHAN Chi Fai Andrew",
                   "dates": "18/4"
+                },
+                {
+                  "time": "Sa 9:00AM - 6:30PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor LI Xiang",
+                  "dates": "17/4"
+                },
+                {
+                  "time": "Su 9:00AM - 6:30PM",
+                  "location": "Cheng Yu Tung Building LT2",
+                  "instructor": "Professor LI Xiang",
+                  "dates": "18/4"
                 }
               ],
               "availability": {
-                "capacity": "30",
+                "capacity": "60",
                 "enrolled": "0",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "30",
+                "available_seats": "60",
                 "status": "Open"
               },
-              "class_attributes": "English only",
+              "class_attributes": "Putonghua only",
               "enrollment_requirement": ""
             }
           ]

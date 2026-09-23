@@ -83,7 +83,7 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "10",
+                "enrolled": "11",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -104,10 +104,10 @@
               ],
               "availability": {
                 "capacity": "10",
-                "enrolled": "3",
+                "enrolled": "4",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "7",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
@@ -535,10 +535,10 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "12",
+                "enrolled": "13",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "12",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
@@ -965,10 +965,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "10",
+                "enrolled": "11",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
@@ -992,10 +992,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "10",
+                "enrolled": "11",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
@@ -1276,10 +1276,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "2",
+                "enrolled": "3",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "17",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -1635,10 +1635,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "7",
+                "enrolled": "14",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "23",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
@@ -1771,6 +1771,33 @@
       "credits": "2.00",
       "terms": [
         {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (10256)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor WONG Wai Yin Christina",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
+            }
+          ]
+        },
+        {
           "term_code": "2430",
           "term_name": "2026-27 Term 2",
           "schedule": [
@@ -1832,6 +1859,33 @@
       "title": "Graduate Thesis III",
       "credits": "2.00",
       "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (10257)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Professor WONG Wai Yin Christina",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
+            }
+          ]
+        },
         {
           "term_code": "2450",
           "term_name": "2026-27 Summer Session",
@@ -2010,13 +2064,13 @@
                 {
                   "time": "Th 2:30PM - 5:15PM",
                   "location": "CC College Theology Bldg G01",
-                  "instructor": "Dr. LI Kwan Hung Leo",
+                  "instructor": "Dr. LI Kwan Hung Leo, \nDr. LOK Wing Kai",
                   "dates": "10/9, 17/9, 24/9"
                 },
                 {
                   "time": "Th 2:30PM - 5:15PM",
                   "location": "CC College Theology Bldg G01",
-                  "instructor": "Dr. LI Kwan Hung Leo",
+                  "instructor": "Dr. LI Kwan Hung Leo, \nDr. LOK Wing Kai",
                   "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
                 }
               ],
@@ -2037,13 +2091,13 @@
                 {
                   "time": "Th 2:30PM - 5:15PM",
                   "location": "Pres Chi-tung Yung MBldg LG201",
-                  "instructor": "Professor WONG Wai Yin Christina",
+                  "instructor": "Dr. MOK Kie Man Bryan, \nProfessor WONG Wai Yin Christina",
                   "dates": "10/9, 17/9, 24/9"
                 },
                 {
                   "time": "Th 2:30PM - 5:15PM",
                   "location": "Pres Chi-tung Yung MBldg LG201",
-                  "instructor": "Professor WONG Wai Yin Christina",
+                  "instructor": "Dr. MOK Kie Man Bryan, \nProfessor WONG Wai Yin Christina",
                   "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
                 }
               ],
@@ -2192,13 +2246,13 @@
                 {
                   "time": "Th 2:30PM - 5:15PM",
                   "location": "CC College Theology Bldg T31",
-                  "instructor": "Dr. LI Kwan Hung Leo",
+                  "instructor": "Dr. LI Kwan Hung Leo, \nDr. LOK Wing Kai",
                   "dates": "10/9, 17/9, 24/9"
                 },
                 {
                   "time": "Th 2:30PM - 5:15PM",
                   "location": "CC College Theology Bldg T31",
-                  "instructor": "Dr. LI Kwan Hung Leo",
+                  "instructor": "Dr. LI Kwan Hung Leo, \nDr. LOK Wing Kai",
                   "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
                 }
               ],
@@ -2219,13 +2273,13 @@
                 {
                   "time": "Th 2:30PM - 5:15PM",
                   "location": "Pres Chi-tung Yung MBldg LG201",
-                  "instructor": "Professor WONG Wai Yin Christina",
+                  "instructor": "Dr. MOK Kie Man Bryan, \nProfessor WONG Wai Yin Christina",
                   "dates": "10/9, 17/9, 24/9"
                 },
                 {
                   "time": "Th 2:30PM - 5:15PM",
                   "location": "Pres Chi-tung Yung MBldg LG201",
-                  "instructor": "Professor WONG Wai Yin Christina",
+                  "instructor": "Dr. MOK Kie Man Bryan, \nProfessor WONG Wai Yin Christina",
                   "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
                 }
               ],
@@ -3947,12 +4001,12 @@
                 }
               ],
               "availability": {
-                "capacity": "20",
-                "enrolled": "21",
+                "capacity": "30",
+                "enrolled": "22",
                 "waitlist_capacity": "30",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "8",
+                "status": "Open"
               },
               "class_attributes": "Cantonese and English",
               "enrollment_requirement": ""
@@ -4218,10 +4272,10 @@
               ],
               "availability": {
                 "capacity": "12",
-                "enrolled": "2",
+                "enrolled": "3",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
@@ -4658,10 +4712,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "33",
+                "enrolled": "34",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "32",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
@@ -4713,10 +4767,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "24",
+                "enrolled": "25",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
@@ -5472,10 +5526,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "20",
+                "enrolled": "21",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "20",
+                "available_seats": "19",
                 "status": "Open"
               },
               "class_attributes": "Putonghua and English",
