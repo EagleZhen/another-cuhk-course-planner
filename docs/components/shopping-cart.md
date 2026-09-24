@@ -54,6 +54,7 @@ Flags an enrolled section that changed (time, location, instructor, dates, class
 - Equal added/removed counts pair positionally into field-level highlights, each showing the old value above the new one; unequal counts show whole rows as added/removed rather than guessing pairs — a wrong before/after is worse than none.
 - Meeting addition/removal tooltips name the class schedule so they cannot be mistaken for cart actions; both use a plain sentence ending with "since you last checked". Field and action tooltips take priority, preserving access to meeting details; the meeting-change message is the fallback elsewhere.
 - Cursors follow the tooltip: help for change explanations, default for meeting details, and pointer for action buttons.
+- Time tooltips expand the weekday name unless showing a before/after change.
 - A whole course or current term disappearing uses `isInvalid`; a selected section becomes a tombstone; a meeting disappearing from a live section stays in that section as a removed row.
 
 ## Summary Semantics

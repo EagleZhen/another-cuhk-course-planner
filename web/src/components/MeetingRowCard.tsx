@@ -3,11 +3,13 @@
 import {
   formatDateRange,
   formatTimeCompact,
+  getDayIndex,
   formatInstructorsCompact,
   googleSearchAndOpen,
   googleMapsSearchAndOpen,
 } from '@/lib/courseUtils'
 import type { MeetingRow } from '@/lib/types'
+import { DAYS, getDayKey } from '@/lib/calendarConfig'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 
@@ -34,6 +36,10 @@ export function MeetingRowCard({
   const before = row.status === 'changed' ? row.before : undefined
   const fields = row.status === 'changed' ? row.fields : undefined
   const formattedTime = formatTimeCompact(meeting.time)
+  const expandedTime = formattedTime.replace(
+    /^(Mo|Tu|We|Th|Fr|Sa|Su)\b/,
+    (day) => DAYS[getDayKey(getDayIndex(day))].displayName
+  )
   const formattedInstructor = formatInstructorsCompact(meeting.instructor)
   const location = meeting.location || 'TBA'
 
@@ -74,7 +80,7 @@ export function MeetingRowCard({
   const timeTooltip =
     fields?.time && before
       ? changedTooltip(formatTimeCompact(before.time), formattedTime)
-      : undefined
+      : expandedTime
 
   return (
     <div className={`rounded border px-2 py-1.5 shadow-sm ${containerClass}`} title={tooltip}>
@@ -87,7 +93,7 @@ export function MeetingRowCard({
             better, so this is only here to stop a varying section looking uniform. */}
         <div className="min-w-0 flex-1">
           <span
-            className={`font-mono ${fields?.time ? changedText : valueClass}`}
+            className={`font-mono ${fields?.time ? changedText : `${valueClass} cursor-default`}`}
             title={timeTooltip}
           >
             {formattedTime}
