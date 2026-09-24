@@ -47,7 +47,9 @@ export function MeetingRowCard({
       break
     case 'added':
       containerClass = `bg-amber-50 border-amber-200${showChangeTooltip ? ' cursor-help' : ''}`
-      tooltip = showChangeTooltip ? 'New meeting (added since you last checked)' : undefined
+      tooltip = showChangeTooltip
+        ? 'This meeting was added to the class schedule since you last checked'
+        : undefined
       wholeMeetingChange = true
       break
     case 'changed':
@@ -55,7 +57,9 @@ export function MeetingRowCard({
     case 'removed':
       containerClass = `bg-amber-50 border-amber-200${showChangeTooltip ? ' cursor-help' : ''}`
       valueClass = 'text-gray-400 line-through'
-      tooltip = showChangeTooltip ? 'This meeting was removed since you last checked' : undefined
+      tooltip = showChangeTooltip
+        ? 'This meeting was removed from the class schedule since you last checked'
+        : undefined
       wholeMeetingChange = true
       break
   }
