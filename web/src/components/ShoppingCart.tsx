@@ -758,11 +758,11 @@ export default function ShoppingCart({
           {/* Row 1: Credits + time conflicts. An all-invalid cart has neither — invalid
               enrollments raise no calendar events — so the row would only add space. */}
           {(creditSummary.label !== '' || statusCounts.conflicts.total > 0) && (
-            <div className="flex justify-between text-xs text-gray-600">
+            <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-xs text-gray-600">
               <span title={creditSummary.title}>{creditSummary.label}</span>
               {statusCounts.conflicts.total > 0 && (
                 <div
-                  className="flex items-center gap-1 text-purple-500"
+                  className="flex shrink-0 items-center gap-1 whitespace-nowrap text-purple-500"
                   title="Selected sections have time conflicts"
                 >
                   <AlertTriangle className="w-3 h-3" />
@@ -783,10 +783,10 @@ export default function ShoppingCart({
 
             return (
               hasStatusInfo && (
-                <div className="flex items-center justify-between text-xs">
+                <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-2 text-xs">
                   {statusCounts.open.total > 0 && (
                     <div
-                      className="flex items-center gap-1 text-green-600"
+                      className="flex shrink-0 items-center gap-1 whitespace-nowrap text-green-600"
                       title={
                         statusCounts.open.visible === statusCounts.open.total
                           ? `${statusCounts.open.total} courses are open for enrollment`
@@ -803,7 +803,7 @@ export default function ShoppingCart({
                   )}
                   {statusCounts.waitlisted.total > 0 && (
                     <div
-                      className="flex items-center gap-1 text-yellow-600"
+                      className="flex shrink-0 items-center gap-1 whitespace-nowrap text-yellow-600"
                       title={
                         statusCounts.waitlisted.visible === statusCounts.waitlisted.total
                           ? `${statusCounts.waitlisted.total} courses require waitlist enrollment`
@@ -820,7 +820,7 @@ export default function ShoppingCart({
                   )}
                   {statusCounts.closed.total > 0 && (
                     <div
-                      className="flex items-center gap-1 text-red-600"
+                      className="flex shrink-0 items-center gap-1 whitespace-nowrap text-red-600"
                       title={
                         statusCounts.closed.visible === statusCounts.closed.total
                           ? `${statusCounts.closed.total} courses are closed for enrollment`
@@ -837,7 +837,7 @@ export default function ShoppingCart({
                   )}
                   {statusCounts.invalid.total > 0 && (
                     <div
-                      className="flex items-center gap-1 text-orange-500"
+                      className="flex shrink-0 items-center gap-1 whitespace-nowrap text-orange-500"
                       title={
                         statusCounts.invalid.visible === statusCounts.invalid.total
                           ? `${statusCounts.invalid.total} courses have outdated or invalid data`
