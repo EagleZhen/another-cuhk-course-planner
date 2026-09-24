@@ -40,7 +40,6 @@ export function MeetingRowCard({
   let containerClass = 'bg-white border-gray-200'
   let valueClass = 'text-gray-600'
   let tooltip: string | undefined
-  let wholeMeetingChange = false
 
   switch (row.status) {
     case 'unchanged':
@@ -50,7 +49,6 @@ export function MeetingRowCard({
       tooltip = showChangeTooltip
         ? 'This meeting was added to the class schedule since you last checked'
         : undefined
-      wholeMeetingChange = true
       break
     case 'changed':
       break
@@ -60,7 +58,6 @@ export function MeetingRowCard({
       tooltip = showChangeTooltip
         ? 'This meeting was removed from the class schedule since you last checked'
         : undefined
-      wholeMeetingChange = true
       break
   }
 
@@ -116,9 +113,7 @@ export function MeetingRowCard({
             title={
               fields?.instructor && before
                 ? changedTooltip(formatInstructorsCompact(before.instructor), formattedInstructor)
-                : wholeMeetingChange
-                  ? undefined
-                  : formattedInstructor
+                : formattedInstructor
             }
           >
             {formattedInstructor}
@@ -146,9 +141,7 @@ export function MeetingRowCard({
             title={
               fields?.location && before
                 ? changedTooltip(before.location || 'TBA', location)
-                : wholeMeetingChange
-                  ? undefined
-                  : location
+                : location
             }
           >
             {location}
