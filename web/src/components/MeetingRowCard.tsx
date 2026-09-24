@@ -3,11 +3,13 @@
 import {
   formatDateRange,
   formatTimeCompact,
+  getDayIndex,
   formatInstructorsCompact,
   googleSearchAndOpen,
   googleMapsSearchAndOpen,
 } from '@/lib/courseUtils'
 import type { MeetingRow } from '@/lib/types'
+import { DAYS, getDayKey } from '@/lib/calendarConfig'
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import { GoogleMapsIcon } from '@/components/icons/GoogleMapsIcon'
 
@@ -34,31 +36,38 @@ export function MeetingRowCard({
   const before = row.status === 'changed' ? row.before : undefined
   const fields = row.status === 'changed' ? row.fields : undefined
   const formattedTime = formatTimeCompact(meeting.time)
+  const expandedTime = formattedTime.replace(
+    /^(Mo|Tu|We|Th|Fr|Sa|Su)\b/,
+    (day) => DAYS[getDayKey(getDayIndex(day))].displayName
+  )
   const formattedInstructor = formatInstructorsCompact(meeting.instructor)
   const location = meeting.location || 'TBA'
 
   let containerClass = 'bg-white border-gray-200'
-  let valueClass = 'text-gray-600'
+  let valueColorClass = 'text-gray-600'
   let tooltip: string | undefined
-  let wholeMeetingChange = false
 
   switch (row.status) {
     case 'unchanged':
       break
     case 'added':
       containerClass = `bg-amber-50 border-amber-200${showChangeTooltip ? ' cursor-help' : ''}`
-      tooltip = showChangeTooltip ? 'New meeting (added since you last checked)' : undefined
-      wholeMeetingChange = true
+      tooltip = showChangeTooltip
+        ? 'This meeting was added to the class schedule since you last checked'
+        : undefined
       break
     case 'changed':
       break
     case 'removed':
       containerClass = `bg-amber-50 border-amber-200${showChangeTooltip ? ' cursor-help' : ''}`
-      valueClass = 'text-gray-400 line-through'
-      tooltip = showChangeTooltip ? 'This meeting was removed since you last checked' : undefined
-      wholeMeetingChange = true
+      valueColorClass = 'text-gray-400'
+      tooltip = showChangeTooltip
+        ? 'This meeting was removed from the class schedule since you last checked'
+        : undefined
       break
   }
+
+  const removalClass = row.status === 'removed' ? 'line-through' : ''
 
   // Each source row is one weekly run, so it reads as a range; the break between
   // runs is what shows a gap.
@@ -73,7 +82,7 @@ export function MeetingRowCard({
   const timeTooltip =
     fields?.time && before
       ? changedTooltip(formatTimeCompact(before.time), formattedTime)
-      : undefined
+      : expandedTime
 
   return (
     <div className={`rounded border px-2 py-1.5 shadow-sm ${containerClass}`} title={tooltip}>
@@ -86,7 +95,7 @@ export function MeetingRowCard({
             better, so this is only here to stop a varying section looking uniform. */}
         <div className="min-w-0 flex-1">
           <span
-            className={`font-mono ${fields?.time ? changedText : valueClass}`}
+            className={`font-mono ${removalClass} ${fields?.time ? changedText : `${valueColorClass} cursor-default`}`}
             title={timeTooltip}
           >
             {formattedTime}
@@ -95,7 +104,7 @@ export function MeetingRowCard({
             <div
               // w-fit on both branches: as the only block-level row it would otherwise
               // stretch full width, and its tooltip would fire across the empty space.
-              className={`w-fit truncate text-[10px] ${fields?.dates ? changedText : 'text-gray-400'}`}
+              className={`w-fit truncate text-[10px] ${removalClass} ${fields?.dates ? changedText : `text-gray-400${hiddenDates ? ' cursor-default' : ''}`}`}
               title={datesTooltip}
             >
               {dateRanges.join(', ')}
@@ -108,13 +117,11 @@ export function MeetingRowCard({
         <span>🧑🏻‍🏫</span>
         <div className="flex items-center gap-1 min-w-0 flex-1">
           <span
-            className={`truncate ${fields?.instructor ? changedText : valueClass}`}
+            className={`truncate ${removalClass} ${fields?.instructor ? changedText : `${valueColorClass} cursor-default`}`}
             title={
               fields?.instructor && before
                 ? changedTooltip(formatInstructorsCompact(before.instructor), formattedInstructor)
-                : wholeMeetingChange
-                  ? undefined
-                  : formattedInstructor
+                : formattedInstructor
             }
           >
             {formattedInstructor}
@@ -138,13 +145,11 @@ export function MeetingRowCard({
         <span>📍</span>
         <div className="flex items-center gap-1 min-w-0 flex-1">
           <span
-            className={`truncate ${fields?.location ? changedText : valueClass}`}
+            className={`truncate ${removalClass} ${fields?.location ? changedText : `${valueColorClass} cursor-default`}`}
             title={
               fields?.location && before
                 ? changedTooltip(before.location || 'TBA', location)
-                : wholeMeetingChange
-                  ? undefined
-                  : location
+                : location
             }
           >
             {location}

@@ -79,9 +79,9 @@ async function openCart(page: Page, alternatives: ReturnType<typeof section>[]) 
   )
   await expect(removedSectionHelp).toHaveCount(0)
   await expect(page.getByText('A-LEC (removed)', { exact: true })).toHaveClass(/line-through/)
-  await expect(tombstone.getByTitle('This meeting was removed since you last checked')).toHaveCount(
-    0
-  )
+  await expect(
+    tombstone.getByTitle('This meeting was removed from the class schedule since you last checked')
+  ).toHaveCount(0)
 
   if (alternatives.length > 0) {
     const remainingLabel = alternatives.length === 1 ? '1 remains' : `${alternatives.length} remain`
