@@ -1,67 +1,53 @@
 # ShoppingCart Component
 
-**File:** [web/src/components/ShoppingCart.tsx](../../web/src/components/ShoppingCart.tsx)
+[ShoppingCart.tsx](../../web/src/components/ShoppingCart.tsx) renders enrollment state owned by [page.tsx](../../web/src/app/page.tsx). Reconciliation and change detection live in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
 
-Lists enrolled courses with section details, availability, conflicts, and per-course actions (hide, remove, cycle sections). State lives in [page.tsx](../../web/src/app/page.tsx); the cart renders it and raises handlers.
+## Section Selection
 
-Only non-obvious constraints and rationale are documented here; the code is the reference for behavior.
+Cycling alternatives are constrained by higher-priority selections only: a lecture constrains tutorial choices, never the reverse. Changing a higher-priority section can invalidate lower-priority picks, so `handleSectionChange` uses `autoCompleteEnrollmentSections` to reconcile them together.
 
-## Section Cycling
+`selectedSections` must stay in section-type priority order. The cart renders that order and treats the first section as primary; use `sortSectionsByPriority` when building the array.
 
-- Cycling alternatives are constrained by **higher-priority selections only** (e.g., the selected LEC constrains TUT choices, never the reverse). Cycling a high-priority section may invalidate lower ones — that is reconciled by the parent's `handleSectionChange`, which runs `autoCompleteEnrollmentSections` rather than swapping one section in place.
-- A section with no compatible alternatives shows an "only option" badge instead of cycling controls.
-
-## Visibility and Selection
-
-- Hidden cards are not selectable; hiding a currently selected course also deselects it. Invalid cards remain selectable in the cart, but have no timetable events.
-- Visibility is not just cosmetic: it feeds calendar conflict detection and ICS export (see [weekly-calendar.md](weekly-calendar.md#ics-export)).
+Hidden valid cards cannot be selected; hiding a selected valid card deselects it. Invalid cards remain selectable so Review can focus them even though they have no timetable events.
 
 ## Enrollment Lifecycle
 
-Sync (`syncCart` in [courseUtils.ts](../../web/src/lib/courseUtils.ts)) reconciles a restored cart once per term and scrape when its complete catalog is ready. An enrollment is in one of three states:
+Once the complete catalog is ready, the page syncs the restored cart once per term and scrape. Missing data has different consequences depending on what disappeared:
 
-| State | When | Consequences |
-| --- | --- | --- |
-| Valid | course, term, and every picked section exist | fully counted |
-| Valid + tombstones | course/term exist, some picked sections don't (`removedSections`) | live sections still feed the timetable, conflicts, and ICS; tombstones render struck-through with replacement arrows, or a search/remove hint when no alternatives exist; with zero live sections the course appears in no status count |
-| Invalid | course or current term gone | amber card with reason + last-synced time replaces the section list (hiding any tombstones); excluded from timetable and credits; stays until the user removes it |
+| Missing item | Result |
+| --- | --- |
+| Course or current term | Enrollment becomes invalid, is excluded from timetable and credits, and stays in the cart. Its section list is hidden. |
+| Selected section | Preserved in `removedSections` as a tombstone. Remaining live sections still feed the timetable and exports. |
+| Meeting in a live section | Appears as a removed meeting row while its change is unacknowledged. |
 
-Transitions and acknowledgment:
+Tombstones preserve the user's picks so sync can restore them if their IDs return. Their meeting snapshots are retained too, allowing changes made during their absence to be reported. A replacement section removes tombstones of the same type.
 
-- Sync tombstones a vanished pick and restores it to live if its id reappears — tombstones keep their `lastSeenSections` snapshot, so meeting changes made while it was gone still get flagged on return. `removedSectionsAcknowledged` resets only when a _new_ tombstone appears.
-- Going invalid preserves tombstones and acknowledgments, so a course that returns resumes where it left off.
-- Choosing a replacement via a tombstone's arrows selects a live section of that type, which prunes the tombstone (`pruneReplacedTombstones`).
-- The Review banner (`getChangedCourseIds`) queues unseen invalid reasons, unacknowledged visible tombstones, and section-detail changes. **Dismiss all** acknowledges only what is visible: tombstones hidden behind an invalid card stay unacknowledged, so they re-alert once the course returns and they can actually be seen.
-- Re-adding from search (`updateExistingEnrollment`) is the full reset: clears invalid state, tombstones, and acknowledgments, and refreshes the stale `course`.
+Going invalid preserves tombstones and their acknowledgment state. Re-adding from search clears invalid/removal state and refreshes the course, but retains snapshots for section IDs still present.
 
-Acknowledgment runs on three mechanisms with separate reset rules (`lastSeenSections`, `lastSeenInvalidState`, `removedSectionsAcknowledged`). Unifying them into one snapshot is [#215](https://github.com/EagleZhen/another-cuhk-course-planner/issues/215).
+Visibility is independent of this lifecycle. Hiding a course excludes it from the timetable, conflicts, and ICS export; reconciliation and change detection continue. See [ICS export](weekly-calendar.md#ics-export).
 
-`isVisible` (the eye toggle) is orthogonal: a hidden course leaves the timetable and ICS but its lifecycle keeps running. See [architecture.md](../architecture.md#browser-state).
+## Change Detection and Acknowledgment
 
-## Meeting Rows
+The timetable uses current section data. `lastSeenSections` records the comparison baseline so changes can warn users to update exported calendars or saved screenshots.
 
-Each row shows time, instructor and location, with the weeks it runs under the time it qualifies: `10/9-24/9, 8/10-3/12`. Deliberately quiet — the timetable answers "when" far better, so this is only here to stop a section whose weeks differ looking like every other row.
+- Add, section changes, and sync seed missing snapshots without overwriting existing ones. Dismiss replaces them with current values, so reload alone does not erase an outstanding change.
+- Older snapshots may lack dates or enrollment requirements. Absence means unknown, not a change. Sync fills those fields; dates are filled only for matching meeting rows, preserving real differences.
+- Review includes section changes, unseen invalid reasons, and unacknowledged tombstones. Dismiss preserves acknowledgment state for tombstones hidden behind an invalid card, so they can alert when the course returns.
 
-A range is a source row's first and last date. Every published row is one weekly run, so the runs come from the source's own split into rows rather than from grouping dates here; a test checks that over every row, since otherwise a range would claim a class that does not exist.
+Keep the three acknowledgment states distinct: `lastSeenSections` tracks section details, `lastSeenInvalidState` tracks the invalid reason, and `removedSectionsAcknowledged` tracks tombstones. A newly removed section resets tombstone acknowledgment.
 
-## Change Detection
+## Meeting Comparison and Dates
 
-Flags an enrolled section that changed (time, location, instructor, dates, class attributes, or enrollment requirement) since the user last saw it, so they know to re-export their `.ics` or update a saved screenshot — which the app can't do for them.
+Section signatures compare time, location, instructor, dates, class attributes, and enrollment requirements; availability is excluded.
 
-- The rendered timetable is always the fresh scrape. What the user _last saw_ is kept as an invisible per-section signature (`lastSeenSections` on `CourseEnrollment`); a section whose current signature differs is surfaced as changed.
-- That signature advances only on add / section-change / sync / dismiss — never on plain reload — so a note persists across reloads until dismissed and re-fires on further change. Sync only fills in _missing_ signatures, so fresh data the user hasn't seen yet isn't retroactively flagged. One exception: a signature stored before dates were compared gets the current dates filled in. An absent list means _unknown_, so nothing is flagged now — and without the fill that signature would be carried forward untouched and stay date-blind for good.
-- Compares time + location + instructor + dates + class attributes + enrollment requirement; ignores availability; only `selectedSections`. Dates and the requirement are optional: an absent one predates the field, so it reads as no change and is filled on the next sync (`withFieldsAddedSinceStored`), rather than staying blind to it for good. **Dates are compared but are not part of the dedupe key**, or `ACCT1111 B-LEC` — the same lecture listed either side of a gap — would split into two rows identical in every displayed field. Detection compares meeting positions to decide whether to show the summary banner; detail rows use content-based set differences so a deletion does not make later meetings look changed. Logic lives in [courseUtils.ts](../../web/src/lib/courseUtils.ts) (`sectionSignature`, `diffEnrollment`, `diffSectionDetail`).
-- Equal added/removed counts pair positionally into field-level highlights, each showing the old value above the new one; unequal counts show whole rows as added/removed rather than guessing pairs — a wrong before/after is worse than none.
-- Meeting addition/removal tooltips name the class schedule so they cannot be mistaken for cart actions; both use a plain sentence ending with "since you last checked". Field and action tooltips take priority, preserving access to meeting details; the meeting-change message is the fallback elsewhere.
-- Cursors follow the tooltip: help for change explanations, default for meeting details, and pointer for action buttons.
-- Time tooltips expand the weekday name unless showing a before/after change.
-- A whole course or current term disappearing uses `isInvalid`; a selected section becomes a tombstone; a meeting disappearing from a live section stays in that section as a removed row.
+Meetings with the same time, location, and instructor share a displayed row. Dates are compared for changes but excluded from the deduplication key, allowing separate weekly runs to appear together without repeating the other fields.
 
-## Summary Semantics
+The summary comparison is positional. Detail rows instead compare content, so removing one meeting does not mark every later row as changed. Equal added/removed counts are paired positionally for field-level changes; unequal counts remain whole added/removed rows rather than guessing a correspondence.
 
-- A course counts as **Open** only when _every_ selected section is open, but as **Wait List**/**Closed** when _any_ section is. The asymmetry is deliberate: one problematic section blocks clean enrollment.
-- Credit totals exclude invalid enrollments; all counts split into visible/total when some courses are hidden. A course CUHK states as a range (`1.50 - 2.00`) makes the total a range too — nothing below the course says which value applies.
+Date ranges preserve the source's row boundaries. Each published row must be one consecutive weekly run for its first and last dates to represent it accurately. `courseUtils.test.ts` checks that invariant against published meetings; combining runs across gaps would imply classes that do not exist.
 
-## Section Ordering
+## Summary Counts
 
-- Rows render in `selectedSections` order, and the first element is the primary section — so the array must stay in section-type priority order (LEC before TUT). Build paths don't guarantee that order, so they normalize through `sortSectionsByPriority`. Fixes [issue #58](https://github.com/EagleZhen/another-cuhk-course-planner/issues/58).
+A course counts as Open only with at least one live section and every live section open. Any live section on Wait List or Closed puts the course in that category, so those counts can overlap. A course with only tombstones has no availability status but still contributes credits unless invalid.
+
+Credits come from the course, not its sections. Preserve credit ranges when summing: section choices do not establish a single value. Invalid enrollments are excluded; hidden valid enrollments still contribute to total credits, but not visible credits.
