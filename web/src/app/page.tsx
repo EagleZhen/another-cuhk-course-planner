@@ -591,7 +591,7 @@ export default function Home() {
 
       <div className="container mx-auto px-4 py-2">
         {/* Top Section - Calendar + Shopping Cart */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-4">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 max-w-7xl mx-auto mb-4">
           {/* Calendar (3/4 width - more space) */}
           <div className="lg:col-span-3">
             {/* isolate: contain the calendar's internal sticky-header z-index so it
