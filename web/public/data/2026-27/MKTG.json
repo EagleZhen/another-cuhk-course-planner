@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "MKTG",
     "subject_title": "Marketing",
-    "total_courses": 52
+    "total_courses": 51
   },
   "courses": [
     {
@@ -76,7 +76,7 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "72",
+                "enrolled": "73",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -157,10 +157,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "68",
+                "enrolled": "69",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "1",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -178,7 +178,7 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "71",
+                "enrolled": "72",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -373,10 +373,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "39",
+                "enrolled": "40",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -1863,10 +1863,10 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "59",
+                "enrolled": "58",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "16",
+                "available_seats": "17",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -5204,56 +5204,6 @@
         "Homework or assignment": "10",
         "Project": "30",
         "Participation": "20"
-      }
-    },
-    {
-      "subject": "MKTG",
-      "course_code": "6203",
-      "title": "Special Topics in Behavioural Marketing",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "-S01-SEM (4672)",
-              "meetings": [
-                {
-                  "time": "Tu 2:30PM - 5:15PM",
-                  "location": "TBA",
-                  "instructor": "Staff",
-                  "dates": "8/9, 15/9, 22/9, 29/9, 6/10, 13/10, 20/10, 27/10, 3/11, 10/11, 17/11, 24/11, 1/12"
-                }
-              ],
-              "availability": {
-                "capacity": "15",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "15",
-                "status": "Open"
-              },
-              "class_attributes": "English only",
-              "enrollment_requirement": ""
-            }
-          ]
-        }
-      ],
-      "description": "This seminar course examines advanced concepts within the field of behavioural marketing, specifically focusing on the intricacies of consumer behaviour and decision-making processes. Topics will vary over course offerings but can include a comprehensive exploration of cognitive biases, emotional triggers, self-perceptions, motivations and other psychological factors that influence consumer perception, preference formation and choices. The course may also investigate methodological aspects, covering topics such as designing and conducting lab and field experiments to gain practical insights into consumer behaviour. Through a critical analysis of cutting-edge research and methodologies, students gain a deep understanding of the evolving landscape of behavioural marketing. This seminar encourages active engagement with emerging trends, fostering a dynamic and intellectually stimulating experience for students.",
-      "enrollment_requirement": "For students in MPhil-PhD Marketing",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Seminar",
-      "campus": "Main Campus",
-      "academic_group": "Div of Business Administration",
-      "academic_org": "Div of Business Administration",
-      "learning_outcomes": "After completing the course, students will have a deeper knowledge of state-of-the-art behavioural marketing theories and tools specialized in the field of marketing and its applications.",
-      "assessment_types": {
-        "Presentation": "30",
-        "Participation": "30",
-        "Report": "40"
       }
     },
     {

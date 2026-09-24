@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "DBAC",
     "subject_title": "Doctor of Business Administration (Chinese)",
-    "total_courses": 12
+    "total_courses": 13
   },
   "courses": [
     {
@@ -22,7 +22,7 @@
                 {
                   "time": "Fr 8:30AM - 6:30PM",
                   "location": "No Room Required",
-                  "instructor": "Professor HSU Vernon Ning",
+                  "instructor": "Miss LIU Shuman, \nMs. XU Yishu, \nProfessor HSU Vernon Ning",
                   "dates": "11/9"
                 },
                 {
@@ -502,6 +502,51 @@
       "credits": "3.00",
       "terms": [
         {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "L-LEC (9907)",
+              "meetings": [
+                {
+                  "time": "Th 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "7/1"
+                },
+                {
+                  "time": "Fr 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "8/1"
+                },
+                {
+                  "time": "Su 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "10/1"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "9/1"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "PTH, change to Eng if needed",
+              "enrollment_requirement": "For students in DBA (Chinese)"
+            }
+          ]
+        },
+        {
           "term_code": "2440",
           "term_name": "2026-27 Term 3",
           "schedule": [
@@ -802,6 +847,62 @@
       "academic_group": "Div of Business Administration",
       "academic_org": "Div of Business Administration",
       "learning_outcomes": "This course aims to help students understand the latest trends and developments in global capital markets and the financial sector. Focusing on the rise of the blockchain technology and the third-generation Internet (Web3), it emphasizes the current development and application of digital assets and crypto finance in the Web3 space.\n\nThe core theme of the course is to understand the blockchain technology, smart contract, and their applications in decentralized finance (DeFi) and other Web3 business innovations (DApps). Blockchain technology and smart contracts are the building blocks for a more secure, transparent, and efficient digital world. Blockchain is a distributed ledger technology with very special features such as immutability and a high level of security. Smart contract are digital contracts allowing terms contingent on decentralized consensus that are tamper-proof and typically self-enforcing through automated execution.\n\nIn addition, the course covers key cryptography concepts (such as hashing, digital signatures, and asymmetric cryptography). It also covers topics on the principles and recent development of stablecoins and Real-World Asset (RWA) tokenization.",
+      "course_syllabus": "To be assigned by course teacher",
+      "assessment_types": {},
+      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
+      "required_readings": "To be assigned by course teacher",
+      "recommended_readings": "To be assigned by course teacher"
+    },
+    {
+      "subject": "DBAC",
+      "course_code": "7136",
+      "title": "Selected Topics in Business Management Research",
+      "credits": "1.50",
+      "terms": [
+        {
+          "term_code": "2440",
+          "term_name": "2026-27 Term 3",
+          "schedule": [
+            {
+              "section": "L-LEC (1230)",
+              "meetings": [
+                {
+                  "time": "Sa 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "6/3"
+                },
+                {
+                  "time": "Su 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "7/3"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "PTH, change to Eng if needed",
+              "enrollment_requirement": "For students in DBA (Chinese)"
+            }
+          ]
+        }
+      ],
+      "description": "This course offers in-depth exploration of selected emerging topics in the field of business management. The course aims to provide students with a survey of contemporary research developments on the selected topics.",
+      "enrollment_requirement": "For students in DBA (Chinese)",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Business Administration",
+      "academic_org": "Div of Business Administration",
+      "learning_outcomes": "To be assigned by course teacher",
       "course_syllabus": "To be assigned by course teacher",
       "assessment_types": {},
       "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
