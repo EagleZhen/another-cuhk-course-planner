@@ -67,6 +67,8 @@ export function MeetingRowCard({
       break
   }
 
+  const dateValueClass = row.status === 'removed' ? valueClass : 'text-gray-400'
+
   // Each source row is one weekly run, so it reads as a range; the break between
   // runs is what shows a gap.
   const dateRanges = meeting.dates?.map(formatDateRange).filter(Boolean) ?? []
@@ -102,7 +104,7 @@ export function MeetingRowCard({
             <div
               // w-fit on both branches: as the only block-level row it would otherwise
               // stretch full width, and its tooltip would fire across the empty space.
-              className={`w-fit truncate text-[10px] ${fields?.dates ? changedText : `text-gray-400${hiddenDates ? ' cursor-default' : ''}`}`}
+              className={`w-fit truncate text-[10px] ${fields?.dates ? changedText : `${dateValueClass}${hiddenDates ? ' cursor-default' : ''}`}`}
               title={datesTooltip}
             >
               {dateRanges.join(', ')}
