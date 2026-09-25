@@ -410,6 +410,7 @@ export default function ShoppingCart({
                     transition-all duration-300 motion-reduce:transition-none
                     ${isInvalid ? 'border-amber-200 bg-amber-50' : 'border-gray-200 bg-white'}
                     ${isSelectable && onSelectEnrollment ? 'motion-safe:hover:scale-[1.02]' : ''}
+                    ${isSelectable && onSelectEnrollment && !isSelected ? 'hover:shadow-md' : ''}
                     ${isSelected && isSelectable ? `ring-1 shadow-lg scale-[1.02]` : ''}
                     ${cardCursorClass}
                   `}
