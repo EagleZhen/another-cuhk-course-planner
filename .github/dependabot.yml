@@ -1,6 +1,6 @@
 # Version-update PRs. Security updates run separately from repo settings.
-# Minor/patch grouped into one weekly PR; majors come separately for a closer look.
-# Friday evening HKT, so the batch is waiting at the start of the weekend rather than the end of it.
+# Minor/patch updates grouped per ecosystem/directory; majors come separately for a closer look.
+# Web updates run Friday evenings; other groups run on the first of each month, all at 18:00 HKT.
 version: 2
 updates:
   - package-ecosystem: npm
@@ -26,8 +26,7 @@ updates:
   - package-ecosystem: npm # root tooling (Prettier)
     directory: /
     schedule:
-      interval: weekly
-      day: friday
+      interval: monthly
       time: '18:00'
       timezone: Asia/Hong_Kong
     labels:
@@ -41,8 +40,7 @@ updates:
   - package-ecosystem: github-actions # workflow `uses:` pins
     directory: /
     schedule:
-      interval: weekly
-      day: friday
+      interval: monthly
       time: '18:00'
       timezone: Asia/Hong_Kong
     labels:
@@ -56,8 +54,7 @@ updates:
   - package-ecosystem: uv # scraper and Python tooling
     directory: /
     schedule:
-      interval: weekly
-      day: friday
+      interval: monthly
       time: '18:00'
       timezone: Asia/Hong_Kong
     labels:
