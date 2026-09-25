@@ -1004,9 +1004,9 @@ export default function WeeklyCalendar({
                                 className={`
                               ${event.color}
                               rounded-sm text-xs text-white
-                              hover:scale-105 transition-all duration-300 cursor-pointer
+                              hover:scale-[1.03] transition-all duration-300 cursor-pointer
                               overflow-hidden group
-                              ${isSelected ? 'scale-105' : ''}
+                              ${isSelected ? 'scale-[1.03]' : ''}
                               ${changedIds.has(event.id) ? 'changed-breathing' : ''}
                             `}
                                 onClick={() => {
