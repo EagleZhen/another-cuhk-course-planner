@@ -27,9 +27,11 @@ export function changedTooltip(before: string, now: string): string {
 // Shared by the cart (all statuses) and search results (always 'unchanged').
 export function MeetingRowCard({
   row,
+  cardCursorClass,
   showChangeTooltip = true,
 }: {
   row: MeetingRow
+  cardCursorClass: 'cursor-pointer' | 'cursor-help' | 'cursor-not-allowed'
   showChangeTooltip?: boolean
 }) {
   const { meeting } = row
@@ -68,8 +70,9 @@ export function MeetingRowCard({
   }
 
   const removalClass = row.status === 'removed' ? 'line-through' : ''
-  // Keep value details distinct from added/removed hints, including removed sections.
-  const detailCursorClass = row.status === 'added' || row.status === 'removed' ? ' cursor-default' : ''
+  // The amber space explains the change; its values retain the containing card's cursor.
+  const detailCursorClass =
+    row.status === 'added' || row.status === 'removed' ? ` ${cardCursorClass}` : ''
 
   // Each source row is one weekly run, so it reads as a range; the break between
   // runs is what shows a gap.
@@ -106,7 +109,7 @@ export function MeetingRowCard({
             <div
               // w-fit on both branches: as the only block-level row it would otherwise
               // stretch full width, and its tooltip would fire across the empty space.
-              className={`w-fit truncate text-[10px] ${removalClass} ${fields?.dates ? changedText : `text-gray-400${hiddenDates ? detailCursorClass : ''}`}`}
+              className={`w-fit truncate text-[10px] ${removalClass} ${fields?.dates ? changedText : `text-gray-400${detailCursorClass}`}`}
               title={datesTooltip}
             >
               {dateRanges.join(', ')}
