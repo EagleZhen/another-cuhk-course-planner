@@ -574,10 +574,16 @@ export default function ShoppingCart({
                             meeting,
                           }))
 
+                        // Native title inheritance covers the gaps without replacing field tooltips.
                         return (
                           <div
                             key={section.id}
                             className={`rounded border px-2 py-2 ${conflictInfo.hasConflict ? 'bg-purple-50 border-purple-300 ring-1 ring-purple-100' : 'bg-gray-50'}`}
+                            title={
+                              conflictInfo.hasConflict
+                                ? `Conflicts with: ${conflictInfo.conflictingSections.join(', ')}`
+                                : undefined
+                            }
                           >
                             {/* Section header with cycling buttons */}
                             <div className="flex items-center justify-between mb-1">
@@ -586,11 +592,7 @@ export default function ShoppingCart({
                                   {section.sectionCode}
                                 </div>
                                 {conflictInfo.hasConflict && (
-                                  <div
-                                    title={`Conflicts with: ${conflictInfo.conflictingSections.join(', ')}`}
-                                  >
-                                    <AlertTriangle className="h-3 w-3 flex-shrink-0 text-purple-600" />
-                                  </div>
+                                  <AlertTriangle className="h-3 w-3 flex-shrink-0 text-purple-600" />
                                 )}
                               </div>
 
