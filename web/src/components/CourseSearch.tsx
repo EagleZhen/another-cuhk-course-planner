@@ -32,6 +32,7 @@ import {
   getAvailabilityBadges,
   getAvailabilityBadgeStyle,
   checkSectionConflict,
+  formatTimeConflictTooltip,
   googleSearchAndOpen,
   cuhkLibrarySearchAndOpen,
   getDayIndex,
@@ -2127,7 +2128,7 @@ function CourseCard({
                                     .map((selected) => selected.sectionCode)
                                     .join(', ')}`
                                 : hasTimeConflict
-                                  ? `Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`
+                                  ? formatTimeConflictTooltip(conflictInfo.conflictingSections)
                                   : undefined
                             }
                           >
@@ -2142,7 +2143,9 @@ function CourseCard({
                                       <AlertTriangle className="w-3 h-3 text-purple-500 flex-shrink-0" />
                                       <span
                                         className="truncate"
-                                        title={`Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`}
+                                        title={formatTimeConflictTooltip(
+                                          conflictInfo.conflictingSections
+                                        )}
                                       >
                                         {conflictInfo.conflictingSections.join(', ')}
                                       </span>

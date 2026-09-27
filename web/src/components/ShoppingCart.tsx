@@ -17,6 +17,7 @@ import {
   formatCourseCodeWithPrefix,
   cohortOf,
   checkSectionConflict,
+  formatTimeConflictTooltip,
   diffSectionDetail,
   getChangedCourseIds,
   hasUnseenInvalidChange,
@@ -581,7 +582,7 @@ export default function ShoppingCart({
                             className={`rounded border px-2 py-2 ${conflictInfo.hasConflict ? 'bg-purple-50 border-purple-300 ring-1 ring-purple-100' : 'bg-gray-50'}`}
                             title={
                               conflictInfo.hasConflict
-                                ? `Conflicts with: ${conflictInfo.conflictingSections.join(', ')}`
+                                ? formatTimeConflictTooltip(conflictInfo.conflictingSections)
                                 : undefined
                             }
                           >
