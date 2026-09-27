@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { MenuItem } from '@/components/ui/menu-item'
 import { MessageCircle, MessageSquare, Mail } from 'lucide-react'
 
 export default function FeedbackButton() {
@@ -54,30 +55,18 @@ export default function FeedbackButton() {
               <div className="text-sm font-medium text-gray-900">Share Feedback</div>
             </div>
             <div className="py-1">
-              <button
-                type="button"
-                className="flex items-center w-full text-left px-3 py-2 text-sm hover:bg-gray-100 cursor-pointer text-gray-900"
-                onClick={handleGoogleForm}
-              >
-                <MessageSquare className="w-4 h-4 mr-2 text-gray-500" />
+              <MenuItem onClick={handleGoogleForm}>
+                <MessageSquare className="w-4 h-4 text-gray-500" />
                 Fill a Form
-              </button>
-              <button
-                type="button"
-                className="flex items-center w-full text-left px-3 py-2 text-sm hover:bg-gray-100 cursor-pointer text-gray-900"
-                onClick={handleWhatsApp}
-              >
-                <MessageCircle className="w-4 h-4 mr-2 text-gray-500" />
+              </MenuItem>
+              <MenuItem onClick={handleWhatsApp}>
+                <MessageCircle className="w-4 h-4 text-gray-500" />
                 Have a Chat!
-              </button>
-              <button
-                type="button"
-                className="flex items-center w-full text-left px-3 py-2 text-sm hover:bg-gray-100 cursor-pointer text-gray-900"
-                onClick={handleEmail}
-              >
-                <Mail className="w-4 h-4 mr-2 text-gray-500" />
+              </MenuItem>
+              <MenuItem onClick={handleEmail}>
+                <Mail className="w-4 h-4 text-gray-500" />
                 Send an Email
-              </button>
+              </MenuItem>
             </div>
           </div>
         </>

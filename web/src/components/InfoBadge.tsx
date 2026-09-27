@@ -18,16 +18,12 @@ function InfoBadge({
   children: ReactNode
 }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="inline-block">
-      <Badge
-        variant="secondary"
-        className="cursor-pointer hover:bg-gray-200 transition-colors flex items-center gap-1"
-        title={title}
-      >
+    <Badge asChild variant="secondary" className="cursor-pointer transition-colors">
+      <a href={href} target="_blank" rel="noopener noreferrer" title={title}>
         {children}
         <Info className="w-2.5 h-2.5 opacity-60" />
-      </Badge>
-    </a>
+      </a>
+    </Badge>
   )
 }
 

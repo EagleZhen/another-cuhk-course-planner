@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { MenuItem } from '@/components/ui/menu-item'
 import { extractAcademicYearCode } from '@/lib/courseUtils'
 
 // Two looks: an inline text link (in the search bar) and an outline button (on
@@ -89,19 +90,16 @@ function SelectMenu({
           >
             <div className="py-1">
               {options.map((option) => (
-                <button
+                <MenuItem
                   key={option}
-                  type="button"
-                  className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 cursor-pointer ${
-                    option === selected ? 'bg-blue-50 text-blue-600' : 'text-gray-900'
-                  }`}
+                  selected={option === selected}
                   onClick={() => {
                     onSelect(option)
                     setIsOpen(false)
                   }}
                 >
                   {formatOption ? formatOption(option) : option}
-                </button>
+                </MenuItem>
               ))}
             </div>
           </div>
