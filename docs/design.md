@@ -16,7 +16,7 @@ Feature components own behavior, content, state, and layout. Extract them to con
 
 ## Interaction Appearance
 
-Each primitive owns its appearances' resting, hover, and pressed styles. Callers choose an appearance rather than override its interaction colors.
+Primitives own shared appearances. A one-off contextual palette may stay at its consumer, but must define resting, hover, pressed, and relevant dark-mode colors together.
 
 Button uses one `variant` for each complete appearance and a separate `size`. Keep palettes in complete variants rather than combining props that override one another or allow unsupported combinations.
 
