@@ -863,7 +863,7 @@ export default function CourseSearch({
               type="button"
               variant="ghost"
               size="sm"
-              className="relative h-6 w-full rounded-md p-0 text-gray-500 hover:bg-gray-50 active:bg-gray-100"
+              className="relative h-6 w-full rounded-md p-0"
               aria-controls="course-filter-panel"
               aria-expanded={isFilterPanelExpanded}
               aria-label={isFilterPanelExpanded ? 'Hide filters' : 'Show filters'}
@@ -2018,7 +2018,7 @@ function CourseCard({
                               return updated
                             })
                           }}
-                          className="h-5 rounded px-1.5 text-xs text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800 focus:ring-2 focus:ring-indigo-200"
+                          className="h-5 rounded px-1.5 text-xs"
                           title={
                             showingAllForType
                               ? `Hide extra ${typeGroup.displayName.toLowerCase()} options`

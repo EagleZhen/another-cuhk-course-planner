@@ -529,7 +529,7 @@ export default function WeeklyCalendar({
                 <Button
                   variant="ghost"
                   onClick={handleExportCalendar}
-                  className="gap-2 h-full hover:bg-gray-100 rounded-none"
+                  className="gap-2 h-full rounded-none"
                   title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
                 >
                   <CalendarArrowDown className="w-4 h-4" />
@@ -543,7 +543,7 @@ export default function WeeklyCalendar({
                 <Button
                   variant="ghost"
                   onClick={() => setIsIcsMenuExpanded(!isIcsMenuExpanded)}
-                  className="h-full hover:bg-gray-100 rounded-none"
+                  className="h-full rounded-none"
                   title={isIcsMenuExpanded ? 'Hide options' : 'Show more options'}
                   aria-expanded={isIcsMenuExpanded}
                   aria-haspopup="true"
@@ -614,7 +614,7 @@ export default function WeeklyCalendar({
                   <Button
                     variant="ghost"
                     onClick={handleExportCalendar}
-                    className="gap-2 h-full hover:bg-gray-100 rounded-none"
+                    className="gap-2 h-full rounded-none"
                     title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
                   >
                     <CalendarArrowDown className="w-4 h-4" />
@@ -628,7 +628,7 @@ export default function WeeklyCalendar({
                   <Button
                     variant="ghost"
                     onClick={() => setIsIcsMenuExpanded(!isIcsMenuExpanded)}
-                    className="h-full hover:bg-gray-100 rounded-none"
+                    className="h-full rounded-none"
                     title={isIcsMenuExpanded ? 'Hide options' : 'Show more options'}
                     aria-expanded={isIcsMenuExpanded}
                     aria-haspopup="true"
@@ -739,7 +739,8 @@ export default function WeeklyCalendar({
                   onClick={() => goToWeek(conflictToReview)}
                   // Same shape as the skip toggle beside the navigator; purple only
                   // because purple is what marks a conflict everywhere else.
-                  className="h-6 border-1 border-purple-300 px-2 text-xs font-normal text-purple-700 cursor-pointer hover:bg-purple-50 hover:text-purple-800 focus-visible:ring-1 max-md:order-last"
+                  tone="conflict"
+                  className="h-6 border-1 px-2 text-xs font-normal focus-visible:ring-1 max-md:order-last"
                 >
                   <AlertTriangle className="size-3" />
                   Review next conflict
@@ -1018,7 +1019,7 @@ export default function WeeklyCalendar({
                               >
                                 {/* Visibility toggle button */}
                                 <Button
-                                  variant="ghost"
+                                  variant="overlay"
                                   size="sm"
                                   onClick={(e) => {
                                     e.stopPropagation()
@@ -1029,7 +1030,7 @@ export default function WeeklyCalendar({
                                       onToggleVisibility(event.enrollmentId)
                                     }
                                   }}
-                                  className="absolute top-0.5 right-0.5 h-4 w-4 p-0 bg-black/20 hover:bg-white/40 backdrop-blur-sm cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                  className="absolute top-0.5 right-0.5 h-4 w-4 p-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                                   title={event.isVisible ? 'Hide course' : 'Show course'}
                                 >
                                   {event.isVisible ? (
@@ -1321,13 +1322,13 @@ function UnscheduledSectionsCard({
                     {/* Visibility toggle button for unscheduled sections */}
                     {onToggleVisibility && (
                       <Button
-                        variant="ghost"
+                        variant="overlay"
                         size="sm"
                         onClick={(e) => {
                           e.stopPropagation()
                           onToggleVisibility(item.enrollment.courseId)
                         }}
-                        className="absolute top-0.5 right-0.5 h-4 w-4 p-0 bg-black/20 hover:bg-white/40 backdrop-blur-sm cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                        className="absolute top-0.5 right-0.5 h-4 w-4 p-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                         title={item.enrollment.isVisible ? 'Hide course' : 'Show course'}
                       >
                         {item.enrollment.isVisible ? (

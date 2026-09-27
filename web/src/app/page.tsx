@@ -880,7 +880,7 @@ function SubjectFilterControls({
             variant="ghost"
             size="sm"
             onClick={onToggleShowSelected}
-            className="h-5 rounded px-1.5 text-xs font-normal text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800 focus:ring-2 focus:ring-indigo-200 cursor-pointer"
+            className="h-5 rounded px-1.5 text-xs font-normal"
             title={showSelectedOnly ? 'Show all subjects' : 'Show selected subjects only'}
           >
             {showSelectedOnly ? 'Show All' : 'Show Selected Only'}
