@@ -6,6 +6,8 @@ Shared UI boundaries and styling rules. Keep component-specific behavior in [com
 
 Use native buttons for actions and anchors for navigation.
 
+Feature action controls use Button by default. Native `<button>` elements belong in UI primitives or an explicitly justified exception, so ordinary controls inherit shared interaction feedback.
+
 - [Button](../web/src/components/ui/button.tsx): button appearances and sizes.
 - [MenuItem](../web/src/components/ui/menu-item.tsx): dropdown-row styling, including selection; not menu keyboard navigation or focus management.
 - [Badge](../web/src/components/ui/badge.tsx): compact labels, with interaction feedback when rendered as links.
