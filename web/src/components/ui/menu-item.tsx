@@ -1,23 +1,23 @@
 import type { ComponentProps } from 'react'
 
-import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
-type MenuItemProps = Omit<ComponentProps<typeof Button>, 'variant' | 'size' | 'asChild'> & {
+type MenuItemProps = ComponentProps<'button'> & {
   selected?: boolean
 }
 
 // Shares item appearance; menu dismissal and focus management belong to the parent.
 function MenuItem({ selected = false, className, ...props }: MenuItemProps) {
   return (
-    <Button
+    <button
       type="button"
-      variant="ghost"
+      data-slot="menu-item"
       className={cn(
-        'h-auto w-full justify-start whitespace-normal rounded-none px-3 py-2 text-left font-normal hover:bg-gray-100 active:bg-gray-100',
-        selected
-          ? 'bg-blue-50 text-blue-600 hover:text-blue-600 active:text-blue-600'
-          : 'text-gray-900 hover:text-gray-900 active:text-gray-900',
+        'inline-flex w-full items-center justify-start gap-2 whitespace-normal px-3 py-2 text-left text-sm font-normal [&>svg]:shrink-0',
+        'cursor-pointer transition-all hover:bg-gray-100 active:bg-gray-100',
+        'outline-none focus-visible:ring-ring/50 focus-visible:ring-[3px]',
+        'disabled:pointer-events-none disabled:opacity-50',
+        selected ? 'bg-blue-50 text-blue-600' : 'text-gray-900',
         className
       )}
       {...props}
