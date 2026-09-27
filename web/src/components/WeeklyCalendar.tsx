@@ -1004,9 +1004,9 @@ export default function WeeklyCalendar({
                                 className={`
                               ${event.color}
                               rounded-sm text-xs text-white
-                              hover:scale-105 transition-all duration-300 cursor-pointer
+                              hover:scale-[1.03] transition-all duration-300 cursor-pointer
                               overflow-hidden group
-                              ${isSelected ? 'scale-105' : ''}
+                              ${isSelected ? 'scale-[1.03]' : ''}
                               ${changedIds.has(event.id) ? 'changed-breathing' : ''}
                             `}
                                 onClick={() => {
@@ -1155,6 +1155,9 @@ function UnscheduledSectionsCard({
   displayConfig: CalendarDisplayConfig
 }) {
   const [isExpanded, setIsExpanded] = useState(false)
+  const minimumMeetingCardWidth =
+    CALENDAR_LAYOUT_CONSTANTS.MINIMUM_DAY_COLUMN_WIDTH -
+    CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING * 2
 
   // Auto-expand when shopping cart item is selected and it's in unscheduled
   useEffect(() => {
@@ -1256,6 +1259,7 @@ function UnscheduledSectionsCard({
                     `}
                     style={{
                       width: 'calc((100% - 32px) / 5)',
+                      minWidth: `${minimumMeetingCardWidth}px`,
                       minHeight: '60px',
                       padding: `${CALENDAR_LAYOUT_CONSTANTS.COURSE_CARD_PADDING}px`,
                       ...(isSelected && {

@@ -1628,7 +1628,6 @@ export function getAggregateSeatInfo(
 
 /**
  * Check if a section conflicts with current visible enrollments
- * Used for showing conflict warnings in course search
  */
 export function checkSectionConflict(
   candidateSection: InternalSection,
@@ -1664,6 +1663,10 @@ export function checkSectionConflict(
     hasConflict: conflictingSections.length > 0,
     conflictingSections: conflictingSections,
   }
+}
+
+export function formatTimeConflictTooltip(conflictingSections: readonly string[]): string {
+  return `Time conflict with: ${conflictingSections.join(', ')}`
 }
 
 // === SEARCH UTILITIES ===

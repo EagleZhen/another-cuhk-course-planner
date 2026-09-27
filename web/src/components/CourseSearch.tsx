@@ -32,6 +32,7 @@ import {
   getAvailabilityBadges,
   getAvailabilityBadgeStyle,
   checkSectionConflict,
+  formatTimeConflictTooltip,
   googleSearchAndOpen,
   cuhkLibrarySearchAndOpen,
   getDayIndex,
@@ -2043,20 +2044,23 @@ function CourseCard({
                           currentTerm
                         )
                         const hasTimeConflict = conflictInfo.hasConflict // Show conflicts even for selected sections
+                        const cardCursorClass = isIncompatible
+                          ? 'cursor-not-allowed'
+                          : 'cursor-pointer'
 
                         return (
                           <div
                             key={section.id}
-                            className={`p-2 rounded transition-all ${
+                            className={`p-2 rounded transition-all ${cardCursorClass} ${
                               isSelected
-                                ? 'border border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200 cursor-pointer'
+                                ? 'border border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200'
                                 : isIncompatible
-                                  ? 'border border-gray-200 opacity-40 cursor-not-allowed grayscale'
+                                  ? 'border border-gray-200 opacity-40 grayscale'
                                   : section.availability.status === 'Open'
-                                    ? 'border border-green-500 hover:bg-green-50 cursor-pointer shadow-sm'
+                                    ? 'border border-green-500 hover:bg-green-50 shadow-sm'
                                     : section.availability.status === 'Wait List'
-                                      ? 'border border-yellow-500 hover:bg-yellow-50 cursor-pointer shadow-sm'
-                                      : 'border border-red-500 hover:bg-red-50 cursor-pointer shadow-sm'
+                                      ? 'border border-yellow-500 hover:bg-yellow-50 shadow-sm'
+                                      : 'border border-red-500 hover:bg-red-50 shadow-sm'
                             }`}
                             onClick={() => {
                               if (!isIncompatible) {
@@ -2124,7 +2128,7 @@ function CourseCard({
                                     .map((selected) => selected.sectionCode)
                                     .join(', ')}`
                                 : hasTimeConflict
-                                  ? `Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`
+                                  ? formatTimeConflictTooltip(conflictInfo.conflictingSections)
                                   : undefined
                             }
                           >
@@ -2139,7 +2143,9 @@ function CourseCard({
                                       <AlertTriangle className="w-3 h-3 text-purple-500 flex-shrink-0" />
                                       <span
                                         className="truncate"
-                                        title={`Time conflict with: ${conflictInfo.conflictingSections.join(', ')}`}
+                                        title={formatTimeConflictTooltip(
+                                          conflictInfo.conflictingSections
+                                        )}
                                       >
                                         {conflictInfo.conflictingSections.join(', ')}
                                       </span>
@@ -2194,6 +2200,7 @@ function CourseCard({
                                   <MeetingRowCard
                                     key={index}
                                     row={{ status: 'unchanged', meeting }}
+                                    cardCursorClass={cardCursorClass}
                                   />
                                 ))}
                               </div>

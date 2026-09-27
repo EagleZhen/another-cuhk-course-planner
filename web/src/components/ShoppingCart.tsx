@@ -17,6 +17,7 @@ import {
   formatCourseCodeWithPrefix,
   cohortOf,
   checkSectionConflict,
+  formatTimeConflictTooltip,
   diffSectionDetail,
   getChangedCourseIds,
   hasUnseenInvalidChange,
@@ -371,6 +372,11 @@ export default function ShoppingCart({
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
               const isSelectable = isVisible || isInvalid
+              const cardCursorClass = isInvalid
+                ? 'cursor-help'
+                : isSelectable
+                  ? 'cursor-pointer'
+                  : 'cursor-not-allowed'
               const accentColor = isInvalid
                 ? '#fbbf24'
                 : enrollment.color
@@ -404,8 +410,9 @@ export default function ShoppingCart({
                     relative group space-y-2 rounded border border-l-4 p-2
                     transition-all duration-300 motion-reduce:transition-none
                     ${isInvalid ? 'border-amber-200 bg-amber-50' : 'border-gray-200 bg-white'}
+                    ${isSelectable && onSelectEnrollment && !isSelected ? 'hover:shadow-md' : ''}
                     ${isSelected && isSelectable ? `ring-1 shadow-lg scale-[1.02]` : ''}
-                    ${isInvalid ? 'cursor-help' : isSelectable ? 'cursor-pointer' : 'cursor-not-allowed'}
+                    ${cardCursorClass}
                   `}
                   style={{
                     ...(accentColor
@@ -567,10 +574,16 @@ export default function ShoppingCart({
                             meeting,
                           }))
 
+                        // Native title inheritance covers the gaps without replacing field tooltips.
                         return (
                           <div
                             key={section.id}
                             className={`rounded border px-2 py-2 ${conflictInfo.hasConflict ? 'bg-purple-50 border-purple-300 ring-1 ring-purple-100' : 'bg-gray-50'}`}
+                            title={
+                              conflictInfo.hasConflict
+                                ? formatTimeConflictTooltip(conflictInfo.conflictingSections)
+                                : undefined
+                            }
                           >
                             {/* Section header with cycling buttons */}
                             <div className="flex items-center justify-between mb-1">
@@ -579,11 +592,7 @@ export default function ShoppingCart({
                                   {section.sectionCode}
                                 </div>
                                 {conflictInfo.hasConflict && (
-                                  <div
-                                    title={`Conflicts with: ${conflictInfo.conflictingSections.join(', ')}`}
-                                  >
-                                    <AlertTriangle className="h-3 w-3 flex-shrink-0 text-purple-600" />
-                                  </div>
+                                  <AlertTriangle className="h-3 w-3 flex-shrink-0 text-purple-600" />
                                 )}
                               </div>
 
@@ -658,7 +667,11 @@ export default function ShoppingCart({
                             {/* Meeting rows are normalized and deduped by sectionSignature. */}
                             <div className="space-y-1">
                               {meetingRows.map((row, index) => (
-                                <MeetingRowCard key={index} row={row} />
+                                <MeetingRowCard
+                                  key={index}
+                                  row={row}
+                                  cardCursorClass={cardCursorClass}
+                                />
                               ))}
                             </div>
 
@@ -692,13 +705,17 @@ export default function ShoppingCart({
                             title={removedTooltip}
                           >
                             <div className="mb-1 flex items-start justify-between gap-0.5">
-                              <div className="font-mono text-xs font-medium tracking-tight text-gray-500 line-through">
+                              <div
+                                className={`font-mono text-xs font-medium tracking-tight text-gray-500 line-through ${cardCursorClass}`}
+                              >
                                 {section.sectionCode}
                               </div>
 
                               {compatible.length > 0 ? (
                                 <div className="flex shrink-0 items-center gap-0.5">
-                                  <span className="relative -top-px text-[10px] leading-none text-gray-500">
+                                  <span
+                                    className={`relative -top-px text-[10px] leading-none text-gray-500 ${cardCursorClass}`}
+                                  >
                                     {compatible.length === 1
                                       ? '1 remains'
                                       : `${compatible.length} remain`}
@@ -729,7 +746,9 @@ export default function ShoppingCart({
                                   </Button>
                                 </div>
                               ) : (
-                                <span className="max-w-32 text-right text-[10px] leading-4 text-gray-500">
+                                <span
+                                  className={`max-w-32 text-right text-[10px] leading-4 text-gray-500 ${cardCursorClass}`}
+                                >
                                   No alternatives available. Search or remove the course.
                                 </span>
                               )}
@@ -737,7 +756,12 @@ export default function ShoppingCart({
 
                             <div className="space-y-1">
                               {meetingRows.map((row, index) => (
-                                <MeetingRowCard key={index} row={row} showChangeTooltip={false} />
+                                <MeetingRowCard
+                                  key={index}
+                                  row={row}
+                                  cardCursorClass={cardCursorClass}
+                                  showChangeTooltip={false}
+                                />
                               ))}
                             </div>
                           </div>

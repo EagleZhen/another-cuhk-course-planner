@@ -27,9 +27,11 @@ export function changedTooltip(before: string, now: string): string {
 // Shared by the cart (all statuses) and search results (always 'unchanged').
 export function MeetingRowCard({
   row,
+  cardCursorClass,
   showChangeTooltip = true,
 }: {
   row: MeetingRow
+  cardCursorClass: 'cursor-pointer' | 'cursor-help' | 'cursor-not-allowed'
   showChangeTooltip?: boolean
 }) {
   const { meeting } = row
@@ -68,6 +70,9 @@ export function MeetingRowCard({
   }
 
   const removalClass = row.status === 'removed' ? 'line-through' : ''
+  // The amber space explains the change; its values retain the containing card's cursor.
+  const detailCursorClass =
+    row.status === 'added' || row.status === 'removed' ? ` ${cardCursorClass}` : ''
 
   // Each source row is one weekly run, so it reads as a range; the break between
   // runs is what shows a gap.
@@ -95,7 +100,7 @@ export function MeetingRowCard({
             better, so this is only here to stop a varying section looking uniform. */}
         <div className="min-w-0 flex-1">
           <span
-            className={`font-mono ${removalClass} ${fields?.time ? changedText : `${valueColorClass} cursor-default`}`}
+            className={`font-mono ${removalClass} ${fields?.time ? changedText : `${valueColorClass}${detailCursorClass}`}`}
             title={timeTooltip}
           >
             {formattedTime}
@@ -104,7 +109,7 @@ export function MeetingRowCard({
             <div
               // w-fit on both branches: as the only block-level row it would otherwise
               // stretch full width, and its tooltip would fire across the empty space.
-              className={`w-fit truncate text-[10px] ${removalClass} ${fields?.dates ? changedText : `text-gray-400${hiddenDates ? ' cursor-default' : ''}`}`}
+              className={`w-fit truncate text-[10px] ${removalClass} ${fields?.dates ? changedText : `text-gray-400${detailCursorClass}`}`}
               title={datesTooltip}
             >
               {dateRanges.join(', ')}
@@ -117,7 +122,7 @@ export function MeetingRowCard({
         <span>🧑🏻‍🏫</span>
         <div className="flex items-center gap-1 min-w-0 flex-1">
           <span
-            className={`truncate ${removalClass} ${fields?.instructor ? changedText : `${valueColorClass} cursor-default`}`}
+            className={`truncate ${removalClass} ${fields?.instructor ? changedText : `${valueColorClass}${detailCursorClass}`}`}
             title={
               fields?.instructor && before
                 ? changedTooltip(formatInstructorsCompact(before.instructor), formattedInstructor)
@@ -145,7 +150,7 @@ export function MeetingRowCard({
         <span>📍</span>
         <div className="flex items-center gap-1 min-w-0 flex-1">
           <span
-            className={`truncate ${removalClass} ${fields?.location ? changedText : `${valueColorClass} cursor-default`}`}
+            className={`truncate ${removalClass} ${fields?.location ? changedText : `${valueColorClass}${detailCursorClass}`}`}
             title={
               fields?.location && before
                 ? changedTooltip(before.location || 'TBA', location)

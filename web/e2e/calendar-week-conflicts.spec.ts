@@ -117,7 +117,7 @@ async function switchToTerm(page: Page, label: string) {
 
 const cards = (page: Page) => page.locator('[data-course-card]')
 const conflictZone = (page: Page) => page.locator('[data-conflict-zone]')
-const conflictBadge = (page: Page) => page.getByTitle(/Conflicts with/)
+const conflictedSections = (page: Page) => page.getByTitle(/^Time conflict with:/)
 
 test('reports no conflict for sections that never share a date', async ({ page }) => {
   await openPlanner(page, '25/9')
@@ -125,7 +125,7 @@ test('reports no conflict for sections that never share a date', async ({ page }
   // Week of 7 September: the lecture alone, its column dated.
   await expect(cards(page)).toHaveCount(1)
   await expect(page.locator('span.tabular-nums', { hasText: '11/9' })).toBeVisible()
-  await expect(conflictBadge(page)).toHaveCount(0)
+  await expect(conflictedSections(page)).toHaveCount(0)
   await expect(conflictZone(page)).toHaveCount(0)
 })
 
@@ -133,7 +133,7 @@ test('reports a conflict for sections that share a date', async ({ page }) => {
   await openPlanner(page, '11/9')
 
   await expect(cards(page)).toHaveCount(2)
-  await expect(conflictBadge(page).first()).toBeVisible()
+  await expect(conflictedSections(page).first()).toBeVisible()
   await expect(conflictZone(page).first()).toBeVisible()
 })
 
