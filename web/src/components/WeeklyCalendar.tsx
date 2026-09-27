@@ -733,13 +733,12 @@ export default function WeeklyCalendar({
             <div className="max-md:contents justify-self-end">
               {conflictToReview && (
                 <Button
-                  variant="outline"
                   size="sm"
                   title={`${conflictWeeks.length} of ${weeks.length} weeks have a conflict`}
                   onClick={() => goToWeek(conflictToReview)}
                   // Same shape as the skip toggle beside the navigator; purple only
                   // because purple is what marks a conflict everywhere else.
-                  tone="conflict"
+                  variant="outline-conflict"
                   className="h-6 border-1 px-2 text-xs font-normal focus-visible:ring-1 max-md:order-last"
                 >
                   <AlertTriangle className="size-3" />

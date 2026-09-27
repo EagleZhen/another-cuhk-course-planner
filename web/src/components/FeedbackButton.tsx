@@ -37,7 +37,7 @@ export default function FeedbackButton() {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       <Button
-        tone="positive"
+        variant="positive"
         onClick={() => setIsOpen(!isOpen)}
         className={`rounded-full shadow-lg ${isOpen ? 'relative z-[60]' : ''}`}
         size="lg"

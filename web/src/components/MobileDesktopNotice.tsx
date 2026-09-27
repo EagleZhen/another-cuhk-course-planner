@@ -186,7 +186,7 @@ export default function MobileDesktopNotice() {
             <Button
               onClick={shareToDesktop}
               size="lg"
-              tone={copied ? 'positive' : undefined}
+              variant={copied ? 'positive' : undefined}
               className="w-full select-none"
             >
               {copied ? <Check /> : <Share2 />}

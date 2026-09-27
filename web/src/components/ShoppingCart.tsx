@@ -323,10 +323,9 @@ export default function ShoppingCart({
           >
             {onSelectEnrollment && (
               <Button
-                variant="ghost"
                 size="sm"
                 onClick={reviewNextChange}
-                tone="warning"
+                variant="ghost-warning"
                 className={bannerButtonClass}
                 title="Review the next changed course from top to bottom"
               >
@@ -335,10 +334,9 @@ export default function ShoppingCart({
             )}
             {onDismissAllChanges && (
               <Button
-                variant="ghost"
                 size="sm"
                 onClick={onDismissAllChanges}
-                tone="warning"
+                variant="ghost-warning"
                 className={bannerButtonClass}
                 title="Dismiss all change notifications"
               >
@@ -511,14 +509,13 @@ export default function ShoppingCart({
                         )}
                       </Button>
                       <Button
-                        variant="ghost"
                         size="sm"
                         onClick={(e) => {
                           e.stopPropagation()
                           // Remove this enrollment
                           onRemoveCourse(enrollment.courseId)
                         }}
-                        tone="danger"
+                        variant="ghost-danger"
                         className="size-5 p-0"
                         title="Remove course"
                       >
@@ -605,26 +602,24 @@ export default function ShoppingCart({
                                     {sectionPosition}
                                   </span>
                                   <Button
-                                    variant="ghost"
                                     size="sm"
                                     onClick={(e) => {
                                       e.stopPropagation()
                                       cycleSection(enrollment, section.sectionType, 'prev')
                                     }}
-                                    tone="neutral"
+                                    variant="ghost-neutral"
                                     className="h-4 w-4 p-0"
                                     title="Previous section"
                                   >
                                     <ChevronLeft className="w-3 h-3" />
                                   </Button>
                                   <Button
-                                    variant="ghost"
                                     size="sm"
                                     onClick={(e) => {
                                       e.stopPropagation()
                                       cycleSection(enrollment, section.sectionType, 'next')
                                     }}
-                                    tone="neutral"
+                                    variant="ghost-neutral"
                                     className="h-4 w-4 p-0"
                                     title="Next section"
                                   >
@@ -725,26 +720,24 @@ export default function ShoppingCart({
                                       : `${compatible.length} remain`}
                                   </span>
                                   <Button
-                                    variant="ghost"
                                     size="sm"
                                     onClick={(event) => {
                                       event.stopPropagation()
                                       chooseReplacement(enrollment, section.sectionType, 'prev')
                                     }}
-                                    tone="warning"
+                                    variant="ghost-warning"
                                     className="h-4 w-4 p-0"
                                     aria-label={`Choose the last compatible ${sectionTypeName} section`}
                                   >
                                     <ChevronLeft className="h-3 w-3" />
                                   </Button>
                                   <Button
-                                    variant="ghost"
                                     size="sm"
                                     onClick={(event) => {
                                       event.stopPropagation()
                                       chooseReplacement(enrollment, section.sectionType, 'next')
                                     }}
-                                    tone="warning"
+                                    variant="ghost-warning"
                                     className="h-4 w-4 p-0"
                                     aria-label={`Choose the first compatible ${sectionTypeName} section`}
                                   >

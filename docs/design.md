@@ -18,6 +18,8 @@ Feature components own behavior, content, state, and layout. Extract them to con
 
 Each primitive owns its appearances' resting, hover, and pressed styles. Callers choose an appearance rather than override its interaction colors.
 
+Button uses one `variant` for each complete appearance and a separate `size`. Keep palettes in complete variants rather than combining props that override one another or allow unsupported combinations.
+
 Share styles only when controls should change together. Compact chips can use stronger selection fills than full-width menu rows, which would otherwise dominate a dropdown.
 
 Keep selection distinguishable from momentary pressing. Passive labels should not show interaction feedback.

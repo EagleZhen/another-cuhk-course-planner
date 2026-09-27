@@ -1616,7 +1616,6 @@ function CourseCard({
               </CardTitle>
               <div className="flex flex-wrap items-center gap-1">
                 <Button
-                  variant="ghost"
                   size="sm"
                   onClick={(e) => {
                     e.stopPropagation()
@@ -1624,7 +1623,7 @@ function CourseCard({
                       `CUHK ${course.subject}${course.courseCode} Outline OR 大綱`
                     )
                   }}
-                  tone="neutral"
+                  variant="ghost-neutral"
                   className="h-6 px-2 text-xs min-w-[65px] flex-shrink-0"
                   title={`Search Google for "${course.subject}${course.courseCode}" outline`}
                 >
@@ -1632,13 +1631,12 @@ function CourseCard({
                   Outline
                 </Button>
                 <Button
-                  variant="ghost"
                   size="sm"
                   onClick={(e) => {
                     e.stopPropagation()
                     googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Review OR 評價`)
                   }}
-                  tone="neutral"
+                  variant="ghost-neutral"
                   className="h-6 px-2 text-xs min-w-[65px] flex-shrink-0"
                   title={`Search Google for "${course.subject}${course.courseCode}" reviews`}
                 >
@@ -1646,13 +1644,12 @@ function CourseCard({
                   Reviews
                 </Button>
                 <Button
-                  variant="ghost"
                   size="sm"
                   onClick={(e) => {
                     e.stopPropagation()
                     cuhkLibrarySearchAndOpen(`${course.subject}${course.courseCode}`)
                   }}
-                  tone="neutral"
+                  variant="ghost-neutral"
                   className="h-6 px-2 text-xs min-w-[85px] flex-shrink-0"
                   title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
                 >
@@ -1740,13 +1737,12 @@ function CourseCard({
             {/* Search buttons below course header */}
             <div className="flex flex-wrap items-center gap-0.5 mt-2">
               <Button
-                variant="ghost"
                 size="sm"
                 onClick={(e) => {
                   e.stopPropagation()
                   googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR 大綱`)
                 }}
-                tone="neutral"
+                variant="ghost-neutral"
                 className="h-6 min-w-[60px] flex-shrink-0 gap-1 px-1.5 text-xs"
                 title={`Search Google for "${course.subject}${course.courseCode}" outline`}
               >
@@ -1754,13 +1750,12 @@ function CourseCard({
                 Outline
               </Button>
               <Button
-                variant="ghost"
                 size="sm"
                 onClick={(e) => {
                   e.stopPropagation()
                   googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Review OR 評價`)
                 }}
-                tone="neutral"
+                variant="ghost-neutral"
                 className="h-6 min-w-[60px] flex-shrink-0 gap-1 px-1.5 text-xs"
                 title={`Search Google for "${course.subject}${course.courseCode}" reviews`}
               >
@@ -1768,13 +1763,12 @@ function CourseCard({
                 Reviews
               </Button>
               <Button
-                variant="ghost"
                 size="sm"
                 onClick={(e) => {
                   e.stopPropagation()
                   cuhkLibrarySearchAndOpen(`${course.subject}${course.courseCode}`)
                 }}
-                tone="neutral"
+                variant="ghost-neutral"
                 className="h-6 min-w-[78px] flex-shrink-0 gap-1 px-1.5 text-xs"
                 title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
               >
