@@ -126,13 +126,14 @@ export default function MobileDesktopNotice() {
         style={{ backdropFilter: 'blur(20px)' }}
         onClick={(e) => e.stopPropagation()}
       >
-        <button
+        <Button
+          variant="ghost"
           onClick={() => dismissNotice('button')}
           aria-label="Close"
-          className="absolute top-3 right-3 p-1.5 rounded-md text-muted-foreground select-none hover:bg-accent hover:text-foreground active:scale-90 transition-all"
+          className="absolute top-3 right-3 h-auto p-1.5 text-muted-foreground select-none"
         >
           <X className="w-4 h-4" />
-        </button>
+        </Button>
 
         {/* Header */}
         <div className="text-center mb-4">

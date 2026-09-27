@@ -1,5 +1,7 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
+
 import { useCallback, useEffect, useState } from 'react'
 import { Info, X } from 'lucide-react'
 import { hasRefreshMarker, withoutRefreshMarker } from '@/lib/staleChunk'
@@ -50,13 +52,14 @@ export default function StaleVersionNotice() {
         <>
           <Info aria-hidden="true" className="mt-0.5 size-4 flex-shrink-0 text-slate-400" />
           <span>This page refreshed automatically to pick up a new version.</span>
-          <button
+          <Button
+            variant="ghost"
             onClick={hide}
             aria-label="Dismiss"
-            className="-mr-1 cursor-pointer rounded p-0.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600"
+            className="-mr-1 h-auto rounded p-0.5 text-muted-foreground"
           >
             <X className="size-4" />
-          </button>
+          </Button>
 
           <div
             aria-hidden="true"

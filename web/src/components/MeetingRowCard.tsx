@@ -1,5 +1,7 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
+
 import {
   formatDateRange,
   formatTimeCompact,
@@ -132,16 +134,17 @@ export function MeetingRowCard({
             {formattedInstructor}
           </span>
           {formattedInstructor !== 'Staff' && (
-            <button
+            <Button
+              variant="ghost"
               onClick={(e) => {
                 e.stopPropagation()
                 googleSearchAndOpen(`CUHK ${formattedInstructor}`)
               }}
-              className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+              className="h-auto rounded p-0.5"
               title={`Search Google for "CUHK ${formattedInstructor}"`}
             >
               <GoogleIcon className="size-3" />
-            </button>
+            </Button>
           )}
         </div>
       </div>
@@ -160,16 +163,17 @@ export function MeetingRowCard({
             {location}
           </span>
           {location !== 'TBA' && location !== 'No Room Required' && (
-            <button
+            <Button
+              variant="ghost"
               onClick={(e) => {
                 e.stopPropagation()
                 googleMapsSearchAndOpen(location)
               }}
-              className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
+              className="h-auto rounded p-0.5"
               title={`View "${location}" on Google Maps`}
             >
               <GoogleMapsIcon className="size-3" />
-            </button>
+            </Button>
           )}
         </div>
       </div>
