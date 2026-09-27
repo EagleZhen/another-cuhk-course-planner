@@ -7,6 +7,7 @@ This directory keeps project notes for maintainers and agents. The goal is clear
 - [development.md](development.md): local setup, commands, checks, and env vars
 - [commit-conventions.md](commit-conventions.md): commit title types, scopes, and examples
 - [architecture.md](architecture.md): current system shape and key invariants
+- [design.md](design.md): UI control structure, interaction principles, and design rationale
 - [data-pipeline.md](data-pipeline.md): scraping, publishing, validation, logs, and data files
 - [deployment.md](deployment.md): hosting, analytics, and deployment checks
 - [decisions.md](decisions.md): optional rationale for project choices
