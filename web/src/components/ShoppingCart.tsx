@@ -68,8 +68,7 @@ function creditSummaryOf(visible: Credits | undefined, total: Credits | undefine
 }
 
 // Shared style for the change-banner actions; the grid gives both equal width.
-const bannerButtonClass =
-  'h-6 w-full rounded border border-amber-300 bg-white/50 px-2 text-[11px] font-medium text-amber-800 hover:bg-amber-100 cursor-pointer'
+const bannerButtonClass = 'h-6 w-full rounded px-2 text-[11px] font-medium'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
@@ -327,6 +326,7 @@ export default function ShoppingCart({
                 variant="ghost"
                 size="sm"
                 onClick={reviewNextChange}
+                tone="warning"
                 className={bannerButtonClass}
                 title="Review the next changed course from top to bottom"
               >
@@ -338,6 +338,7 @@ export default function ShoppingCart({
                 variant="ghost"
                 size="sm"
                 onClick={onDismissAllChanges}
+                tone="warning"
                 className={bannerButtonClass}
                 title="Dismiss all change notifications"
               >
@@ -517,7 +518,8 @@ export default function ShoppingCart({
                           // Remove this enrollment
                           onRemoveCourse(enrollment.courseId)
                         }}
-                        className="size-5 p-0 text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer"
+                        tone="danger"
+                        className="size-5 p-0"
                         title="Remove course"
                       >
                         <Trash2 className="size-3" />
@@ -609,10 +611,11 @@ export default function ShoppingCart({
                                       e.stopPropagation()
                                       cycleSection(enrollment, section.sectionType, 'prev')
                                     }}
-                                    className="h-4 w-4 p-0 hover:bg-gray-200 cursor-pointer"
+                                    tone="neutral"
+                                    className="h-4 w-4 p-0"
                                     title="Previous section"
                                   >
-                                    <ChevronLeft className="w-3 h-3 text-gray-600" />
+                                    <ChevronLeft className="w-3 h-3" />
                                   </Button>
                                   <Button
                                     variant="ghost"
@@ -621,10 +624,11 @@ export default function ShoppingCart({
                                       e.stopPropagation()
                                       cycleSection(enrollment, section.sectionType, 'next')
                                     }}
-                                    className="h-4 w-4 p-0 hover:bg-gray-200 cursor-pointer"
+                                    tone="neutral"
+                                    className="h-4 w-4 p-0"
                                     title="Next section"
                                   >
-                                    <ChevronRight className="w-3 h-3 text-gray-600" />
+                                    <ChevronRight className="w-3 h-3" />
                                   </Button>
                                 </div>
                               ) : (
@@ -727,10 +731,11 @@ export default function ShoppingCart({
                                       event.stopPropagation()
                                       chooseReplacement(enrollment, section.sectionType, 'prev')
                                     }}
-                                    className="h-4 w-4 cursor-pointer p-0 hover:bg-amber-100"
+                                    tone="warning"
+                                    className="h-4 w-4 p-0"
                                     aria-label={`Choose the last compatible ${sectionTypeName} section`}
                                   >
-                                    <ChevronLeft className="h-3 w-3 text-gray-600" />
+                                    <ChevronLeft className="h-3 w-3" />
                                   </Button>
                                   <Button
                                     variant="ghost"
@@ -739,10 +744,11 @@ export default function ShoppingCart({
                                       event.stopPropagation()
                                       chooseReplacement(enrollment, section.sectionType, 'next')
                                     }}
-                                    className="h-4 w-4 cursor-pointer p-0 hover:bg-amber-100"
+                                    tone="warning"
+                                    className="h-4 w-4 p-0"
                                     aria-label={`Choose the first compatible ${sectionTypeName} section`}
                                   >
-                                    <ChevronRight className="h-3 w-3 text-gray-600" />
+                                    <ChevronRight className="h-3 w-3" />
                                   </Button>
                                 </div>
                               ) : (

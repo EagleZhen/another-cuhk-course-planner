@@ -20,6 +20,15 @@ const buttonVariants = cva(
           'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 cursor-pointer',
         link: 'text-primary underline-offset-4 hover:underline cursor-pointer',
       },
+      tone: {
+        neutral:
+          'text-muted-foreground hover:bg-accent hover:text-accent-foreground active:bg-border active:text-accent-foreground dark:hover:bg-accent dark:active:bg-accent/80',
+        danger:
+          'text-red-600 hover:bg-red-50 hover:text-red-700 active:bg-red-100 active:text-red-800 dark:text-red-400 dark:hover:bg-red-950 dark:hover:text-red-300 dark:active:bg-red-900 dark:active:text-red-200',
+        warning:
+          'text-amber-800 hover:bg-amber-100 hover:text-amber-900 active:bg-amber-200 active:text-amber-950 dark:text-amber-300 dark:hover:bg-amber-950 dark:hover:text-amber-200 dark:active:bg-amber-900 dark:active:text-amber-100',
+        positive: 'bg-green-600 text-white hover:bg-green-700 active:bg-green-800',
+      },
       size: {
         default: 'h-9 px-2 py-2',
         sm: 'h-8 rounded-md gap-1.5 px-2',
@@ -33,22 +42,23 @@ const buttonVariants = cva(
   }
 )
 
-function Button({
-  className,
-  variant,
-  size,
-  asChild = false,
-  ...props
-}: React.ComponentProps<'button'> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean
-  }) {
+// Only combinations used by the app are supported during the appearance migration.
+type ButtonAppearance =
+  | { variant?: VariantProps<typeof buttonVariants>['variant']; tone?: never }
+  | { variant: 'ghost'; tone: 'neutral' | 'danger' | 'warning' }
+  | { variant?: 'default'; tone: 'positive' }
+
+type ButtonProps = React.ComponentProps<'button'> &
+  Pick<VariantProps<typeof buttonVariants>, 'size'> &
+  ButtonAppearance & { asChild?: boolean }
+
+function Button({ className, variant, tone, size, asChild = false, ...props }: ButtonProps) {
   const Comp = asChild ? Slot : 'button'
 
   return (
     <Comp
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, tone, size, className }))}
       {...props}
     />
   )

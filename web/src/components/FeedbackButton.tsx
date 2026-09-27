@@ -37,8 +37,9 @@ export default function FeedbackButton() {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       <Button
+        tone="positive"
         onClick={() => setIsOpen(!isOpen)}
-        className={`rounded-full shadow-lg hover:shadow-xl transition-shadow duration-200 bg-green-500 hover:bg-green-700 ${isOpen ? 'relative z-[60]' : ''}`}
+        className={`rounded-full shadow-lg ${isOpen ? 'relative z-[60]' : ''}`}
         size="lg"
         title="Share feedback about this course planner"
       >
