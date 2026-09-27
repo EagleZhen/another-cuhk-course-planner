@@ -10,6 +10,7 @@ Next.js recreates `web/AGENTS.md` with this warning, and a `web/CLAUDE.md` point
 
 - `README.md`: overview and repo map
 - `docs/README.md`: documentation map (start here for project docs)
+- `docs/design.md`: read before changing UI primitives or interaction styling
 - `docs/commit-conventions.md`: required types and scopes; read before proposing or creating a commit title
 
 ## Working Style
