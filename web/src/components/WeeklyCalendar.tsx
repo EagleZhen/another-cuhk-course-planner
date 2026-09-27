@@ -752,14 +752,15 @@ export default function WeeklyCalendar({
                 title={noPreviousReason}
                 className={`flex ${noPreviousReason ? 'cursor-not-allowed' : ''}`}
               >
-                <button
-                  className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
+                <Button
+                  variant="ghost"
+                  className="h-auto rounded px-1 py-0.5 disabled:opacity-30"
                   disabled={!previousStop}
                   aria-label="Previous week"
                   onClick={() => previousStop && goToWeek(previousStop)}
                 >
                   <ChevronLeft className="w-4 h-4" />
-                </button>
+                </Button>
               </span>
               <span className="tabular-nums font-medium whitespace-nowrap">
                 Week {weekIndex + 1} of {weeks.length}
@@ -768,14 +769,15 @@ export default function WeeklyCalendar({
                 title={noNextReason}
                 className={`flex ${noNextReason ? 'cursor-not-allowed' : ''}`}
               >
-                <button
-                  className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
+                <Button
+                  variant="ghost"
+                  className="h-auto rounded px-1 py-0.5 disabled:opacity-30"
                   disabled={!nextStop}
                   aria-label="Next week"
                   onClick={() => nextStop && goToWeek(nextStop)}
                 >
                   <ChevronRight className="w-4 h-4" />
-                </button>
+                </Button>
               </span>
             </div>
             <Button
