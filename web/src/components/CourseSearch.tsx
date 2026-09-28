@@ -2515,9 +2515,10 @@ function CollapsibleCourseOutcomeSection({
     <div>
       <Button
         variant="ghost"
+        size="sm"
         aria-expanded={isExpanded}
         onClick={() => setIsExpanded(!isExpanded)}
-        className="h-auto w-fit justify-start whitespace-normal px-0 py-1 text-left font-semibold text-gray-700"
+        className="-ml-2 w-fit justify-start whitespace-normal text-left font-semibold text-gray-700"
       >
         <span>{title}</span>
         {isExpanded ? <ChevronUp className="size-4" /> : <ChevronDown className="size-4" />}

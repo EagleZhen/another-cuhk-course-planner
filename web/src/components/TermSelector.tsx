@@ -57,7 +57,7 @@ function SelectMenu({
         size="sm"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
-        className={`${variant === 'button' ? 'gap-2' : 'h-auto gap-0.5 rounded px-1 py-0.5 text-xs font-semibold'} ${isOpen ? cfg.triggerOpen : ''}`}
+        className={`${variant === 'button' ? 'gap-2' : 'h-6 text-xs font-semibold'} ${isOpen ? cfg.triggerOpen : ''}`}
         title={title}
       >
         <span>{label}</span>
