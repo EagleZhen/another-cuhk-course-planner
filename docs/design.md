@@ -8,6 +8,8 @@ Use native buttons for actions and anchors for navigation.
 
 Feature action controls use Button by default. Native `<button>` elements belong in UI primitives or an explicitly justified exception, so ordinary controls inherit shared interaction feedback.
 
+ESLint rejects native buttons outside `components/ui/`. Explain any exception beside a local suppression. This guard does not cover clickable containers.
+
 - [Button](../web/src/components/ui/button.tsx): button appearances and sizes.
 - [MenuItem](../web/src/components/ui/menu-item.tsx): dropdown-row styling, including selection; not menu keyboard navigation or focus management.
 - [Badge](../web/src/components/ui/badge.tsx): compact labels, with interaction feedback when rendered as links.
