@@ -122,23 +122,19 @@ function shuffledCopy<T>(items: T[]): T[] {
   return copy
 }
 
-/**
- * The ✕ inside a summary chip. The 20px hit area is wider than the 16px circle it
- * shows, so the negative margins keep that slack from padding out the badge.
- */
+// Negative margins keep the 20px remove target from enlarging the summary chip.
 function ChipRemoveButton({ label, onRemove }: { label: string; onRemove: () => void }) {
   return (
-    <button
+    <Button
+      variant="ghost"
       type="button"
       onClick={onRemove}
-      className="group -my-0.5 -mr-1 inline-flex size-5 touch-manipulation cursor-pointer items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      className="-my-0.5 -mr-1 size-5 rounded-full p-0 touch-manipulation text-muted-foreground"
       aria-label={label}
       title={label}
     >
-      <span className="inline-flex size-4 items-center justify-center rounded-full text-gray-500 transition-colors group-hover:bg-black/10 group-hover:text-gray-800">
-        <X className="h-3 w-3" aria-hidden="true" />
-      </span>
-    </button>
+      <X className="size-3" aria-hidden="true" />
+    </Button>
   )
 }
 
@@ -692,12 +688,13 @@ export default function CourseSearch({
             <span>
               {failedSubjectCount} subject{failedSubjectCount !== 1 ? 's' : ''} failed to load due
               to a network error. Some courses may be missing.{' '}
-              <button
+              <Button
+                variant="ghost-danger"
                 onClick={() => window.location.reload()}
-                className="underline font-semibold cursor-pointer hover:text-red-900"
+                className="h-auto rounded px-0 py-0 text-inherit underline font-semibold"
               >
                 Reload the page
-              </button>{' '}
+              </Button>{' '}
               to try again.
             </span>
           </div>
@@ -2516,17 +2513,15 @@ function CollapsibleCourseOutcomeSection({
   // For collapsible sections
   return (
     <div>
-      <button
+      <Button
+        variant="ghost"
+        aria-expanded={isExpanded}
         onClick={() => setIsExpanded(!isExpanded)}
-        className="group flex items-center gap-2 w-fit text-left font-semibold text-sm text-gray-700 hover:text-blue-600 transition-colors py-1 cursor-pointer"
+        className="h-auto w-fit justify-start whitespace-normal px-0 py-1 text-left font-semibold text-gray-700"
       >
         <span>{title}</span>
-        {isExpanded ? (
-          <ChevronUp className="w-4 h-4 flex-shrink-0 text-gray-600 group-hover:text-blue-600 transition-colors" />
-        ) : (
-          <ChevronDown className="w-4 h-4 flex-shrink-0 text-gray-600 group-hover:text-blue-600 transition-colors" />
-        )}
-      </button>
+        {isExpanded ? <ChevronUp className="size-4" /> : <ChevronDown className="size-4" />}
+      </Button>
 
       {isExpanded && (
         <div className="mt-2">
