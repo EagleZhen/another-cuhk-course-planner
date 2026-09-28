@@ -561,12 +561,12 @@ export default function Home() {
                 Archived: <strong className="font-semibold">{currentTerm}</strong>
               </span>
             </span>
-            <button
+            <Button
               onClick={() => handleTermChange(DEFAULT_CURRENT_TERM)}
-              className="flex-shrink-0 cursor-pointer rounded-full bg-amber-600 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-amber-700"
+              className="h-auto gap-0 rounded-full bg-amber-600 px-3 py-1 text-xs text-white shadow-none hover:bg-amber-700 active:bg-amber-800"
             >
               Back to current<span className="hidden sm:inline"> term</span>
-            </button>
+            </Button>
             {catalog.scrapedAt && (
               /* Pinned right from lg and hidden below, where the disclaimer banner
                  instead drops its timestamp onto its own line. The difference is

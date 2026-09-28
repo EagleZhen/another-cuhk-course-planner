@@ -796,20 +796,24 @@ export default function WeeklyCalendar({
             spans the card's padding back, keeping them overhanging its left edge. */}
         <div className="relative -mx-4 h-full max-h-[720px] px-4">
           {scrollState.canScrollUp && (
-            <button
-              className="absolute z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1 top-12 -left-2"
+            <Button
+              variant="outline"
+              aria-label="Scroll timetable to top"
+              className="absolute z-40 h-auto rounded-lg border-gray-300 px-1.5 py-1 shadow-lg top-12 -left-2"
               onClick={scrollToTopHandler}
             >
               <ChevronUp className="w-4 h-4 text-gray-700" />
-            </button>
+            </Button>
           )}
           {scrollState.canScrollDown && (
-            <button
-              className="absolute z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1 bottom-8 -left-2"
+            <Button
+              variant="outline"
+              aria-label="Scroll timetable to bottom"
+              className="absolute z-40 h-auto rounded-lg border-gray-300 px-1.5 py-1 shadow-lg bottom-8 -left-2"
               onClick={scrollToBottomHandler}
             >
               <ChevronDown className="w-4 h-4 text-gray-700" />
-            </button>
+            </Button>
           )}
 
           {/* A week can be genuinely empty. Say so, so it does not read as a bug.
