@@ -125,6 +125,22 @@
   .font-mono {
     font-variant-ligatures: none;
   }
+
+  [data-cart-item] {
+    --cart-pressed-background: var(--color-gray-100);
+  }
+
+  [data-cart-item][data-invalid='true'] {
+    --cart-pressed-background: var(--color-amber-100);
+  }
+
+  /* Only card selection presses the surface; nested actions keep their own feedback. */
+  [data-cart-item][data-selectable='true']:is(
+      :active:not(:has(button:active, a:active)),
+      :has([data-cart-select]:active)
+    ) {
+    background-color: var(--cart-pressed-background);
+  }
 }
 
 /* Breathes on a card the week moved to gained or changed. Navigation state only,

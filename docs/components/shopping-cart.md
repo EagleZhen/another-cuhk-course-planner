@@ -4,6 +4,8 @@
 
 ## Choosing Sections
 
+The course-code button toggles cart selection by keyboard; clicking the card body performs the same action. Visible or invalid items remain selectable. Nested actions keep their own feedback and must not select or show the parent as pressed.
+
 A lecture choice constrains the available tutorials, but a tutorial choice does not constrain lectures. Cycling follows this section-type priority. Changing a higher-priority section can make lower-priority choices incompatible, so `handleSectionChange` uses `autoCompleteEnrollmentSections` to replace the choice and reconcile the affected sections together.
 
 Keep `selectedSections` in priority order using `sortSectionsByPriority`. The cart displays that order and uses the first section for the course header's cohort.

@@ -371,6 +371,10 @@ export default function ShoppingCart({
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
               const isSelectable = isVisible || isInvalid
+              const canSelect = isSelectable && !!onSelectEnrollment
+              const toggleSelection = () => {
+                if (canSelect) onSelectEnrollment?.(isSelected ? null : enrollment.courseId)
+              }
               const cardCursorClass = isInvalid
                 ? 'cursor-help'
                 : isSelectable
@@ -398,6 +402,9 @@ export default function ShoppingCart({
               return (
                 <div
                   key={enrollment.courseId}
+                  data-cart-item
+                  data-selectable={canSelect}
+                  data-invalid={!!isInvalid}
                   ref={(el) => {
                     if (el) {
                       itemRefs.current.set(enrollment.courseId, el)
@@ -433,12 +440,7 @@ export default function ShoppingCart({
                         ? invalidTooltip
                         : undefined
                   }
-                  onClick={() => {
-                    if (isSelectable && onSelectEnrollment) {
-                      const newSelection = isSelected ? null : enrollment.courseId
-                      onSelectEnrollment(newSelection)
-                    }
-                  }}
+                  onClick={toggleSelection}
                 >
                   {/* Course Header */}
                   {/* Icon buttons are `size-5` (not `h-full aspect-square`) to match this row's `h-5` — Safari resolves stretch+aspect-ratio differently and renders the button past the card's edge. */}
@@ -446,13 +448,23 @@ export default function ShoppingCart({
                     <div
                       className={`flex min-w-0 flex-1 items-stretch gap-1 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}
                     >
-                      <span className="flex h-full shrink-0 items-center text-sm font-semibold leading-5">
+                      <Button
+                        variant="ghost"
+                        data-cart-select
+                        disabled={!canSelect}
+                        aria-pressed={isSelected}
+                        onClick={(event) => {
+                          event.stopPropagation()
+                          toggleSelection()
+                        }}
+                        className="h-full rounded-sm p-0 text-sm font-semibold leading-5 disabled:opacity-100"
+                      >
                         {formatCourseCodeWithPrefix(
                           enrollment.course.subject,
                           enrollment.course.courseCode,
                           headerCohortKey
                         )}
-                      </span>
+                      </Button>
                       {enrollment.course.credits && (
                         // The only thing here that may shrink — the code is the card's
                         // identity, the actions are fixed — so keep px-1: any wider and it
