@@ -1996,7 +1996,7 @@ function CourseCard({
                             : `${hiddenSectionsCount} option${hiddenSectionsCount === 1 ? '' : 's'} hidden`}
                         </span>
                         <Button
-                          variant="ghost"
+                          variant="text-action"
                           size="sm"
                           onClick={() => {
                             setShowAllSectionTypes((prev) => {
@@ -2518,7 +2518,7 @@ function CollapsibleCourseOutcomeSection({
         size="sm"
         aria-expanded={isExpanded}
         onClick={() => setIsExpanded(!isExpanded)}
-        className="-ml-2 w-fit justify-start whitespace-normal text-left font-semibold text-gray-700"
+        className="-ml-2 w-fit justify-start whitespace-normal text-left font-semibold"
       >
         <span>{title}</span>
         {isExpanded ? <ChevronUp className="size-4" /> : <ChevronDown className="size-4" />}

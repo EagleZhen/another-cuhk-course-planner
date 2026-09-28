@@ -15,7 +15,7 @@ const VARIANTS: Record<
   { triggerOpen: string; backdropZ: string; menuZ: string; align: string }
 > = {
   link: {
-    triggerOpen: 'relative z-50 bg-accent',
+    triggerOpen: 'relative z-50 bg-blue-50 dark:bg-blue-950',
     backdropZ: 'z-40',
     menuZ: 'z-50',
     align: 'left-0',
@@ -53,7 +53,7 @@ function SelectMenu({
   return (
     <div className="relative">
       <Button
-        variant={variant === 'button' ? 'outline' : 'ghost'}
+        variant={variant === 'button' ? 'outline' : 'text-action'}
         size="sm"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}

@@ -24,6 +24,9 @@ const buttonVariants = cva(
         // E.g. ICS export and its dropdown chevron.
         ghost:
           'hover:bg-accent hover:text-accent-foreground active:bg-border active:text-accent-foreground dark:hover:bg-accent/50 dark:active:bg-accent cursor-pointer',
+        // E.g. Show All / Show Selected Only beside the subject filters.
+        'text-action':
+          'text-blue-700 hover:bg-blue-50 hover:text-blue-800 active:bg-blue-100 active:text-blue-900 dark:text-blue-400 dark:hover:bg-blue-950 dark:hover:text-blue-300 dark:active:bg-blue-900 dark:active:text-blue-200 cursor-pointer',
         // E.g. eye icons over timetable events.
         overlay:
           'bg-black/20 text-white backdrop-blur-sm hover:bg-white/40 active:bg-white/60 cursor-pointer',

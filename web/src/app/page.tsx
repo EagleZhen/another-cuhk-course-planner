@@ -877,7 +877,7 @@ function SubjectFilterControls({
       {hasSubjects && (
         <div className="flex items-center gap-1.5">
           <Button
-            variant="ghost"
+            variant="text-action"
             size="sm"
             onClick={onToggleShowSelected}
             className="h-5 rounded px-1.5 text-xs font-normal"

@@ -25,3 +25,5 @@ Button uses one `variant` for each complete appearance and a separate `size`. Ke
 Share styles only when controls should change together. Compact chips can use stronger selection fills than full-width menu rows, which would otherwise dominate a dropdown.
 
 Keep selection distinguishable from momentary pressing. Passive labels should not show interaction feedback.
+
+Use Button's `text-action` for text controls that need a visible action cue before hover, such as inline term selectors and Show all actions. Keep low-emphasis disclosure headings and icon utilities neutral; preserve warning/destructive colors.
