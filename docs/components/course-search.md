@@ -60,3 +60,9 @@ Cart action buttons scrolled out of view on long section lists. Fix: dock them b
 - Instructor filters do not support partial name matching.
 - Day filters show day presence, not time ranges.
 - File size and startup loading are tracked in [improvements.md](../improvements.md).
+
+## Course Card Interaction
+
+Only the collapsed course body opens sections and shows pressed feedback. The expand buttons provide keyboard access. Nested buttons and links keep their own feedback; the expanded body stays passive.
+
+The mobile controls wrapper stays transparent while collapsed so card feedback shows through; it becomes opaque when expanded and sticky.

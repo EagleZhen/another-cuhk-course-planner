@@ -1588,6 +1588,8 @@ function CourseCard({
 
   return (
     <Card
+      data-course-disclosure
+      data-expanded={expanded}
       className={`py-5 gap-0 transition-all duration-200 ${
         !expanded ? 'hover:shadow-lg hover:bg-gray-50 cursor-pointer' : 'shadow-md'
       }`}
@@ -1669,6 +1671,9 @@ function CourseCard({
                 handleToggle()
               }}
               className="w-8 h-8 p-0"
+              data-course-expand
+              aria-expanded={expanded}
+              aria-label={expanded ? 'Hide sections' : 'Show sections'}
               title={expanded ? 'Hide sections' : 'Show sections'}
             >
               {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -1825,7 +1830,7 @@ function CourseCard({
       {/* Mobile: action buttons dock below the search bar while expanded, same plain
           CSS sticky approach as the search bar / archived-year banner itself */}
       <div
-        className={`sm:hidden bg-white px-6 pt-3 pb-3 space-y-2 ${expanded ? 'sticky z-[5]' : ''}`}
+        className={`sm:hidden px-6 pt-3 pb-3 space-y-2 ${expanded ? 'sticky z-[5] bg-white' : ''}`}
         style={expanded ? { top: stickyOffset } : undefined}
       >
         {renderCartActionsStacked()}
@@ -1839,6 +1844,8 @@ function CourseCard({
             handleToggle()
           }}
           className="w-full cursor-pointer"
+          data-course-expand
+          aria-expanded={expanded}
           title={expanded ? 'Hide sections' : 'Show sections'}
         >
           {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}

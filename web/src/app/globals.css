@@ -141,6 +141,14 @@
     ) {
     background-color: var(--cart-pressed-background);
   }
+
+  /* Expanded course bodies are passive; only the collapsed surface opens sections. */
+  [data-course-disclosure][data-expanded='false']:is(
+      :active:not(:has(button:active, a:active)),
+      :has([data-course-expand]:active)
+    ) {
+    background-color: var(--color-gray-100);
+  }
 }
 
 /* Breathes on a card the week moved to gained or changed. Navigation state only,
