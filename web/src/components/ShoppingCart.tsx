@@ -402,9 +402,7 @@ export default function ShoppingCart({
               return (
                 <div
                   key={enrollment.courseId}
-                  data-cart-item
-                  data-selectable={canSelect}
-                  data-invalid={!!isInvalid}
+                  data-card-pressable={canSelect}
                   ref={(el) => {
                     if (el) {
                       itemRefs.current.set(enrollment.courseId, el)
@@ -415,7 +413,7 @@ export default function ShoppingCart({
                   className={`
                     relative group space-y-2 rounded border border-l-4 p-2
                     transition-all duration-300 motion-reduce:transition-none
-                    ${isInvalid ? 'border-amber-200 bg-amber-50' : 'border-gray-200 bg-white'}
+                    ${isInvalid ? 'border-amber-200 bg-amber-50 [--card-pressed-background:var(--color-amber-100)]' : 'border-gray-200 bg-white [--card-pressed-background:var(--color-gray-100)]'}
                     ${isSelectable && onSelectEnrollment && !isSelected ? 'hover:shadow-md' : ''}
                     ${isSelected && isSelectable ? `ring-1 shadow-lg scale-[1.02]` : ''}
                     ${cardCursorClass}
@@ -450,7 +448,7 @@ export default function ShoppingCart({
                     >
                       <Button
                         variant="ghost"
-                        data-cart-select
+                        data-card-primary-action
                         disabled={!canSelect}
                         aria-pressed={isSelected}
                         onClick={(event) => {

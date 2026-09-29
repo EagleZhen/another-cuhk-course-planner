@@ -28,4 +28,6 @@ Share styles only when controls should change together. Compact chips can use st
 
 Keep selection distinguishable from momentary pressing. Passive labels should not show interaction feedback.
 
+Clickable cards opt into shared pressed feedback with `data-card-pressable` and supply `--card-pressed-background` alongside their palette. Mark the primary button with `data-card-primary-action`; other nested buttons and links keep independent feedback. This styles interaction only; consumers still own activation and keyboard access.
+
 Use Button's `text-action` for text controls that need a visible action cue before hover, such as inline term selectors and Show all actions. Keep low-emphasis disclosure headings and icon utilities neutral; preserve warning/destructive colors.

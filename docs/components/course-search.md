@@ -66,3 +66,5 @@ Cart action buttons scrolled out of view on long section lists. Fix: dock them b
 Only the collapsed course body opens sections and shows pressed feedback. The expand buttons provide keyboard access. Nested buttons and links keep their own feedback; the expanded body stays passive.
 
 The mobile controls wrapper stays transparent while collapsed so card feedback shows through; it becomes opaque when expanded and sticky.
+
+Section cards share their selection handler with the +/- button. Incompatible sections cannot activate selection feedback; other sections retain their availability palette, with blue taking precedence when selected. Nested search actions keep independent feedback.

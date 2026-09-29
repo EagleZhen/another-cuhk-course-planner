@@ -1588,9 +1588,8 @@ function CourseCard({
 
   return (
     <Card
-      data-course-disclosure
-      data-expanded={expanded}
-      className={`py-5 gap-0 transition-all duration-200 ${
+      data-card-pressable={!expanded}
+      className={`py-5 gap-0 transition-all duration-200 [--card-pressed-background:var(--color-gray-100)] ${
         !expanded ? 'hover:shadow-lg hover:bg-gray-50 cursor-pointer' : 'shadow-md'
       }`}
       onClick={!expanded ? handleToggle : undefined} // Prevent collapsing when clicking on the card after expanding
@@ -1671,7 +1670,7 @@ function CourseCard({
                 handleToggle()
               }}
               className="w-8 h-8 p-0"
-              data-course-expand
+              data-card-primary-action
               aria-expanded={expanded}
               aria-label={expanded ? 'Hide sections' : 'Show sections'}
               title={expanded ? 'Hide sections' : 'Show sections'}
@@ -1844,7 +1843,7 @@ function CourseCard({
             handleToggle()
           }}
           className="w-full cursor-pointer"
-          data-course-expand
+          data-card-primary-action
           aria-expanded={expanded}
           title={expanded ? 'Hide sections' : 'Show sections'}
         >
@@ -2052,80 +2051,83 @@ function CourseCard({
                           ? 'cursor-not-allowed'
                           : 'cursor-pointer'
 
-                        return (
-                          <div
-                            key={section.id}
-                            className={`p-2 rounded transition-all ${cardCursorClass} ${
-                              isSelected
-                                ? 'border border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200'
-                                : isIncompatible
-                                  ? 'border border-gray-200 opacity-40 grayscale'
-                                  : section.availability.status === 'Open'
-                                    ? 'border border-green-500 hover:bg-green-50 shadow-sm'
-                                    : section.availability.status === 'Wait List'
-                                      ? 'border border-yellow-500 hover:bg-yellow-50 shadow-sm'
-                                      : 'border border-red-500 hover:bg-red-50 shadow-sm'
-                            }`}
-                            onClick={() => {
-                              if (!isIncompatible) {
-                                const newSelections = new Map(localSelections)
-                                if (newSelections.get(typeGroup.type) === section.id) {
-                                  // Remove selection
-                                  newSelections.delete(typeGroup.type)
-                                  // Note: Keep "show all" state - let user control it explicitly
-                                } else {
-                                  // Set new selection
-                                  newSelections.set(typeGroup.type, section.id)
+                        const toggleSection = () => {
+                          if (!isIncompatible) {
+                            const newSelections = new Map(localSelections)
+                            if (newSelections.get(typeGroup.type) === section.id) {
+                              // Remove selection
+                              newSelections.delete(typeGroup.type)
+                              // Note: Keep "show all" state - let user control it explicitly
+                            } else {
+                              // Set new selection
+                              newSelections.set(typeGroup.type, section.id)
 
-                                  // Cascade clearing: if this is a higher-priority selection,
-                                  // clear incompatible lower-priority selections
-                                  const newSectionPriority = getSectionTypePriority(
-                                    typeGroup.type as SectionType,
-                                    sectionTypes
+                              // Cascade clearing: if this is a higher-priority selection,
+                              // clear incompatible lower-priority selections
+                              const newSectionPriority = getSectionTypePriority(
+                                typeGroup.type as SectionType,
+                                sectionTypes
+                              )
+
+                              // Find lower-priority selections to potentially clear
+                              const selectionsToCheck = Array.from(newSelections.entries())
+                              for (const [otherType, otherSectionId] of selectionsToCheck) {
+                                if (otherType === typeGroup.type) continue // Skip self
+
+                                const otherPriority = getSectionTypePriority(
+                                  otherType as SectionType,
+                                  sectionTypes
+                                )
+
+                                // Only clear LOWER priority selections (higher number = lower priority)
+                                if (otherPriority > newSectionPriority) {
+                                  // Check if the new selection makes the other selection incompatible
+                                  const otherTypeGroup = sectionTypes.find(
+                                    (tg) => tg.type === otherType
                                   )
-
-                                  // Find lower-priority selections to potentially clear
-                                  const selectionsToCheck = Array.from(newSelections.entries())
-                                  for (const [otherType, otherSectionId] of selectionsToCheck) {
-                                    if (otherType === typeGroup.type) continue // Skip self
-
-                                    const otherPriority = getSectionTypePriority(
-                                      otherType as SectionType,
-                                      sectionTypes
+                                  if (otherTypeGroup) {
+                                    const otherSection = otherTypeGroup.sections.find(
+                                      (s) => s.id === otherSectionId
                                     )
 
-                                    // Only clear LOWER priority selections (higher number = lower priority)
-                                    if (otherPriority > newSectionPriority) {
-                                      // Check if the new selection makes the other selection incompatible
-                                      const otherTypeGroup = sectionTypes.find(
-                                        (tg) => tg.type === otherType
+                                    // Check compatibility using the new selection as constraint
+                                    if (otherSection) {
+                                      const { incompatible } = categorizeCompatibleSections(
+                                        otherTypeGroup.sections,
+                                        [section] // New higher-priority selection as constraint
                                       )
-                                      if (otherTypeGroup) {
-                                        const otherSection = otherTypeGroup.sections.find(
-                                          (s) => s.id === otherSectionId
-                                        )
 
-                                        // Check compatibility using the new selection as constraint
-                                        if (otherSection) {
-                                          const { incompatible } = categorizeCompatibleSections(
-                                            otherTypeGroup.sections,
-                                            [section] // New higher-priority selection as constraint
-                                          )
-
-                                          // If the other section is now incompatible, clear it
-                                          if (incompatible.includes(otherSection)) {
-                                            newSelections.delete(otherType)
-                                          }
-                                        }
+                                      // If the other section is now incompatible, clear it
+                                      if (incompatible.includes(otherSection)) {
+                                        newSelections.delete(otherType)
                                       }
                                     }
                                   }
                                 }
-                                setLocalSelections(newSelections)
-                                onSectionsChange(course, newSelections)
-                                // Note: Removed auto-reset of showAllSectionTypes - let user control it explicitly
                               }
-                            }}
+                            }
+                            setLocalSelections(newSelections)
+                            onSectionsChange(course, newSelections)
+                            // Note: Removed auto-reset of showAllSectionTypes - let user control it explicitly
+                          }
+                        }
+
+                        return (
+                          <div
+                            key={section.id}
+                            data-card-pressable={!isIncompatible}
+                            className={`p-2 rounded transition-all ${cardCursorClass} ${
+                              isSelected
+                                ? 'border border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200 [--card-pressed-background:var(--color-blue-100)]'
+                                : isIncompatible
+                                  ? 'border border-gray-200 opacity-40 grayscale'
+                                  : section.availability.status === 'Open'
+                                    ? 'border border-green-500 hover:bg-green-50 shadow-sm [--card-pressed-background:var(--color-green-100)]'
+                                    : section.availability.status === 'Wait List'
+                                      ? 'border border-yellow-500 hover:bg-yellow-50 shadow-sm [--card-pressed-background:var(--color-yellow-100)]'
+                                      : 'border border-red-500 hover:bg-red-50 shadow-sm [--card-pressed-background:var(--color-red-100)]'
+                            }`}
+                            onClick={toggleSection}
                             title={
                               isIncompatible
                                 ? `Can't be taken with: ${clashesWith
@@ -2162,6 +2164,14 @@ function CourseCard({
                                     variant="ghost"
                                     size="sm"
                                     className="h-4 w-4 p-0"
+                                    data-card-primary-action
+                                    disabled={isIncompatible}
+                                    aria-pressed={isSelected}
+                                    aria-label={`Section ${section.sectionCode}`}
+                                    onClick={(event) => {
+                                      event.stopPropagation()
+                                      toggleSection()
+                                    }}
                                     title={isSelected ? 'Remove selection' : 'Select this section'}
                                   >
                                     {isSelected ? (

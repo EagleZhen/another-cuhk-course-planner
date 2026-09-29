@@ -126,28 +126,13 @@
     font-variant-ligatures: none;
   }
 
-  [data-cart-item] {
-    --cart-pressed-background: var(--color-gray-100);
-  }
-
-  [data-cart-item][data-invalid='true'] {
-    --cart-pressed-background: var(--color-amber-100);
-  }
-
-  /* Only card selection presses the surface; nested actions keep their own feedback. */
-  [data-cart-item][data-selectable='true']:is(
-      :active:not(:has(button:active, a:active)),
-      :has([data-cart-select]:active)
-    ) {
-    background-color: var(--cart-pressed-background);
-  }
-
-  /* Expanded course bodies are passive; only the collapsed surface opens sections. */
-  [data-course-disclosure][data-expanded='false']:is(
-      :active:not(:has(button:active, a:active)),
-      :has([data-course-expand]:active)
-    ) {
-    background-color: var(--color-gray-100);
+  /* Press the card or its primary action, not an independent nested control.
+     Each consumer supplies its pressed color alongside its resting/hover palette. */
+  [data-card-pressable='true']:is(
+    :active:not(:has(button:active, a:active)),
+    :has([data-card-primary-action]:active)
+  ) {
+    background-color: var(--card-pressed-background);
   }
 }
 
