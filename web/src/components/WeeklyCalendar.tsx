@@ -1178,11 +1178,12 @@ function UnscheduledSectionsCard({
 
   return (
     <div data-screenshot="unscheduled" className="px-4 py-1 bg-white">
-      <div
-        className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:bg-gray-50 transition-all bg-white cursor-pointer"
-        onClick={() => setIsExpanded(!isExpanded)}
-      >
-        <div className="p-3">
+      <div className="border border-gray-200 rounded-lg shadow-sm bg-white">
+        <div
+          data-card-pressable="true"
+          className={`p-3 rounded-t-lg hover:bg-gray-50 transition-colors cursor-pointer [--card-pressed-background:var(--color-gray-100)] ${!isExpanded ? 'rounded-b-lg' : ''}`}
+          onClick={() => setIsExpanded((expanded) => !expanded)}
+        >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 flex-1 min-w-0">
               <div className="flex items-center gap-2 flex-shrink-0">
@@ -1199,26 +1200,12 @@ function UnscheduledSectionsCard({
                   const isSelected = selectedEnrollment === item.enrollment.courseId
 
                   return (
-                    <span
+                    <Button
                       key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
-                      className={`
-                        ${item.enrollment.color || 'bg-indigo-500'}
-                        px-2 py-0.5 rounded font-mono text-xs text-white cursor-pointer hover:scale-105 transition-all
-                        ${isSelected ? 'scale-105' : ''}
-                      `}
-                      style={
-                        isSelected
-                          ? {
-                              backgroundImage: `repeating-linear-gradient(
-                          45deg,
-                          transparent,
-                          transparent 8px,
-                          rgba(255,255,255,0.15) 8px,
-                          rgba(255,255,255,0.15) 10px
-                        )`,
-                            }
-                          : {}
-                      }
+                      variant="ghost"
+                      className={`h-auto rounded p-0 font-mono text-xs font-normal hover:scale-105 active:brightness-90 ${isSelected ? 'scale-105' : ''}`}
+                      aria-pressed={isSelected}
+                      disabled={!onSelectEnrollment || !item.enrollment.courseId}
                       onClick={(e) => {
                         e.stopPropagation()
                         if (onSelectEnrollment && item.enrollment.courseId) {
@@ -1227,22 +1214,50 @@ function UnscheduledSectionsCard({
                         }
                       }}
                     >
-                      {formatCourseCodeWithPrefix(
-                        item.enrollment.course.subject,
-                        item.enrollment.course.courseCode,
-                        cohortOf(item.section.sectionCode)
-                      )}
-                    </span>
+                      <span
+                        className={`px-2 py-0.5 rounded text-white ${item.enrollment.color || 'bg-indigo-500'}`}
+                        style={
+                          isSelected
+                            ? {
+                                backgroundImage: `repeating-linear-gradient(
+                                  45deg,
+                                  transparent,
+                                  transparent 8px,
+                                  rgba(255,255,255,0.15) 8px,
+                                  rgba(255,255,255,0.15) 10px
+                                )`,
+                              }
+                            : undefined
+                        }
+                      >
+                        {formatCourseCodeWithPrefix(
+                          item.enrollment.course.subject,
+                          item.enrollment.course.courseCode,
+                          cohortOf(item.section.sectionCode)
+                        )}
+                      </span>
+                    </Button>
                   )
                 })}
               </div>
             </div>
 
-            <div className="flex-shrink-0 ml-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="ml-2 h-6 w-6 p-0 text-gray-400"
+              aria-label="Unscheduled courses"
+              aria-expanded={isExpanded}
+              data-card-primary-action
+              onClick={(event) => {
+                event.stopPropagation()
+                setIsExpanded((expanded) => !expanded)
+              }}
+            >
               <ChevronDown
                 className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
               />
-            </div>
+            </Button>
           </div>
         </div>
 
