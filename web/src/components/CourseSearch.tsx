@@ -1151,12 +1151,14 @@ function InstructorFilters({
     <div className={`flex gap-2 ${isMobile ? 'flex-col w-full' : 'flex-wrap'}`}>
       {instructors.map((formattedInstructor) => {
         const isSelected = selectedInstructors.has(formattedInstructor)
+        const hasSearch = formattedInstructor !== 'Staff'
         return (
           <div key={formattedInstructor} className="flex items-center">
             <Button
               variant={isSelected ? 'default' : 'outline'}
               size="sm"
-              className={`h-6 pl-2 text-xs font-normal border-1 cursor-pointer flex items-center gap-1 relative group ${formattedInstructor !== 'Staff' ? 'pr-1' : 'pr-2'}`}
+              className={`h-6 px-2 text-xs font-normal border-1 relative focus-visible:z-10 ${hasSearch ? 'rounded-r-none' : ''}`}
+              aria-pressed={isSelected}
               onClick={(e) => {
                 e.stopPropagation()
                 onToggleInstructor(formattedInstructor)
@@ -1168,26 +1170,22 @@ function InstructorFilters({
               }
             >
               {formattedInstructor}
-              {/* Only show search button for specific instructors, not "Staff" */}
-              {formattedInstructor !== 'Staff' && (
-                <>
-                  <div
-                    className={`h-4 w-px shrink-0 ml-0.5 mr-0 ${isSelected ? 'bg-white/40' : 'bg-gray-400/60'}`}
-                  />{' '}
-                  {/* Visual separator */}
-                  <div
-                    className="size-5 p-0.5 flex items-center justify-center rounded-sm hover:bg-black/10 cursor-pointer"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      googleSearchAndOpen(`CUHK ${formattedInstructor}`)
-                    }}
-                    title={`Search Google for "CUHK ${formattedInstructor}"`}
-                  >
-                    <GoogleIcon className="size-3.5" />
-                  </div>
-                </>
-              )}
             </Button>
+            {hasSearch && (
+              <Button
+                variant="outline"
+                size="sm"
+                className="-ml-px h-6 w-6 rounded-l-none p-0 relative focus-visible:z-10"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  googleSearchAndOpen(`CUHK ${formattedInstructor}`)
+                }}
+                aria-label={`Search Google for "CUHK ${formattedInstructor}"`}
+                title={`Search Google for "CUHK ${formattedInstructor}"`}
+              >
+                <GoogleIcon className="size-3.5" />
+              </Button>
+            )}
           </div>
         )
       })}
