@@ -17,7 +17,7 @@ const buttonVariants = cva(
           'bg-destructive text-white shadow-xs hover:bg-destructive/90 active:bg-destructive/80 dark:hover:bg-destructive/70 dark:active:bg-destructive/80 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60 cursor-pointer',
         // E.g. term selectors and unselected filter chips.
         outline:
-          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground active:bg-border active:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 dark:active:bg-input/70 cursor-pointer',
+          'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground active:bg-border/70 active:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 dark:active:bg-input/70 cursor-pointer',
         // E.g. disabled Add to Cart and Added status.
         secondary:
           'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80 active:bg-secondary/60 cursor-pointer',
