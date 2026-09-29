@@ -6,8 +6,6 @@ Renders one week of the timetable from precomputed `CalendarEvent[]` (state and 
 
 Only non-obvious constraints and rationale are documented here; the code is the reference for behavior.
 
-The unscheduled section toggles from its header, with a chevron Button for keyboard access. Header course-label Buttons select independently and retain enrollment colors; pressing them does not activate header feedback. Clicks in expanded content do not collapse it.
-
 ## Weeks
 
 One event per **occurrence** — a section's class on one date — not per meeting row. Of course-terms with a timed section, **70.5%** have one that skips a week and **16.4%** one that meets somewhere or sometime different in another week. A union view can show neither.

@@ -48,6 +48,7 @@ Cart action buttons scrolled out of view on long section lists. Fix: dock them b
 
 - **Desktop** sticks the whole `CardHeader` (already a sibling of `CardContent`, so no restructuring needed) rather than pulling the buttons out of their inline spot beside the title.
 - **Mobile** sticks only a slim button bar, not the full header - badges/instructor chips can wrap several lines on a narrow screen.
+- Keep that bar transparent when collapsed so card feedback shows through; it needs an opaque background only when expanded and sticky.
 - **No `IntersectionObserver`-based "is it stuck" detection** (e.g. for a shadow that appears only once pinned) - it lags real scroll position by a frame, causing a visible mismatch. Styling keys off `expanded` alone instead.
 - z-index stays below the search bar's, so the search bar always wins on overlap.
 - The offset is reconstructed from the search bar's CSS `top` (read via `getComputedStyle`, not hardcoded) plus its live height (via `ResizeObserver`) - **not** `getBoundingClientRect()`'s current position. The search bar's on-screen position only equals its _stuck_ position once the page has actually scrolled that far; expanding a card before scrolling (e.g. the first result, on a wide screen with more content above the search bar) would otherwise capture wherever it naturally sits pre-scroll, sticking the header far down the page.
@@ -60,11 +61,3 @@ Cart action buttons scrolled out of view on long section lists. Fix: dock them b
 - Instructor filters do not support partial name matching.
 - Day filters show day presence, not time ranges.
 - File size and startup loading are tracked in [improvements.md](../improvements.md).
-
-## Course Card Interaction
-
-Only the collapsed course body opens sections and shows pressed feedback. The expand buttons provide keyboard access. Nested buttons and links keep their own feedback; the expanded body stays passive.
-
-The mobile controls wrapper stays transparent while collapsed so card feedback shows through; it becomes opaque when expanded and sticky.
-
-Section cards share their selection handler with the +/- button. Incompatible sections cannot activate selection feedback; other sections retain their availability palette, with blue taking precedence when selected. Nested search actions keep independent feedback.
