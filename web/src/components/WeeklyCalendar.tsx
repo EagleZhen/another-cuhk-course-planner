@@ -1191,12 +1191,12 @@ function UnscheduledSectionsCard({
 
   return (
     <div data-screenshot="unscheduled" className="px-4 py-1 bg-white">
-      <div className="border border-gray-200 rounded-lg shadow-sm bg-white">
-        <div
-          data-card-pressable="true"
-          className={`p-3 rounded-t-lg hover:bg-gray-50 transition-colors cursor-pointer [--card-pressed-background:var(--color-gray-100)] ${!isExpanded ? 'rounded-b-lg' : ''}`}
-          onClick={() => setIsExpanded((expanded) => !expanded)}
-        >
+      <div
+        data-card-pressable="true"
+        className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md bg-white hover:bg-gray-50 transition-all cursor-pointer [--card-pressed-background:var(--color-gray-100)]"
+        onClick={() => setIsExpanded((expanded) => !expanded)}
+      >
+        <div className="p-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 flex-1 min-w-0">
               <div className="flex items-center gap-2 flex-shrink-0">
@@ -1313,7 +1313,10 @@ function UnscheduledSectionsCard({
                         )`,
                       }),
                     }}
-                    onClick={toggleSelection}
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      toggleSelection()
+                    }}
                   >
                     <Button
                       variant="ghost"
