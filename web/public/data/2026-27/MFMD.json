@@ -1,0 +1,56 @@
+{
+  "metadata": {
+    "schema_version": 3,
+    "subject": "MFMD",
+    "subject_title": "Maternal Fetal Medicine",
+    "total_courses": 1
+  },
+  "courses": [
+    {
+      "subject": "MFMD",
+      "course_code": "5008",
+      "title": "Clinical Cytogenetics",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2420",
+          "term_name": "2026-27 Term 1",
+          "schedule": [
+            {
+              "section": "--LEC (10298)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor POON Chiu Yee Liona",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "1",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
+            }
+          ]
+        }
+      ],
+      "description": "The course covers the understanding of DNA and its architecture, cell division and the use of various techniques to examine these structures, including chromosome banding, FISH and array CGH. It also covers the application of these techniques for the detection of chromosomal abnormalities, developing preanalytic and postanalytic skills in test results interpretation, report writing and communication of result to clinicians.",
+      "enrollment_requirement": "For students in MSc Maternal Fetal Medicine",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Obstetrics & Gynaecol",
+      "academic_org": "Div of Obstetrics & Gynaecol",
+      "learning_outcomes": "Students are expected to understand and be able to conduct karyotyping analysis on prenatal and postnatal samples including result interpretation and write up report.",
+      "assessment_types": {}
+    }
+  ]
+}

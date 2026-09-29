@@ -1,8 +1,8 @@
 {
   "latest_run": {
-    "started_at": "2026-09-26 22:22:03 HK",
-    "last_updated": "2026-09-27 07:47:07 HK",
-    "duration": "9h 25m 3s",
+    "started_at": "2026-09-28 22:22:06 HK",
+    "last_updated": "2026-09-29 07:47:42 HK",
+    "duration": "9h 25m 35s",
     "status": "completed",
     "mode": "full",
     "subjects_total": 270,
@@ -15,7 +15,7 @@
     }
   },
   "latest_full_scrape": {
-    "started_at": "2026-09-26T14:22:03.455408+00:00",
+    "started_at": "2026-09-28T14:22:06.726298+00:00",
     "remaining": [],
     "directories": [
       "data/2026-27",
@@ -916,7 +916,7 @@
     "MFMD": {
       "status": "completed",
       "courses_count": 11,
-      "output_file": "data/no-terms/MFMD.json"
+      "output_file": "data/no-terms/MFMD.json, data/2026-27/MFMD.json"
     },
     "MGNT": {
       "status": "completed",

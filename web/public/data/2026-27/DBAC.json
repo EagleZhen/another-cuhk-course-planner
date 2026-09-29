@@ -248,6 +248,45 @@
           "term_name": "2026-27 Term 3",
           "schedule": [
             {
+              "section": "LAS1-SEM (1232)",
+              "meetings": [
+                {
+                  "time": "Th 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor CEN Ling, \nProfessor JIANG Wenxi, \nProfessor TSENG Chun Kai, \nProfessor WU Donghui",
+                  "dates": "11/3"
+                },
+                {
+                  "time": "Fr 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor CEN Ling, \nProfessor JIANG Wenxi, \nProfessor TSENG Chun Kai, \nProfessor WU Donghui",
+                  "dates": "12/3"
+                },
+                {
+                  "time": "Su 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor CEN Ling, \nProfessor JIANG Wenxi, \nProfessor TSENG Chun Kai, \nProfessor WU Donghui",
+                  "dates": "14/3"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:30PM",
+                  "location": "No Room Required",
+                  "instructor": "Professor CEN Ling, \nProfessor JIANG Wenxi, \nProfessor TSENG Chun Kai, \nProfessor WU Donghui",
+                  "dates": "13/3"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "PTH, change to Eng if needed",
+              "enrollment_requirement": ""
+            },
+            {
               "section": "LS01-SEM (1157)",
               "meetings": [
                 {
@@ -733,10 +772,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "29",
+                "enrolled": "30",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "PTH, change to Eng if needed",
@@ -785,10 +824,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "17",
+                "enrolled": "18",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "33",
+                "available_seats": "32",
                 "status": "Open"
               },
               "class_attributes": "PTH, change to Eng if needed",
