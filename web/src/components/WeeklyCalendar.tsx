@@ -969,6 +969,12 @@ export default function WeeklyCalendar({
                               dynamicHourHeight
                             )
                             const isSelected = selectedEnrollment === event.enrollmentId
+                            const canSelect = !!onSelectEnrollment && !!event.enrollmentId
+                            const toggleSelection = () => {
+                              if (onSelectEnrollment && event.enrollmentId) {
+                                onSelectEnrollment(isSelected ? null : event.enrollmentId)
+                              }
+                            }
                             const textLineLimits = getCardTextLineLimits(height, localDisplayConfig)
 
                             const { leftOffset, rightOffset, zIndex } = getCardStackPlacement(
@@ -988,6 +994,8 @@ export default function WeeklyCalendar({
                                   }
                                 }}
                                 data-course-card="true"
+                                data-card-pressable={canSelect}
+                                data-card-pressed-effect="dim"
                                 style={{
                                   position: 'absolute',
                                   top: `${top}px`,
@@ -1014,12 +1022,7 @@ export default function WeeklyCalendar({
                               ${isSelected ? 'scale-[1.03]' : ''}
                               ${changedIds.has(event.id) ? 'changed-breathing' : ''}
                             `}
-                                onClick={() => {
-                                  if (onSelectEnrollment && event.enrollmentId) {
-                                    const newSelection = isSelected ? null : event.enrollmentId
-                                    onSelectEnrollment(newSelection)
-                                  }
-                                }}
+                                onClick={toggleSelection}
                               >
                                 {/* Visibility toggle button */}
                                 <Button
@@ -1034,7 +1037,7 @@ export default function WeeklyCalendar({
                                       onToggleVisibility(event.enrollmentId)
                                     }
                                   }}
-                                  className="absolute top-0.5 right-0.5 h-4 w-4 p-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                                  className="absolute top-0.5 right-0.5 h-4 w-4 p-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200"
                                   title={event.isVisible ? 'Hide course' : 'Show course'}
                                 >
                                   {event.isVisible ? (
@@ -1045,14 +1048,24 @@ export default function WeeklyCalendar({
                                 </Button>
 
                                 {/* Course content with conditional rendering based on config */}
-                                <div className={`${TEXT_STYLES.COURSE_CODE} truncate pr-3`}>
+                                <Button
+                                  variant="ghost"
+                                  data-card-primary-action
+                                  aria-pressed={isSelected}
+                                  disabled={!canSelect}
+                                  className={`${TEXT_STYLES.COURSE_CODE} block h-auto w-full truncate rounded-sm p-0 pr-3 text-left focus-visible:ring-inset`}
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    toggleSelection()
+                                  }}
+                                >
                                   {formatCourseCodeWithSection(
                                     event.subject,
                                     event.courseCode,
                                     cohortOf(event.sectionCode),
                                     event.sectionType
                                   )}
-                                </div>
+                                </Button>
 
                                 {localDisplayConfig.showTitle && (
                                   <div className={`${TEXT_STYLES.TITLE} truncate`}>
@@ -1266,10 +1279,18 @@ function UnscheduledSectionsCard({
             <div className="flex flex-wrap gap-2">
               {unscheduledSections.map((item, index) => {
                 const isSelected = selectedEnrollment === item.enrollment.courseId
+                const canSelect = !!onSelectEnrollment && !!item.enrollment.courseId
+                const toggleSelection = () => {
+                  if (onSelectEnrollment && item.enrollment.courseId) {
+                    onSelectEnrollment(isSelected ? null : item.enrollment.courseId)
+                  }
+                }
 
                 return (
                   <div
                     key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
+                    data-card-pressable={canSelect}
+                    data-card-pressed-effect="dim"
                     className={`
                       ${item.enrollment.color || 'bg-indigo-500'}
                       rounded-sm text-xs text-white
@@ -1292,23 +1313,26 @@ function UnscheduledSectionsCard({
                         )`,
                       }),
                     }}
-                    onClick={(e) => {
-                      e.stopPropagation()
-
-                      if (onSelectEnrollment && item.enrollment.courseId) {
-                        const newSelection = isSelected ? null : item.enrollment.courseId
-                        onSelectEnrollment(newSelection)
-                      }
-                    }}
+                    onClick={toggleSelection}
                   >
-                    <div className={`${TEXT_STYLES.COURSE_CODE} truncate pr-1`}>
+                    <Button
+                      variant="ghost"
+                      data-card-primary-action
+                      aria-pressed={isSelected}
+                      disabled={!canSelect}
+                      className={`${TEXT_STYLES.COURSE_CODE} block h-auto w-full truncate rounded-sm p-0 pr-3 text-left focus-visible:ring-inset`}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        toggleSelection()
+                      }}
+                    >
                       {formatCourseCodeWithSection(
                         item.enrollment.course.subject,
                         item.enrollment.course.courseCode,
                         cohortOf(item.section.sectionCode),
                         item.section.sectionType
                       )}
-                    </div>
+                    </Button>
 
                     {displayConfig.showTitle && (
                       <div className={`${TEXT_STYLES.TITLE} truncate`}>
@@ -1347,7 +1371,7 @@ function UnscheduledSectionsCard({
                           e.stopPropagation()
                           onToggleVisibility(item.enrollment.courseId)
                         }}
-                        className="absolute top-0.5 right-0.5 h-4 w-4 p-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                        className="absolute top-0.5 right-0.5 h-4 w-4 p-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200"
                         title={item.enrollment.isVisible ? 'Hide course' : 'Show course'}
                       >
                         {item.enrollment.isVisible ? (
