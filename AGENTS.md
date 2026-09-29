@@ -19,6 +19,8 @@ Use judgment. Refactor when it improves clarity, maintainability, or correctness
 
 ### Changing Code
 
+Before designing a shared abstraction, inspect existing consumers and related implementations, including deferred ones. Account for their differences: what fits, how others would migrate, and what should stay separate. For UI, check behavior, nested controls, keyboard access, and visual states. Implement incrementally, but assess the whole affected scope first; mark uninspected cases as unknown.
+
 Build a producer only together with its consumer. A computed value nothing reads hides that the feature was never finished, and a validation that cannot fail is the same thing wearing a safety vest.
 
 Tolerate malformed values from outside our control — scraped HTML, a hand-edited file — but let a missing key from our own output raise. Degrading quietly on what we wrote ourselves hides the break for months.
