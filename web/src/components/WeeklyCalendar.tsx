@@ -1037,7 +1037,7 @@ export default function WeeklyCalendar({
                                       onToggleVisibility(event.enrollmentId)
                                     }
                                   }}
-                                  className="absolute z-10 top-0.5 right-0.5 h-4 w-4 p-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200"
+                                  className={`absolute z-10 top-0.5 right-0.5 h-4 w-4 p-0 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-opacity duration-200 ${isSelected ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                                   title={event.isVisible ? 'Hide course' : 'Show course'}
                                 >
                                   {event.isVisible ? (
@@ -1374,7 +1374,7 @@ function UnscheduledSectionsCard({
                           e.stopPropagation()
                           onToggleVisibility(item.enrollment.courseId)
                         }}
-                        className="absolute z-10 top-0.5 right-0.5 h-4 w-4 p-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200"
+                        className={`absolute z-10 top-0.5 right-0.5 h-4 w-4 p-0 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-opacity duration-200 ${isSelected ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
                         title={item.enrollment.isVisible ? 'Hide course' : 'Show course'}
                       >
                         {item.enrollment.isVisible ? (
