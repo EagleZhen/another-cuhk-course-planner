@@ -1017,7 +1017,7 @@ export default function WeeklyCalendar({
                                 className={`
                               ${event.color}
                               rounded-sm text-xs text-white
-                              hover:scale-[1.03] transition-all duration-300 cursor-pointer
+                              hover:scale-[1.03] transition-transform duration-300 cursor-pointer
                               overflow-hidden group
                               ${isSelected ? 'scale-[1.03]' : ''}
                               ${changedIds.has(event.id) ? 'changed-breathing' : ''}
@@ -1236,7 +1236,7 @@ function UnscheduledSectionsCard({
     <div data-screenshot="unscheduled" className="px-4 py-1 bg-white">
       <div
         data-card-pressable="true"
-        className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md bg-white hover:bg-gray-50 transition-all cursor-pointer [--card-pressed-background:var(--color-gray-100)]"
+        className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md bg-white hover:bg-gray-50 transition-shadow cursor-pointer [--card-pressed-background:var(--color-gray-100)]"
         onClick={() => setIsExpanded((expanded) => !expanded)}
       >
         <div className="p-3">
@@ -1337,7 +1337,7 @@ function UnscheduledSectionsCard({
                     className={`
                       ${item.enrollment.color || 'bg-indigo-500'}
                       rounded-sm text-xs text-white
-                      hover:scale-105 transition-all cursor-pointer
+                      hover:scale-105 transition-transform cursor-pointer
                       overflow-hidden group relative
                       ${isSelected ? 'scale-105' : ''}
                     `}

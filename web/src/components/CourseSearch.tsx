@@ -1639,7 +1639,7 @@ function CourseCard({
   return (
     <Card
       data-card-pressable={!expanded}
-      className={`py-5 gap-0 transition-all duration-200 [--card-pressed-background:var(--color-gray-100)] ${
+      className={`py-5 gap-0 transition-shadow duration-200 [--card-pressed-background:var(--color-gray-100)] ${
         !expanded ? 'hover:shadow-lg hover:bg-gray-50 cursor-pointer' : 'shadow-md'
       }`}
       onClick={!expanded ? handleToggle : undefined} // Prevent collapsing when clicking on the card after expanding
@@ -1649,7 +1649,7 @@ function CourseCard({
           search bar / archived-year banner itself. Buttons stay exactly where they are
           today - no relocation needed */}
       <CardHeader
-        className={`pb-3 transition-[background-color,box-shadow] duration-200 ${
+        className={`pb-3 transition-shadow duration-200 ${
           expanded ? 'sm:sticky sm:z-[5] sm:bg-white sm:shadow-[0_-12px_0_0_white]' : ''
         }`}
         style={expanded ? { top: stickyOffset + 12 } : undefined}
@@ -2088,7 +2088,7 @@ function CourseCard({
                           <div
                             key={section.id}
                             data-card-pressable={!isIncompatible}
-                            className={`p-2 rounded transition-all ${cardCursorClass} ${
+                            className={`p-2 rounded transition-shadow ${cardCursorClass} ${
                               isSelected
                                 ? 'border border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200 [--card-pressed-background:var(--color-blue-100)]'
                                 : isIncompatible
