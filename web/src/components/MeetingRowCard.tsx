@@ -7,8 +7,8 @@ import {
   formatTimeCompact,
   getDayIndex,
   formatInstructorsCompact,
-  googleSearchAndOpen,
-  googleMapsSearchAndOpen,
+  getGoogleSearchUrl,
+  getGoogleMapsSearchUrl,
 } from '@/lib/courseUtils'
 import type { MeetingRow } from '@/lib/types'
 import { DAYS, getDayKey } from '@/lib/calendarConfig'
@@ -134,16 +134,17 @@ export function MeetingRowCard({
             {formattedInstructor}
           </span>
           {formattedInstructor !== 'Staff' && (
-            <Button
-              variant="ghost"
-              onClick={(e) => {
-                e.stopPropagation()
-                googleSearchAndOpen(`CUHK ${formattedInstructor}`)
-              }}
-              className="h-auto rounded p-0.5"
-              title={`Search Google for "CUHK ${formattedInstructor}"`}
-            >
-              <GoogleIcon className="size-3" />
+            <Button asChild variant="ghost" className="h-auto rounded p-0.5">
+              <a
+                href={getGoogleSearchUrl(`CUHK ${formattedInstructor}`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`Search Google for "CUHK ${formattedInstructor}"`}
+                aria-label={`Search Google for "CUHK ${formattedInstructor}" (opens in a new tab)`}
+                onClick={(event) => event.stopPropagation()}
+              >
+                <GoogleIcon className="size-3" />
+              </a>
             </Button>
           )}
         </div>
@@ -163,16 +164,17 @@ export function MeetingRowCard({
             {location}
           </span>
           {location !== 'TBA' && location !== 'No Room Required' && (
-            <Button
-              variant="ghost"
-              onClick={(e) => {
-                e.stopPropagation()
-                googleMapsSearchAndOpen(location)
-              }}
-              className="h-auto rounded p-0.5"
-              title={`View "${location}" on Google Maps`}
-            >
-              <GoogleMapsIcon className="size-3" />
+            <Button asChild variant="ghost" className="h-auto rounded p-0.5">
+              <a
+                href={getGoogleMapsSearchUrl(location)}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`View "${location}" on Google Maps`}
+                aria-label={`View "${location}" on Google Maps (opens in a new tab)`}
+                onClick={(event) => event.stopPropagation()}
+              >
+                <GoogleMapsIcon className="size-3" />
+              </a>
             </Button>
           )}
         </div>

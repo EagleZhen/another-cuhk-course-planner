@@ -1676,18 +1676,8 @@ export const getGoogleSearchUrl = (query: string): string => {
   return `https://www.google.com/search?${params.toString()}`
 }
 
-export const googleSearchAndOpen = (query: string): void => {
-  window.open(getGoogleSearchUrl(query), '_blank', 'noopener,noreferrer')
-}
-
-/**
- * Opens Google Maps search for the given location and opens in new tab
- * @param location Location string to search for
- */
-export const googleMapsSearchAndOpen = (location: string): void => {
-  const encodedLocation = encodeURIComponent(location)
-  const url = `https://www.google.com/maps/search/${encodedLocation}`
-  window.open(url, '_blank', 'noopener,noreferrer')
+export const getGoogleMapsSearchUrl = (location: string): string => {
+  return `https://www.google.com/maps/search/${encodeURIComponent(location)}`
 }
 
 export const getCuhkLibrarySearchUrl = (courseCode: string): string => {

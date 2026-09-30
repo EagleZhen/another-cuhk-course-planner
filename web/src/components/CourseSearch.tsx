@@ -33,7 +33,6 @@ import {
   getAvailabilityBadgeStyle,
   checkSectionConflict,
   formatTimeConflictTooltip,
-  googleSearchAndOpen,
   getGoogleSearchUrl,
   getCuhkLibrarySearchUrl,
   getDayIndex,
@@ -1222,17 +1221,21 @@ function InstructorFilters({
             </Button>
             {hasSearch && (
               <Button
+                asChild
                 variant="outline"
                 size="sm"
                 className="-ml-px h-6 w-6 rounded-l-none p-0 relative focus-visible:z-10"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  googleSearchAndOpen(`CUHK ${formattedInstructor}`)
-                }}
-                aria-label={`Search Google for "CUHK ${formattedInstructor}"`}
-                title={`Search Google for "CUHK ${formattedInstructor}"`}
               >
-                <GoogleIcon className="size-3.5" />
+                <a
+                  href={getGoogleSearchUrl(`CUHK ${formattedInstructor}`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Search Google for "CUHK ${formattedInstructor}" (opens in a new tab)`}
+                  title={`Search Google for "CUHK ${formattedInstructor}"`}
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <GoogleIcon className="size-3.5" />
+                </a>
               </Button>
             )}
           </div>
