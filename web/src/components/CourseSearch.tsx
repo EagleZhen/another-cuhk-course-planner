@@ -607,16 +607,16 @@ export default function CourseSearch({
 
   const resultsSummary = showResultsSummary ? (
     <div className="flex items-center justify-between gap-2 mb-3">
-      <div className="text-sm text-gray-600 flex flex-wrap items-center gap-2">
+      <div className="min-w-0 flex-1 text-sm text-gray-600 flex flex-wrap items-center gap-2">
         Showing {displayResults.courses.length} course
         {displayResults.courses.length !== 1 ? 's' : ''}
         {searchTerm && ` matching "${searchTerm}"`}
         {filterPills.length > 0 && (
-          <span className="inline-flex flex-wrap items-center gap-1.5 border-l border-gray-300 pl-2">
+          <span className="min-w-0 max-w-full inline-flex flex-wrap items-center gap-1.5 border-l border-gray-300 pl-2">
             <span className="font-medium text-gray-700">Filtered by</span>
             {filterPills.map((pill) => (
-              <Badge key={pill.filter} variant="secondary">
-                {pill.label}
+              <Badge key={pill.filter} variant="secondary" className="max-w-full whitespace-normal">
+                <span className="min-w-0 wrap-anywhere">{pill.label}</span>
                 {pill.onRemove && (
                   <ChipRemoveButton
                     label={`Remove ${pill.label} filter`}
