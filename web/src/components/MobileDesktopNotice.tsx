@@ -188,7 +188,7 @@ export default function MobileDesktopNotice() {
               onClick={shareToDesktop}
               size="lg"
               variant={copied ? 'positive' : undefined}
-              className="w-full select-none"
+              className="w-full select-none motion-safe:active:scale-95"
             >
               {copied ? <Check /> : <Share2 />}
               {copied ? 'Link copied!' : 'Send link to my computer'}
@@ -197,7 +197,7 @@ export default function MobileDesktopNotice() {
               variant="ghost"
               size="lg"
               onClick={() => dismissNotice('button')}
-              className="w-full select-none"
+              className="w-full select-none motion-safe:active:scale-95"
             >
               Continue on mobile
             </Button>
