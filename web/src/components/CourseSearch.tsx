@@ -707,7 +707,7 @@ export default function CourseSearch({
               placeholder="Search by course code, title, or instructor (e.g., UGFH1000, Nature, YU Bei)"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="h-11 w-full pl-10 bg-white border-gray-400 shadow-sm hover:shadow-md focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:shadow-md transition-all sm:h-9"
+              className="h-11 w-full pl-10 bg-white border-gray-400 shadow-sm hover:shadow-md focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:shadow-md sm:h-9"
             />
           </div>
           <div

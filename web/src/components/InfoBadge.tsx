@@ -18,7 +18,7 @@ function InfoBadge({
   children: ReactNode
 }) {
   return (
-    <Badge asChild variant="secondary" className="cursor-pointer transition-colors">
+    <Badge asChild variant="secondary" className="cursor-pointer">
       <a href={href} target="_blank" rel="noopener noreferrer" title={title}>
         {children}
         <Info className="w-2.5 h-2.5 opacity-60" />

@@ -767,7 +767,7 @@ export default function Home() {
                 href="https://www.youtube.com/watch?v=YS2KB_cFrTo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-slate-600 transition-colors duration-200"
+                className="hover:text-slate-600"
               >
                 &ldquo;There&apos;s more to explore here.&rdquo;
               </a>
@@ -778,7 +778,7 @@ export default function Home() {
                 href="https://www.youtube.com/@EagleZhen"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-slate-900 transition-colors duration-200"
+                className="text-slate-600 hover:text-slate-900"
               >
                 EZ
               </a>
@@ -867,7 +867,7 @@ function SubjectFilterControls({
               placeholder="Search subjects..."
               value={subjectSearchTerm}
               onChange={(e) => onSubjectSearchChange(e.target.value)}
-              className="h-6 pl-6 pr-2 text-xs border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 w-full shadow-sm hover:shadow-md focus:shadow-md transition-all"
+              className="h-6 pl-6 pr-2 text-xs border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 w-full shadow-sm hover:shadow-md focus:shadow-md transition-shadow"
             />
           </div>
         )}
