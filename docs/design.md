@@ -22,6 +22,6 @@ Keep selection distinguishable from momentary pressing. Passive labels should no
 
 Control colors and pressed brightness change immediately so feedback cannot linger into a new selection. Limit transitions to deliberate motion, shadow, or visibility; avoid `transition-all` on interactive elements.
 
-The [shared card feedback rule](../web/src/app/globals.css) owns press detection; consumers own colors, activation, and keyboard access. Independent nested actions must be buttons, links, or marked card regions for exclusion to work. This only isolates visual feedback; nested actions must also stop click propagation when the parent is clickable.
+Information-rich cards use selection or expanded content to show results, without an additional whole-card pressed fill or dimming. Preserve explicit keyboard actions; independent nested controls must stop click propagation when the parent is clickable.
 
 Use Button's `text-action` for text controls that need a visible action cue before hover, such as inline term selectors and Show all actions. Keep low-emphasis disclosure headings and icon utilities neutral; preserve warning/destructive colors.

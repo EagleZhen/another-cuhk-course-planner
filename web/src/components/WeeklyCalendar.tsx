@@ -994,8 +994,6 @@ export default function WeeklyCalendar({
                                   }
                                 }}
                                 data-course-card="true"
-                                data-card-pressable={canSelect}
-                                data-card-pressed-effect="dim"
                                 style={{
                                   position: 'absolute',
                                   top: `${top}px`,
@@ -1119,11 +1117,10 @@ function CalendarSelectionButton({
   disabled: boolean
   onSelect: () => void
 }) {
-  // Selection feedback belongs to the owning colored card.
+  // Preserve course colors; the card's stripes indicate selection.
   return (
     <Button
       variant="ghost"
-      data-card-primary-action
       aria-pressed={isSelected}
       disabled={disabled}
       className={`${TEXT_STYLES.COURSE_CODE} block h-auto w-full truncate rounded-sm p-0 pr-3 text-left hover:bg-transparent hover:text-inherit active:bg-transparent active:text-inherit focus-visible:ring-inset`}
@@ -1235,8 +1232,7 @@ function UnscheduledSectionsCard({
   return (
     <div data-screenshot="unscheduled" className="px-4 py-1 bg-white">
       <div
-        data-card-pressable="true"
-        className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md bg-white hover:bg-gray-50 transition-shadow cursor-pointer [--card-pressed-background:var(--color-gray-100)]"
+        className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md bg-white hover:bg-gray-50 transition-shadow cursor-pointer"
         onClick={() => setIsExpanded((expanded) => !expanded)}
       >
         <div className="p-3">
@@ -1304,7 +1300,6 @@ function UnscheduledSectionsCard({
               className="ml-2 h-6 w-6 p-0 text-gray-400"
               aria-label="Unscheduled courses"
               aria-expanded={isExpanded}
-              data-card-primary-action
               onClick={(event) => {
                 event.stopPropagation()
                 setIsExpanded((expanded) => !expanded)
@@ -1332,8 +1327,6 @@ function UnscheduledSectionsCard({
                 return (
                   <div
                     key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
-                    data-card-pressable={canSelect}
-                    data-card-pressed-effect="dim"
                     className={`
                       ${item.enrollment.color || 'bg-indigo-500'}
                       rounded-sm text-xs text-white

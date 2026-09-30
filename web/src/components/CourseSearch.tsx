@@ -1638,8 +1638,7 @@ function CourseCard({
 
   return (
     <Card
-      data-card-pressable={!expanded}
-      className={`py-5 gap-0 transition-shadow duration-200 [--card-pressed-background:var(--color-gray-100)] ${
+      className={`py-5 gap-0 transition-shadow duration-200 ${
         !expanded ? 'hover:shadow-lg hover:bg-gray-50 cursor-pointer' : 'shadow-md'
       }`}
       onClick={!expanded ? handleToggle : undefined} // Prevent collapsing when clicking on the card after expanding
@@ -1680,7 +1679,6 @@ function CourseCard({
                 handleToggle()
               }}
               className="w-8 h-8 p-0"
-              data-card-primary-action
               aria-expanded={expanded}
               aria-label={expanded ? 'Hide sections' : 'Show sections'}
               title={expanded ? 'Hide sections' : 'Show sections'}
@@ -1815,7 +1813,6 @@ function CourseCard({
             handleToggle()
           }}
           className="w-full cursor-pointer"
-          data-card-primary-action
           aria-expanded={expanded}
           title={expanded ? 'Hide sections' : 'Show sections'}
         >
@@ -2087,17 +2084,16 @@ function CourseCard({
                         return (
                           <div
                             key={section.id}
-                            data-card-pressable={!isIncompatible}
                             className={`p-2 rounded transition-shadow ${cardCursorClass} ${
                               isSelected
-                                ? 'border border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200 [--card-pressed-background:var(--color-blue-100)]'
+                                ? 'border border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200'
                                 : isIncompatible
                                   ? 'border border-gray-200 opacity-40 grayscale'
                                   : section.availability.status === 'Open'
-                                    ? 'border border-green-500 hover:bg-green-50 shadow-sm [--card-pressed-background:var(--color-green-100)]'
+                                    ? 'border border-green-500 hover:bg-green-50 shadow-sm'
                                     : section.availability.status === 'Wait List'
-                                      ? 'border border-yellow-500 hover:bg-yellow-50 shadow-sm [--card-pressed-background:var(--color-yellow-100)]'
-                                      : 'border border-red-500 hover:bg-red-50 shadow-sm [--card-pressed-background:var(--color-red-100)]'
+                                      ? 'border border-yellow-500 hover:bg-yellow-50 shadow-sm'
+                                      : 'border border-red-500 hover:bg-red-50 shadow-sm'
                             }`}
                             onClick={toggleSection}
                             title={
@@ -2136,7 +2132,6 @@ function CourseCard({
                                     variant="ghost"
                                     size="sm"
                                     className="h-4 w-4 p-0"
-                                    data-card-primary-action
                                     disabled={isIncompatible}
                                     aria-pressed={isSelected}
                                     aria-label={`Section ${section.sectionCode}`}

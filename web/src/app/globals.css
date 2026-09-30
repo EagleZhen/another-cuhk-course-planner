@@ -125,20 +125,6 @@
   .font-mono {
     font-variant-ligatures: none;
   }
-
-  /* Press the card or its primary action, not an independent nested control.
-     Colored cards dim; other cards supply a pressed background. */
-  [data-card-pressable='true']:not(
-      :has([data-card-pressable]:active, [data-card-pressable] :active)
-    ):is(:active:not(:has(button:active, a:active)), :has([data-card-primary-action]:active)) {
-    &:not([data-card-pressed-effect='dim']) {
-      background-color: var(--card-pressed-background);
-    }
-
-    &[data-card-pressed-effect='dim'] {
-      filter: brightness(0.9);
-    }
-  }
 }
 
 /* Breathes on a card the week moved to gained or changed. Navigation state only,
