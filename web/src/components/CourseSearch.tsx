@@ -1545,7 +1545,7 @@ function CourseCard({
               : 'Add course to cart'
           }
         >
-          {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections'}
+          {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections First'}
         </Button>
       )}
     </>
@@ -1629,8 +1629,8 @@ function CourseCard({
               : 'Add course to cart'
           }
         >
-          <Plus className="w-3 h-3 mr-1" />
-          {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections'}
+          {isEnrollmentComplete && <Plus className="w-3 h-3 mr-1" />}
+          {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections First'}
         </Button>
       )}
     </>
