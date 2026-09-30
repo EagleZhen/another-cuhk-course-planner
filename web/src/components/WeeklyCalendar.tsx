@@ -1037,7 +1037,7 @@ export default function WeeklyCalendar({
                                       onToggleVisibility(event.enrollmentId)
                                     }
                                   }}
-                                  className="absolute top-0.5 right-0.5 h-4 w-4 p-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200"
+                                  className="absolute z-10 top-0.5 right-0.5 h-4 w-4 p-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200"
                                   title={event.isVisible ? 'Hide course' : 'Show course'}
                                 >
                                   {event.isVisible ? (
@@ -1053,7 +1053,7 @@ export default function WeeklyCalendar({
                                   data-card-primary-action
                                   aria-pressed={isSelected}
                                   disabled={!canSelect}
-                                  className={`${TEXT_STYLES.COURSE_CODE} block h-auto w-full truncate rounded-sm p-0 pr-3 text-left focus-visible:ring-inset`}
+                                  className={`${TEXT_STYLES.COURSE_CODE} block h-auto w-full truncate rounded-sm p-0 pr-3 text-left hover:bg-transparent hover:text-inherit active:bg-transparent active:text-inherit focus-visible:ring-inset`}
                                   onClick={(e) => {
                                     e.stopPropagation()
                                     toggleSelection()
@@ -1323,7 +1323,7 @@ function UnscheduledSectionsCard({
                       data-card-primary-action
                       aria-pressed={isSelected}
                       disabled={!canSelect}
-                      className={`${TEXT_STYLES.COURSE_CODE} block h-auto w-full truncate rounded-sm p-0 pr-3 text-left focus-visible:ring-inset`}
+                      className={`${TEXT_STYLES.COURSE_CODE} block h-auto w-full truncate rounded-sm p-0 pr-3 text-left hover:bg-transparent hover:text-inherit active:bg-transparent active:text-inherit focus-visible:ring-inset`}
                       onClick={(e) => {
                         e.stopPropagation()
                         toggleSelection()
@@ -1374,7 +1374,7 @@ function UnscheduledSectionsCard({
                           e.stopPropagation()
                           onToggleVisibility(item.enrollment.courseId)
                         }}
-                        className="absolute top-0.5 right-0.5 h-4 w-4 p-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200"
+                        className="absolute z-10 top-0.5 right-0.5 h-4 w-4 p-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200"
                         title={item.enrollment.isVisible ? 'Hide course' : 'Show course'}
                       >
                         {item.enrollment.isVisible ? (
