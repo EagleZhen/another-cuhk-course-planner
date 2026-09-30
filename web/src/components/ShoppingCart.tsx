@@ -68,7 +68,8 @@ function creditSummaryOf(visible: Credits | undefined, total: Credits | undefine
 }
 
 // Shared style for the change-banner actions; the grid gives both equal width.
-const bannerButtonClass = 'h-6 w-full rounded px-2 text-[11px] font-medium'
+const bannerButtonClass =
+  'h-6 w-full rounded border border-amber-300 bg-white/50 px-2 text-[11px] font-medium'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
