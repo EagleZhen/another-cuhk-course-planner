@@ -34,7 +34,8 @@ import {
   checkSectionConflict,
   formatTimeConflictTooltip,
   googleSearchAndOpen,
-  cuhkLibrarySearchAndOpen,
+  getGoogleSearchUrl,
+  getCuhkLibrarySearchUrl,
   getDayIndex,
   getAggregateSeatInfo,
   isVisibleAndValid,
@@ -1133,6 +1134,54 @@ export default function CourseSearch({
   )
 }
 
+function CourseResourceLinks({ courseCode }: { courseCode: string }) {
+  const links = [
+    {
+      label: 'Outline',
+      href: getGoogleSearchUrl(`CUHK ${courseCode} Outline OR 大綱`),
+      title: `Search Google for "${courseCode}" outline`,
+      Icon: GoogleIcon,
+      widthClass: 'min-w-[60px] sm:min-w-[65px]',
+    },
+    {
+      label: 'Reviews',
+      href: getGoogleSearchUrl(`CUHK ${courseCode} Review OR 評價`),
+      title: `Search Google for "${courseCode}" reviews`,
+      Icon: GoogleIcon,
+      widthClass: 'min-w-[60px] sm:min-w-[65px]',
+    },
+    {
+      label: 'Past Papers',
+      href: getCuhkLibrarySearchUrl(courseCode),
+      title: `Search CUHK Library for "${courseCode}" past papers`,
+      Icon: CuhkLibraryImageIcon,
+      widthClass: 'min-w-[78px] sm:min-w-[85px]',
+    },
+  ]
+
+  return links.map(({ label, href, title, Icon, widthClass }) => (
+    <Button
+      key={label}
+      asChild
+      size="sm"
+      variant="ghost-neutral"
+      className={`h-6 flex-shrink-0 gap-1 sm:gap-1.5 px-1.5 sm:px-2 text-xs ${widthClass}`}
+    >
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={title}
+        aria-label={`${title} (opens in a new tab)`}
+        onClick={(event) => event.stopPropagation()}
+      >
+        <Icon className="w-3 h-3" />
+        {label}
+      </a>
+    </Button>
+  ))
+}
+
 // Reusable instructor filters component
 function InstructorFilters({
   instructors,
@@ -1611,47 +1660,7 @@ function CourseCard({
                 {course.courseCode}
               </CardTitle>
               <div className="flex flex-wrap items-center gap-1">
-                <Button
-                  size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    googleSearchAndOpen(
-                      `CUHK ${course.subject}${course.courseCode} Outline OR 大綱`
-                    )
-                  }}
-                  variant="ghost-neutral"
-                  className="h-6 px-2 text-xs min-w-[65px] flex-shrink-0"
-                  title={`Search Google for "${course.subject}${course.courseCode}" outline`}
-                >
-                  <GoogleIcon className="w-3 h-3" />
-                  Outline
-                </Button>
-                <Button
-                  size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Review OR 評價`)
-                  }}
-                  variant="ghost-neutral"
-                  className="h-6 px-2 text-xs min-w-[65px] flex-shrink-0"
-                  title={`Search Google for "${course.subject}${course.courseCode}" reviews`}
-                >
-                  <GoogleIcon className="w-3 h-3" />
-                  Reviews
-                </Button>
-                <Button
-                  size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    cuhkLibrarySearchAndOpen(`${course.subject}${course.courseCode}`)
-                  }}
-                  variant="ghost-neutral"
-                  className="h-6 px-2 text-xs min-w-[85px] flex-shrink-0"
-                  title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
-                >
-                  <CuhkLibraryImageIcon className="w-3 h-3" />
-                  Past Papers
-                </Button>
+                <CourseResourceLinks courseCode={`${course.subject}${course.courseCode}`} />
               </div>
             </div>
             <CardDescription className="text-base font-medium text-gray-700 mt-1">
@@ -1733,47 +1742,9 @@ function CourseCard({
               {course.title}
             </CardDescription>
 
-            {/* Search buttons below course header */}
+            {/* Resource links below course header */}
             <div className="flex flex-wrap items-center gap-0.5 mt-2">
-              <Button
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR 大綱`)
-                }}
-                variant="ghost-neutral"
-                className="h-6 min-w-[60px] flex-shrink-0 gap-1 px-1.5 text-xs"
-                title={`Search Google for "${course.subject}${course.courseCode}" outline`}
-              >
-                <GoogleIcon className="w-3 h-3" />
-                Outline
-              </Button>
-              <Button
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Review OR 評價`)
-                }}
-                variant="ghost-neutral"
-                className="h-6 min-w-[60px] flex-shrink-0 gap-1 px-1.5 text-xs"
-                title={`Search Google for "${course.subject}${course.courseCode}" reviews`}
-              >
-                <GoogleIcon className="w-3 h-3" />
-                Reviews
-              </Button>
-              <Button
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  cuhkLibrarySearchAndOpen(`${course.subject}${course.courseCode}`)
-                }}
-                variant="ghost-neutral"
-                className="h-6 min-w-[78px] flex-shrink-0 gap-1 px-1.5 text-xs"
-                title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
-              >
-                <CuhkLibraryImageIcon className="w-3 h-3" />
-                Past Papers
-              </Button>
+              <CourseResourceLinks courseCode={`${course.subject}${course.courseCode}`} />
             </div>
           </div>
 

@@ -31,7 +31,7 @@ Course-level filtering lives in [courseFilters.ts](../../web/src/lib/courseFilte
 - **Instructor filter:** pills and section matching share one compact-name list, so they compare as displayed. Applying the filter clears section selections that no longer match; clearing it keeps existing selections.
 - **Card-local selections** stay inside the card until the user adds or updates the course in the planner.
 
-## External Search Buttons
+## External Resource Links
 
 - Queries are built deliberately: `CUHK` narrows away other universities, and the no-space course code (`CSCI3100`) matches how students actually search.
 - Queries are bilingual (`Outline OR 大綱`, `Review OR 評價`) because CUHK course discussion happens in English and Traditional Chinese.
@@ -56,7 +56,7 @@ Cart action buttons scrolled out of view on long section lists. Fix: dock them b
 
 ## Known Limitations
 
-- Google search buttons depend on Google availability in the user's region.
+- Google search links depend on Google availability in the user's region.
 - Bilingual search covers Traditional but not Simplified Chinese.
 - Instructor filters do not support partial name matching.
 - Day filters show day presence, not time ranges.
