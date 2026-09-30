@@ -1024,12 +1024,10 @@ export default function WeeklyCalendar({
                             `}
                                 onClick={toggleSelection}
                               >
-                                {/* Visibility toggle button */}
-                                <Button
-                                  variant="overlay"
-                                  size="sm"
-                                  onClick={(e) => {
-                                    e.stopPropagation()
+                                <CalendarVisibilityButton
+                                  isSelected={isSelected}
+                                  isVisible={event.isVisible}
+                                  onToggle={() => {
                                     if (onSelectEnrollment && event.enrollmentId) {
                                       onSelectEnrollment(event.enrollmentId)
                                     }
@@ -1037,27 +1035,13 @@ export default function WeeklyCalendar({
                                       onToggleVisibility(event.enrollmentId)
                                     }
                                   }}
-                                  className={`absolute z-10 top-0.5 right-0.5 h-4 w-4 p-0 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-opacity duration-200 ${isSelected ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                                  title={event.isVisible ? 'Hide course' : 'Show course'}
-                                >
-                                  {event.isVisible ? (
-                                    <Eye className="w-2.5 h-2.5 text-white" />
-                                  ) : (
-                                    <EyeOff className="w-2.5 h-2.5 text-white" />
-                                  )}
-                                </Button>
+                                />
 
                                 {/* Course content with conditional rendering based on config */}
-                                <Button
-                                  variant="ghost"
-                                  data-card-primary-action
-                                  aria-pressed={isSelected}
+                                <CalendarSelectionButton
+                                  isSelected={isSelected}
                                   disabled={!canSelect}
-                                  className={`${TEXT_STYLES.COURSE_CODE} block h-auto w-full truncate rounded-sm p-0 pr-3 text-left hover:bg-transparent hover:text-inherit active:bg-transparent active:text-inherit focus-visible:ring-inset`}
-                                  onClick={(e) => {
-                                    e.stopPropagation()
-                                    toggleSelection()
-                                  }}
+                                  onSelect={toggleSelection}
                                 >
                                   {formatCourseCodeWithSection(
                                     event.subject,
@@ -1065,7 +1049,7 @@ export default function WeeklyCalendar({
                                     cohortOf(event.sectionCode),
                                     event.sectionType
                                   )}
-                                </Button>
+                                </CalendarSelectionButton>
 
                                 {localDisplayConfig.showTitle && (
                                   <div className={`${TEXT_STYLES.TITLE} truncate`}>
@@ -1121,6 +1105,65 @@ export default function WeeklyCalendar({
         className="hidden"
       />
     </Card>
+  )
+}
+
+function CalendarSelectionButton({
+  children,
+  isSelected,
+  disabled,
+  onSelect,
+}: {
+  children: string
+  isSelected: boolean
+  disabled: boolean
+  onSelect: () => void
+}) {
+  // Selection feedback belongs to the owning colored card.
+  return (
+    <Button
+      variant="ghost"
+      data-card-primary-action
+      aria-pressed={isSelected}
+      disabled={disabled}
+      className={`${TEXT_STYLES.COURSE_CODE} block h-auto w-full truncate rounded-sm p-0 pr-3 text-left hover:bg-transparent hover:text-inherit active:bg-transparent active:text-inherit focus-visible:ring-inset`}
+      onClick={(event) => {
+        event.stopPropagation()
+        onSelect()
+      }}
+    >
+      {children}
+    </Button>
+  )
+}
+
+function CalendarVisibilityButton({
+  isSelected,
+  isVisible,
+  onToggle,
+}: {
+  isSelected: boolean
+  isVisible: boolean
+  onToggle: () => void
+}) {
+  // Ignore invisible pointer hits; keyboard focus reveals the control via the card's group.
+  return (
+    <Button
+      variant="overlay"
+      size="sm"
+      onClick={(event) => {
+        event.stopPropagation()
+        onToggle()
+      }}
+      className={`absolute z-10 top-0.5 right-0.5 h-4 w-4 p-0 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-opacity duration-200 ${isSelected ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      title={isVisible ? 'Hide course' : 'Show course'}
+    >
+      {isVisible ? (
+        <Eye className="w-2.5 h-2.5 text-white" />
+      ) : (
+        <EyeOff className="w-2.5 h-2.5 text-white" />
+      )}
+    </Button>
   )
 }
 
@@ -1318,16 +1361,10 @@ function UnscheduledSectionsCard({
                       toggleSelection()
                     }}
                   >
-                    <Button
-                      variant="ghost"
-                      data-card-primary-action
-                      aria-pressed={isSelected}
+                    <CalendarSelectionButton
+                      isSelected={isSelected}
                       disabled={!canSelect}
-                      className={`${TEXT_STYLES.COURSE_CODE} block h-auto w-full truncate rounded-sm p-0 pr-3 text-left hover:bg-transparent hover:text-inherit active:bg-transparent active:text-inherit focus-visible:ring-inset`}
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        toggleSelection()
-                      }}
+                      onSelect={toggleSelection}
                     >
                       {formatCourseCodeWithSection(
                         item.enrollment.course.subject,
@@ -1335,7 +1372,7 @@ function UnscheduledSectionsCard({
                         cohortOf(item.section.sectionCode),
                         item.section.sectionType
                       )}
-                    </Button>
+                    </CalendarSelectionButton>
 
                     {displayConfig.showTitle && (
                       <div className={`${TEXT_STYLES.TITLE} truncate`}>
@@ -1365,24 +1402,12 @@ function UnscheduledSectionsCard({
                       </div>
                     )}
 
-                    {/* Visibility toggle button for unscheduled sections */}
                     {onToggleVisibility && (
-                      <Button
-                        variant="overlay"
-                        size="sm"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          onToggleVisibility(item.enrollment.courseId)
-                        }}
-                        className={`absolute z-10 top-0.5 right-0.5 h-4 w-4 p-0 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-opacity duration-200 ${isSelected ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                        title={item.enrollment.isVisible ? 'Hide course' : 'Show course'}
-                      >
-                        {item.enrollment.isVisible ? (
-                          <Eye className="w-2.5 h-2.5 text-white" />
-                        ) : (
-                          <EyeOff className="w-2.5 h-2.5 text-white" />
-                        )}
-                      </Button>
+                      <CalendarVisibilityButton
+                        isSelected={isSelected}
+                        isVisible={item.enrollment.isVisible}
+                        onToggle={() => onToggleVisibility(item.enrollment.courseId)}
+                      />
                     )}
                   </div>
                 )
