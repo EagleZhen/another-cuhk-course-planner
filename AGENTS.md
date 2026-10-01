@@ -19,7 +19,9 @@ Use judgment. Refactor when it improves clarity, maintainability, or correctness
 
 ### Changing Code
 
-Before designing a shared abstraction, inspect existing consumers and related implementations, including deferred ones. Account for their differences: what fits, how others would migrate, and what should stay separate. For UI, check behavior, nested controls, keyboard access, and visual states. Implement incrementally, but assess the whole affected scope first; mark uninspected cases as unknown.
+Before designing a shared abstraction, inspect consumers and related implementations, including deferred ones. Identify what should stay shared or separate; mark uninspected cases as unknown. Repeated overrides are a reason to reassess the abstraction, not add another layer.
+
+Separate behavior-preserving refactors from visual redesign. Before a broad UI migration, trial contrasting consumers against their original appearance and behavior, including nested controls and keyboard access. Review that trial before extending it; preserve intentional differences unless a change is agreed.
 
 Build a producer only together with its consumer. A computed value nothing reads hides that the feature was never finished, and a validation that cannot fail is the same thing wearing a safety vest.
 
@@ -42,6 +44,8 @@ For generated or tool-managed files, prefer commands over manual edits.
 ### Tests and Checks
 
 Run checks proportional to the change. Avoid full scrapes or full builds unless they are relevant, requested, or needed.
+
+Passing static or functional checks does not establish visual preservation. Have the user review changed UI states on desktop and touch, including hover, press, selection, and focus; report anything unchecked before calling it ready.
 
 Confirm each new test fails with its change undone, and each new guard fires on data it should reject. A guard that passes on a known break is checking something other than its name claims.
 
