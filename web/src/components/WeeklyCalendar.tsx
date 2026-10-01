@@ -1258,7 +1258,7 @@ function UnscheduledSectionsCard({
                     <Button
                       key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
                       variant="ghost"
-                      className={`h-auto rounded p-0 font-mono text-xs font-normal hover:scale-105 active:brightness-90 ${isSelected ? 'scale-105' : ''}`}
+                      className={`h-auto rounded p-0 font-mono text-xs font-normal hover:scale-105 ${isSelected ? 'scale-105' : ''}`}
                       aria-pressed={isSelected}
                       disabled={!onSelectEnrollment || !item.enrollment.courseId}
                       onClick={(e) => {
