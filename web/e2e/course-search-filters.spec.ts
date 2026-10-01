@@ -90,7 +90,14 @@ async function expectSummaryFits(summary: Locator) {
 }
 
 for (const width of [375, 1280]) {
-  test(`keeps grouped filters readable and removable at ${width}px`, async ({ page }) => {
+  test(`keeps grouped filters readable and removable at ${width}px`, async ({
+    page,
+    browserName,
+  }) => {
+    test.slow(
+      browserName === 'webkit',
+      'The long filter-selection workflow exceeds the default budget in CI WebKit'
+    )
     await page.setViewportSize({ width, height: 900 })
     await openCatalog(page)
     const catalog = page.locator('[data-course-search]')
