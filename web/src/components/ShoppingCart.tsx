@@ -492,7 +492,6 @@ export default function ShoppingCart({
                           className="size-5 p-0 cursor-pointer"
                           title="View course details"
                         >
-                          {/* gray-600 like the open Eye: gray-400 is this row's "off" state. */}
                           <Search className="size-3.5 text-gray-600 hover:text-gray-900" />
                         </Button>
                       )}
@@ -512,9 +511,9 @@ export default function ShoppingCart({
                         title={isVisible ? 'Hide course' : 'Show course'}
                       >
                         {isVisible ? (
-                          <Eye className="size-3.5 text-gray-600" />
+                          <EyeOff className="size-3.5 text-gray-600" />
                         ) : (
-                          <EyeOff className="size-3.5 text-gray-400" />
+                          <Eye className="size-3.5 text-gray-600" />
                         )}
                       </Button>
                       <Button

@@ -1159,9 +1159,9 @@ function CalendarVisibilityButton({
       title={isVisible ? 'Hide course' : 'Show course'}
     >
       {isVisible ? (
-        <Eye className="w-2.5 h-2.5 text-white" />
-      ) : (
         <EyeOff className="w-2.5 h-2.5 text-white" />
+      ) : (
+        <Eye className="w-2.5 h-2.5 text-white" />
       )}
     </Button>
   )
