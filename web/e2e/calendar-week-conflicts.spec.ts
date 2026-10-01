@@ -137,6 +137,142 @@ test('reports a conflict for sections that share a date', async ({ page }) => {
   await expect(conflictZone(page).first()).toBeVisible()
 })
 
+// Pause real transitions before sampling so slow CI cannot miss the resizing.
+async function watchGridResizing(page: Page) {
+  return page.evaluateHandle(() => {
+    const state = { started: 0 }
+    document.addEventListener('transitionrun', (event) => {
+      const target = event.target as HTMLElement
+      if (!target.closest('.time-column, .day-column')) return
+      if (!['top', 'height'].includes(event.propertyName)) return
+      state.started++
+      for (const animation of target.getAnimations()) {
+        if (
+          animation instanceof CSSTransition &&
+          ['top', 'height'].includes(animation.transitionProperty)
+        ) {
+          animation.pause()
+        }
+      }
+    })
+    return state
+  })
+}
+
+async function gridGeometry(page: Page, progress?: number) {
+  return page.evaluate((progress) => {
+    const hour = document.querySelector('.time-column > div > div')!
+    const animations = Array.from(document.querySelectorAll('.time-column, .day-column'))
+      .flatMap((column) => column.getAnimations({ subtree: true }))
+      .filter(
+        (animation) =>
+          animation instanceof CSSTransition &&
+          ['top', 'height'].includes(animation.transitionProperty)
+      )
+
+    if (progress !== undefined) {
+      const resize = hour
+        .getAnimations()
+        .find(
+          (animation) =>
+            animation instanceof CSSTransition && animation.transitionProperty === 'height'
+        )!
+      const duration = Number(resize.effect!.getTiming().duration)
+      for (const animation of animations) animation.currentTime = duration * progress
+    }
+
+    const bounds = (element: Element) => {
+      const rect = element.getBoundingClientRect()
+      return {
+        top: rect.top - element.parentElement!.getBoundingClientRect().top,
+        height: rect.height,
+      }
+    }
+    return {
+      hourHeight: hour.getBoundingClientRect().height,
+      slots: Array.from(
+        document.querySelectorAll(
+          '.day-column > div > div:not([data-course-card]):not([data-conflict-zone])'
+        )
+      ).map((element) => element.getBoundingClientRect().height),
+      cards: Array.from(document.querySelectorAll('[data-course-card]')).map(bounds),
+      zone: bounds(document.querySelector('[data-conflict-zone]')!),
+    }
+  }, progress)
+}
+
+function expectGridAlignment(geometry: Awaited<ReturnType<typeof gridGeometry>>) {
+  // The fixture meets 14:30–17:15 in a grid starting at 08:00.
+  expect(geometry.slots.length).toBeGreaterThan(0)
+  for (const height of geometry.slots)
+    expect(Math.abs(height - geometry.hourHeight)).toBeLessThan(1)
+  for (const card of geometry.cards) {
+    expect(Math.abs(card.top - 6.5 * geometry.hourHeight)).toBeLessThan(1)
+    expect(Math.abs(card.height - 2.75 * geometry.hourHeight)).toBeLessThan(1)
+  }
+  expect(Math.abs(geometry.zone.top - (6.5 * geometry.hourHeight - 4))).toBeLessThan(1)
+  expect(Math.abs(geometry.zone.height - (2.75 * geometry.hourHeight + 8))).toBeLessThan(1)
+}
+
+test('keeps meetings and conflicts aligned with the grid throughout resizing', async ({ page }) => {
+  await openPlanner(page, '11/9')
+  await expect(cards(page)).toHaveCount(2)
+  await expect(conflictZone(page)).toHaveCount(1)
+  await watchGridResizing(page)
+  let previous = await gridGeometry(page)
+  expectGridAlignment(previous)
+
+  for (const label of ['Title', 'Instructor', 'Instructor', 'Title']) {
+    await page.getByRole('button', { name: label, exact: true }).click()
+    const hour = page.locator('.time-column > div > div').first()
+    await expect
+      .poll(() =>
+        hour.evaluate((element) =>
+          element.getAnimations().some((animation) => animation.playState === 'paused')
+        )
+      )
+      .toBe(true)
+
+    const quarter = await gridGeometry(page, 0.25)
+    const later = await gridGeometry(page, 0.75)
+    expectGridAlignment(quarter)
+    expectGridAlignment(later)
+    expect(Math.abs(quarter.hourHeight - previous.hourHeight)).toBeGreaterThan(1)
+    expect(Math.abs(later.hourHeight - quarter.hourHeight)).toBeGreaterThan(1)
+
+    await page.evaluate(() => {
+      for (const column of document.querySelectorAll('.time-column, .day-column')) {
+        for (const animation of column.getAnimations({ subtree: true })) {
+          if (animation instanceof CSSTransition) animation.finish()
+        }
+      }
+    })
+    previous = await gridGeometry(page)
+    expectGridAlignment(previous)
+    expect(Math.abs(previous.hourHeight - later.hourHeight)).toBeGreaterThan(0.1)
+  }
+})
+
+test('resizes the timetable immediately with reduced motion', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await openPlanner(page, '11/9')
+  await expect(cards(page)).toHaveCount(2)
+  await expect(conflictZone(page)).toHaveCount(1)
+  const motion = await watchGridResizing(page)
+  const before = await gridGeometry(page)
+
+  await page.getByRole('button', { name: 'Title', exact: true }).click()
+  await expect(cards(page).first().getByText('College Induction Course')).toBeVisible()
+  await page.evaluate(
+    () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
+  )
+
+  expect(await motion.evaluate((state) => state.started)).toBe(0)
+  const after = await gridGeometry(page)
+  expect(after.hourHeight - before.hourHeight).toBeGreaterThan(1)
+  expectGridAlignment(after)
+})
+
 test('steps to the next week that differs, empty weeks included', async ({ page }) => {
   await openPlanner(page, '25/9')
   const nextWeek = page.getByRole('button', { name: 'Next week' })

@@ -56,6 +56,9 @@ import {
 import type { CalendarEvent, CourseEnrollment, UnscheduledSection } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
 
+// Keep hour rows, meeting cards, and conflict outlines in sync.
+const resizeTransition = 'duration-300 ease-in-out motion-reduce:transition-none'
+
 /**
  * Calculate dynamic hour height based on minimum course duration requirements
  */
@@ -893,7 +896,7 @@ export default function WeeklyCalendar({
                     {hours.map((hour) => (
                       <div
                         key={hour}
-                        className="flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100 transition-all duration-300"
+                        className={`flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100 transition-[height] ${resizeTransition}`}
                         style={{ height: `${dynamicHourHeight}px` }}
                       >
                         {hour.toString().padStart(2, '0')}
@@ -916,7 +919,7 @@ export default function WeeklyCalendar({
                         {hours.map((hour) => (
                           <div
                             key={hour}
-                            className="border-b border-gray-200 transition-all duration-300"
+                            className={`border-b border-gray-200 transition-[height] ${resizeTransition}`}
                             style={{ height: `${dynamicHourHeight}px` }}
                           />
                         ))}
@@ -955,7 +958,7 @@ export default function WeeklyCalendar({
                                 background:
                                   'repeating-linear-gradient(45deg, rgba(168, 85, 247, 0.6) 0px, rgba(168, 85, 247, 0.6) 10px, rgba(255, 255, 255, 0.3) 10px, rgba(255, 255, 255, 0.3) 20px)',
                               }}
-                              className="border-2 border-purple-500 rounded-sm animate-pulse transition-all duration-300"
+                              className={`border-2 border-purple-500 rounded-sm animate-pulse transition-[top,height] ${resizeTransition}`}
                             />
                           )
                         })}
@@ -1015,7 +1018,7 @@ export default function WeeklyCalendar({
                                 className={`
                               ${event.color}
                               rounded-sm text-xs text-white
-                              hover:scale-[1.03] transition-transform duration-300 cursor-pointer
+                              hover:scale-[1.03] transition-[top,height,transform,translate,scale,rotate] ${resizeTransition} cursor-pointer
                               overflow-hidden group
                               ${isSelected ? 'scale-[1.03]' : ''}
                               ${changedIds.has(event.id) ? 'changed-breathing' : ''}
