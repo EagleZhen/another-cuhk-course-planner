@@ -20,7 +20,7 @@ Share styles only when controls should change together. Compact chips can use st
 
 Keep selection distinguishable from momentary pressing. Passive labels should not show interaction feedback.
 
-Control colors and pressed brightness change immediately so feedback cannot linger into a new selection. Limit transitions to deliberate motion, shadow, or visibility; avoid `transition-all` on interactive elements.
+Button uses short color transitions for hover and selection; pressed colors share that timing. Keep transition properties explicit so feedback changes do not remove needed motion.
 
 Information-rich cards use selection or expanded content to show results, without an additional whole-card pressed fill or dimming. Preserve explicit keyboard actions; independent nested controls must stop click propagation when the parent is clickable.
 
