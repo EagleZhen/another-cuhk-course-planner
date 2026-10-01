@@ -59,6 +59,11 @@ import { analytics } from '@/lib/analytics'
 // Keep hour rows, meeting cards, and conflict outlines in sync.
 const resizeTransition = 'duration-300 ease-in-out motion-reduce:transition-none'
 
+const meetingCardScaleClasses = {
+  hover: 'hover:scale-[1.03]',
+  selected: 'scale-[1.03]',
+}
+
 /**
  * Calculate dynamic hour height based on minimum course duration requirements
  */
@@ -1018,9 +1023,9 @@ export default function WeeklyCalendar({
                                 className={`
                               ${event.color}
                               rounded-sm text-xs text-white
-                              hover:scale-[1.03] transition-[top,height,transform,translate,scale,rotate] ${resizeTransition} cursor-pointer
+                              ${meetingCardScaleClasses.hover} transition-[top,height,transform,translate,scale,rotate] ${resizeTransition} cursor-pointer
                               overflow-hidden group
-                              ${isSelected ? 'scale-[1.03]' : ''}
+                              ${isSelected ? meetingCardScaleClasses.selected : ''}
                               ${changedIds.has(event.id) ? 'changed-breathing' : ''}
                             `}
                                 onClick={toggleSelection}
@@ -1333,9 +1338,9 @@ function UnscheduledSectionsCard({
                     className={`
                       ${item.enrollment.color || 'bg-indigo-500'}
                       rounded-sm text-xs text-white
-                      hover:scale-105 transition-transform cursor-pointer
+                      ${meetingCardScaleClasses.hover} transition-transform cursor-pointer
                       overflow-hidden group relative
-                      ${isSelected ? 'scale-105' : ''}
+                      ${isSelected ? meetingCardScaleClasses.selected : ''}
                     `}
                     style={{
                       width: 'calc((100% - 32px) / 5)',
