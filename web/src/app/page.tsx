@@ -561,12 +561,12 @@ export default function Home() {
                 Archived: <strong className="font-semibold">{currentTerm}</strong>
               </span>
             </span>
-            <button
+            <Button
               onClick={() => handleTermChange(DEFAULT_CURRENT_TERM)}
-              className="flex-shrink-0 cursor-pointer rounded-full bg-amber-600 px-3 py-1 text-xs font-medium text-white transition-colors hover:bg-amber-700"
+              className="h-auto gap-0 rounded-full bg-amber-600 px-3 py-1 text-xs text-white shadow-none hover:bg-amber-700 active:bg-amber-800"
             >
               Back to current<span className="hidden sm:inline"> term</span>
-            </button>
+            </Button>
             {catalog.scrapedAt && (
               /* Pinned right from lg and hidden below, where the disclaimer banner
                  instead drops its timestamp onto its own line. The difference is
@@ -767,7 +767,7 @@ export default function Home() {
                 href="https://www.youtube.com/watch?v=YS2KB_cFrTo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-slate-600 transition-colors duration-200"
+                className="hover:text-slate-600"
               >
                 &ldquo;There&apos;s more to explore here.&rdquo;
               </a>
@@ -778,7 +778,7 @@ export default function Home() {
                 href="https://www.youtube.com/@EagleZhen"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-slate-900 transition-colors duration-200"
+                className="text-slate-600 hover:text-slate-900"
               >
                 EZ
               </a>
@@ -867,7 +867,7 @@ function SubjectFilterControls({
               placeholder="Search subjects..."
               value={subjectSearchTerm}
               onChange={(e) => onSubjectSearchChange(e.target.value)}
-              className="h-6 pl-6 pr-2 text-xs border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 w-full shadow-sm hover:shadow-md focus:shadow-md transition-all"
+              className="h-6 pl-6 pr-2 text-xs border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 w-full shadow-sm hover:shadow-md focus:shadow-md transition-shadow"
             />
           </div>
         )}
@@ -877,10 +877,10 @@ function SubjectFilterControls({
       {hasSubjects && (
         <div className="flex items-center gap-1.5">
           <Button
-            variant="ghost"
+            variant="text-action"
             size="sm"
             onClick={onToggleShowSelected}
-            className="h-5 rounded px-1.5 text-xs font-normal text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800 focus:ring-2 focus:ring-indigo-200 cursor-pointer"
+            className="h-5 rounded px-1.5 text-xs font-normal"
             title={showSelectedOnly ? 'Show all subjects' : 'Show selected subjects only'}
           >
             {showSelectedOnly ? 'Show All' : 'Show Selected Only'}

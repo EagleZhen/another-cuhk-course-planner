@@ -33,8 +33,8 @@ import {
   getAvailabilityBadgeStyle,
   checkSectionConflict,
   formatTimeConflictTooltip,
-  googleSearchAndOpen,
-  cuhkLibrarySearchAndOpen,
+  getGoogleSearchUrl,
+  getCuhkLibrarySearchUrl,
   getDayIndex,
   getAggregateSeatInfo,
   isVisibleAndValid,
@@ -122,23 +122,19 @@ function shuffledCopy<T>(items: T[]): T[] {
   return copy
 }
 
-/**
- * The ✕ inside a summary chip. The 20px hit area is wider than the 16px circle it
- * shows, so the negative margins keep that slack from padding out the badge.
- */
+// Negative margins keep the 20px remove target from enlarging the summary chip.
 function ChipRemoveButton({ label, onRemove }: { label: string; onRemove: () => void }) {
   return (
-    <button
+    <Button
+      variant="ghost"
       type="button"
       onClick={onRemove}
-      className="group -my-0.5 -mr-1 inline-flex size-5 touch-manipulation cursor-pointer items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      className="-my-0.5 -mr-1 size-5 rounded-full p-0 touch-manipulation text-muted-foreground"
       aria-label={label}
       title={label}
     >
-      <span className="inline-flex size-4 items-center justify-center rounded-full text-gray-500 transition-colors group-hover:bg-black/10 group-hover:text-gray-800">
-        <X className="h-3 w-3" aria-hidden="true" />
-      </span>
-    </button>
+      <X className="size-3" aria-hidden="true" />
+    </Button>
   )
 }
 
@@ -611,16 +607,16 @@ export default function CourseSearch({
 
   const resultsSummary = showResultsSummary ? (
     <div className="flex items-center justify-between gap-2 mb-3">
-      <div className="text-sm text-gray-600 flex flex-wrap items-center gap-2">
+      <div className="min-w-0 flex-1 text-sm text-gray-600 flex flex-wrap items-center gap-2">
         Showing {displayResults.courses.length} course
         {displayResults.courses.length !== 1 ? 's' : ''}
         {searchTerm && ` matching "${searchTerm}"`}
         {filterPills.length > 0 && (
-          <span className="inline-flex flex-wrap items-center gap-1.5 border-l border-gray-300 pl-2">
+          <span className="min-w-0 max-w-full inline-flex flex-wrap items-center gap-1.5 border-l border-gray-300 pl-2">
             <span className="font-medium text-gray-700">Filtered by</span>
             {filterPills.map((pill) => (
-              <Badge key={pill.filter} variant="secondary">
-                {pill.label}
+              <Badge key={pill.filter} variant="secondary" className="max-w-full whitespace-normal">
+                <span className="min-w-0 wrap-anywhere">{pill.label}</span>
                 {pill.onRemove && (
                   <ChipRemoveButton
                     label={`Remove ${pill.label} filter`}
@@ -692,12 +688,13 @@ export default function CourseSearch({
             <span>
               {failedSubjectCount} subject{failedSubjectCount !== 1 ? 's' : ''} failed to load due
               to a network error. Some courses may be missing.{' '}
-              <button
+              <Button
+                variant="ghost-danger"
                 onClick={() => window.location.reload()}
-                className="underline font-semibold cursor-pointer hover:text-red-900"
+                className="h-auto rounded px-0 py-0 text-inherit underline font-semibold"
               >
                 Reload the page
-              </button>{' '}
+              </Button>{' '}
               to try again.
             </span>
           </div>
@@ -710,7 +707,7 @@ export default function CourseSearch({
               placeholder="Search by course code, title, or instructor (e.g., UGFH1000, Nature, YU Bei)"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="h-11 w-full pl-10 bg-white border-gray-400 shadow-sm hover:shadow-md focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:shadow-md transition-all sm:h-9"
+              className="h-11 w-full pl-10 bg-white border-gray-400 shadow-sm hover:shadow-md focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:shadow-md sm:h-9"
             />
           </div>
           <div
@@ -863,7 +860,7 @@ export default function CourseSearch({
               type="button"
               variant="ghost"
               size="sm"
-              className="relative h-6 w-full rounded-md p-0 text-gray-500 hover:bg-gray-50 active:bg-gray-100"
+              className="relative h-6 w-full rounded-md p-0"
               aria-controls="course-filter-panel"
               aria-expanded={isFilterPanelExpanded}
               aria-label={isFilterPanelExpanded ? 'Hide filters' : 'Show filters'}
@@ -1136,6 +1133,54 @@ export default function CourseSearch({
   )
 }
 
+function CourseResourceLinks({ courseCode }: { courseCode: string }) {
+  const links = [
+    {
+      label: 'Outline',
+      href: getGoogleSearchUrl(`CUHK ${courseCode} Outline OR 大綱`),
+      title: `Search Google for "${courseCode}" outline`,
+      Icon: GoogleIcon,
+      widthClass: 'min-w-[60px] sm:min-w-[65px]',
+    },
+    {
+      label: 'Reviews',
+      href: getGoogleSearchUrl(`CUHK ${courseCode} Review OR 評價`),
+      title: `Search Google for "${courseCode}" reviews`,
+      Icon: GoogleIcon,
+      widthClass: 'min-w-[60px] sm:min-w-[65px]',
+    },
+    {
+      label: 'Past Papers',
+      href: getCuhkLibrarySearchUrl(courseCode),
+      title: `Search CUHK Library for "${courseCode}" past papers`,
+      Icon: CuhkLibraryImageIcon,
+      widthClass: 'min-w-[78px] sm:min-w-[85px]',
+    },
+  ]
+
+  return links.map(({ label, href, title, Icon, widthClass }) => (
+    <Button
+      key={label}
+      asChild
+      size="sm"
+      variant="ghost-neutral"
+      className={`h-6 flex-shrink-0 gap-1 sm:gap-1.5 px-1.5 sm:px-2 text-xs ${widthClass}`}
+    >
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={title}
+        aria-label={`${title} (opens in a new tab)`}
+        onClick={(event) => event.stopPropagation()}
+      >
+        <Icon className="w-3 h-3" />
+        {label}
+      </a>
+    </Button>
+  ))
+}
+
 // Reusable instructor filters component
 function InstructorFilters({
   instructors,
@@ -1154,12 +1199,14 @@ function InstructorFilters({
     <div className={`flex gap-2 ${isMobile ? 'flex-col w-full' : 'flex-wrap'}`}>
       {instructors.map((formattedInstructor) => {
         const isSelected = selectedInstructors.has(formattedInstructor)
+        const hasSearch = formattedInstructor !== 'Staff'
         return (
           <div key={formattedInstructor} className="flex items-center">
             <Button
               variant={isSelected ? 'default' : 'outline'}
               size="sm"
-              className={`h-6 pl-2 text-xs font-normal border-1 cursor-pointer flex items-center gap-1 relative group ${formattedInstructor !== 'Staff' ? 'pr-1' : 'pr-2'}`}
+              className={`h-6 px-2 text-xs font-normal border-1 relative focus-visible:z-10 ${hasSearch ? 'rounded-r-none' : ''}`}
+              aria-pressed={isSelected}
               onClick={(e) => {
                 e.stopPropagation()
                 onToggleInstructor(formattedInstructor)
@@ -1171,26 +1218,26 @@ function InstructorFilters({
               }
             >
               {formattedInstructor}
-              {/* Only show search button for specific instructors, not "Staff" */}
-              {formattedInstructor !== 'Staff' && (
-                <>
-                  <div
-                    className={`h-4 w-px shrink-0 ml-0.5 mr-0 ${isSelected ? 'bg-white/40' : 'bg-gray-400/60'}`}
-                  />{' '}
-                  {/* Visual separator */}
-                  <div
-                    className="size-5 p-0.5 flex items-center justify-center rounded-sm hover:bg-black/10 cursor-pointer"
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      googleSearchAndOpen(`CUHK ${formattedInstructor}`)
-                    }}
-                    title={`Search Google for "CUHK ${formattedInstructor}"`}
-                  >
-                    <GoogleIcon className="size-3.5" />
-                  </div>
-                </>
-              )}
             </Button>
+            {hasSearch && (
+              <Button
+                asChild
+                variant="outline"
+                size="sm"
+                className="-ml-px h-6 w-6 rounded-l-none p-0 relative focus-visible:z-10"
+              >
+                <a
+                  href={getGoogleSearchUrl(`CUHK ${formattedInstructor}`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Search Google for "CUHK ${formattedInstructor}" (opens in a new tab)`}
+                  title={`Search Google for "CUHK ${formattedInstructor}"`}
+                  onClick={(event) => event.stopPropagation()}
+                >
+                  <GoogleIcon className="size-3.5" />
+                </a>
+              </Button>
+            )}
           </div>
         )
       })}
@@ -1498,7 +1545,7 @@ function CourseCard({
               : 'Add course to cart'
           }
         >
-          {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections'}
+          {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections First'}
         </Button>
       )}
     </>
@@ -1582,8 +1629,8 @@ function CourseCard({
               : 'Add course to cart'
           }
         >
-          <Plus className="w-3 h-3 mr-1" />
-          {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections'}
+          {isEnrollmentComplete && <Plus className="w-3 h-3 mr-1" />}
+          {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections First'}
         </Button>
       )}
     </>
@@ -1591,7 +1638,7 @@ function CourseCard({
 
   return (
     <Card
-      className={`py-5 gap-0 transition-all duration-200 ${
+      className={`py-5 gap-0 transition-shadow duration-200 ${
         !expanded ? 'hover:shadow-lg hover:bg-gray-50 cursor-pointer' : 'shadow-md'
       }`}
       onClick={!expanded ? handleToggle : undefined} // Prevent collapsing when clicking on the card after expanding
@@ -1601,7 +1648,7 @@ function CourseCard({
           search bar / archived-year banner itself. Buttons stay exactly where they are
           today - no relocation needed */}
       <CardHeader
-        className={`pb-3 transition-[background-color,box-shadow] duration-200 ${
+        className={`pb-3 transition-shadow duration-200 ${
           expanded ? 'sm:sticky sm:z-[5] sm:bg-white sm:shadow-[0_-12px_0_0_white]' : ''
         }`}
         style={expanded ? { top: stickyOffset + 12 } : undefined}
@@ -1615,47 +1662,7 @@ function CourseCard({
                 {course.courseCode}
               </CardTitle>
               <div className="flex flex-wrap items-center gap-1">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    googleSearchAndOpen(
-                      `CUHK ${course.subject}${course.courseCode} Outline OR 大綱`
-                    )
-                  }}
-                  className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
-                  title={`Search Google for "${course.subject}${course.courseCode}" outline`}
-                >
-                  <GoogleIcon className="w-3 h-3" />
-                  Outline
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Review OR 評價`)
-                  }}
-                  className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[65px] flex-shrink-0"
-                  title={`Search Google for "${course.subject}${course.courseCode}" reviews`}
-                >
-                  <GoogleIcon className="w-3 h-3" />
-                  Reviews
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    cuhkLibrarySearchAndOpen(`${course.subject}${course.courseCode}`)
-                  }}
-                  className="h-6 px-2 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200 min-w-[85px] flex-shrink-0"
-                  title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
-                >
-                  <CuhkLibraryImageIcon className="w-3 h-3" />
-                  Past Papers
-                </Button>
+                <CourseResourceLinks courseCode={`${course.subject}${course.courseCode}`} />
               </div>
             </div>
             <CardDescription className="text-base font-medium text-gray-700 mt-1">
@@ -1672,6 +1679,8 @@ function CourseCard({
                 handleToggle()
               }}
               className="w-8 h-8 p-0"
+              aria-expanded={expanded}
+              aria-label={expanded ? 'Hide sections' : 'Show sections'}
               title={expanded ? 'Hide sections' : 'Show sections'}
             >
               {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -1734,47 +1743,9 @@ function CourseCard({
               {course.title}
             </CardDescription>
 
-            {/* Search buttons below course header */}
+            {/* Resource links below course header */}
             <div className="flex flex-wrap items-center gap-0.5 mt-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Outline OR 大綱`)
-                }}
-                className="h-6 min-w-[60px] flex-shrink-0 gap-1 px-1.5 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200"
-                title={`Search Google for "${course.subject}${course.courseCode}" outline`}
-              >
-                <GoogleIcon className="w-3 h-3" />
-                Outline
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  googleSearchAndOpen(`CUHK ${course.subject}${course.courseCode} Review OR 評價`)
-                }}
-                className="h-6 min-w-[60px] flex-shrink-0 gap-1 px-1.5 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200"
-                title={`Search Google for "${course.subject}${course.courseCode}" reviews`}
-              >
-                <GoogleIcon className="w-3 h-3" />
-                Reviews
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  cuhkLibrarySearchAndOpen(`${course.subject}${course.courseCode}`)
-                }}
-                className="h-6 min-w-[78px] flex-shrink-0 gap-1 px-1.5 text-xs text-gray-500 hover:text-gray-700 hover:bg-gray-200"
-                title={`Search CUHK Library for "${course.subject}${course.courseCode}" past papers`}
-              >
-                <CuhkLibraryImageIcon className="w-3 h-3" />
-                Past Papers
-              </Button>
+              <CourseResourceLinks courseCode={`${course.subject}${course.courseCode}`} />
             </div>
           </div>
 
@@ -1828,7 +1799,7 @@ function CourseCard({
       {/* Mobile: action buttons dock below the search bar while expanded, same plain
           CSS sticky approach as the search bar / archived-year banner itself */}
       <div
-        className={`sm:hidden bg-white px-6 pt-3 pb-3 space-y-2 ${expanded ? 'sticky z-[5]' : ''}`}
+        className={`sm:hidden px-6 pt-3 pb-3 space-y-2 ${expanded ? 'sticky z-[5] bg-white' : ''}`}
         style={expanded ? { top: stickyOffset } : undefined}
       >
         {renderCartActionsStacked()}
@@ -1842,6 +1813,7 @@ function CourseCard({
             handleToggle()
           }}
           className="w-full cursor-pointer"
+          aria-expanded={expanded}
           title={expanded ? 'Hide sections' : 'Show sections'}
         >
           {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -1999,7 +1971,7 @@ function CourseCard({
                             : `${hiddenSectionsCount} option${hiddenSectionsCount === 1 ? '' : 's'} hidden`}
                         </span>
                         <Button
-                          variant="ghost"
+                          variant="text-action"
                           size="sm"
                           onClick={() => {
                             setShowAllSectionTypes((prev) => {
@@ -2012,7 +1984,7 @@ function CourseCard({
                               return updated
                             })
                           }}
-                          className="h-5 rounded px-1.5 text-xs text-indigo-700 hover:bg-indigo-50 hover:text-indigo-800 focus:ring-2 focus:ring-indigo-200"
+                          className="h-5 rounded px-1.5 text-xs"
                           title={
                             showingAllForType
                               ? `Hide extra ${typeGroup.displayName.toLowerCase()} options`
@@ -2048,10 +2020,71 @@ function CourseCard({
                           ? 'cursor-not-allowed'
                           : 'cursor-pointer'
 
+                        const toggleSection = () => {
+                          if (!isIncompatible) {
+                            const newSelections = new Map(localSelections)
+                            if (newSelections.get(typeGroup.type) === section.id) {
+                              // Remove selection
+                              newSelections.delete(typeGroup.type)
+                              // Note: Keep "show all" state - let user control it explicitly
+                            } else {
+                              // Set new selection
+                              newSelections.set(typeGroup.type, section.id)
+
+                              // Cascade clearing: if this is a higher-priority selection,
+                              // clear incompatible lower-priority selections
+                              const newSectionPriority = getSectionTypePriority(
+                                typeGroup.type as SectionType,
+                                sectionTypes
+                              )
+
+                              // Find lower-priority selections to potentially clear
+                              const selectionsToCheck = Array.from(newSelections.entries())
+                              for (const [otherType, otherSectionId] of selectionsToCheck) {
+                                if (otherType === typeGroup.type) continue // Skip self
+
+                                const otherPriority = getSectionTypePriority(
+                                  otherType as SectionType,
+                                  sectionTypes
+                                )
+
+                                // Only clear LOWER priority selections (higher number = lower priority)
+                                if (otherPriority > newSectionPriority) {
+                                  // Check if the new selection makes the other selection incompatible
+                                  const otherTypeGroup = sectionTypes.find(
+                                    (tg) => tg.type === otherType
+                                  )
+                                  if (otherTypeGroup) {
+                                    const otherSection = otherTypeGroup.sections.find(
+                                      (s) => s.id === otherSectionId
+                                    )
+
+                                    // Check compatibility using the new selection as constraint
+                                    if (otherSection) {
+                                      const { incompatible } = categorizeCompatibleSections(
+                                        otherTypeGroup.sections,
+                                        [section] // New higher-priority selection as constraint
+                                      )
+
+                                      // If the other section is now incompatible, clear it
+                                      if (incompatible.includes(otherSection)) {
+                                        newSelections.delete(otherType)
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                            setLocalSelections(newSelections)
+                            onSectionsChange(course, newSelections)
+                            // Note: Removed auto-reset of showAllSectionTypes - let user control it explicitly
+                          }
+                        }
+
                         return (
                           <div
                             key={section.id}
-                            className={`p-2 rounded transition-all ${cardCursorClass} ${
+                            className={`p-2 rounded transition-shadow ${cardCursorClass} ${
                               isSelected
                                 ? 'border border-blue-500 bg-blue-50 shadow-md ring-1 ring-blue-200'
                                 : isIncompatible
@@ -2062,66 +2095,7 @@ function CourseCard({
                                       ? 'border border-yellow-500 hover:bg-yellow-50 shadow-sm'
                                       : 'border border-red-500 hover:bg-red-50 shadow-sm'
                             }`}
-                            onClick={() => {
-                              if (!isIncompatible) {
-                                const newSelections = new Map(localSelections)
-                                if (newSelections.get(typeGroup.type) === section.id) {
-                                  // Remove selection
-                                  newSelections.delete(typeGroup.type)
-                                  // Note: Keep "show all" state - let user control it explicitly
-                                } else {
-                                  // Set new selection
-                                  newSelections.set(typeGroup.type, section.id)
-
-                                  // Cascade clearing: if this is a higher-priority selection,
-                                  // clear incompatible lower-priority selections
-                                  const newSectionPriority = getSectionTypePriority(
-                                    typeGroup.type as SectionType,
-                                    sectionTypes
-                                  )
-
-                                  // Find lower-priority selections to potentially clear
-                                  const selectionsToCheck = Array.from(newSelections.entries())
-                                  for (const [otherType, otherSectionId] of selectionsToCheck) {
-                                    if (otherType === typeGroup.type) continue // Skip self
-
-                                    const otherPriority = getSectionTypePriority(
-                                      otherType as SectionType,
-                                      sectionTypes
-                                    )
-
-                                    // Only clear LOWER priority selections (higher number = lower priority)
-                                    if (otherPriority > newSectionPriority) {
-                                      // Check if the new selection makes the other selection incompatible
-                                      const otherTypeGroup = sectionTypes.find(
-                                        (tg) => tg.type === otherType
-                                      )
-                                      if (otherTypeGroup) {
-                                        const otherSection = otherTypeGroup.sections.find(
-                                          (s) => s.id === otherSectionId
-                                        )
-
-                                        // Check compatibility using the new selection as constraint
-                                        if (otherSection) {
-                                          const { incompatible } = categorizeCompatibleSections(
-                                            otherTypeGroup.sections,
-                                            [section] // New higher-priority selection as constraint
-                                          )
-
-                                          // If the other section is now incompatible, clear it
-                                          if (incompatible.includes(otherSection)) {
-                                            newSelections.delete(otherType)
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                                setLocalSelections(newSelections)
-                                onSectionsChange(course, newSelections)
-                                // Note: Removed auto-reset of showAllSectionTypes - let user control it explicitly
-                              }
-                            }}
+                            onClick={toggleSection}
                             title={
                               isIncompatible
                                 ? `Can't be taken with: ${clashesWith
@@ -2158,6 +2132,13 @@ function CourseCard({
                                     variant="ghost"
                                     size="sm"
                                     className="h-4 w-4 p-0"
+                                    disabled={isIncompatible}
+                                    aria-pressed={isSelected}
+                                    aria-label={`Section ${section.sectionCode}`}
+                                    onClick={(event) => {
+                                      event.stopPropagation()
+                                      toggleSection()
+                                    }}
                                     title={isSelected ? 'Remove selection' : 'Select this section'}
                                   >
                                     {isSelected ? (
@@ -2516,17 +2497,16 @@ function CollapsibleCourseOutcomeSection({
   // For collapsible sections
   return (
     <div>
-      <button
+      <Button
+        variant="ghost"
+        size="sm"
+        aria-expanded={isExpanded}
         onClick={() => setIsExpanded(!isExpanded)}
-        className="group flex items-center gap-2 w-fit text-left font-semibold text-sm text-gray-700 hover:text-blue-600 transition-colors py-1 cursor-pointer"
+        className="-ml-2 w-fit justify-start whitespace-normal text-left font-semibold"
       >
         <span>{title}</span>
-        {isExpanded ? (
-          <ChevronUp className="w-4 h-4 flex-shrink-0 text-gray-600 group-hover:text-blue-600 transition-colors" />
-        ) : (
-          <ChevronDown className="w-4 h-4 flex-shrink-0 text-gray-600 group-hover:text-blue-600 transition-colors" />
-        )}
-      </button>
+        {isExpanded ? <ChevronUp className="size-4" /> : <ChevronDown className="size-4" />}
+      </Button>
 
       {isExpanded && (
         <div className="mt-2">

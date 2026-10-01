@@ -10,6 +10,7 @@ Next.js recreates `web/AGENTS.md` with this warning, and a `web/CLAUDE.md` point
 
 - `README.md`: overview and repo map
 - `docs/README.md`: documentation map (start here for project docs)
+- `docs/design.md`: read before changing UI primitives or interaction styling
 - `docs/commit-conventions.md`: required types and scopes; read before proposing or creating a commit title
 
 ## Working Style
@@ -17,6 +18,10 @@ Next.js recreates `web/AGENTS.md` with this warning, and a `web/CLAUDE.md` point
 Use judgment. Refactor when it improves clarity, maintainability, or correctness, and challenge assumptions when there is a clear technical reason — explain the tradeoff briefly.
 
 ### Changing Code
+
+Before designing a shared abstraction, inspect consumers and related implementations, including deferred ones. Identify what should stay shared or separate; mark uninspected cases as unknown. Repeated overrides are a reason to reassess the abstraction, not add another layer.
+
+Separate behavior-preserving refactors from visual redesign. Before a broad UI migration, trial contrasting consumers against their original appearance and behavior, including nested controls and keyboard access. Review that trial before extending it; preserve intentional differences unless a change is agreed.
 
 Build a producer only together with its consumer. A computed value nothing reads hides that the feature was never finished, and a validation that cannot fail is the same thing wearing a safety vest.
 
@@ -39,6 +44,8 @@ For generated or tool-managed files, prefer commands over manual edits.
 ### Tests and Checks
 
 Run checks proportional to the change. Avoid full scrapes or full builds unless they are relevant, requested, or needed.
+
+Passing static or functional checks does not establish visual preservation. Have the user review changed UI states on desktop and touch, including hover, press, selection, and focus; report anything unchecked before calling it ready.
 
 Confirm each new test fails with its change undone, and each new guard fires on data it should reject. A guard that passes on a known break is checking something other than its name claims.
 

@@ -137,6 +137,43 @@ test('previous replaces a removed section with the last compatible alternative',
   await expectReplacementSaved(page, 'last')
 })
 
+test('outlines both warning actions and reviews the changed course', async ({ page }) => {
+  await openCart(page, [firstReplacement, lastReplacement])
+  const cart = page.locator('[data-shopping-cart]')
+  for (const name of ['Review next', 'Dismiss all']) {
+    const action = cart.getByRole('button', { name, exact: true })
+    await expect(action).toBeVisible()
+    const borders = await action.evaluate((element) => {
+      const style = getComputedStyle(element)
+      // Let the browser resolve color opacity without depending on its CSS color format.
+      const canvas = document.createElement('canvas')
+      canvas.width = canvas.height = 1
+      const context = canvas.getContext('2d')!
+      return ['top', 'right', 'bottom', 'left'].map((side) => {
+        context.clearRect(0, 0, 1, 1)
+        context.fillStyle = style.getPropertyValue(`border-${side}-color`)
+        context.fillRect(0, 0, 1, 1)
+        return {
+          side,
+          width: parseFloat(style.getPropertyValue(`border-${side}-width`)),
+          style: style.getPropertyValue(`border-${side}-style`),
+          opacity: context.getImageData(0, 0, 1, 1).data[3],
+        }
+      })
+    })
+    for (const border of borders) {
+      expect(border.width, `${name}: ${border.side} width`).toBeGreaterThan(0)
+      expect(border.style, `${name}: ${border.side} style`).not.toMatch(/^(none|hidden)$/)
+      expect(border.opacity, `${name}: ${border.side} opacity`).toBeGreaterThan(0)
+    }
+  }
+  await cart.getByRole('button', { name: 'Review next', exact: true }).click()
+  await expect(cart.getByRole('button', { name: 'ACCT1111', exact: true })).toHaveAttribute(
+    'aria-pressed',
+    'true'
+  )
+})
+
 test('dismisses the banner without removing the tombstone or replacement controls', async ({
   page,
 }) => {

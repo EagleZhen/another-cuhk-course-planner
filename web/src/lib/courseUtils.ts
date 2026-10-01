@@ -1671,31 +1671,16 @@ export function formatTimeConflictTooltip(conflictingSections: readonly string[]
 
 // === SEARCH UTILITIES ===
 
-/**
- * Performs a Google search with the given query and opens in new tab
- * @param query Search query string
- */
-export const googleSearchAndOpen = (query: string): void => {
+export const getGoogleSearchUrl = (query: string): string => {
   const params = new URLSearchParams({ q: query })
-  const url = `https://www.google.com/search?${params.toString()}`
-  window.open(url, '_blank', 'noopener,noreferrer')
+  return `https://www.google.com/search?${params.toString()}`
 }
 
-/**
- * Opens Google Maps search for the given location and opens in new tab
- * @param location Location string to search for
- */
-export const googleMapsSearchAndOpen = (location: string): void => {
-  const encodedLocation = encodeURIComponent(location)
-  const url = `https://www.google.com/maps/search/${encodedLocation}`
-  window.open(url, '_blank', 'noopener,noreferrer')
+export const getGoogleMapsSearchUrl = (location: string): string => {
+  return `https://www.google.com/maps/search/${encodeURIComponent(location)}`
 }
 
-/**
- * Opens CUHK Library search for past papers of the given course and opens in new tab
- * @param courseCode Course code string (e.g., "CSCI3100")
- */
-export const cuhkLibrarySearchAndOpen = (courseCode: string): void => {
+export const getCuhkLibrarySearchUrl = (courseCode: string): string => {
   const params = new URLSearchParams({
     query: `any,contains,${courseCode}`,
     tab: 'default_tab',
@@ -1703,8 +1688,7 @@ export const cuhkLibrarySearchAndOpen = (courseCode: string): void => {
     vid: '852JULAC_CUHK:CUHK',
     offset: '0',
   })
-  const url = `https://julac-cuhk.primo.exlibrisgroup.com/discovery/search?${params.toString()}`
-  window.open(url, '_blank', 'noopener,noreferrer')
+  return `https://julac-cuhk.primo.exlibrisgroup.com/discovery/search?${params.toString()}`
 }
 
 // === ACADEMIC YEAR (TERM PARSING) ===

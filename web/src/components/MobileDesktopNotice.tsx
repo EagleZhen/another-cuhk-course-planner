@@ -126,13 +126,14 @@ export default function MobileDesktopNotice() {
         style={{ backdropFilter: 'blur(20px)' }}
         onClick={(e) => e.stopPropagation()}
       >
-        <button
+        <Button
+          variant="ghost"
           onClick={() => dismissNotice('button')}
           aria-label="Close"
-          className="absolute top-3 right-3 p-1.5 rounded-md text-muted-foreground select-none hover:bg-accent hover:text-foreground active:scale-90 transition-all"
+          className="absolute top-3 right-3 h-auto p-1.5 text-muted-foreground select-none"
         >
           <X className="w-4 h-4" />
-        </button>
+        </Button>
 
         {/* Header */}
         <div className="text-center mb-4">
@@ -186,9 +187,8 @@ export default function MobileDesktopNotice() {
             <Button
               onClick={shareToDesktop}
               size="lg"
-              className={`w-full select-none active:scale-95 ${
-                copied ? 'bg-emerald-600 text-white hover:bg-emerald-600' : ''
-              }`}
+              variant={copied ? 'positive' : undefined}
+              className="w-full select-none motion-safe:active:scale-95"
             >
               {copied ? <Check /> : <Share2 />}
               {copied ? 'Link copied!' : 'Send link to my computer'}
@@ -197,7 +197,7 @@ export default function MobileDesktopNotice() {
               variant="ghost"
               size="lg"
               onClick={() => dismissNotice('button')}
-              className="w-full text-muted-foreground select-none active:scale-95"
+              className="w-full select-none motion-safe:active:scale-95"
             >
               Continue on mobile
             </Button>

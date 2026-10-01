@@ -69,7 +69,7 @@ function creditSummaryOf(visible: Credits | undefined, total: Credits | undefine
 
 // Shared style for the change-banner actions; the grid gives both equal width.
 const bannerButtonClass =
-  'h-6 w-full rounded border border-amber-300 bg-white/50 px-2 text-[11px] font-medium text-amber-800 hover:bg-amber-100 cursor-pointer'
+  'h-6 w-full rounded border border-amber-300 bg-white/50 px-2 text-[11px] font-medium'
 
 interface ShoppingCartProps {
   courseEnrollments: CourseEnrollment[]
@@ -324,9 +324,9 @@ export default function ShoppingCart({
           >
             {onSelectEnrollment && (
               <Button
-                variant="ghost"
                 size="sm"
                 onClick={reviewNextChange}
+                variant="ghost-warning"
                 className={bannerButtonClass}
                 title="Review the next changed course from top to bottom"
               >
@@ -335,9 +335,9 @@ export default function ShoppingCart({
             )}
             {onDismissAllChanges && (
               <Button
-                variant="ghost"
                 size="sm"
                 onClick={onDismissAllChanges}
+                variant="ghost-warning"
                 className={bannerButtonClass}
                 title="Dismiss all change notifications"
               >
@@ -372,6 +372,10 @@ export default function ShoppingCart({
               const isSelected = selectedEnrollment === enrollment.courseId
               const isInvalid = enrollment.isInvalid // Check if enrollment has invalid data
               const isSelectable = isVisible || isInvalid
+              const canSelect = isSelectable && !!onSelectEnrollment
+              const toggleSelection = () => {
+                if (canSelect) onSelectEnrollment?.(isSelected ? null : enrollment.courseId)
+              }
               const cardCursorClass = isInvalid
                 ? 'cursor-help'
                 : isSelectable
@@ -408,7 +412,7 @@ export default function ShoppingCart({
                   }}
                   className={`
                     relative group space-y-2 rounded border border-l-4 p-2
-                    transition-all duration-300 motion-reduce:transition-none
+                    transition-[box-shadow,scale] duration-300 motion-reduce:transition-none
                     ${isInvalid ? 'border-amber-200 bg-amber-50' : 'border-gray-200 bg-white'}
                     ${isSelectable && onSelectEnrollment && !isSelected ? 'hover:shadow-md' : ''}
                     ${isSelected && isSelectable ? `ring-1 shadow-lg scale-[1.02]` : ''}
@@ -434,12 +438,7 @@ export default function ShoppingCart({
                         ? invalidTooltip
                         : undefined
                   }
-                  onClick={() => {
-                    if (isSelectable && onSelectEnrollment) {
-                      const newSelection = isSelected ? null : enrollment.courseId
-                      onSelectEnrollment(newSelection)
-                    }
-                  }}
+                  onClick={toggleSelection}
                 >
                   {/* Course Header */}
                   {/* Icon buttons are `size-5` (not `h-full aspect-square`) to match this row's `h-5` — Safari resolves stretch+aspect-ratio differently and renders the button past the card's edge. */}
@@ -447,13 +446,22 @@ export default function ShoppingCart({
                     <div
                       className={`flex min-w-0 flex-1 items-stretch gap-1 ${!isVisible && !isInvalid ? 'opacity-50' : ''}`}
                     >
-                      <span className="flex h-full shrink-0 items-center text-sm font-semibold leading-5">
+                      <Button
+                        variant="ghost"
+                        disabled={!canSelect}
+                        aria-pressed={isSelected}
+                        onClick={(event) => {
+                          event.stopPropagation()
+                          toggleSelection()
+                        }}
+                        className="h-full rounded-sm p-0 text-sm font-semibold leading-5 disabled:opacity-100"
+                      >
                         {formatCourseCodeWithPrefix(
                           enrollment.course.subject,
                           enrollment.course.courseCode,
                           headerCohortKey
                         )}
-                      </span>
+                      </Button>
                       {enrollment.course.credits && (
                         // The only thing here that may shrink — the code is the card's
                         // identity, the actions are fixed — so keep px-1: any wider and it
@@ -484,7 +492,6 @@ export default function ShoppingCart({
                           className="size-5 p-0 cursor-pointer"
                           title="View course details"
                         >
-                          {/* gray-600 like the open Eye: gray-400 is this row's "off" state. */}
                           <Search className="size-3.5 text-gray-600 hover:text-gray-900" />
                         </Button>
                       )}
@@ -504,20 +511,20 @@ export default function ShoppingCart({
                         title={isVisible ? 'Hide course' : 'Show course'}
                       >
                         {isVisible ? (
-                          <Eye className="size-3.5 text-gray-600" />
+                          <EyeOff className="size-3.5 text-gray-600" />
                         ) : (
-                          <EyeOff className="size-3.5 text-gray-400" />
+                          <Eye className="size-3.5 text-gray-600" />
                         )}
                       </Button>
                       <Button
-                        variant="ghost"
                         size="sm"
                         onClick={(e) => {
                           e.stopPropagation()
                           // Remove this enrollment
                           onRemoveCourse(enrollment.courseId)
                         }}
-                        className="size-5 p-0 text-red-500 hover:text-red-700 hover:bg-red-50 cursor-pointer"
+                        variant="ghost-danger"
+                        className="size-5 p-0"
                         title="Remove course"
                       >
                         <Trash2 className="size-3" />
@@ -603,28 +610,28 @@ export default function ShoppingCart({
                                     {sectionPosition}
                                   </span>
                                   <Button
-                                    variant="ghost"
                                     size="sm"
                                     onClick={(e) => {
                                       e.stopPropagation()
                                       cycleSection(enrollment, section.sectionType, 'prev')
                                     }}
-                                    className="h-4 w-4 p-0 hover:bg-gray-200 cursor-pointer"
+                                    variant="ghost-neutral"
+                                    className="h-4 w-4 p-0"
                                     title="Previous section"
                                   >
-                                    <ChevronLeft className="w-3 h-3 text-gray-600" />
+                                    <ChevronLeft className="w-3 h-3" />
                                   </Button>
                                   <Button
-                                    variant="ghost"
                                     size="sm"
                                     onClick={(e) => {
                                       e.stopPropagation()
                                       cycleSection(enrollment, section.sectionType, 'next')
                                     }}
-                                    className="h-4 w-4 p-0 hover:bg-gray-200 cursor-pointer"
+                                    variant="ghost-neutral"
+                                    className="h-4 w-4 p-0"
                                     title="Next section"
                                   >
-                                    <ChevronRight className="w-3 h-3 text-gray-600" />
+                                    <ChevronRight className="w-3 h-3" />
                                   </Button>
                                 </div>
                               ) : (
@@ -721,28 +728,28 @@ export default function ShoppingCart({
                                       : `${compatible.length} remain`}
                                   </span>
                                   <Button
-                                    variant="ghost"
                                     size="sm"
                                     onClick={(event) => {
                                       event.stopPropagation()
                                       chooseReplacement(enrollment, section.sectionType, 'prev')
                                     }}
-                                    className="h-4 w-4 cursor-pointer p-0 hover:bg-amber-100"
+                                    variant="ghost-warning"
+                                    className="h-4 w-4 p-0"
                                     aria-label={`Choose the last compatible ${sectionTypeName} section`}
                                   >
-                                    <ChevronLeft className="h-3 w-3 text-gray-600" />
+                                    <ChevronLeft className="h-3 w-3" />
                                   </Button>
                                   <Button
-                                    variant="ghost"
                                     size="sm"
                                     onClick={(event) => {
                                       event.stopPropagation()
                                       chooseReplacement(enrollment, section.sectionType, 'next')
                                     }}
-                                    className="h-4 w-4 cursor-pointer p-0 hover:bg-amber-100"
+                                    variant="ghost-warning"
+                                    className="h-4 w-4 p-0"
                                     aria-label={`Choose the first compatible ${sectionTypeName} section`}
                                   >
-                                    <ChevronRight className="h-3 w-3 text-gray-600" />
+                                    <ChevronRight className="h-3 w-3" />
                                   </Button>
                                 </div>
                               ) : (

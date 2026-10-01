@@ -1,12 +1,14 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
+
 import {
   formatDateRange,
   formatTimeCompact,
   getDayIndex,
   formatInstructorsCompact,
-  googleSearchAndOpen,
-  googleMapsSearchAndOpen,
+  getGoogleSearchUrl,
+  getGoogleMapsSearchUrl,
 } from '@/lib/courseUtils'
 import type { MeetingRow } from '@/lib/types'
 import { DAYS, getDayKey } from '@/lib/calendarConfig'
@@ -132,16 +134,18 @@ export function MeetingRowCard({
             {formattedInstructor}
           </span>
           {formattedInstructor !== 'Staff' && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                googleSearchAndOpen(`CUHK ${formattedInstructor}`)
-              }}
-              className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-              title={`Search Google for "CUHK ${formattedInstructor}"`}
-            >
-              <GoogleIcon className="size-3" />
-            </button>
+            <Button asChild variant="ghost" className="h-auto rounded p-0.5">
+              <a
+                href={getGoogleSearchUrl(`CUHK ${formattedInstructor}`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`Search Google for "CUHK ${formattedInstructor}"`}
+                aria-label={`Search Google for "CUHK ${formattedInstructor}" (opens in a new tab)`}
+                onClick={(event) => event.stopPropagation()}
+              >
+                <GoogleIcon className="size-3" />
+              </a>
+            </Button>
           )}
         </div>
       </div>
@@ -160,16 +164,18 @@ export function MeetingRowCard({
             {location}
           </span>
           {location !== 'TBA' && location !== 'No Room Required' && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                googleMapsSearchAndOpen(location)
-              }}
-              className="flex-shrink-0 p-0.5 hover:bg-gray-100 rounded cursor-pointer transition-colors duration-200"
-              title={`View "${location}" on Google Maps`}
-            >
-              <GoogleMapsIcon className="size-3" />
-            </button>
+            <Button asChild variant="ghost" className="h-auto rounded p-0.5">
+              <a
+                href={getGoogleMapsSearchUrl(location)}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`View "${location}" on Google Maps`}
+                aria-label={`View "${location}" on Google Maps (opens in a new tab)`}
+                onClick={(event) => event.stopPropagation()}
+              >
+                <GoogleMapsIcon className="size-3" />
+              </a>
+            </Button>
           )}
         </div>
       </div>

@@ -8,7 +8,7 @@ Only non-obvious constraints and rationale are documented here; the code is the 
 
 ## Data Loading
 
-- A year's subjects all load in parallel so search stays local and instant within it. The live year loads at startup; an archived year is fetched only when first opened, so the live year never pays for years no one visits. Complete loads are cached per year; an incomplete one retries when that year next becomes active. Implemented in [`useCourseCatalog`](../../web/src/hooks/useCourseCatalog.ts).
+- A year's subjects load in parallel so searching that catalog requires no further requests. The live year loads at startup; archived years load when first opened. Complete loads are cached per year; an incomplete one retries when that year next becomes active. Implemented in [`useCourseCatalog`](../../web/src/hooks/useCourseCatalog.ts).
 - **Mobile first visit:** loading waits for the `NOTICE_IMAGE_LOADED_EVENT` window event so the `MobileDesktopNotice` preview image isn't starved by the course-data download (~4MB compressed on the wire, ~40MB of JSON after decompression). The notice dispatches it on image load, image error, and dismissal — loading must never hang on a missing dispatch. Constants live in [constants.ts](../../web/src/lib/constants.ts).
 - The loading UI deliberately shows no remaining-time estimate: parallel request timing is too noisy to predict honestly.
 
@@ -31,11 +31,9 @@ Course-level filtering lives in [courseFilters.ts](../../web/src/lib/courseFilte
 - **Instructor filter:** pills and section matching share one compact-name list, so they compare as displayed. Applying the filter clears section selections that no longer match; clearing it keeps existing selections.
 - **Card-local selections** stay inside the card until the user adds or updates the course in the planner.
 
-## External Search Buttons
+## External Resource Links
 
-- Queries are built deliberately: `CUHK` narrows away other universities, and the no-space course code (`CSCI3100`) matches how students actually search.
-- Queries are bilingual (`Outline OR 大綱`, `Review OR 評價`) because CUHK course discussion happens in English and Traditional Chinese.
-- Past Papers searches the CUHK Library, not Google — different source.
+Google queries use `CUHK`, the compact course code (`CSCI3100`), and bilingual keywords (`Outline OR 大綱`, `Review OR 評價`) to find English and Traditional Chinese resources. Past Papers searches the CUHK Library.
 
 ## Seat Availability
 
@@ -48,6 +46,7 @@ Cart action buttons scrolled out of view on long section lists. Fix: dock them b
 
 - **Desktop** sticks the whole `CardHeader` (already a sibling of `CardContent`, so no restructuring needed) rather than pulling the buttons out of their inline spot beside the title.
 - **Mobile** sticks only a slim button bar, not the full header - badges/instructor chips can wrap several lines on a narrow screen.
+- Keep that bar transparent when collapsed so card feedback shows through; it needs an opaque background only when expanded and sticky.
 - **No `IntersectionObserver`-based "is it stuck" detection** (e.g. for a shadow that appears only once pinned) - it lags real scroll position by a frame, causing a visible mismatch. Styling keys off `expanded` alone instead.
 - z-index stays below the search bar's, so the search bar always wins on overlap.
 - The offset is reconstructed from the search bar's CSS `top` (read via `getComputedStyle`, not hardcoded) plus its live height (via `ResizeObserver`) - **not** `getBoundingClientRect()`'s current position. The search bar's on-screen position only equals its _stuck_ position once the page has actually scrolled that far; expanding a card before scrolling (e.g. the first result, on a wide screen with more content above the search bar) would otherwise capture wherever it naturally sits pre-scroll, sticking the header far down the page.
@@ -55,7 +54,8 @@ Cart action buttons scrolled out of view on long section lists. Fix: dock them b
 
 ## Known Limitations
 
-- Google search buttons depend on Google availability in the user's region.
+- Heavy filters can delay interaction feedback; [#365](https://github.com/EagleZhen/another-cuhk-course-planner/issues/365) tracks filtering responsiveness.
+- Google search links depend on Google availability in the user's region.
 - Bilingual search covers Traditional but not Simplified Chinese.
 - Instructor filters do not support partial name matching.
 - Day filters show day presence, not time ranges.

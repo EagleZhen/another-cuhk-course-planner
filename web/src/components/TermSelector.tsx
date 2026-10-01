@@ -3,9 +3,10 @@
 import { useMemo, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { MenuItem } from '@/components/ui/menu-item'
 import { extractAcademicYearCode } from '@/lib/courseUtils'
 
-// Two looks: an inline text link (in the search bar) and an outline button (on
+// Two looks: a compact trigger (in the search bar) and an outline button (on
 // the calendar). Each variant also fixes the popover's alignment and z-order.
 type Variant = 'link' | 'button'
 
@@ -14,7 +15,7 @@ const VARIANTS: Record<
   { triggerOpen: string; backdropZ: string; menuZ: string; align: string }
 > = {
   link: {
-    triggerOpen: 'relative z-50 bg-blue-50',
+    triggerOpen: 'relative z-50 bg-blue-50 dark:bg-blue-950',
     backdropZ: 'z-40',
     menuZ: 'z-50',
     align: 'left-0',
@@ -51,29 +52,17 @@ function SelectMenu({
 
   return (
     <div className="relative">
-      {variant === 'button' ? (
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setIsOpen(!isOpen)}
-          className={`flex items-center gap-2 cursor-pointer ${isOpen ? cfg.triggerOpen : ''}`}
-          title={title}
-        >
-          <span className="text-sm">{label}</span>
-          <ChevronDown
-            className={`h-3 w-3 flex-shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-          />
-        </Button>
-      ) : (
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className={`inline-flex items-center gap-0.5 rounded px-1 py-0.5 text-xs font-semibold text-blue-700 hover:bg-blue-50 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-colors cursor-pointer ${isOpen ? cfg.triggerOpen : ''}`}
-          title={title}
-        >
-          <span>{label}</span>
-          <ChevronDown className={`h-3 w-3 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
-        </button>
-      )}
+      <Button
+        variant={variant === 'button' ? 'outline' : 'text-action'}
+        size="sm"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        className={`${variant === 'button' ? 'gap-2' : 'h-6 text-xs font-semibold'} ${isOpen ? cfg.triggerOpen : ''}`}
+        title={title}
+      >
+        <span>{label}</span>
+        <ChevronDown className={`size-3 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+      </Button>
 
       {isOpen && (
         <>
@@ -89,19 +78,16 @@ function SelectMenu({
           >
             <div className="py-1">
               {options.map((option) => (
-                <button
+                <MenuItem
                   key={option}
-                  type="button"
-                  className={`block w-full text-left px-3 py-2 text-sm hover:bg-gray-100 cursor-pointer ${
-                    option === selected ? 'bg-blue-50 text-blue-600' : 'text-gray-900'
-                  }`}
+                  selected={option === selected}
                   onClick={() => {
                     onSelect(option)
                     setIsOpen(false)
                   }}
                 >
                   {formatOption ? formatOption(option) : option}
-                </button>
+                </MenuItem>
               ))}
             </div>
           </div>

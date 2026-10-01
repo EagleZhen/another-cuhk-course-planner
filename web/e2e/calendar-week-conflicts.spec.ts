@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
+import { NOTICE_STORAGE_KEY, NOTICE_VERSION } from '../src/lib/constants'
 
 // Fridays in 2026-27 Term 1, so each date falls on the weekday its time states.
 const term = '2026-27 Term 1'
@@ -119,6 +120,122 @@ const cards = (page: Page) => page.locator('[data-course-card]')
 const conflictZone = (page: Page) => page.locator('[data-conflict-zone]')
 const conflictedSections = (page: Page) => page.getByTitle(/^Time conflict with:/)
 
+async function openCalendarControls(page: Page, unscheduled = false) {
+  const lecture = section('lec', '--LEC (1)', 'LEC', '11/9')
+  if (unscheduled) {
+    lecture.meetings[0].time = 'TBA'
+    lecture.meetings[0].dates = ''
+  }
+  await page.addInitScript(({ key, version }) => localStorage.setItem(key, version), {
+    key: NOTICE_STORAGE_KEY,
+    version: NOTICE_VERSION,
+  })
+  await seed(page, { [storageKey]: storedSchedule('2610', term, [lecture]) })
+}
+
+test.describe('calendar controls on touch', () => {
+  test.use({ hasTouch: true, viewport: { width: 375, height: 900 } })
+
+  for (const kind of ['scheduled', 'unscheduled']) {
+    test(`reveals ${kind} visibility on selection and keeps selection when hiding`, async ({
+      page,
+    }) => {
+      await openCalendarControls(page, kind === 'unscheduled')
+      if (kind === 'unscheduled') {
+        await page.getByRole('button', { name: 'Unscheduled courses', exact: true }).tap()
+      }
+      const selection = page.getByRole('button', { name: 'GEWS1011 LEC', exact: true })
+      const card = selection.locator('..')
+      const visibility = card.getByRole('button', { name: 'Hide course', exact: true })
+      await expect(visibility).toHaveCSS('opacity', '0')
+      await expect(visibility).toHaveCSS('pointer-events', 'none')
+
+      await card.getByText('Lee Shau Kee Building LT5', { exact: true }).tap()
+      await expect(selection).toHaveAttribute('aria-pressed', 'true')
+      // A focused child could reveal the eye independently of selection.
+      expect(await card.evaluate((element) => element.matches(':focus-within'))).toBe(false)
+      expect(await page.evaluate(() => matchMedia('(hover: none)').matches)).toBe(true)
+      await expect(visibility).toHaveCSS('opacity', '1')
+      await expect(visibility).toHaveCSS('pointer-events', 'auto')
+      await visibility.tap()
+
+      await expect(card).toHaveCount(0)
+      const cart = page.locator('[data-shopping-cart]')
+      await expect(cart.getByRole('button', { name: 'Show course', exact: true })).toBeVisible()
+      await expect(cart.getByRole('button', { name: 'GEWS1011', exact: true })).toHaveAttribute(
+        'aria-pressed',
+        'true'
+      )
+    })
+  }
+})
+
+test.describe('calendar controls with keyboard', () => {
+  for (const kind of ['scheduled', 'unscheduled']) {
+    test(`selects and hides ${kind} courses with keyboard controls`, async ({ page }) => {
+      await openCalendarControls(page, kind === 'unscheduled')
+      if (kind === 'unscheduled') {
+        const disclosure = page.getByRole('button', { name: 'Unscheduled courses', exact: true })
+        await disclosure.focus()
+        await page.keyboard.press('Enter')
+      }
+      const selection = page.getByRole('button', { name: 'GEWS1011 LEC', exact: true })
+      const card = selection.locator('..')
+      const visibility = card.getByRole('button', { name: 'Hide course', exact: true })
+      await expect(visibility).toHaveCSS('opacity', '0')
+      await selection.focus()
+      await expect(visibility).toHaveCSS('opacity', '1')
+      await expect(visibility).toHaveCSS('pointer-events', 'auto')
+      await page.keyboard.press('Enter')
+      await expect(selection).toHaveAttribute('aria-pressed', 'true')
+
+      // The scheduled card renders the eye before its course code; the TBA card renders it after.
+      await page.keyboard.press(kind === 'scheduled' ? 'Shift+Tab' : 'Tab')
+      await expect(visibility).toBeFocused()
+      await page.keyboard.press('Enter')
+      await expect(card).toHaveCount(0)
+      const cart = page.locator('[data-shopping-cart]')
+      await expect(cart.getByRole('button', { name: 'Show course', exact: true })).toBeVisible()
+      await expect(cart.getByRole('button', { name: 'GEWS1011', exact: true })).toHaveAttribute(
+        'aria-pressed',
+        'true'
+      )
+    })
+  }
+})
+
+test('unscheduled disclosure includes blank space but excludes nested course actions', async ({
+  page,
+}) => {
+  await openCalendarControls(page, true)
+  const unscheduled = page.locator('[data-screenshot="unscheduled"]')
+  const disclosure = unscheduled.getByRole('button', { name: 'Unscheduled courses', exact: true })
+  await expect(disclosure).toHaveAttribute('aria-expanded', 'false')
+  await disclosure.click()
+  const selection = unscheduled.getByRole('button', { name: 'GEWS1011 LEC', exact: true })
+  const card = selection.locator('..')
+
+  await card.getByText('Lee Shau Kee Building LT5', { exact: true }).click()
+  await expect(selection).toHaveAttribute('aria-pressed', 'true')
+  await expect(disclosure).toHaveAttribute('aria-expanded', 'true')
+  await card.getByText('Lee Shau Kee Building LT5', { exact: true }).click()
+  await expect(selection).toHaveAttribute('aria-pressed', 'false')
+  await expect(disclosure).toHaveAttribute('aria-expanded', 'true')
+  await selection.click()
+  await expect(selection).toHaveAttribute('aria-pressed', 'true')
+  await selection.click()
+  await expect(selection).toHaveAttribute('aria-pressed', 'false')
+  await expect(disclosure).toHaveAttribute('aria-expanded', 'true')
+
+  // Click the expanded container's bottom-right padding, away from nested controls.
+  const container = unscheduled.locator(':scope > div')
+  const bounds = await container.boundingBox()
+  expect(bounds).not.toBeNull()
+  await container.click({ position: { x: bounds!.width - 8, y: bounds!.height - 8 } })
+  await expect(disclosure).toHaveAttribute('aria-expanded', 'false')
+  await expect(selection).toHaveCount(0)
+})
+
 test('reports no conflict for sections that never share a date', async ({ page }) => {
   await openPlanner(page, '25/9')
 
@@ -135,6 +252,142 @@ test('reports a conflict for sections that share a date', async ({ page }) => {
   await expect(cards(page)).toHaveCount(2)
   await expect(conflictedSections(page).first()).toBeVisible()
   await expect(conflictZone(page).first()).toBeVisible()
+})
+
+// Pause real transitions before sampling so slow CI cannot miss the resizing.
+async function watchGridResizing(page: Page) {
+  return page.evaluateHandle(() => {
+    const state = { started: 0 }
+    document.addEventListener('transitionrun', (event) => {
+      const target = event.target as HTMLElement
+      if (!target.closest('.time-column, .day-column')) return
+      if (!['top', 'height'].includes(event.propertyName)) return
+      state.started++
+      for (const animation of target.getAnimations()) {
+        if (
+          animation instanceof CSSTransition &&
+          ['top', 'height'].includes(animation.transitionProperty)
+        ) {
+          animation.pause()
+        }
+      }
+    })
+    return state
+  })
+}
+
+async function gridGeometry(page: Page, progress?: number) {
+  return page.evaluate((progress) => {
+    const hour = document.querySelector('.time-column > div > div')!
+    const animations = Array.from(document.querySelectorAll('.time-column, .day-column'))
+      .flatMap((column) => column.getAnimations({ subtree: true }))
+      .filter(
+        (animation) =>
+          animation instanceof CSSTransition &&
+          ['top', 'height'].includes(animation.transitionProperty)
+      )
+
+    if (progress !== undefined) {
+      const resize = hour
+        .getAnimations()
+        .find(
+          (animation) =>
+            animation instanceof CSSTransition && animation.transitionProperty === 'height'
+        )!
+      const duration = Number(resize.effect!.getTiming().duration)
+      for (const animation of animations) animation.currentTime = duration * progress
+    }
+
+    const bounds = (element: Element) => {
+      const rect = element.getBoundingClientRect()
+      return {
+        top: rect.top - element.parentElement!.getBoundingClientRect().top,
+        height: rect.height,
+      }
+    }
+    return {
+      hourHeight: hour.getBoundingClientRect().height,
+      slots: Array.from(
+        document.querySelectorAll(
+          '.day-column > div > div:not([data-course-card]):not([data-conflict-zone])'
+        )
+      ).map((element) => element.getBoundingClientRect().height),
+      cards: Array.from(document.querySelectorAll('[data-course-card]')).map(bounds),
+      zone: bounds(document.querySelector('[data-conflict-zone]')!),
+    }
+  }, progress)
+}
+
+function expectGridAlignment(geometry: Awaited<ReturnType<typeof gridGeometry>>) {
+  // The fixture meets 14:30–17:15 in a grid starting at 08:00.
+  expect(geometry.slots.length).toBeGreaterThan(0)
+  for (const height of geometry.slots)
+    expect(Math.abs(height - geometry.hourHeight)).toBeLessThan(1)
+  for (const card of geometry.cards) {
+    expect(Math.abs(card.top - 6.5 * geometry.hourHeight)).toBeLessThan(1)
+    expect(Math.abs(card.height - 2.75 * geometry.hourHeight)).toBeLessThan(1)
+  }
+  expect(Math.abs(geometry.zone.top - (6.5 * geometry.hourHeight - 4))).toBeLessThan(1)
+  expect(Math.abs(geometry.zone.height - (2.75 * geometry.hourHeight + 8))).toBeLessThan(1)
+}
+
+test('keeps meetings and conflicts aligned with the grid throughout resizing', async ({ page }) => {
+  await openPlanner(page, '11/9')
+  await expect(cards(page)).toHaveCount(2)
+  await expect(conflictZone(page)).toHaveCount(1)
+  await watchGridResizing(page)
+  let previous = await gridGeometry(page)
+  expectGridAlignment(previous)
+
+  for (const label of ['Title', 'Instructor', 'Instructor', 'Title']) {
+    await page.getByRole('button', { name: label, exact: true }).click()
+    const hour = page.locator('.time-column > div > div').first()
+    await expect
+      .poll(() =>
+        hour.evaluate((element) =>
+          element.getAnimations().some((animation) => animation.playState === 'paused')
+        )
+      )
+      .toBe(true)
+
+    const quarter = await gridGeometry(page, 0.25)
+    const later = await gridGeometry(page, 0.75)
+    expectGridAlignment(quarter)
+    expectGridAlignment(later)
+    expect(Math.abs(quarter.hourHeight - previous.hourHeight)).toBeGreaterThan(1)
+    expect(Math.abs(later.hourHeight - quarter.hourHeight)).toBeGreaterThan(1)
+
+    await page.evaluate(() => {
+      for (const column of document.querySelectorAll('.time-column, .day-column')) {
+        for (const animation of column.getAnimations({ subtree: true })) {
+          if (animation instanceof CSSTransition) animation.finish()
+        }
+      }
+    })
+    previous = await gridGeometry(page)
+    expectGridAlignment(previous)
+    expect(Math.abs(previous.hourHeight - later.hourHeight)).toBeGreaterThan(0.1)
+  }
+})
+
+test('resizes the timetable immediately with reduced motion', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await openPlanner(page, '11/9')
+  await expect(cards(page)).toHaveCount(2)
+  await expect(conflictZone(page)).toHaveCount(1)
+  const motion = await watchGridResizing(page)
+  const before = await gridGeometry(page)
+
+  await page.getByRole('button', { name: 'Title', exact: true }).click()
+  await expect(cards(page).first().getByText('College Induction Course')).toBeVisible()
+  await page.evaluate(
+    () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
+  )
+
+  expect(await motion.evaluate((state) => state.started)).toBe(0)
+  const after = await gridGeometry(page)
+  expect(after.hourHeight - before.hourHeight).toBeGreaterThan(1)
+  expectGridAlignment(after)
 })
 
 test('steps to the next week that differs, empty weeks included', async ({ page }) => {

@@ -56,6 +56,14 @@ import {
 import type { CalendarEvent, CourseEnrollment, UnscheduledSection } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
 
+// Keep hour rows, meeting cards, and conflict outlines in sync.
+const resizeTransition = 'duration-300 ease-in-out motion-reduce:transition-none'
+
+const meetingCardScaleClasses = {
+  hover: 'hover:scale-[1.03]',
+  selected: 'scale-[1.03]',
+}
+
 /**
  * Calculate dynamic hour height based on minimum course duration requirements
  */
@@ -529,7 +537,7 @@ export default function WeeklyCalendar({
                 <Button
                   variant="ghost"
                   onClick={handleExportCalendar}
-                  className="gap-2 h-full hover:bg-gray-100 rounded-none"
+                  className="gap-2 h-full rounded-none"
                   title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
                 >
                   <CalendarArrowDown className="w-4 h-4" />
@@ -543,7 +551,7 @@ export default function WeeklyCalendar({
                 <Button
                   variant="ghost"
                   onClick={() => setIsIcsMenuExpanded(!isIcsMenuExpanded)}
-                  className="h-full hover:bg-gray-100 rounded-none"
+                  className="h-full rounded-none"
                   title={isIcsMenuExpanded ? 'Hide options' : 'Show more options'}
                   aria-expanded={isIcsMenuExpanded}
                   aria-haspopup="true"
@@ -614,7 +622,7 @@ export default function WeeklyCalendar({
                   <Button
                     variant="ghost"
                     onClick={handleExportCalendar}
-                    className="gap-2 h-full hover:bg-gray-100 rounded-none"
+                    className="gap-2 h-full rounded-none"
                     title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
                   >
                     <CalendarArrowDown className="w-4 h-4" />
@@ -628,7 +636,7 @@ export default function WeeklyCalendar({
                   <Button
                     variant="ghost"
                     onClick={() => setIsIcsMenuExpanded(!isIcsMenuExpanded)}
-                    className="h-full hover:bg-gray-100 rounded-none"
+                    className="h-full rounded-none"
                     title={isIcsMenuExpanded ? 'Hide options' : 'Show more options'}
                     aria-expanded={isIcsMenuExpanded}
                     aria-haspopup="true"
@@ -733,13 +741,12 @@ export default function WeeklyCalendar({
             <div className="max-md:contents justify-self-end">
               {conflictToReview && (
                 <Button
-                  variant="outline"
                   size="sm"
                   title={`${conflictWeeks.length} of ${weeks.length} weeks have a conflict`}
                   onClick={() => goToWeek(conflictToReview)}
-                  // Same shape as the skip toggle beside the navigator; purple only
-                  // because purple is what marks a conflict everywhere else.
-                  className="h-6 border-1 border-purple-300 px-2 text-xs font-normal text-purple-700 cursor-pointer hover:bg-purple-50 hover:text-purple-800 focus-visible:ring-1 max-md:order-last"
+                  // Purple matches the timetable conflict indicators.
+                  variant="outline"
+                  className="h-6 border-1 px-2 text-xs font-normal focus-visible:ring-1 max-md:order-last border-purple-300 text-purple-700 hover:bg-purple-50 hover:text-purple-800 active:bg-purple-100 active:text-purple-900 dark:border-purple-700 dark:text-purple-300 dark:hover:bg-purple-950 dark:hover:text-purple-200 dark:active:bg-purple-900 dark:active:text-purple-100"
                 >
                   <AlertTriangle className="size-3" />
                   Review next conflict
@@ -753,14 +760,15 @@ export default function WeeklyCalendar({
                 title={noPreviousReason}
                 className={`flex ${noPreviousReason ? 'cursor-not-allowed' : ''}`}
               >
-                <button
-                  className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
+                <Button
+                  variant="ghost"
+                  className="h-auto rounded px-1 py-0.5 disabled:opacity-30"
                   disabled={!previousStop}
                   aria-label="Previous week"
                   onClick={() => previousStop && goToWeek(previousStop)}
                 >
                   <ChevronLeft className="w-4 h-4" />
-                </button>
+                </Button>
               </span>
               <span className="tabular-nums font-medium whitespace-nowrap">
                 Week {weekIndex + 1} of {weeks.length}
@@ -769,14 +777,15 @@ export default function WeeklyCalendar({
                 title={noNextReason}
                 className={`flex ${noNextReason ? 'cursor-not-allowed' : ''}`}
               >
-                <button
-                  className="px-1 py-0.5 rounded hover:bg-gray-100 disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed"
+                <Button
+                  variant="ghost"
+                  className="h-auto rounded px-1 py-0.5 disabled:opacity-30"
                   disabled={!nextStop}
                   aria-label="Next week"
                   onClick={() => nextStop && goToWeek(nextStop)}
                 >
                   <ChevronRight className="w-4 h-4" />
-                </button>
+                </Button>
               </span>
             </div>
             <Button
@@ -795,20 +804,24 @@ export default function WeeklyCalendar({
             spans the card's padding back, keeping them overhanging its left edge. */}
         <div className="relative -mx-4 h-full max-h-[720px] px-4">
           {scrollState.canScrollUp && (
-            <button
-              className="absolute z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1 top-12 -left-2"
+            <Button
+              variant="outline"
+              aria-label="Scroll timetable to top"
+              className="absolute z-40 h-auto rounded-lg border-gray-300 px-1.5 py-1 shadow-lg top-12 -left-2"
               onClick={scrollToTopHandler}
             >
               <ChevronUp className="w-4 h-4 text-gray-700" />
-            </button>
+            </Button>
           )}
           {scrollState.canScrollDown && (
-            <button
-              className="absolute z-40 bg-white hover:bg-gray-50 active:bg-gray-100 border border-gray-300 hover:border-gray-400 active:border-gray-500 rounded-lg transition-all duration-150 shadow-lg hover:shadow-xl active:shadow-md active:scale-95 cursor-pointer px-1.5 py-1 bottom-8 -left-2"
+            <Button
+              variant="outline"
+              aria-label="Scroll timetable to bottom"
+              className="absolute z-40 h-auto rounded-lg border-gray-300 px-1.5 py-1 shadow-lg bottom-8 -left-2"
               onClick={scrollToBottomHandler}
             >
               <ChevronDown className="w-4 h-4 text-gray-700" />
-            </button>
+            </Button>
           )}
 
           {/* A week can be genuinely empty. Say so, so it does not read as a bug.
@@ -888,7 +901,7 @@ export default function WeeklyCalendar({
                     {hours.map((hour) => (
                       <div
                         key={hour}
-                        className="flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100 transition-all duration-300"
+                        className={`flex items-start justify-end pr-1 text-xs text-gray-500 border-b border-gray-100 transition-[height] ${resizeTransition}`}
                         style={{ height: `${dynamicHourHeight}px` }}
                       >
                         {hour.toString().padStart(2, '0')}
@@ -911,7 +924,7 @@ export default function WeeklyCalendar({
                         {hours.map((hour) => (
                           <div
                             key={hour}
-                            className="border-b border-gray-200 transition-all duration-300"
+                            className={`border-b border-gray-200 transition-[height] ${resizeTransition}`}
                             style={{ height: `${dynamicHourHeight}px` }}
                           />
                         ))}
@@ -950,7 +963,7 @@ export default function WeeklyCalendar({
                                 background:
                                   'repeating-linear-gradient(45deg, rgba(168, 85, 247, 0.6) 0px, rgba(168, 85, 247, 0.6) 10px, rgba(255, 255, 255, 0.3) 10px, rgba(255, 255, 255, 0.3) 20px)',
                               }}
-                              className="border-2 border-purple-500 rounded-sm animate-pulse transition-all duration-300"
+                              className={`border-2 border-purple-500 rounded-sm animate-pulse transition-[top,height] ${resizeTransition}`}
                             />
                           )
                         })}
@@ -964,6 +977,12 @@ export default function WeeklyCalendar({
                               dynamicHourHeight
                             )
                             const isSelected = selectedEnrollment === event.enrollmentId
+                            const canSelect = !!onSelectEnrollment && !!event.enrollmentId
+                            const toggleSelection = () => {
+                              if (onSelectEnrollment && event.enrollmentId) {
+                                onSelectEnrollment(isSelected ? null : event.enrollmentId)
+                              }
+                            }
                             const textLineLimits = getCardTextLineLimits(height, localDisplayConfig)
 
                             const { leftOffset, rightOffset, zIndex } = getCardStackPlacement(
@@ -1004,24 +1023,17 @@ export default function WeeklyCalendar({
                                 className={`
                               ${event.color}
                               rounded-sm text-xs text-white
-                              hover:scale-[1.03] transition-all duration-300 cursor-pointer
+                              ${meetingCardScaleClasses.hover} transition-[top,height,transform,translate,scale,rotate] ${resizeTransition} cursor-pointer
                               overflow-hidden group
-                              ${isSelected ? 'scale-[1.03]' : ''}
+                              ${isSelected ? meetingCardScaleClasses.selected : ''}
                               ${changedIds.has(event.id) ? 'changed-breathing' : ''}
                             `}
-                                onClick={() => {
-                                  if (onSelectEnrollment && event.enrollmentId) {
-                                    const newSelection = isSelected ? null : event.enrollmentId
-                                    onSelectEnrollment(newSelection)
-                                  }
-                                }}
+                                onClick={toggleSelection}
                               >
-                                {/* Visibility toggle button */}
-                                <Button
-                                  variant="ghost"
-                                  size="sm"
-                                  onClick={(e) => {
-                                    e.stopPropagation()
+                                <CalendarVisibilityButton
+                                  isSelected={isSelected}
+                                  isVisible={event.isVisible}
+                                  onToggle={() => {
                                     if (onSelectEnrollment && event.enrollmentId) {
                                       onSelectEnrollment(event.enrollmentId)
                                     }
@@ -1029,25 +1041,21 @@ export default function WeeklyCalendar({
                                       onToggleVisibility(event.enrollmentId)
                                     }
                                   }}
-                                  className="absolute top-0.5 right-0.5 h-4 w-4 p-0 bg-black/20 hover:bg-white/40 backdrop-blur-sm cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                                  title={event.isVisible ? 'Hide course' : 'Show course'}
-                                >
-                                  {event.isVisible ? (
-                                    <Eye className="w-2.5 h-2.5 text-white" />
-                                  ) : (
-                                    <EyeOff className="w-2.5 h-2.5 text-white" />
-                                  )}
-                                </Button>
+                                />
 
                                 {/* Course content with conditional rendering based on config */}
-                                <div className={`${TEXT_STYLES.COURSE_CODE} truncate pr-3`}>
+                                <CalendarSelectionButton
+                                  isSelected={isSelected}
+                                  disabled={!canSelect}
+                                  onSelect={toggleSelection}
+                                >
                                   {formatCourseCodeWithSection(
                                     event.subject,
                                     event.courseCode,
                                     cohortOf(event.sectionCode),
                                     event.sectionType
                                   )}
-                                </div>
+                                </CalendarSelectionButton>
 
                                 {localDisplayConfig.showTitle && (
                                   <div className={`${TEXT_STYLES.TITLE} truncate`}>
@@ -1103,6 +1111,64 @@ export default function WeeklyCalendar({
         className="hidden"
       />
     </Card>
+  )
+}
+
+function CalendarSelectionButton({
+  children,
+  isSelected,
+  disabled,
+  onSelect,
+}: {
+  children: string
+  isSelected: boolean
+  disabled: boolean
+  onSelect: () => void
+}) {
+  // Preserve course colors; the card's stripes indicate selection.
+  return (
+    <Button
+      variant="ghost"
+      aria-pressed={isSelected}
+      disabled={disabled}
+      className={`${TEXT_STYLES.COURSE_CODE} block h-auto w-full truncate rounded-sm p-0 pr-3 text-left hover:bg-transparent hover:text-inherit active:bg-transparent active:text-inherit focus-visible:ring-inset`}
+      onClick={(event) => {
+        event.stopPropagation()
+        onSelect()
+      }}
+    >
+      {children}
+    </Button>
+  )
+}
+
+function CalendarVisibilityButton({
+  isSelected,
+  isVisible,
+  onToggle,
+}: {
+  isSelected: boolean
+  isVisible: boolean
+  onToggle: () => void
+}) {
+  // Ignore invisible pointer hits; keyboard focus reveals the control via the card's group.
+  return (
+    <Button
+      variant="overlay"
+      size="sm"
+      onClick={(event) => {
+        event.stopPropagation()
+        onToggle()
+      }}
+      className={`absolute z-10 top-0.5 right-0.5 h-4 w-4 p-0 group-hover:opacity-100 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-opacity duration-200 ${isSelected ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      title={isVisible ? 'Hide course' : 'Show course'}
+    >
+      {isVisible ? (
+        <EyeOff className="w-2.5 h-2.5 text-white" />
+      ) : (
+        <Eye className="w-2.5 h-2.5 text-white" />
+      )}
+    </Button>
   )
 }
 
@@ -1174,8 +1240,8 @@ function UnscheduledSectionsCard({
   return (
     <div data-screenshot="unscheduled" className="px-4 py-1 bg-white">
       <div
-        className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md hover:bg-gray-50 transition-all bg-white cursor-pointer"
-        onClick={() => setIsExpanded(!isExpanded)}
+        className="border border-gray-200 rounded-lg shadow-sm hover:shadow-md bg-white hover:bg-gray-50 transition-shadow cursor-pointer"
+        onClick={() => setIsExpanded((expanded) => !expanded)}
       >
         <div className="p-3">
           <div className="flex items-center justify-between">
@@ -1194,26 +1260,12 @@ function UnscheduledSectionsCard({
                   const isSelected = selectedEnrollment === item.enrollment.courseId
 
                   return (
-                    <span
+                    <Button
                       key={`${item.enrollment.courseId}_${item.section.id}_${index}`}
-                      className={`
-                        ${item.enrollment.color || 'bg-indigo-500'}
-                        px-2 py-0.5 rounded font-mono text-xs text-white cursor-pointer hover:scale-105 transition-all
-                        ${isSelected ? 'scale-105' : ''}
-                      `}
-                      style={
-                        isSelected
-                          ? {
-                              backgroundImage: `repeating-linear-gradient(
-                          45deg,
-                          transparent,
-                          transparent 8px,
-                          rgba(255,255,255,0.15) 8px,
-                          rgba(255,255,255,0.15) 10px
-                        )`,
-                            }
-                          : {}
-                      }
+                      variant="ghost"
+                      className={`h-auto rounded p-0 font-mono text-xs font-normal hover:scale-105 ${isSelected ? 'scale-105' : ''}`}
+                      aria-pressed={isSelected}
+                      disabled={!onSelectEnrollment || !item.enrollment.courseId}
                       onClick={(e) => {
                         e.stopPropagation()
                         if (onSelectEnrollment && item.enrollment.courseId) {
@@ -1222,22 +1274,49 @@ function UnscheduledSectionsCard({
                         }
                       }}
                     >
-                      {formatCourseCodeWithPrefix(
-                        item.enrollment.course.subject,
-                        item.enrollment.course.courseCode,
-                        cohortOf(item.section.sectionCode)
-                      )}
-                    </span>
+                      <span
+                        className={`px-2 py-0.5 rounded text-white ${item.enrollment.color || 'bg-indigo-500'}`}
+                        style={
+                          isSelected
+                            ? {
+                                backgroundImage: `repeating-linear-gradient(
+                                  45deg,
+                                  transparent,
+                                  transparent 8px,
+                                  rgba(255,255,255,0.15) 8px,
+                                  rgba(255,255,255,0.15) 10px
+                                )`,
+                              }
+                            : undefined
+                        }
+                      >
+                        {formatCourseCodeWithPrefix(
+                          item.enrollment.course.subject,
+                          item.enrollment.course.courseCode,
+                          cohortOf(item.section.sectionCode)
+                        )}
+                      </span>
+                    </Button>
                   )
                 })}
               </div>
             </div>
 
-            <div className="flex-shrink-0 ml-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="ml-2 h-6 w-6 p-0 text-gray-400"
+              aria-label="Unscheduled courses"
+              aria-expanded={isExpanded}
+              onClick={(event) => {
+                event.stopPropagation()
+                setIsExpanded((expanded) => !expanded)
+              }}
+            >
               <ChevronDown
                 className={`w-4 h-4 text-gray-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
               />
-            </div>
+            </Button>
           </div>
         </div>
 
@@ -1246,6 +1325,12 @@ function UnscheduledSectionsCard({
             <div className="flex flex-wrap gap-2">
               {unscheduledSections.map((item, index) => {
                 const isSelected = selectedEnrollment === item.enrollment.courseId
+                const canSelect = !!onSelectEnrollment && !!item.enrollment.courseId
+                const toggleSelection = () => {
+                  if (onSelectEnrollment && item.enrollment.courseId) {
+                    onSelectEnrollment(isSelected ? null : item.enrollment.courseId)
+                  }
+                }
 
                 return (
                   <div
@@ -1253,9 +1338,9 @@ function UnscheduledSectionsCard({
                     className={`
                       ${item.enrollment.color || 'bg-indigo-500'}
                       rounded-sm text-xs text-white
-                      hover:scale-105 transition-all cursor-pointer
+                      ${meetingCardScaleClasses.hover} transition-transform cursor-pointer
                       overflow-hidden group relative
-                      ${isSelected ? 'scale-105' : ''}
+                      ${isSelected ? meetingCardScaleClasses.selected : ''}
                     `}
                     style={{
                       width: 'calc((100% - 32px) / 5)',
@@ -1274,21 +1359,21 @@ function UnscheduledSectionsCard({
                     }}
                     onClick={(e) => {
                       e.stopPropagation()
-
-                      if (onSelectEnrollment && item.enrollment.courseId) {
-                        const newSelection = isSelected ? null : item.enrollment.courseId
-                        onSelectEnrollment(newSelection)
-                      }
+                      toggleSelection()
                     }}
                   >
-                    <div className={`${TEXT_STYLES.COURSE_CODE} truncate pr-1`}>
+                    <CalendarSelectionButton
+                      isSelected={isSelected}
+                      disabled={!canSelect}
+                      onSelect={toggleSelection}
+                    >
                       {formatCourseCodeWithSection(
                         item.enrollment.course.subject,
                         item.enrollment.course.courseCode,
                         cohortOf(item.section.sectionCode),
                         item.section.sectionType
                       )}
-                    </div>
+                    </CalendarSelectionButton>
 
                     {displayConfig.showTitle && (
                       <div className={`${TEXT_STYLES.TITLE} truncate`}>
@@ -1318,24 +1403,12 @@ function UnscheduledSectionsCard({
                       </div>
                     )}
 
-                    {/* Visibility toggle button for unscheduled sections */}
                     {onToggleVisibility && (
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          onToggleVisibility(item.enrollment.courseId)
-                        }}
-                        className="absolute top-0.5 right-0.5 h-4 w-4 p-0 bg-black/20 hover:bg-white/40 backdrop-blur-sm cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                        title={item.enrollment.isVisible ? 'Hide course' : 'Show course'}
-                      >
-                        {item.enrollment.isVisible ? (
-                          <Eye className="w-2.5 h-2.5 text-white" />
-                        ) : (
-                          <EyeOff className="w-2.5 h-2.5 text-white" />
-                        )}
-                      </Button>
+                      <CalendarVisibilityButton
+                        isSelected={isSelected}
+                        isVisible={item.enrollment.isVisible}
+                        onToggle={() => onToggleVisibility(item.enrollment.courseId)}
+                      />
                     )}
                   </div>
                 )

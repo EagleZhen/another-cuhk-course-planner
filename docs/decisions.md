@@ -14,7 +14,7 @@ Why it fits:
 
 - hosting stays simple and cheap
 - development, debugging, and iteration stay easier because there is no app server to operate
-- search/filtering is fast after startup because the searchable text is small enough to handle in the browser
+- searching a loaded catalog requires no server queries
 - the app is less fragile to backend/network availability after static data has loaded
 
 Tradeoffs / watchouts:
@@ -87,16 +87,11 @@ Where:
 
 ## Regression-First Testing
 
-No tests exist yet; shipping has relied on manual testing. Retroactive full coverage is a stalling task; a test per bug fix is not.
+Add regression coverage at the lowest layer that can observe the failure. Use colocated Vitest tests for logic and [Playwright](../web/e2e/README.md) for browser behavior such as keyboard access, nested actions, and responsive overflow. Assert the outcome that matters, rather than mirroring the implementation; prove the test fails with the fix undone.
 
-Decision: write a test alongside each bug fix (reproduce, then fix) instead of attempting upfront coverage. Start with [Vitest](https://vitest.dev/) unit tests on pure logic in [courseUtils.ts](../web/src/lib/courseUtils.ts) — a bug's correct and incorrect behavior are already known, so there's no test-design work, and this also guards the planned [courseUtils.ts split](improvements.md#architecture-debt) against reintroducing fixed bugs.
+Automate repeatable failures with a clear expected result. Use manual review for visual hierarchy and motion quality; a passing functional test does not establish those. Add screenshot comparisons only when a stable visual baseline justifies their maintenance.
 
-Test files are colocated next to their source (`courseUtils.test.ts` beside `courseUtils.ts`), not in a separate `__tests__` tree — easy to find, moves with the file during refactors. Next.js's own guide leads with `__tests__` as its example, but that's specifically about files inside `app/` (Next's routing directory); plain `lib/` modules don't carry that concern.
-
-Deferred:
-
-- component interaction tests (Vitest + React Testing Library) once UI logic, not pure logic, is what breaks
-- full end-to-end tests (Playwright) for only the highest-value flows (ICS roundtrip, screenshot export) — most expensive to maintain
+Prefer targeted coverage over retroactive full coverage. See [development checks](development.md#common-checks) for commands.
 
 ## Pin The Node Version Via .nvmrc
 

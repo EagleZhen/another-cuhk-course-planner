@@ -48,7 +48,7 @@ It ignores the skip toggle: where the clash is and which weeks are worth steppin
 
 ## Layout
 
-- **Dynamic hour height:** the grid is scaled so a 45-minute event (`MINIMUM_COURSE_DURATION_MINUTES`, the shortest CUHK class) exactly fits the rows enabled in the display config. Hardcoding card or slot heights breaks the guarantee that the shortest class can show every enabled row.
+- **Dynamic hour height:** the grid is scaled so a 45-minute event (`MINIMUM_COURSE_DURATION_MINUTES`, the shortest CUHK class) exactly fits the rows enabled in the display config. Hardcoding card or slot heights breaks the guarantee that the shortest class can show every enabled row. Grid rows, cards, and conflict outlines must resize together to preserve their time alignment.
 - **Minimum day width:** day columns share available space but stop shrinking at 128px; narrower viewports scroll horizontally.
 - **Bounded wrapping:** locations and instructors may use a second line only when the meeting duration already provides enough card height.
 - **Single scroll container:** one element owns both axes to avoid duplicate horizontal scrollbars.

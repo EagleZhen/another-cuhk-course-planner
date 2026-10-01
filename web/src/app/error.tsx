@@ -48,10 +48,7 @@ export default function ErrorPage({ error }: { error: Error & { digest?: string 
           The planner ran into a problem
         </h1>
         <p className="mt-2 text-balance text-sm text-slate-600">Reload the page to try again.</p>
-        <Button
-          className="mt-6 bg-slate-900 hover:bg-slate-700 active:bg-slate-950"
-          onClick={() => window.location.reload()}
-        >
+        <Button className="mt-6" onClick={() => window.location.reload()}>
           <RefreshCw aria-hidden="true" />
           Reload page
         </Button>
