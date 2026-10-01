@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
+import { NOTICE_STORAGE_KEY, NOTICE_VERSION } from '../src/lib/constants'
 
 // Fridays in 2026-27 Term 1, so each date falls on the weekday its time states.
 const term = '2026-27 Term 1'
@@ -118,6 +119,122 @@ async function switchToTerm(page: Page, label: string) {
 const cards = (page: Page) => page.locator('[data-course-card]')
 const conflictZone = (page: Page) => page.locator('[data-conflict-zone]')
 const conflictedSections = (page: Page) => page.getByTitle(/^Time conflict with:/)
+
+async function openCalendarControls(page: Page, unscheduled = false) {
+  const lecture = section('lec', '--LEC (1)', 'LEC', '11/9')
+  if (unscheduled) {
+    lecture.meetings[0].time = 'TBA'
+    lecture.meetings[0].dates = ''
+  }
+  await page.addInitScript(({ key, version }) => localStorage.setItem(key, version), {
+    key: NOTICE_STORAGE_KEY,
+    version: NOTICE_VERSION,
+  })
+  await seed(page, { [storageKey]: storedSchedule('2610', term, [lecture]) })
+}
+
+test.describe('calendar controls on touch', () => {
+  test.use({ hasTouch: true, viewport: { width: 375, height: 900 } })
+
+  for (const kind of ['scheduled', 'unscheduled']) {
+    test(`reveals ${kind} visibility on selection and keeps selection when hiding`, async ({
+      page,
+    }) => {
+      await openCalendarControls(page, kind === 'unscheduled')
+      if (kind === 'unscheduled') {
+        await page.getByRole('button', { name: 'Unscheduled courses', exact: true }).tap()
+      }
+      const selection = page.getByRole('button', { name: 'GEWS1011 LEC', exact: true })
+      const card = selection.locator('..')
+      const visibility = card.getByRole('button', { name: 'Hide course', exact: true })
+      await expect(visibility).toHaveCSS('opacity', '0')
+      await expect(visibility).toHaveCSS('pointer-events', 'none')
+
+      await card.getByText('Lee Shau Kee Building LT5', { exact: true }).tap()
+      await expect(selection).toHaveAttribute('aria-pressed', 'true')
+      // A focused child could reveal the eye independently of selection.
+      expect(await card.evaluate((element) => element.matches(':focus-within'))).toBe(false)
+      expect(await page.evaluate(() => matchMedia('(hover: none)').matches)).toBe(true)
+      await expect(visibility).toHaveCSS('opacity', '1')
+      await expect(visibility).toHaveCSS('pointer-events', 'auto')
+      await visibility.tap()
+
+      await expect(card).toHaveCount(0)
+      const cart = page.locator('[data-shopping-cart]')
+      await expect(cart.getByRole('button', { name: 'Show course', exact: true })).toBeVisible()
+      await expect(cart.getByRole('button', { name: 'GEWS1011', exact: true })).toHaveAttribute(
+        'aria-pressed',
+        'true'
+      )
+    })
+  }
+})
+
+test.describe('calendar controls with keyboard', () => {
+  for (const kind of ['scheduled', 'unscheduled']) {
+    test(`selects and hides ${kind} courses with keyboard controls`, async ({ page }) => {
+      await openCalendarControls(page, kind === 'unscheduled')
+      if (kind === 'unscheduled') {
+        const disclosure = page.getByRole('button', { name: 'Unscheduled courses', exact: true })
+        await disclosure.focus()
+        await page.keyboard.press('Enter')
+      }
+      const selection = page.getByRole('button', { name: 'GEWS1011 LEC', exact: true })
+      const card = selection.locator('..')
+      const visibility = card.getByRole('button', { name: 'Hide course', exact: true })
+      await expect(visibility).toHaveCSS('opacity', '0')
+      await selection.focus()
+      await expect(visibility).toHaveCSS('opacity', '1')
+      await expect(visibility).toHaveCSS('pointer-events', 'auto')
+      await page.keyboard.press('Enter')
+      await expect(selection).toHaveAttribute('aria-pressed', 'true')
+
+      // The scheduled card renders the eye before its course code; the TBA card renders it after.
+      await page.keyboard.press(kind === 'scheduled' ? 'Shift+Tab' : 'Tab')
+      await expect(visibility).toBeFocused()
+      await page.keyboard.press('Enter')
+      await expect(card).toHaveCount(0)
+      const cart = page.locator('[data-shopping-cart]')
+      await expect(cart.getByRole('button', { name: 'Show course', exact: true })).toBeVisible()
+      await expect(cart.getByRole('button', { name: 'GEWS1011', exact: true })).toHaveAttribute(
+        'aria-pressed',
+        'true'
+      )
+    })
+  }
+})
+
+test('unscheduled disclosure includes blank space but excludes nested course actions', async ({
+  page,
+}) => {
+  await openCalendarControls(page, true)
+  const unscheduled = page.locator('[data-screenshot="unscheduled"]')
+  const disclosure = unscheduled.getByRole('button', { name: 'Unscheduled courses', exact: true })
+  await expect(disclosure).toHaveAttribute('aria-expanded', 'false')
+  await disclosure.click()
+  const selection = unscheduled.getByRole('button', { name: 'GEWS1011 LEC', exact: true })
+  const card = selection.locator('..')
+
+  await card.getByText('Lee Shau Kee Building LT5', { exact: true }).click()
+  await expect(selection).toHaveAttribute('aria-pressed', 'true')
+  await expect(disclosure).toHaveAttribute('aria-expanded', 'true')
+  await card.getByText('Lee Shau Kee Building LT5', { exact: true }).click()
+  await expect(selection).toHaveAttribute('aria-pressed', 'false')
+  await expect(disclosure).toHaveAttribute('aria-expanded', 'true')
+  await selection.click()
+  await expect(selection).toHaveAttribute('aria-pressed', 'true')
+  await selection.click()
+  await expect(selection).toHaveAttribute('aria-pressed', 'false')
+  await expect(disclosure).toHaveAttribute('aria-expanded', 'true')
+
+  // Click the expanded container's bottom-right padding, away from nested controls.
+  const container = unscheduled.locator(':scope > div')
+  const bounds = await container.boundingBox()
+  expect(bounds).not.toBeNull()
+  await container.click({ position: { x: bounds!.width - 8, y: bounds!.height - 8 } })
+  await expect(disclosure).toHaveAttribute('aria-expanded', 'false')
+  await expect(selection).toHaveCount(0)
+})
 
 test('reports no conflict for sections that never share a date', async ({ page }) => {
   await openPlanner(page, '25/9')
