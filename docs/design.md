@@ -12,9 +12,7 @@ Feature components own behavior, content, state, and layout. Extract them to con
 
 ## Interaction Appearance
 
-Primitives own shared appearances. A one-off contextual palette may stay at its consumer, but must define resting, hover, pressed, and relevant dark-mode colors together.
-
-Keep Button appearances in complete variants rather than combining style props that override one another or allow unsupported combinations.
+Primitives own shared appearances as complete variants. Keep one-off palettes at the consumer and check their resting, hover, pressed, and focus states.
 
 Share styles only when controls should change together; clickability alone is not a shared appearance. Compact chips can use stronger selection fills than full-width menu rows, which would otherwise dominate a dropdown.
 
@@ -22,6 +20,6 @@ Keep selection distinguishable from momentary pressing. Passive labels should no
 
 Button uses short color transitions for hover and selection; pressed colors share that timing. Keep transition properties explicit so feedback changes do not remove needed motion.
 
-Information-rich cards use selection or expanded content to show results; an additional whole-card pressed fill or dimming competes with that result. Preserve explicit keyboard actions; independent nested controls must stop click propagation when the parent is clickable.
+Cards use selection or expanded content to show results; whole-card pressed fills or dimming compete with that result. Keep keyboard actions accessible and isolate nested actions from clickable parents.
 
 Use Button's `text-action` for text controls that need a visible action cue before hover, such as inline term selectors and Show all actions. Keep low-emphasis disclosure headings and icon utilities neutral; preserve warning/destructive colors.

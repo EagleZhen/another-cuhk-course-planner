@@ -14,7 +14,7 @@ Why it fits:
 
 - hosting stays simple and cheap
 - development, debugging, and iteration stay easier because there is no app server to operate
-- search/filtering is fast after startup because the searchable text is small enough to handle in the browser
+- searching a loaded catalog requires no server queries
 - the app is less fragile to backend/network availability after static data has loaded
 
 Tradeoffs / watchouts:
