@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "CLCP",
     "subject_title": "Putonghua",
-    "total_courses": 12
+    "total_courses": 15
   },
   "courses": [
     {
@@ -62,6 +62,33 @@
     },
     {
       "subject": "CLCP",
+      "course_code": "1703",
+      "title": "Elementary Putonghua",
+      "credits": "3.00",
+      "terms": [],
+      "description": "An elementary speaking course in Putonghua designed for students whose native language is Cantonese. The course aims to familiarise students with the Pinyin romanization system and the focus is on speaking practice based on everyday topics. Through systematic training on consonants, vowels, tones, phonetic identification, and comparisons between Putonghua and Cantonese terminologies, students will be able to use the Pinyin romanization system and be equipped with the skills to communicate with short phrases in Putonghua. Furthermore, students will be able to understand standard Putonghua upon completion of this course.\n\nThis course includes e-learning components, which not only provide targeted training on pronunciation and listening, but also allow students to complete online exercises, conduct recordings, and take examinations online or at the language laboratory.",
+      "enrollment_requirement": "Not for students who have taken LEDC3520, CLED3530, or CLCP/CPTH2703 or above. Students are not allowed to take two levels of Putonghua in one term. Placement needed before registration.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "PTH/CAN",
+      "component": "Lecture\nWeb-enhanced Teaching",
+      "campus": "Main Campus",
+      "academic_group": "Yale-China Chin Lang Acad",
+      "academic_org": "Yale-China Chin Lang Acad",
+      "learning_outcomes": "Students are expected to:\n(PO2: for levels 2-3) participate in simple conversations on predictable topics, obtain information by asking and answering questions, combine learned materials to convey meaning, and satisfy personal needs and social demands\n(S&L2) apply selected vocabulary items and grammatical structures in short connected utterances in most real-life conversations with appropriate usage\n\n學生於完成本科時預期能：\n（學習成果：第二級和第三級）於預設話題中參與簡單的會話或討論，具備在對話中獲得信息的能力，並能結合所學內容與人溝通、滿足基本的交際需要\n(S&L2) 運用所學詞彙和句式完成簡短的成段對話並恰當地運用於日常生活之中",
+      "course_syllabus": "Lesson topics include: self-introductions, making phone calls, asking for directions, ordering food, talking about one’s daily schedule, shopping, travelling, seeing a doctor, etc.\n\n話題包括：自我介紹、打電話、問路、點菜、逛街、旅行、看病等。",
+      "assessment_types": {
+        "Classwork": "30",
+        "Homework or assignment": "20",
+        "Participation": "25",
+        "Short answer test or exam": "25"
+      },
+      "feedback_evaluation": "1. Course and Teaching Evaluation Survey\n2. Internal Course Review",
+      "required_readings": "Textbook chapters and supplementary materials provided by the course teacher.",
+      "recommended_readings": "N/A"
+    },
+    {
+      "subject": "CLCP",
       "course_code": "2212",
       "title": "Preparation for HSK (Level III)",
       "credits": "2.00",
@@ -89,6 +116,33 @@
     },
     {
       "subject": "CLCP",
+      "course_code": "2243",
+      "title": "Listening and Reading Comprehension Skills II – Daily and Business Topics",
+      "credits": "3.00",
+      "terms": [],
+      "description": "An intermediate business course designed for students who have completed CLCP2213/CPTH2213. Course contents focus on building up students’ listening and reading abilities in daily and business settings, such as greeting clients, attending a welcome party, making hotel reservations, arranging a working schedule, etc.",
+      "enrollment_requirement": "Pre-requisites: CLCP/CPTH2213\nNot for students who have taken CLCP/CPTH3313 or above",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "PTH/CAN",
+      "component": "Lecture\nWeb-enhanced Teaching",
+      "campus": "Main Campus",
+      "academic_group": "Yale-China Chin Lang Acad",
+      "academic_org": "Yale-China Chin Lang Acad",
+      "learning_outcomes": "Students are expected to:\n(PO2: for levels 2-3) participate in simple conversations on predictable topics, obtain information by asking and answering questions, combine learned materials to convey meaning, and satisfy personal needs and social demands\n(S&L2) apply selected vocabulary items and grammatical structures in short connected utterances in most real-life conversations with appropriate usage\n(S&L3) communicate fluently with selected vocabulary items and grammatical structures in short connected utterances in most real-life settings\n(R2) read and understand paragraphs based on daily life written with familiar vocabulary and grammar\n\n學生於完成本科時預期能：\n（學習成果：第二級和第三級）於預設話題中參與簡單的會話或討論，具備在對話中獲得信息的能力，並能結合所學內容與人溝通、滿足基本的交際需要\n(S&L2) 運用所學詞彙和句式完成簡短的成段對話並恰當地運用於日常生活之中\n(S&L3) 運用所學詞彙和句式在現實生活的不同語境中與人進行有效的溝通\n(R2) 讀懂由熟悉的字詞和句式組成的與日常生活相關的段落",
+      "course_syllabus": "CLCP2243 is an intermediate level business Chinese course. Daily and business settings are presented to further develop students’ listening, speaking, and reading skills in Putonghua. Lesson topics include: formally introducing oneself, booking and checking into a hotel, making a business call, making and cancelling an appointment, hosting a formal gathering, marketing and promoting goods, recognising traffic signs and transportation routes, familiarising oneself with the banking industry, etc.",
+      "assessment_types": {
+        "Classwork": "30",
+        "Homework or assignment": "20",
+        "Participation": "25",
+        "Short answer test or exam": "25"
+      },
+      "feedback_evaluation": "1. Course and Teaching Evaluation Survey\n2. Internal Course Review",
+      "required_readings": "Textbook or notes recommended by the course teacher in classes",
+      "recommended_readings": "N/A"
+    },
+    {
+      "subject": "CLCP",
       "course_code": "4433",
       "title": "Advanced Topical Conversation I – Hot Topics",
       "credits": "3.00",
@@ -104,6 +158,33 @@
       "academic_org": "Yale-China Chin Lang Acad",
       "learning_outcomes": "Students are expected to:\n(PO3: for level 4) actively participate in conversations on various topics in some formal and most informal settings, handle a wide variety of linguistic tasks with communicative strategies, and effectively deal with unanticipated complications in communication, satisfying requirements of school and work situations\n(S&L2) apply selected vocabulary items and grammatical structures at the discourse level in real-life professional conversations with appropriate usage\n(S&L3) communicate fluently in professional discourse containing selected vocabulary items and grammatical structures in real-life settings\n(R2) read and understand articles related to familiar topics based on daily life, culture, or society\n\n學生於完成本科時預期能：\n（學習成果：第四級）具備參與在正式及非正式場合中交際的能力，能就不同話題發表意見，並根據不同交際場境調整談話策略，能完成學習或工作中常見的任務\n(S&L2) 運用所學句式和詞彙做出得體應對，滿足在正式場合中的交際需要\n(S&L3) 有效運用所學詞彙和句式在正式場合中與人進行交際溝通\n(R2) 讀懂與熟悉的日常生活、文化或社會話題相關的文章",
       "course_syllabus": "CLCP4433 is an advanced course in Putonghua designed for students who have completed the intermediate level of study and who wish to further develop their listening and speaking skills in Putonghua. Lesson topics include: pirating and copyright issues, succeeding in a foreign country as a multinational company, living an environmentally-friendly lifestyle, the Chinese education system, the prevalence of job-hopping among young people, etc.",
+      "assessment_types": {
+        "Classwork": "30",
+        "Homework or assignment": "20",
+        "Participation": "25",
+        "Short answer test or exam": "25"
+      },
+      "feedback_evaluation": "1. Course and Teaching Evaluation Survey\n2. Internal Course Review",
+      "required_readings": "Textbook chapters and supplementary materials provided by the course teacher.",
+      "recommended_readings": "N/A"
+    },
+    {
+      "subject": "CLCP",
+      "course_code": "4453",
+      "title": "Advanced Communication Skills and Culture I",
+      "credits": "3.00",
+      "terms": [],
+      "description": "An advanced course designed for students who have completed CLCP3353 or CPTH3353. The course is designed to enhance students' language skills in communication, as well as to increase their understanding of Chinese social customs and culture through a series of training, including listening comprehension, special report, group discussion, etc.",
+      "enrollment_requirement": "Pre-requisites: CLCP/CPTH3333 and CLCP/CPTH3353",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "PTH/CAN",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Yale-China Chin Lang Acad",
+      "academic_org": "Yale-China Chin Lang Acad",
+      "learning_outcomes": "Students are expected to:\n(PO3: for level 4) actively participate in conversations on various topics in some formal and most informal settings, handle a wide variety of linguistic tasks with communicative strategies, and effectively deal with unanticipated complications in communication, satisfying requirements of school and work situations\n(S&L2) apply selected vocabulary items and grammatical structures at the discourse level in real-life professional conversations with appropriate usage\n(S&L3) communicate fluently in professional discourse containing selected vocabulary items and grammatical structures in real-life settings\n(R2) read and understand articles related to familiar topics based on daily life, culture, or society\n\n學生於完成本科時預期能：\n（學習成果：第四級）具備參與在正式及非正式場合中交際的能力，能就不同話題發表意見，並根據不同交際場境調整談話策略，能完成學習或工作中常見的任務\n(S&L2) 運用所學句式和詞彙做出得體應對，滿足在正式場合中的交際需要\n(S&L3) 有效運用所學詞彙和句式在正式場合中與人進行交際溝通\n(R2) 讀懂與熟悉的日常生活、文化或社會話題相關的文章",
+      "course_syllabus": "CLCP4453 is an advanced speaking course in Putonghua designed for students who have completed the intermediate level of study and who wish to learn more about Chinese culture and society. Lesson topics include: peer and public pressure in Chinese culture, traditional family relationships and dynamics, the importance of the concept of “hometown,” holding back critical opinions, respecting one’s elders and higher ups, etc.",
       "assessment_types": {
         "Classwork": "30",
         "Homework or assignment": "20",

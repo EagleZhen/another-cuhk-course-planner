@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "SOCI",
     "subject_title": "Sociology",
-    "total_courses": 55
+    "total_courses": 54
   },
   "courses": [
     {
@@ -1734,62 +1734,6 @@
     },
     {
       "subject": "SOCI",
-      "course_code": "3241",
-      "title": "Introduction to Global Sociology",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "--LEC (7450)",
-              "meetings": [
-                {
-                  "time": "Th 1:30PM - 4:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 507",
-                  "instructor": "Professor SUN Jin",
-                  "dates": "10/9, 17/9, 24/9"
-                },
-                {
-                  "time": "Th 1:30PM - 4:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 507",
-                  "instructor": "Professor SUN Jin",
-                  "dates": "8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12"
-                }
-              ],
-              "availability": {
-                "capacity": "60",
-                "enrolled": "2",
-                "waitlist_capacity": "999",
-                "waitlist_total": "0",
-                "available_seats": "58",
-                "status": "Open"
-              },
-              "class_attributes": "English only",
-              "enrollment_requirement": ""
-            }
-          ]
-        }
-      ],
-      "description": "(UGEC3893 is double-coded with SOCI3241.)\nThis course introduces undergraduate students to the knowledge world of global and transnational sociology, and the sociology of law, globalization and global governance, in which it will offer a guided entry into the complex ideas and writings of the sociological, political and legal scholars. The concepts they developed to analyze law, society and global governance are fundamental to address global and international concerns, including ESG (environmental, social & governance) investment, SDG (sustainable development goals), global climate change (Paris Agreement), global health (WHO), international economic, trade and monetary institutions (e.g., World Bank, WTO, IMF), global gender, children, labor and human rights systems (UNICEF, ILO, OHCHR), international law (ICJ) and international peace and security (UN Security Council). Upon completing this course, student will have critical understanding of the process in which UN intergovernmental bodies, states and non-governmental stakeholders coordinate at the inter-organizational and inter-institutional levels to implement the UN 2030 Agenda, and respond to the challenges within.",
-      "enrollment_requirement": "SOCI3241 is double-coded with UGEC2893.\nNot for students who have taken SOCI3452 or UGEC3893.",
-      "course_attributes": "SDG-GE #3 Good Health and Well-being\nSDG-GE #4 Quality Education\nSDG-GE #5 Gender Equality\nSDG-GE #8 Decent Work and Economic Growth\nSDG-GE #13 Climate Action\nSDG-GE #16 Peace, Justice and Strong Institutions\nSDG-GE #17 Partnerships for the Goals",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Sociology",
-      "academic_org": "Dept of Sociology",
-      "learning_outcomes": "At the end of this class students are expected to be able to:\n\n(1) understand major issues of global orders and global governance;\n\n(2) discuss them in the historical context in which they were developed;\n\n(3) identify their contributions to thinking and methods in global society;\n\n(4) trace how concepts have evolved through historical circumstances, theoretical debates, and methodological innovations;\n\n(5) recognize the major theoretical and policy challenges of global governance, social problems and globalization;\n\n(6) prepare for further understanding of relevant themes and debates in the public and private sectors, including but not limited to such emerging fields as ESG investment, ESG reporting, carbon trading, and carbon neutral policy in Hong Kong and Mainland China.",
-      "assessment_types": {
-        "Essays": "40",
-        "Project": "30",
-        "Participation": "30"
-      }
-    },
-    {
-      "subject": "SOCI",
       "course_code": "3242",
       "title": "Crime and Social Control in Globalized Societies",
       "credits": "3.00",
@@ -2642,33 +2586,6 @@
       "credits": "3.00",
       "terms": [
         {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "AJ01-PRJ (7998)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "07/09/2026 - 30/11/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "10",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese only",
-              "enrollment_requirement": ""
-            }
-          ]
-        },
-        {
           "term_code": "2430",
           "term_name": "2026-27 Term 2",
           "schedule": [
@@ -2714,33 +2631,6 @@
       "title": "Directed Studies II",
       "credits": "3.00",
       "terms": [
-        {
-          "term_code": "2420",
-          "term_name": "2026-27 Term 1",
-          "schedule": [
-            {
-              "section": "AJ01-PRJ (7997)",
-              "meetings": [
-                {
-                  "time": "TBA",
-                  "location": "No Room Required",
-                  "instructor": "Staff",
-                  "dates": "07/09/2026 - 30/11/2026"
-                }
-              ],
-              "availability": {
-                "capacity": "10",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "10",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese only",
-              "enrollment_requirement": ""
-            }
-          ]
-        },
         {
           "term_code": "2430",
           "term_name": "2026-27 Term 2",

@@ -532,10 +532,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "53",
+                "enrolled": "52",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -553,10 +553,10 @@
               ],
               "availability": {
                 "capacity": "55",
-                "enrolled": "53",
+                "enrolled": "52",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -2695,6 +2695,27 @@
               },
               "class_attributes": "English only",
               "enrollment_requirement": ""
+            },
+            {
+              "section": "GJ01-PRJ (10308)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN Nan",
+                  "dates": "07/09/2026 - 30/11/2026"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -2846,6 +2867,27 @@
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "8",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "GJ01-PRJ (9931)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor CHEN Nan",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only",
