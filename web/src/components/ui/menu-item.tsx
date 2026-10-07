@@ -1,16 +1,20 @@
 import type { ComponentProps } from 'react'
+import { Slot } from '@radix-ui/react-slot'
 
 import { cn } from '@/lib/utils'
 
 type MenuItemProps = ComponentProps<'button'> & {
   selected?: boolean
+  asChild?: boolean
 }
 
 // Shares item appearance; menu dismissal and focus management belong to the parent.
-function MenuItem({ selected = false, className, ...props }: MenuItemProps) {
+function MenuItem({ selected = false, asChild = false, className, ...props }: MenuItemProps) {
+  const Comp = asChild ? Slot : 'button'
+
   return (
-    <button
-      type="button"
+    <Comp
+      type={asChild ? undefined : 'button'}
       data-slot="menu-item"
       className={cn(
         'inline-flex w-full items-center justify-start gap-2 whitespace-normal px-3 py-2 text-left text-sm font-normal [&>svg]:shrink-0',
