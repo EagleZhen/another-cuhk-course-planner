@@ -5,34 +5,13 @@ import { Button } from '@/components/ui/button'
 import { MenuItem } from '@/components/ui/menu-item'
 import { MessageCircle, MessageSquare, Mail } from 'lucide-react'
 
+const feedbackMessage = encodeURIComponent(
+  'Hi EZ! I tried your Another CUHK Course Planner and wanted to share some feedback:\n\n'
+)
+const emailSubject = encodeURIComponent('Another CUHK Course Planner Feedback')
+
 export default function FeedbackButton() {
   const [isOpen, setIsOpen] = useState(false)
-
-  const handleGoogleForm = () => {
-    window.open(
-      'https://docs.google.com/forms/d/e/1FAIpQLSdZKaf1DMjIrnfRTBzFPGqHSHXHBBKOQarrxQCRoj_uy-ZD1g/viewform',
-      '_blank',
-      'noopener,noreferrer'
-    )
-    setIsOpen(false)
-  }
-
-  const handleWhatsApp = () => {
-    const message = encodeURIComponent(
-      'Hi EZ! I tried your Another CUHK Course Planner and wanted to share some feedback:\n\n'
-    )
-    window.open(`https://wa.me/64886152?text=${message}`, '_blank', 'noopener,noreferrer')
-    setIsOpen(false)
-  }
-
-  const handleEmail = () => {
-    const subject = encodeURIComponent('Another CUHK Course Planner Feedback')
-    const body = encodeURIComponent(
-      'Hi EZ! I tried your Another CUHK Course Planner and wanted to share some feedback:\n\n'
-    )
-    window.open(`mailto:1155194751@link.cuhk.edu.hk?subject=${subject}&body=${body}`, '_self')
-    setIsOpen(false)
-  }
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
@@ -47,6 +26,7 @@ export default function FeedbackButton() {
         <span className="hidden sm:inline">Feedback</span>
       </Button>
 
+      {/* Keep destinations out of the DOM until opened; their values remain public in JS. */}
       {isOpen && (
         <>
           <div className="fixed inset-0 z-[55] cursor-pointer" onClick={() => setIsOpen(false)} />
@@ -56,17 +36,37 @@ export default function FeedbackButton() {
               <div className="text-sm font-medium text-gray-900">Share Feedback</div>
             </div>
             <div className="py-1">
-              <MenuItem onClick={handleGoogleForm}>
-                <MessageSquare className="w-4 h-4 text-gray-500" />
-                Fill a Form
+              <MenuItem asChild>
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdZKaf1DMjIrnfRTBzFPGqHSHXHBBKOQarrxQCRoj_uy-ZD1g/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <MessageSquare className="w-4 h-4 text-gray-500" />
+                  Fill a Form
+                </a>
               </MenuItem>
-              <MenuItem onClick={handleWhatsApp}>
-                <MessageCircle className="w-4 h-4 text-gray-500" />
-                Have a Chat!
+              <MenuItem asChild>
+                <a
+                  href={`https://wa.me/64886152?text=${feedbackMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <MessageCircle className="w-4 h-4 text-gray-500" />
+                  Have a Chat!
+                </a>
               </MenuItem>
-              <MenuItem onClick={handleEmail}>
-                <Mail className="w-4 h-4 text-gray-500" />
-                Send an Email
+              <MenuItem asChild>
+                <a
+                  href={`mailto:1155194751@link.cuhk.edu.hk?subject=${emailSubject}&body=${feedbackMessage}`}
+                  target="_self"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Mail className="w-4 h-4 text-gray-500" />
+                  Send an Email
+                </a>
               </MenuItem>
             </div>
           </div>
