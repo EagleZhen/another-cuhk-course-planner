@@ -9,6 +9,15 @@ export default defineConfig([
     files: ['src/**/*.{js,jsx,ts,tsx}'],
     ignores: ['src/components/ui/**'],
     rules: {
+      'no-restricted-properties': [
+        'error',
+        {
+          object: 'window',
+          property: 'open',
+          message:
+            'Use anchors for navigation so native link actions remain available. Justify deliberate popups with a documented local ESLint suppression.',
+        },
+      ],
       'no-restricted-syntax': [
         'error',
         {

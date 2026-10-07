@@ -4,7 +4,7 @@ Shared UI decisions. Keep exact styles and behavior in code; document only non-o
 
 ## Control Structure
 
-Use Button for feature actions and anchors for navigation. ESLint restricts native `<button>` to UI primitives so ordinary actions inherit shared feedback; explain exceptions beside a local suppression. Clickable containers are not covered by this guard.
+Use Button for feature actions and anchors for navigation. ESLint restricts native `<button>` to UI primitives and rejects `window.open` in feature code; explain native-button exceptions and deliberate popups beside a local suppression. Clickable containers are not covered by the native-button guard.
 
 Keep [Button](../web/src/components/ui/button.tsx), [MenuItem](../web/src/components/ui/menu-item.tsx), and [Badge](../web/src/components/ui/badge.tsx) independent: their shapes and feedback differ, so a shared styled base would need overrides. Their `asChild` option styles a child anchor without wrapping it in another element. MenuItem provides row styling, not menu keyboard navigation or focus management.
 
