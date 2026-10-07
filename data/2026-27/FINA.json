@@ -1058,11 +1058,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "69",
+                "enrolled": "70",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only",
               "enrollment_requirement": "Prerequisite: FINA2010 or FINA2310 or permission from instructor."
@@ -3315,10 +3315,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "36",
+                "enrolled": "37",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "29",
+                "available_seats": "28",
                 "status": "Open"
               },
               "class_attributes": "English only\nCapstone Course",
@@ -4088,10 +4088,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "46",
+                "enrolled": "44",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -10827,18 +10827,6 @@
               "meetings": [
                 {
                   "time": "We 2:30PM - 5:15PM",
-                  "location": "Chung Chi College Lib CK TSE",
-                  "instructor": "Professor LIU Ruixuan",
-                  "dates": "4/11"
-                },
-                {
-                  "time": "We 2:30PM - 5:15PM",
-                  "location": "Chung Chi College Lib CK TSE",
-                  "instructor": "Professor LIU Ruixuan",
-                  "dates": "25/11"
-                },
-                {
-                  "time": "We 2:30PM - 5:15PM",
                   "location": "Cheng Yu Tung Building 201",
                   "instructor": "Professor LIU Ruixuan",
                   "dates": "11/11"
@@ -10881,15 +10869,15 @@
                 },
                 {
                   "time": "We 2:30PM - 5:15PM",
-                  "location": "Cheng Yu Tung Building 201",
-                  "instructor": "Professor LIU Ruixuan",
-                  "dates": "4/11"
-                },
-                {
-                  "time": "We 2:30PM - 5:15PM",
                   "location": "Chung Chi College Lib CK TSE",
                   "instructor": "Professor LIU Ruixuan",
                   "dates": "25/11"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 201",
+                  "instructor": "Professor LIU Ruixuan",
+                  "dates": "4/11"
                 }
               ],
               "availability": {
@@ -11846,11 +11834,11 @@
                 }
               ],
               "availability": {
-                "capacity": "50",
+                "capacity": "70",
                 "enrolled": "28",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "42",
                 "status": "Open"
               },
               "class_attributes": "English only",

@@ -1963,11 +1963,11 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "100",
+                "enrolled": "99",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": ""
@@ -1984,11 +1984,11 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "100",
+                "enrolled": "99",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": ""
@@ -2176,10 +2176,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "127",
+                "enrolled": "126",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "23",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -2197,10 +2197,10 @@
               ],
               "availability": {
                 "capacity": "150",
-                "enrolled": "127",
+                "enrolled": "126",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "23",
+                "available_seats": "24",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -2429,6 +2429,33 @@
                 "waitlist_total": "0",
                 "available_seats": "0",
                 "status": "Wait List"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "BT02-TUT (10309)",
+              "meetings": [
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Professor WANG Junhui",
+                  "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
+                },
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT4",
+                  "instructor": "Professor WANG Junhui",
+                  "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
+                }
+              ],
+              "availability": {
+                "capacity": "120",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "120",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": ""
@@ -3097,7 +3124,7 @@
               ],
               "availability": {
                 "capacity": "110",
-                "enrolled": "115",
+                "enrolled": "114",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -3118,7 +3145,7 @@
               ],
               "availability": {
                 "capacity": "110",
-                "enrolled": "115",
+                "enrolled": "114",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -4625,10 +4652,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "86",
+                "enrolled": "85",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "34",
+                "available_seats": "35",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -4680,10 +4707,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "75",
+                "enrolled": "74",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "45",
+                "available_seats": "46",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -4865,10 +4892,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "49",
+                "enrolled": "48",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "71",
+                "available_seats": "72",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -4920,10 +4947,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "85",
+                "enrolled": "84",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "35",
+                "available_seats": "36",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -4976,10 +5003,10 @@
               ],
               "availability": {
                 "capacity": "120",
-                "enrolled": "58",
+                "enrolled": "57",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "62",
+                "available_seats": "63",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -5734,10 +5761,10 @@
               ],
               "availability": {
                 "capacity": "180",
-                "enrolled": "170",
+                "enrolled": "169",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "10",
+                "available_seats": "11",
                 "status": "Open"
               },
               "class_attributes": "English only",
