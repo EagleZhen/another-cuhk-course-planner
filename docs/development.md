@@ -83,6 +83,10 @@ pre-commit
 
 Prettier rules live in `.prettierrc.json`; ignored generated/vendor paths live in `.prettierignore`.
 
+The whitespace and final-newline hooks also cover `.editorconfig`, `.gitignore`, and `.prettierignore`.
+
+When opening the repository root in VS Code, `.vscode/settings.json` selects Prettier for JS/TS, JSON, Markdown, YAML, and CSS, and Ruff for Python. Install the Prettier (`esbenp.prettier-vscode`) and Ruff (`charliermarsh.ruff`) extensions to use those defaults.
+
 To run hooks manually on staged files:
 
 ```bash
