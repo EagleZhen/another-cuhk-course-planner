@@ -91,9 +91,13 @@ jobs:
   # Its own job: the slow one, and the only cover above `lib/`. Unit tests reach
   # pure logic, so component wiring reaches main green without this.
   e2e:
-    name: web (e2e)
+    name: web (e2e, ${{ matrix.browser }})
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, webkit]
     defaults:
       run:
         working-directory: web
@@ -110,24 +114,22 @@ jobs:
 
       - run: npm run build
 
-      # The browsers are ~500MB and change only with Playwright itself.
       - id: playwright
         run: echo "version=$(node -p 'require("@playwright/test/package.json").version')" >> "$GITHUB_OUTPUT"
 
       - uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.version }}
+          key: playwright-${{ runner.os }}-${{ matrix.browser }}-${{ steps.playwright.outputs.version }}
 
-      # Only the two the config runs. Unconditional: the cache restores the binaries
-      # but not their apt dependencies, and reinstalling present binaries is a no-op.
-      - run: npx playwright install --with-deps chromium webkit
+      # Cached binaries still need the runner's system dependencies.
+      - run: npx playwright install --with-deps ${{ matrix.browser }}
 
-      - run: npx playwright test
+      - run: npx playwright test --project=${{ matrix.browser }}
 
       - if: failure()
         uses: actions/upload-artifact@v7
         with:
-          name: playwright-results
+          name: playwright-results-${{ matrix.browser }}
           path: web/test-results/
           retention-days: 7
