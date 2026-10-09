@@ -8,4 +8,6 @@ Use [`mockCatalog`](helpers/catalog.ts) with external course records keyed by `y
 
 After navigation or reload, use `expectEmptyCatalogLoaded(page)` for empty fixtures. Populated fixtures should wait for their expected results.
 
+`setFixedTime()` fixes the date but leaves timers running, so it does not prevent expiry races.
+
 Note: Playwright's WebKit is not real Safari.app and does not reproduce every Safari-specific rendering quirk. For those, test in real Safari (`safaridriver`) or a device cloud.
