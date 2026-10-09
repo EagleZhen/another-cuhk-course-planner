@@ -48,7 +48,10 @@ test('shows an error and allows another screenshot attempt', async ({ page }) =>
     .filter({ hasText: 'Couldn’t create the screenshot.' })
   await screenshotButton.click()
 
-  await expect(screenshotAlert).toHaveText('Couldn’t create the screenshot. Please try again.')
+  // The injected error follows rendering, which nearly exhausted the default wait in CI.
+  await expect(screenshotAlert).toHaveText('Couldn’t create the screenshot. Please try again.', {
+    timeout: 10_000,
+  })
 
   const downloadPromise = page.waitForEvent('download')
   await screenshotButton.click()
