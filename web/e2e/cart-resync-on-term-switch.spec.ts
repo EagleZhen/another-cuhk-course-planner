@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
+import { mockCatalog } from './helpers/catalog'
 
 const TERM_ONE = '2026-27 Term 1'
 const TERM_TWO = '2026-27 Term 2'
@@ -93,16 +94,8 @@ const termCoverageCourse = {
 }
 
 async function openPlanner(page: Page, testCourse: object) {
-  await page.route('**/data/2026-27/*.json', async (route) => {
-    const subject = new URL(route.request().url()).pathname.split('/').at(-1)?.replace('.json', '')
-    const courses = subject === 'ACCT' ? [testCourse, termCoverageCourse] : []
-
-    await route.fulfill({
-      json: {
-        metadata: { schema_version: 1, subject, total_courses: courses.length },
-        courses,
-      },
-    })
+  await mockCatalog(page, {
+    '2026-27/ACCT': [testCourse, termCoverageCourse],
   })
 
   const schedule = storedSchedule()

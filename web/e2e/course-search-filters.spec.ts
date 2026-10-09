@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 import type { Locator, Page } from '@playwright/test'
 import { NOTICE_STORAGE_KEY, NOTICE_VERSION } from '../src/lib/constants'
+import { mockCatalog } from './helpers/catalog'
 
 const subjects = ['SURY', 'SUTM', 'UGEB', 'UGEC', 'UGED', 'UGFH', 'UGFN', 'URBD', 'URSP']
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -12,10 +13,12 @@ async function openCatalog(page: Page) {
     key: NOTICE_STORAGE_KEY,
     version: NOTICE_VERSION,
   })
-  await page.route('**/data/2026-27/*.json', async (route) => {
-    const subject = new URL(route.request().url()).pathname.split('/').at(-1)!.replace('.json', '')
-    const courses = [...subjects, 'ACCT'].includes(subject)
-      ? [
+  await mockCatalog(
+    page,
+    Object.fromEntries(
+      [...subjects, 'ACCT'].map((subject) => [
+        `2026-27/${subject}`,
+        [
           {
             subject,
             course_code: '1001',
@@ -40,15 +43,10 @@ async function openCatalog(page: Page) {
               },
             ],
           },
-        ]
-      : []
-    await route.fulfill({
-      json: {
-        metadata: { schema_version: 1, subject, total_courses: courses.length },
-        courses,
-      },
-    })
-  })
+        ],
+      ])
+    )
+  )
   await page.goto('/')
 }
 

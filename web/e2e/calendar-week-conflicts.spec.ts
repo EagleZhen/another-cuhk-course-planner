@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
 import { NOTICE_STORAGE_KEY, NOTICE_VERSION } from '../src/lib/constants'
+import { expectEmptyCatalogLoaded, mockCatalog } from './helpers/catalog'
 
 // Fridays in 2026-27 Term 1, so each date falls on the weekday its time states.
 const term = '2026-27 Term 1'
@@ -61,11 +62,12 @@ function storedSchedule(
 
 async function seed(page: Page, schedules: Record<string, string>) {
   await page.clock.setFixedTime(TODAY)
-  await page.route('**/data/**', (route) => route.abort())
+  await mockCatalog(page)
   await page.addInitScript((stored: Record<string, string>) => {
     for (const [key, value] of Object.entries(stored)) localStorage.setItem(key, value)
   }, schedules)
   await page.goto('/')
+  await expectEmptyCatalogLoaded(page)
 }
 
 async function openPlanner(page: Page, tutorialDates: string, lectureDates = '11/9') {

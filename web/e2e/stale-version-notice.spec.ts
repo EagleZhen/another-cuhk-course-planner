@@ -1,17 +1,14 @@
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
+import { expectEmptyCatalogLoaded, mockCatalog } from './helpers/catalog'
 
 const notice = (page: Page) => page.locator('[data-stale-version-notice]')
 
-// Client-rendered once the aborted fetches below fail, so it proves hydration ran. An
-// absence check against un-hydrated server HTML would otherwise pass for the wrong reason.
-const hydrated = (page: Page) => page.getByText('failed to load due to a network error')
-
 // `recovered` lands on the URL a recovery navigates to.
 async function open(page: Page, { recovered = false } = {}) {
-  await page.route('**/data/**', (route) => route.abort())
+  await mockCatalog(page)
   await page.goto(recovered ? '/?refreshed=1' : '/')
-  await expect(hydrated(page)).toBeVisible()
+  await expectEmptyCatalogLoaded(page)
 }
 
 // A chunk error no boundary sees. From a timeout, so the evaluate returns before the
@@ -94,7 +91,7 @@ test('dismisses, and does not come back on the next load', async ({ page }) => {
   await expect(notice(page)).toHaveCount(0)
 
   await page.reload()
-  await expect(hydrated(page)).toBeVisible()
+  await expectEmptyCatalogLoaded(page)
   await expect(notice(page)).toHaveCount(0)
 })
 
@@ -106,7 +103,7 @@ test('drops the marker from the URL on arrival', async ({ page }) => {
   expect(new URL(page.url()).searchParams.has('refreshed')).toBe(false)
 
   await page.reload()
-  await expect(hydrated(page)).toBeVisible()
+  await expectEmptyCatalogLoaded(page)
   await expect(notice(page)).toHaveCount(0)
 })
 
