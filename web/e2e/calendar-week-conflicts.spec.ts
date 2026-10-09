@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
 import { NOTICE_STORAGE_KEY, NOTICE_VERSION } from '../src/lib/constants'
+import { expectEmptyCatalogLoaded, mockCatalog } from './helpers/catalog'
 
 // Fridays in 2026-27 Term 1, so each date falls on the weekday its time states.
 const term = '2026-27 Term 1'
@@ -61,11 +62,12 @@ function storedSchedule(
 
 async function seed(page: Page, schedules: Record<string, string>) {
   await page.clock.setFixedTime(TODAY)
-  await page.route('**/data/**', (route) => route.abort())
+  await mockCatalog(page)
   await page.addInitScript((stored: Record<string, string>) => {
     for (const [key, value] of Object.entries(stored)) localStorage.setItem(key, value)
   }, schedules)
   await page.goto('/')
+  await expectEmptyCatalogLoaded(page)
 }
 
 async function openPlanner(page: Page, tutorialDates: string, lectureDates = '11/9') {
@@ -102,10 +104,12 @@ async function watchForBreathing(page: Page) {
   })
 
   return async () => {
-    // The class lands a commit after the cards, so settle before reading.
-    await page.evaluate(
+    // Allow rendering and the observer to settle before reading.
+    const frames = page.evaluate(
       () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
     )
+    await page.clock.runFor(32)
+    await frames
 
     return page.evaluate(() => (window as unknown as { breathed: boolean }).breathed)
   }
@@ -466,6 +470,7 @@ test('back clears the run it is standing in', async ({ page }) => {
 
 test('breathes on the card that was not on the timetable it came from', async ({ page }) => {
   await openPlanner(page, '25/9, 2/10, 9/10', '11/9, 18/9')
+  await page.clock.pauseAt(TODAY)
 
   // Week 1 is arrived at with nothing before it, so nothing breathes.
   await expect(page.locator('.changed-breathing')).toHaveCount(0)
@@ -474,14 +479,18 @@ test('breathes on the card that was not on the timetable it came from', async ({
   await expect(page.getByText('Week 3 of 5')).toBeVisible()
   await expect(page.locator('.changed-breathing')).toHaveCount(1)
 
-  // It is navigation state, not schedule content, so it lets go by itself.
-  await expect(page.locator('.changed-breathing')).toHaveCount(0, { timeout: 6000 })
+  // Catch early or missing cleanup around the 3100 ms expiry.
+  await page.clock.runFor(3000)
+  await expect(page.locator('.changed-breathing')).toHaveCount(1)
+  await page.clock.runFor(200)
+  await expect(page.locator('.changed-breathing')).toHaveCount(0)
 })
 
 // A term switch replaces the timetable rather than stepping through one, so every
 // card is new by definition and saying so of all of them says nothing.
 test('breathes on nothing when a term switch swaps the timetable', async ({ page }) => {
   await openBothTerms(page)
+  await page.clock.pauseAt(TODAY)
   await expect(cards(page)).toHaveCount(1)
 
   const breathed = await watchForBreathing(page)
@@ -494,11 +503,12 @@ test('breathes on nothing when a term switch swaps the timetable', async ({ page
 
 test('breathes on what a step reveals in the term switched to', async ({ page }) => {
   await openBothTerms(page)
+  await page.clock.pauseAt(TODAY)
   await switchToTerm(page, 'Term 2')
   await expect(page.getByText('Week 1 of 2')).toBeVisible()
 
   await page.getByRole('button', { name: 'Next week' }).click()
 
   await expect(page.getByText('Week 2 of 2')).toBeVisible()
-  await expect(page.locator('.changed-breathing')).toHaveCount(1, { timeout: 1000 })
+  await expect(page.locator('.changed-breathing')).toHaveCount(1)
 })

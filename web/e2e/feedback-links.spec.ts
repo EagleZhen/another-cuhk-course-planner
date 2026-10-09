@@ -1,10 +1,10 @@
 import { expect, test } from '@playwright/test'
+import { expectEmptyCatalogLoaded, mockCatalog } from './helpers/catalog'
 
 test('mounts native feedback links only while the menu is open', async ({ page }) => {
-  await page.route('**/data/**', (route) => route.abort())
+  await mockCatalog(page)
   await page.goto('/')
-  // The failed fetches render after hydration, so server HTML alone cannot pass this check.
-  await expect(page.getByText('failed to load due to a network error')).toBeVisible()
+  await expectEmptyCatalogLoaded(page)
 
   const feedback = page.getByTitle('Share feedback about this course planner', { exact: true })
   const menu = feedback.locator('..')

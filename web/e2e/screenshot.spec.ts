@@ -1,12 +1,14 @@
 import { expect, test } from '@playwright/test'
 import { readFile, stat } from 'node:fs/promises'
+import { expectEmptyCatalogLoaded, mockCatalog } from './helpers/catalog'
 
 test.beforeEach(async ({ page }) => {
-  await page.route('**/data/**', (route) => route.abort())
+  await mockCatalog(page)
 })
 
 test('downloads the timetable as a PNG', async ({ page }) => {
   await page.goto('/')
+  await expectEmptyCatalogLoaded(page)
 
   const screenshotButton = page.getByRole('button', { name: 'Screenshot' })
   const downloadPromise = page.waitForEvent('download')
@@ -38,6 +40,7 @@ test('shows an error and allows another screenshot attempt', async ({ page }) =>
     }
   })
   await page.goto('/')
+  await expectEmptyCatalogLoaded(page)
 
   const screenshotButton = page.getByRole('button', { name: 'Screenshot' })
   const screenshotAlert = page
@@ -45,7 +48,10 @@ test('shows an error and allows another screenshot attempt', async ({ page }) =>
     .filter({ hasText: 'Couldn’t create the screenshot.' })
   await screenshotButton.click()
 
-  await expect(screenshotAlert).toHaveText('Couldn’t create the screenshot. Please try again.')
+  // The injected error follows rendering, which nearly exhausted the default wait in CI.
+  await expect(screenshotAlert).toHaveText('Couldn’t create the screenshot. Please try again.', {
+    timeout: 10_000,
+  })
 
   const downloadPromise = page.waitForEvent('download')
   await screenshotButton.click()
@@ -66,6 +72,7 @@ test('exports when the font-family reflection yields undefined', async ({ page }
     })
   })
   await page.goto('/')
+  await expectEmptyCatalogLoaded(page)
 
   const downloadPromise = page.waitForEvent('download')
   await page.getByRole('button', { name: 'Screenshot' }).click()

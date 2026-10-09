@@ -17,7 +17,10 @@ Run these from `web/`:
 | `npm run dev`       | Start the local Next.js dev server.                  |
 | `npm run typecheck` | Run TypeScript checks without emitting build output. |
 | `npm run lint`      | Run ESLint on the web app source.                    |
-| `npm run build`     | Create a production build.                           |
+| `npm run build`     | Create the static production export in `out/`.       |
+| `npm run start`     | Serve the static export (build first).               |
+
+The `serve → compression` override fixes a [response-abort memory leak](https://github.com/advisories/GHSA-vc2v-76pw-4v95). Remove it when `serve` uses compression 1.8.2 or newer.
 
 ## Course Data
 

@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
+import { expectEmptyCatalogLoaded, mockCatalog } from './helpers/catalog'
 
 const term = '2026-27 Term 1'
 const storageKey = `schedule_${term}`
@@ -55,7 +56,7 @@ async function openCart(page: Page, alternatives: ReturnType<typeof section>[]) 
     ],
   }
 
-  await page.route('**/data/**', (route) => route.abort())
+  await mockCatalog(page)
   await page.addInitScript(
     ({ key, value }) => {
       if (!localStorage.getItem(key)) localStorage.setItem(key, value)
@@ -63,6 +64,7 @@ async function openCart(page: Page, alternatives: ReturnType<typeof section>[]) 
     { key: storageKey, value: JSON.stringify(stored) }
   )
   await page.goto('/')
+  await expectEmptyCatalogLoaded(page)
 
   const courseCard = page
     .getByText('ACCT1111', { exact: true })
@@ -200,6 +202,7 @@ test('dismisses the banner without removing the tombstone or replacement control
     .toEqual({ acknowledged: true, removedCount: 1 })
 
   await page.reload()
+  await expectEmptyCatalogLoaded(page)
   await expect(page.getByText('1 course changed since you last checked')).toHaveCount(0)
   await expect(page.getByText('A-LEC (removed)', { exact: true })).toBeVisible()
 
