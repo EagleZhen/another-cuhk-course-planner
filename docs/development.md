@@ -180,4 +180,4 @@ Run these from the repository root:
 | `uv run pytest`                       | Run the Python tests.                 |
 | `npm run format:check`                | Verify Prettier formatting repo-wide. |
 
-CI runs all of these except `npm run build` on every pull request, so pre-commit is a convenience rather than the only gate.
+CI runs these checks and builds the static export for E2E tests on every pull request. For local production-mode testing, see the [E2E guide](../web/e2e/README.md).

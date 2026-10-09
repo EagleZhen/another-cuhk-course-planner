@@ -108,6 +108,8 @@ jobs:
 
       - run: npm ci
 
+      - run: npm run build
+
       # The browsers are ~500MB and change only with Playwright itself.
       - id: playwright
         run: echo "version=$(node -p 'require("@playwright/test/package.json").version')" >> "$GITHUB_OUTPUT"
@@ -121,7 +123,6 @@ jobs:
       # but not their apt dependencies, and reinstalling present binaries is a no-op.
       - run: npx playwright install --with-deps chromium webkit
 
-      # No retries: the breathing expires on a timer, so a flake here is worth seeing.
       - run: npx playwright test
 
       - if: failure()

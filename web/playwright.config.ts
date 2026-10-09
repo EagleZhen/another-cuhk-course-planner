@@ -1,20 +1,26 @@
 import { defineConfig, devices } from '@playwright/test'
 
+const isCI = Boolean(process.env.CI)
+const isProduction = isCI || process.env.PLAYWRIGHT_PRODUCTION === '1'
+const serverURL = 'http://127.0.0.1:3000'
+
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
+  workers: isCI ? 2 : undefined,
   // A committed `test.only` would leave CI green having run one test.
-  forbidOnly: !!process.env.CI,
+  forbidOnly: isCI,
   reporter: 'list',
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: serverURL,
     // Retries are off, so `on-first-retry` would never fire.
     trace: 'retain-on-failure',
   },
   webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
+    command: isProduction ? 'npm run start' : 'npm run dev',
+    url: serverURL,
+    reuseExistingServer: !isProduction,
+    env: { NO_UPDATE_CHECK: '1' },
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },

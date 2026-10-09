@@ -2,7 +2,16 @@
 
 Playwright specs live here. Run them with `npx playwright test` (not `npm test`, which is vitest for unit tests).
 
-Config: [`../playwright.config.ts`](../playwright.config.ts) — runs against `npm run dev` on `:3000`, projects for Chromium and WebKit.
+Config: [`../playwright.config.ts`](../playwright.config.ts) — Chromium and WebKit. CI uses the static export to avoid development compilation; ordinary local runs use the dev server.
+
+To reproduce production mode locally, run from `web/`:
+
+```bash
+npm run build
+PLAYWRIGHT_PRODUCTION=1 npx playwright test
+```
+
+Production mode requires port 3000 to be free; server reuse could silently test the wrong app.
 
 Use [`mockCatalog`](helpers/catalog.ts) with external course records keyed by `year/subject`; unspecified subjects return empty courses. Empty catalogs preserve seeded carts; a course offering the selected term enables reconciliation.
 
