@@ -127,9 +127,11 @@ jobs:
 
       - run: npx playwright test --project=${{ matrix.browser }}
 
-      - if: failure()
+      - if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v7
         with:
           name: playwright-results-${{ matrix.browser }}
-          path: web/test-results/
+          path: |
+            web/playwright-report/
+            web/test-results/
           retention-days: 7

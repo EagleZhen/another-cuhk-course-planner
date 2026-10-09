@@ -10,10 +10,10 @@ export default defineConfig({
   workers: isCI ? 2 : undefined,
   // A committed `test.only` would leave CI green having run one test.
   forbidOnly: isCI,
-  reporter: 'list',
+  retries: 0,
+  reporter: isCI ? [['list'], ['html', { open: 'never' }]] : 'list',
   use: {
     baseURL: serverURL,
-    // Retries are off, so `on-first-retry` would never fire.
     trace: 'retain-on-failure',
   },
   webServer: {
