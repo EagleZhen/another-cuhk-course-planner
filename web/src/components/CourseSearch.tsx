@@ -1181,22 +1181,20 @@ function CourseResourceLinks({ courseCode }: { courseCode: string }) {
   ))
 }
 
-// Reusable instructor filters component
+// Keep each instructor and its search link together as one layout item.
 function InstructorFilters({
   instructors,
   selectedInstructors,
   onToggleInstructor,
   onClearAll,
-  isMobile = false,
 }: {
   instructors: string[] // compact names, from splitInstructorsCompact
   selectedInstructors: Set<string>
   onToggleInstructor: (instructor: string) => void
   onClearAll: () => void
-  isMobile?: boolean
 }) {
   return (
-    <div className={`flex gap-2 ${isMobile ? 'flex-col w-full' : 'flex-wrap'}`}>
+    <>
       {instructors.map((formattedInstructor) => {
         const isSelected = selectedInstructors.has(formattedInstructor)
         const hasSearch = formattedInstructor !== 'Staff'
@@ -1255,7 +1253,139 @@ function InstructorFilters({
           Clear Instructors
         </Button>
       )}
-    </div>
+    </>
+  )
+}
+
+function CourseCartActions({
+  layout,
+  isAdded,
+  isEnrollmentComplete,
+  hasSelectionsChanged,
+  onAdd,
+  onRemove,
+  onScroll,
+}: {
+  layout: 'inline' | 'stacked'
+  isAdded: boolean
+  isEnrollmentComplete: boolean
+  hasSelectionsChanged: boolean
+  onAdd: () => void
+  onRemove: () => void
+  onScroll?: () => void
+}) {
+  const isStacked = layout === 'stacked'
+  const canSubmit = isEnrollmentComplete && (!isAdded || hasSelectionsChanged)
+  const primaryAction = (
+    <Button
+      variant={canSubmit ? 'default' : 'secondary'}
+      size="sm"
+      onClick={(event) => {
+        event.stopPropagation()
+        if (canSubmit) onAdd()
+      }}
+      disabled={!canSubmit}
+      className={isStacked ? 'w-full' : 'min-w-[80px]'}
+      title={
+        isAdded
+          ? canSubmit
+            ? 'Replace course with new section selections'
+            : 'Course already added to cart'
+          : isEnrollmentComplete
+            ? 'Add course to cart'
+            : 'Select required sections to add course (some types may not have compatible options)'
+      }
+    >
+      {!isAdded && isStacked && isEnrollmentComplete && <Plus className="w-3 h-3 mr-1" />}
+      {isAdded
+        ? canSubmit
+          ? 'Replace Cart'
+          : 'Added ✓'
+        : isEnrollmentComplete
+          ? 'Add to Cart'
+          : 'Select Sections First'}
+    </Button>
+  )
+
+  if (!isAdded) return primaryAction
+
+  const removeAction = (
+    <Button
+      variant="destructive"
+      size="sm"
+      onClick={(event) => {
+        event.stopPropagation()
+        onRemove()
+      }}
+      className={isStacked ? 'flex-1' : 'min-w-[70px]'}
+      title="Remove course from cart"
+    >
+      <Trash2 className="w-3 h-3 mr-1" />
+      Remove
+    </Button>
+  )
+  const scrollAction = (
+    <Button
+      variant="outline"
+      size="sm"
+      onClick={(event) => {
+        event.stopPropagation()
+        onScroll?.()
+      }}
+      className={isStacked ? 'flex-1' : 'min-w-[80px]'}
+      title="Scroll to course in shopping cart"
+    >
+      <ShoppingCart className="w-3 h-3 mr-1" />
+      Scroll to Cart
+    </Button>
+  )
+
+  return isStacked ? (
+    <>
+      {primaryAction}
+      <div className="flex gap-2">
+        {scrollAction}
+        {removeAction}
+      </div>
+    </>
+  ) : (
+    <>
+      {removeAction}
+      {scrollAction}
+      {primaryAction}
+    </>
+  )
+}
+
+function CourseSeatAvailabilityBadge({
+  course,
+  currentTerm,
+}: {
+  course: InternalCourse
+  currentTerm: string
+}) {
+  const seatInfo = getAggregateSeatInfo(course, currentTerm)
+  if (!seatInfo) return null
+
+  const { available, total } = seatInfo
+  const availability = {
+    availableSeats: available,
+    capacity: total,
+    status: available === 0 ? ('Closed' as const) : ('Open' as const),
+    enrolled: total - available,
+    waitlistCapacity: 0,
+    waitlistTotal: 0,
+  }
+  const style = getAvailabilityBadgeStyle(availability)
+
+  return (
+    <Badge
+      variant="secondary"
+      className={`text-xs border ${style.className}`}
+      title={`${available} seats available out of ${total} total for ${seatInfo.type} sections`}
+    >
+      {available}/{total} Available Seats
+    </Badge>
   )
 }
 
@@ -1468,173 +1598,15 @@ function CourseCard({
     )
   ).sort((a, b) => instructorSortKey(a).localeCompare(instructorSortKey(b)))
 
-  // Cart action buttons (Add/Remove/Scroll to Cart/Replace), compact inline layout for desktop
-  const renderCartActionsInline = () => (
-    <>
-      {isAdded ? (
-        <>
-          {/* Remove button for enrolled courses */}
-          <Button
-            variant="destructive"
-            size="sm"
-            onClick={(e) => {
-              e.stopPropagation()
-              onRemoveCourse(courseKey)
-            }}
-            className="min-w-[70px]"
-            title="Remove course from cart"
-          >
-            <Trash2 className="w-3 h-3 mr-1" />
-            Remove
-          </Button>
-
-          {/* Scroll to Cart button */}
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={(e) => {
-              e.stopPropagation()
-              if (onScrollToCart && enrolledCourse) {
-                onScrollToCart(enrolledCourse.courseId)
-              }
-            }}
-            className="min-w-[80px]"
-            title="Scroll to course in shopping cart"
-          >
-            <ShoppingCart className="w-3 h-3 mr-1" />
-            Scroll to Cart
-          </Button>
-
-          {/* Replace/Added status button - for courses already in cart */}
-          <Button
-            variant={hasSelectionsChanged && isEnrollmentComplete ? 'default' : 'secondary'}
-            size="sm"
-            onClick={(e) => {
-              e.stopPropagation()
-              if (hasSelectionsChanged && isEnrollmentComplete) {
-                onAddCourse(course, localSelections)
-              }
-            }}
-            disabled={!hasSelectionsChanged || !isEnrollmentComplete}
-            className="min-w-[80px]"
-            title={
-              hasSelectionsChanged && isEnrollmentComplete
-                ? 'Replace course with new section selections'
-                : 'Course already added to cart'
-            }
-          >
-            {hasSelectionsChanged && isEnrollmentComplete ? 'Replace Cart' : 'Added ✓'}
-          </Button>
-        </>
-      ) : (
-        /* Add button for non-enrolled courses */
-        <Button
-          variant={isEnrollmentComplete ? 'default' : 'secondary'}
-          size="sm"
-          onClick={(e) => {
-            e.stopPropagation()
-            if (isEnrollmentComplete) {
-              onAddCourse(course, localSelections)
-            }
-          }}
-          disabled={!isEnrollmentComplete}
-          className="min-w-[80px]"
-          title={
-            !isEnrollmentComplete
-              ? 'Select required sections to add course (some types may not have compatible options)'
-              : 'Add course to cart'
-          }
-        >
-          {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections First'}
-        </Button>
-      )}
-    </>
-  )
-
-  // Cart action buttons, full-width stacked layout (primary action on its own row) for mobile
-  const renderCartActionsStacked = () => (
-    <>
-      {isAdded ? (
-        <>
-          {/* Primary action: Replace/Added status - full width */}
-          <Button
-            variant={hasSelectionsChanged && isEnrollmentComplete ? 'default' : 'secondary'}
-            size="sm"
-            onClick={(e) => {
-              e.stopPropagation()
-              if (hasSelectionsChanged && isEnrollmentComplete) {
-                onAddCourse(course, localSelections)
-              }
-            }}
-            disabled={!hasSelectionsChanged || !isEnrollmentComplete}
-            className="w-full"
-            title={
-              hasSelectionsChanged && isEnrollmentComplete
-                ? 'Replace course with new section selections'
-                : 'Course already added to cart'
-            }
-          >
-            {hasSelectionsChanged && isEnrollmentComplete ? 'Replace Cart' : 'Added ✓'}
-          </Button>
-
-          {/* Secondary actions: Scroll to Cart + Remove - side by side */}
-          <div className="flex gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={(e) => {
-                e.stopPropagation()
-                if (onScrollToCart && enrolledCourse) {
-                  onScrollToCart(enrolledCourse.courseId)
-                }
-              }}
-              className="flex-1"
-              title="Scroll to course in shopping cart"
-            >
-              <ShoppingCart className="w-3 h-3 mr-1" />
-              Scroll to Cart
-            </Button>
-
-            <Button
-              variant="destructive"
-              size="sm"
-              onClick={(e) => {
-                e.stopPropagation()
-                onRemoveCourse(courseKey)
-              }}
-              className="flex-1"
-              title="Remove course from cart"
-            >
-              <Trash2 className="w-3 h-3 mr-1" />
-              Remove
-            </Button>
-          </div>
-        </>
-      ) : (
-        /* Add button for non-enrolled courses - full width */
-        <Button
-          variant={isEnrollmentComplete ? 'default' : 'secondary'}
-          size="sm"
-          onClick={(e) => {
-            e.stopPropagation()
-            if (isEnrollmentComplete) {
-              onAddCourse(course, localSelections)
-            }
-          }}
-          disabled={!isEnrollmentComplete}
-          className="w-full"
-          title={
-            !isEnrollmentComplete
-              ? 'Select required sections to add course (some types may not have compatible options)'
-              : 'Add course to cart'
-          }
-        >
-          {isEnrollmentComplete && <Plus className="w-3 h-3 mr-1" />}
-          {isEnrollmentComplete ? 'Add to Cart' : 'Select Sections First'}
-        </Button>
-      )}
-    </>
-  )
+  const cartActionProps = {
+    isAdded,
+    isEnrollmentComplete,
+    hasSelectionsChanged,
+    onAdd: () => onAddCourse(course, localSelections),
+    onRemove: () => onRemoveCourse(courseKey),
+    onScroll:
+      onScrollToCart && enrolledCourse ? () => onScrollToCart(enrolledCourse.courseId) : undefined,
+  }
 
   return (
     <Card
@@ -1670,7 +1642,7 @@ function CourseCard({
             </CardDescription>
           </div>
           <div className="flex items-center gap-2 ml-2">
-            {renderCartActionsInline()}
+            <CourseCartActions {...cartActionProps} layout="inline" />
             <Button
               variant="ghost"
               size="sm"
@@ -1692,33 +1664,7 @@ function CourseCard({
         <div className="hidden sm:flex items-center gap-2 mt-2 flex-wrap">
           <CreditsBadge credits={course.credits} />
           <GradingBadge gradingBasis={course.gradingBasis} />
-          {/* Seat Availability Badge */}
-          {(() => {
-            const seatInfo = getAggregateSeatInfo(course, currentTerm)
-            if (!seatInfo) return null
-
-            const { available, total } = seatInfo
-            // Create availability object for styling function
-            const availability = {
-              availableSeats: available,
-              capacity: total,
-              status: available === 0 ? ('Closed' as const) : ('Open' as const),
-              enrolled: total - available,
-              waitlistCapacity: 0,
-              waitlistTotal: 0,
-            }
-            const style = getAvailabilityBadgeStyle(availability)
-
-            return (
-              <Badge
-                variant="secondary"
-                className={`text-xs border ${style.className}`}
-                title={`${available} seats available out of ${total} total for ${seatInfo.type} sections`}
-              >
-                {available}/{total} Available Seats
-              </Badge>
-            )
-          })()}
+          <CourseSeatAvailabilityBadge course={course} currentTerm={currentTerm} />
           {/* Show all instructors as filter toggle buttons */}
           {instructors.length > 0 && (
             <InstructorFilters
@@ -1726,7 +1672,6 @@ function CourseCard({
               selectedInstructors={selectedInstructors}
               onToggleInstructor={toggleInstructorFilter}
               onClearAll={() => setSelectedInstructors(new Set())}
-              isMobile={false}
             />
           )}
         </div>
@@ -1754,42 +1699,17 @@ function CourseCard({
             <div className="flex items-center gap-2 mt-2 flex-wrap">
               <CreditsBadge credits={course.credits} />
               <GradingBadge gradingBasis={course.gradingBasis} />
-              {/* Seat Availability Badge */}
-              {(() => {
-                const seatInfo = getAggregateSeatInfo(course, currentTerm)
-                if (!seatInfo) return null
-
-                const { available, total } = seatInfo
-                // Create availability object for styling function
-                const availability = {
-                  availableSeats: available,
-                  capacity: total,
-                  status: available === 0 ? ('Closed' as const) : ('Open' as const),
-                  enrolled: total - available,
-                  waitlistCapacity: 0,
-                  waitlistTotal: 0,
-                }
-                const style = getAvailabilityBadgeStyle(availability)
-
-                return (
-                  <Badge
-                    variant="secondary"
-                    className={`text-xs border ${style.className}`}
-                    title={`${available} seats available out of ${total} total for ${seatInfo.type} sections`}
-                  >
-                    {available}/{total} Available Seats
-                  </Badge>
-                )
-              })()}
+              <CourseSeatAvailabilityBadge course={course} currentTerm={currentTerm} />
               {/* Show instructors as filter toggle buttons on mobile */}
               {instructors.length > 0 && (
-                <InstructorFilters
-                  instructors={instructors}
-                  selectedInstructors={selectedInstructors}
-                  onToggleInstructor={toggleInstructorFilter}
-                  onClearAll={() => setSelectedInstructors(new Set())}
-                  isMobile={true}
-                />
+                <div className="flex flex-col items-start gap-2 w-full @sm/card-header:flex-row @sm/card-header:flex-wrap">
+                  <InstructorFilters
+                    instructors={instructors}
+                    selectedInstructors={selectedInstructors}
+                    onToggleInstructor={toggleInstructorFilter}
+                    onClearAll={() => setSelectedInstructors(new Set())}
+                  />
+                </div>
               )}
             </div>
           </div>
@@ -1802,7 +1722,7 @@ function CourseCard({
         className={`sm:hidden px-6 pt-3 pb-3 space-y-2 ${expanded ? 'sticky z-[5] bg-white' : ''}`}
         style={expanded ? { top: stickyOffset } : undefined}
       >
-        {renderCartActionsStacked()}
+        <CourseCartActions {...cartActionProps} layout="stacked" />
 
         {/* Expand button - separate as it's different from cart actions */}
         <Button

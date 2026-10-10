@@ -28,7 +28,7 @@ Course-level filtering lives in [courseFilters.ts](../../web/src/lib/courseFilte
 - **Adding a filter** (see credits for the full pattern):
   - _Engine_ (`courseFilters.ts`): a predicate builder keyed in `BUILDERS`, its `criteria` field (usually also in `hasActiveFilters` — career is the exception), and — for a chip filter — a `ChipDimension`.
   - _Component_ (`CourseSearch`): state + toggle, the `filterCriteria` field, an `availableValues` memo, and a `ChipFilterRow`.
-- **Instructor filter:** pills and section matching share one compact-name list, so they compare as displayed. Applying the filter clears section selections that no longer match; clearing it keeps existing selections.
+- **Instructor filter:** pills and section matching share one compact-name list, so they compare as displayed. Applying the filter clears section selections that no longer match; clearing it keeps existing selections. `CourseCard` owns grouping; `InstructorFilters` keeps each instructor/search pair together. Desktop wraps each instructor/search pair alongside the metadata to avoid moving the entire instructor group when Clear appears. Mobile keeps a separate instructor area, stacking in narrow headers and wrapping at the existing `@sm/card-header` container size.
 - **Card-local selections** stay inside the card until the user adds or updates the course in the planner.
 
 ## External Resource Links
@@ -41,6 +41,8 @@ Google queries use `CUHK`, the compact course code (`CSCI3100`), and bilingual k
 - Availability is scraped, not real-time; students should verify in CUSIS.
 
 ## Sticky Action Buttons While Expanded
+
+Cart controls share eligibility, labels, and handlers through `CourseCartActions`; its `inline` and `stacked` layouts retain their own order and sizing. Both metadata layouts use `CourseSeatAvailabilityBadge` for the same aggregate seat display.
 
 Cart action buttons scrolled out of view on long section lists. Fix: dock them below the search bar via plain CSS `sticky` (like the search bar itself). JS only computes the `top` offset - it plays no part in the pinning itself.
 
