@@ -1181,7 +1181,7 @@ function CourseResourceLinks({ courseCode }: { courseCode: string }) {
   ))
 }
 
-// Reusable instructor filters component
+// Desktop pairs join the metadata flow; mobile keeps the instructor group stacked.
 function InstructorFilters({
   instructors,
   selectedInstructors,
@@ -1196,7 +1196,7 @@ function InstructorFilters({
   isMobile?: boolean
 }) {
   return (
-    <div className={`flex gap-2 ${isMobile ? 'flex-col w-full' : 'flex-wrap'}`}>
+    <div className={isMobile ? 'flex flex-col gap-2 w-full' : 'contents'}>
       {instructors.map((formattedInstructor) => {
         const isSelected = selectedInstructors.has(formattedInstructor)
         const hasSearch = formattedInstructor !== 'Staff'

@@ -28,7 +28,7 @@ Course-level filtering lives in [courseFilters.ts](../../web/src/lib/courseFilte
 - **Adding a filter** (see credits for the full pattern):
   - _Engine_ (`courseFilters.ts`): a predicate builder keyed in `BUILDERS`, its `criteria` field (usually also in `hasActiveFilters` — career is the exception), and — for a chip filter — a `ChipDimension`.
   - _Component_ (`CourseSearch`): state + toggle, the `filterCriteria` field, an `availableValues` memo, and a `ChipFilterRow`.
-- **Instructor filter:** pills and section matching share one compact-name list, so they compare as displayed. Applying the filter clears section selections that no longer match; clearing it keeps existing selections.
+- **Instructor filter:** pills and section matching share one compact-name list, so they compare as displayed. Applying the filter clears section selections that no longer match; clearing it keeps existing selections. Desktop wraps each instructor/search pair alongside the metadata to avoid moving the entire instructor group when Clear appears.
 - **Card-local selections** stay inside the card until the user adds or updates the course in the planner.
 
 ## External Resource Links
