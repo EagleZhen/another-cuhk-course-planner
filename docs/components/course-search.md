@@ -42,6 +42,8 @@ Google queries use `CUHK`, the compact course code (`CSCI3100`), and bilingual k
 
 ## Sticky Action Buttons While Expanded
 
+Cart controls share eligibility, labels, and handlers through `CourseCartActions`; its `inline` and `stacked` layouts retain their own order and sizing. Both metadata layouts use `CourseSeatAvailabilityBadge` for the same aggregate seat display.
+
 Cart action buttons scrolled out of view on long section lists. Fix: dock them below the search bar via plain CSS `sticky` (like the search bar itself). JS only computes the `top` offset - it plays no part in the pinning itself.
 
 - **Desktop** sticks the whole `CardHeader` (already a sibling of `CardContent`, so no restructuring needed) rather than pulling the buttons out of their inline spot beside the title.
