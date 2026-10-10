@@ -3840,6 +3840,33 @@
           "term_name": "2026-27 Term 2",
           "schedule": [
             {
+              "section": "A-LEC (9932)",
+              "meetings": [
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "Wen Lan Tang LG204",
+                  "instructor": "Dr. HO Cheuk Ming",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 10:30AM - 1:15PM",
+                  "location": "Wen Lan Tang LG204",
+                  "instructor": "Dr. HO Cheuk Ming",
+                  "dates": "18/2, 25/2, 4/3, 11/3"
+                }
+              ],
+              "availability": {
+                "capacity": "65",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "65",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": "For PGDE students only"
+            },
+            {
               "section": "K-LEC (9775)",
               "meetings": [
                 {
@@ -4725,7 +4752,19 @@
                   "time": "Fr 6:30PM - 8:15PM",
                   "location": "Lee Shau Kee Archi Bldg G01",
                   "instructor": "Dr. LAU Ngar Sze",
-                  "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
+                  "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10"
+                },
+                {
+                  "time": "Fr 6:30PM - 8:15PM",
+                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "instructor": "Dr. LAU Ngar Sze",
+                  "dates": "13/11, 20/11, 27/11, 4/12"
+                },
+                {
+                  "time": "Fr 6:30PM - 9:30PM",
+                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "instructor": "Dr. LAU Ngar Sze",
+                  "dates": "6/11"
                 }
               ],
               "availability": {
@@ -5341,7 +5380,19 @@
                   "time": "We 6:30PM - 8:45PM",
                   "location": "Lee Shau Kee Archi Bldg G01",
                   "instructor": "Dr. LAU Ngar Sze",
-                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10, 28/10, 4/11, 11/11, 18/11, 25/11, 2/12"
+                  "dates": "9/9, 16/9, 23/9, 30/9, 7/10, 14/10, 21/10"
+                },
+                {
+                  "time": "We 6:30PM - 8:45PM",
+                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "instructor": "Dr. LAU Ngar Sze",
+                  "dates": "4/11, 11/11, 18/11, 25/11, 2/12"
+                },
+                {
+                  "time": "We 6:30PM - 9:30PM",
+                  "location": "Lee Shau Kee Archi Bldg G01",
+                  "instructor": "Dr. LAU Ngar Sze",
+                  "dates": "28/10"
                 }
               ],
               "availability": {
