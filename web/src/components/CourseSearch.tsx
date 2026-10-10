@@ -1181,28 +1181,20 @@ function CourseResourceLinks({ courseCode }: { courseCode: string }) {
   ))
 }
 
-// Desktop pairs join the metadata flow; mobile pairs wrap when the header has room.
+// Keep each instructor and its search link together as one layout item.
 function InstructorFilters({
   instructors,
   selectedInstructors,
   onToggleInstructor,
   onClearAll,
-  isMobile = false,
 }: {
   instructors: string[] // compact names, from splitInstructorsCompact
   selectedInstructors: Set<string>
   onToggleInstructor: (instructor: string) => void
   onClearAll: () => void
-  isMobile?: boolean
 }) {
   return (
-    <div
-      className={
-        isMobile
-          ? 'flex flex-col items-start gap-2 w-full @sm/card-header:flex-row @sm/card-header:flex-wrap'
-          : 'contents'
-      }
-    >
+    <>
       {instructors.map((formattedInstructor) => {
         const isSelected = selectedInstructors.has(formattedInstructor)
         const hasSearch = formattedInstructor !== 'Staff'
@@ -1261,7 +1253,7 @@ function InstructorFilters({
           Clear Instructors
         </Button>
       )}
-    </div>
+    </>
   )
 }
 
@@ -1680,7 +1672,6 @@ function CourseCard({
               selectedInstructors={selectedInstructors}
               onToggleInstructor={toggleInstructorFilter}
               onClearAll={() => setSelectedInstructors(new Set())}
-              isMobile={false}
             />
           )}
         </div>
@@ -1711,13 +1702,14 @@ function CourseCard({
               <CourseSeatAvailabilityBadge course={course} currentTerm={currentTerm} />
               {/* Show instructors as filter toggle buttons on mobile */}
               {instructors.length > 0 && (
-                <InstructorFilters
-                  instructors={instructors}
-                  selectedInstructors={selectedInstructors}
-                  onToggleInstructor={toggleInstructorFilter}
-                  onClearAll={() => setSelectedInstructors(new Set())}
-                  isMobile={true}
-                />
+                <div className="flex flex-col items-start gap-2 w-full @sm/card-header:flex-row @sm/card-header:flex-wrap">
+                  <InstructorFilters
+                    instructors={instructors}
+                    selectedInstructors={selectedInstructors}
+                    onToggleInstructor={toggleInstructorFilter}
+                    onClearAll={() => setSelectedInstructors(new Set())}
+                  />
+                </div>
               )}
             </div>
           </div>
