@@ -1181,7 +1181,7 @@ function CourseResourceLinks({ courseCode }: { courseCode: string }) {
   ))
 }
 
-// Desktop pairs join the metadata flow; mobile keeps the instructor group stacked.
+// Desktop pairs join the metadata flow; mobile pairs wrap when the header has room.
 function InstructorFilters({
   instructors,
   selectedInstructors,
@@ -1196,7 +1196,13 @@ function InstructorFilters({
   isMobile?: boolean
 }) {
   return (
-    <div className={isMobile ? 'flex flex-col gap-2 w-full' : 'contents'}>
+    <div
+      className={
+        isMobile
+          ? 'flex flex-col items-start gap-2 w-full @sm/card-header:flex-row @sm/card-header:flex-wrap'
+          : 'contents'
+      }
+    >
       {instructors.map((formattedInstructor) => {
         const isSelected = selectedInstructors.has(formattedInstructor)
         const hasSearch = formattedInstructor !== 'Staff'
