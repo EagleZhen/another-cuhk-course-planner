@@ -1,8 +1,8 @@
 {
   "latest_run": {
-    "started_at": "2026-10-09 22:22:05 HK",
-    "last_updated": "2026-10-10 07:44:15 HK",
-    "duration": "9h 22m 9s",
+    "started_at": "2026-10-10 22:22:07 HK",
+    "last_updated": "2026-10-11 07:47:18 HK",
+    "duration": "9h 25m 10s",
     "status": "completed",
     "mode": "full",
     "subjects_total": 270,
@@ -15,7 +15,7 @@
     }
   },
   "latest_full_scrape": {
-    "started_at": "2026-10-09T14:22:05.767373+00:00",
+    "started_at": "2026-10-10T14:22:07.815984+00:00",
     "remaining": [],
     "directories": [
       "data/2026-27",
@@ -746,7 +746,7 @@
     "IBBA": {
       "status": "completed",
       "courses_count": 7,
-      "output_file": "data/no-terms/IBBA.json, data/2026-27/IBBA.json"
+      "output_file": "data/2026-27/IBBA.json, data/no-terms/IBBA.json"
     },
     "ICMS": {
       "status": "completed",

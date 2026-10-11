@@ -3,9 +3,63 @@
     "schema_version": 3,
     "subject": "IBBA",
     "subject_title": "Integrated BBA Programme",
-    "total_courses": 2
+    "total_courses": 3
   },
   "courses": [
+    {
+      "subject": "IBBA",
+      "course_code": "3010",
+      "title": "Issues in Business",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "XJ01-PRJ (9934)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "TBA",
+                  "instructor": "Dr. KU Kei Tat",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "English only\nSTOT Course",
+              "enrollment_requirement": ""
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an opportunity for students to integrate knowledge acquired from their business studies in generating a project/research study with the guidance of a teacher.",
+      "enrollment_requirement": "",
+      "course_attributes": "STOT Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nProject",
+      "campus": "Main Campus",
+      "academic_group": "Integrated BBA Pgm Comm",
+      "academic_org": "Integrated BBA Pgm Comm",
+      "learning_outcomes": "Upon completion of this course, students are expected to:\n\n•Understand the business environments, culture and challenges.\n•Develop a global mindset and cross-cultural sensitivity.\n•Demonstrate effective business communication and presentation skills.",
+      "course_syllabus": "This course provides an opportunity for students to integrate knowledge acquired from their business studies with real business issues by examining various business corporations.\n\nRemarks: The Assessment Type below is for reference only. For the specific assessment scheme, please refer to the course outline.",
+      "assessment_types": {
+        "Others": "30",
+        "Presentation": "30",
+        "Report": "40"
+      },
+      "feedback_evaluation": "Students can provide comments and feedback to faculty members via email or at meetings or any other measures as needed.",
+      "required_readings": "Nil",
+      "recommended_readings": "Nil"
+    },
     {
       "subject": "IBBA",
       "course_code": "3032",
