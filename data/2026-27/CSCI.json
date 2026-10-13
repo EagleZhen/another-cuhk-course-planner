@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "CSCI",
     "subject_title": "Computer Science",
-    "total_courses": 54
+    "total_courses": 55
   },
   "courses": [
     {
@@ -7369,13 +7369,13 @@
               "meetings": [
                 {
                   "time": "Tu 2:30PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "Wen Lan Tang LG204",
                   "instructor": "Professor ZHANG Hanrui",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 2:30PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "Wen Lan Tang LG204",
                   "instructor": "Professor ZHANG Hanrui",
                   "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
@@ -7710,6 +7710,105 @@
       "feedback_evaluation": "1. Quiz and examinations\n2. Course evaluation and questionnaire\n3. Question-and-answer sessions during class\n4. Student consultation during office hours or online",
       "required_readings": "To be provided by course instructor.",
       "recommended_readings": "1. Jacob Eisenstein, \"Introduction to Natural Language Processing\", The MIT Press, 2019\n\n2. Dan Jurafsky and James H. Martin, \"Speech and Language Processing, 2nd Edition\", Prentice Hall, 2009. Third edition draft is available at [web.stanford.edu/~jurafsky/slp3/](http://web.stanford.edu/~jurafsky/slp3/)."
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "5660",
+      "title": "Advanced Topics of AI for Life Sciences",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9938)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor XU Yuzhi",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 11:15AM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor XU Yuzhi",
+                  "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                },
+                {
+                  "time": "We 9:30AM - 10:15AM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor XU Yuzhi",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 9:30AM - 10:15AM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor XU Yuzhi",
+                  "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "For undergraduate students in Computer Science (CSCIN) or Computer Engineering (CENGN) or Artificial Intelligence – Systems & Technologies (AISTN); or\nFor students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering"
+            },
+            {
+              "section": "-T01-TUT (9939)",
+              "meetings": [
+                {
+                  "time": "We 10:30AM - 11:15AM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor XU Yuzhi",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 10:30AM - 11:15AM",
+                  "location": "Humanities Building 213",
+                  "instructor": "Professor XU Yuzhi",
+                  "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "For undergraduate students in Computer Science (CSCIN) or Computer Engineering (CENGN) or Artificial Intelligence – Systems & Technologies (AISTN); or\nFor students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering"
+            }
+          ]
+        }
+      ],
+      "description": "This course introduces the advanced machine learning techniques for extending the boundary of life sciences. Topics to be covered include but are not limited to the recent successful stories of AI for life sciences study. We are going to cover reinforcement learning-based drug design (GENTRL), graph neural network-assisted antibiotics discovery, deep learning-enhanced super-resolution microscopy, ground-breaking molecular folding algorithm (AlphaFold), deep learning-based disease diagnosis and prediction, deep learning for single-cell and spatial transcriptomics, multi-modality/omics learning, model interpretability, privacy-preserving learning for life sciences. Along the course, we will further discuss the challenges and opportunities of AI in life sciences, such as foundation models with unlabeled data for solving data scarcity issue, out-of-distribution learning for drug design. This is a research-orientated course. By the end of the course, the students are expected to finish a substantial project, aiming at publication.",
+      "enrollment_requirement": "For undergraduate students in Computer Science (CSCIN) or Computer Engineering (CENGN) or Artificial Intelligence – Systems & Technologies (AISTN); or\nFor students in MSc Computer Science; or\nFor students in MPhil-PhD Computer Science & Engineering",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Div of Computer Science & Engg",
+      "academic_org": "Div of Computer Science & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. know the different kinds of computational problems in life sciences.\n2. understand how to use the AI techniques to resolve the above computational problems.\n3. apply and develop AI techniques to resolve the above problems.\n4. analyze the performance of the machine learning method and understand their limitations.\n5. enhance problem-solving ability, communication and presentation skills by doing project.",
+      "course_syllabus": "Week 1: The overview of ML and DL\nWeek 2: Molecular folding algorithm based on deep learning (AlphaFold)\nWeek 3: Reinforcement learning-based drug design\nWeek 4: Graph neural network-assisted antibiotics discovery\nWeek 5: Deep learning-enhanced super-resolution microscopy\nWeek 6: Deep learning-based disease diagnosis and prediction\nWeek 7: Deep learning for single-cell and spatial transcriptomics\nWeek 8: Multi-modality/omics learning\nWeek 9: Model interpretability in life sciences\nWeek 10: Privacy-preserving learning for life sciences\nWeek 11: Foundation models in life sciences\nWeek 12: Out-of-distribution learning for drug design\nWeek 13: Course project presentation",
+      "assessment_types": {
+        "Homework or assignment": "20",
+        "Project": "60",
+        "Test or quiz": "20"
+      },
+      "feedback_evaluation": "1. Results of assignments and quiz\n2. Course evaluation and questionnaire\n3. Reflection of teachers\n4. Question-and-answer sessions during class\n5. Student consultation during office hours or online",
+      "required_readings": "To be provided by course teacher.",
+      "recommended_readings": "“Introduction to data mining” by Michael Steinbach, Pang-Ning Tan, and Vipin Kumar (ISBN: 9780321321367)\n\"Deep Learning \" by Ian Goodfellow, Yoshua Bengio, and Aaron Courville (ISBN: 9780262035613)"
     },
     {
       "subject": "CSCI",
