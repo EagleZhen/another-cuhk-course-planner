@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "PGDP",
     "subject_title": "PgD Education (Primary)",
-    "total_courses": 44
+    "total_courses": 43
   },
   "courses": [
     {
@@ -1794,7 +1794,7 @@
               "availability": {
                 "capacity": "65",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "65",
                 "status": "Open"
@@ -2039,7 +2039,7 @@
               "availability": {
                 "capacity": "35",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "35",
                 "status": "Open"
@@ -2126,13 +2126,13 @@
               "availability": {
                 "capacity": "65",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "65",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP students only"
+              "enrollment_requirement": "For PGDP PT students\nFor PGDP students only"
             },
             {
               "section": "R-LEC (9788)",
@@ -2159,7 +2159,7 @@
               "availability": {
                 "capacity": "65",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "65",
                 "status": "Open"
@@ -2331,13 +2331,13 @@
               "availability": {
                 "capacity": "65",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "65",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP & PGDC students"
+              "enrollment_requirement": "For PGDP PT students & PGDC students\nFor PGDP & PGDC students"
             }
           ]
         }
@@ -2397,7 +2397,7 @@
               "availability": {
                 "capacity": "65",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "65",
                 "status": "Open"
@@ -2625,13 +2625,13 @@
               "availability": {
                 "capacity": "65",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "65",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP students only"
+              "enrollment_requirement": "For PGDP PT students\nFor PGDP students only"
             },
             {
               "section": "R-LEC (9806)",
@@ -2658,7 +2658,7 @@
               "availability": {
                 "capacity": "65",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "65",
                 "status": "Open"
@@ -2783,13 +2783,13 @@
               "availability": {
                 "capacity": "70",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "70",
                 "status": "Open"
               },
               "class_attributes": "English only",
-              "enrollment_requirement": "For PGDP students only"
+              "enrollment_requirement": "For PGDP FT students\nFor PGDP students only"
             },
             {
               "section": "J-LEC (9760)",
@@ -2816,46 +2816,13 @@
               "availability": {
                 "capacity": "65",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "65",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP students only"
-            },
-            {
-              "section": "XJ-LEC (9864)",
-              "meetings": [
-                {
-                  "time": "Fr 6:30PM - 8:15PM",
-                  "location": "Esther Lee Bldg 401",
-                  "instructor": "Staff",
-                  "dates": "15/1, 22/1, 29/1"
-                },
-                {
-                  "time": "Fr 6:30PM - 8:15PM",
-                  "location": "Esther Lee Bldg 401",
-                  "instructor": "Staff",
-                  "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
-                },
-                {
-                  "time": "Fr 6:30PM - 8:15PM",
-                  "location": "Esther Lee Bldg 401",
-                  "instructor": "Staff",
-                  "dates": "2/4, 9/4, 16/4, 23/4"
-                }
-              ],
-              "availability": {
-                "capacity": "65",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "65",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP students only"
+              "enrollment_requirement": "For PGDP PT students\nFor PGDP students only"
             }
           ]
         }
@@ -3018,13 +2985,13 @@
               "availability": {
                 "capacity": "45",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "45",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP students only"
+              "enrollment_requirement": "For PGDP FT students\nFor PGDP students only"
             }
           ]
         }
@@ -3104,13 +3071,13 @@
               "availability": {
                 "capacity": "65",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "65",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP students only"
+              "enrollment_requirement": "For PGDP PT students\nFor PGDP students only"
             }
           ]
         }
@@ -3130,254 +3097,6 @@
       "feedback_evaluation": "Feedback from students will be collected via course-end evaluation. Continuous feedback, comments or questions are encouraged through communications and e-mail exchanges.",
       "required_readings": "For reference only, please refer to the course outline of respective teacher for details.\n\n\\*Jones, V. F., & Jones, L. S. (2004). Comprehensive classroom management (7th ed.). Boston, MA : Allyn and Bacon. (CC LB3013 J66 2004)\n\nWolfgang, C. H. (2005). Solving discipline and classroom management problems: Methods and models for today’s teachers (6th ed.). New York: John Wiley & Sons. ( LB3012.W65 2005)\n\nCangelosi, J. S. (2004). Classroom management strategies: Gaining and maintaining students’ cooperation (5th ed.). Hoboken, NJ: Wiley. (CC LB3013.C3259 2004)\n\nWeinstein, C. S. (2003). Secondary classroom management: Lessons from research and practice(3rd ed.). New York: The McGraw-Hill Companies, Inc. (LB3013 .W46 2003)\n\nWeinstein, C. S., & Mignano, A. J. (2003). Elementary classroom management: Lessons from research and practice (3rd ed.). Boston, MA : McGraw-Hill. (CC LB3013.W45 2003)",
       "recommended_readings": "\\*Jones, V. F., & Jones, L. S. (2004). Comprehensive classroom management (7th ed.). Boston, MA : Allyn and Bacon. (CC LB3013 J66 2004)\n\nWolfgang, C. H. (2005). Solving discipline and classroom management problems: Methods and models for today’s teachers (6th ed.). New York: John Wiley & Sons. ( LB3012.W65 2005)\n\nCangelosi, J. S. (2004). Classroom management strategies: Gaining and maintaining students’ cooperation (5th ed.). Hoboken, NJ: Wiley. (CC LB3013.C3259 2004)\n\nWeinstein, C. S. (2003). Secondary classroom management: Lessons from research and practice(3rd ed.). New York: The McGraw-Hill Companies, Inc. (LB3013 .W46 2003)\n\nWeinstein, C. S., & Mignano, A. J. (2003). Elementary classroom management: Lessons from research and practice (3rd ed.). Boston, MA : McGraw-Hill. (CC LB3013.W45 2003)\n\n中大畢業同學會敎師組(編) (1984)。《有效課室管理法》香港 : 華風書局。(LB3013 .Y8)\n\n周朱瑞華 (1996)。 《有效課室管理70式》。 香港：香港教育圖書公司。(LB3013 C48 1996)\n\n陳漢森 (1996)。《失控教室：教室管理心法與技巧》。香港：香港教育圖書公司。(LB3013 .C467 1996)\n\n陳漢森 (1999)。《踏上教師專業之路》。香港：香港教育圖書公司。(LB1033 .C455 1999)\n\n方彤 (等) (譯) (2002)。《全面課堂管理：創建一個共同的班集體》。北京：中國輕工業出版社。(根據Jones and Jones一書第五版翻譯)\n\n金樹人（編譯）(1994)。《教室裏的春天：教室管理的科學與藝術》(增訂版)。 台灣：張老師出版社。(根據C. M. Charles一書第四版翻譯) (LB3012 .C4612 1994)"
-    },
-    {
-      "subject": "PGDP",
-      "course_code": "5406",
-      "title": "Sex Education in Schools",
-      "credits": "1.50 - 2.00",
-      "terms": [
-        {
-          "term_code": "2430",
-          "term_name": "2026-27 Term 2",
-          "schedule": [
-            {
-              "section": "XM-LEC (9743)",
-              "meetings": [
-                {
-                  "time": "Mo 8:30AM - 11:15AM",
-                  "location": "Esther Lee Bldg LT3",
-                  "instructor": "Staff",
-                  "dates": "11/1, 18/1, 25/1, 1/2"
-                },
-                {
-                  "time": "Mo 8:30AM - 11:15AM",
-                  "location": "Esther Lee Bldg LT3",
-                  "instructor": "Staff",
-                  "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
-                },
-                {
-                  "time": "Mo 8:30AM - 11:15AM",
-                  "location": "Esther Lee Bldg LT3",
-                  "instructor": "Staff",
-                  "dates": "12/4, 19/4"
-                }
-              ],
-              "availability": {
-                "capacity": "100",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "100",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP students only"
-            },
-            {
-              "section": "XO-LEC (9846)",
-              "meetings": [
-                {
-                  "time": "Mo 6:30PM - 8:15PM",
-                  "location": "Lee Shau Kee Building LT1",
-                  "instructor": "Staff",
-                  "dates": "11/1, 18/1, 25/1, 1/2"
-                },
-                {
-                  "time": "Mo 6:30PM - 8:15PM",
-                  "location": "Lee Shau Kee Building LT1",
-                  "instructor": "Staff",
-                  "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
-                },
-                {
-                  "time": "Mo 6:30PM - 8:15PM",
-                  "location": "Lee Shau Kee Building LT1",
-                  "instructor": "Staff",
-                  "dates": "12/4, 19/4"
-                }
-              ],
-              "availability": {
-                "capacity": "65",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "65",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP students only"
-            },
-            {
-              "section": "XQ-LEC (9861)",
-              "meetings": [
-                {
-                  "time": "Tu 6:30PM - 8:15PM",
-                  "location": "Lee Shau Kee Building LT3",
-                  "instructor": "Staff",
-                  "dates": "12/1, 19/1, 26/1, 2/2"
-                },
-                {
-                  "time": "Tu 6:30PM - 8:15PM",
-                  "location": "Lee Shau Kee Building LT3",
-                  "instructor": "Staff",
-                  "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
-                }
-              ],
-              "availability": {
-                "capacity": "65",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "65",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP students only"
-            },
-            {
-              "section": "XS-LEC (9843)",
-              "meetings": [
-                {
-                  "time": "We 6:30PM - 9:15PM",
-                  "location": "Y.C. Liang Hall 103",
-                  "instructor": "Staff",
-                  "dates": "13/1, 20/1, 27/1, 3/2"
-                },
-                {
-                  "time": "We 6:30PM - 9:15PM",
-                  "location": "Y.C. Liang Hall 103",
-                  "instructor": "Staff",
-                  "dates": "17/2, 24/2, 3/3, 10/3, 17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
-                }
-              ],
-              "availability": {
-                "capacity": "95",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "95",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP students only"
-            },
-            {
-              "section": "XV-LEC (9744)",
-              "meetings": [
-                {
-                  "time": "Fr 2:30PM - 5:15PM",
-                  "location": "Chen Kou Bun Bldg 109",
-                  "instructor": "Staff",
-                  "dates": "15/1, 22/1, 29/1"
-                },
-                {
-                  "time": "Fr 2:30PM - 5:15PM",
-                  "location": "Chen Kou Bun Bldg 109",
-                  "instructor": "Staff",
-                  "dates": "12/2, 19/2, 26/2, 5/3, 12/3, 19/3"
-                },
-                {
-                  "time": "Fr 2:30PM - 5:15PM",
-                  "location": "Chen Kou Bun Bldg 109",
-                  "instructor": "Staff",
-                  "dates": "2/4, 9/4, 16/4, 23/4"
-                }
-              ],
-              "availability": {
-                "capacity": "65",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "65",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP students only"
-            },
-            {
-              "section": "XY-LEC (9832)",
-              "meetings": [
-                {
-                  "time": "Sa 8:30AM - 11:15AM",
-                  "location": "Hui Yeung Shing Bldg G05",
-                  "instructor": "Staff",
-                  "dates": "16/1, 23/1, 30/1"
-                },
-                {
-                  "time": "Sa 8:30AM - 11:15AM",
-                  "location": "Hui Yeung Shing Bldg G05",
-                  "instructor": "Staff",
-                  "dates": "13/2, 20/2, 27/2, 6/3, 13/3, 20/3"
-                },
-                {
-                  "time": "Sa 8:30AM - 11:15AM",
-                  "location": "Hui Yeung Shing Bldg G05",
-                  "instructor": "Staff",
-                  "dates": "3/4, 10/4, 17/4, 24/4"
-                }
-              ],
-              "availability": {
-                "capacity": "65",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "65",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP students only"
-            },
-            {
-              "section": "XZ-LEC (9834)",
-              "meetings": [
-                {
-                  "time": "Sa 10:30AM - 12:15PM",
-                  "location": "Esther Lee Bldg LT2",
-                  "instructor": "Staff",
-                  "dates": "16/1, 23/1, 30/1"
-                },
-                {
-                  "time": "Sa 10:30AM - 12:15PM",
-                  "location": "Esther Lee Bldg LT2",
-                  "instructor": "Staff",
-                  "dates": "13/2, 20/2, 27/2, 6/3, 13/3, 20/3"
-                },
-                {
-                  "time": "Sa 10:30AM - 12:15PM",
-                  "location": "Esther Lee Bldg LT2",
-                  "instructor": "Staff",
-                  "dates": "3/4, 10/4, 17/4, 24/4"
-                }
-              ],
-              "availability": {
-                "capacity": "65",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "65",
-                "status": "Open"
-              },
-              "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP students only"
-            }
-          ]
-        }
-      ],
-      "description": "The purpose of this course is to assist teacher to acquire knowledge of human sexuality, explore the sex education curriculum and methodology of sex education curriculum and methodology of sex education in primary school. Topics such as definition of human sexuality, the bio-psycho-social aspects of human sexuality, theories of psychosexual development, sex and gender, values and attitudes related to sex, interpersonal relationship, sexually transmitted diseases, prevention of child sexual abuse and self-protection of sexual abuse are discussed. In addition, implementation of sex education in primary school and school-home partnership in sex education are also investigated.",
-      "enrollment_requirement": "For PGDP students only",
-      "course_attributes": "Cantonese only",
-      "academic_career": "Postgraduate - PGDE",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "PGDE Prog Comm",
-      "academic_org": "PGDE Prog Comm",
-      "learning_outcomes": "",
-      "course_syllabus": "",
-      "assessment_types": {},
-      "feedback_evaluation": "",
-      "required_readings": "",
-      "recommended_readings": ""
     },
     {
       "subject": "PGDP",
@@ -3408,13 +3127,13 @@
               "availability": {
                 "capacity": "65",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "65",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP students only"
+              "enrollment_requirement": "For PGDP PT students\nFor PGDP students only"
             }
           ]
         }
@@ -3473,7 +3192,7 @@
               "availability": {
                 "capacity": "65",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "65",
                 "status": "Open"
@@ -3598,13 +3317,13 @@
               "availability": {
                 "capacity": "95",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "99",
                 "waitlist_total": "0",
                 "available_seats": "95",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
-              "enrollment_requirement": "For PGDP students only"
+              "enrollment_requirement": "For PGDP PT students\nFor PGDP students only"
             }
           ]
         }
