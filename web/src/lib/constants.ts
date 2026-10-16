@@ -23,7 +23,7 @@ export const HONG_KONG_TIMEZONE = 'Asia/Hong_Kong'
 export const HONG_KONG_TIMEZONE_LABEL = 'HKT'
 
 // Default selected term. Bump on rollover manually for now.
-export const DEFAULT_CURRENT_TERM = '2026-27 Term 1'
+export const DEFAULT_CURRENT_TERM = '2026-27 Term 2'
 
 // Academic year the app eager-loads, derived from the default term (a term name
 // is "YYYY-YY <suffix>"). The single current-year knob is DEFAULT_CURRENT_TERM.
