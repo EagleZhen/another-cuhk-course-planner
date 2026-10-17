@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "GESC",
     "subject_title": "General Education - Shaw College",
-    "total_courses": 20
+    "total_courses": 21
   },
   "courses": [
     {
@@ -28,7 +28,7 @@
               ],
               "availability": {
                 "capacity": "1400",
-                "enrolled": "2294",
+                "enrolled": "2293",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -1181,6 +1181,51 @@
               "enrollment_requirement": "For Shaw College students only."
             }
           ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9947)",
+              "meetings": [
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Esther Lee Bldg 203",
+                  "instructor": "Professor LAM Hiu Fung",
+                  "dates": "15/1, 22/1, 29/1"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Esther Lee Bldg 203",
+                  "instructor": "Professor LAM Hiu Fung",
+                  "dates": "12/2, 19/2, 26/2, 5/3"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Esther Lee Bldg 203",
+                  "instructor": "Professor LAM Hiu Fung",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Esther Lee Bldg 203",
+                  "instructor": "Professor LAM Hiu Fung",
+                  "dates": "2/4, 9/4, 16/4, 23/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "SDG-GE #1 No Poverty\nSDG-GE #2 Zero Hunger\nSDG-GE #3 Good Health and Well-being\nSDG-GE #4 Quality Education\nSDG-GE #5 Gender Equality\nSDG-GE #6 Clean Water and Sanitation\nSDG-GE #7 Affordable and Clean Energy\nSDG-GE #8 Decent Work and Economic Growth\nSDG-GE #9 Industry, Innovation and Infrastructure\nSDG-GE #10 Reducing Inequality\nSDG-GE #11 Sustainable Cities and Communities\nSDG-GE #12 Responsible Consumption and Production\nSDG-GE #13 Climate Action\nSDG-GE #14 Life Below Water\nSDG-GE #15 Life On Land\nSDG-GE #16 Peace, Justice and Strong Institutions\nSDG-GE #17 Partnerships for the Goals\nEnglish only",
+              "enrollment_requirement": "For Shaw College students only."
+            }
+          ]
         }
       ],
       "description": "The objective of this course is to encourage students to explore the start-up journey and gain entrepreneurship experience. Through project-based learning, students will try to form a team to co-work together to define a start-up project that they want to do in this course. With this ownership of the project, they will also learn how to collaborate, communicate, contribute to the project. With the tailormade lectures based on the roadmap of start-up, including the session about impact to society (introduction to United Nation’s 17 SDGs), students will learn different start-up skillsets step by step. In addition, each group of the start-up team will be assigned an industrial mentor to share experience and guidance to the team to upgrade the business plan to a realistic plan. Finally, students will have a presentation in the demo day to share their projects to potential investors. After this course, students are invited to join CUHK Entrepreneurs Day organized by CUHK Alumni Affairs Office. Thus, this course provides whole-person training to encourage students to be innovative and have entrepreneurship spirit.",
@@ -1977,6 +2022,98 @@
       "feedback_evaluation": "1. Course and Teaching Evaluation Survey\n\n2. Internal Course Review\n\n3. Other feedbacks opportunities (for reference):\n\n• Class participation and interaction with the course teacher, tutor (if applicable) and fellow students\n\n• Emails and personal consultations with the course teacher and tutor (if applicable)\n\n• Evaluation and comments on assignments",
       "required_readings": "粵劇綜合論著\n陳守仁: 《香港粤劇導論》(香港 : 香港中文大學音樂系粤劇研究計劃, 1999)。\n\n粵曲的學和唱\n向榮: 《陳卓瑩粤曲寫唱研究》(香港 : 懿津出版企劃公司, 2010)。\n\n粵劇演出場合\n陳守仁: 《香港神功戲》(香港：三聯書店香港有限公司, 2012)。\n\n粵劇戲曲故事\n陳守仁: 《香港粵劇劇目概說: 1900-2002》(香港：香港中文大學音樂系粵劇研究計劃, 2007)。",
       "recommended_readings": ""
+    },
+    {
+      "subject": "GESC",
+      "course_code": "2410",
+      "title": "Concise Financial Literacy",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9949)",
+              "meetings": [
+                {
+                  "time": "Fr 1:30PM - 4:15PM",
+                  "location": "Esther Lee Bldg 302",
+                  "instructor": "Dr. WONG Kin Ho",
+                  "dates": "15/1, 22/1, 29/1"
+                },
+                {
+                  "time": "Fr 1:30PM - 4:15PM",
+                  "location": "Esther Lee Bldg 302",
+                  "instructor": "Dr. WONG Kin Ho",
+                  "dates": "12/2, 19/2, 26/2, 5/3"
+                },
+                {
+                  "time": "Fr 1:30PM - 4:15PM",
+                  "location": "Esther Lee Bldg 302",
+                  "instructor": "Dr. WONG Kin Ho",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 1:30PM - 4:15PM",
+                  "location": "Esther Lee Bldg 302",
+                  "instructor": "Dr. WONG Kin Ho",
+                  "dates": "2/4, 9/4, 16/4, 23/4"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "1. For Shaw College students only\n2. Not for IFAA, QFIN, QFRM and GLEF majors\n3. Not for students who have taken UGEC1560, ECON1420, ECON3410, ECON3420 or ECON3520"
+            },
+            {
+              "section": "-E01-EXR (9948)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WONG Kin Ho",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "40",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "40",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "1. For Shaw College students only\n2. Not for IFAA, QFIN, QFRM and GLEF majors\n3. Not for students who have taken UGEC1560, ECON1420, ECON3410, ECON3420 or ECON3520"
+            }
+          ]
+        }
+      ],
+      "description": "Everything we see around in the world today is more or less a product of financing and investments activities. The home we live in, the car or train we ride on, or the food we eat, all these pass through various economic cycles to reach us in their present form. Yet in the aftermath of financial crises there is a big misunderstanding among the masses as to what finance and investments is. There are so many cases about fallen integrity involving financial institutions and finance practitioners that generally people have started associating finance and investments with tricks and fraudulent practices. Understanding finance and investment thus becomes essential so we can go beyond such narrow narratives and understand finance better to live our lives productively and fully, irrespective of what job we chose for ourselves as we grow.\n\nThis course enlightens students about investments, various institutions of modern financial world, important financial instruments and ethical standards expected of us while operating in this world and about money itself and this trains them up whether they chose a salaried job or become an entrepreneur. Young students who are curious about the “magic” and mechanics of the financial world (of which Hong Kong is one of the key centres), or if they are mystified about the inner workings of certain difficult and arcane financial transactions, this course will demystify this whole “alchemy” of financial world. The course is simple for students from any stream to follow, based on dozens of real life stories told by an industry expert and a story teller.",
+      "enrollment_requirement": "1. For Shaw College students only\n2. Not for IFAA, QFIN, QFRM and GLEF majors\n3. Not for students who have taken UGEC1560, ECON1420, ECON3410, ECON3420 or ECON3520",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Exercise\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "Shaw College",
+      "academic_org": "Shaw College",
+      "learning_outcomes": "After this course the students are expected to:\n\n1. Appreciate what is finance and investments in reality. They will understand various pillars of financial world and how the economies work and how one financial institution is linked to the other.\n\n2. Know what money is and what are banks, investment banks, various funds such as hedge funds, private equity funds, venture capital funds and how these institutions work. They will know what and how insurance firm works, the role of audit and law firms in economies and role of number of minor players such as agents, custodians and various agencies.\n\n3. Understand various methods of raising capital, debts, equities, bonds, mortgages, and learn about the institutions that are providing capital.\n\n4. Be no longer incomprehensible to bonds, options, contracts, swaps and alternative assets.\n\n5. Better understand the importance of care in investment and financial analysis. The course will have introduced methodologies and importance of due care and prepares them for trying out entrepreneurship and portfolio management.\n\n6. Learn the virtues of high ethical and moral standards in financial services industry. They will learn to identify conflict of interest situations and get to learn importance of strong character and high ethical values to be successful in financial world.",
+      "course_syllabus": "1. INTRODUCTION AND THE OPPORTUNITIES FOR GRADUATES IN FINANCIAL INDUSTRY: A discussion on what sorts of jobs and opportunities are waiting for young graduates in this financial world\n\n2. INTRODUCING HISTORY AND THE BEDROCK OF MODERN FINANCE: Why is knowledge in finance important? What is “trust”? (The importance of integrity and credibility and the risk associated with losing it) and money (Functions and historical perspective of money)\n\n3. INTRODUCING THE KEY INSTITUTIONS IN MODERN FINANCIAL WORLD: Introduction to various institutions in financial world starting from Friends & relatives as investors, Angles and VCs, Banks, Joint Stock Companies, Insurance Firms, Stock Exchanges, Investment Banks and other modern ways of funding. Crowdfunding and alternative financing.\n\n4. FINANCIAL INSTRUMENTS: Introduction to Banknotes, Credit Cards, Gold, Shares/ Stocks and Bonds FINANCIAL DERIVATIVES: Introduction and utility of derivatives as Options, Forward Contracts, Swaps CBOs, CDO and MBS\n\n5. THE CONFEDERACY: INTRODUCTION TO OTHER KEY INSTITUTIONS IN FINANCIAL WORLD: Rating Agencies, Audit Firms, Accounting Firms, Legal Firms, Custodians, Transferring Agents etc.\n\n6. WHAT IS ENTERPRENEURSHIP?: How can one start own business. Introduction to various trade-off concepts as : Consumption Vs Investments decision. Right Risk and Returns mix: High, Medium and Low risk choices.\n\n7. HOW FINANCE MATTERS and THE PORTFOLIO CONCEPT: Understanding the concept of asset allocation and portfolio management\n\n8. UNDERSTANDING PUBLIC FINANCE: IPO, LIBOR, Exchange Rate, Inflation, Interest Rates, Negotiable Instruments UNDERSTANDING IMPORTANCE OF PROFESSIONAL ETHICS AND DUE CARE: Due Diligence and Principles of Analysis, Code of Conduct & Business Ethics, Agency Problem, Securities Fraud, Chinese Wall, Broken Window Fallacy\n\n9. BASIC INTRODUCTION TO INVESTMENT ANALYSIS: Introduction to basic concepts of Methodologies, Data Interpretation, Understanding Law of Averages and Diminishing Returns.\n\n10. EVER EVOLVING FINANCE: Future of financial world. Mock Portfolio Management Task assessments",
+      "assessment_types": {
+        "Essays": "40",
+        "Selected response test or exam": "60"
+      },
+      "feedback_evaluation": "1. Course and Teaching Evaluation Survey\n\n2. Internal Course Review\n\n3. Other feedbacks opportunities (for reference):\n\n• Class participation and interaction with the course teacher, tutor (if applicable) and fellow students\n\n• Emails and personal consultations with the course teacher and tutor (if applicable)\n\n• Evaluation and comments on assignments",
+      "required_readings": "1. INTRODUCTION & THE OPPORTUNITIES FOR GRADUATES IN FINANCIAL INDUSTRY\n\n- Handouts\n\n2. HISTORY\n\n- “Ascent of Money” : Niall Ferguson: Chapter “Introduction”\n\n3. KEY INSTITUTIONS IN MODERN FINANCIAL WORLD\n\n- Bank Management & Financial Services: Peter S. Rose & Sylvia C. Hudgins: Part One: Introduction to Banking and Financial Services\n\n- “The World is Flat” : Thomas L. Friedman: Chapter Ten: “Companies and the Flat World”\n\n4. FINANCIAL INSTRUMENTS\n\n- Guide to Financial Markets: Marc Levinson: Chapters 2, 3 & 4. Foreign-exchange markets, Money Markets and Bond markets.\n\n- “Now for Then: How to Face The Digital Future Without Fear” : Ben Hammersley: Chapter: Crowdsourcing\n\n5. FINANCIAL DERIVATIVES\n\n- Derivatives: Robert E. Whaley: Part One, Derivative Markets\n\n- Options Demystified “A Self Teaching Guide”: Thomas McCafferty\n\n6. THE CONFEDERACY: OTHER KEY INSTITUTIONS IN FINANCIAL WORLD\n\n- Handouts\n\n7. HOW FINANCE MATTERS and THE PORTFOLIO CONCEPT & MOCK PORTFOLIO MANAGEMENT DRILL\n\n- Art of Portfolio Management: Hand Out\n\n8. ENTERPRENEURSIHP\n\n- Start it Up: Like Johnson: Part 1: Beginnings\n\n- China Entrepreneur: Juan Antonio Fernandez, Laurie Underwood: Chapter 3 “Setting Up Shop”\n\n- Introduction to E-Commerce: Efraim Turban, David King: Chapter 1 Electronic Commerce Definitions and Concepts\n\n9. UNDERSTANDING PUBLIC FINANCE: IPO, LIBOR\n\n- “Macroeconomics”: Andrew B. Abel & Ben S. Bernanke: “Chapter 1, Introduction”\n\n- The Investors Guide Equities “Equity Pricing, Trading, and Investing: Stuart R. Veale: Chapter 1, Introduction to Stock, Chapter 5, Discounted Cash Flow Analysis\n\n10. THE YIN AND THE YANG:\n\n- Handouts\n\n11. KNOW THE GAME AND PLAY BY THE RULE:\n\n- Handouts\n\n- “Financial Acuity” : Chapter 8 “ Knowing our Game and Playing by the Rules”\n\n12. INVESTMENT ANALYSIS\n\n- Case Study: “Olympus Steel” (Material Provided): Handout\n\n- Case Study: “Premium Cakes & Breads” (Material Provided): Handout\n\n13. EVER EVOLVING FINANCE\n\n- The Bitcoin Big Bang: Brian Kelly: Chapter 9, Investing and Trading in Alternative Currencies",
+      "recommended_readings": "1. Interpersonal Skills: John Hayes: Chapter 2, Listening\n\n2. Out of Aces? Fifty Steps to Financial Acuity: Virendra Nath"
     },
     {
       "subject": "GESC",

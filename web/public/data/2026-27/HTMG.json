@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "HTMG",
     "subject_title": "Hotel And Tourism Management",
-    "total_courses": 67
+    "total_courses": 68
   },
   "courses": [
     {
@@ -2556,6 +2556,55 @@
         "Examination": "20",
         "Homework or assignment": "40",
         "Project": "30"
+      }
+    },
+    {
+      "subject": "HTMG",
+      "course_code": "4539",
+      "title": "Selected Topics in Hospitality and Real Estate",
+      "credits": "1.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9944)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. Ervi LIUSMAN",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
+            }
+          ]
+        }
+      ],
+      "description": "This course is designed to identify, investigate and discuss selected topics of future trends, operational practices, governance structure and leadership practices in the area of hospitality and real estate.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Sch of Hotel & Tourism Mgt",
+      "academic_org": "Sch of Hotel & Tourism Mgt",
+      "learning_outcomes": "After completion of the course, students should be able to gain understanding of the future development, trends and possible innovation applicable to the hospitality and/or real estate industry.",
+      "assessment_types": {
+        "Homework or assignment": "70",
+        "Participation": "30"
       }
     },
     {

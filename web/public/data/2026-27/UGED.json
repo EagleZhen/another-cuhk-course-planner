@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "UGED",
     "subject_title": "UGED: Self and Humanity",
-    "total_courses": 50
+    "total_courses": 51
   },
   "courses": [
     {
@@ -1994,6 +1994,240 @@
     },
     {
       "subject": "UGED",
+      "course_code": "1660",
+      "title": "Issues of Political Philosophy",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (9973)",
+              "meetings": [
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 4:30PM - 6:15PM",
+                  "location": "Yasumoto Int'l Acad Park LT6",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "-T01-TUT (9974)",
+              "meetings": [
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 206",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "28/1, 4/2"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 206",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "T.C. Cheng Bldg 206",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "4",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "-T02-TUT (9971)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "26/1, 2/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "4",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "-T03-TUT (9970)",
+              "meetings": [
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 103",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "27/1, 3/2"
+                },
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 103",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 11:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 103",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "4",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "-T04-TUT (9964)",
+              "meetings": [
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "27/1, 3/2"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "4",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "-T05-TUT (9972)",
+              "meetings": [
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "T.C. Cheng Bldg 105",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "28/1, 4/2"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "T.C. Cheng Bldg 105",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "T.C. Cheng Bldg 105",
+                  "instructor": "Professor CHOW Po Chung",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "4",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "4",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
+            }
+          ]
+        }
+      ],
+      "description": "(UGED1660 is double-coded with GPAD1095.)\n\nThis course will introduce students to key issues of political philosophy, including political authority and obligation, democracy, social justice, and freedom and right, through conceptual analysis and rational assessment of the thought of major political philosophers.",
+      "enrollment_requirement": "UGED1660 is double-coded with GPAD1095. \nNot for Government and Public Administration Majors; and students who have taken GPAD1095.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Office of University GE",
+      "academic_org": "Government & Public Admin PC",
+      "learning_outcomes": "* *Aims**\n\n◊To foster critical understanding of a range of fundamental issues and concepts of political philosophy.\n\n◊To foster interest in the history of western political thought.\n\n◊To foster the ability to analyze and assess opposing arguments in political philosophy.\n\n◊To foster appreciation of the relevance of political philosophy to contemporary political and social issues.\n\n◊To foster the ability to read classics of political philosophy.\n\n* *Objectives**\n\nAfter taking this course, students are expected to be able to: -\n\n◊have general understanding of the major development of western political thought.\n\n◊grasp the basic concepts of political philosophy.\n\n◊comprehend and critically analyze complex philosophical arguments.\n\n◊learn how to write academic essays.\n\n◊construct sustained arguments about major political theories, and apply them to the analysis of public affairs.",
+      "assessment_types": {
+        "Discussion": "25",
+        "Essays": "45",
+        "Others": "5",
+        "Short answer test or exam": "25"
+      }
+    },
+    {
+      "subject": "UGED",
       "course_code": "1796",
       "title": "Anatomy of an Entrepreneur",
       "credits": "3.00",
@@ -2276,22 +2510,28 @@
               "section": "--LEC (7548)",
               "meetings": [
                 {
-                  "time": "Th 2:30PM - 4:15PM",
-                  "location": "Leung Kau Kui Bldg 101",
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Humanities Building 115",
                   "instructor": "Dr. LEI Ka Yan Margaret",
-                  "dates": "14/1, 21/1, 28/1, 4/2"
+                  "dates": "11/1, 18/1, 25/1, 1/2"
                 },
                 {
-                  "time": "Th 2:30PM - 4:15PM",
-                  "location": "Leung Kau Kui Bldg 101",
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Humanities Building 115",
                   "instructor": "Dr. LEI Ka Yan Margaret",
-                  "dates": "18/2, 25/2, 4/3"
+                  "dates": "15/2, 22/2, 1/3"
                 },
                 {
-                  "time": "Th 2:30PM - 4:15PM",
-                  "location": "Leung Kau Kui Bldg 101",
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Humanities Building 115",
                   "instructor": "Dr. LEI Ka Yan Margaret",
-                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                  "dates": "12/4, 19/4"
+                },
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Humanities Building 115",
+                  "instructor": "Dr. LEI Ka Yan Margaret",
+                  "dates": "15/3, 22/3"
                 }
               ],
               "availability": {
@@ -2309,22 +2549,28 @@
               "section": "-T01-TUT (7568)",
               "meetings": [
                 {
-                  "time": "Th 4:30PM - 5:15PM",
-                  "location": "Leung Kau Kui Bldg 101",
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Humanities Building 115",
                   "instructor": "Dr. LEI Ka Yan Margaret",
-                  "dates": "14/1, 21/1, 28/1, 4/2"
+                  "dates": "11/1, 18/1, 25/1, 1/2"
                 },
                 {
-                  "time": "Th 4:30PM - 5:15PM",
-                  "location": "Leung Kau Kui Bldg 101",
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Humanities Building 115",
                   "instructor": "Dr. LEI Ka Yan Margaret",
-                  "dates": "18/2, 25/2, 4/3"
+                  "dates": "15/2, 22/2, 1/3"
                 },
                 {
-                  "time": "Th 4:30PM - 5:15PM",
-                  "location": "Leung Kau Kui Bldg 101",
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Humanities Building 115",
                   "instructor": "Dr. LEI Ka Yan Margaret",
-                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                  "dates": "12/4, 19/4"
+                },
+                {
+                  "time": "Mo 12:30PM - 1:15PM",
+                  "location": "Humanities Building 115",
+                  "instructor": "Dr. LEI Ka Yan Margaret",
+                  "dates": "15/3, 22/3"
                 }
               ],
               "availability": {
@@ -3922,10 +4168,10 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "13",
+                "enrolled": "14",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "32",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
@@ -3943,10 +4189,10 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "13",
+                "enrolled": "14",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "32",
+                "available_seats": "31",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
