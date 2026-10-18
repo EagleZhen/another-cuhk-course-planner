@@ -40,7 +40,7 @@ The entry pageview captures UTM attribution before `utm_*` parameters are remove
 
 Production builds upload source maps to PostHog so stack traces name real files and lines, then delete them — nothing new is served to browsers. `POSTHOG_PERSONAL_API_KEY` and `POSTHOG_PROJECT_ID` live in Cloudflare's Production environment only, set as Secrets under Variables and secrets — while `wrangler.jsonc` manages vars, the dashboard's plaintext panel is locked. Without a key no maps are generated, so local builds and preview deploys are unchanged.
 
-[finalize-source-maps.mts](../web/scripts/finalize-source-maps.mts) removes any maps and dangling local source-map references from `out/`. Keyed builds require native `debugId` or legacy `chunkId` instrumentation; upload failures stop the preceding Next.js build hook. Identifiers alone do not prove an upload succeeded.
+[finalize-source-maps.mts](../web/scripts/finalize-source-maps.mts) removes any maps and dangling local source-map references from `out/`. Keyed builds require native Turbopack `debugId` instrumentation; upload failures stop the preceding Next.js build hook. Identifiers alone do not prove an upload succeeded.
 
 See [decisions.md](decisions.md#posthog-over-vercel-analytics) for the analytics provider rationale.
 

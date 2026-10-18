@@ -8,8 +8,8 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 const JS_SOURCE_MAPPING_URL = /^[ \t]*\/\/# sourceMappingURL=([^\s]+)[ \t]*$/gm
 const CSS_SOURCE_MAPPING_URL = /\/\*# sourceMappingURL=([^\s*]+)[ \t]*\*\/[ \t]*$/gm
 
-// Native Turbopack IDs and legacy PostHog IDs; strings inside a bundle don't count.
-const DEBUG_ID = /^\/\/# (?:chunkId|debugId)=/m
+// Native Turbopack IDs; strings inside a bundle don't count.
+const DEBUG_ID = /^\/\/# debugId=/m
 
 const outDir = resolve(import.meta.dirname, '..', 'out')
 

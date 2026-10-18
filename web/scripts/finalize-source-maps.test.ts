@@ -33,10 +33,16 @@ function finalize(keyed = true) {
   })
 }
 
-test.each(['chunkId', 'debugId'])('accepts %s instrumentation in a keyed export', async (id) => {
-  await asset('app.js', `console.log('app')\n//# ${id}=d45f51e5-3347-465c-8d73-bd474ab0445b\n`)
+test('accepts native debugId instrumentation in a keyed export', async () => {
+  await asset('app.js', "console.log('app')\n//# debugId=d45f51e5-3347-465c-8d73-bd474ab0445b\n")
 
   expect(finalize().status).toBe(0)
+})
+
+test('rejects a keyed export containing only legacy chunkId instrumentation', async () => {
+  await asset('app.js', "console.log('app')\n//# chunkId=d45f51e5-3347-465c-8d73-bd474ab0445b\n")
+
+  expect(finalize().status).toBe(1)
 })
 
 test('rejects a keyed export without instrumentation, including marker-like strings', async () => {
