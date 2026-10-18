@@ -49,6 +49,8 @@ const nextConfig: NextConfig = {
 export default withPostHogConfig(nextConfig, {
   personalApiKey: posthogPersonalApiKey ?? '',
   projectId: process.env.POSTHOG_PROJECT_ID,
+  // Used only by scripts/check-source-map-build.mts to target its local API.
+  host: process.env.POSTHOG_BUILD_CHECK_HOST,
   sourcemaps: {
     enabled: Boolean(posthogPersonalApiKey),
     deleteAfterUpload: true,

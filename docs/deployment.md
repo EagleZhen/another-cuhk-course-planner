@@ -42,6 +42,8 @@ Production builds upload source maps to PostHog so stack traces name real files 
 
 [finalize-source-maps.mts](../web/scripts/finalize-source-maps.mts) removes any maps and dangling local source-map references from `out/`. Keyed builds require native Turbopack `debugId` instrumentation; upload failures stop the preceding Next.js build hook. Identifiers alone do not prove an upload succeeded.
 
+Run `npm run check:source-maps` from `web/` to exercise the enabled build without production credentials. It runs the real build and CLI against a local API, requires release lookup and non-empty source-map preparation, and rejects exported `.map` files. The API reports an existing release and symbol sets; real authentication, upload, and symbolication remain deployment checks. This replaces `out/` with a verification build; deployments use `npm run build`.
+
 See [decisions.md](decisions.md#posthog-over-vercel-analytics) for the analytics provider rationale.
 
 ## Re-Showing the Mobile Notice

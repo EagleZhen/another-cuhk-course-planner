@@ -11,7 +11,8 @@
     "start": "serve out --listen tcp://127.0.0.1:3000 --no-clipboard",
     "typecheck": "tsc --noEmit && tsc --noEmit -p functions/tsconfig.json",
     "lint": "eslint .",
-    "test": "vitest run"
+    "test": "vitest run",
+    "check:source-maps": "node scripts/check-source-map-build.mts"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.5.0",
