@@ -38,13 +38,13 @@ The entry pageview captures UTM attribution before `utm_*` parameters are remove
 
 ### Source Maps
 
-Production builds upload source maps to PostHog so stack traces name real files and lines, then delete them — nothing new is served to browsers. `POSTHOG_PERSONAL_API_KEY` and `POSTHOG_PROJECT_ID` live in Cloudflare's Production environment only, set as Secrets under Variables and secrets — while `wrangler.jsonc` manages vars, the dashboard's plaintext panel is locked. Without a key no maps are generated, so local builds and preview deploys are unchanged.
+Set `POSTHOG_PERSONAL_API_KEY` and `POSTHOG_PROJECT_ID` as Cloudflare Production secrets to enable source-map uploads. Upload failures fail the build.
 
-[finalize-source-maps.mts](../web/scripts/finalize-source-maps.mts) removes any maps and dangling local source-map references from `out/`. Keyed builds require native Turbopack `debugId` instrumentation; upload failures stop the preceding Next.js build hook. Identifiers alone do not prove an upload succeeded.
+[finalize-source-maps.mts](../web/scripts/finalize-source-maps.mts) removes maps and broken local map references from `out/`. Enabled builds must retain native Turbopack `debugId` instrumentation.
 
-Run `npm run check:source-maps` from `web/` to exercise the enabled build without production credentials. It runs the real build and CLI against a local API, requires release lookup and non-empty source-map preparation, and rejects exported `.map` files. The API reports an existing release and symbol sets; real authentication, upload, and symbolication remain deployment checks. This replaces `out/` with a verification build; deployments use `npm run build`.
+Run `npm run check:source-maps` from `web/` to verify the enabled build without production credentials. It runs the real build and CLI against a local API, requiring release resolution, non-empty map preparation, and no exported `.map` files. Verify real authentication, upload, and symbolication separately on a deployment.
 
-CI runs this check before Chromium's browser tests on pull requests and pushes to main; see the [E2E guide](../web/e2e/README.md). Repository rules determine whether failed checks block merging.
+The check replaces `out/`; deploy with `npm run build`. CI runs it before Chromium tests; see the [E2E guide](../web/e2e/README.md).
 
 See [decisions.md](decisions.md#posthog-over-vercel-analytics) for the analytics provider rationale.
 

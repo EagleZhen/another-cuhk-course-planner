@@ -13,15 +13,15 @@ PLAYWRIGHT_PRODUCTION=1 npx playwright test
 
 Production mode requires port 3000 to be free; server reuse could silently test the wrong app.
 
-Each CI browser job builds independently on pull requests and pushes to main. Chromium runs `npm run check:source-maps` before testing its export, covering the enabled PostHog build without production credentials. WebKit runs `npm run build`, covering the ordinary build. This keeps both build paths checked without a third build.
+CI runs on PRs and pushes to main. Chromium uses `npm run check:source-maps` to cover PostHog build processing; WebKit uses the ordinary `npm run build`. Each tests its resulting export.
 
 Retries stay off to keep intermittent failures visible. Extract `playwright-results-<browser>`, then run `npx playwright show-report <download-dir>/playwright-report` to inspect a failure and its trace.
 
 Use [`mockCatalog`](helpers/catalog.ts) with external course records keyed by `year/subject`; unspecified subjects return empty courses. Empty catalogs preserve seeded carts; a course offering the selected term enables reconciliation.
 
-For term-specific fixtures, seed storage in the spec, then call [`openPlannerAtTerm(page, { term, catalog })`](helpers/planner.ts). It selects the fixture year and term before releasing catalog responses, preventing the initial default from synchronizing another cart. Use `selectTerm(page, term)` for later switches. After reloading an empty fixture, select its term again; populated fixtures also need the startup response barrier. Leave ordinary startup tests on the configured default.
+Seed storage in the spec, then open term-specific fixtures with [`openPlannerAtTerm(page, { term, catalog })`](helpers/planner.ts). It delays catalog responses until selection to prevent the default term from synchronizing another cart. Use `selectTerm(page, term)` for later switches or after reload; populated fixtures need the response barrier again on reload. Leave startup tests on the configured default.
 
-Course records are mocked; available years, terms, subjects, and scrape timestamps still come from generated manifests. Keep fixture subjects published and retain the unit checks against real published data for schema compatibility. A full catalog copy would not remove this metadata dependency.
+Mocks replace course records only; years, terms, subjects, and scrape times still come from generated manifests. Fixture years, terms, and subjects must remain available there. Retain real-data unit tests for schema compatibility.
 
 After navigation or reload, use `expectEmptyCatalogLoaded(page)` for empty fixtures. Populated fixtures should wait for their expected results.
 

@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process'
 import { withPostHogConfig } from '@posthog/nextjs-config'
 import type { NextConfig } from 'next'
 
-// Production-only, and the switch itself: no key, no maps — as on local builds and previews.
+// A non-empty key enables source-map processing.
 const posthogPersonalApiKey = process.env.POSTHOG_PERSONAL_API_KEY
 
 const allowedDevOrigins = process.env.ALLOWED_DEV_ORIGINS?.split(',')
