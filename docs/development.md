@@ -159,13 +159,13 @@ For scraping, publishing, validation, file counts, edge cases, and debugging not
 
 Run these from `web/`:
 
-| Command               | Purpose                                                   |
-| --------------------- | --------------------------------------------------------- |
-| `npm run typecheck`   | Verify TypeScript types without emitting build output.    |
-| `npm run lint`        | Run ESLint on the web app source.                         |
-| `npm run test`        | Run the unit tests (vitest) over `src/` and `functions/`. |
-| `npx playwright test` | Run the E2E tests in Chromium and WebKit.                 |
-| `npm run build`       | Verify the production build.                              |
+| Command               | Purpose                                                            |
+| --------------------- | ------------------------------------------------------------------ |
+| `npm run typecheck`   | Verify TypeScript types without emitting build output.             |
+| `npm run lint`        | Run ESLint on the web app source.                                  |
+| `npm run test`        | Run unit tests (vitest) over `src/`, `functions/`, and `scripts/`. |
+| `npx playwright test` | Run the E2E tests in Chromium and WebKit.                          |
+| `npm run build`       | Verify the production build.                                       |
 
 For routine web changes, `npm run typecheck`, `npm run lint` and `npm run test` are the lightweight checks. Run `npm run build` before deployment or when changing Next.js config, routing, static generation, metadata, or other build-sensitive behavior.
 
