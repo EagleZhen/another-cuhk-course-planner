@@ -19,6 +19,10 @@ Retries stay off to keep intermittent failures visible. Extract `playwright-resu
 
 Use [`mockCatalog`](helpers/catalog.ts) with external course records keyed by `year/subject`; unspecified subjects return empty courses. Empty catalogs preserve seeded carts; a course offering the selected term enables reconciliation.
 
+For term-specific fixtures, seed storage in the spec, then call [`openPlannerAtTerm(page, { term, catalog })`](helpers/planner.ts). It selects the fixture year and term before releasing catalog responses, preventing the initial default from synchronizing another cart. Use `selectTerm(page, term)` for later switches. After reloading an empty fixture, select its term again; populated fixtures also need the startup response barrier. Leave ordinary startup tests on the configured default.
+
+Course records are mocked; available years, terms, subjects, and scrape timestamps still come from generated manifests. Keep fixture subjects published and retain the unit checks against real published data for schema compatibility. A full catalog copy would not remove this metadata dependency.
+
 After navigation or reload, use `expectEmptyCatalogLoaded(page)` for empty fixtures. Populated fixtures should wait for their expected results.
 
 `setFixedTime()` fixes the date but leaves timers running, so it does not prevent expiry races.
