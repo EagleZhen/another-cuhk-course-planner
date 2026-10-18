@@ -13,7 +13,7 @@ PLAYWRIGHT_PRODUCTION=1 npx playwright test
 
 Production mode requires port 3000 to be free; server reuse could silently test the wrong app.
 
-Each CI browser job builds independently to avoid waiting for a shared build and artifact download.
+Each CI browser job builds independently on pull requests and pushes to main. Chromium runs `npm run check:source-maps` before testing its export, covering the enabled PostHog build without production credentials. WebKit runs `npm run build`, covering the ordinary build. This keeps both build paths checked without a third build.
 
 Retries stay off to keep intermittent failures visible. Extract `playwright-results-<browser>`, then run `npx playwright show-report <download-dir>/playwright-report` to inspect a failure and its trace.
 

@@ -44,6 +44,8 @@ Production builds upload source maps to PostHog so stack traces name real files 
 
 Run `npm run check:source-maps` from `web/` to exercise the enabled build without production credentials. It runs the real build and CLI against a local API, requires release lookup and non-empty source-map preparation, and rejects exported `.map` files. The API reports an existing release and symbol sets; real authentication, upload, and symbolication remain deployment checks. This replaces `out/` with a verification build; deployments use `npm run build`.
 
+CI runs this check before Chromium's browser tests on pull requests and pushes to main; see the [E2E guide](../web/e2e/README.md). Repository rules determine whether failed checks block merging.
+
 See [decisions.md](decisions.md#posthog-over-vercel-analytics) for the analytics provider rationale.
 
 ## Re-Showing the Mobile Notice
