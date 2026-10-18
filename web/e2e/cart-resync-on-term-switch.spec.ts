@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
-import { mockCatalog } from './helpers/catalog'
+import { DEFAULT_CURRENT_TERM } from '../src/lib/constants'
+import { openPlannerAtTerm, selectTerm } from './helpers/planner'
 
 const TERM_ONE = '2026-27 Term 1'
 const TERM_TWO = '2026-27 Term 2'
@@ -94,10 +95,6 @@ const termCoverageCourse = {
 }
 
 async function openPlanner(page: Page, testCourse: object) {
-  await mockCatalog(page, {
-    '2026-27/ACCT': [testCourse, termCoverageCourse],
-  })
-
   const schedule = storedSchedule()
   await page.addInitScript(
     ({ termOne, termTwo, value }) => {
@@ -106,7 +103,11 @@ async function openPlanner(page: Page, testCourse: object) {
     },
     { termOne: TERM_ONE, termTwo: TERM_TWO, value: JSON.stringify(schedule) }
   )
-  await page.goto('/')
+  await openPlannerAtTerm(page, {
+    term: TERM_ONE,
+    catalog: { '2026-27/ACCT': [testCourse, termCoverageCourse] },
+  })
+  await expect(courseCard(page)).toBeVisible()
 
   await expect
     .poll(() =>
@@ -116,11 +117,9 @@ async function openPlanner(page: Page, testCourse: object) {
       }, `schedule_${TERM_ONE}`)
     )
     .toBeTruthy()
-}
-
-async function switchToTerm(page: Page, label: 'Term 1' | 'Term 2') {
-  await page.getByTitle('Click to change term').first().click()
-  await page.getByRole('button', { name: label, exact: true }).click()
+  const untouched = await savedEnrollment(page, TERM_TWO)
+  expect(untouched).toMatchObject({ courseId: COURSE_ID })
+  expect(untouched.lastSynced).toBeUndefined()
 }
 
 async function savedEnrollment(page: Page, term: string) {
@@ -147,7 +146,7 @@ test('resyncs a restored cart when switching terms in a loaded year', async ({ p
 
   await expect(courseCard(page)).not.toHaveClass(/bg-amber-50/)
 
-  await switchToTerm(page, 'Term 2')
+  await selectTerm(page, TERM_TWO)
 
   await expect(page.getByText(`This course is no longer offered in ${TERM_TWO}.`)).toBeVisible()
   await expect(courseCard(page)).toHaveClass(/bg-amber-50/)
@@ -158,7 +157,7 @@ test('resyncs a restored cart when switching terms in a loaded year', async ({ p
       invalidReason: 'Course no longer available',
     })
 
-  await switchToTerm(page, 'Term 1')
+  await selectTerm(page, TERM_ONE)
 
   await expect(page.getByText(`This course is no longer offered in ${TERM_ONE}.`)).toHaveCount(0)
   await expect(courseCard(page)).not.toHaveClass(/bg-amber-50/)
@@ -179,7 +178,7 @@ test('tombstones a removed section when switching terms', async ({ page }) => {
 
   await expect(page.locator(`[data-removed-section="${SECTION_ID}"]`)).toHaveCount(0)
 
-  await switchToTerm(page, 'Term 2')
+  await selectTerm(page, TERM_TWO)
 
   await expect(page.locator(`[data-removed-section="${SECTION_ID}"]`)).toBeVisible()
   await expect
@@ -188,5 +187,58 @@ test('tombstones a removed section when switching terms', async ({ page }) => {
       isInvalid: false,
       selectedSections: [],
       removedSections: [{ id: SECTION_ID }],
+    })
+})
+
+test('selects the fixture term before synchronizing the default term cart', async ({ page }) => {
+  const defaultTerm: string = DEFAULT_CURRENT_TERM
+  const fixtureTerm = defaultTerm === TERM_ONE ? TERM_TWO : TERM_ONE
+  const terms = [fixtureTerm, DEFAULT_CURRENT_TERM]
+  const schedule = storedSchedule()
+  schedule.enrollments[0].course.terms = terms.map((termName, index) => ({
+    termCode: String(index),
+    termName,
+    sections: [storedSection],
+  }))
+  const course = {
+    subject: 'ACCT',
+    course_code: '1111',
+    title: 'Foundations in Financial Accounting',
+    credits: '3.00',
+    terms: terms.map((term_name, index) => ({
+      term_code: String(index),
+      term_name,
+      schedule: [externalSection],
+    })),
+  }
+  await page.addInitScript(
+    ({ terms, value }) => {
+      for (const term of terms) localStorage.setItem(`schedule_${term}`, value)
+    },
+    { terms, value: JSON.stringify(schedule) }
+  )
+
+  await openPlannerAtTerm(page, {
+    term: fixtureTerm,
+    catalog: Object.fromEntries(terms.map((term) => [`${term.split(' ')[0]}/ACCT`, [course]])),
+  })
+
+  await expect(courseCard(page)).toBeVisible()
+  await expect
+    .poll(() => savedEnrollment(page, fixtureTerm))
+    .toMatchObject({
+      courseId: COURSE_ID,
+      lastSynced: expect.any(String),
+    })
+  const untouched = await savedEnrollment(page, DEFAULT_CURRENT_TERM)
+  expect(untouched).toMatchObject({ courseId: COURSE_ID })
+  expect(untouched.lastSynced).toBeUndefined()
+
+  await selectTerm(page, DEFAULT_CURRENT_TERM)
+  await expect
+    .poll(() => savedEnrollment(page, DEFAULT_CURRENT_TERM))
+    .toMatchObject({
+      courseId: COURSE_ID,
+      lastSynced: expect.any(String),
     })
 })

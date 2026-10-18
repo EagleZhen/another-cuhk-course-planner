@@ -38,9 +38,13 @@ The entry pageview captures UTM attribution before `utm_*` parameters are remove
 
 ### Source Maps
 
-Production builds upload source maps to PostHog so stack traces name real files and lines, then delete them — nothing new is served to browsers. `POSTHOG_PERSONAL_API_KEY` and `POSTHOG_PROJECT_ID` live in Cloudflare's Production environment only, set as Secrets under Variables and secrets — while `wrangler.jsonc` manages vars, the dashboard's plaintext panel is locked. Without a key no maps are generated, so local builds and preview deploys are unchanged.
+Set `POSTHOG_PERSONAL_API_KEY` and `POSTHOG_PROJECT_ID` as Cloudflare Production secrets to enable source-map uploads. Upload failures fail the build.
 
-The uploader always leaves a couple behind ([posthog-js#2383](https://github.com/PostHog/posthog-js/issues/2383)), so [finalize-source-maps.mts](../web/scripts/finalize-source-maps.mts) deletes whatever reaches `out/` after every build — and fails a keyed build with no chunk IDs, the sign that the upload did nothing.
+[finalize-source-maps.mts](../web/scripts/finalize-source-maps.mts) removes maps and broken local map references from `out/`. Enabled builds must retain native Turbopack `debugId` instrumentation.
+
+Run `npm run check:source-maps` from `web/` to verify the enabled build without production credentials. It runs the real build and CLI against a local API, requiring release resolution, non-empty map preparation, and no exported `.map` files. Verify real authentication, upload, and symbolication separately on a deployment.
+
+The check replaces `out/`; deploy with `npm run build`. CI runs it before Chromium tests; see the [E2E guide](../web/e2e/README.md).
 
 See [decisions.md](decisions.md#posthog-over-vercel-analytics) for the analytics provider rationale.
 

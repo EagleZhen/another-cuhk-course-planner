@@ -1,7 +1,8 @@
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
 import { NOTICE_STORAGE_KEY, NOTICE_VERSION } from '../src/lib/constants'
-import { expectEmptyCatalogLoaded, mockCatalog } from './helpers/catalog'
+import { expectEmptyCatalogLoaded } from './helpers/catalog'
+import { openPlannerAtTerm, selectTerm } from './helpers/planner'
 
 // Fridays in 2026-27 Term 1, so each date falls on the weekday its time states.
 const term = '2026-27 Term 1'
@@ -62,12 +63,14 @@ function storedSchedule(
 
 async function seed(page: Page, schedules: Record<string, string>) {
   await page.clock.setFixedTime(TODAY)
-  await mockCatalog(page)
   await page.addInitScript((stored: Record<string, string>) => {
     for (const [key, value] of Object.entries(stored)) localStorage.setItem(key, value)
   }, schedules)
-  await page.goto('/')
+  await openPlannerAtTerm(page, { term })
   await expectEmptyCatalogLoaded(page)
+  await expect(
+    page.locator('[data-shopping-cart]').getByRole('button', { name: 'GEWS1011', exact: true })
+  ).toBeVisible()
 }
 
 async function openPlanner(page: Page, tutorialDates: string, lectureDates = '11/9') {
@@ -113,11 +116,6 @@ async function watchForBreathing(page: Page) {
 
     return page.evaluate(() => (window as unknown as { breathed: boolean }).breathed)
   }
-}
-
-async function switchToTerm(page: Page, label: string) {
-  await page.getByTitle('Click to change term').first().click()
-  await page.getByRole('button', { name: label, exact: true }).click()
 }
 
 const cards = (page: Page) => page.locator('[data-course-card]')
@@ -494,7 +492,7 @@ test('breathes on nothing when a term switch swaps the timetable', async ({ page
   await expect(cards(page)).toHaveCount(1)
 
   const breathed = await watchForBreathing(page)
-  await switchToTerm(page, 'Term 2')
+  await selectTerm(page, termTwo)
 
   await expect(page.getByText('Week 1 of 2')).toBeVisible()
   await expect(cards(page)).toHaveCount(1)
@@ -504,7 +502,7 @@ test('breathes on nothing when a term switch swaps the timetable', async ({ page
 test('breathes on what a step reveals in the term switched to', async ({ page }) => {
   await openBothTerms(page)
   await page.clock.pauseAt(TODAY)
-  await switchToTerm(page, 'Term 2')
+  await selectTerm(page, termTwo)
   await expect(page.getByText('Week 1 of 2')).toBeVisible()
 
   await page.getByRole('button', { name: 'Next week' }).click()

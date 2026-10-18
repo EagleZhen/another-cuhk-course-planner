@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test'
 import { readFile, stat } from 'node:fs/promises'
+import { DEFAULT_CURRENT_TERM } from '../src/lib/constants'
 import { expectEmptyCatalogLoaded, mockCatalog } from './helpers/catalog'
 
 test.beforeEach(async ({ page }) => {
@@ -9,6 +10,12 @@ test.beforeEach(async ({ page }) => {
 test('downloads the timetable as a PNG', async ({ page }) => {
   await page.goto('/')
   await expectEmptyCatalogLoaded(page)
+  const selectors = page
+    .locator('[data-course-search]')
+    .getByTitle(/^Click to change (academic year|term)$/)
+  expect((await selectors.allTextContents()).map((text) => text.trim()).join(' ')).toBe(
+    DEFAULT_CURRENT_TERM
+  )
 
   const screenshotButton = page.getByRole('button', { name: 'Screenshot' })
   const downloadPromise = page.waitForEvent('download')
@@ -18,9 +25,9 @@ test('downloads the timetable as a PNG', async ({ page }) => {
   const download = await downloadPromise
   const downloadPath = await download.path()
 
-  expect(download.suggestedFilename()).toMatch(
-    /^2026-27-Term-1-Schedule-\d{4}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}\.png$/
-  )
+  const filename = download.suggestedFilename()
+  expect(filename.startsWith(`${DEFAULT_CURRENT_TERM.replace(/\s+/g, '-')}-Schedule-`)).toBe(true)
+  expect(filename).toMatch(/-Schedule-\d{4}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}\.png$/)
   expect(downloadPath).not.toBeNull()
   expect((await stat(downloadPath!)).size).toBeGreaterThan(0)
 

@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 import type { Locator, Page } from '@playwright/test'
 import { NOTICE_STORAGE_KEY, NOTICE_VERSION } from '../src/lib/constants'
-import { mockCatalog } from './helpers/catalog'
+import { openPlannerAtTerm } from './helpers/planner'
 
 const subjects = ['SURY', 'SUTM', 'UGEB', 'UGEC', 'UGED', 'UGFH', 'UGFN', 'URBD', 'URSP']
 const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -13,9 +13,9 @@ async function openCatalog(page: Page) {
     key: NOTICE_STORAGE_KEY,
     version: NOTICE_VERSION,
   })
-  await mockCatalog(
-    page,
-    Object.fromEntries(
+  await openPlannerAtTerm(page, {
+    term: '2026-27 Term 1',
+    catalog: Object.fromEntries(
       [...subjects, 'ACCT'].map((subject) => [
         `2026-27/${subject}`,
         [
@@ -45,9 +45,8 @@ async function openCatalog(page: Page) {
           },
         ],
       ])
-    )
-  )
-  await page.goto('/')
+    ),
+  })
 }
 
 // Page-wide overflow would also count the timetable's intentional horizontal scroll.
