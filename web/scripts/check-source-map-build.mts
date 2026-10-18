@@ -9,6 +9,7 @@ import { resolve } from 'node:path'
 const web = resolve(import.meta.dirname, '..')
 const releaseId = '00000000-0000-4000-8000-000000000001'
 const apiKey = 'phx_local_build_check'
+const noProxy = process.env.NO_PROXY || process.env.no_proxy || ''
 let releaseResolved = false
 let mapsPrepared = false
 let apiFailure: unknown
@@ -64,6 +65,7 @@ try {
       stdio: 'inherit',
       env: {
         ...process.env,
+        NO_PROXY: [noProxy, '127.0.0.1'].filter(Boolean).join(','),
         POSTHOG_BUILD_CHECK_HOST: `http://127.0.0.1:${address.port}`,
         POSTHOG_PERSONAL_API_KEY: apiKey,
         POSTHOG_PROJECT_ID: '1',
