@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 import { readFile } from 'node:fs/promises'
-import { expectEmptyCatalogLoaded, mockCatalog } from './helpers/catalog'
+import { expectEmptyCatalogLoaded } from './helpers/catalog'
+import { openPlannerAtTerm } from './helpers/planner'
 
 // An August lecture on a Monday. Its date carries no year, and the weekday
 // resolves it to the term's first: 24 August 2026 is a Monday, where the month
@@ -33,7 +34,6 @@ const section = {
 }
 
 test('exports the August lecture in the year its weekday states', async ({ page }) => {
-  await mockCatalog(page)
   await page.addInitScript(({ key, value }) => localStorage.setItem(key, value), {
     key: storageKey,
     value: JSON.stringify({
@@ -58,7 +58,7 @@ test('exports the August lecture in the year its weekday states', async ({ page 
   })
   // The export confirms before downloading.
   page.on('dialog', (dialog) => dialog.accept())
-  await page.goto('/')
+  await openPlannerAtTerm(page, { term })
   await expectEmptyCatalogLoaded(page)
 
   // Non-vacuous: the export is empty unless the cart really loaded.

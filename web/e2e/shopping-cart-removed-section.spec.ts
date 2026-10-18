@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
-import { expectEmptyCatalogLoaded, mockCatalog } from './helpers/catalog'
+import { expectEmptyCatalogLoaded } from './helpers/catalog'
+import { openPlannerAtTerm, selectTerm } from './helpers/planner'
 
 const term = '2026-27 Term 1'
 const storageKey = `schedule_${term}`
@@ -56,14 +57,13 @@ async function openCart(page: Page, alternatives: ReturnType<typeof section>[]) 
     ],
   }
 
-  await mockCatalog(page)
   await page.addInitScript(
     ({ key, value }) => {
       if (!localStorage.getItem(key)) localStorage.setItem(key, value)
     },
     { key: storageKey, value: JSON.stringify(stored) }
   )
-  await page.goto('/')
+  await openPlannerAtTerm(page, { term })
   await expectEmptyCatalogLoaded(page)
 
   const courseCard = page
@@ -72,6 +72,7 @@ async function openCart(page: Page, alternatives: ReturnType<typeof section>[]) 
   const tombstone = page.locator('[data-removed-section="removed"]')
   const removedSectionHelp = page.locator('[data-removed-section-help="removed"]')
 
+  await expect(courseCard).toBeVisible()
   await expect(courseCard).not.toHaveClass(/bg-amber-50/)
   await expect(page.getByText('A selected section is no longer offered.')).toHaveCount(0)
   await expect(tombstone).toHaveClass(/cursor-help/)
@@ -202,7 +203,11 @@ test('dismisses the banner without removing the tombstone or replacement control
     .toEqual({ acknowledged: true, removedCount: 1 })
 
   await page.reload()
+  await selectTerm(page, term)
   await expectEmptyCatalogLoaded(page)
+  await expect(
+    page.locator('[data-shopping-cart]').getByRole('button', { name: 'ACCT1111', exact: true })
+  ).toBeVisible()
   await expect(page.getByText('1 course changed since you last checked')).toHaveCount(0)
   await expect(page.getByText('A-LEC (removed)', { exact: true })).toBeVisible()
 

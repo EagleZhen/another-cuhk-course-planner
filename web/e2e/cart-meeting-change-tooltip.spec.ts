@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
-import { expectEmptyCatalogLoaded, mockCatalog } from './helpers/catalog'
+import { expectEmptyCatalogLoaded } from './helpers/catalog'
+import { openPlannerAtTerm } from './helpers/planner'
 
 const term = '2026-27 Term 1'
 const storageKey = `schedule_${term}`
@@ -28,7 +29,6 @@ const section = {
 }
 
 async function openCart(page: Page, lastSeenMeeting: Record<string, unknown> = {}) {
-  await mockCatalog(page)
   await page.addInitScript(({ key, value }) => localStorage.setItem(key, value), {
     key: storageKey,
     value: JSON.stringify({
@@ -58,8 +58,11 @@ async function openCart(page: Page, lastSeenMeeting: Record<string, unknown> = {
       ],
     }),
   })
-  await page.goto('/')
+  await openPlannerAtTerm(page, { term })
   await expectEmptyCatalogLoaded(page)
+  await expect(
+    page.locator('[data-shopping-cart]').getByRole('button', { name: 'GEWS1011', exact: true })
+  ).toBeVisible()
 }
 
 test('shows what a changed field was and is', async ({ page }) => {
