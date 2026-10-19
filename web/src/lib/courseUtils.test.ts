@@ -1065,20 +1065,44 @@ describe('isEnrollmentOpen', () => {
   })
 })
 
-/** The term every cross-course conflict fixture below belongs to. */
-const CONFLICT_TERM = '2026-27 Term 1'
-/** Two Saturday sections at the same hour, five weeks apart. */
-const ACCT5610_TERM = '2026-27 Term 1'
-/** LEC, PRA and TUT at the same hour on the same dates — a real clash. */
-const PHAR1433_TERM = '2026-27 Term 1'
+const DATE_FIXTURE_TERM = '2026-27 Term 1'
+
+/** Owned meeting records, passed through the same transform as published files. */
+function makeDatedCourse(
+  subject: string,
+  courseCode: string,
+  schedule: { section: string; meetings: { time: string; dates: string }[] }[]
+): InternalCourse {
+  return transformExternalCourseData({
+    metadata: { subject, total_courses: 1 },
+    courses: [
+      {
+        subject,
+        course_code: courseCode,
+        title: `${subject}${courseCode} date fixture`,
+        terms: [{ term_code: '2420', term_name: DATE_FIXTURE_TERM, schedule }],
+      },
+    ],
+  }).courses[0]
+}
 
 describe('sectionSignature dates', () => {
-  // ACCT1111 B-LEC lists the same Thursday lecture twice, once either side of a
-  // fortnight's gap. The rows merge on display; their dates must not, and each
-  // reads as a range so the missing fortnight stays visible.
+  // Two Thursday rows share a slot but have a gap between their date runs.
+  // The rows merge on display; their dates must stay separate.
   it("keeps a merged row's runs apart and reads each as a range", () => {
-    const course = loadPublishedCourse('2026-27', 'ACCT', '1111')
-    const section = findPublishedSection(course, CONFLICT_TERM, 'B-LEC')
+    const course = makeDatedCourse('ACCT', '1111', [
+      {
+        section: 'B-LEC (1)',
+        meetings: [
+          { time: 'Th 2:30PM - 5:15PM', dates: '10/9, 17/9, 24/9' },
+          {
+            time: 'Th 2:30PM - 5:15PM',
+            dates: '8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12',
+          },
+        ],
+      },
+    ])
+    const [section] = course.terms[0].sections
     const { meetings } = sectionSignature(section)
     const runs = meetings[0].dates!
 
@@ -1122,13 +1146,30 @@ describe('detectConflicts', () => {
   // Runs over every occurrence, not one week, so it is the only place the date
   // can distinguish two events on the same weekday.
   it('flags a clash only when the two occurrences fall on the same date', () => {
-    const course = loadPublishedCourse('2026-27', 'GEWS', '1011')
-    const lecture = findPublishedSection(course, CONFLICT_TERM, '--LEC')
-    const tutorial = findPublishedSection(course, CONFLICT_TERM, '-T01-TUT')
+    const course = makeDatedCourse('GEWS', '1011', [
+      {
+        section: '--LEC (1)',
+        meetings: [
+          { time: 'Fr 2:30PM - 5:15PM', dates: '18/9' },
+          { time: 'Fr 2:30PM - 5:15PM', dates: '11/9' },
+        ],
+      },
+      {
+        section: '-T01-TUT (2)',
+        meetings: [
+          {
+            time: 'Fr 2:30PM - 5:15PM',
+            dates: '25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12',
+          },
+        ],
+      },
+    ])
+    const [lecture, tutorial] = course.terms[0].sections
 
     const apart = detectConflicts(
-      enrollmentsToCalendarEvents([makeEnrollment(course, [lecture, tutorial])], CONFLICT_TERM)
+      enrollmentsToCalendarEvents([makeEnrollment(course, [lecture, tutorial])], DATE_FIXTURE_TERM)
     )
+    expect(apart.length).toBeGreaterThan(0)
     expect(apart.filter((event) => event.hasConflict)).toEqual([])
 
     // The same lecture against itself under a second course id: identical dates.
@@ -1138,26 +1179,49 @@ describe('detectConflicts', () => {
           makeEnrollment(course, [lecture]),
           { ...makeEnrollment(course, [lecture]), courseId: 'OTHER' },
         ],
-        CONFLICT_TERM
+        DATE_FIXTURE_TERM
       )
     )
+    expect(together.length).toBeGreaterThan(0)
     expect(together.every((event) => event.hasConflict)).toBe(true)
   })
 
-  // One shared date is a clash, and only on that date. STAT3008 and FINA6092
-  // share 11 Thursday lectures; STAT3008 also meets on 3 December alone.
+  // These fixtures share 11 Thursday lectures; STAT3008 also meets on
+  // 3 December alone. A clash must stay limited to the shared dates.
   it('flags only the occurrences on a shared date, not the whole section', () => {
-    const stat = loadPublishedCourse('2026-27', 'STAT', '3008')
-    const fina = loadPublishedCourse('2026-27', 'FINA', '6092')
-    const statLecture = findPublishedSection(stat, CONFLICT_TERM, 'B-LEC')
-    const finaLecture = findPublishedSection(fina, CONFLICT_TERM, 'FB-LEC')
+    const stat = makeDatedCourse('STAT', '3008', [
+      {
+        section: 'B-LEC (1)',
+        meetings: [
+          { time: 'Th 9:30AM - 12:15PM', dates: '10/9, 17/9, 24/9' },
+          {
+            time: 'Th 9:30AM - 12:15PM',
+            dates: '8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12',
+          },
+        ],
+      },
+    ])
+    const fina = makeDatedCourse('FINA', '6092', [
+      {
+        section: 'FB-LEC (2)',
+        meetings: [
+          { time: 'Th 9:30AM - 12:15PM', dates: '10/9, 17/9, 24/9' },
+          {
+            time: 'Th 9:30AM - 12:15PM',
+            dates: '8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11',
+          },
+        ],
+      },
+    ])
+    const [statLecture] = stat.terms[0].sections
+    const [finaLecture] = fina.terms[0].sections
 
-    expect(sectionsOverlap(statLecture, finaLecture, CONFLICT_TERM)).toBe(true)
+    expect(sectionsOverlap(statLecture, finaLecture, DATE_FIXTURE_TERM)).toBe(true)
 
     const events = detectConflicts(
       enrollmentsToCalendarEvents(
         [makeEnrollment(stat, [statLecture]), makeEnrollment(fina, [finaLecture])],
-        CONFLICT_TERM
+        DATE_FIXTURE_TERM
       )
     )
     const statEvents = events.filter((event) => event.enrollmentId === 'STAT3008')
@@ -1180,23 +1244,43 @@ describe('sectionsOverlap', () => {
   })
 
   // Same slot, different weeks: a false conflict until dates were consulted.
-  it('clears two published sections that share a slot on disjoint dates', () => {
-    const course = loadPublishedCourse('2026-27', 'ACCT', '5610')
-    const saturdayA = findPublishedSection(course, ACCT5610_TERM, 'SA-LEC')
-    const saturdayB = findPublishedSection(course, ACCT5610_TERM, 'SB-LEC')
+  it('clears two sections that share a slot on disjoint dates', () => {
+    const course = makeDatedCourse('ACCT', '5610', [
+      {
+        section: 'SA-LEC (1)',
+        meetings: [{ time: 'Sa 8:30AM - 6:15PM', dates: '29/8' }],
+      },
+      {
+        section: 'SB-LEC (2)',
+        meetings: [
+          { time: 'Sa 8:30AM - 6:15PM', dates: '26/9' },
+          { time: 'Sa 8:30AM - 6:15PM', dates: '7/11' },
+        ],
+      },
+    ])
+    const [saturdayA, saturdayB] = course.terms[0].sections
 
-    expect(sectionsOverlap(saturdayA, saturdayB, ACCT5610_TERM)).toBe(false)
+    expect(sectionsOverlap(saturdayA, saturdayB, DATE_FIXTURE_TERM)).toBe(false)
   })
 
-  // The guard against over-correcting: these three really do clash every week.
-  it('still reports published sections sharing a slot on identical dates', () => {
-    const course = loadPublishedCourse('2026-27', 'PHAR', '1433')
-    const lecture = findPublishedSection(course, PHAR1433_TERM, '--LEC')
-    const practical = findPublishedSection(course, PHAR1433_TERM, '-P01-PRA')
-    const tutorial = findPublishedSection(course, PHAR1433_TERM, '-T01-TUT')
+  // The guard against over-correcting: these three clash on every listed date.
+  it('still reports sections sharing a slot on identical dates', () => {
+    const meetings = [
+      { time: 'Th 1:30PM - 3:15PM', dates: '10/9, 17/9, 24/9' },
+      {
+        time: 'Th 1:30PM - 3:15PM',
+        dates: '8/10, 15/10, 22/10, 29/10, 5/11, 12/11, 19/11, 26/11, 3/12',
+      },
+    ]
+    const course = makeDatedCourse('PHAR', '1433', [
+      { section: '--LEC (1)', meetings },
+      { section: '-P01-PRA (2)', meetings },
+      { section: '-T01-TUT (3)', meetings },
+    ])
+    const [lecture, practical, tutorial] = course.terms[0].sections
 
-    expect(sectionsOverlap(lecture, practical, PHAR1433_TERM)).toBe(true)
-    expect(sectionsOverlap(practical, tutorial, PHAR1433_TERM)).toBe(true)
+    expect(sectionsOverlap(lecture, practical, DATE_FIXTURE_TERM)).toBe(true)
+    expect(sectionsOverlap(practical, tutorial, DATE_FIXTURE_TERM)).toBe(true)
   })
 })
 

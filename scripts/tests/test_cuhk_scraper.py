@@ -255,13 +255,19 @@ def test_partial_scrape_leaves_scrape_times_alone(scraper, tmp_path):
     assert not list(tmp_path.rglob("_scraped_at.txt"))
 
 
-def test_dropped_year_keeps_its_scrape_time(scraper, tmp_path):
+def test_dropped_year_keeps_its_scrape_time(scraper, tmp_path, monkeypatch):
     # Once CUHK stops serving a year, scrapes stop writing it while its files stay on
     # disk. Its stamp has to stay put rather than follow the years still produced.
+    first_time = "2025-09-01T00:00:00+00:00"
+    monkeypatch.setattr(cuhk_scraper, "utc_now_iso", lambda: first_time)
     first = _stamp(scraper, tmp_path, mode="full", courses=[_course("1000", ["2025-26 Term 1"])])
-    second = _stamp(scraper, tmp_path, mode="full", courses=[_course("1000", ["2026-27 Term 1"])])
+    assert first == first_time
 
-    assert first != second
+    second_time = "2026-09-01T00:00:00+00:00"
+    monkeypatch.setattr(cuhk_scraper, "utc_now_iso", lambda: second_time)
+    second = _stamp(scraper, tmp_path, mode="full", courses=[_course("1000", ["2026-27 Term 1"])])
+    assert second == second_time
+
     assert (tmp_path / "2025-26" / "_scraped_at.txt").read_text() == f"{first}\n"
     assert (tmp_path / "2026-27" / "_scraped_at.txt").read_text() == f"{second}\n"
 

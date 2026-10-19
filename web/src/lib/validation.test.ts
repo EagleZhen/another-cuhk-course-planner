@@ -95,7 +95,9 @@ function transformedStatus(status: string) {
 
 describe('transformExternalCourseData', () => {
   it('supports every academic career in published data', () => {
-    expect(ACADEMIC_CAREERS).toEqual(expect.arrayContaining([...publishedCareerValues()]))
+    const careers = publishedCareerValues()
+    expect(careers.size).toBeGreaterThan(0)
+    expect(ACADEMIC_CAREERS).toEqual(expect.arrayContaining([...careers]))
   })
 
   it('preserves the PGDE career', () => {
@@ -148,7 +150,9 @@ describe('transformExternalCourseData', () => {
   it('recognizes every section status in published data', () => {
     // Runtime degrades a new catalog word to a gray badge rather than breaking, so
     // CI is where we find out it appeared.
-    for (const status of publishedStatusValues()) {
+    const statuses = publishedStatusValues()
+    expect(statuses.size).toBeGreaterThan(0)
+    for (const status of statuses) {
       expect(transformedStatus(status), `published status ${status}`).not.toBe('Unknown')
     }
   })
