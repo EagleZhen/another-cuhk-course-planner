@@ -32,6 +32,7 @@ function section(id: string, sectionCode: string, time: string) {
 }
 
 const removed = section('removed', 'A-LEC (removed)', 'Tu 3:30PM - 6:15PM')
+removed.meetings[0].dates = '15/9'
 const firstReplacement = section('first', 'B-LEC (first)', 'We 3:30PM - 6:15PM')
 const lastReplacement = section('last', 'C-LEC (last)', 'Th 3:30PM - 6:15PM')
 
@@ -120,6 +121,10 @@ async function expectReplacementSaved(page: Page, sectionId: string) {
 
 test('next replaces a removed section with the first compatible alternative', async ({ page }) => {
   await openCart(page, [firstReplacement])
+
+  const dates = page.locator('[data-removed-section="removed"]').getByText('15/9', { exact: true })
+  await expect(dates).toHaveClass(/line-through/)
+  await expect(dates).toHaveAttribute('title', '15/9')
 
   await page.getByRole('button', { name: 'Choose the first compatible lecture section' }).click()
 

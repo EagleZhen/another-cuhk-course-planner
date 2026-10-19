@@ -79,13 +79,10 @@ export function MeetingRowCard({
   // Each source row is one weekly run, so it reads as a range; the break between
   // runs is what shows a gap.
   const dateRanges = meeting.dates?.map(formatDateRange).filter(Boolean) ?? []
-  // Only worth a tooltip where a range stands for dates it does not show.
-  const hiddenDates = meeting.dates?.some((run) => run.includes(',')) ?? false
+  // Keep a title even for single dates; otherwise they inherit a status tooltip.
   const datesTooltip = fields?.dates
     ? changedTooltip(before!.dates!.map(formatDateRange).join(', '), dateRanges.join(', '))
-    : hiddenDates
-      ? meeting.dates!.join('\n')
-      : undefined
+    : meeting.dates?.join('\n')
   const timeTooltip =
     fields?.time && before
       ? changedTooltip(formatTimeCompact(before.time), formattedTime)
