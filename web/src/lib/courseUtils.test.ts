@@ -1129,6 +1129,7 @@ describe('detectConflicts', () => {
     const apart = detectConflicts(
       enrollmentsToCalendarEvents([makeEnrollment(course, [lecture, tutorial])], CONFLICT_TERM)
     )
+    expect(apart.length).toBeGreaterThan(0)
     expect(apart.filter((event) => event.hasConflict)).toEqual([])
 
     // The same lecture against itself under a second course id: identical dates.
@@ -1141,6 +1142,7 @@ describe('detectConflicts', () => {
         CONFLICT_TERM
       )
     )
+    expect(together.length).toBeGreaterThan(0)
     expect(together.every((event) => event.hasConflict)).toBe(true)
   })
 
