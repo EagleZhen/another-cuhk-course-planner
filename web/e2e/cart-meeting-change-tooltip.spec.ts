@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
+import type { SectionMeetingSignature } from '../src/lib/types'
 import { expectEmptyCatalogLoaded } from './helpers/catalog'
 import { openPlannerAtTerm } from './helpers/planner'
 
@@ -28,7 +29,10 @@ const section = {
   classAttributes: 'English only',
 }
 
-async function openCart(page: Page, lastSeenMeeting: Record<string, unknown> = {}) {
+async function openCart(
+  page: Page,
+  previous: SectionMeetingSignature[] = [{ time: slot, location: wasIn, instructor }]
+) {
   await page.addInitScript(({ key, value }) => localStorage.setItem(key, value), {
     key: storageKey,
     value: JSON.stringify({
@@ -44,10 +48,10 @@ async function openCart(page: Page, lastSeenMeeting: Record<string, unknown> = {
             terms: [{ termCode: '2610', termName: term, sections: [section] }],
           },
           selectedSections: [section],
-          // What the user last saw: the same lecture in the other building.
+          // The saved baseline, separate from the current meetings.
           lastSeenSections: {
             lec: {
-              meetings: [{ time: slot, location: wasIn, instructor, ...lastSeenMeeting }],
+              meetings: previous,
               language: 'English only',
             },
           },
@@ -87,9 +91,36 @@ test('shows the dates under the time', async ({ page }) => {
 // The .ics export has always been per-occurrence, so a moved date invalidates
 // events the student already imported. The date line is where that shows.
 test('marks a date that moved, with what it was', async ({ page }) => {
-  await openCart(page, { location: nowIn, dates: ['11/9'] })
+  await openCart(page, [{ time: slot, location: nowIn, instructor, dates: ['11/9'] }])
 
   const dates = page.locator('div.bg-amber-100', { hasText: '18/9' })
 
   await expect(dates).toHaveAttribute('title', '11/9\n↓\n18/9')
+})
+
+test('removed meeting dates keep their own tooltips', async ({ page }) => {
+  const dateCases = [
+    ['Mo', '14/9', '14/9'],
+    ['Tu', '15/9, 22/9, 29/9', '15/9-29/9'],
+    ['We', '16/9 - 30/9', '16/9-30/9'],
+  ]
+  await openCart(page, [
+    { time: slot, location: nowIn, instructor, dates: ['18/9'] },
+    ...dateCases.map(([day, dates]) => ({
+      time: `${day} 9:30AM - 10:15AM`,
+      location: wasIn,
+      instructor,
+      dates: [dates],
+    })),
+  ])
+
+  const removedMeetings = page
+    .locator('[data-shopping-cart]')
+    .getByTitle('This meeting was removed from the class schedule since you last checked', {
+      exact: true,
+    })
+  await expect(removedMeetings).toHaveCount(3)
+  for (const [, dates, shown] of dateCases) {
+    await expect(removedMeetings.getByText(shown, { exact: true })).toHaveAttribute('title', dates)
+  }
 })
