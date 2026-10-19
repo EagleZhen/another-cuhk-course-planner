@@ -48,7 +48,6 @@ async function openCart(
             terms: [{ termCode: '2610', termName: term, sections: [section] }],
           },
           selectedSections: [section],
-          // The saved baseline, separate from the current meetings.
           lastSeenSections: {
             lec: {
               meetings: previous,

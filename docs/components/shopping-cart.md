@@ -59,8 +59,6 @@ The banner and individual rows use different comparisons:
 
 Date ranges retain the source's row boundaries. A row's date list must be consecutive weekly occurrences for the first and last dates to represent it accurately. [courseUtils.test.ts](../../web/src/lib/courseUtils.test.ts) checks this against published meetings. Combining runs across a gap would imply classes that do not exist.
 
-Meeting values own their tooltips; surrounding card space explains additions, removals, or conflicts. Every visible date line has its own title, including single dates and explicit ranges, so it cannot inherit a status explanation. Ordinary date tooltips list the complete source runs; changed dates show the previous and current displayed ranges.
-
 ## Counting Statuses and Credits
 
 A valid course counts as:

@@ -119,16 +119,12 @@ async function expectReplacementSaved(page: Page, sectionId: string) {
     .toEqual({ selectedId: sectionId, removedCount: 0 })
 }
 
-test('removed-section dates keep their own tooltip', async ({ page }) => {
+test('next replaces a removed section with the first compatible alternative', async ({ page }) => {
   await openCart(page, [firstReplacement])
 
   const dates = page.locator('[data-removed-section="removed"]').getByText('15/9', { exact: true })
   await expect(dates).toHaveClass(/line-through/)
   await expect(dates).toHaveAttribute('title', '15/9')
-})
-
-test('next replaces a removed section with the first compatible alternative', async ({ page }) => {
-  await openCart(page, [firstReplacement])
 
   await page.getByRole('button', { name: 'Choose the first compatible lecture section' }).click()
 
