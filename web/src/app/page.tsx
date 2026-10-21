@@ -23,11 +23,11 @@ import {
   pruneReplacedTombstones,
   syncCart,
   extractAcademicYearCode,
-  readStoredEnrollments,
   recordSeenChanges,
   recordSeenSections,
   diffEnrollment,
 } from '@/lib/courseUtils'
+import { readStoredEnrollments } from '@/lib/storedSchedule'
 import type {
   InternalCourse,
   CourseEnrollment,

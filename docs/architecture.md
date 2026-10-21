@@ -51,7 +51,7 @@ Important invariants:
 
 Schedules are stored per term using `schedule_${currentTerm}` keys. The state is restored only after hydration so browser-only APIs do not create SSR/client mismatches.
 
-Restore migrates known `SCHEDULE_DATA_VERSION`s forward via `readStoredEnrollments` in [courseUtils.ts](../web/src/lib/courseUtils.ts) rather than wiping on every schema change; only unknown or newer versions clear the cart. Carts hold whole sections, so a change to the section model migrates here too.
+Restore migrates known `SCHEDULE_DATA_VERSION`s forward via `readStoredEnrollments` in [storedSchedule.ts](../web/src/lib/storedSchedule.ts) rather than wiping on every schema change; only unknown or newer versions clear the cart. Carts hold whole sections, so a change to the section model migrates here too.
 
 The version is a readability gate, not a migration selector, and bumping it is not free: a browser still serving a stale bundle would read the newer number as data it cannot understand and clear the cart. So each step instead detects its own applicability from the data — a `lastSynced` that is still a string, a status still spelled `Waitlisted` — which makes re-running one a no-op.
 
