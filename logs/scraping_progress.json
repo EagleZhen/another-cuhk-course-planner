@@ -1,12 +1,12 @@
 {
   "latest_run": {
-    "started_at": "2026-10-19 22:22:01 HK",
-    "last_updated": "2026-10-20 07:52:58 HK",
-    "duration": "9h 30m 56s",
+    "started_at": "2026-10-21 09:20:49 HK",
+    "last_updated": "2026-10-21 09:27:03 HK",
+    "duration": "6m 13s",
     "status": "completed",
-    "mode": "full",
-    "subjects_total": 270,
-    "subjects_completed": 270,
+    "mode": "partial",
+    "subjects_total": 1,
+    "subjects_completed": 1,
     "subjects_failed": 0,
     "config": {
       "get_details": true,
@@ -15,7 +15,7 @@
     }
   },
   "latest_full_scrape": {
-    "started_at": "2026-10-19T14:22:01.757072+00:00",
+    "started_at": "2026-10-20T14:22:04.525055+00:00",
     "remaining": [],
     "directories": [
       "data/2026-27",
