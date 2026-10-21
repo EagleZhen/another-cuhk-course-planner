@@ -1,13 +1,13 @@
 {
   "latest_run": {
-    "started_at": "2026-10-20 22:22:04 HK",
-    "last_updated": "2026-10-21 08:16:43 HK",
-    "duration": "9h 54m 38s",
+    "started_at": "2026-10-21 09:20:49 HK",
+    "last_updated": "2026-10-21 09:27:03 HK",
+    "duration": "6m 13s",
     "status": "completed",
-    "mode": "full",
-    "subjects_total": 270,
-    "subjects_completed": 269,
-    "subjects_failed": 1,
+    "mode": "partial",
+    "subjects_total": 1,
+    "subjects_completed": 1,
+    "subjects_failed": 0,
     "config": {
       "get_details": true,
       "get_enrollment_details": true,
@@ -904,9 +904,9 @@
       "output_file": "data/2026-27/MEDP.json"
     },
     "MEDU": {
-      "status": "failed",
-      "last_attempt": "2026-10-20T20:27:13.947375+00:00",
-      "error": "MEDU: no usable results after 10 attempts"
+      "status": "completed",
+      "courses_count": 58,
+      "output_file": "data/2026-27/MEDU.json, data/no-terms/MEDU.json"
     },
     "MESC": {
       "status": "completed",
