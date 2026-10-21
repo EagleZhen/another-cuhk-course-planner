@@ -77,6 +77,7 @@ import { CreditsBadge, GradingBadge } from '@/components/InfoBadge'
 // Using clean internal types only
 
 interface CourseSearchProps {
+  canUseSchedule: boolean
   catalog: CourseCatalog
   courseEnrollments: CourseEnrollment[]
   currentTerm: string
@@ -139,6 +140,7 @@ function ChipRemoveButton({ label, onRemove }: { label: string; onRemove: () => 
 }
 
 export default function CourseSearch({
+  canUseSchedule,
   catalog,
   courseEnrollments,
   currentTerm,
@@ -320,7 +322,7 @@ export default function CourseSearch({
       credits: selectedCredits,
       levels: selectedLevels,
       careers: selectedCareers,
-      noConflictOnly,
+      noConflictOnly: noConflictOnly && canUseSchedule,
     }),
     [
       debouncedSearchTerm,
@@ -330,6 +332,7 @@ export default function CourseSearch({
       selectedLevels,
       selectedCareers,
       noConflictOnly,
+      canUseSchedule,
     ]
   )
   // Enrollments only affect results when the no-conflict filter is on. Gating them out otherwise keeps
@@ -877,7 +880,9 @@ export default function CourseSearch({
 
       {/* Search Results with Natural Flow */}
       <div className="space-y-3 pb-8">
-        {loading ? (
+        {!canUseSchedule && noConflictOnly ? (
+          <p role="status">Load your schedule to check time conflicts.</p>
+        ) : loading ? (
           <div className="text-center py-12 px-4">
             <div className="max-w-2xl mx-auto space-y-6">
               {/* Main Loading Animation */}
@@ -1076,6 +1081,7 @@ export default function CourseSearch({
                   ref={index === 0 ? firstCourseCardRef : null}
                 >
                   <CourseCard
+                    canUseSchedule={canUseSchedule}
                     course={course}
                     currentTerm={currentTerm}
                     searchSequence={searchSequence}
@@ -1258,6 +1264,7 @@ function InstructorFilters({
 }
 
 function CourseCartActions({
+  canUseSchedule,
   layout,
   isAdded,
   isEnrollmentComplete,
@@ -1266,6 +1273,7 @@ function CourseCartActions({
   onRemove,
   onScroll,
 }: {
+  canUseSchedule: boolean
   layout: 'inline' | 'stacked'
   isAdded: boolean
   isEnrollmentComplete: boolean
@@ -1275,7 +1283,7 @@ function CourseCartActions({
   onScroll?: () => void
 }) {
   const isStacked = layout === 'stacked'
-  const canSubmit = isEnrollmentComplete && (!isAdded || hasSelectionsChanged)
+  const canSubmit = canUseSchedule && isEnrollmentComplete && (!isAdded || hasSelectionsChanged)
   const primaryAction = (
     <Button
       variant={canSubmit ? 'default' : 'secondary'}
@@ -1318,6 +1326,7 @@ function CourseCartActions({
         onRemove()
       }}
       className={isStacked ? 'flex-1' : 'min-w-[70px]'}
+      disabled={!canUseSchedule}
       title="Remove course from cart"
     >
       <Trash2 className="w-3 h-3 mr-1" />
@@ -1390,6 +1399,7 @@ function CourseSeatAvailabilityBadge({
 }
 
 function CourseCard({
+  canUseSchedule,
   course,
   currentTerm,
   initialSelections = new Map(),
@@ -1405,6 +1415,7 @@ function CourseCard({
   isFromCourseDetails = false,
   shouldAutoExpand = false,
 }: {
+  canUseSchedule: boolean
   course: InternalCourse
   currentTerm: string
   initialSelections?: Map<string, string>
@@ -1599,6 +1610,7 @@ function CourseCard({
   ).sort((a, b) => instructorSortKey(a).localeCompare(instructorSortKey(b)))
 
   const cartActionProps = {
+    canUseSchedule,
     isAdded,
     isEnrollmentComplete,
     hasSelectionsChanged,
@@ -1935,7 +1947,7 @@ function CourseCard({
                           courseEnrollments,
                           currentTerm
                         )
-                        const hasTimeConflict = conflictInfo.hasConflict // Show conflicts even for selected sections
+                        const hasTimeConflict = canUseSchedule && conflictInfo.hasConflict // Show conflicts even for selected sections
                         const cardCursorClass = isIncompatible
                           ? 'cursor-not-allowed'
                           : 'cursor-pointer'

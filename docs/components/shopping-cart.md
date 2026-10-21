@@ -69,3 +69,7 @@ A valid course counts as:
 A valid course with only tombstones has no availability status but still contributes its stated credits.
 
 Credits come from the course, not its sections. Sum both ends of credit ranges: section choices do not establish a single value. Invalid enrollments are excluded. Hidden valid enrollments contribute to total credits, but not visible credits.
+
+## Schedule availability
+
+The page renders the cart only after its owned schedule loads successfully. Pending and blocked reads do not claim an empty cart. A separate inline storage notice provides original-data export for blocked reads and retry/export for unsaved edits; switching terms retains those edits.

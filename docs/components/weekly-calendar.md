@@ -76,3 +76,7 @@ It ignores the skip toggle: where the clash is and which weeks are worth steppin
 - Fields in 45-minute cards stay single-line; wrapped fields clamp after two lines.
 - Desktop and mobile header layouts duplicate the ICS split-button markup within the file.
 - User dialogs are native `alert`/`confirm` rather than styled modals (deliberate simplicity).
+
+## Schedule availability
+
+The page supplies only the selected owner’s enrollments. `canUseSchedule` disables both responsive ICS/screenshot controls and guards their handlers until loading succeeds. A failed save does not hide the loaded schedule; pending-data export remains available through the storage notice.

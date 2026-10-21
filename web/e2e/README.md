@@ -28,3 +28,5 @@ After navigation or reload, use `expectEmptyCatalogLoaded(page)` for empty fixtu
 `setFixedTime()` fixes the date but leaves timers running, so it does not prevent expiry races.
 
 Note: Playwright's WebKit is not real Safari.app and does not reproduce every Safari-specific rendering quirk. For those, test in real Safari (`safaridriver`) or a device cloud.
+
+Storage-safety specs seed once per browser session, then audit every attempted schedule write/removal. Reloads must not reseed missing data. Keep this pattern when adding persistence faults: eventual correct UI or storage can conceal destructive intermediate writes. Historical/current-build coexistence is separate coverage; these specs run the current build.

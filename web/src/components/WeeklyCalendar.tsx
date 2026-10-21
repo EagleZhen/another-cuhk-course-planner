@@ -116,6 +116,7 @@ function dateOfDay(weekStart: Date | null, day: WeekDay): Date | null {
 const CHANGED_HIGHLIGHT_MS = 3100
 
 interface WeeklyCalendarProps {
+  canUseSchedule: boolean
   events: CalendarEvent[]
   unscheduledSections?: UnscheduledSection[]
   courseEnrollments: CourseEnrollment[]
@@ -130,6 +131,7 @@ interface WeeklyCalendarProps {
 }
 
 export default function WeeklyCalendar({
+  canUseSchedule,
   events,
   unscheduledSections = [],
   courseEnrollments,
@@ -261,6 +263,7 @@ export default function WeeklyCalendar({
   }, [selectedEnrollment, events])
 
   const handleScreenshot = async () => {
+    if (!canUseSchedule) return
     if (!calendarRef.current) {
       console.error('Calendar element not found')
       return
@@ -302,6 +305,7 @@ export default function WeeklyCalendar({
   }
 
   const handleExportCalendar = () => {
+    if (!canUseSchedule) return
     if (!selectedTerm) {
       console.error('No term selected for export')
       alert('Please select a term before exporting')
@@ -537,6 +541,7 @@ export default function WeeklyCalendar({
                 <Button
                   variant="ghost"
                   onClick={handleExportCalendar}
+                  disabled={!canUseSchedule}
                   className="gap-2 h-full rounded-none"
                   title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
                 >
@@ -590,7 +595,7 @@ export default function WeeklyCalendar({
               variant="outline"
               size="sm"
               onClick={handleScreenshot}
-              disabled={isCapturing}
+              disabled={!canUseSchedule || isCapturing}
               className="flex items-center gap-2 cursor-pointer"
               title="Download schedule as image"
             >
@@ -622,6 +627,7 @@ export default function WeeklyCalendar({
                   <Button
                     variant="ghost"
                     onClick={handleExportCalendar}
+                    disabled={!canUseSchedule}
                     className="gap-2 h-full rounded-none"
                     title="Export the term schedule as .ics file, which can be imported into Google Calendar, Outlook, etc."
                   >
@@ -675,7 +681,7 @@ export default function WeeklyCalendar({
                 variant="outline"
                 size="sm"
                 onClick={handleScreenshot}
-                disabled={isCapturing}
+                disabled={!canUseSchedule || isCapturing}
                 className="flex items-center gap-1 cursor-pointer flex-shrink-0"
                 title="Download schedule as image"
               >

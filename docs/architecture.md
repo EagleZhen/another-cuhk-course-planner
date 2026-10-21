@@ -39,25 +39,25 @@ Important invariants:
 
 ## Browser State
 
-[page.tsx](../web/src/app/page.tsx) owns global planner state:
+[page.tsx](../web/src/app/page.tsx) composes the saved-schedule owner with catalog and view state:
 
-- current term
+- selected term and owned enrollments from the schedule owner
 - course catalog and its per-year loading state
-- selected subjects
-- enrolled courses and selected sections
-- visibility, conflict, and invalid-course state
-- localStorage restore/save flow
+- subject filters, tentative section selections, and focused enrollment
+- derived calendar/conflict/change information
 - callbacks passed to `CourseSearch`, `WeeklyCalendar`, and `ShoppingCart`
 
-Schedules are stored per term using `schedule_${currentTerm}` keys. The state is restored only after hydration so browser-only APIs do not create SSR/client mismatches.
+[useSavedSchedule](../web/src/hooks/useSavedSchedule.ts) owns each cart’s term, load outcome, contents, and save status. Term changes activate an unread destination or retained unsaved edits; outgoing contents never acquire the destination’s label or storage key. Restore runs on the client, independently of catalog loading.
 
-Restore migrates known `SCHEDULE_DATA_VERSION`s forward via `readStoredEnrollments` in [storedSchedule.ts](../web/src/lib/storedSchedule.ts) rather than wiping on every schema change; only unknown or newer versions clear the cart. Carts hold whole sections, so a change to the section model migrates here too.
+Schedules still use localStorage keys `schedule_${term}` and the existing versioned enrollment format. [storedSchedule.ts](../web/src/lib/storedSchedule.ts) validates the entire record and normalizes supported legacy shapes. Missing storage permits an empty cart; malformed or unsupported data blocks edits and writes. The original bytes remain unchanged and can be downloaded when the read succeeded. No enrollment is silently filtered away.
 
-The version is a readability gate, not a migration selector, and bumping it is not free: a browser still serving a stale bundle would read the newer number as data it cannot understand and clear the cart. So each step instead detects its own applicability from the data — a `lastSynced` that is still a string, a status still spelled `Waitlisted` — which makes re-running one a no-op.
+Only an edit or catalog reconciliation creates a pending save. Writes use the snapshot’s owning term; loading alone never rewrites storage. Intentional emptiness is saved explicitly. Failed saves retain their pending contents across term switches and expose retry/export controls. Reloading or closing can still discard unsaved memory; the tab requests a browser warning while changes remain pending.
 
-Build a version ladder only when a step _cannot_ be made idempotent: a rename whose output is also valid input, say `Wait List` back to `Waitlisted`, where a stored `Waitlisted` could be either the old value or the migrated one. Until then a ladder only adds a version to keep accurate and an order to get wrong.
+Each loaded cart reconciles once per catalog timestamp, only with its owning term and a complete catalog for that year. Missing courses and sections remain visible as invalid choices or tombstones.
 
-Each `(term, scrape time)` pair is synchronized only after that term's cart is restored and its complete catalog is ready. Missing courses or sections are marked invalid instead of silently deleted, so the user can see what changed.
+`SCHEDULE_DATA_VERSION` declares compatibility, even when migrations are idempotent. An incompatible shape needs a new version. Refusing a newer version must preserve its data. The codec preserves unrecognized envelope and payload fields instead of stripping them. This is not a compatibility guarantee for future semantic changes; catalog reconciliation still refreshes course and section snapshots.
+
+**Current limit:** Writes remain last-writer-wins across tabs. Already-running older code can still overwrite or remove these legacy keys. Transactional revision checks and storage isolation are separate, unfinished work.
 
 ## Domain Logic
 

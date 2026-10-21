@@ -21,13 +21,13 @@ import {
   sortSectionsByPriority,
   updateExistingEnrollment,
   pruneReplacedTombstones,
-  syncCart,
   extractAcademicYearCode,
   recordSeenChanges,
   recordSeenSections,
   diffEnrollment,
 } from '@/lib/courseUtils'
-import { readStoredEnrollments } from '@/lib/storedSchedule'
+import { useSavedSchedule } from '@/hooks/useSavedSchedule'
+import ScheduleStorageNotice from '@/components/ScheduleStorageNotice'
 import type {
   InternalCourse,
   CourseEnrollment,
@@ -38,12 +38,14 @@ import type {
 import { analytics } from '@/lib/analytics'
 import { getSubjectTitle } from '@/lib/subjectUtils'
 import { TERMS_BY_YEAR } from '@/lib/generated/terms'
-import { SCHEDULE_DATA_VERSION, DEFAULT_CURRENT_TERM, CURRENT_ACADEMIC_YEAR } from '@/lib/constants'
+import { DEFAULT_CURRENT_TERM, CURRENT_ACADEMIC_YEAR } from '@/lib/constants'
 import { useCourseCatalog } from '@/hooks/useCourseCatalog'
 
 // Color assignment is now handled in courseUtils.ts
 
 // All terms across every published year; TermSelector splits them back by year.
+const EMPTY_ENROLLMENTS: CourseEnrollment[] = []
+
 const availableTerms = Object.values(TERMS_BY_YEAR).flat()
 
 export default function Home() {
@@ -53,16 +55,24 @@ export default function Home() {
   )
 
   // Current term state
-  const [currentTerm, setCurrentTerm] = useState(DEFAULT_CURRENT_TERM)
+  const {
+    cart,
+    unsaved,
+    selectTerm,
+    updateEnrollments: setCourseEnrollments,
+    synchronize,
+    retrySave,
+  } = useSavedSchedule(DEFAULT_CURRENT_TERM)
+  const currentTerm = cart.term
+  const canUseSchedule = cart.status === 'ready'
+  const courseEnrollments = cart.status === 'ready' ? cart.enrollments : EMPTY_ENROLLMENTS
   const selectedYear = extractAcademicYearCode(currentTerm)
   const catalog = useCourseCatalog(selectedYear)
   // Archived = any year other than the live one; its data is a frozen snapshot.
   const isArchivedYear = selectedYear !== CURRENT_ACADEMIC_YEAR
 
-  const [courseEnrollments, setCourseEnrollments] = useState<CourseEnrollment[]>([])
   const [selectedSections, setSelectedSections] = useState<Map<string, string>>(new Map())
   const [selectedEnrollment, setSelectedEnrollment] = useState<string | null>(null)
-  const [restoredTerm, setRestoredTerm] = useState<string | null>(null)
   // TODO(#146): rename to reflect these are toggled subject filters, not selected subjects
   const [selectedSubjects, setSelectedSubjects] = useState<Set<string>>(new Set())
   const [availableSubjects, setAvailableSubjects] = useState<string[]>([])
@@ -77,86 +87,11 @@ export default function Home() {
   const [subjectFiltersByTerm, setSubjectFiltersByTerm] = useState<Map<string, Set<string>>>(
     new Map()
   )
-  const syncedKeysRef = useRef<Set<string>>(new Set())
 
   // Track hydration status and session start
   useEffect(() => {
     setIsHydrated(true)
   }, [])
-
-  // Auto-restore schedule from localStorage when term changes (client-side only)
-  useEffect(() => {
-    // Only run after hydration to prevent SSR/client mismatch
-    if (!isHydrated) return
-
-    try {
-      const savedData = localStorage.getItem(`schedule_${currentTerm}`)
-      if (savedData) {
-        const parsedData = JSON.parse(savedData)
-
-        const parsedSchedule = readStoredEnrollments(parsedData)
-        if (parsedSchedule === null) {
-          console.warn('⚠️ Unloadable schedule data, clearing...')
-          localStorage.removeItem(`schedule_${currentTerm}`)
-          setCourseEnrollments([])
-          setSelectedSections(new Map())
-          return
-        }
-
-        // Validate and migrate enrollment data
-        const migratedSchedule = parsedSchedule
-          .map((enrollment) => {
-            const courseKey = `${enrollment.course.subject}${enrollment.course.courseCode}`
-
-            // Migrate courseId if it's in old format (contains underscore + timestamp)
-            let migratedCourseId = enrollment.courseId
-            if (
-              enrollment.courseId &&
-              enrollment.courseId.includes('_') &&
-              enrollment.courseId !== courseKey
-            ) {
-              console.log(`Migrating courseId: ${enrollment.courseId} → ${courseKey}`)
-              migratedCourseId = courseKey
-            }
-
-            // Validate required fields
-            if (!enrollment.course?.subject || !enrollment.course?.courseCode) {
-              console.warn('⚠️ Invalid enrollment data, skipping:', enrollment)
-              return null
-            }
-
-            return {
-              ...enrollment,
-              courseId: migratedCourseId, // Use migrated courseId
-              color: getDeterministicColor(courseKey), // Regenerate color for consistency
-              isVisible: enrollment.isVisible ?? true, // Default to visible if undefined
-            }
-          })
-          .filter(Boolean) // Remove invalid enrollments
-
-        setCourseEnrollments(migratedSchedule as CourseEnrollment[])
-        console.debug(`Restored ${migratedSchedule.length} enrollments for ${currentTerm}`)
-      } else {
-        // No saved schedule for this term, start fresh
-        setCourseEnrollments([])
-      }
-      // Clear section selections when switching terms
-      setSelectedSections(new Map())
-
-      // Restore subject filters from session state (term-specific)
-      const termFilters = subjectFiltersByTerm.get(currentTerm) || new Set()
-      setSelectedSubjects(termFilters)
-    } catch (error) {
-      console.error('Failed to restore schedule:', error)
-      // Clear corrupted localStorage data
-      localStorage.removeItem(`schedule_${currentTerm}`)
-      setCourseEnrollments([])
-      setSelectedSubjects(new Set())
-    } finally {
-      setRestoredTerm(currentTerm)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- subjectFiltersByTerm would cause infinite loop
-  }, [currentTerm, isHydrated])
 
   // Save subject filters to session state whenever they change
   useEffect(() => {
@@ -187,31 +122,6 @@ export default function Home() {
       }
     }
   }, [courseEnrollments, selectedEnrollment])
-
-  // Auto-save schedule to localStorage whenever courseEnrollments changes
-  // Only after hydration to prevent deleting data on initial load
-  useEffect(() => {
-    // Don't save/delete during initial hydration
-    if (!isHydrated) return
-
-    try {
-      if (courseEnrollments.length > 0) {
-        const scheduleData = {
-          version: SCHEDULE_DATA_VERSION,
-          enrollments: courseEnrollments,
-          savedAt: new Date().toISOString(),
-        }
-        localStorage.setItem(`schedule_${currentTerm}`, JSON.stringify(scheduleData))
-        console.debug(`Saved ${courseEnrollments.length} enrollments for ${currentTerm}`)
-      } else {
-        // Only remove if we're sure this is intentional (after hydration)
-        localStorage.removeItem(`schedule_${currentTerm}`)
-        console.debug(`Cleared empty schedule for ${currentTerm}`)
-      }
-    } catch (error) {
-      console.error('Failed to save schedule:', error)
-    }
-  }, [courseEnrollments, currentTerm, isHydrated])
 
   // Convert enrollments to calendar events with conflict detection
   const calendarEvents = useMemo(() => {
@@ -245,16 +155,20 @@ export default function Home() {
     }
   }, [calendarEvents, lastResolutionMethod])
 
-  // Handle term change - localStorage will handle schedule restoration
+  // The owner changes term and load state together; outgoing edits keep their destination.
   const handleTermChange = (newTerm: string) => {
     // Track term access for planning behavior analysis
     analytics.termAccessed(newTerm)
 
-    setCurrentTerm(newTerm)
-    // localStorage useEffect will automatically restore/clear schedule for new term
+    if (newTerm === currentTerm) return
+    selectTerm(newTerm)
+    setSelectedSections(new Map())
+    setSelectedEnrollment(null)
+    setSelectedSubjects(subjectFiltersByTerm.get(newTerm) ?? new Set())
   }
 
   const handleToggleVisibility = (enrollmentId: string) => {
+    if (!canUseSchedule) return
     // Check if there are conflicts and we're hiding a course (for conflict resolution tracking)
     const hasConflicts = calendarEvents.some((event) => event.hasConflict)
     const targetEnrollment = courseEnrollments.find((e) => e.courseId === enrollmentId)
@@ -341,6 +255,7 @@ export default function Home() {
   }
 
   const handleRemoveCourse = (enrollmentId: string) => {
+    if (!canUseSchedule) return
     // Check if there are conflicts before removal (for conflict resolution tracking)
     const hasConflicts = calendarEvents.some((event) => event.hasConflict)
     if (hasConflicts) {
@@ -360,6 +275,7 @@ export default function Home() {
   }
 
   const handleSectionChange = (enrollmentId: string, sectionType: string, newSectionId: string) => {
+    if (!canUseSchedule) return
     // Check if there are conflicts before section change (for conflict resolution tracking)
     const hasConflicts = calendarEvents.some((event) => event.hasConflict)
     if (hasConflicts) {
@@ -396,6 +312,7 @@ export default function Home() {
   }
 
   const handleDismissAllChanges = () => {
+    if (!canUseSchedule) return
     setCourseEnrollments((prev) => prev.map(recordSeenChanges))
   }
 
@@ -405,6 +322,7 @@ export default function Home() {
     localSelections: Map<string, string>,
     noConflictActive: boolean
   ) => {
+    if (!canUseSchedule || termName !== currentTerm) return
     const courseKey = `${course.subject}${course.courseCode}`
 
     // Convert local selections to actual section objects directly
@@ -428,41 +346,30 @@ export default function Home() {
     // localSelections is keyed in user-click order; canonicalize before storing
     const orderedSections = sortSectionsByPriority(selectedSectionsForCourse, course, termName)
 
-    // Check if course is already enrolled
-    const existingEnrollmentIndex = courseEnrollments.findIndex(
-      (enrollment) =>
-        enrollment.course.subject === course.subject &&
-        enrollment.course.courseCode === course.courseCode
-    )
-
-    if (existingEnrollmentIndex >= 0) {
-      // Update existing enrollment with new sections
-      setCourseEnrollments((prev) =>
-        prev.map((enrollment, index) =>
-          index === existingEnrollmentIndex
+    setCourseEnrollments((previous) => {
+      const existing = previous.findIndex(
+        (enrollment) =>
+          enrollment.course.subject === course.subject &&
+          enrollment.course.courseCode === course.courseCode
+      )
+      if (existing >= 0) {
+        return previous.map((enrollment, index) =>
+          index === existing
             ? recordSeenSections(updateExistingEnrollment(enrollment, course, orderedSections), {
                 onlyMissing: true,
               })
             : enrollment
         )
-      )
-    } else {
-      // Add new enrollment
-      const assignedColor = getDeterministicColor(courseKey)
-
-      const newEnrollment: CourseEnrollment = {
+      }
+      const enrollment: CourseEnrollment = {
         courseId: courseKey,
         course,
         selectedSections: orderedSections,
-        color: assignedColor,
+        color: getDeterministicColor(courseKey),
         isVisible: true,
       }
-
-      setCourseEnrollments((prev) => [
-        ...prev,
-        recordSeenSections(newEnrollment, { onlyMissing: true }),
-      ])
-    }
+      return [...previous, recordSeenSections(enrollment, { onlyMissing: true })]
+    })
 
     // Track course enrollment for product analytics
     analytics.courseAdded(
@@ -483,18 +390,24 @@ export default function Home() {
   }
 
   useEffect(() => {
-    if (catalog.status !== 'ready' || !catalog.scrapedAt || restoredTerm !== currentTerm) return
-
-    const scrapedAt = catalog.scrapedAt
-    const key = `${currentTerm}|${scrapedAt.toISOString()}`
-    if (syncedKeysRef.current.has(key)) return
-    syncedKeysRef.current.add(key)
-
-    console.debug(`Syncing ${currentTerm} cart with catalog from ${scrapedAt.toISOString()}`)
-    setCourseEnrollments((enrollments) =>
-      syncCart(enrollments, catalog.courses, currentTerm, scrapedAt)
-    )
-  }, [currentTerm, restoredTerm, catalog.status, catalog.scrapedAt, catalog.courses])
+    if (
+      cart.status === 'ready' &&
+      catalog.status === 'ready' &&
+      catalog.scrapedAt &&
+      catalog.year === selectedYear
+    ) {
+      synchronize(catalog.courses, catalog.scrapedAt)
+    }
+  }, [
+    cart.status,
+    currentTerm,
+    catalog.status,
+    catalog.scrapedAt,
+    catalog.courses,
+    catalog.year,
+    selectedYear,
+    synchronize,
+  ])
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -590,6 +503,13 @@ export default function Home() {
       )}
 
       <div className="container mx-auto px-4 py-2">
+        <ScheduleStorageNotice
+          key={cart.term}
+          cart={cart}
+          unsaved={unsaved}
+          onSelectTerm={handleTermChange}
+          onRetrySave={retrySave}
+        />
         {/* Top Section - Calendar + Shopping Cart */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 max-w-7xl mx-auto mb-4">
           {/* Calendar (3/4 width - more space) */}
@@ -598,6 +518,7 @@ export default function Home() {
                 can't bleed over the page's sticky reference bar */}
             <div className="h-[800px] isolate">
               <WeeklyCalendar
+                canUseSchedule={canUseSchedule}
                 events={calendarEvents}
                 unscheduledSections={getUnscheduledSections(courseEnrollments)}
                 courseEnrollments={courseEnrollments}
@@ -613,19 +534,29 @@ export default function Home() {
 
           {/* Shopping Cart (1/4 width - more compact) */}
           <div>
-            <ShoppingCart
-              courseEnrollments={courseEnrollments}
-              calendarEvents={calendarEvents}
-              selectedEnrollment={selectedEnrollment}
-              currentTerm={currentTerm}
-              onToggleVisibility={handleToggleVisibility}
-              onRemoveCourse={handleRemoveCourse}
-              onSelectEnrollment={handleSelectEnrollment}
-              onSectionChange={handleSectionChange}
-              onShowCourseDetails={handleShowCourseDetails}
-              sectionChanges={sectionChanges}
-              onDismissAllChanges={handleDismissAllChanges}
-            />
+            {canUseSchedule ? (
+              <ShoppingCart
+                courseEnrollments={courseEnrollments}
+                calendarEvents={calendarEvents}
+                selectedEnrollment={selectedEnrollment}
+                currentTerm={currentTerm}
+                onToggleVisibility={handleToggleVisibility}
+                onRemoveCourse={handleRemoveCourse}
+                onSelectEnrollment={handleSelectEnrollment}
+                onSectionChange={handleSectionChange}
+                onShowCourseDetails={handleShowCourseDetails}
+                sectionChanges={sectionChanges}
+                onDismissAllChanges={handleDismissAllChanges}
+              />
+            ) : (
+              <Card data-shopping-cart className="p-4">
+                <p role="status">
+                  {cart.status === 'loading'
+                    ? 'Loading your schedule…'
+                    : 'Saved schedule unavailable.'}
+                </p>
+              </Card>
+            )}
           </div>
         </div>
 
@@ -738,6 +669,7 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <CourseSearch
+                canUseSchedule={canUseSchedule}
                 catalog={catalog}
                 onAddCourse={handleAddCourse} // Event handler prop
                 onRemoveCourse={handleRemoveCourse} // Event handler prop
