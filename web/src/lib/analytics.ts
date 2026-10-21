@@ -12,6 +12,45 @@ const track = (event: string, properties?: Record<string, unknown>) => {
 }
 
 export const analytics = {
+  // Failures only. Callers deduplicate unresolved episodes; analytics must never block saving.
+  scheduleStorageProblem: (problem: {
+    operation: 'restore' | 'save'
+    reason: 'read_failed' | 'invalid_data' | 'unsupported_version' | 'write_failed'
+    term: string
+    version?: number
+    error?: unknown
+  }) => {
+    const { error, ...details } = problem
+    const context = {
+      operation: details.operation,
+      reason: details.reason,
+      term: details.term,
+      stored_version: details.version,
+      build_id: process.env.NEXT_PUBLIC_BUILD_ID ?? 'unknown',
+    }
+    try {
+      const expectedRefusal =
+        typeof error === 'object' &&
+        error !== null &&
+        'name' in error &&
+        typeof error.name === 'string' &&
+        ['SecurityError', 'QuotaExceededError'].includes(error.name)
+      if (
+        !expectedRefusal &&
+        (details.reason === 'read_failed' || details.reason === 'write_failed')
+      ) {
+        posthog.captureException(
+          error instanceof Error ? error : new Error('Schedule storage failed'),
+          { error_context: 'schedule_storage', ...context }
+        )
+      } else {
+        posthog.capture('schedule_storage_blocked', context)
+      }
+    } catch {
+      // Reporting is best effort; the original data and unsaved edits remain authoritative.
+    }
+  },
+
   // === HYPOTHESIS 1: "App Helps People Plan Schedules" ===
 
   // Track section cycling → validates scheduling utility value

@@ -4,6 +4,7 @@ import { useCallback, useEffect, useReducer, useRef } from 'react'
 import type { CourseEnrollment, InternalCourse } from '@/lib/types'
 import { getDeterministicColor, syncCart } from '@/lib/courseUtils'
 import { readStoredEnrollments, serializeStoredSchedule } from '@/lib/storedSchedule'
+import { analytics } from '@/lib/analytics'
 
 export type ReadySchedule = {
   term: string
@@ -11,6 +12,7 @@ export type ReadySchedule = {
   enrollments: CourseEnrollment[]
   envelope: Record<string, unknown>
   saveStatus: 'saved' | 'pending' | 'failed'
+  saveError?: unknown
   catalogStamp?: string
 }
 export type SavedSchedule =
@@ -21,6 +23,7 @@ export type SavedSchedule =
       reason: 'read_failed' | 'invalid_data' | 'unsupported_version'
       raw?: string
       version?: number
+      error?: unknown
     }
   | ReadySchedule
 
@@ -30,7 +33,7 @@ type Action =
   | { type: 'loaded'; cart: SavedSchedule }
   | { type: 'edit'; term: string; update: (previous: CourseEnrollment[]) => CourseEnrollment[] }
   | { type: 'sync'; term: string; courses: InternalCourse[]; scrapedAt: Date }
-  | { type: 'save-result'; snapshot: ReadySchedule; outcome: 'saved' | 'failed' }
+  | { type: 'save-result'; snapshot: ReadySchedule; outcome: 'saved' | 'failed'; error?: unknown }
   | { type: 'retry'; term: string }
 
 export function createScheduleState(term: string): ScheduleState {
@@ -59,7 +62,7 @@ export function scheduleReducer(state: ScheduleState, action: Action): ScheduleS
         ? state
         : {
             ...state,
-            active: { ...cart, enrollments, saveStatus: 'pending' },
+            active: { ...cart, enrollments, saveStatus: 'pending', saveError: undefined },
           }
     }
     case 'sync': {
@@ -79,7 +82,7 @@ export function scheduleReducer(state: ScheduleState, action: Action): ScheduleS
     }
     case 'save-result': {
       const pending = { ...state.pending }
-      const result = { ...action.snapshot, saveStatus: action.outcome }
+      const result = { ...action.snapshot, saveStatus: action.outcome, saveError: action.error }
       if (pending[action.snapshot.term] === action.snapshot) {
         if (action.outcome === 'saved') delete pending[action.snapshot.term]
         else pending[action.snapshot.term] = result
@@ -90,7 +93,7 @@ export function scheduleReducer(state: ScheduleState, action: Action): ScheduleS
     }
     case 'retry':
       return cart.term === action.term && cart.status === 'ready' && cart.saveStatus === 'failed'
-        ? { ...state, active: { ...cart, saveStatus: 'pending' } }
+        ? { ...state, active: { ...cart, saveStatus: 'pending', saveError: undefined } }
         : state
   }
 }
@@ -99,8 +102,8 @@ function loadSchedule(term: string): SavedSchedule {
   let raw: string | null
   try {
     raw = localStorage.getItem(`schedule_${term}`)
-  } catch {
-    return { term, status: 'blocked', reason: 'read_failed' }
+  } catch (error) {
+    return { term, status: 'blocked', reason: 'read_failed', error }
   }
   if (raw === null)
     return {
@@ -138,6 +141,7 @@ export function useSavedSchedule(initialTerm: string) {
   const [state, dispatch] = useReducer(scheduleReducer, initialTerm, createScheduleState)
   const cart = state.active
   const attempted = useRef(new WeakSet<ReadySchedule>())
+  const reported = useRef(new Set<string>())
 
   useEffect(() => {
     if (cart.status === 'loading') dispatch({ type: 'loaded', cart: loadSchedule(cart.term) })
@@ -154,8 +158,8 @@ export function useSavedSchedule(initialTerm: string) {
         serializeStoredSchedule(cart.enrollments, cart.envelope)
       )
       dispatch({ type: 'save-result', snapshot: cart, outcome: 'saved' })
-    } catch {
-      dispatch({ type: 'save-result', snapshot: cart, outcome: 'failed' })
+    } catch (error) {
+      dispatch({ type: 'save-result', snapshot: cart, outcome: 'failed', error })
     }
   }, [cart])
 
@@ -166,6 +170,31 @@ export function useSavedSchedule(initialTerm: string) {
   }
   const unsaved = Object.values(pending)
   const hasUnsaved = unsaved.length > 0
+
+  useEffect(() => {
+    const problems =
+      cart.status === 'blocked'
+        ? [cart]
+        : Object.values(state.pending).concat(cart.status === 'ready' ? [cart] : [])
+    for (const problem of problems) {
+      if (problem.status === 'ready' && problem.saveStatus !== 'failed') continue
+      const reason = problem.status === 'blocked' ? problem.reason : 'write_failed'
+      const operation = problem.status === 'blocked' ? 'restore' : 'save'
+      const key = `${operation}|${problem.term}`
+      if (reported.current.has(key)) continue
+      reported.current.add(key)
+      analytics.scheduleStorageProblem({
+        operation,
+        reason,
+        term: problem.term,
+        version: problem.status === 'blocked' ? problem.version : undefined,
+        error: problem.status === 'blocked' ? problem.error : problem.saveError,
+      })
+    }
+    if (cart.status === 'ready') reported.current.delete(`restore|${cart.term}`)
+    if (cart.status === 'ready' && cart.saveStatus === 'saved')
+      reported.current.delete(`save|${cart.term}`)
+  }, [cart, state.pending])
 
   useEffect(() => {
     if (!hasUnsaved) return

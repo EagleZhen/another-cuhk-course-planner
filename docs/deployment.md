@@ -48,6 +48,10 @@ The check replaces `out/`; deploy with `npm run build`. CI runs it before Chromi
 
 See [decisions.md](decisions.md#posthog-over-vercel-analytics) for the analytics provider rationale.
 
+### Storage failures
+
+The saved-schedule owner reports each unresolved failure once per operation and term. Anticipated refusals (unsupported or malformed data, denied access, and quota exhaustion) emit `schedule_storage_blocked`; unexpected exceptions go to Error Tracking with `error_context: schedule_storage`. Context includes operation, reason, term, known stored version, and the executing bundle’s build ID. Schedule contents are never attached. Successful autosaves emit no event, and reporting failures cannot interrupt persistence.
+
 ## Re-Showing the Mobile Notice
 
 To show the mobile desktop-preview notice again to all users (e.g., for a promotion), bump `NOTICE_VERSION` in [web/src/lib/constants.ts](../web/src/lib/constants.ts) and deploy. Users store the version they dismissed, so a new version re-triggers the notice once per user.
