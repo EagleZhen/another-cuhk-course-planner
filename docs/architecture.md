@@ -66,7 +66,7 @@ Each loaded cart reconciles once per catalog timestamp, only with its owning ter
 
 `SCHEDULE_DATA_VERSION` declares compatibility, even when migrations are idempotent. An incompatible shape needs a new version. Refusing a newer version must preserve its data. The codec preserves unrecognized envelope and payload fields instead of stripping them. This is not a compatibility guarantee for future semantic changes; catalog reconciliation still refreshes course and section snapshots.
 
-**Limits:** Legacy tabs can still damage legacy keys, but adopted schedules are isolated from those writes. Later legacy edits remain a separate fork; they are not automatically merged. Backups within the same browser do not survive site-data clearing or device loss. Historical-build coexistence needs separate coverage from current-build transaction tests.
+**Limits:** Legacy tabs can still damage legacy keys, but adopted schedules are isolated from those writes. Later legacy edits remain a separate fork; they are not automatically merged. Backups within the same browser do not survive site-data clearing or device loss. The separate historical-build suite reproduces legacy loss and checks adopted carts against frozen old-tab reentry, edits, and clearing.
 
 ## Domain Logic
 

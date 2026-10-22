@@ -32,3 +32,19 @@ Note: Playwright's WebKit is not real Safari.app and does not reproduce every Sa
 Storage fixtures seed legacy localStorage once per browser session; adoption copies them to IndexedDB. Assert saves with [`readSavedEnrollments`](helpers/schedule.ts), which reads canonical records through the real payload codec. Never fall back to legacy data in a save assertion or reseed missing data on reload.
 
 Storage-safety specs audit every attempted legacy write/removal. Transaction specs exercise native IndexedDB aborts, competing revisions, adoption, and connection changes in both browsers. Assert authoritative records and downloaded contents: eventual correct UI can conceal a destructive intermediate write. Historical/current-build coexistence is separate coverage; these specs run the current build.
+
+## Historical storage compatibility
+
+Run from `web/`:
+
+```bash
+npm run build
+npm run build:historical-schedules
+npm run test:compat
+```
+
+This separate suite freezes two peers: `7c32e3dc` (numeric credits) and `728ade84b` (range credits, unsafe legacy writer). The builder archives their pinned Git sources and installs each lockfile separately. Missing commits are fetched from `origin`; HEAD stays unchanged. Exports live in ignored `.cache/schedule-compat/`; removing that directory rebuilds them. The fixture manifest identifies the source revision; analytics build IDs can inherit the enclosing checkout’s identity.
+
+Per-page routes serve each production export on the same origin, including later asset requests. Tabs share real browser storage and retain different JavaScript. No HMR or real analytics requests are involved. Carts come from the historical Add flow, without storage seeding.
+
+The baseline proves deletion and the credits crash. Protected cases verify old reentry, edits, and clearing cannot change an adopted cart or resurrect an intentionally empty one. Reload does not reseed. CI runs both suites in Chromium and WebKit; ordinary E2E runs exclude the historical suite.

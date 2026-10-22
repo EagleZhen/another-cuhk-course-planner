@@ -39,3 +39,6 @@ skills-lock.json
 # Temporary plan files
 /docs/plans
 /docs/superpowers/
+
+# Frozen production exports for storage compatibility tests
+/.cache/schedule-compat/

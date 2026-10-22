@@ -6,6 +6,7 @@ const serverURL = 'http://127.0.0.1:3000'
 
 export default defineConfig({
   testDir: './e2e',
+  testIgnore: '**/historical-schedule.spec.ts',
   fullyParallel: true,
   workers: isCI ? 2 : undefined,
   // A committed `test.only` would leave CI green having run one test.

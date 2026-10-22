@@ -9,6 +9,8 @@
     "dev": "next dev --turbopack",
     "build": "next build && node scripts/finalize-source-maps.mts",
     "start": "serve out --listen tcp://127.0.0.1:3000 --no-clipboard",
+    "build:historical-schedules": "node scripts/build-historical-schedules.mts",
+    "test:compat": "playwright test --config playwright.compat.config.ts",
     "typecheck": "tsc --noEmit && tsc --noEmit -p functions/tsconfig.json",
     "lint": "eslint .",
     "test": "vitest run",

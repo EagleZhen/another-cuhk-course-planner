@@ -14,3 +14,6 @@ web/next-env.d.ts
 /.pytest_cache/
 **/node_modules/
 **/package-lock.json
+
+# Frozen production exports for storage compatibility tests
+/.cache/schedule-compat/
