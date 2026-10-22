@@ -219,6 +219,55 @@ test('a failed replacement load keeps the confirmed local edits available', asyn
     notice(other).getByRole('button', { name: 'Download changes', exact: true })
   ).toBeVisible()
   await expect(cart(other).getByText('No courses enrolled', { exact: true })).toBeVisible()
+  await expect(
+    notice(other).getByRole('button', { name: 'Discard edits and load saved version', exact: true })
+  ).toHaveCount(0)
+  expect(await readScheduleRecords(page, term)).toEqual(before)
+})
+
+test('a transient replacement read failure remains recoverable without discarding local edits', async ({
+  page,
+  context,
+}) => {
+  await open(page)
+  const other = await context.newPage()
+  await open(other)
+  await cart(page).getByTitle('Hide course', { exact: true }).click()
+  await expect.poll(() => readSavedEnrollments(page, term)).toMatchObject([{ isVisible: false }])
+  await cart(other).getByTitle('Remove course', { exact: true }).click()
+  await expect(notice(other)).toContainText('changed in another tab')
+  const before = await readScheduleRecords(page, term)
+  await other.evaluate(() => {
+    const get = IDBObjectStore.prototype.get
+    window.restoreScheduleReads = () => {
+      IDBObjectStore.prototype.get = get
+    }
+    IDBObjectStore.prototype.get = function (...args) {
+      if (this.name === 'schedules')
+        throw new DOMException('Test temporary read failure', 'UnknownError')
+      return Reflect.apply(get, this, args)
+    }
+  })
+  const replace = notice(other).getByRole('button', {
+    name: 'Discard edits and load saved version',
+    exact: true,
+  })
+  other.once('dialog', (dialog) => dialog.accept())
+  await replace.click()
+  await expect(notice(other)).not.toContainText('changed in another tab')
+  await expect(replace).toBeVisible()
+  await expect(cart(other).getByText('No courses enrolled', { exact: true })).toBeVisible()
+  await expect(
+    notice(other).getByRole('button', { name: 'Try saving again', exact: true })
+  ).toHaveCount(0)
+  expect((await downloadJson(other, 'Download changes')).enrollments).toEqual([])
+  expect(await readScheduleRecords(page, term)).toEqual(before)
+
+  await other.evaluate(() => window.restoreScheduleReads())
+  other.once('dialog', (dialog) => dialog.accept())
+  await replace.click()
+  await expect(cart(other).getByTitle('Show course', { exact: true })).toBeVisible()
+  await expect(notice(other)).toHaveCount(0)
   expect(await readScheduleRecords(page, term)).toEqual(before)
 })
 
@@ -387,6 +436,7 @@ test('continued conflict edits stay local and replacement requires an explicit d
 
 declare global {
   interface Window {
+    restoreScheduleReads: () => void
     scheduleLoadGate: { hold: boolean; waiting: boolean }
     scheduleCommitGate: { hold: boolean; waiting: boolean }
     terminateScheduleDatabase: () => void

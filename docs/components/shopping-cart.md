@@ -72,6 +72,6 @@ Credits come from the course, not its sections. Sum both ends of credit ranges: 
 
 ## Schedule availability
 
-The cart keeps its normal frame while its owned schedule loads. A spinner marks loading; counts and empty-cart messages appear only after a successful read. Blocked reads show an unavailable state. The storage notice offers original-data export for blocked reads and retry/export for unsaved edits. Switching terms retains those edits.
+The cart keeps its normal frame while its owned schedule loads. A spinner marks loading; counts and empty-cart messages appear only after a successful read. Blocked reads show an unavailable state. The notice offers original-data export when raw data was captured, and recovery export for blocked canonical records. A failed initial database read may offer neither. Failed or refused edits stay downloadable across term switches. Failed saves offer retry.
 
-A conflict pauses autosave while editing continues. The notice states that changes are not being saved. Discarding edits requires confirmation and a successful replacement read; newer local edits cancel that replacement. The storage-problem notice also offers a recovery download of saved current, previous, and original data. Healthy carts show no recovery controls.
+A conflict pauses autosave while editing continues. The notice states that changes are not being saved. Discarding edits requires confirmation and a successful replacement read; newer local edits cancel that replacement. A transient replacement-read failure preserves edits and allows another confirmed load attempt. The storage-problem notice also offers a recovery download of saved current, previous, and original data. Healthy carts show no recovery controls.

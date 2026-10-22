@@ -92,12 +92,16 @@ export default function ScheduleStorageNotice({
           {schedule.saveStatus === 'refused' && (
             <p>You can keep editing here. Download your changes before closing this tab.</p>
           )}
+          {schedule.saveProblem?.reason === 'read_failed' && (
+            <p>The saved version could not be read. You can try loading it again.</p>
+          )}
           <div className="flex flex-wrap gap-2">
             {schedule.term !== cart.term ? (
               <Button variant="ghost-warning" size="sm" onClick={() => onSelectTerm(schedule.term)}>
                 View unsaved schedule
               </Button>
-            ) : schedule.saveProblem?.reason === 'revision_conflict' ? (
+            ) : schedule.saveProblem?.reason === 'revision_conflict' ||
+              schedule.saveProblem?.reason === 'read_failed' ? (
               <Button
                 variant="ghost-warning"
                 size="sm"
