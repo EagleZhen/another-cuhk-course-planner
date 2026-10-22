@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "ENGE",
     "subject_title": "English",
-    "total_courses": 46
+    "total_courses": 45
   },
   "courses": [
     {
@@ -500,33 +500,6 @@
       "feedback_evaluation": "Students will be asked to complete Course Evaluations for the course at the end of the semester. Comments and suggestions about the course content, teaching method and learning tasks are most welcome at any time during the semester.",
       "required_readings": "Burns, Anne. 2019. Action Research in English Language Teaching: Contributions and Recent Developments. In *Second Handbook of English Language Teaching* [Springer International Handbooks of Education], Xuesong Gao (ed), 991-1005. Cham: Springer International Publishing, https://doi.org/10.1007/978-3-030-02899-2\\_52\n\nMallinson, Christine, Childs, Becky & Van Herk, Gerard. 2017. Data Collection in Sociolinguistics, 348.\n\nMcKinley, Jim & Rose, Heath (eds). 2020. *The Routledge Handbook of Research Methods in Applied Linguistics*. 1st ed. New York : Taylor and Francis, 2020. | Series: Routledge handbooks in applied linguistics: Routledge, https://doi.org/10.4324/9780367824471\n\nMizumoto, Atsushi & Plonsky, Luke. 2016. R as a Lingua Franca: Advantages of Using R for Quantitative Research in Applied Linguistics. *Applied Linguistics* 37(2): 284-91, https://doi.org/10.1093/applin/amv025\n\nPaltridge, Brian & Phakiti, Aek (eds). 2018. *Research Methods in Applied Linguistics : A Practical Resource*. *Research methods in applied linguistics : a practical resource* [Research Methods in Linguistics Series]. London: Bloomsbury Academic.",
       "recommended_readings": ""
-    },
-    {
-      "subject": "ENGE",
-      "course_code": "3940",
-      "title": "AI and Language",
-      "credits": "3.00",
-      "terms": [],
-      "description": "In this course, students will delve into the relationship between artificial intelligence (AI) and human language. The course will primarily focus on English, while also challenging students to think critically about the relevance of the course material to their own languages or languages of interest. The course takes a multi-faceted approach, combining lectures, presentations, and hands-on activities to equip students with a solid understanding of AI fundamentals. As the course progresses, students will explore how computers process and generate human language, as well as how AI can be used to analyze language data. Ultimately, they will critically evaluate various AI-based techniques, while applying them to investigate key questions about human language. The course curriculum includes modules on language and computers, learner corpora, text preprocessing, speech-to-text, data visualization, and more.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of English",
-      "academic_org": "Dept of English",
-      "learning_outcomes": "By the end of the course, students are expected to:\n• develop a conceptual and functional understanding of AI;\n• be able to make use of AI-based techniques/applications to explore key issues related to human language,\nespecially those related to English;\n• be able to think critically and creatively about the pros and cons of individual AI-based techniques/applications;\nand\n• develop/improve their critical thinking skills while engaging in self-reflections and discussions on important\nissues of their interest.",
-      "course_syllabus": "| Week | Lecture Title | Reading | Topics |\n| --- | --- | --- | --- |\n| 1 | Introduction to the course *What is AI?* | Russell & Norvig (2020): Chapter 1 | AI |\n| 2 | Role of language in image/video generation Do language expressions matter in image/video generation? | Elasri et al. (2022) | image generation, video generation |\n| 3 | Language processing in humans (vs. computers) *How do humans process language?* | Sedivy (2020): Chapter 9 | human language processing mechanisms |\n| 4 | Language processing in computers (vs. humans) *How do computers process language?* | Lecture slides | language models, transformer architecture |\n| 5 | Language processing: Comparison among different generative AIs *Which generative large language model is best?* | [https://medium.com/@harsh.vardhan7695/](https://medium.com/%40harsh.vardhan7695/) top-10-llms-model-e4d8c2c440bd | large language models, GPT, BERT, Llama, Palm |\n| 6 | Important words: Frequency and word cloud *The more frequent, the more important?* | Gries & Ellis (2015) | token frequency, type frequency, log transformation, word cloud |\n| 7 | Proficient use of words: Lexical diversity *Proficient language users may show a greater variety of words in their production!* | Zenker & Kyle (2021) | lexical diversity, type-token ratio, moving-window type-token ratio |\n| 8 | Emotions: Sentiment analysis *Can AI understand our emotions?* | https://[www.analyticsvidhya.com/blog/](http://www.analyticsvidhya.com/blog/) 2021/06/nlp-sentiment-analysis | sentiment, positive, neutral, negative |\n| 9 | Topics: Hierarchical clustering *Are there any hidden topics in your data?* | Lecture slides | topic, topic modeling, clustering |\n| 10 | Text to plots: Data visualization *How can AI improve the way we visualize and understand our data?* | Lecture slides | bar plot, line plot |\n| 11 | Project presentation *How can you use AI for your academic interests?* | | |\n| 12 | Prompt engineering Are web platforms sufficient for all AI applications? | Giray (2023) | generative AI, prompt, prompt engineering, in-context learning |\n| 13 | Final exam | | |",
-      "assessment_types": {
-        "Attendance": "10",
-        "Essay test or exam": "40",
-        "Homework or assignment": "40",
-        "Participation": "10"
-      },
-      "feedback_evaluation": "Students will receive detailed feedback on their assignments. They can also contact the instructor via diverse\nchannels, such as emails and meetings.",
-      "required_readings": "• Russell, S., & Norvig, P. (2020). *Artificial Intelligence: A Modern Approach (4th edition)*. Hoboken, NJ: Pearson.\nWeek 1: AI and its impact in our life\n• Elasri, M., Elharrouss, O., Al-Maadeed, S., & Tairi, H. (2022). Image generation: A review. *Neural Processing\nLetters, 54,* 4609–4646.\nWeek 2: image generation, video generation\n• Sedivy, J. (2020). *Language in mind: An introduction to psycholinguistics* (2nd ed.). New York, NY: Oxford\nUniversity Press.\nWeek 3: human language processing mechanisms\n• https://medium.com/@harsh.vardhan7695/top-10-llms-model-e4d8c2c440bd\nWeek 5: large language models, GPT, BERT, Llama, Palm\n• Gries, S. T., & Ellis, N. C. (2015). Statistical measures for usage‐based linguistics. *Language Learning, 65,*\n228–255.\nWeek 6: token frequency, type frequency, log transformation, word cloud\n• Zenker, F., & Kyle, K. (2021). Investigating minimum text lengths for lexical diversity indices. *Assessing Writing,\n47,* 100505.\nWeek 7: lexical diversity, type-token ratio, moving-window type-token ratio\n• https://www.analyticsvidhya.com/blog/2021/06/nlp-sentiment-analysis\nWeek 8: sentiment, positive, neutral, negative\n• Giray, L. (2023). Prompt engineering with ChatGPT: a guide for academic writers. *Annals of biomedical\nengineering, 51*, 2629–2633.\nWeek 12: prompt, prompt engineering, in-context learning\n\nNotes: All reading resources are available on our library website. The reading material may be altered to ensure that students have access to the most current and approachable information.",
-      "recommended_readings": "Posts available at https://lastweekin.ai/"
     },
     {
       "subject": "ENGE",

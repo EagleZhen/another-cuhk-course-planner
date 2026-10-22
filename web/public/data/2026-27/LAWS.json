@@ -28,7 +28,7 @@
               ],
               "availability": {
                 "capacity": "100",
-                "enrolled": "120",
+                "enrolled": "119",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -112,10 +112,10 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "24",
+                "enrolled": "23",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -188,7 +188,7 @@
               ],
               "availability": {
                 "capacity": "125",
-                "enrolled": "146",
+                "enrolled": "145",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -242,11 +242,11 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "25",
+                "enrolled": "24",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": ""
@@ -563,6 +563,39 @@
               },
               "class_attributes": "English only",
               "enrollment_requirement": ""
+            },
+            {
+              "section": "-T06-TUT (10015)",
+              "meetings": [
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 4:30PM - 5:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -610,7 +643,7 @@
               ],
               "availability": {
                 "capacity": "125",
-                "enrolled": "145",
+                "enrolled": "144",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -685,11 +718,11 @@
               ],
               "availability": {
                 "capacity": "25",
-                "enrolled": "25",
+                "enrolled": "24",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": ""
@@ -1009,6 +1042,39 @@
               },
               "class_attributes": "English only",
               "enrollment_requirement": ""
+            },
+            {
+              "section": "-T06-TUT (10014)",
+              "meetings": [
+                {
+                  "time": "Tu 3:30PM - 4:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 3:30PM - 4:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 3:30PM - 4:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
@@ -1205,6 +1271,39 @@
                   "location": "Lee Shau Kee Building 212",
                   "instructor": "Professor Asif HAMEED",
                   "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "-T05-TUT (10013)",
+              "meetings": [
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 5:30PM - 6:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
               ],
               "availability": {
@@ -6272,11 +6371,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "70",
+                "enrolled": "69",
                 "waitlist_capacity": "9999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": ""
@@ -6372,11 +6471,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "70",
+                "enrolled": "69",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": ""
@@ -7536,11 +7635,11 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "70",
+                "enrolled": "69",
                 "waitlist_capacity": "9999",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": ""

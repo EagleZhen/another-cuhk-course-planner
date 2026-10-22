@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "ENGE",
     "subject_title": "English",
-    "total_courses": 68
+    "total_courses": 69
   },
   "courses": [
     {
@@ -9049,6 +9049,201 @@
         "Essays": "40",
         "Others": "30",
         "Report": "30"
+      }
+    },
+    {
+      "subject": "ENGE",
+      "course_code": "3940",
+      "title": "AI and Language",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (10016)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Chen Kou Bun Bldg UG03",
+                  "instructor": "Staff",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Chen Kou Bun Bldg UG03",
+                  "instructor": "Staff",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Chen Kou Bun Bldg UG03",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "-T01-TUT (10017)",
+              "meetings": [
+                {
+                  "time": "Tu 12:30PM - 1:15PM",
+                  "location": "Chen Kou Bun Bldg UG03",
+                  "instructor": "Staff",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 12:30PM - 1:15PM",
+                  "location": "Chen Kou Bun Bldg UG03",
+                  "instructor": "Staff",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 12:30PM - 1:15PM",
+                  "location": "Chen Kou Bun Bldg UG03",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "-T02-TUT (10018)",
+              "meetings": [
+                {
+                  "time": "Tu 12:30PM - 1:15PM",
+                  "location": "Wong Foo Yuan Bldg 402",
+                  "instructor": "Staff",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 12:30PM - 1:15PM",
+                  "location": "Wong Foo Yuan Bldg 402",
+                  "instructor": "Staff",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 12:30PM - 1:15PM",
+                  "location": "Wong Foo Yuan Bldg 402",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "-T03-TUT (10019)",
+              "meetings": [
+                {
+                  "time": "Tu 12:30PM - 1:15PM",
+                  "location": "Wong Foo Yuan Bldg 403",
+                  "instructor": "Staff",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 12:30PM - 1:15PM",
+                  "location": "Wong Foo Yuan Bldg 403",
+                  "instructor": "Staff",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 12:30PM - 1:15PM",
+                  "location": "Wong Foo Yuan Bldg 403",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "-T04-TUT (10020)",
+              "meetings": [
+                {
+                  "time": "Tu 9:30AM - 10:15AM",
+                  "location": "Wong Foo Yuan Bldg 402",
+                  "instructor": "Staff",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 9:30AM - 10:15AM",
+                  "location": "Wong Foo Yuan Bldg 402",
+                  "instructor": "Staff",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 9:30AM - 10:15AM",
+                  "location": "Wong Foo Yuan Bldg 402",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
+            }
+          ]
+        }
+      ],
+      "description": "In this course, students will delve into the relationship between artificial intelligence (AI) and human language. The course will primarily focus on English, while also challenging students to think critically about the relevance of the course material to their own languages or languages of interest. The course takes a multi-faceted approach, combining lectures, presentations, and hands-on activities to equip students with a solid understanding of AI fundamentals. As the course progresses, students will explore how computers process and generate human language, as well as how AI can be used to analyze language data. Ultimately, they will critically evaluate various AI-based techniques, while applying them to investigate key questions about human language. The course curriculum includes modules on language and computers, learner corpora, text preprocessing, speech-to-text, data visualization, and more.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of English",
+      "academic_org": "Dept of English",
+      "learning_outcomes": "By the end of the course, students are expected to:\n• develop a conceptual and functional understanding of AI;\n• be able to make use of AI-based techniques/applications to explore key issues related to human language,\nespecially those related to English;\n• be able to think critically and creatively about the pros and cons of individual AI-based techniques/applications;\nand\n• develop/improve their critical thinking skills while engaging in self-reflections and discussions on important\nissues of their interest.",
+      "assessment_types": {
+        "Attendance": "10",
+        "Essay test or exam": "40",
+        "Homework or assignment": "40",
+        "Participation": "10"
       }
     },
     {
