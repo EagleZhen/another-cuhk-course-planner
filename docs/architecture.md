@@ -49,15 +49,24 @@ Important invariants:
 
 [useSavedSchedule](../web/src/hooks/useSavedSchedule.ts) owns each cart’s term, load outcome, contents, and save status. Term changes activate an unread destination or retained unsaved edits; outgoing contents never acquire the destination’s label or storage key. Restore runs on the client, independently of catalog loading.
 
-Schedules still use localStorage keys `schedule_${term}` and the existing versioned enrollment format. [storedSchedule.ts](../web/src/lib/storedSchedule.ts) validates the entire record and normalizes supported legacy shapes. Missing storage permits an empty cart; malformed or unsupported data blocks edits and writes. The original bytes remain unchanged and can be downloaded when the read succeeded. No enrollment is silently filtered away.
+[scheduleStorage.ts](../web/src/lib/scheduleStorage.ts) is the persistence boundary. It uses `idb` to access IndexedDB database `cuhk-course-planner`:
 
-Only an edit or catalog reconciliation creates a pending save. Writes use the snapshot’s owning term; loading alone never rewrites storage. Intentional emptiness is saved explicitly. Failed saves retain their pending contents across term switches and expose retry/export controls. Reloading or closing can still discard unsaved memory; the tab requests a browser warning while changes remain pending.
+- `schedules` holds each term’s current payload, revision, and one previous payload.
+- `imports` holds an immutable receipt and exact original from localStorage key `schedule_${term}`.
+- Adoption validates the source, rechecks both stores, and commits both records together. A missing source becomes an explicit empty schedule. Legacy keys remain untouched.
+- Canonical data wins after adoption. A receipt without its schedule blocks re-import, so deletion cannot resurrect stale legacy data.
+
+[storedSchedule.ts](../web/src/lib/storedSchedule.ts) keeps the existing enrollment format. It validates the whole payload and normalizes supported legacy shapes. Malformed or unsupported data blocks loading without deleting the original. No enrollment is silently filtered away.
+
+Every save validates compatibility and compares the expected revision inside one write transaction. It updates current and previous payloads together and reports success only after transaction completion. Saves run serially per term; an acknowledgment advances the base revision without marking newer edits saved. Load results apply only to their exact loading attempt.
+
+Failed saves retain pending contents across term switches and expose retry/export controls. Refused writes pause autosave while editing continues. After a conflict, the user can confirm replacing local edits; replacement applies only after a successful read and only if those edits have not changed meanwhile. Closing or reloading can still discard unsaved memory; the tab requests a browser warning. An on-demand backup downloads current, previous, and original saved data; unsaved changes have a separate download.
 
 Each loaded cart reconciles once per catalog timestamp, only with its owning term and a complete catalog for that year. Missing courses and sections remain visible as invalid choices or tombstones.
 
 `SCHEDULE_DATA_VERSION` declares compatibility, even when migrations are idempotent. An incompatible shape needs a new version. Refusing a newer version must preserve its data. The codec preserves unrecognized envelope and payload fields instead of stripping them. This is not a compatibility guarantee for future semantic changes; catalog reconciliation still refreshes course and section snapshots.
 
-**Current limit:** Writes remain last-writer-wins across tabs. Already-running older code can still overwrite or remove these legacy keys. Transactional revision checks and storage isolation are separate, unfinished work.
+**Limits:** Legacy tabs can still damage legacy keys, but adopted schedules are isolated from those writes. Later legacy edits remain a separate fork; they are not automatically merged. Backups within the same browser do not survive site-data clearing or device loss. Historical-build coexistence needs separate coverage from current-build transaction tests.
 
 ## Domain Logic
 

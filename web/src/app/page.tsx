@@ -62,9 +62,11 @@ export default function Home() {
     updateEnrollments: setCourseEnrollments,
     synchronize,
     retrySave,
+    reloadSaved,
   } = useSavedSchedule(DEFAULT_CURRENT_TERM)
   const currentTerm = cart.term
   const canUseSchedule = cart.status === 'ready'
+  const scheduleCatalogStamp = cart.status === 'ready' ? cart.catalogStamp : undefined
   const courseEnrollments = cart.status === 'ready' ? cart.enrollments : EMPTY_ENROLLMENTS
   const selectedYear = extractAcademicYearCode(currentTerm)
   const catalog = useCourseCatalog(selectedYear)
@@ -400,6 +402,7 @@ export default function Home() {
     }
   }, [
     cart.status,
+    scheduleCatalogStamp,
     currentTerm,
     catalog.status,
     catalog.scrapedAt,
@@ -509,6 +512,7 @@ export default function Home() {
           unsaved={unsaved}
           onSelectTerm={handleTermChange}
           onRetrySave={retrySave}
+          onReloadSaved={reloadSaved}
         />
         {/* Top Section - Calendar + Shopping Cart */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 max-w-7xl mx-auto mb-4">

@@ -1,6 +1,6 @@
 # ShoppingCart Component
 
-[ShoppingCart.tsx](../../web/src/components/ShoppingCart.tsx) displays the cart and calls handlers in [page.tsx](../../web/src/app/page.tsx), which owns enrollment state. Sync and change detection live in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
+[ShoppingCart.tsx](../../web/src/components/ShoppingCart.tsx) displays the cart and calls handlers in [page.tsx](../../web/src/app/page.tsx), which composes the saved-schedule owner. Sync and change detection live in [courseUtils.ts](../../web/src/lib/courseUtils.ts).
 
 ## Choosing Sections
 
@@ -72,4 +72,6 @@ Credits come from the course, not its sections. Sum both ends of credit ranges: 
 
 ## Schedule availability
 
-The page renders the cart only after its owned schedule loads successfully. Pending and blocked reads do not claim an empty cart. A separate inline storage notice provides original-data export for blocked reads and retry/export for unsaved edits; switching terms retains those edits.
+The page renders the cart only after its owned schedule loads successfully. Pending and blocked reads do not claim an empty cart. The storage notice offers original-data export for blocked reads and retry/export for unsaved edits. Switching terms retains those edits.
+
+A conflict pauses autosave while editing continues. The notice states that changes are not being saved. Discarding edits requires confirmation and a successful replacement read; newer local edits cancel that replacement. A separate backup action downloads saved current, previous, and original data.

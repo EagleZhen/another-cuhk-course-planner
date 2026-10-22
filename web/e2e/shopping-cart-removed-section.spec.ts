@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
 import { expectEmptyCatalogLoaded } from './helpers/catalog'
 import { openPlannerAtTerm, selectTerm } from './helpers/planner'
+import { readSavedEnrollments } from './helpers/schedule'
 
 const term = '2026-27 Term 1'
 const storageKey = `schedule_${term}`
@@ -107,15 +108,13 @@ async function openCart(page: Page, alternatives: ReturnType<typeof section>[]) 
 
 async function expectReplacementSaved(page: Page, sectionId: string) {
   await expect
-    .poll(() =>
-      page.evaluate((key) => {
-        const saved = JSON.parse(localStorage.getItem(key) ?? 'null')
-        return {
-          selectedId: saved?.enrollments?.[0]?.selectedSections?.[0]?.id,
-          removedCount: saved?.enrollments?.[0]?.removedSections?.length ?? 0,
-        }
-      }, storageKey)
-    )
+    .poll(async () => {
+      const enrollment = (await readSavedEnrollments(page, term))?.[0]
+      return {
+        selectedId: enrollment?.selectedSections[0]?.id,
+        removedCount: enrollment?.removedSections?.length ?? 0,
+      }
+    })
     .toEqual({ selectedId: sectionId, removedCount: 0 })
 }
 
@@ -195,16 +194,13 @@ test('dismisses the banner without removing the tombstone or replacement control
     page.getByRole('button', { name: 'Choose the first compatible lecture section' })
   ).toBeVisible()
   await expect
-    .poll(() =>
-      page.evaluate((key) => {
-        const saved = JSON.parse(localStorage.getItem(key) ?? 'null')
-        const enrollment = saved?.enrollments?.[0]
-        return {
-          acknowledged: enrollment?.removedSectionsAcknowledged,
-          removedCount: enrollment?.removedSections?.length ?? 0,
-        }
-      }, storageKey)
-    )
+    .poll(async () => {
+      const enrollment = (await readSavedEnrollments(page, term))?.[0]
+      return {
+        acknowledged: enrollment?.removedSectionsAcknowledged,
+        removedCount: enrollment?.removedSections?.length ?? 0,
+      }
+    })
     .toEqual({ acknowledged: true, removedCount: 1 })
 
   await page.reload()

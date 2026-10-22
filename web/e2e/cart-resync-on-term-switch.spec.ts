@@ -2,6 +2,7 @@ import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
 import { DEFAULT_CURRENT_TERM } from '../src/lib/constants'
 import { openPlannerAtTerm, selectTerm } from './helpers/planner'
+import { readSavedEnrollments, readScheduleRecords } from './helpers/schedule'
 
 const TERM_ONE = '2026-27 Term 1'
 const TERM_TWO = '2026-27 Term 2'
@@ -109,24 +110,25 @@ async function openPlanner(page: Page, testCourse: object) {
   })
   await expect(courseCard(page)).toBeVisible()
 
-  await expect
-    .poll(() =>
-      page.evaluate((key) => {
-        const saved = JSON.parse(localStorage.getItem(key) ?? 'null')
-        return saved?.enrollments?.[0]?.lastSynced
-      }, `schedule_${TERM_ONE}`)
-    )
-    .toBeTruthy()
-  const untouched = await savedEnrollment(page, TERM_TWO)
-  expect(untouched).toMatchObject({ courseId: COURSE_ID })
-  expect(untouched.lastSynced).toBeUndefined()
+  await expect.poll(async () => (await savedEnrollment(page, TERM_ONE))?.lastSynced).toBeTruthy()
+  await expectNotSynced(page, TERM_TWO, JSON.stringify(schedule))
 }
 
 async function savedEnrollment(page: Page, term: string) {
-  return page.evaluate((key) => {
-    const saved = JSON.parse(localStorage.getItem(key) ?? 'null')
-    return saved?.enrollments?.[0]
-  }, `schedule_${term}`)
+  return (await readSavedEnrollments(page, term))?.[0]
+}
+
+async function expectNotSynced(page: Page, term: string, original: string) {
+  expect(await page.evaluate((key) => localStorage.getItem(key), `schedule_${term}`)).toBe(original)
+  // The startup load may adopt the default term before fixture selection, but must not sync it.
+  const records = await readScheduleRecords(page, term)
+  if (records?.current === undefined) {
+    expect(records?.receipt).toBeUndefined()
+    return
+  }
+  const untouched = await savedEnrollment(page, term)
+  expect(untouched).toMatchObject({ courseId: COURSE_ID })
+  expect(untouched?.lastSynced).toBeUndefined()
 }
 
 function courseCard(page: Page) {
@@ -228,17 +230,62 @@ test('selects the fixture term before synchronizing the default term cart', asyn
     .poll(() => savedEnrollment(page, fixtureTerm))
     .toMatchObject({
       courseId: COURSE_ID,
-      lastSynced: expect.any(String),
+      lastSynced: expect.any(Date),
     })
-  const untouched = await savedEnrollment(page, DEFAULT_CURRENT_TERM)
-  expect(untouched).toMatchObject({ courseId: COURSE_ID })
-  expect(untouched.lastSynced).toBeUndefined()
+  await expectNotSynced(page, DEFAULT_CURRENT_TERM, JSON.stringify(schedule))
 
   await selectTerm(page, DEFAULT_CURRENT_TERM)
   await expect
     .poll(() => savedEnrollment(page, DEFAULT_CURRENT_TERM))
     .toMatchObject({
       courseId: COURSE_ID,
-      lastSynced: expect.any(String),
+      lastSynced: expect.any(Date),
     })
+})
+
+test('a confirmed replacement reconciles with the catalog already loaded in this tab', async ({
+  page,
+  context,
+}) => {
+  const offering = (location: string) => ({
+    subject: 'ACCT',
+    course_code: '1111',
+    title: 'Foundations in Financial Accounting',
+    credits: '3.00',
+    terms: [
+      {
+        term_code: '2610',
+        term_name: TERM_ONE,
+        schedule: [
+          { ...externalSection, meetings: [{ ...externalSection.meetings[0], location }] },
+        ],
+      },
+    ],
+  })
+  await openPlanner(page, offering('Current room'))
+  await expect
+    .poll(() => savedEnrollment(page, TERM_ONE))
+    .toMatchObject({
+      selectedSections: [{ meetings: [{ location: 'Current room' }] }],
+    })
+  const other = await context.newPage()
+  await openPlanner(other, offering('Older room'))
+  await expect
+    .poll(() => savedEnrollment(other, TERM_ONE))
+    .toMatchObject({
+      selectedSections: [{ meetings: [{ location: 'Older room' }] }],
+    })
+  await courseCard(page).getByTitle('Hide course', { exact: true }).click()
+  const notice = page.locator('[data-schedule-storage-notice]')
+  await expect(notice).toContainText('changed in another tab')
+  page.once('dialog', (dialog) => dialog.accept())
+  await notice
+    .getByRole('button', { name: 'Discard edits and load saved version', exact: true })
+    .click()
+  await expect
+    .poll(() => savedEnrollment(page, TERM_ONE))
+    .toMatchObject({
+      selectedSections: [{ meetings: [{ location: 'Current room' }] }],
+    })
+  await expect(notice).toHaveCount(0)
 })

@@ -3,38 +3,30 @@
 import { useCallback, useEffect, useReducer, useRef } from 'react'
 import type { CourseEnrollment, InternalCourse } from '@/lib/types'
 import { getDeterministicColor, syncCart } from '@/lib/courseUtils'
-import { readStoredEnrollments, serializeStoredSchedule } from '@/lib/storedSchedule'
+import { loadSchedule, commitSchedule } from '@/lib/scheduleStorage'
+import type { ScheduleLoad, ScheduleCommit, StorageProblem } from '@/lib/scheduleStorage'
 import { analytics } from '@/lib/analytics'
 
-export type ReadySchedule = {
+export type ReadySchedule = Extract<ScheduleLoad, { status: 'ready' }> & {
   term: string
-  status: 'ready'
-  enrollments: CourseEnrollment[]
-  envelope: Record<string, unknown>
-  saveStatus: 'saved' | 'pending' | 'failed'
-  saveError?: unknown
+  saveStatus: 'saved' | 'pending' | 'failed' | 'refused'
+  saveProblem?: StorageProblem
   catalogStamp?: string
 }
 export type SavedSchedule =
   | { term: string; status: 'loading' }
-  | {
-      term: string
-      status: 'blocked'
-      reason: 'read_failed' | 'invalid_data' | 'unsupported_version'
-      raw?: string
-      version?: number
-      error?: unknown
-    }
+  | ({ term: string } & Extract<ScheduleLoad, { status: 'blocked' }>)
   | ReadySchedule
 
 type ScheduleState = { active: SavedSchedule; pending: Record<string, ReadySchedule> }
 type Action =
   | { type: 'switch'; term: string }
-  | { type: 'loaded'; cart: SavedSchedule }
+  | { type: 'loaded'; expected: SavedSchedule; cart: SavedSchedule }
   | { type: 'edit'; term: string; update: (previous: CourseEnrollment[]) => CourseEnrollment[] }
   | { type: 'sync'; term: string; courses: InternalCourse[]; scrapedAt: Date }
-  | { type: 'save-result'; snapshot: ReadySchedule; outcome: 'saved' | 'failed'; error?: unknown }
+  | { type: 'save-result'; snapshot: ReadySchedule; result: ScheduleCommit }
   | { type: 'retry'; term: string }
+  | { type: 'reload-result'; expected: ReadySchedule; cart: SavedSchedule }
 
 export function createScheduleState(term: string): ScheduleState {
   return { active: { term, status: 'loading' }, pending: {} }
@@ -52,7 +44,7 @@ export function scheduleReducer(state: ScheduleState, action: Action): ScheduleS
       return { active, pending }
     }
     case 'loaded':
-      return cart.term === action.cart.term && cart.status === 'loading'
+      return cart === action.expected && cart.term === action.cart.term && cart.status === 'loading'
         ? { ...state, active: action.cart }
         : state
     case 'edit': {
@@ -62,7 +54,11 @@ export function scheduleReducer(state: ScheduleState, action: Action): ScheduleS
         ? state
         : {
             ...state,
-            active: { ...cart, enrollments, saveStatus: 'pending', saveError: undefined },
+            active: {
+              ...cart,
+              enrollments,
+              saveStatus: cart.saveStatus === 'refused' ? 'refused' : 'pending',
+            },
           }
     }
     case 'sync': {
@@ -76,119 +72,138 @@ export function scheduleReducer(state: ScheduleState, action: Action): ScheduleS
           ...cart,
           enrollments,
           catalogStamp: stamp,
-          saveStatus: enrollments === cart.enrollments ? cart.saveStatus : 'pending',
+          saveStatus:
+            enrollments === cart.enrollments || cart.saveStatus === 'refused'
+              ? cart.saveStatus
+              : 'pending',
         },
       }
     }
     case 'save-result': {
+      const owner =
+        cart.term === action.snapshot.term && cart.status === 'ready'
+          ? cart
+          : state.pending[action.snapshot.term]
+      if (!owner || owner.revision !== action.snapshot.revision) return state
+      const { result } = action
+      const updated: ReadySchedule =
+        result.status === 'saved'
+          ? {
+              ...owner,
+              revision: result.revision,
+              saveStatus: owner.enrollments === action.snapshot.enrollments ? 'saved' : 'pending',
+              saveProblem: undefined,
+            }
+          : { ...owner, saveStatus: result.status, saveProblem: result }
       const pending = { ...state.pending }
-      const result = { ...action.snapshot, saveStatus: action.outcome, saveError: action.error }
-      if (pending[action.snapshot.term] === action.snapshot) {
-        if (action.outcome === 'saved') delete pending[action.snapshot.term]
-        else pending[action.snapshot.term] = result
-      }
-      if (cart !== action.snapshot && state.pending[action.snapshot.term] !== action.snapshot)
-        return state
-      return { active: cart === action.snapshot ? result : cart, pending }
+      if (owner === cart) return { active: updated, pending }
+      if (updated.saveStatus === 'saved') delete pending[owner.term]
+      else pending[owner.term] = updated
+      return { active: cart, pending }
     }
     case 'retry':
       return cart.term === action.term && cart.status === 'ready' && cart.saveStatus === 'failed'
-        ? { ...state, active: { ...cart, saveStatus: 'pending', saveError: undefined } }
+        ? { ...state, active: { ...cart, saveStatus: 'pending', saveProblem: undefined } }
         : state
+    case 'reload-result': {
+      if (cart !== action.expected || cart.status !== 'ready') return state
+      if (action.cart.status === 'blocked') {
+        return { ...state, active: { ...cart, saveStatus: 'refused', saveProblem: action.cart } }
+      }
+      if (action.cart.status !== 'ready') return state
+      const pending = { ...state.pending }
+      delete pending[cart.term]
+      return { active: action.cart, pending }
+    }
   }
 }
 
-function loadSchedule(term: string): SavedSchedule {
-  let raw: string | null
-  try {
-    raw = localStorage.getItem(`schedule_${term}`)
-  } catch (error) {
-    return { term, status: 'blocked', reason: 'read_failed', error }
-  }
-  if (raw === null)
-    return {
-      term,
-      status: 'ready',
-      enrollments: [],
-      envelope: {},
-      saveStatus: 'saved',
-    }
-  let result
-  try {
-    result = readStoredEnrollments(JSON.parse(raw))
-  } catch {
-    return { term, status: 'blocked', reason: 'invalid_data', raw }
-  }
-  if (result.status === 'blocked') return { term, ...result, raw }
-  const enrollments = result.enrollments.map((enrollment) => {
-    const id = `${enrollment.course.subject}${enrollment.course.courseCode}`
-    return {
-      ...enrollment,
-      courseId: enrollment.courseId.includes('_') ? id : enrollment.courseId,
-      color: getDeterministicColor(id),
-    }
-  })
+function ownedSchedule(term: string, loaded: ScheduleLoad): SavedSchedule {
+  if (loaded.status === 'blocked') return { ...loaded, term }
   return {
+    ...loaded,
     term,
-    status: 'ready',
-    enrollments,
-    envelope: result.envelope,
     saveStatus: 'saved',
+    enrollments: loaded.enrollments.map((enrollment) => {
+      const id = `${enrollment.course.subject}${enrollment.course.courseCode}`
+      return {
+        ...enrollment,
+        courseId: enrollment.courseId.includes('_') ? id : enrollment.courseId,
+        color: getDeterministicColor(id),
+      }
+    }),
   }
 }
 
 export function useSavedSchedule(initialTerm: string) {
   const [state, dispatch] = useReducer(scheduleReducer, initialTerm, createScheduleState)
   const cart = state.active
-  const attempted = useRef(new WeakSet<ReadySchedule>())
+  const inFlight = useRef(new Map<string, { snapshot: ReadySchedule; result?: ScheduleCommit }>())
   const reported = useRef(new Set<string>())
 
   useEffect(() => {
-    if (cart.status === 'loading') dispatch({ type: 'loaded', cart: loadSchedule(cart.term) })
+    if (cart.status !== 'loading') return
+    void loadSchedule(cart.term).then((loaded) => {
+      const result = ownedSchedule(cart.term, loaded)
+      dispatch({ type: 'loaded', expected: cart, cart: result })
+    })
   }, [cart])
 
   useEffect(() => {
-    if (cart.status !== 'ready' || cart.saveStatus !== 'pending' || attempted.current.has(cart))
-      return
-    attempted.current.add(cart)
-    try {
-      // Destination comes from this snapshot's owner, never a separate selected-term value.
-      localStorage.setItem(
-        `schedule_${cart.term}`,
-        serializeStoredSchedule(cart.enrollments, cart.envelope)
-      )
-      dispatch({ type: 'save-result', snapshot: cart, outcome: 'saved' })
-    } catch (error) {
-      dispatch({ type: 'save-result', snapshot: cart, outcome: 'failed', error })
+    // Keep the flight until React applies its result; an urgent edit may render first.
+    for (const [term, flight] of inFlight.current) {
+      if (!flight.result) continue
+      const owner = cart.term === term && cart.status === 'ready' ? cart : state.pending[term]
+      if (
+        !owner ||
+        owner.revision !== flight.snapshot.revision ||
+        owner.saveProblem === flight.result
+      ) {
+        inFlight.current.delete(term)
+      }
     }
-  }, [cart])
+    const candidates = Object.values(state.pending).concat(cart.status === 'ready' ? [cart] : [])
+    for (const snapshot of candidates) {
+      if (snapshot.saveStatus !== 'pending' || inFlight.current.has(snapshot.term)) continue
+      const flight: { snapshot: ReadySchedule; result?: ScheduleCommit } = { snapshot }
+      inFlight.current.set(snapshot.term, flight)
+      void commitSchedule(
+        snapshot.term,
+        snapshot.revision,
+        snapshot.enrollments,
+        snapshot.envelope
+      ).then((result) => {
+        flight.result = result
+        dispatch({ type: 'save-result', snapshot, result })
+      })
+    }
+  }, [cart, state.pending])
 
   const pending = { ...state.pending }
-  if (cart.status === 'ready') {
-    if (cart.saveStatus !== 'saved') pending[cart.term] = cart
-    else delete pending[cart.term]
-  }
+  if (cart.status === 'ready' && cart.saveStatus !== 'saved') pending[cart.term] = cart
   const unsaved = Object.values(pending)
   const hasUnsaved = unsaved.length > 0
 
   useEffect(() => {
-    const problems =
-      cart.status === 'blocked'
-        ? [cart]
-        : Object.values(state.pending).concat(cart.status === 'ready' ? [cart] : [])
-    for (const problem of problems) {
-      if (problem.status === 'ready' && problem.saveStatus !== 'failed') continue
-      const reason = problem.status === 'blocked' ? problem.reason : 'write_failed'
-      const operation = problem.status === 'blocked' ? 'restore' : 'save'
-      const key = `${operation}|${problem.term}`
+    const problems = Object.values(state.pending).concat(cart.status === 'ready' ? [cart] : [])
+    const failures: { term: string; operation: 'restore' | 'save'; problem: StorageProblem }[] =
+      problems.flatMap((owner) =>
+        owner.saveProblem && owner.saveStatus !== 'pending'
+          ? [{ term: owner.term, operation: 'save' as const, problem: owner.saveProblem }]
+          : []
+      )
+    if (cart.status === 'blocked')
+      failures.push({ term: cart.term, operation: 'restore', problem: cart })
+    for (const { term, operation, problem } of failures) {
+      const key = `${operation}|${term}`
       if (reported.current.has(key)) continue
       reported.current.add(key)
       analytics.scheduleStorageProblem({
         operation,
-        reason,
-        term: problem.term,
-        version: problem.status === 'blocked' ? problem.version : undefined,
-        error: problem.status === 'blocked' ? problem.error : problem.saveError,
+        term,
+        reason: problem.reason,
+        version: problem.version,
+        error: problem.error,
       })
     }
     if (cart.status === 'ready') reported.current.delete(`restore|${cart.term}`)
@@ -218,5 +233,11 @@ export function useSavedSchedule(initialTerm: string) {
     [cart.term]
   )
   const retrySave = useCallback(() => dispatch({ type: 'retry', term: cart.term }), [cart.term])
-  return { cart, unsaved, selectTerm, updateEnrollments, synchronize, retrySave }
+  const reloadSaved = useCallback(() => {
+    if (cart.status !== 'ready' || cart.saveStatus !== 'refused') return
+    void loadSchedule(cart.term).then((loaded) => {
+      dispatch({ type: 'reload-result', expected: cart, cart: ownedSchedule(cart.term, loaded) })
+    })
+  }, [cart])
+  return { cart, unsaved, selectTerm, updateEnrollments, synchronize, retrySave, reloadSaved }
 }

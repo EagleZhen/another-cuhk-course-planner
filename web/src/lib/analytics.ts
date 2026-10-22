@@ -3,6 +3,7 @@
 
 import posthog from 'posthog-js'
 import type { UserFilterKey } from '@/lib/courseFilters'
+import type { StorageProblem } from '@/lib/scheduleStorage'
 
 // Simple tracking helper using direct PostHog import
 const track = (event: string, properties?: Record<string, unknown>) => {
@@ -15,7 +16,7 @@ export const analytics = {
   // Failures only. Callers deduplicate unresolved episodes; analytics must never block saving.
   scheduleStorageProblem: (problem: {
     operation: 'restore' | 'save'
-    reason: 'read_failed' | 'invalid_data' | 'unsupported_version' | 'write_failed'
+    reason: StorageProblem['reason']
     term: string
     version?: number
     error?: unknown

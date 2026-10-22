@@ -5,6 +5,7 @@ import { DEFAULT_CURRENT_TERM, SCHEDULE_DATA_VERSION } from '../src/lib/constant
 import { transformExternalCourseData } from '../src/lib/validation'
 import { mockCatalog, expectEmptyCatalogLoaded, type CatalogFixtures } from './helpers/catalog'
 import { selectTerm } from './helpers/planner'
+import { readSavedEnrollments, readScheduleRecords } from './helpers/schedule'
 
 const first = DEFAULT_CURRENT_TERM
 const second = first === '2026-27 Term 2' ? '2026-27 Term 1' : '2026-27 Term 2'
@@ -70,6 +71,7 @@ function schedule(term: string, code = '1111') {
 
 type Audit = {
   writes: { key: string; value: string | null }[]
+  canonicalWrites: { term: string; raw: string }[]
   failRead: boolean
   failWrite: boolean
 }
@@ -101,7 +103,12 @@ async function prepare(
         for (const [key, value] of Object.entries(entries)) localStorage.setItem(key, value)
         sessionStorage.setItem('schedule-safety-seeded', '1')
       }
-      const audit = (window.scheduleAudit = { writes: [], failRead, failWrite: false } as Audit)
+      const audit = (window.scheduleAudit = {
+        writes: [],
+        canonicalWrites: [],
+        failRead,
+        failWrite: false,
+      } as Audit)
       const get = Storage.prototype.getItem
       const set = Storage.prototype.setItem
       const remove = Storage.prototype.removeItem
@@ -121,6 +128,25 @@ async function prepare(
         if (key.startsWith('schedule_')) audit.writes.push({ key, value: null })
         return remove.call(this, key)
       }
+      const observe = (store: IDBObjectStore, value: unknown, term: unknown) => {
+        if (store.name === 'schedules')
+          audit.canonicalWrites.push({
+            term: String(term),
+            raw: (value as { currentRaw: string }).currentRaw,
+          })
+      }
+      const add = IDBObjectStore.prototype.add
+      IDBObjectStore.prototype.add = function (...args) {
+        observe(this, args[0], args[1])
+        return add.apply(this, args)
+      }
+      const put = IDBObjectStore.prototype.put
+      IDBObjectStore.prototype.put = function (...args) {
+        observe(this, args[0], args[1])
+        if (this.name === 'schedules' && audit.failWrite)
+          throw new DOMException('Test quota exceeded', 'QuotaExceededError')
+        return Reflect.apply(put, this, args)
+      }
     },
     { entries, faultKey: key(first), failRead, renderFailure }
   )
@@ -137,8 +163,19 @@ async function prepare(
 }
 const cart = (page: Page) => page.locator('[data-shopping-cart]')
 const notice = (page: Page) => page.locator('[data-schedule-storage-notice]')
-const raw = (page: Page, term: string) =>
+const legacyRaw = (page: Page, term: string) =>
   page.evaluate((key) => localStorage.getItem(key), key(term))
+
+async function expectOwnedWrites(page: Page, expected: Record<string, string[]>) {
+  const writes = await page.evaluate(() => window.scheduleAudit.canonicalWrites)
+  expect(writes.map((write) => write.term)).toEqual(expect.arrayContaining(Object.keys(expected)))
+  for (const write of writes) {
+    const payload = JSON.parse(write.raw) as { enrollments: { courseId: string }[] }
+    expect(payload.enrollments.map((enrollment) => enrollment.courseId)).toEqual(
+      expected[write.term]
+    )
+  }
+}
 
 async function downloadText(page: Page, label: string) {
   const downloading = page.waitForEvent('download')
@@ -160,8 +197,14 @@ for (const destination of [second, '2025-26 Term 1']) {
     await selectTerm(page, first)
     await expect(cart(page).getByText('Saved course 1111', { exact: true })).toBeVisible()
     expect(await page.evaluate(() => window.scheduleAudit.writes)).toEqual([])
-    expect(await raw(page, first)).toBe(one)
-    expect(await raw(page, destination)).toBe(two)
+    expect(await legacyRaw(page, first)).toBe(one)
+    expect(await legacyRaw(page, destination)).toBe(two)
+    // Returning to a year activates its first term before selecting the requested term.
+    await expectOwnedWrites(page, {
+      [first]: ['ACCT1111'],
+      [second]: [],
+      [destination]: ['ACCT2222'],
+    })
   })
 }
 
@@ -173,7 +216,8 @@ test('an empty outgoing cart cannot delete a populated destination', async ({ pa
   await selectTerm(page, first)
   await expect(cart(page).getByText('No courses enrolled', { exact: true })).toBeVisible()
   expect(await page.evaluate(() => window.scheduleAudit.writes)).toEqual([])
-  expect(await raw(page, second)).toBe(two)
+  expect(await legacyRaw(page, second)).toBe(two)
+  await expectOwnedWrites(page, { [first]: [], [second]: ['ACCT2222'] })
 })
 
 for (const [name, original] of [
@@ -191,13 +235,15 @@ for (const [name, original] of [
   test(`preserves and exports ${name}`, async ({ page }) => {
     await prepare(page, { [key(first)]: original })
     await expect(notice(page)).toContainText('Your saved data has been kept unchanged')
-    expect(await raw(page, first)).toBe(original)
+    expect(await legacyRaw(page, first)).toBe(original)
     expect(await page.evaluate(() => window.scheduleAudit.writes)).toEqual([])
     expect(await downloadText(page, 'Download original data')).toBe(original)
+    expect((await readScheduleRecords(page, first))?.current).toBeUndefined()
+    expect((await readScheduleRecords(page, first))?.receipt).toBeUndefined()
     await expect(cart(page).getByText('No courses enrolled', { exact: true })).toHaveCount(0)
     await selectTerm(page, second)
     await selectTerm(page, first)
-    expect(await raw(page, first)).toBe(original)
+    expect(await legacyRaw(page, first)).toBe(original)
     expect(await page.evaluate(() => window.scheduleAudit.writes)).toEqual([])
   })
 }
@@ -213,7 +259,7 @@ test('a failed read grants no write authority and offers no invented original ex
   await page.evaluate(() => {
     window.scheduleAudit.failRead = false
   })
-  expect(await raw(page, first)).toBe(original)
+  expect(await legacyRaw(page, first)).toBe(original)
 })
 
 test('failed-save edits survive term navigation, export, retry, and reload without reseeding', async ({
@@ -227,7 +273,7 @@ test('failed-save edits survive term navigation, export, retry, and reload witho
   })
   await cart(page).getByTitle('Hide course', { exact: true }).click()
   await expect(notice(page)).toContainText('have not been saved')
-  expect(await raw(page, first)).toBe(original)
+  expect(await legacyRaw(page, first)).toBe(original)
   await selectTerm(page, second)
   await expect(notice(page)).toContainText(first)
   await selectTerm(page, first)
@@ -239,7 +285,7 @@ test('failed-save edits survive term navigation, export, retry, and reload witho
   })
   await notice(page).getByRole('button', { name: 'Try saving again', exact: true }).click()
   await expect(notice(page)).toHaveCount(0)
-  expect(JSON.parse((await raw(page, first))!).enrollments[0].isVisible).toBe(false)
+  expect((await readSavedEnrollments(page, first))?.[0].isVisible).toBe(false)
   await page.reload()
   await expectEmptyCatalogLoaded(page)
   await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
@@ -262,14 +308,12 @@ test('a cart produced by Add survives reload and intentional clearing without re
   await page.getByRole('button', { name: 'Add to Cart', exact: true }).first().click()
   await expect(cart(page).getByText('Saved course 1111', { exact: true })).toBeVisible()
   await expect
-    .poll(async () => JSON.parse((await raw(page, first)) ?? 'null')?.enrollments?.[0]?.courseId)
+    .poll(async () => (await readSavedEnrollments(page, first))?.[0]?.courseId)
     .toBe('ACCT1111')
   await page.reload()
   await expect(cart(page).getByText('Saved course 1111', { exact: true })).toBeVisible()
   await cart(page).getByTitle('Remove course', { exact: true }).click()
-  await expect
-    .poll(async () => JSON.parse((await raw(page, first)) ?? 'null')?.enrollments)
-    .toEqual([])
+  await expect.poll(() => readSavedEnrollments(page, first)).toEqual([])
   await page.reload()
   await expect(cart(page).getByText('No courses enrolled', { exact: true })).toBeVisible()
 })
@@ -312,7 +356,7 @@ test('blocked data disables cart actions and both export layouts while browsing 
   ).toBeVisible()
   await page.getByRole('button', { name: 'No time conflicts', exact: true }).click()
   await expect(page.getByRole('button', { name: 'Add to Cart', exact: true }).first()).toBeVisible()
-  expect(await raw(page, first)).toBe(original)
+  expect(await legacyRaw(page, first)).toBe(original)
   expect(await page.evaluate(() => window.scheduleAudit.writes)).toEqual([])
 })
 
@@ -326,7 +370,7 @@ test('a rendering failure after restore cannot delete or rewrite saved choices',
   await expect(
     page.getByRole('heading', { name: 'The planner ran into a problem', exact: true })
   ).toBeVisible()
-  expect(await raw(page, first)).toBe(original)
+  expect(await legacyRaw(page, first)).toBe(original)
   expect(await page.evaluate(() => window.scheduleAudit.writes)).toEqual([])
 })
 
@@ -346,6 +390,7 @@ test('a failed pending-data export keeps the edited schedule usable', async ({ p
   })
   await cart(page).getByTitle('Hide course', { exact: true }).click()
   await expect(notice(page)).toContainText('have not been saved')
+  expect((await readSavedEnrollments(page, first))?.[0]?.isVisible).toBe(true)
   await notice(page).getByRole('button', { name: 'Download changes', exact: true }).click()
   await expect(notice(page)).toContainText('The download failed')
   await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
@@ -354,5 +399,5 @@ test('a failed pending-data export keeps the edited schedule usable', async ({ p
   await selectTerm(page, first)
   await expect(notice(page)).not.toContainText('The download failed')
   await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
-  expect(await raw(page, first)).toBe(original)
+  expect(await legacyRaw(page, first)).toBe(original)
 })

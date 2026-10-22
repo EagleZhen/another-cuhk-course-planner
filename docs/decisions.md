@@ -233,11 +233,11 @@ Published data is therefore mixed by year: a year CUHK still serves carries the 
 
 ## Derive Display Forms, Keep Scraped Values
 
-Instructors are scraped as "Professor CHAN Tai Man" and shown as "Prof. CHAN Tai Man". Converting once at the boundary would spare every consumer from remembering, but enrollments persist whole to `localStorage`, which would freeze whatever we parsed in every browser.
+Instructors are scraped as "Professor CHAN Tai Man" and shown as "Prof. CHAN Tai Man". Converting once at the boundary would spare every consumer from remembering, but enrollments persist whole in browser storage, which would freeze whatever we parsed in every browser.
 
 Decision: store scraped values as scraped, derive display forms where they are shown (`splitInstructorsCompact` in [courseUtils.ts](../web/src/lib/courseUtils.ts)). Keep only the source and a parser fix reaches every user on their next load — [Strip Unrendered Fields At Publish](#strip-unrendered-fields-at-publish), one layer in.
 
-The `localStorage` freeze is this rule's cost, not its reason: a wrong abbreviation shows on screen at once, and the map grows every time CUSIS spells a title a new way — [Where A Transformation Belongs](#where-a-transformation-belongs).
+The persisted snapshot is this rule's cost, not its reason: a wrong abbreviation shows on screen at once, and the map grows every time CUSIS spells a title a new way — [Where A Transformation Belongs](#where-a-transformation-belongs).
 
 Nothing enforces this: a lint rule flags only correct call sites, since reading the field to pass it into the helper is the intended use.
 
