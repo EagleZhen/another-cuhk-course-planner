@@ -60,7 +60,7 @@ Important invariants:
 
 Every save validates compatibility and compares the expected revision inside one write transaction. It updates current and previous payloads together and reports success only after transaction completion. Saves run serially per term; an acknowledgment advances the base revision without marking newer edits saved. Load results apply only to their exact loading attempt.
 
-Failed saves retain pending contents across term switches and expose retry/export controls. Refused writes pause autosave while editing continues. After a conflict, the user can confirm replacing local edits; replacement applies only after a successful read and only if those edits have not changed meanwhile. Closing or reloading can still discard unsaved memory; the tab requests a browser warning. An on-demand backup downloads current, previous, and original saved data; unsaved changes have a separate download.
+Failed saves retain pending contents across term switches and expose retry/export controls. Refused writes pause autosave while editing continues. After a conflict, the user can confirm replacing local edits; replacement applies only after a successful read and only if those edits have not changed meanwhile. Closing or reloading can still discard unsaved memory; the tab requests a browser warning. The storage-problem notice offers a recovery download of current, previous, and original saved data; unsaved changes have a separate download.
 
 Each loaded cart reconciles once per catalog timestamp, only with its owning term and a complete catalog for that year. Missing courses and sections remain visible as invalid choices or tombstones.
 

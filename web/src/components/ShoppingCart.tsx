@@ -4,7 +4,16 @@ import { useRef, useEffect, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Eye, EyeOff, Trash2, AlertTriangle, ChevronLeft, ChevronRight, Search } from 'lucide-react'
+import {
+  Eye,
+  EyeOff,
+  Trash2,
+  AlertTriangle,
+  ChevronLeft,
+  ChevronRight,
+  Search,
+  LoaderCircle,
+} from 'lucide-react'
 import {
   parseSectionTypes,
   sectionSignature,
@@ -72,6 +81,7 @@ const bannerButtonClass =
   'h-6 w-full rounded border border-amber-300 bg-white/50 px-2 text-[11px] font-medium'
 
 interface ShoppingCartProps {
+  scheduleStatus: 'loading' | 'blocked' | 'ready'
   courseEnrollments: CourseEnrollment[]
   calendarEvents: CalendarEvent[] // Calendar events for conflict detection
   selectedEnrollment?: string | null // Enrollment ID focused across the cart and calendar
@@ -86,6 +96,7 @@ interface ShoppingCartProps {
 }
 
 export default function ShoppingCart({
+  scheduleStatus,
   courseEnrollments,
   calendarEvents,
   selectedEnrollment,
@@ -98,6 +109,7 @@ export default function ShoppingCart({
   sectionChanges,
   onDismissAllChanges,
 }: ShoppingCartProps) {
+  const canUseSchedule = scheduleStatus === 'ready'
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map())
 
@@ -252,6 +264,10 @@ export default function ShoppingCart({
     }
   }
 
+  const visibleCount = courseEnrollments.filter((enrollment) => enrollment.isVisible).length
+  const totalCount = courseEnrollments.length
+  const courseLabel = totalCount === 1 ? 'course' : 'courses'
+  const allVisible = visibleCount === totalCount
   const statusCounts = getStatusCounts()
   const creditSummary = creditSummaryOf(statusCounts.visibleCredits, statusCounts.totalCredits)
 
@@ -269,45 +285,33 @@ export default function ShoppingCart({
   }
 
   return (
-    <Card className="h-[800px] flex flex-col gap-1 py-2 pt-4" data-shopping-cart>
+    <Card
+      className="h-[800px] flex flex-col gap-1 py-2 pt-4"
+      data-shopping-cart
+      aria-busy={scheduleStatus === 'loading'}
+    >
       <CardHeader className="pb-0 pt-1 flex-shrink-0">
         <div className="flex items-center justify-between">
           <CardTitle className="text-base">Shopping Cart</CardTitle>
-          <Badge
-            variant="secondary"
-            className="text-xs"
-            title={(() => {
-              const visibleCount = courseEnrollments.filter(
-                (enrollment) => enrollment.isVisible
-              ).length
-              const totalCount = courseEnrollments.length
-
-              if (visibleCount === totalCount) {
-                return `${totalCount} ${totalCount === 1 ? 'course' : 'courses'} in shopping cart`
+          {canUseSchedule && (
+            <Badge
+              variant="secondary"
+              className="text-xs"
+              title={
+                allVisible
+                  ? `${totalCount} ${courseLabel} in shopping cart`
+                  : `${visibleCount} visible, ${totalCount} total ${courseLabel} in shopping cart`
               }
-
-              return `${visibleCount} visible, ${totalCount} total ${totalCount === 1 ? 'course' : 'courses'} in shopping cart`
-            })()}
-          >
-            {(() => {
-              const visibleCount = courseEnrollments.filter(
-                (enrollment) => enrollment.isVisible
-              ).length
-              const totalCount = courseEnrollments.length
-
-              // Show simple count when all are visible (like credits logic)
-              if (visibleCount === totalCount) {
-                return `${totalCount} ${totalCount === 1 ? 'course' : 'courses'}`
-              }
-
-              // Show visible/total when some are hidden
-              return `${visibleCount}/${totalCount} ${totalCount === 1 ? 'course' : 'courses'}`
-            })()}
-          </Badge>
+            >
+              {allVisible
+                ? `${totalCount} ${courseLabel}`
+                : `${visibleCount}/${totalCount} ${courseLabel}`}
+            </Badge>
+          )}
         </div>
       </CardHeader>
 
-      {changedCourseIds.length > 0 ? (
+      {canUseSchedule && changedCourseIds.length > 0 ? (
         <div
           className="flex flex-col gap-1.5 border-y border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-800"
           title={`Course data changed for ${changedCourseIds.join(', ')}. Review the highlighted cards and update any saved calendar or screenshot.`}
@@ -351,7 +355,23 @@ export default function ShoppingCart({
       )}
 
       <CardContent className="flex-1 overflow-hidden px-3">
-        {courseEnrollments.length === 0 ? (
+        {!canUseSchedule ? (
+          <div role="status" className="py-8 text-center text-sm text-gray-500">
+            {scheduleStatus === 'loading' ? (
+              <LoaderCircle
+                className="mx-auto mb-2 size-6 animate-spin motion-reduce:animate-none"
+                aria-hidden="true"
+              />
+            ) : (
+              <AlertTriangle className="mx-auto mb-2 size-6" aria-hidden="true" />
+            )}
+            <p>
+              {scheduleStatus === 'loading'
+                ? 'Loading your schedule…'
+                : 'Saved schedule unavailable.'}
+            </p>
+          </div>
+        ) : courseEnrollments.length === 0 ? (
           <div className="text-center py-8 text-gray-500">
             <div className="text-2xl mb-2">📚</div>
             <p className="text-sm">No courses enrolled</p>
@@ -784,7 +804,7 @@ export default function ShoppingCart({
       </CardContent>
 
       {/* Schedule Summary - Outside scrollable area */}
-      {courseEnrollments.length > 0 && (
+      {canUseSchedule && courseEnrollments.length > 0 && (
         <div className="border-t px-3 py-2 flex-shrink-0 space-y-2">
           {/* Row 1: Credits + time conflicts. An all-invalid cart has neither — invalid
               enrollments raise no calendar events — so the row would only add space. */}

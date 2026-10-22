@@ -538,29 +538,20 @@ export default function Home() {
 
           {/* Shopping Cart (1/4 width - more compact) */}
           <div>
-            {canUseSchedule ? (
-              <ShoppingCart
-                courseEnrollments={courseEnrollments}
-                calendarEvents={calendarEvents}
-                selectedEnrollment={selectedEnrollment}
-                currentTerm={currentTerm}
-                onToggleVisibility={handleToggleVisibility}
-                onRemoveCourse={handleRemoveCourse}
-                onSelectEnrollment={handleSelectEnrollment}
-                onSectionChange={handleSectionChange}
-                onShowCourseDetails={handleShowCourseDetails}
-                sectionChanges={sectionChanges}
-                onDismissAllChanges={handleDismissAllChanges}
-              />
-            ) : (
-              <Card data-shopping-cart className="p-4">
-                <p role="status">
-                  {cart.status === 'loading'
-                    ? 'Loading your schedule…'
-                    : 'Saved schedule unavailable.'}
-                </p>
-              </Card>
-            )}
+            <ShoppingCart
+              scheduleStatus={cart.status}
+              courseEnrollments={courseEnrollments}
+              calendarEvents={calendarEvents}
+              selectedEnrollment={selectedEnrollment}
+              currentTerm={currentTerm}
+              onToggleVisibility={handleToggleVisibility}
+              onRemoveCourse={handleRemoveCourse}
+              onSelectEnrollment={handleSelectEnrollment}
+              onSectionChange={handleSectionChange}
+              onShowCourseDetails={handleShowCourseDetails}
+              sectionChanges={sectionChanges}
+              onDismissAllChanges={handleDismissAllChanges}
+            />
           </div>
         </div>
 

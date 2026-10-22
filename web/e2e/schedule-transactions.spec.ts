@@ -53,6 +53,54 @@ test('adopts a verified copy and exact import receipt without rewriting legacy s
     receipt: { recordFormat: 1, term, originalLegacyRaw: original },
   })
   expect(await page.evaluate((key) => localStorage.getItem(key), key)).toBe(original)
+  await expect(
+    page.getByRole('button', { name: /Download (saved-data backup|recovery data)/ })
+  ).toHaveCount(0)
+})
+
+test('reading a schedule keeps the cart frame without claiming an empty cart', async ({ page }) => {
+  await page.addInitScript((term) => {
+    const gate = { hold: true, waiting: false }
+    window.scheduleLoadGate = gate
+    const get = IDBObjectStore.prototype.get
+    let held = false
+    IDBObjectStore.prototype.get = function (...args) {
+      const request = Reflect.apply(get, this, args) as IDBRequest
+      if (this.name === 'schedules' && !held) {
+        held = true
+        request.addEventListener('success', () => {
+          const keepAlive = () => {
+            if (!gate.hold) return
+            gate.waiting = true
+            get.call(this, term).addEventListener('success', keepAlive)
+          }
+          keepAlive()
+        })
+      }
+      return request
+    }
+  }, term)
+  await mockCatalog(page)
+  await page.goto('/')
+  let loadingFrame
+  try {
+    await expect.poll(() => page.evaluate(() => window.scheduleLoadGate.waiting)).toBe(true)
+    await expect(cart(page).getByText('Shopping Cart', { exact: true })).toBeVisible()
+    await expect(cart(page)).toHaveAttribute('aria-busy', 'true')
+    await expect(cart(page).getByRole('status')).toContainText('Loading your schedule')
+    await expect(cart(page).getByText('0 courses', { exact: true })).toHaveCount(0)
+    await expect(cart(page).getByText('No courses enrolled', { exact: true })).toHaveCount(0)
+    loadingFrame = await cart(page).boundingBox()
+  } finally {
+    await page.evaluate(() => {
+      window.scheduleLoadGate.hold = false
+    })
+  }
+  await expect(cart(page).getByText('Transaction fixture', { exact: true })).toBeVisible()
+  await expect(cart(page)).toHaveAttribute('aria-busy', 'false')
+  const loadedFrame = await cart(page).boundingBox()
+  expect(loadingFrame).not.toBeNull()
+  expect(loadedFrame).toMatchObject({ width: loadingFrame!.width, height: loadingFrame!.height })
 })
 
 test('an old writer cannot change adopted data by replacing or deleting its legacy key', async ({
@@ -181,13 +229,25 @@ async function downloadJson(page: Page, label: string) {
   return JSON.parse(await readFile((await file.path())!, 'utf8')) as Record<string, unknown>
 }
 
-test('backup retains the exact original and only one previous payload', async ({ page }) => {
+test('a storage problem offers recovery data with the original and one previous payload', async ({
+  page,
+}) => {
   await open(page)
   await cart(page).getByTitle('Hide course', { exact: true }).click()
   await expect.poll(() => readSavedEnrollments(page, term)).toMatchObject([{ isVisible: false }])
   await cart(page).getByTitle('Show course', { exact: true }).click()
   await expect.poll(() => readSavedEnrollments(page, term)).toMatchObject([{ isVisible: true }])
-  const backup = await downloadJson(page, 'Download saved-data backup')
+  await page.evaluate(() => {
+    const put = IDBObjectStore.prototype.put
+    IDBObjectStore.prototype.put = function (...args) {
+      if (this.name === 'schedules')
+        throw new DOMException('Test quota exhausted', 'QuotaExceededError')
+      return Reflect.apply(put, this, args)
+    }
+  })
+  await cart(page).getByTitle('Hide course', { exact: true }).click()
+  await expect(notice(page)).toContainText('have not been saved')
+  const backup = await downloadJson(page, 'Download recovery data')
   expect(backup.original).toMatchObject({ originalLegacyRaw: original })
   const current = backup.current as { currentRaw: string; previousRaw: string }
   expect(JSON.parse(current.currentRaw).enrollments[0].isVisible).toBe(true)
@@ -209,7 +269,7 @@ test('an empty save stays empty and a receipt prevents silent reimport of a miss
   await page.reload()
   await expect(notice(page)).toContainText('Saved schedule unavailable')
   expect((await readScheduleRecords(page, term))?.current).toBeUndefined()
-  const backup = await downloadJson(page, 'Download saved-data backup')
+  const backup = await downloadJson(page, 'Download recovery data')
   expect(backup.original).toMatchObject({ originalLegacyRaw: original })
 })
 
@@ -327,6 +387,7 @@ test('continued conflict edits stay local and replacement requires an explicit d
 
 declare global {
   interface Window {
+    scheduleLoadGate: { hold: boolean; waiting: boolean }
     scheduleCommitGate: { hold: boolean; waiting: boolean }
     terminateScheduleDatabase: () => void
   }
