@@ -17,6 +17,7 @@ export const analytics = {
   scheduleStorageProblem: (problem: {
     operation: 'restore' | 'save'
     reason: StorageProblem['reason']
+    storageKind?: StorageProblem['layer']
     term: string
     version?: number
     error?: unknown
@@ -28,6 +29,7 @@ export const analytics = {
       term: details.term,
       stored_version: details.version,
       build_id: process.env.NEXT_PUBLIC_BUILD_ID ?? 'unknown',
+      ...(details.storageKind ? { storage_kind: details.storageKind } : {}),
     }
     try {
       const expectedRefusal =

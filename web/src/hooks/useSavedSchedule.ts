@@ -203,6 +203,7 @@ export function useSavedSchedule(initialTerm: string) {
         term,
         reason: problem.reason,
         version: problem.version,
+        storageKind: problem.layer,
         error: problem.error,
       })
     }

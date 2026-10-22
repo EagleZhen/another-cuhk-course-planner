@@ -50,7 +50,9 @@ See [decisions.md](decisions.md#posthog-over-vercel-analytics) for the analytics
 
 ### Storage failures
 
-The saved-schedule owner reports each unresolved failure once per operation and term. Anticipated refusals (unsupported or malformed data, denied access, and quota exhaustion) emit `schedule_storage_blocked`; unexpected exceptions go to Error Tracking with `error_context: schedule_storage`. Context includes operation, reason, term, known stored version, and the executing bundle’s build ID. Schedule contents are never attached. Successful autosaves emit no event, and reporting failures cannot interrupt persistence.
+The saved-schedule owner reports each unresolved failure once per operation and term. Expected outcomes emit `schedule_storage_blocked`: incompatible or malformed data, revision conflicts, missing adopted records, blocked database upgrades, denied access, and quota exhaustion. Unexpected read/write exceptions go to Error Tracking with `error_context: schedule_storage`.
+
+Allowlisted context includes operation, reason, term, known stored version, and the executing bundle’s build ID. `storage_kind` distinguishes database, record, payload, and legacy failures. Schedule contents are never attached. Successful autosaves emit no event. Reporting failures cannot interrupt persistence.
 
 ## Re-Showing the Mobile Notice
 
