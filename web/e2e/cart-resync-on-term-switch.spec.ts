@@ -243,25 +243,51 @@ test('selects the fixture term before synchronizing the default term cart', asyn
     })
 })
 
+const offering = (location: string) => ({
+  academic_career: 'Undergraduate',
+  subject: 'ACCT',
+  course_code: '1111',
+  title: 'Foundations in Financial Accounting',
+  credits: '3.00',
+  terms: [
+    {
+      term_code: '2610',
+      term_name: TERM_ONE,
+      schedule: [{ ...externalSection, meetings: [{ ...externalSection.meetings[0], location }] }],
+    },
+  ],
+})
+test('opening an unchanged catalog in another tab does not invalidate the first writer', async ({
+  page,
+  context,
+}) => {
+  await openPlanner(page, offering('Current room'))
+  const before = await readScheduleRecords(page, TERM_ONE)
+  const other = await context.newPage()
+  await openPlanner(other, offering('Current room'))
+  await expect(
+    other
+      .locator('[data-course-search]')
+      .getByText('Foundations in Financial Accounting', { exact: true })
+      .filter({ visible: true })
+  ).toBeVisible()
+  await other.evaluate(
+    () =>
+      new Promise<void>((resolve) =>
+        requestAnimationFrame(() => requestAnimationFrame(() => resolve()))
+      )
+  )
+  expect(await readScheduleRecords(other, TERM_ONE)).toEqual(before)
+
+  await courseCard(page).getByTitle('Hide course', { exact: true }).click()
+  await expect.poll(() => savedEnrollment(page, TERM_ONE)).toMatchObject({ isVisible: false })
+  await expect(page.locator('[data-schedule-storage-notice]')).toHaveCount(0)
+})
+
 test('a confirmed replacement reconciles with the catalog already loaded in this tab', async ({
   page,
   context,
 }) => {
-  const offering = (location: string) => ({
-    subject: 'ACCT',
-    course_code: '1111',
-    title: 'Foundations in Financial Accounting',
-    credits: '3.00',
-    terms: [
-      {
-        term_code: '2610',
-        term_name: TERM_ONE,
-        schedule: [
-          { ...externalSection, meetings: [{ ...externalSection.meetings[0], location }] },
-        ],
-      },
-    ],
-  })
   await openPlanner(page, offering('Current room'))
   await expect
     .poll(() => savedEnrollment(page, TERM_ONE))

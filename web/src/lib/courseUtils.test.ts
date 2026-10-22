@@ -43,6 +43,7 @@ import {
   areSectionsCompatible,
 } from './courseUtils'
 import { transformExternalCourseData } from './validation'
+import { readStoredEnrollments, serializeStoredSchedule } from './storedSchedule'
 import type {
   CourseEnrollment,
   InternalCourse,
@@ -636,7 +637,26 @@ describe('syncCart', () => {
     const first = syncCart([enrollment], [freshCourse], 'Term 1', syncedAt)
     const second = syncCart(first, [freshCourse], 'Term 1', syncedAt)
 
-    expect(second).toEqual(first)
+    expect(second).toBe(first)
+  })
+
+  it('keeps a restored cart unchanged when only object order and omitted optional fields differ', () => {
+    const freshCourse = makeCourse([section])
+    const synced = syncCart([enrollment], [freshCourse], 'Term 1', syncedAt)
+    const restored = readStoredEnrollments(JSON.parse(serializeStoredSchedule(synced)))
+    if (restored.status !== 'ready') throw Error('expected readable writer output')
+
+    expect(syncCart(restored.enrollments, [freshCourse], 'Term 1', syncedAt)).toBe(
+      restored.enrollments
+    )
+    const changed = syncCart(
+      restored.enrollments,
+      [{ ...freshCourse, title: 'Updated title' }],
+      'Term 1',
+      syncedAt
+    )
+    expect(changed).not.toBe(restored.enrollments)
+    expect(changed[0].course.title).toBe('Updated title')
   })
 })
 

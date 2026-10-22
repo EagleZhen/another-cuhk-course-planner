@@ -25,6 +25,7 @@ import { SECTION_TYPE_CONFIG } from './types'
 import { HONG_KONG_TIMEZONE, HONG_KONG_TIMEZONE_LABEL } from './constants'
 import { createEvents } from 'ics'
 import moment from 'moment-timezone'
+import stableStringify from 'fast-json-stable-stringify'
 
 /**
  * Parse time string like "Mo 14:30 - 15:15" or "Sa 2:00PM - 5:15PM" into structured time range
@@ -499,7 +500,11 @@ export function syncCart(
     return enrollments
   }
 
-  return enrollments.map((enrollment) => syncEnrollment(enrollment, courses, term, syncedAt))
+  const synced = enrollments.map((enrollment) =>
+    syncEnrollment(enrollment, courses, term, syncedAt)
+  )
+  // JSON omits undefined fields; key order also must not create a new saved revision.
+  return stableStringify(synced) === stableStringify(enrollments) ? enrollments : synced
 }
 
 // Collapses whitespace so formatting noise doesn't look like a change.

@@ -10,7 +10,7 @@ Keep `selectedSections` in priority order using `sortSectionsByPriority`. The ca
 
 ## When Catalog Data Disappears
 
-After the saved cart and complete catalog are loaded, the page syncs once per term and scrape during that page session. `syncCart` leaves the cart alone if the catalog has no data for the term.
+After the saved cart and complete catalog are loaded, the page reconciles each loaded cart once per catalog timestamp. Returning to a saved term loads a new owner and reconciles again. `syncCart` preserves the cart when its saved contents are unchanged or the catalog has no data for the term.
 
 | Missing item | What the cart does |
 | --- | --- |
