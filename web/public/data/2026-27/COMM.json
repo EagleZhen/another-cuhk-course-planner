@@ -5091,6 +5091,45 @@
               "enrollment_requirement": ""
             }
           ]
+        },
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "B-LEC (10024)",
+              "meetings": [
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Humanities Building 6",
+                  "instructor": "Mr. TSANG Tsz Yeung",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Humanities Building 6",
+                  "instructor": "Mr. TSANG Tsz Yeung",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 6:30PM - 9:15PM",
+                  "location": "Humanities Building 6",
+                  "instructor": "Mr. TSANG Tsz Yeung",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
+            }
+          ]
         }
       ],
       "description": "The instructor will lecture on and direct the study of a topic in Creative and New Media that he or she specializes in. Students are allowed to take this Special Topic course at most twice, and gain the units each time they pass the course. However, students cannot take courses with the same course code more than once in a single term.",
@@ -6452,10 +6491,10 @@
               ],
               "availability": {
                 "capacity": "54",
-                "enrolled": "49",
+                "enrolled": "44",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only",

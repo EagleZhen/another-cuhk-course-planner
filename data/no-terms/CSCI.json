@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "CSCI",
     "subject_title": "Computer Science",
-    "total_courses": 23
+    "total_courses": 24
   },
   "courses": [
     {
@@ -279,6 +279,33 @@
       "feedback_evaluation": "1. Course evaluation\n2. Qualitative feedback from students\n3. Quality on students projects, which can be used to evaluate whether the students obtain a good understanding of the material.",
       "required_readings": "Networks, Crowds, and Markets: Reasoning About a Highly Connected World, by David Easley, Jon Kleinberg. Cambridge University Press, 2010.",
       "recommended_readings": "1. Social and Economic Networks, by Matthew O. Jackson. Princeton University Press, 2008.\n2. Computational Social Network Analysis: Trends, Tools and Research Advances, Ajith Abraham, A.E. Hassanien, V. Snasel. Springer, 2010."
+    },
+    {
+      "subject": "CSCI",
+      "course_code": "4200",
+      "title": "Operating System Engineering",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces fundamental design and implementation in the engineering of operating systems. Students will learn how to implement a small operating system with a step-by-step approach through hands-on experiences. Topics include booting, user/kernel mode, interrupt/exception, system calls, tasking, paging, interrupt handling, IO and terminal, context switch, block device driver, file systems, virtual memory and process implementation.",
+      "enrollment_requirement": "Pre-requisite: CSCI3150 or ESTR3102",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Computer Sci & Engg",
+      "academic_org": "Dept of Computer Sci & Engg",
+      "learning_outcomes": "At the end of the course of studies, students will be able to:\n1. Understand key design principles in the engineering of operating systems\n2. Acquire system programming skills and hands-on experiences in implementing a small operating system",
+      "course_syllabus": "Week 1: Booting\nWeek 2: User/Kernel Mode\nWeek 3: Interrupt and Exception\nWeek 4: System Calls\nWeek 5: Tasking\nWeek 6: Paging\nWeek 7: Interrupt Handling\nWeek 8: IO and Terminal\nWeek 9: Context Switch\nWeek 10: Block Device Drivers\nWeek 11: File Systems\nWeek 12: Virtual Memory\nWeek 13: Process",
+      "assessment_types": {
+        "Examination": "40",
+        "Homework or assignment": "40",
+        "Lab reports": "5",
+        "Project": "15"
+      },
+      "feedback_evaluation": "1. Course evaluation and questionnaire;\n2. Results of assignments and examination;\n3. Question-and-Answer sessions during class;\n4. Student consultation during office hours or online",
+      "required_readings": "-",
+      "recommended_readings": "1. Orange'S: The Implementation Of An Operating System, Yuan YU, Publishing House of Electronic Industry, China, 2009.\n2. A Heavily Commented Linux Kernel Source Code, Zhao Jiong, https://www.oldlinux.org, 2019.\n3. Operating Systems Design and Implementation, 3rd Edition. Andrew S. Tanenbaum and Albert S. Woodhull, Pearson Prentice Hall, 2006."
     },
     {
       "subject": "CSCI",

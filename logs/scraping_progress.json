@@ -1,8 +1,8 @@
 {
   "latest_run": {
-    "started_at": "2026-10-21 22:22:02 HK",
-    "last_updated": "2026-10-22 07:44:57 HK",
-    "duration": "9h 22m 54s",
+    "started_at": "2026-10-22 22:22:03 HK",
+    "last_updated": "2026-10-23 07:46:24 HK",
+    "duration": "9h 24m 19s",
     "status": "completed",
     "mode": "full",
     "subjects_total": 270,
@@ -15,7 +15,7 @@
     }
   },
   "latest_full_scrape": {
-    "started_at": "2026-10-21T14:22:02.345731+00:00",
+    "started_at": "2026-10-22T14:22:03.923881+00:00",
     "remaining": [],
     "directories": [
       "data/2026-27",
@@ -1320,18 +1320,18 @@
     },
     "UGED": {
       "status": "completed",
-      "courses_count": 79,
+      "courses_count": 80,
       "output_file": "data/no-terms/UGED.json, data/2026-27/UGED.json"
     },
     "UGFH": {
       "status": "completed",
-      "courses_count": 1,
-      "output_file": "data/2026-27/UGFH.json"
+      "courses_count": 2,
+      "output_file": "data/2026-27/UGFH.json, data/no-terms/UGFH.json"
     },
     "UGFN": {
       "status": "completed",
-      "courses_count": 1,
-      "output_file": "data/2026-27/UGFN.json"
+      "courses_count": 2,
+      "output_file": "data/2026-27/UGFN.json, data/no-terms/UGFN.json"
     },
     "URBD": {
       "status": "completed",
