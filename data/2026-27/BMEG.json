@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "BMEG",
     "subject_title": "Biomedical Engineering",
-    "total_courses": 48
+    "total_courses": 49
   },
   "courses": [
     {
@@ -60,6 +60,62 @@
       "feedback_evaluation": "Feedback from students is collected via the following channels:\n\n1. Short essay assignments\nStudents will write up their views on a different biomedical engineering topic every week. They will also indicate certain points that they do not understand well from the lectures. Teaching assistants will follow up with the students accordingly.\n\n2. Informal online contact\nStudents can show their comments via email. Teaching assistants will follow up with the comments or pass the information to the course instructor if necessary.\n\n3. Individual consulting\nStudents can make appointments with the course instructor and teaching assistants to exchange opinions for improving the quality of course.\n\n4. Faculty course questionnaire\n\nA midterm evaluation will also be conducted. At the end of the course, students are required to fill in the questionnaire to provide feedback on different aspects, including comments on the teaching and learning of the course.",
       "required_readings": "Relevant reading list will be provided by course teachers.",
       "recommended_readings": "1. John D. Enderle, Susan M. Blanchard, Joseph D. Bronzino (Ed.). Introduction to biomedical engineering. Elsevier Academic Press, 3rd edition, c2011. (ISBN: 978-0123749796)\n\n2. S. N. Sarbadhikari. A short introduction to biomedical engineering. CRC Press, 2007. (ISBN: 978-1420060119)\n\n3. Michael M. Domach. Introduction to biomedical engineering. Pearson/Prentice Hall, c2004. (ISBN: 978-0136020035)\n\n4. John G., Webster. Medical instrumentation: application and design. John Wiley & Sons, c2008. (ISBN: 978-0471676003)\n\n5. Selected research papers"
+    },
+    {
+      "subject": "BMEG",
+      "course_code": "2012",
+      "title": "Biomedical Engineering Laboratory",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "-J01-PRJ (10025)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor HO Ho Pui",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken BMEG1130 or BMEG2010 or BMEG2011 or BMEG2130 or ESTR2202 or ESTR2203 or ESTR2602."
+            }
+          ]
+        }
+      ],
+      "description": "This course provides hands-on experience in various aspects of biomedical engineering, including introduction to basic electronics, chemistry, molecular biology, microbiology, electrophysiology laboratory techniques. Students will gain exposure to biological and chemical safety and other general safety issues. Students will also receive training on laboratory skills, design of experiments, interpretation of data and technical writing. This course concludes with a student-driven design project.",
+      "enrollment_requirement": "Not for students who have taken BMEG1130 or BMEG2010 or BMEG2011 or BMEG2130 or ESTR2202 or ESTR2203 or ESTR2602.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture\nProject",
+      "campus": "Main Campus",
+      "academic_group": "Dept of Biomedical Engineering",
+      "academic_org": "Dept of Biomedical Engineering",
+      "learning_outcomes": "By the end of the course, students should be able to:\n\n- Undertake laboratory experiments using basic techniques in electronics, chemistry, molecular biology, microbiology and electrophysiology to support the study and solution of biomedical engineering problems; and\n\n- Apply engineering design process to the conceptual design of a biomedical engineering device; and\n\n- Document through a written report and an oral presentation the results of an engineering design project performed as part of a team of student engineers; and\n\n- Exhibit teamwork skills and serve as effective members of multidisciplinary project teams; and\n\nThis course meets the Course Learning Outcomes to the BEng (BME) Programme Outcomes 1 – 8.",
+      "course_syllabus": "This course provides hands-on experience in various aspects of biomedical engineering, including introduction to basic electronics, chemistry, molecular biology, microbiology, electrophysiology laboratory techniques. Students will gain exposure to biological and chemical safety and other general safety issues. Students will also receive training on laboratory skills, design of experiments, interpretation of data and technical writing. This course concludes with a student-driven design project.",
+      "assessment_types": {
+        "Lab reports": "30",
+        "Presentation": "10",
+        "Project": "35",
+        "Participation": "10",
+        "Short answer test or exam": "15"
+      },
+      "feedback_evaluation": "Feedback from students is collected via the following channels:\n\n1. Informal online contact\nStudents can show their comments via email or newsgroup. Teaching assistants will follow up with the comments or pass the information to the\ncourse instructor if necessary.\n\n2. Individual consulting\nStudents can make appointments with the course instructor and teaching assistants to exchange opinions for improving the quality of course.\n\n3. Faculty course questionnaire\n\nA midterm evaluation will also be conducted. At the end of the course, students are required to fill in the questionnaire to provide feedback on different aspects, including comments on the teaching and learning of the course.",
+      "required_readings": "Relevant reading list will be provided by course teachers.",
+      "recommended_readings": "1. John D. Enderle, Susan M. Blanchard, Joseph D. Bronzino (Ed.). Introduction to biomedical engineering. Elsevier Academic Press, 3rd edition,\n2. S. N. Sarbadhikari. A short introduction to biomedical engineering. CRC Press, 2007. (ISBN: 978-1420060119)\n3. Michael M. Domach. Introduction to biomedical engineering. Pearson/Prentice Hall, c2004. (ISBN: 978-0136020035)\n4. John G., Webster. Medical instrumentation: application and design. John Wiley & Sons, c2008. (ISBN: 978-0471676003)"
     },
     {
       "subject": "BMEG",
@@ -3980,10 +4036,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "13",
+                "enrolled": "16",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "37",
+                "available_seats": "34",
                 "status": "Open"
               },
               "class_attributes": "English only",
