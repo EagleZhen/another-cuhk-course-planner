@@ -1,8 +1,8 @@
 {
   "latest_run": {
-    "started_at": "2026-10-26 22:22:03 HK",
-    "last_updated": "2026-10-27 07:45:24 HK",
-    "duration": "9h 23m 21s",
+    "started_at": "2026-10-27 22:22:04 HK",
+    "last_updated": "2026-10-28 07:46:55 HK",
+    "duration": "9h 24m 50s",
     "status": "completed",
     "mode": "full",
     "subjects_total": 270,
@@ -15,7 +15,7 @@
     }
   },
   "latest_full_scrape": {
-    "started_at": "2026-10-26T14:22:03.513595+00:00",
+    "started_at": "2026-10-27T14:22:04.155576+00:00",
     "remaining": [],
     "directories": [
       "data/2026-27",
@@ -455,7 +455,7 @@
     },
     "ENGG": {
       "status": "completed",
-      "courses_count": 42,
+      "courses_count": 44,
       "output_file": "data/no-terms/ENGG.json, data/2026-27/ENGG.json"
     },
     "ENLC": {

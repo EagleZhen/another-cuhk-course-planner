@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "ENGG",
     "subject_title": "Courses offered by Fac of Erg",
-    "total_courses": 8
+    "total_courses": 10
   },
   "courses": [
     {
@@ -31,6 +31,58 @@
       "feedback_evaluation": "Course evaluation by students.\n\n學生填寫的課程評價。",
       "required_readings": "To be provided by course teachers",
       "recommended_readings": "Shelly and Vermaat, “Discovering Computers 2010: Living in a Digital World,” Course Technology, 2010.\n\nITSC, CUHK, “Useful Links (under the Current ITSC Student IT Competence Programme),”\nhttp://www.sitc.cuhk.edu.hk/usefullink.html (as of 5 July 2010.)"
+    },
+    {
+      "subject": "ENGG",
+      "course_code": "1930",
+      "title": "Hands-on Generative Artificial Intelligence Laboratory I: Content Generation and Analytics",
+      "credits": "1.00",
+      "terms": [],
+      "description": "This course provides hands-on experience in applying AI tools to content creation, data analysis, workflow automation, and common workplace tasks. Building on foundational AI literacy, students will learn to select appropriate AI tools, refine their use through experimentation, work with different modalities of data, e.g., text, images, and presentations, and critically evaluate and improve AI-generated outputs. The course emphasizes practical proficiency, effective human–AI collaboration, and responsible use of AI.",
+      "enrollment_requirement": "Pre-requisite(s): For students who have taken ENGG1003 or ENGG1004",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "At the end of the course of studies, students should be able to:\n\n1. Select and use appropriate AI tools to accomplish different content creation, data analysis, automation, learning, and workplace tasks.\n2. Apply and refine AI-assisted workflows to create and analyze text, images, presentations, and data, and improve the quality of the resulting outputs.\n3. Evaluate and verify AI-generated outputs, identify their limitations, and make appropriate improvements.",
+      "course_syllabus": "Week 1 Working with AI Tools\nWeek 2 Prompting in Practice\nWeek 3 Multimodal Content Creation: text, images, speech, audio, music, and short video\nWeek 4 AI for Learning\nWeek 5 AI for Workplace Productivity\nWeek 6 AI-Assisted Workflow Automation\nWeek 7 AI for Data Analysis and Visualization\nWeek 8 Integrated AI Applications\nWeeks 9-13 Other emerging AI topics",
+      "assessment_types": {
+        "Lab reports": "50",
+        "Project": "40",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There is one course evaluation at the end of the course. This is a formal channel for students to rate course content. Students can give specific comments or suggestions in addition to the numeric ratings.\n2. Students can provide feedback using informal channels, such as email.",
+      "required_readings": "Nil",
+      "recommended_readings": "1. Google. \"Prompt Design Strategies.\"2026, https://ai.google.dev/gemini-api/docs/prompting-strategies.\n2. Miao, Fengchun and Wayne Holmes. 2023. *Guidance for Generative AI in Education and Research*.\ndoi:10.54675/EWZM9535. https://unesdoc.unesco.org/ark:/48223/pf0000386693.\n3. Microsoft. \"Prompt Engineering Techniques.\"2026, https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering.\n4. Mollick, Ethan. 2024. *Co-Intelligence : Living and Working with AI*. New York, New York: Portfolio/Penguin.\n5. Phoenix, James and Mike Taylor. 2024. *Prompt Engineering for Generative AI : Future-Proof Inputs for Reliable AI Outputs at Scale*. Sebastopol, Calif: O'Reilly."
+    },
+    {
+      "subject": "ENGG",
+      "course_code": "1940",
+      "title": "Hands-on Generative Artificial Intelligence Laboratory II: Application Development",
+      "credits": "2.00",
+      "terms": [],
+      "description": "This introductory-level course provides hands-on experience with vibe coding and application development powered by generative AI. Students begin with the foundations of large language models (LLMs), learning how to integrate LLM Application Programming Interfaces (APIs), manage token billing, and leverage AI coding assistants across standard Integrated Development Environments (IDEs). Throughout the course, students master core development practices, including prompt engineering for precise code generation and converting Python scripts into interactive web applications. Advanced topics cover AI-driven code refactoring, automated documentation, test-driven development, retrieval-augmented generation (RAG) implementation, and agentic workflows. The course concludes with production release management and a capstone showcase where students present their AI-engineered application.",
+      "enrollment_requirement": "Pre-requisite(s): For students who have taken ENGG1003 or ENGG1004",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "At the end of the course of studies, students should be able to:\n\n1. Apply GenAI assistants for efficient application development.\n2. Refactor, document, test, and optimize codebases using AI.\n3. Implement production guardrails and deploy applications.",
+      "course_syllabus": "Week 1 Foundations of Coding and LLMs\nWeek 2 LLM APIs\nWeek 3 AI Coding Assistants with Common IDEs\nWeek 4 Prompting for Code Generation\nWeek 5 Advanced Prompting and Structuring\nWeek 6 Limitations and Security Issues of LLMs\nWeek 7 Code Refactoring with GenAI\nWeek 8 Documenting Code with GenAI\nWeek 9 RAG and AI-Assisted Software Testing\nWeek 10 Runtime and Memory Management with GenAI\nWeek 11 AI Agents\nWeek 12 Production Deployment and Release\nWeek 13 Capstone Showcase",
+      "assessment_types": {
+        "Lab reports": "50",
+        "Project": "40",
+        "Participation": "10"
+      },
+      "feedback_evaluation": "Students are encouraged to give comments and make suggestions using the following channels:\n\n1. There is one course evaluation at the end of the course. This is a formal channel for students to rate course content. Students can give specific comments or suggestions in addition to the numeric ratings.\n2. Students can provide feedback using informal channels, such as email.",
+      "required_readings": "Nil",
+      "recommended_readings": "1. Hila Paz Herszfang, Peter V. Henstock. (2025). *Supercharged Coding with GenAI: From vibe coding to best practices using GitHub Copilot, ChatGPT, and OpenAI*. Packt Publishing.\n2. Addy Osmani (2025), *Beyond Vibe Coding*, O'Reilly Media.\n3. Python Tutorial, https://www.w3schools.com/python/default.asp"
     },
     {
       "subject": "ENGG",

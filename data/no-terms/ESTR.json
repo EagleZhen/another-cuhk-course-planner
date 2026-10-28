@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "ESTR",
     "subject_title": "Courses for ELITE Stream",
-    "total_courses": 90
+    "total_courses": 91
   },
   "courses": [
     {
@@ -56,6 +56,33 @@
       "feedback_evaluation": "1. Course evaluation by students\n2. Newsgroup discussion",
       "required_readings": "N/A",
       "recommended_readings": "1. C. Thomas Wu, An Introduction to Object-Oriented Programming With JAVA, 4th Edition Update, McGraw-Hill, 2005\n2. Harvey M. Deitel & Paul J. Deitel, JAVA How to Program, 6th Edition, Prentice Hall, 2004"
+    },
+    {
+      "subject": "ESTR",
+      "course_code": "2100",
+      "title": "Embedded System Design",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course introduces the techniques for building embedded systems such as the use of microprocessors, interfacing memory systems and timing control of digital signals. It also discusses peripheral input/output interfacing methods such as: timer, serial and parallel interfaces, analog-to-digital conversion, polling, interrupt and device driver developments. Assembly language programming will also be introduced: concepts of addressing modes, data manipulation, control flow instructions, programme linkage and relation to high level languages.",
+      "enrollment_requirement": "Not for students who have taken CENG2400. Pre-requisite: ENGG2020 or ENGG2120 or ESTR2104.",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Laboratory\nLecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Fac Office of Engineering",
+      "academic_org": "Fac Office of Engineering",
+      "learning_outcomes": "Students will be able to\n1. design, implement, program and debug microprocessor-based embedded systems to solve real life problems.\n2. write assembly language programs.\n3. interface an embedded system with other devices such as integrated circuit devices and displays.",
+      "course_syllabus": "This course introduces the techniques for building embedded systems such as the use of microprocessors, interfacing memory systems and timing control of digital signals. It also discusses peripheral input/output interfacing methods such as: timer, serial and parallel interfaces, analog-to-digital conversion, polling, interrupt and device driver developments. Assembly language programming will also be introduced that includes: concepts of addressing modes, data manipulation, control flow instructions, programme linkage and relation to high level languages.",
+      "assessment_types": {
+        "Essay test or exam": "50",
+        "Lab reports": "20",
+        "Presentation": "5",
+        "Short answer test or exam": "25"
+      },
+      "feedback_evaluation": "Feedback for Evaluation\n1. Midterm evaluation\n2. Questions in labs/tutorials",
+      "required_readings": "To be provided by the course teacher(s) in the respective teaching term.",
+      "recommended_readings": "1. Furber, ARM System-on-Chip Architecture, 2000\n2. Web-based data sheets and teaching materials"
     },
     {
       "subject": "ESTR",

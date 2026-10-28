@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "UGED",
     "subject_title": "UGED: Self and Humanity",
-    "total_courses": 51
+    "total_courses": 52
   },
   "courses": [
     {
@@ -1646,6 +1646,69 @@
     },
     {
       "subject": "UGED",
+      "course_code": "1589",
+      "title": "AI Ethics and Governance: Philosophy, Principles, and Practices",
+      "credits": "2.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (10076)",
+              "meetings": [
+                {
+                  "time": "Tu 1:30PM - 3:15PM",
+                  "location": "Cheng Yu Tung Building 215",
+                  "instructor": "Dr. LAI Chi Wai",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 1:30PM - 3:15PM",
+                  "location": "Cheng Yu Tung Building 215",
+                  "instructor": "Dr. LAI Chi Wai",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 1:30PM - 3:15PM",
+                  "location": "Cheng Yu Tung Building 215",
+                  "instructor": "Dr. LAI Chi Wai",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "30",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "30",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
+            }
+          ]
+        }
+      ],
+      "description": "Artificial Intelligence (AI) is reshaping how humans learn, work, create, communicate, and make decisions. Yet AI systems are fundamentally different from human beings in their capacities for consciousness, moral agency and responsibility, creativity, and meaning‑making. Understanding these distinctions is essential not only for evaluating the opportunities and risks associated with AI technologies, but also for enriching our understanding of human distinctiveness.\n\nThis course examines the ethical, social, and governance challenges posed by AI through a human-centred lens. Students will explore how AI affects higher education, professional practice, public institutions, and society at large. Drawing on ethical theories, governance frameworks, and contemporary case studies, the course investigates issues such as authenticity, academic integrity, fairness, accountability, transparency, human agency, and democratic governance.\n\nThe course culminates in an exploration of responsible human-AI relations and the development of governance approaches that promote human flourishing, dignity, and societal well-being in an AI-enabled future.",
+      "enrollment_requirement": "Not for Artificial Intelligence: Systems and Technologies Major.\nCo-requisite: Any course with “UGFH” or “UGFN” as prefix",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Office of University GE",
+      "academic_org": "Office of University GE",
+      "learning_outcomes": "Upon completion of this course, students will be able to:\n\n1. Explain key similarities and differences between human intelligence and artificial intelligence.\n2. Critically evaluate claims about AI capabilities, limitations, and societal impacts, including its implications for learning, writing, and intellectual development in higher education.\n3. Apply ethical frameworks to analyse AI-related issues.\n4. Assess ethical concerns regarding fairness, accountability, transparency, privacy, and human agency.\n5. Explain how governments and organizations govern AI through policies, standards, oversight, and risk management approaches.\n6. Formulate a personal view on desirable forms of human-AI coexistence and collaboration.",
+      "assessment_types": {
+        "Homework or assignment": "15",
+        "Others": "20",
+        "Project": "45",
+        "Test or quiz": "20"
+      }
+    },
+    {
+      "subject": "UGED",
       "course_code": "1600",
       "title": "Choices in Life: An Invitation to Self-Development",
       "credits": "3.00",
@@ -2204,6 +2267,39 @@
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "B-LEC (10053)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg C2",
+                  "instructor": "Professor William James Clark SMITH",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg C2",
+                  "instructor": "Professor William James Clark SMITH",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg C2",
+                  "instructor": "Professor William James Clark SMITH",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
               "enrollment_requirement": ""
             }
           ]
