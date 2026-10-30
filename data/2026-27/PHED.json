@@ -1759,7 +1759,7 @@
               ],
               "availability": {
                 "capacity": "28",
-                "enrolled": "29",
+                "enrolled": "28",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "0",
@@ -7362,39 +7362,6 @@
               },
               "class_attributes": "For male only\nCan, change to Eng if needed",
               "enrollment_requirement": "For male only.\nNot for PESH and ESHE Majors.\nNot for IASP students.\nNot for students who have taken PHED1180."
-            },
-            {
-              "section": "M-LEC (8871)",
-              "meetings": [
-                {
-                  "time": "Tu 12:30PM - 2:15PM",
-                  "location": "University Gymnasium",
-                  "instructor": "Mr. HUI Ka Kit",
-                  "dates": "12/1, 19/1, 26/1, 2/2"
-                },
-                {
-                  "time": "Tu 12:30PM - 2:15PM",
-                  "location": "University Gymnasium",
-                  "instructor": "Mr. HUI Ka Kit",
-                  "dates": "16/2, 23/2, 2/3"
-                },
-                {
-                  "time": "Tu 12:30PM - 2:15PM",
-                  "location": "University Gymnasium",
-                  "instructor": "Mr. HUI Ka Kit",
-                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
-                }
-              ],
-              "availability": {
-                "capacity": "26",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "26",
-                "status": "Open"
-              },
-              "class_attributes": "For male only\nCan, change to Eng if needed",
-              "enrollment_requirement": "For male only.\nNot for PESH and ESHE Majors.\nNot for IASP students.\nNot for students who have taken PHED1180."
             }
           ]
         }
@@ -9347,7 +9314,7 @@
               "availability": {
                 "capacity": "12",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "12",
                 "status": "Open"
@@ -11080,7 +11047,7 @@
               "availability": {
                 "capacity": "20",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "20",
                 "status": "Open"
@@ -11969,7 +11936,7 @@
               "availability": {
                 "capacity": "12",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "12",
                 "status": "Open"
@@ -12002,7 +11969,7 @@
               "availability": {
                 "capacity": "12",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "12",
                 "status": "Open"
@@ -12075,7 +12042,7 @@
               "availability": {
                 "capacity": "24",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "24",
                 "status": "Open"
