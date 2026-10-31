@@ -3449,25 +3449,25 @@
               "meetings": [
                 {
                   "time": "Mo 4:30PM - 6:15PM",
-                  "location": "Lee Shau Kee Building 401",
+                  "location": "Yasumoto Int'l Acad Park 603",
                   "instructor": "Mr. Matthew James GORDON",
                   "dates": "11/1, 18/1, 25/1, 1/2"
                 },
                 {
                   "time": "Mo 4:30PM - 6:15PM",
-                  "location": "Lee Shau Kee Building 401",
+                  "location": "Yasumoto Int'l Acad Park 603",
                   "instructor": "Mr. Matthew James GORDON",
                   "dates": "15/2, 22/2, 1/3"
                 },
                 {
                   "time": "Mo 4:30PM - 6:15PM",
-                  "location": "Lee Shau Kee Building 401",
+                  "location": "Yasumoto Int'l Acad Park 603",
                   "instructor": "Mr. Matthew James GORDON",
                   "dates": "15/3, 22/3"
                 },
                 {
                   "time": "Mo 4:30PM - 6:15PM",
-                  "location": "Lee Shau Kee Building 401",
+                  "location": "Yasumoto Int'l Acad Park 603",
                   "instructor": "Mr. Matthew James GORDON",
                   "dates": "12/4, 19/4"
                 },
@@ -3558,36 +3558,87 @@
                 {
                   "time": "Tu 9:30AM - 10:15AM",
                   "location": "Lee Shau Kee Archi Bldg 211",
-                  "instructor": "Mr. Matthew James GORDON",
+                  "instructor": "Mr. LAU Ka Kiu Jimmy, \nMr. Matthew James GORDON",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 9:30AM - 10:15AM",
                   "location": "Lee Shau Kee Archi Bldg 211",
-                  "instructor": "Mr. Matthew James GORDON",
+                  "instructor": "Mr. LAU Ka Kiu Jimmy, \nMr. Matthew James GORDON",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 9:30AM - 10:15AM",
                   "location": "Lee Shau Kee Archi Bldg 211",
-                  "instructor": "Mr. Matthew James GORDON",
+                  "instructor": "Mr. LAU Ka Kiu Jimmy, \nMr. Matthew James GORDON",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "Wong Foo Yuan Bldg 401",
-                  "instructor": "Mr. Matthew James GORDON",
+                  "instructor": "Mr. LAU Ka Kiu Jimmy, \nMr. Matthew James GORDON",
                   "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "Wong Foo Yuan Bldg 401",
-                  "instructor": "Mr. Matthew James GORDON",
+                  "instructor": "Mr. LAU Ka Kiu Jimmy, \nMr. Matthew James GORDON",
                   "dates": "18/2, 25/2, 4/3"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
                   "location": "Wong Foo Yuan Bldg 401",
+                  "instructor": "Mr. LAU Ka Kiu Jimmy, \nMr. Matthew James GORDON",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ELTU1001"
+            },
+            {
+              "section": "BEC1-CLW (10106)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 212",
+                  "instructor": "Mr. Matthew James GORDON",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 212",
+                  "instructor": "Mr. Matthew James GORDON",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Lee Shau Kee Building 212",
+                  "instructor": "Mr. Matthew James GORDON",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "William M W Mong Eng Bldg 405",
+                  "instructor": "Mr. Matthew James GORDON",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "William M W Mong Eng Bldg 405",
+                  "instructor": "Mr. Matthew James GORDON",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 9:30AM - 10:15AM",
+                  "location": "William M W Mong Eng Bldg 405",
                   "instructor": "Mr. Matthew James GORDON",
                   "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 }
@@ -3844,6 +3895,57 @@
                   "time": "Th 12:30PM - 2:15PM",
                   "location": "Wu Ho Man Yuen Bldg 406",
                   "instructor": "Miss ZHOU Yihuan",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "Not for students who have taken ELTU1001"
+            },
+            {
+              "section": "CEC1-CLW (10104)",
+              "meetings": [
+                {
+                  "time": "Tu 3:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 404",
+                  "instructor": "Dr. WAN Alina",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 3:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 404",
+                  "instructor": "Dr. WAN Alina",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 3:30PM - 5:15PM",
+                  "location": "Lee Shau Kee Building 404",
+                  "instructor": "Dr. WAN Alina",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                },
+                {
+                  "time": "Th 5:30PM - 6:15PM",
+                  "location": "Lee Shau Kee Building 302",
+                  "instructor": "Dr. WAN Alina",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 5:30PM - 6:15PM",
+                  "location": "Lee Shau Kee Building 302",
+                  "instructor": "Dr. WAN Alina",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 5:30PM - 6:15PM",
+                  "location": "Lee Shau Kee Building 302",
+                  "instructor": "Dr. WAN Alina",
                   "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 }
               ],
@@ -4306,6 +4408,45 @@
           "term_name": "2026-27 Term 2",
           "schedule": [
             {
+              "section": "AC01-CLW (10089)",
+              "meetings": [
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 110",
+                  "instructor": "Mr. Jonathan Christopher STOECKEL",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 110",
+                  "instructor": "Mr. Jonathan Christopher STOECKEL",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 110",
+                  "instructor": "Mr. Jonathan Christopher STOECKEL",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 10:30AM - 1:15PM",
+                  "location": "T.C. Cheng Bldg 110",
+                  "instructor": "Mr. Jonathan Christopher STOECKEL",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "Pre-requisite(s): ELTU1001 or ELTU1002 or exemption from these courses"
+            },
+            {
               "section": "BC01-CLW (6103)",
               "meetings": [
                 {
@@ -4475,25 +4616,25 @@
               "meetings": [
                 {
                   "time": "Mo 1:30PM - 4:15PM",
-                  "location": "Lee Shau Kee Building 410",
+                  "location": "TBA",
                   "instructor": "Mr. Jonathan Christopher STOECKEL",
                   "dates": "11/1, 18/1, 25/1, 1/2"
                 },
                 {
                   "time": "Mo 1:30PM - 4:15PM",
-                  "location": "Lee Shau Kee Building 410",
+                  "location": "TBA",
                   "instructor": "Mr. Jonathan Christopher STOECKEL",
                   "dates": "15/2, 22/2, 1/3"
                 },
                 {
                   "time": "Mo 1:30PM - 4:15PM",
-                  "location": "Lee Shau Kee Building 410",
+                  "location": "TBA",
                   "instructor": "Mr. Jonathan Christopher STOECKEL",
                   "dates": "15/3, 22/3"
                 },
                 {
                   "time": "Mo 1:30PM - 4:15PM",
-                  "location": "Lee Shau Kee Building 410",
+                  "location": "TBA",
                   "instructor": "Mr. Jonathan Christopher STOECKEL",
                   "dates": "12/4, 19/4"
                 }
@@ -5186,44 +5327,44 @@
               "meetings": [
                 {
                   "time": "We 12:30PM - 1:15PM",
-                  "location": "Yasumoto Int'l Acad Park 502",
-                  "instructor": "Staff",
+                  "location": "Esther Lee Bldg 206",
+                  "instructor": "Ms. LEE Jenna Lara",
                   "dates": "13/1, 20/1, 27/1, 3/2"
                 },
                 {
                   "time": "We 12:30PM - 1:15PM",
-                  "location": "Yasumoto Int'l Acad Park 502",
-                  "instructor": "Staff",
+                  "location": "Esther Lee Bldg 206",
+                  "instructor": "Ms. LEE Jenna Lara",
                   "dates": "17/2, 24/2, 3/3"
                 },
                 {
                   "time": "We 12:30PM - 1:15PM",
-                  "location": "Yasumoto Int'l Acad Park 502",
-                  "instructor": "Staff",
+                  "location": "Esther Lee Bldg 206",
+                  "instructor": "Ms. LEE Jenna Lara",
                   "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Yasumoto Int'l Acad Park 501",
-                  "instructor": "Staff",
+                  "instructor": "Ms. LEE Jenna Lara",
                   "dates": "11/1, 18/1, 25/1, 1/2"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Yasumoto Int'l Acad Park 501",
-                  "instructor": "Staff",
+                  "instructor": "Ms. LEE Jenna Lara",
                   "dates": "15/2, 22/2, 1/3"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Yasumoto Int'l Acad Park 501",
-                  "instructor": "Staff",
+                  "instructor": "Ms. LEE Jenna Lara",
                   "dates": "15/3, 22/3"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Yasumoto Int'l Acad Park 501",
-                  "instructor": "Staff",
+                  "instructor": "Ms. LEE Jenna Lara",
                   "dates": "12/4, 19/4"
                 }
               ],
@@ -5301,43 +5442,43 @@
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Yasumoto Int'l Acad Park 404",
-                  "instructor": "Staff",
+                  "instructor": "Miss CHAN Woon Ki",
                   "dates": "11/1, 18/1, 25/1, 1/2"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Yasumoto Int'l Acad Park 404",
-                  "instructor": "Staff",
+                  "instructor": "Miss CHAN Woon Ki",
                   "dates": "15/2, 22/2, 1/3"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Yasumoto Int'l Acad Park 404",
-                  "instructor": "Staff",
+                  "instructor": "Miss CHAN Woon Ki",
                   "dates": "15/3, 22/3"
                 },
                 {
                   "time": "Mo 10:30AM - 12:15PM",
                   "location": "Yasumoto Int'l Acad Park 404",
-                  "instructor": "Staff",
+                  "instructor": "Miss CHAN Woon Ki",
                   "dates": "12/4, 19/4"
                 },
                 {
                   "time": "We 12:30PM - 1:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 306",
-                  "instructor": "Staff",
+                  "location": "Yasumoto Int'l Acad Park 502",
+                  "instructor": "Miss CHAN Woon Ki",
                   "dates": "13/1, 20/1, 27/1, 3/2"
                 },
                 {
                   "time": "We 12:30PM - 1:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 306",
-                  "instructor": "Staff",
+                  "location": "Yasumoto Int'l Acad Park 502",
+                  "instructor": "Miss CHAN Woon Ki",
                   "dates": "17/2, 24/2, 3/3"
                 },
                 {
                   "time": "We 12:30PM - 1:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 306",
-                  "instructor": "Staff",
+                  "location": "Yasumoto Int'l Acad Park 502",
+                  "instructor": "Miss CHAN Woon Ki",
                   "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
                 }
               ],
@@ -7644,37 +7785,37 @@
                 {
                   "time": "Th 4:30PM - 5:15PM",
                   "location": "Y.C. Liang Hall G01",
-                  "instructor": "Staff",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
                   "time": "Th 4:30PM - 5:15PM",
                   "location": "Y.C. Liang Hall G01",
-                  "instructor": "Staff",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "18/2, 25/2, 4/3"
                 },
                 {
                   "time": "Th 4:30PM - 5:15PM",
                   "location": "Y.C. Liang Hall G01",
-                  "instructor": "Staff",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 },
                 {
                   "time": "Tu 2:30PM - 4:15PM",
                   "location": "Esther Lee Bldg 305",
-                  "instructor": "Staff",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 2:30PM - 4:15PM",
                   "location": "Esther Lee Bldg 305",
-                  "instructor": "Staff",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 2:30PM - 4:15PM",
                   "location": "Esther Lee Bldg 305",
-                  "instructor": "Staff",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
               ],
@@ -7814,19 +7955,19 @@
                 },
                 {
                   "time": "Th 4:30PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "Wong Foo Yuan Bldg 106",
                   "instructor": "Mr. Matthew James GORDON",
                   "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
                   "time": "Th 4:30PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "Wong Foo Yuan Bldg 106",
                   "instructor": "Mr. Matthew James GORDON",
                   "dates": "18/2, 25/2, 4/3"
                 },
                 {
                   "time": "Th 4:30PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "Wong Foo Yuan Bldg 106",
                   "instructor": "Mr. Matthew James GORDON",
                   "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 }
@@ -7898,19 +8039,19 @@
               "meetings": [
                 {
                   "time": "Tu 2:30PM - 4:15PM",
-                  "location": "Wong Foo Yuan Bldg 105",
+                  "location": "William M W Mong Eng Bldg 406",
                   "instructor": "Mr. YUNG Hoi Hei",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 2:30PM - 4:15PM",
-                  "location": "Wong Foo Yuan Bldg 105",
+                  "location": "William M W Mong Eng Bldg 406",
                   "instructor": "Mr. YUNG Hoi Hei",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 2:30PM - 4:15PM",
-                  "location": "Wong Foo Yuan Bldg 105",
+                  "location": "William M W Mong Eng Bldg 406",
                   "instructor": "Mr. YUNG Hoi Hei",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 },
@@ -8154,37 +8295,37 @@
                 {
                   "time": "Tu 4:30PM - 5:15PM",
                   "location": "Esther Lee Bldg 305",
-                  "instructor": "Staff",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 4:30PM - 5:15PM",
                   "location": "Esther Lee Bldg 305",
-                  "instructor": "Staff",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 4:30PM - 5:15PM",
                   "location": "Esther Lee Bldg 305",
-                  "instructor": "Staff",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 },
                 {
                   "time": "Th 2:30PM - 4:15PM",
                   "location": "Y.C. Liang Hall G01",
-                  "instructor": "Staff",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
                   "time": "Th 2:30PM - 4:15PM",
                   "location": "Y.C. Liang Hall G01",
-                  "instructor": "Staff",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "18/2, 25/2, 4/3"
                 },
                 {
                   "time": "Th 2:30PM - 4:15PM",
                   "location": "Y.C. Liang Hall G01",
-                  "instructor": "Staff",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 }
               ],
@@ -8976,19 +9117,19 @@
               "meetings": [
                 {
                   "time": "Tu 8:30AM - 10:15AM",
-                  "location": "Yasumoto Int'l Acad Park 410",
+                  "location": "T.C. Cheng Bldg 201",
                   "instructor": "Ms. CHEONG May Lyn",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 8:30AM - 10:15AM",
-                  "location": "Yasumoto Int'l Acad Park 410",
+                  "location": "T.C. Cheng Bldg 201",
                   "instructor": "Ms. CHEONG May Lyn",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 8:30AM - 10:15AM",
-                  "location": "Yasumoto Int'l Acad Park 410",
+                  "location": "T.C. Cheng Bldg 201",
                   "instructor": "Ms. CHEONG May Lyn",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 },
@@ -9334,37 +9475,37 @@
                 {
                   "time": "Th 8:30AM - 10:15AM",
                   "location": "Yasumoto Int'l Acad Park 201",
-                  "instructor": "Staff",
+                  "instructor": "Mr. Julian Clement Gerald CHASE",
                   "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
                   "time": "Th 8:30AM - 10:15AM",
                   "location": "Yasumoto Int'l Acad Park 201",
-                  "instructor": "Staff",
+                  "instructor": "Mr. Julian Clement Gerald CHASE",
                   "dates": "18/2, 25/2, 4/3"
                 },
                 {
                   "time": "Th 8:30AM - 10:15AM",
                   "location": "Yasumoto Int'l Acad Park 201",
-                  "instructor": "Staff",
+                  "instructor": "Mr. Julian Clement Gerald CHASE",
                   "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 },
                 {
                   "time": "Tu 10:30AM - 11:15AM",
                   "location": "Yasumoto Int'l Acad Park 410",
-                  "instructor": "Staff",
+                  "instructor": "Mr. Julian Clement Gerald CHASE",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 10:30AM - 11:15AM",
                   "location": "Yasumoto Int'l Acad Park 410",
-                  "instructor": "Staff",
+                  "instructor": "Mr. Julian Clement Gerald CHASE",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 10:30AM - 11:15AM",
                   "location": "Yasumoto Int'l Acad Park 410",
-                  "instructor": "Staff",
+                  "instructor": "Mr. Julian Clement Gerald CHASE",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
               ],
@@ -9384,38 +9525,38 @@
               "meetings": [
                 {
                   "time": "Tu 10:30AM - 11:15AM",
-                  "location": "Lee Shau Kee Building 408",
-                  "instructor": "Dr. CHOW Pui Lun",
+                  "location": "TBA",
+                  "instructor": "Dr. CHOW Pui Lun, \nMs. Jillian Frances DUBAY",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 10:30AM - 11:15AM",
-                  "location": "Lee Shau Kee Building 408",
-                  "instructor": "Dr. CHOW Pui Lun",
+                  "location": "TBA",
+                  "instructor": "Dr. CHOW Pui Lun, \nMs. Jillian Frances DUBAY",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 10:30AM - 11:15AM",
-                  "location": "Lee Shau Kee Building 408",
-                  "instructor": "Dr. CHOW Pui Lun",
+                  "location": "TBA",
+                  "instructor": "Dr. CHOW Pui Lun, \nMs. Jillian Frances DUBAY",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 },
                 {
                   "time": "Th 8:30AM - 10:15AM",
                   "location": "Lee Shau Kee Building 408",
-                  "instructor": "Dr. CHOW Pui Lun",
+                  "instructor": "Dr. CHOW Pui Lun, \nMs. Jillian Frances DUBAY",
                   "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
                   "time": "Th 8:30AM - 10:15AM",
                   "location": "Lee Shau Kee Building 408",
-                  "instructor": "Dr. CHOW Pui Lun",
+                  "instructor": "Dr. CHOW Pui Lun, \nMs. Jillian Frances DUBAY",
                   "dates": "18/2, 25/2, 4/3"
                 },
                 {
                   "time": "Th 8:30AM - 10:15AM",
                   "location": "Lee Shau Kee Building 408",
-                  "instructor": "Dr. CHOW Pui Lun",
+                  "instructor": "Dr. CHOW Pui Lun, \nMs. Jillian Frances DUBAY",
                   "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 }
               ],
@@ -9708,19 +9849,19 @@
                 },
                 {
                   "time": "Tu 10:30AM - 11:15AM",
-                  "location": "T.C. Cheng Bldg 104",
+                  "location": "Mong Man Wai Bldg 705",
                   "instructor": "Mr. WONG Yao Hing",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 10:30AM - 11:15AM",
-                  "location": "T.C. Cheng Bldg 104",
+                  "location": "Mong Man Wai Bldg 705",
                   "instructor": "Mr. WONG Yao Hing",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 10:30AM - 11:15AM",
-                  "location": "T.C. Cheng Bldg 104",
+                  "location": "Mong Man Wai Bldg 705",
                   "instructor": "Mr. WONG Yao Hing",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
@@ -9742,37 +9883,37 @@
                 {
                   "time": "Th 12:30PM - 2:15PM",
                   "location": "Li Dak Sum Building 218",
-                  "instructor": "Staff",
+                  "instructor": "Dr. KAN Yuen Yee",
                   "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
                   "time": "Th 12:30PM - 2:15PM",
                   "location": "Li Dak Sum Building 218",
-                  "instructor": "Staff",
+                  "instructor": "Dr. KAN Yuen Yee",
                   "dates": "18/2, 25/2, 4/3"
                 },
                 {
                   "time": "Th 12:30PM - 2:15PM",
                   "location": "Li Dak Sum Building 218",
-                  "instructor": "Staff",
+                  "instructor": "Dr. KAN Yuen Yee",
                   "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 },
                 {
                   "time": "Tu 11:30AM - 12:15PM",
                   "location": "Y.C. Liang Hall G04",
-                  "instructor": "Staff",
+                  "instructor": "Dr. KAN Yuen Yee",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 11:30AM - 12:15PM",
                   "location": "Y.C. Liang Hall G04",
-                  "instructor": "Staff",
+                  "instructor": "Dr. KAN Yuen Yee",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 11:30AM - 12:15PM",
                   "location": "Y.C. Liang Hall G04",
-                  "instructor": "Staff",
+                  "instructor": "Dr. KAN Yuen Yee",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
               ],
@@ -10099,37 +10240,37 @@
                 {
                   "time": "Tu 11:30AM - 12:15PM",
                   "location": "Yasumoto Int'l Acad Park 410",
-                  "instructor": "Staff",
+                  "instructor": "Mr. Julian Clement Gerald CHASE",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 11:30AM - 12:15PM",
                   "location": "Yasumoto Int'l Acad Park 410",
-                  "instructor": "Staff",
+                  "instructor": "Mr. Julian Clement Gerald CHASE",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 11:30AM - 12:15PM",
                   "location": "Yasumoto Int'l Acad Park 410",
-                  "instructor": "Staff",
+                  "instructor": "Mr. Julian Clement Gerald CHASE",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 },
                 {
                   "time": "Th 12:30PM - 2:15PM",
                   "location": "T.C. Cheng Bldg 207",
-                  "instructor": "Staff",
+                  "instructor": "Mr. Julian Clement Gerald CHASE",
                   "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
                   "time": "Th 12:30PM - 2:15PM",
                   "location": "T.C. Cheng Bldg 207",
-                  "instructor": "Staff",
+                  "instructor": "Mr. Julian Clement Gerald CHASE",
                   "dates": "18/2, 25/2, 4/3"
                 },
                 {
                   "time": "Th 12:30PM - 2:15PM",
                   "location": "T.C. Cheng Bldg 207",
-                  "instructor": "Staff",
+                  "instructor": "Mr. Julian Clement Gerald CHASE",
                   "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 }
               ],
@@ -10320,19 +10461,19 @@
                 },
                 {
                   "time": "Tu 12:30PM - 2:15PM",
-                  "location": "Yasumoto Int'l Acad Park 603",
+                  "location": "Wong Foo Yuan Bldg UG02",
                   "instructor": "Dr. ZHANG Wenhao",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 12:30PM - 2:15PM",
-                  "location": "Yasumoto Int'l Acad Park 603",
+                  "location": "Wong Foo Yuan Bldg UG02",
                   "instructor": "Dr. ZHANG Wenhao",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 12:30PM - 2:15PM",
-                  "location": "Yasumoto Int'l Acad Park 603",
+                  "location": "Wong Foo Yuan Bldg UG02",
                   "instructor": "Dr. ZHANG Wenhao",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
@@ -10558,37 +10699,37 @@
                 {
                   "time": "Tu 12:30PM - 2:15PM",
                   "location": "Y.C. Liang Hall G01",
-                  "instructor": "Staff",
+                  "instructor": "Dr. KAN Yuen Yee",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 12:30PM - 2:15PM",
                   "location": "Y.C. Liang Hall G01",
-                  "instructor": "Staff",
+                  "instructor": "Dr. KAN Yuen Yee",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 12:30PM - 2:15PM",
                   "location": "Y.C. Liang Hall G01",
-                  "instructor": "Staff",
+                  "instructor": "Dr. KAN Yuen Yee",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 },
                 {
                   "time": "Th 11:30AM - 12:15PM",
                   "location": "Lee Shau Kee Building 202",
-                  "instructor": "Staff",
+                  "instructor": "Dr. KAN Yuen Yee",
                   "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
                   "time": "Th 11:30AM - 12:15PM",
                   "location": "Lee Shau Kee Building 202",
-                  "instructor": "Staff",
+                  "instructor": "Dr. KAN Yuen Yee",
                   "dates": "18/2, 25/2, 4/3"
                 },
                 {
                   "time": "Th 11:30AM - 12:15PM",
                   "location": "Lee Shau Kee Building 202",
-                  "instructor": "Staff",
+                  "instructor": "Dr. KAN Yuen Yee",
                   "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 }
               ],
@@ -10881,19 +11022,19 @@
                 },
                 {
                   "time": "Tu 12:30PM - 2:15PM",
-                  "location": "William M W Mong Eng Bldg 713",
+                  "location": "Wong Foo Yuan Bldg UG01",
                   "instructor": "Staff",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 12:30PM - 2:15PM",
-                  "location": "William M W Mong Eng Bldg 713",
+                  "location": "Wong Foo Yuan Bldg UG01",
                   "instructor": "Staff",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 12:30PM - 2:15PM",
-                  "location": "William M W Mong Eng Bldg 713",
+                  "location": "Wong Foo Yuan Bldg UG01",
                   "instructor": "Staff",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
@@ -10966,37 +11107,37 @@
                 {
                   "time": "Th 10:30AM - 11:15AM",
                   "location": "Lee Shau Kee Building 408",
-                  "instructor": "Staff",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
                   "time": "Th 10:30AM - 11:15AM",
                   "location": "Lee Shau Kee Building 408",
-                  "instructor": "Staff",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "18/2, 25/2, 4/3"
                 },
                 {
                   "time": "Th 10:30AM - 11:15AM",
                   "location": "Lee Shau Kee Building 408",
-                  "instructor": "Staff",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 },
                 {
                   "time": "Tu 8:30AM - 10:15AM",
-                  "location": "Lee Shau Kee Building 408",
-                  "instructor": "Staff",
+                  "location": "Tsang Shiu Tim Bldg 102",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 8:30AM - 10:15AM",
-                  "location": "Lee Shau Kee Building 408",
-                  "instructor": "Staff",
+                  "location": "Tsang Shiu Tim Bldg 102",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 8:30AM - 10:15AM",
-                  "location": "Lee Shau Kee Building 408",
-                  "instructor": "Staff",
+                  "location": "Tsang Shiu Tim Bldg 102",
+                  "instructor": "Ms. Jillian Frances DUBAY",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
               ],
@@ -11049,6 +11190,108 @@
                   "location": "Lee Shau Kee Building 410",
                   "instructor": "Ms. CHAN Wing Sha",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ELTU1001 or ELTU1002 or exemption from these courses"
+            },
+            {
+              "section": "BTC1-CLW (10084)",
+              "meetings": [
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Esther Lee Bldg 207",
+                  "instructor": "Dr. CHOW Pui Lun",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Esther Lee Bldg 207",
+                  "instructor": "Dr. CHOW Pui Lun",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                },
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 507",
+                  "instructor": "Dr. CHOW Pui Lun",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 507",
+                  "instructor": "Dr. CHOW Pui Lun",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 11:30AM - 12:15PM",
+                  "location": "Yasumoto Int'l Acad Park 507",
+                  "instructor": "Dr. CHOW Pui Lun",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                },
+                {
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Esther Lee Bldg 207",
+                  "instructor": "Dr. CHOW Pui Lun",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: ELTU1001 or ELTU1002 or exemption from these courses"
+            },
+            {
+              "section": "BUC1-CLW (10085)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Ms. CHEONG May Lyn",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Ms. CHEONG May Lyn",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 10:30AM - 11:15AM",
+                  "location": "T.C. Cheng Bldg 205",
+                  "instructor": "Ms. CHEONG May Lyn",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                },
+                {
+                  "time": "Th 8:30AM - 9:15AM",
+                  "location": "Yasumoto Int'l Acad Park 402",
+                  "instructor": "Ms. CHEONG May Lyn",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 8:30AM - 9:15AM",
+                  "location": "Yasumoto Int'l Acad Park 402",
+                  "instructor": "Ms. CHEONG May Lyn",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 8:30AM - 9:15AM",
+                  "location": "Yasumoto Int'l Acad Park 402",
+                  "instructor": "Ms. CHEONG May Lyn",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 }
               ],
               "availability": {
@@ -13389,10 +13632,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "18",
+                "enrolled": "17",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "2",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -14321,11 +14564,11 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "20",
+                "enrolled": "19",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "0",
-                "status": "Closed"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": "Pre-requisite(s): ELTU1001 or ELTU1002 or exemption from these courses"
@@ -15323,23 +15566,56 @@
               "enrollment_requirement": "Prerequisite: (ELTU1001 or ELTU1002 or exemption from these courses) and (ELTU2004 or ELTU2005 or ELTU2006 or ELTU2011 or ELTU2022 or ELTU2406 or ELTU2412 or exemption from these courses)"
             },
             {
+              "section": "AGC1-CLW (10097)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "instructor": "Dr. Caroline DRISCOL",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "instructor": "Dr. Caroline DRISCOL",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 2:30PM - 4:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 304",
+                  "instructor": "Dr. Caroline DRISCOL",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite: (ELTU1001 or ELTU1002 or exemption from these courses) and (ELTU2004 or ELTU2005 or ELTU2006 or ELTU2011 or ELTU2022 or ELTU2406 or ELTU2412 or exemption from these courses)"
+            },
+            {
               "section": "AKC1-CLW (9956)",
               "meetings": [
                 {
                   "time": "Tu 4:30PM - 6:15PM",
-                  "location": "TBA",
+                  "location": "Lee Shau Kee Building 410",
                   "instructor": "Miss CHAN Tsz Sum",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 4:30PM - 6:15PM",
-                  "location": "TBA",
+                  "location": "Lee Shau Kee Building 410",
                   "instructor": "Miss CHAN Tsz Sum",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 4:30PM - 6:15PM",
-                  "location": "TBA",
+                  "location": "Lee Shau Kee Building 410",
                   "instructor": "Miss CHAN Tsz Sum",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
@@ -16021,19 +16297,19 @@
               "meetings": [
                 {
                   "time": "Tu 2:30PM - 4:15PM",
-                  "location": "William M W Mong Eng Bldg 406",
+                  "location": "TBA",
                   "instructor": "Staff",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 2:30PM - 4:15PM",
-                  "location": "William M W Mong Eng Bldg 406",
+                  "location": "TBA",
                   "instructor": "Staff",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 2:30PM - 4:15PM",
-                  "location": "William M W Mong Eng Bldg 406",
+                  "location": "TBA",
                   "instructor": "Staff",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
@@ -16813,19 +17089,19 @@
               "meetings": [
                 {
                   "time": "Tu 4:30PM - 6:15PM",
-                  "location": "Yasumoto Int'l Acad Park 508",
+                  "location": "TBA",
                   "instructor": "Staff",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 4:30PM - 6:15PM",
-                  "location": "Yasumoto Int'l Acad Park 508",
+                  "location": "TBA",
                   "instructor": "Staff",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 4:30PM - 6:15PM",
-                  "location": "Yasumoto Int'l Acad Park 508",
+                  "location": "TBA",
                   "instructor": "Staff",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
@@ -17655,19 +17931,19 @@
               "meetings": [
                 {
                   "time": "Tu 12:30PM - 2:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 502",
+                  "location": "Yasumoto Int'l Acad Park 603",
                   "instructor": "Mr. CHAN Man Long",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 12:30PM - 2:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 502",
+                  "location": "Yasumoto Int'l Acad Park 603",
                   "instructor": "Mr. CHAN Man Long",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 12:30PM - 2:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 502",
+                  "location": "Yasumoto Int'l Acad Park 603",
                   "instructor": "Mr. CHAN Man Long",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
@@ -18937,25 +19213,25 @@
                 {
                   "time": "Mo 12:30PM - 2:15PM",
                   "location": "Wu Ho Man Yuen Bldg 502",
-                  "instructor": "Dr. ZHANG Wenhao",
+                  "instructor": "Dr. ZHANG Wenhao, \nMr. Andrew Brendan O'GORMAN",
                   "dates": "11/1, 18/1, 25/1, 1/2"
                 },
                 {
                   "time": "Mo 12:30PM - 2:15PM",
                   "location": "Wu Ho Man Yuen Bldg 502",
-                  "instructor": "Dr. ZHANG Wenhao",
+                  "instructor": "Dr. ZHANG Wenhao, \nMr. Andrew Brendan O'GORMAN",
                   "dates": "15/2, 22/2, 1/3"
                 },
                 {
                   "time": "Mo 12:30PM - 2:15PM",
                   "location": "Wu Ho Man Yuen Bldg 502",
-                  "instructor": "Dr. ZHANG Wenhao",
+                  "instructor": "Dr. ZHANG Wenhao, \nMr. Andrew Brendan O'GORMAN",
                   "dates": "15/3, 22/3"
                 },
                 {
                   "time": "Mo 12:30PM - 2:15PM",
                   "location": "Wu Ho Man Yuen Bldg 502",
-                  "instructor": "Dr. ZHANG Wenhao",
+                  "instructor": "Dr. ZHANG Wenhao, \nMr. Andrew Brendan O'GORMAN",
                   "dates": "12/4, 19/4"
                 }
               ],
@@ -19049,30 +19325,108 @@
               "enrollment_requirement": "Preprequisite: (ELTU1001 or ELTU1002 or exemption from these courses) and (ELTU2005 or ELTU2014 or ELTU2024 or exemption from these courses)"
             },
             {
-              "section": "AHC1-CLW (5982)",
+              "section": "AFC1-CLW (10086)",
               "meetings": [
                 {
                   "time": "Mo 12:30PM - 2:15PM",
-                  "location": "TBA",
-                  "instructor": "Staff",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Mr. NIE Yanwei",
                   "dates": "11/1, 18/1, 25/1, 1/2"
                 },
                 {
                   "time": "Mo 12:30PM - 2:15PM",
-                  "location": "TBA",
-                  "instructor": "Staff",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Mr. NIE Yanwei",
                   "dates": "15/2, 22/2, 1/3"
                 },
                 {
                   "time": "Mo 12:30PM - 2:15PM",
-                  "location": "TBA",
-                  "instructor": "Staff",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Mr. NIE Yanwei",
                   "dates": "15/3, 22/3"
                 },
                 {
                   "time": "Mo 12:30PM - 2:15PM",
-                  "location": "TBA",
-                  "instructor": "Staff",
+                  "location": "Wong Foo Yuan Bldg 405",
+                  "instructor": "Mr. NIE Yanwei",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "Preprequisite: (ELTU1001 or ELTU1002 or exemption from these courses) and (ELTU2005 or ELTU2014 or ELTU2024 or exemption from these courses)"
+            },
+            {
+              "section": "AGC1-CLW (10087)",
+              "meetings": [
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building 302",
+                  "instructor": "Ms. LAM Tsui Shan",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building 302",
+                  "instructor": "Ms. LAM Tsui Shan",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building 302",
+                  "instructor": "Ms. LAM Tsui Shan",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Lee Shau Kee Building 302",
+                  "instructor": "Ms. LAM Tsui Shan",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "Preprequisite: (ELTU1001 or ELTU1002 or exemption from these courses) and (ELTU2005 or ELTU2014 or ELTU2024 or exemption from these courses)"
+            },
+            {
+              "section": "AHC1-CLW (5982)",
+              "meetings": [
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Dr. ZHANG Wenhao",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Dr. ZHANG Wenhao",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Dr. ZHANG Wenhao",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Dr. ZHANG Wenhao",
                   "dates": "12/4, 19/4"
                 }
               ],
@@ -19248,26 +19602,26 @@
               "meetings": [
                 {
                   "time": "Mo 2:30PM - 4:15PM",
-                  "location": "TBA",
-                  "instructor": "Staff",
+                  "location": "Lee Shau Kee Building 410",
+                  "instructor": "Mr. Jonas Thomas KELSCH",
                   "dates": "11/1, 18/1, 25/1, 1/2"
                 },
                 {
                   "time": "Mo 2:30PM - 4:15PM",
-                  "location": "TBA",
-                  "instructor": "Staff",
+                  "location": "Lee Shau Kee Building 410",
+                  "instructor": "Mr. Jonas Thomas KELSCH",
                   "dates": "15/2, 22/2, 1/3"
                 },
                 {
                   "time": "Mo 2:30PM - 4:15PM",
-                  "location": "TBA",
-                  "instructor": "Staff",
+                  "location": "Lee Shau Kee Building 410",
+                  "instructor": "Mr. Jonas Thomas KELSCH",
                   "dates": "15/3, 22/3"
                 },
                 {
                   "time": "Mo 2:30PM - 4:15PM",
-                  "location": "TBA",
-                  "instructor": "Staff",
+                  "location": "Lee Shau Kee Building 410",
+                  "instructor": "Mr. Jonas Thomas KELSCH",
                   "dates": "12/4, 19/4"
                 }
               ],
@@ -19681,19 +20035,19 @@
                 {
                   "time": "We 4:30PM - 6:15PM",
                   "location": "Wu Ho Man Yuen Bldg 402",
-                  "instructor": "Mr. Jonas Thomas KELSCH",
+                  "instructor": "Mr. Jonas Thomas KELSCH, \nMr. NIE Yanwei",
                   "dates": "13/1, 20/1, 27/1, 3/2"
                 },
                 {
                   "time": "We 4:30PM - 6:15PM",
                   "location": "Wu Ho Man Yuen Bldg 402",
-                  "instructor": "Mr. Jonas Thomas KELSCH",
+                  "instructor": "Mr. Jonas Thomas KELSCH, \nMr. NIE Yanwei",
                   "dates": "17/2, 24/2, 3/3"
                 },
                 {
                   "time": "We 4:30PM - 6:15PM",
                   "location": "Wu Ho Man Yuen Bldg 402",
-                  "instructor": "Mr. Jonas Thomas KELSCH",
+                  "instructor": "Mr. Jonas Thomas KELSCH, \nMr. NIE Yanwei",
                   "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
                 }
               ],
@@ -19945,19 +20299,19 @@
                 {
                   "time": "We 2:30PM - 4:15PM",
                   "location": "Wu Ho Man Yuen Bldg 406",
-                  "instructor": "Dr. CHOW Pui Lun",
+                  "instructor": "Dr. CHOW Pui Lun, \nMr. WOO Tsz Ching",
                   "dates": "13/1, 20/1, 27/1, 3/2"
                 },
                 {
                   "time": "We 2:30PM - 4:15PM",
                   "location": "Wu Ho Man Yuen Bldg 406",
-                  "instructor": "Dr. CHOW Pui Lun",
+                  "instructor": "Dr. CHOW Pui Lun, \nMr. WOO Tsz Ching",
                   "dates": "17/2, 24/2, 3/3"
                 },
                 {
                   "time": "We 2:30PM - 4:15PM",
                   "location": "Wu Ho Man Yuen Bldg 406",
-                  "instructor": "Dr. CHOW Pui Lun",
+                  "instructor": "Dr. CHOW Pui Lun, \nMr. WOO Tsz Ching",
                   "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
                 }
               ],
@@ -20227,19 +20581,52 @@
                 {
                   "time": "We 4:30PM - 6:15PM",
                   "location": "Yasumoto Int'l Acad Park 607",
-                  "instructor": "Staff",
+                  "instructor": "Mr. Andrew Brendan O'GORMAN",
                   "dates": "13/1, 20/1, 27/1, 3/2"
                 },
                 {
                   "time": "We 4:30PM - 6:15PM",
                   "location": "Yasumoto Int'l Acad Park 607",
-                  "instructor": "Staff",
+                  "instructor": "Mr. Andrew Brendan O'GORMAN",
                   "dates": "17/2, 24/2, 3/3"
                 },
                 {
                   "time": "We 4:30PM - 6:15PM",
                   "location": "Yasumoto Int'l Acad Park 607",
-                  "instructor": "Staff",
+                  "instructor": "Mr. Andrew Brendan O'GORMAN",
+                  "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "Preprequisite: (ELTU1001 or ELTU1002 or exemption from these courses) and (ELTU2005 or ELTU2014 or ELTU2024 or exemption from these courses)"
+            },
+            {
+              "section": "BVC1-CLW (10088)",
+              "meetings": [
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Dr. CHOW Pui Lun",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Dr. CHOW Pui Lun",
+                  "dates": "17/2, 24/2, 3/3"
+                },
+                {
+                  "time": "We 4:30PM - 6:15PM",
+                  "location": "Lee Shau Kee Building 201",
+                  "instructor": "Dr. CHOW Pui Lun",
                   "dates": "17/3, 24/3, 31/3, 7/4, 14/4, 21/4"
                 }
               ],
@@ -22657,6 +23044,45 @@
           "term_name": "2026-27 Term 2",
           "schedule": [
             {
+              "section": "AC01-CLW (10105)",
+              "meetings": [
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park 407",
+                  "instructor": "Dr. YEUNG Ping Hei",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park 407",
+                  "instructor": "Dr. YEUNG Ping Hei",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park 407",
+                  "instructor": "Dr. YEUNG Ping Hei",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 12:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park 407",
+                  "instructor": "Dr. YEUNG Ping Hei",
+                  "dates": "12/4, 19/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisite:ELTU1001 / 1002 or exemption from these courses AND ELTU2005 / 2014 / 2024 or exemption from these courses"
+            },
+            {
               "section": "BC01-CLW (6108)",
               "meetings": [
                 {
@@ -22814,6 +23240,39 @@
                   "location": "William M W Mong Eng Bldg 406",
                   "instructor": "Ms. LAI Wing Ying",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisites:\nELTU1001 or ELTU1002 or exemption from these courses AND\nELTU2411 or exemption from these courses"
+            },
+            {
+              "section": "DC01-CLW (10083)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 511",
+                  "instructor": "Ms. LAI Wing Ying",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 511",
+                  "instructor": "Ms. LAI Wing Ying",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 511",
+                  "instructor": "Ms. LAI Wing Ying",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 }
               ],
               "availability": {
@@ -23627,19 +24086,19 @@
               "meetings": [
                 {
                   "time": "Tu 4:30PM - 6:15PM",
-                  "location": "TBA",
+                  "location": "Yasumoto Int'l Acad Park 508",
                   "instructor": "Ms. CHOE Jae Hee",
                   "dates": "12/1, 19/1, 26/1, 2/2"
                 },
                 {
                   "time": "Tu 4:30PM - 6:15PM",
-                  "location": "TBA",
+                  "location": "Yasumoto Int'l Acad Park 508",
                   "instructor": "Ms. CHOE Jae Hee",
                   "dates": "16/2, 23/2, 2/3"
                 },
                 {
                   "time": "Tu 4:30PM - 6:15PM",
-                  "location": "TBA",
+                  "location": "Yasumoto Int'l Acad Park 508",
                   "instructor": "Ms. CHOE Jae Hee",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
@@ -23693,26 +24152,26 @@
               "meetings": [
                 {
                   "time": "Mo 2:30PM - 4:15PM",
-                  "location": "Lee Shau Kee Building 401",
-                  "instructor": "Mr. Matthew James GORDON",
+                  "location": "Yasumoto Int'l Acad Park 603",
+                  "instructor": "Mr. Matthew James GORDON, \nMs YAN Po Sheung Emily",
                   "dates": "11/1, 18/1, 25/1, 1/2"
                 },
                 {
                   "time": "Mo 2:30PM - 4:15PM",
-                  "location": "Lee Shau Kee Building 401",
-                  "instructor": "Mr. Matthew James GORDON",
+                  "location": "Yasumoto Int'l Acad Park 603",
+                  "instructor": "Mr. Matthew James GORDON, \nMs YAN Po Sheung Emily",
                   "dates": "15/2, 22/2, 1/3"
                 },
                 {
                   "time": "Mo 2:30PM - 4:15PM",
-                  "location": "Lee Shau Kee Building 401",
-                  "instructor": "Mr. Matthew James GORDON",
+                  "location": "Yasumoto Int'l Acad Park 603",
+                  "instructor": "Mr. Matthew James GORDON, \nMs YAN Po Sheung Emily",
                   "dates": "15/3, 22/3"
                 },
                 {
                   "time": "Mo 2:30PM - 4:15PM",
-                  "location": "Lee Shau Kee Building 401",
-                  "instructor": "Mr. Matthew James GORDON",
+                  "location": "Yasumoto Int'l Acad Park 603",
+                  "instructor": "Mr. Matthew James GORDON, \nMs YAN Po Sheung Emily",
                   "dates": "12/4, 19/4"
                 }
               ],
@@ -23873,6 +24332,45 @@
                   "location": "Yasumoto Int'l Acad Park 402",
                   "instructor": "Mr. WONG Yao Hing",
                   "dates": "14/1, 21/1, 28/1, 4/2"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "Prerequisites:\nELTU1001 or 1002 or exemption from these courses AND\nELTU2004 or 2005 or 2006 or 2011 or 2013 or 2014 or 2016 or 2017 or 2018 or 2019 or 2020 or 2022 or 2023 or 2024 or 2026 or 2406 or 2412 or exemption from these courses"
+            },
+            {
+              "section": "BC01-CLW (10096)",
+              "meetings": [
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 503",
+                  "instructor": "Mr. WONG Yao Hing",
+                  "dates": "11/1, 18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 503",
+                  "instructor": "Mr. WONG Yao Hing",
+                  "dates": "15/2, 22/2, 1/3"
+                },
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 503",
+                  "instructor": "Mr. WONG Yao Hing",
+                  "dates": "15/3, 22/3"
+                },
+                {
+                  "time": "Mo 10:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 503",
+                  "instructor": "Mr. WONG Yao Hing",
+                  "dates": "12/4, 19/4"
                 }
               ],
               "availability": {
@@ -24116,19 +24614,19 @@
               "meetings": [
                 {
                   "time": "Th 10:30AM - 12:15PM",
-                  "location": "TBA",
+                  "location": "William M W Mong Eng Bldg 713",
                   "instructor": "Mr. Matthew James GORDON",
                   "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
-                  "location": "TBA",
+                  "location": "William M W Mong Eng Bldg 713",
                   "instructor": "Mr. Matthew James GORDON",
                   "dates": "18/2, 25/2, 4/3"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
-                  "location": "TBA",
+                  "location": "William M W Mong Eng Bldg 713",
                   "instructor": "Mr. Matthew James GORDON",
                   "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 }

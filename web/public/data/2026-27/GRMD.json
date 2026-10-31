@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "GRMD",
     "subject_title": "Geography & Resource Management",
-    "total_courses": 60
+    "total_courses": 59
   },
   "courses": [
     {
@@ -179,10 +179,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "79",
+                "enrolled": "78",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -200,10 +200,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "79",
+                "enrolled": "78",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -2888,102 +2888,6 @@
         "Essay test or exam": "41",
         "Others": "39",
         "Short answer test or exam": "20"
-      }
-    },
-    {
-      "subject": "GRMD",
-      "course_code": "3304",
-      "title": "Cultural Geography",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2430",
-          "term_name": "2026-27 Term 2",
-          "schedule": [
-            {
-              "section": "--LEC (8205)",
-              "meetings": [
-                {
-                  "time": "Tu 2:30PM - 4:15PM",
-                  "location": "Hui Yeung Shing Bldg G06",
-                  "instructor": "Dr. WONG Yu Hin Sampson",
-                  "dates": "12/1, 19/1, 26/1, 2/2"
-                },
-                {
-                  "time": "Tu 2:30PM - 4:15PM",
-                  "location": "Hui Yeung Shing Bldg G06",
-                  "instructor": "Dr. WONG Yu Hin Sampson",
-                  "dates": "16/2, 23/2, 2/3"
-                },
-                {
-                  "time": "Tu 2:30PM - 4:15PM",
-                  "location": "Hui Yeung Shing Bldg G06",
-                  "instructor": "Dr. WONG Yu Hin Sampson",
-                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
-                }
-              ],
-              "availability": {
-                "capacity": "30",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "30",
-                "status": "Open"
-              },
-              "class_attributes": "English only",
-              "enrollment_requirement": ""
-            },
-            {
-              "section": "-T01-TUT (8212)",
-              "meetings": [
-                {
-                  "time": "Tu 4:30PM - 5:15PM",
-                  "location": "Hui Yeung Shing Bldg G06",
-                  "instructor": "Dr. WONG Yu Hin Sampson",
-                  "dates": "12/1, 19/1, 26/1, 2/2"
-                },
-                {
-                  "time": "Tu 4:30PM - 5:15PM",
-                  "location": "Hui Yeung Shing Bldg G06",
-                  "instructor": "Dr. WONG Yu Hin Sampson",
-                  "dates": "16/2, 23/2, 2/3"
-                },
-                {
-                  "time": "Tu 4:30PM - 5:15PM",
-                  "location": "Hui Yeung Shing Bldg G06",
-                  "instructor": "Dr. WONG Yu Hin Sampson",
-                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
-                }
-              ],
-              "availability": {
-                "capacity": "30",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "30",
-                "status": "Open"
-              },
-              "class_attributes": "English only",
-              "enrollment_requirement": ""
-            }
-          ]
-        }
-      ],
-      "description": "This course covers key debates and theories in cultural geography. How do we distinguish between space and place? What is the relationship between spatial practices and operations of power? How can one critically read maps and decipher the ideological meaning of landscapes? The course will address both textual and material approaches in the field to analyze the relationship between spatiality, power and subjectivity. Cultural geography’s well-known concern with the construction of various spaces and places across multiple scales will be complemented with more contemporary trends towards exploring non-representational, hybrid geographies.",
-      "enrollment_requirement": "",
-      "course_attributes": "",
-      "academic_career": "Undergraduate",
-      "grading_basis": "Graded",
-      "component": "Lecture\nInteractive Tutorial",
-      "campus": "Main Campus",
-      "academic_group": "Dept of Geo & Resource Mgt",
-      "academic_org": "Dept of Geo & Resource Mgt",
-      "learning_outcomes": "• Gain a critical and comprehensive understanding of the key concepts and major debates in contemporary cultural geography.\n\n• Apply the concepts and theories of cultural geography to identify and analyze various configurations of socio-spatial dialectic; to reveal various actors and struggles behind the construction of cultural landscapes; to deconstruct intended meanings of maps.\n\n• Explain the role of asymmetrical power relations in the production of social spaces and subject positions; observe the agency of the matter.\n\n• Develop effective communication, critical reading and writing skills as well as experience of working in groups.",
-      "assessment_types": {
-        "Essays": "40",
-        "Fieldwork or field study": "15",
-        "Project": "30",
-        "Participation": "15"
       }
     },
     {
