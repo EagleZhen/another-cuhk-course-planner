@@ -2527,10 +2527,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "46",
+                "enrolled": "45",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -4682,6 +4682,12 @@
                   "location": "Wu Ho Man Yuen Bldg 301",
                   "instructor": "Dr. AU YEUNG Chau Kin",
                   "dates": "8/12"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Esther Lee Bldg LT1",
+                  "instructor": "Dr. AU YEUNG Chau Kin",
+                  "dates": "28/1, 4/2"
                 }
               ],
               "availability": {
@@ -4926,19 +4932,19 @@
                 {
                   "time": "Sa 8:30AM - 6:15PM",
                   "location": "Cheng Yu Tung Building LT4",
-                  "instructor": "Staff",
+                  "instructor": "Professor XIE Wensi",
                   "dates": "31/10"
                 },
                 {
                   "time": "Su 8:30AM - 6:15PM",
                   "location": "Cheng Yu Tung Building 203",
-                  "instructor": "Staff",
+                  "instructor": "Professor XIE Wensi",
                   "dates": "1/11"
                 },
                 {
                   "time": "Sa 8:30AM - 6:15PM",
                   "location": "Cheng Yu Tung Building LT5",
-                  "instructor": "Staff",
+                  "instructor": "Professor XIE Wensi",
                   "dates": "31/10"
                 }
               ],
@@ -6769,7 +6775,7 @@
                 },
                 {
                   "time": "Sa 6:30PM - 9:45PM",
-                  "location": "TBA",
+                  "location": "Cheng Yu Tung Building LT4",
                   "instructor": "Professor XIE Wensi",
                   "dates": "19/12"
                 }
@@ -10798,25 +10804,25 @@
               "meetings": [
                 {
                   "time": "Fr 9:30AM - 12:15PM",
-                  "location": "Cheng Yu Tung Building LT5",
+                  "location": "Wu Ho Man Yuen Bldg 403",
                   "instructor": "Dr. LEE Wing Yan",
                   "dates": "15/1"
                 },
                 {
                   "time": "Fr 9:30AM - 12:15PM",
-                  "location": "Cheng Yu Tung Building LT5",
+                  "location": "Wu Ho Man Yuen Bldg 403",
                   "instructor": "Dr. LEE Wing Yan",
                   "dates": "5/3"
                 },
                 {
                   "time": "Fr 9:30AM - 12:15PM",
-                  "location": "Cheng Yu Tung Building LT4",
+                  "location": "Wu Ho Man Yuen Bldg 406",
                   "instructor": "Dr. LEE Wing Yan",
                   "dates": "15/1"
                 },
                 {
                   "time": "Fr 9:30AM - 12:15PM",
-                  "location": "Cheng Yu Tung Building LT4",
+                  "location": "Wu Ho Man Yuen Bldg 406",
                   "instructor": "Dr. LEE Wing Yan",
                   "dates": "5/3"
                 },
@@ -11146,7 +11152,7 @@
                 },
                 {
                   "time": "Tu 2:30PM - 5:15PM",
-                  "location": "TBA",
+                  "location": "Lee Shau Kee Archi Bldg G01",
                   "instructor": "Dr. LEE Wing Yan",
                   "dates": "13/4"
                 },
@@ -11420,7 +11426,7 @@
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "Cheng Yu Tung Building LT5",
                   "instructor": "Dr. LEE Wing Yan",
-                  "dates": "19/2, 26/2, 5/3"
+                  "dates": "19/2, 26/2"
                 },
                 {
                   "time": "Fr 2:30PM - 5:15PM",
@@ -11433,14 +11439,20 @@
                   "location": "Cheng Yu Tung Building LT4",
                   "instructor": "Dr. LEE Wing Yan",
                   "dates": "8/1"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 403",
+                  "instructor": "Dr. LEE Wing Yan",
+                  "dates": "5/3"
                 }
               ],
               "availability": {
-                "capacity": "50",
+                "capacity": "70",
                 "enrolled": "28",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "42",
                 "status": "Open"
               },
               "class_attributes": "English only",
