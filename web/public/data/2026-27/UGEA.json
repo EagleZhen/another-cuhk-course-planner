@@ -1300,10 +1300,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "67",
+                "enrolled": "66",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "14",
                 "status": "Open"
               },
               "class_attributes": "Cantonese only",
@@ -1784,6 +1784,39 @@
                   "time": "Tu 12:30PM - 2:15PM",
                   "location": "William M W Mong Eng Bldg 803",
                   "instructor": "Dr. CHAN Leong",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "80",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "80",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": "Co-requisite: Any course with “UGFH” or “UGFN” as prefix"
+            },
+            {
+              "section": "L-LEC (10113)",
+              "meetings": [
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Humanities Building 12",
+                  "instructor": "Dr WANG Xiaohong",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Humanities Building 12",
+                  "instructor": "Dr WANG Xiaohong",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 10:30AM - 12:15PM",
+                  "location": "Humanities Building 12",
+                  "instructor": "Dr WANG Xiaohong",
                   "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
               ],

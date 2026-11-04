@@ -3080,13 +3080,13 @@
                   "time": "Th 12:30PM - 2:15PM",
                   "location": "Wu Ho Man Yuen Bldg 503",
                   "instructor": "Dr. CHENG Wai Pang",
-                  "dates": "14/1, 21/1, 28/1"
+                  "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
                   "time": "Th 12:30PM - 2:15PM",
                   "location": "Wu Ho Man Yuen Bldg 503",
                   "instructor": "Dr. CHENG Wai Pang",
-                  "dates": "11/2, 18/2, 25/2, 4/3"
+                  "dates": "18/2, 25/2, 4/3"
                 },
                 {
                   "time": "Th 12:30PM - 2:15PM",
@@ -3113,13 +3113,13 @@
                   "time": "Th 4:30PM - 6:15PM",
                   "location": "Wu Ho Man Yuen Bldg 401",
                   "instructor": "Dr. CHENG Wai Pang",
-                  "dates": "14/1, 21/1, 28/1"
+                  "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
                   "time": "Th 4:30PM - 6:15PM",
                   "location": "Wu Ho Man Yuen Bldg 401",
                   "instructor": "Dr. CHENG Wai Pang",
-                  "dates": "11/2, 18/2, 25/2, 4/3"
+                  "dates": "18/2, 25/2, 4/3"
                 },
                 {
                   "time": "Th 4:30PM - 6:15PM",
@@ -5535,6 +5535,138 @@
                   "location": "Esther Lee Bldg 305",
                   "instructor": "Dr. SONG Ruifeng",
                   "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "V-LEC (10109)",
+              "meetings": [
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 506",
+                  "instructor": "Dr. MA Chun Fai",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 506",
+                  "instructor": "Dr. MA Chun Fai",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 4:30PM - 5:15PM",
+                  "location": "Yasumoto Int'l Acad Park 506",
+                  "instructor": "Dr. MA Chun Fai",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "VT01-TUT (10110)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 506",
+                  "instructor": "Dr. MA Chun Fai",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 506",
+                  "instructor": "Dr. MA Chun Fai",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "Yasumoto Int'l Acad Park 506",
+                  "instructor": "Dr. MA Chun Fai",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "W-LEC (10111)",
+              "meetings": [
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 1:30PM - 2:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "25",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "25",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese only",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "WT01-TUT (10112)",
+              "meetings": [
+                {
+                  "time": "Tu 11:30AM - 1:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 11:30AM - 1:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "16/2, 23/2, 2/3"
+                },
+                {
+                  "time": "Tu 11:30AM - 1:15PM",
+                  "location": "TBA",
+                  "instructor": "Staff",
+                  "dates": "16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
                 }
               ],
               "availability": {

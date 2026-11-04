@@ -3565,11 +3565,11 @@
                 }
               ],
               "availability": {
-                "capacity": "72",
+                "capacity": "70",
                 "enrolled": "0",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "72",
+                "available_seats": "70",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -3598,11 +3598,11 @@
                 }
               ],
               "availability": {
-                "capacity": "18",
+                "capacity": "14",
                 "enrolled": "0",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "14",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -3631,11 +3631,11 @@
                 }
               ],
               "availability": {
-                "capacity": "18",
+                "capacity": "14",
                 "enrolled": "0",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "14",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -3645,30 +3645,30 @@
               "section": "-T03-TUT (9673)",
               "meetings": [
                 {
-                  "time": "Th 2:30PM - 4:15PM",
-                  "location": "T.C. Cheng Bldg 109",
+                  "time": "Th 9:30AM - 11:15AM",
+                  "location": "T.C. Cheng Bldg 205",
                   "instructor": "Professor LI Jia",
                   "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
-                  "time": "Th 2:30PM - 4:15PM",
-                  "location": "T.C. Cheng Bldg 109",
+                  "time": "Th 9:30AM - 11:15AM",
+                  "location": "T.C. Cheng Bldg 205",
                   "instructor": "Professor LI Jia",
                   "dates": "18/2, 25/2, 4/3"
                 },
                 {
-                  "time": "Th 2:30PM - 4:15PM",
-                  "location": "T.C. Cheng Bldg 109",
+                  "time": "Th 9:30AM - 11:15AM",
+                  "location": "T.C. Cheng Bldg 205",
                   "instructor": "Professor LI Jia",
                   "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 }
               ],
               "availability": {
-                "capacity": "18",
+                "capacity": "14",
                 "enrolled": "0",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "14",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -3697,11 +3697,44 @@
                 }
               ],
               "availability": {
-                "capacity": "18",
+                "capacity": "14",
                 "enrolled": "0",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "14",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "-T05-TUT (10108)",
+              "meetings": [
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 109",
+                  "instructor": "Professor LI Jia",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 109",
+                  "instructor": "Professor LI Jia",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 2:30PM - 4:15PM",
+                  "location": "T.C. Cheng Bldg 109",
+                  "instructor": "Professor LI Jia",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "14",
+                "enrolled": "0",
+                "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "14",
                 "status": "Open"
               },
               "class_attributes": "English only",
