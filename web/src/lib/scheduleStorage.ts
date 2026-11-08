@@ -50,6 +50,11 @@ export type ScheduleCommit =
 let connection: IDBPDatabase<ScheduleDatabase> | undefined
 let opening: Promise<IDBPDatabase<ScheduleDatabase>> | undefined
 
+function newRevision(): string {
+  // Unlike randomUUID, getRandomValues also works on the LAN dev server over HTTP.
+  return crypto.getRandomValues(new Uint32Array(4)).join('-')
+}
+
 function database(): Promise<IDBPDatabase<ScheduleDatabase>> {
   if (connection) return Promise.resolve(connection)
   if (opening) return opening
@@ -172,7 +177,7 @@ export async function loadSchedule(term: string): Promise<ScheduleLoad> {
     const record: ScheduleRecord = {
       recordFormat: 1,
       term,
-      revision: crypto.randomUUID(),
+      revision: newRevision(),
       currentRaw: serializeStoredSchedule(decoded.enrollments, decoded.envelope),
       previousRaw: null,
     }
@@ -240,7 +245,7 @@ export async function commitSchedule(
       }
       const next = {
         ...result.record,
-        revision: crypto.randomUUID(),
+        revision: newRevision(),
         currentRaw,
         previousRaw: result.record.currentRaw,
       }

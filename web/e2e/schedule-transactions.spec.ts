@@ -58,6 +58,15 @@ test('adopts a verified copy and exact import receipt without rewriting legacy s
   ).toHaveCount(0)
 })
 
+test('adopts and saves when randomUUID is unavailable', async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(crypto, 'randomUUID', { value: undefined })
+  })
+  await open(page)
+  await cart(page).getByTitle('Hide course', { exact: true }).click()
+  await expect.poll(() => readSavedEnrollments(page, term)).toMatchObject([{ isVisible: false }])
+})
+
 test('reading a schedule keeps the cart frame without claiming an empty cart', async ({ page }) => {
   await page.addInitScript((term) => {
     const gate = { hold: true, waiting: false }
