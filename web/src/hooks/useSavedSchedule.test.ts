@@ -251,3 +251,36 @@ it('does not discard edits made while a replacement is loading', () => {
     state
   )
 })
+
+it('reconciles a reloaded schedule only with a newer catalog', () => {
+  const saved = loaded().active
+  if (saved.status !== 'ready') throw Error('expected ready')
+  const scrapedAt = new Date('2026-11-07T00:00:00Z')
+  const state = scheduleReducer(
+    { active: saved, pending: {} },
+    {
+      type: 'reload-result',
+      expected: saved,
+      cart: { ...saved, catalogStamp: scrapedAt.getTime(), revision: 'newer' },
+    }
+  )
+  const courses = [
+    {
+      ...course,
+      title: 'Changed title',
+      terms: [{ termCode: '2610', termName: term, sections: [] }],
+    },
+  ]
+  for (const date of [new Date('2026-11-06T00:00:00Z'), scrapedAt]) {
+    expect(scheduleReducer(state, { type: 'sync', term, courses, scrapedAt: date })).toBe(state)
+  }
+  const newer = new Date('2026-11-08T00:00:00Z')
+  expect(
+    scheduleReducer(state, { type: 'sync', term, courses, scrapedAt: newer }).active
+  ).toMatchObject({
+    revision: 'newer',
+    catalogStamp: newer.getTime(),
+    saveStatus: 'pending',
+    enrollments: [{ course: { title: 'Changed title' } }],
+  })
+})

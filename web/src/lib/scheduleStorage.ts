@@ -11,6 +11,7 @@ const recordSchema = z.looseObject({
   revision: z.string().min(1),
   currentRaw: z.string(),
   previousRaw: z.string().nullable(),
+  catalogStamp: z.number().int().optional(),
 })
 const receiptSchema = z.looseObject({
   recordFormat: z.literal(1),
@@ -40,6 +41,7 @@ export type ScheduleLoad =
   | {
       status: 'ready'
       revision: string
+      catalogStamp?: number
       enrollments: CourseEnrollment[]
       envelope: Record<string, unknown>
     }
@@ -136,7 +138,11 @@ function inspectRecord(
     return {
       status: 'ready',
       record: parsed.data,
-      decoded: { ...decoded, revision: parsed.data.revision },
+      decoded: {
+        ...decoded,
+        revision: parsed.data.revision,
+        catalogStamp: parsed.data.catalogStamp,
+      },
     }
   } catch {
     return { status: 'blocked', reason: 'invalid_data', layer: 'payload' }
@@ -219,7 +225,8 @@ export async function commitSchedule(
   term: string,
   revision: string,
   enrollments: CourseEnrollment[],
-  envelope: Record<string, unknown>
+  envelope: Record<string, unknown>,
+  catalogStamp?: number
 ): Promise<ScheduleCommit> {
   try {
     // Prepare before opening the transaction; do not await unrelated work inside it.
@@ -248,6 +255,7 @@ export async function commitSchedule(
         revision: newRevision(),
         currentRaw,
         previousRaw: result.record.currentRaw,
+        catalogStamp,
       }
       await tx.objectStore('schedules').put(next, term)
       await tx.done

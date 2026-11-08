@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
 import { DEFAULT_CURRENT_TERM } from '../src/lib/constants'
+import { SCRAPED_AT_BY_YEAR } from '../src/lib/generated/scrape-times'
 import { openPlannerAtTerm, selectTerm } from './helpers/planner'
 import { readSavedEnrollments, readScheduleRecords } from './helpers/schedule'
 
@@ -263,6 +264,9 @@ test('opening an unchanged catalog in another tab does not invalidate the first 
 }) => {
   await openPlanner(page, offering('Current room'))
   const before = await readScheduleRecords(page, TERM_ONE)
+  expect(before?.current).toMatchObject({
+    catalogStamp: Date.parse(SCRAPED_AT_BY_YEAR['2026-27']),
+  })
   const other = await context.newPage()
   await openPlanner(other, offering('Current room'))
   await expect(
@@ -284,7 +288,7 @@ test('opening an unchanged catalog in another tab does not invalidate the first 
   await expect(page.locator('[data-schedule-storage-notice]')).toHaveCount(0)
 })
 
-test('a confirmed replacement reconciles with the catalog already loaded in this tab', async ({
+test('a confirmed replacement keeps the saved revision at the same catalog timestamp', async ({
   page,
   context,
 }) => {
@@ -296,22 +300,23 @@ test('a confirmed replacement reconciles with the catalog already loaded in this
     })
   const other = await context.newPage()
   await openPlanner(other, offering('Older room'))
+  await courseCard(other).getByTitle('Hide course', { exact: true }).click()
   await expect
     .poll(() => savedEnrollment(other, TERM_ONE))
     .toMatchObject({
-      selectedSections: [{ meetings: [{ location: 'Older room' }] }],
+      isVisible: false,
+      selectedSections: [{ meetings: [{ location: 'Current room' }] }],
     })
+  const saved = await readScheduleRecords(other, TERM_ONE)
   await courseCard(page).getByTitle('Hide course', { exact: true }).click()
   const notice = page.locator('[data-schedule-storage-notice]')
   await expect(notice).toContainText('changed in another tab')
+  await courseCard(page).getByTitle('Show course', { exact: true }).click()
   page.once('dialog', (dialog) => dialog.accept())
   await notice
     .getByRole('button', { name: 'Discard edits and load saved version', exact: true })
     .click()
-  await expect
-    .poll(() => savedEnrollment(page, TERM_ONE))
-    .toMatchObject({
-      selectedSections: [{ meetings: [{ location: 'Current room' }] }],
-    })
+  await expect(courseCard(page).getByTitle('Show course', { exact: true })).toBeVisible()
   await expect(notice).toHaveCount(0)
+  expect(await readScheduleRecords(page, TERM_ONE)).toEqual(saved)
 })

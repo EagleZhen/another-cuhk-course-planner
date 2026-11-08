@@ -11,7 +11,6 @@ export type ReadySchedule = Extract<ScheduleLoad, { status: 'ready' }> & {
   term: string
   saveStatus: 'saved' | 'pending' | 'failed' | 'refused'
   saveProblem?: StorageProblem
-  catalogStamp?: string
 }
 export type SavedSchedule =
   | { term: string; status: 'loading' }
@@ -63,8 +62,8 @@ export function scheduleReducer(state: ScheduleState, action: Action): ScheduleS
     }
     case 'sync': {
       if (cart.term !== action.term || cart.status !== 'ready') return state
-      const stamp = action.scrapedAt.toISOString()
-      if (cart.catalogStamp === stamp) return state
+      const stamp = action.scrapedAt.getTime()
+      if (cart.catalogStamp !== undefined && stamp <= cart.catalogStamp) return state
       const enrollments = syncCart(cart.enrollments, action.courses, cart.term, action.scrapedAt)
       return {
         ...state,
@@ -171,7 +170,8 @@ export function useSavedSchedule(initialTerm: string) {
         snapshot.term,
         snapshot.revision,
         snapshot.enrollments,
-        snapshot.envelope
+        snapshot.envelope,
+        snapshot.catalogStamp
       ).then((result) => {
         flight.result = result
         dispatch({ type: 'save-result', snapshot, result })
