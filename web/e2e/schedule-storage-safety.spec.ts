@@ -1,4 +1,3 @@
-import { readFile } from 'node:fs/promises'
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
 import { DEFAULT_CURRENT_TERM, SCHEDULE_DATA_VERSION } from '../src/lib/constants'
@@ -178,13 +177,6 @@ async function expectOwnedWrites(page: Page, expected: Record<string, string[]>)
   }
 }
 
-async function downloadText(page: Page, label: string) {
-  const downloading = page.waitForEvent('download')
-  await notice(page).getByRole('button', { name: label, exact: true }).click()
-  const download = await downloading
-  return readFile((await download.path())!, 'utf8')
-}
-
 test('adopts a historical cart and keeps its edits after reload', async ({ page }) => {
   const term = preVersion[0].course.terms[0].termName
   const original = JSON.stringify(preVersion)
@@ -258,12 +250,11 @@ for (const [name, original] of [
     }),
   ],
 ] as const) {
-  test(`preserves and exports ${name}`, async ({ page }) => {
+  test(`preserves ${name}`, async ({ page }) => {
     await prepare(page, { [key(first)]: original })
     await expect(notice(page)).toContainText('Your saved data has been kept unchanged')
     expect(await legacyRaw(page, first)).toBe(original)
     expect(await page.evaluate(() => window.scheduleAudit.writes)).toEqual([])
-    expect(await downloadText(page, 'Download original data')).toBe(original)
     expect((await readScheduleRecords(page, first))?.current).toBeUndefined()
     expect((await readScheduleRecords(page, first))?.receipt).toBeUndefined()
     await expect(cart(page).getByText('No courses enrolled', { exact: true })).toHaveCount(0)
@@ -274,13 +265,10 @@ for (const [name, original] of [
   })
 }
 
-test('a failed read grants no write authority and offers no invented original export', async ({
-  page,
-}) => {
+test('a failed read grants no write authority', async ({ page }) => {
   const original = JSON.stringify(schedule(first))
   await prepare(page, { [key(first)]: original }, { failRead: true })
   await expect(notice(page)).toContainText('Saved schedule unavailable')
-  await expect(notice(page).getByRole('button', { name: 'Download original data' })).toHaveCount(0)
   expect(await page.evaluate(() => window.scheduleAudit.writes)).toEqual([])
   await page.evaluate(() => {
     window.scheduleAudit.failRead = false
@@ -288,7 +276,7 @@ test('a failed read grants no write authority and offers no invented original ex
   expect(await legacyRaw(page, first)).toBe(original)
 })
 
-test('failed-save edits survive term navigation, export, retry, and reload without reseeding', async ({
+test('failed-save edits survive term navigation, retry, and reload without reseeding', async ({
   page,
 }) => {
   const original = JSON.stringify(schedule(first))
@@ -304,8 +292,6 @@ test('failed-save edits survive term navigation, export, retry, and reload witho
   await expect(notice(page)).toContainText(first)
   await selectTerm(page, first)
   await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
-  const pending = JSON.parse(await downloadText(page, 'Download changes'))
-  expect(pending.enrollments[0].isVisible).toBe(false)
   await page.evaluate(() => {
     window.scheduleAudit.failWrite = false
   })
@@ -400,35 +386,7 @@ test('a rendering failure after restore cannot delete or rewrite saved choices',
   expect(await page.evaluate(() => window.scheduleAudit.writes)).toEqual([])
 })
 
-test('a failed pending-data export keeps the edited schedule usable', async ({ page }) => {
-  const original = JSON.stringify(schedule(first))
-  await prepare(page, { [key(first)]: original })
-  await expect(cart(page).getByTitle('Hide course', { exact: true })).toBeVisible()
-  await page.evaluate(() => {
-    JSON.stringify = new Proxy(JSON.stringify, {
-      apply(target, receiver, args) {
-        const value = args[0]
-        if (value && typeof value === 'object' && Array.isArray(value.enrollments))
-          throw new Error('Injected serialization failure')
-        return Reflect.apply(target, receiver, args)
-      },
-    })
-  })
-  await cart(page).getByTitle('Hide course', { exact: true }).click()
-  await expect(notice(page)).toContainText('have not been saved')
-  expect((await readSavedEnrollments(page, first))?.[0]?.isVisible).toBe(true)
-  await notice(page).getByRole('button', { name: 'Download changes', exact: true }).click()
-  await expect(notice(page)).toContainText('The download failed')
-  await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
-  await selectTerm(page, second)
-  await expect(notice(page)).not.toContainText('The download failed')
-  await selectTerm(page, first)
-  await expect(notice(page)).not.toContainText('The download failed')
-  await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
-  expect(await legacyRaw(page, first)).toBe(original)
-})
-
-test('a payload rejected by storage is still downloadable', async ({ page }) => {
+test('a rejected payload leaves the saved cart unchanged', async ({ page }) => {
   const original = JSON.stringify(schedule(first))
   await prepare(
     page,
@@ -439,7 +397,4 @@ test('a payload rejected by storage is still downloadable', async ({ page }) => 
   )
   await expect(notice(page)).toContainText('have not been saved')
   expect((await readSavedEnrollments(page, first))?.[0]?.course.credits).toEqual({ min: 3, max: 3 })
-  expect(JSON.parse(await downloadText(page, 'Download changes')).enrollments).toMatchObject([
-    { courseId: 'ACCT1111', course: { credits: { min: null, max: null } } },
-  ])
 })

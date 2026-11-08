@@ -1,4 +1,3 @@
-import { readFile } from 'node:fs/promises'
 import { test, expect } from '@playwright/test'
 import type { Page } from '@playwright/test'
 import { transformExternalCourseData } from '../src/lib/validation'
@@ -53,9 +52,7 @@ test('adopts a verified copy and exact import receipt without rewriting legacy s
     receipt: { recordFormat: 1, term, originalLegacyRaw: original },
   })
   expect(await page.evaluate((key) => localStorage.getItem(key), key)).toBe(original)
-  await expect(
-    page.getByRole('button', { name: /Download (saved-data backup|recovery data)/ })
-  ).toHaveCount(0)
+  await expect(notice(page)).toHaveCount(0)
 })
 
 test('adopts and saves when randomUUID is unavailable', async ({ page }) => {
@@ -230,9 +227,6 @@ test('a failed replacement load keeps the confirmed local edits available', asyn
   await notice(other)
     .getByRole('button', { name: 'Discard edits and load saved version', exact: true })
     .click()
-  await expect(
-    notice(other).getByRole('button', { name: 'Download changes', exact: true })
-  ).toBeVisible()
   await expect(cart(other).getByText('No courses enrolled', { exact: true })).toBeVisible()
   await expect(
     notice(other).getByRole('button', { name: 'Discard edits and load saved version', exact: true })
@@ -275,7 +269,6 @@ test('a transient replacement read failure remains recoverable without discardin
   await expect(
     notice(other).getByRole('button', { name: 'Try saving again', exact: true })
   ).toHaveCount(0)
-  expect((await downloadJson(other, 'Download changes')).enrollments).toEqual([])
   expect(await readScheduleRecords(page, term)).toEqual(before)
 
   await other.evaluate(() => window.restoreScheduleReads())
@@ -284,40 +277,6 @@ test('a transient replacement read failure remains recoverable without discardin
   await expect(cart(other).getByTitle('Show course', { exact: true })).toBeVisible()
   await expect(notice(other)).toHaveCount(0)
   expect(await readScheduleRecords(page, term)).toEqual(before)
-})
-
-async function downloadJson(page: Page, label: string) {
-  const downloading = page.waitForEvent('download')
-  await page.getByRole('button', { name: label, exact: true }).click()
-  const file = await downloading
-  return JSON.parse(await readFile((await file.path())!, 'utf8')) as Record<string, unknown>
-}
-
-test('a storage problem offers recovery data with the original and one previous payload', async ({
-  page,
-}) => {
-  await open(page)
-  await cart(page).getByTitle('Hide course', { exact: true }).click()
-  await expect.poll(() => readSavedEnrollments(page, term)).toMatchObject([{ isVisible: false }])
-  await cart(page).getByTitle('Show course', { exact: true }).click()
-  await expect.poll(() => readSavedEnrollments(page, term)).toMatchObject([{ isVisible: true }])
-  await page.evaluate(() => {
-    const put = IDBObjectStore.prototype.put
-    IDBObjectStore.prototype.put = function (...args) {
-      if (this.name === 'schedules')
-        throw new DOMException('Test quota exhausted', 'QuotaExceededError')
-      return Reflect.apply(put, this, args)
-    }
-  })
-  await cart(page).getByTitle('Hide course', { exact: true }).click()
-  await expect(notice(page)).toContainText('have not been saved')
-  const backup = await downloadJson(page, 'Download recovery data')
-  expect(backup.original).toMatchObject({ originalLegacyRaw: original })
-  const current = backup.current as { currentRaw: string; previousRaw: string }
-  expect(JSON.parse(current.currentRaw).enrollments[0].isVisible).toBe(true)
-  const previous = JSON.parse(current.previousRaw)
-  expect(previous.enrollments[0].isVisible).toBe(false)
-  expect(previous).not.toHaveProperty('previousRaw')
 })
 
 test('an empty save stays empty and a receipt prevents silent reimport of a missing record', async ({
@@ -333,8 +292,6 @@ test('an empty save stays empty and a receipt prevents silent reimport of a miss
   await page.reload()
   await expect(notice(page)).toContainText('Saved schedule unavailable')
   expect((await readScheduleRecords(page, term))?.current).toBeUndefined()
-  const backup = await downloadJson(page, 'Download recovery data')
-  expect(backup.original).toMatchObject({ originalLegacyRaw: original })
 })
 
 for (const change of ['newer_record', 'newer_payload'] as const) {
@@ -352,15 +309,14 @@ for (const change of ['newer_record', 'newer_payload'] as const) {
       })
     ).toHaveCount(0)
     expect(await readScheduleRecords(page, term)).toEqual(before)
-    const edits = await downloadJson(page, 'Download changes')
-    expect(edits.enrollments).toMatchObject([{ isVisible: false }])
     await page.reload()
     await expect(notice(page)).toContainText('Saved schedule unavailable')
+    await expect(notice(page)).toContainText('Refresh this page')
     expect(await readScheduleRecords(page, term)).toEqual(before)
   })
 }
 
-test('interrupted adoption rolls back the cart and receipt and keeps the legacy original exportable', async ({
+test('interrupted adoption rolls back the cart and receipt and keeps the legacy data', async ({
   page,
 }) => {
   await page.addInitScript(() => {
@@ -379,10 +335,6 @@ test('interrupted adoption rolls back the cart and receipt and keeps the legacy 
   expect(records?.current).toBeUndefined()
   expect(records?.receipt).toBeUndefined()
   expect(await page.evaluate((key) => localStorage.getItem(key), key)).toBe(original)
-  const downloading = page.waitForEvent('download')
-  await notice(page).getByRole('button', { name: 'Download original data', exact: true }).click()
-  const file = await downloading
-  expect(await readFile((await file.path())!, 'utf8')).toBe(original)
 })
 
 test('a denied database never falls back to writing legacy storage', async ({ page }) => {
@@ -433,8 +385,7 @@ test('continued conflict edits stay local and replacement requires an explicit d
   await cart(other).getByTitle('Hide course', { exact: true }).click()
   await expect(notice(other)).toContainText('not being saved')
   await cart(other).getByTitle('Show course', { exact: true }).click()
-  const pending = await downloadJson(other, 'Download changes')
-  expect(pending.enrollments).toMatchObject([{ isVisible: true }])
+  await expect(cart(other).getByTitle('Hide course', { exact: true })).toBeVisible()
   expect(await readSavedEnrollments(page, term)).toMatchObject([{ isVisible: false }])
   other.once('dialog', (dialog) => dialog.dismiss())
   await notice(other)
@@ -513,6 +464,7 @@ test('an outgoing in-flight commit cannot acquire the destination term or lose i
     await cart(page).getByTitle('Hide course', { exact: true }).click()
     await expect.poll(() => page.evaluate(() => window.scheduleCommitGate.waiting)).toBe(true)
     await selectTerm(page, destination)
+    await expect(notice(page)).toHaveCount(0)
   } finally {
     await releaseCommit(page)
   }

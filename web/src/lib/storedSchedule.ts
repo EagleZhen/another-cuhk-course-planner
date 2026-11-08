@@ -276,23 +276,16 @@ export function readStoredEnrollments(parsed: unknown): StoredScheduleResult {
   }
 }
 
-export function serializeScheduleDraft(
+export function serializeStoredSchedule(
   enrollments: CourseEnrollment[],
   envelope: Record<string, unknown> = {}
 ): string {
-  return JSON.stringify({
+  const raw = JSON.stringify({
     ...envelope,
     version: SCHEDULE_DATA_VERSION,
     enrollments,
     savedAt: new Date().toISOString(),
   })
-}
-
-export function serializeStoredSchedule(
-  enrollments: CourseEnrollment[],
-  envelope?: Record<string, unknown>
-): string {
-  const raw = serializeScheduleDraft(enrollments, envelope)
   if (readStoredEnrollments(JSON.parse(raw)).status !== 'ready') {
     throw new Error('The schedule writer produced an invalid payload')
   }

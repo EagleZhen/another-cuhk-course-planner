@@ -55,7 +55,7 @@ describe('owned saved schedules', () => {
     const blocked = scheduleReducer(initial, {
       type: 'loaded',
       expected: initial.active,
-      cart: { term, status: 'blocked', reason: 'invalid_data', raw: 'original' },
+      cart: { term, status: 'blocked', reason: 'invalid_data' },
     })
     expect(scheduleReducer(blocked, { type: 'edit', term, update: () => enrollments })).toBe(
       blocked

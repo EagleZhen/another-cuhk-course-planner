@@ -35,7 +35,6 @@ export type StorageProblem = {
   layer?: 'database' | 'record' | 'payload' | 'legacy'
   version?: number
   error?: unknown
-  raw?: string
 }
 export type ScheduleLoad =
   | {
@@ -151,7 +150,6 @@ function inspectRecord(
 
 // Canonical data always wins. The receipt prevents a missing record from reimporting stale data.
 export async function loadSchedule(term: string): Promise<ScheduleLoad> {
-  let raw: string | null | undefined
   try {
     const db = await database()
     const read = db.transaction(['schedules', 'imports'])
@@ -165,6 +163,7 @@ export async function loadSchedule(term: string): Promise<ScheduleLoad> {
       return result.status === 'ready' ? result.decoded : result
     }
 
+    let raw: string | null
     try {
       raw = localStorage.getItem(`schedule_${term}`)
     } catch (error) {
@@ -177,9 +176,9 @@ export async function loadSchedule(term: string): Promise<ScheduleLoad> {
           ? { status: 'ready' as const, enrollments: [], envelope: {} }
           : readStoredEnrollments(JSON.parse(raw))
     } catch {
-      return { status: 'blocked', reason: 'invalid_data', layer: 'legacy', raw: raw! }
+      return { status: 'blocked', reason: 'invalid_data', layer: 'legacy' }
     }
-    if (decoded.status === 'blocked') return { ...decoded, layer: 'legacy', raw: raw! }
+    if (decoded.status === 'blocked') return { ...decoded, layer: 'legacy' }
     const record: ScheduleRecord = {
       recordFormat: 1,
       term,
@@ -213,11 +212,7 @@ export async function loadSchedule(term: string): Promise<ScheduleLoad> {
       throw error
     }
   } catch (error) {
-    return {
-      status: 'blocked',
-      ...storageFailure(error, 'read_failed'),
-      ...(typeof raw === 'string' ? { raw } : {}),
-    }
+    return { status: 'blocked', ...storageFailure(error, 'read_failed') }
   }
 }
 
@@ -270,16 +265,4 @@ export async function commitSchedule(
     const problem = storageFailure(error, 'write_failed')
     return { status: problem.reason === 'write_failed' ? 'failed' : 'refused', ...problem }
   }
-}
-
-// Read on demand. Keep exact payload strings and the import original in the download.
-export async function readScheduleBackup(term: string): Promise<string> {
-  const db = await database()
-  const tx = db.transaction(['schedules', 'imports'])
-  const [current, original] = await Promise.all([
-    tx.objectStore('schedules').get(term),
-    tx.objectStore('imports').get(term),
-    tx.done,
-  ])
-  return JSON.stringify({ term, current, original })
 }

@@ -31,7 +31,7 @@ Note: Playwright's WebKit is not real Safari.app and does not reproduce every Sa
 
 Storage fixtures seed legacy localStorage once per browser session; adoption copies them to IndexedDB. Assert saves with [`readSavedEnrollments`](helpers/schedule.ts), which reads canonical records through the real payload codec. Never fall back to legacy data in a save assertion or reseed missing data on reload.
 
-Storage-safety specs audit every attempted legacy write/removal. Transaction specs exercise native IndexedDB aborts, competing revisions, adoption, and connection changes in both browsers. Assert authoritative records and downloaded contents: eventual correct UI can conceal a destructive intermediate write. Historical/current-build coexistence is separate coverage; these specs run the current build.
+Storage-safety specs audit legacy writes and removals. Transaction specs exercise native IndexedDB aborts, competing revisions, adoption, and connection changes. Assert the saved records alongside the UI so a destructive intermediate write can fail the test.
 
 ## Historical storage compatibility
 

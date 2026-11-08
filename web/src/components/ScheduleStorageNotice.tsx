@@ -1,11 +1,8 @@
 'use client'
 
-import { useState } from 'react'
 import { AlertTriangle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import type { ReadySchedule, SavedSchedule } from '@/hooks/useSavedSchedule'
-import { serializeScheduleDraft } from '@/lib/storedSchedule'
-import { readScheduleBackup } from '@/lib/scheduleStorage'
 
 export default function ScheduleStorageNotice({
   cart,
@@ -20,32 +17,10 @@ export default function ScheduleStorageNotice({
   onRetrySave: () => void
   onReloadSaved: () => void
 }) {
-  const [failedDownload, setFailedDownload] = useState<SavedSchedule | null>(null)
   const failures = unsaved.filter(
-    (schedule) =>
-      schedule.saveStatus === 'failed' ||
-      schedule.saveStatus === 'refused' ||
-      schedule.term !== cart.term
+    (schedule) => schedule.saveStatus === 'failed' || schedule.saveStatus === 'refused'
   )
-  const showNotice = cart.status === 'blocked' || failures.length > 0 || failedDownload === cart
-  const canDownloadRecovery =
-    (cart.status === 'ready' && (cart.saveStatus === 'failed' || cart.saveStatus === 'refused')) ||
-    (cart.status === 'blocked' && (cart.layer === 'record' || cart.layer === 'payload'))
-  if (!showNotice) return null
-
-  const download = async (contents: () => string | Promise<string>, term: string, kind: string) => {
-    setFailedDownload(null)
-    try {
-      const url = URL.createObjectURL(new Blob([await contents()], { type: 'application/json' }))
-      const link = document.createElement('a')
-      link.href = url
-      link.download = `schedule_${term.replaceAll(' ', '_')}_${kind}.json`
-      link.click()
-      URL.revokeObjectURL(url)
-    } catch {
-      setFailedDownload(cart)
-    }
-  }
+  if (cart.status !== 'blocked' && failures.length === 0) return null
 
   return (
     <div
@@ -64,14 +39,8 @@ export default function ScheduleStorageNotice({
               ? 'This tab could not read the saved data. It has been left unchanged.'
               : 'Your saved data has been kept unchanged. This tab cannot edit it.'}
           </p>
-          {cart.raw !== undefined && (
-            <Button
-              variant="ghost-warning"
-              size="sm"
-              onClick={() => download(() => cart.raw!, cart.term, 'original')}
-            >
-              Download original data
-            </Button>
+          {cart.reason === 'unsupported_version' && cart.layer !== 'legacy' && (
+            <p>This saved schedule needs a newer planner. Refresh this page to try loading it.</p>
           )}
         </div>
       )}
@@ -85,12 +54,12 @@ export default function ScheduleStorageNotice({
             </p>
           ) : (
             <p>
-              Changes to {schedule.term} have not been saved. Keep this tab open or download your
-              changes.
+              Changes to {schedule.term} have not been saved. Keep this tab open to retain them.
             </p>
           )}
-          {schedule.saveStatus === 'refused' && (
-            <p>You can keep editing here. Download your changes before closing this tab.</p>
+          {schedule.saveStatus === 'refused' && <p>Keep this tab open to retain your edits.</p>}
+          {schedule.saveProblem?.reason === 'unsupported_version' && (
+            <p>Open the planner in a new tab to try loading the saved schedule.</p>
           )}
           {schedule.saveProblem?.reason === 'read_failed' && (
             <p>The saved version could not be read. You can try loading it again.</p>
@@ -107,9 +76,7 @@ export default function ScheduleStorageNotice({
                 size="sm"
                 onClick={() => {
                   if (
-                    window.confirm(
-                      'Replace this tab’s unsaved changes with the saved version? Download your changes first if you want to keep them.'
-                    )
+                    window.confirm('Discard this tab’s unsaved changes and load the saved version?')
                   )
                     onReloadSaved()
                 }}
@@ -121,32 +88,9 @@ export default function ScheduleStorageNotice({
                 Try saving again
               </Button>
             ) : null}
-            <Button
-              variant="ghost-warning"
-              size="sm"
-              onClick={() =>
-                download(
-                  () => serializeScheduleDraft(schedule.enrollments, schedule.envelope),
-                  schedule.term,
-                  'unsaved'
-                )
-              }
-            >
-              Download changes
-            </Button>
           </div>
         </div>
       ))}
-      {failedDownload === cart && <p>The download failed. Keep this tab open and try again.</p>}
-      {canDownloadRecovery && (
-        <Button
-          variant="ghost-warning"
-          size="sm"
-          onClick={() => download(() => readScheduleBackup(cart.term), cart.term, 'backup')}
-        >
-          Download recovery data
-        </Button>
-      )}
     </div>
   )
 }
