@@ -4,7 +4,7 @@ import { diffEnrollment, sectionSignature } from './courseUtils'
 import preVersion from './fixtures/schedule-pre-version-produced.json'
 import versionOne from './fixtures/schedule-v1-produced.json'
 import migratedToV3 from './fixtures/schedule-pre-version-migrated-to-v3.json'
-import { readStoredEnrollments, serializeStoredSchedule } from './storedSchedule'
+import { readStoredEnrollments, encodeStoredSchedule } from './storedSchedule'
 import { transformExternalCourseData } from './validation'
 import type { CourseEnrollment, InternalCourse, InternalSection, SectionSignature } from './types'
 
@@ -375,11 +375,13 @@ it('preserves the unknown seat count that the catalog producer serializes as nul
       },
     ],
   }).courses[0]
-  const raw = serializeStoredSchedule([
+  const schedule = encodeStoredSchedule([
     makeEnrollment({ course, selectedSections: course.terms[0].sections }),
   ])
-  expect(JSON.parse(raw).enrollments[0].selectedSections[0].availability.availableSeats).toBeNull()
-  const result = readStoredEnrollments(JSON.parse(raw))
+  expect(schedule).toMatchObject({
+    enrollments: [{ selectedSections: [{ availability: { availableSeats: null } }] }],
+  })
+  const result = readStoredEnrollments(schedule)
   expect(result.status).toBe('ready')
   if (result.status !== 'ready') throw Error('expected readable legacy data')
   expect(result.enrollments[0].selectedSections[0].availability.availableSeats).toBeNaN()
@@ -405,7 +407,7 @@ it.each([
     selectedSections: [{ id: 'CSCI3100_A-LEC', meetings: [{ instructors: 'Professor CHAN' }] }],
   })
   expect(enrollment.course.terms[0].sections[0].meetings[0].instructors).toBe('Professor CHAN')
-  const reloaded = readStoredEnrollments(JSON.parse(serializeStoredSchedule(result.enrollments)))
+  const reloaded = readStoredEnrollments(encodeStoredSchedule(result.enrollments))
   if (reloaded.status !== 'ready') throw Error('expected readable rewritten data')
   expect(reloaded.enrollments).toEqual(result.enrollments)
   expect(input).toEqual(original)
@@ -421,8 +423,9 @@ it('keeps historical waitlist counts unknown', () => {
     waitlistTotal: NaN,
   })
   expect(enrollment.course.terms[0].sections[1].sectionType).toBe('UNK')
-  const payload = JSON.parse(serializeStoredSchedule(result.enrollments))
-  expect(payload.enrollments[0].selectedSections[0].availability.waitlistTotal).toBeNull()
+  expect(encodeStoredSchedule(result.enrollments)).toMatchObject({
+    enrollments: [{ selectedSections: [{ availability: { waitlistTotal: null } }] }],
+  })
 })
 
 it('does not use historical defaults for the current format or writer', () => {
@@ -431,5 +434,5 @@ it('does not use historical defaults for the current format or writer', () => {
   expect(
     readStoredEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments: [enrollment] })
   ).toMatchObject({ status: 'blocked', reason: 'invalid_data' })
-  expect(() => serializeStoredSchedule([enrollment])).toThrow('invalid payload')
+  expect(() => encodeStoredSchedule([enrollment])).toThrow('invalid payload')
 })

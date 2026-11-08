@@ -3,7 +3,7 @@ import type { Page } from '@playwright/test'
 import { DEFAULT_CURRENT_TERM } from '../src/lib/constants'
 import { SCRAPED_AT_BY_YEAR } from '../src/lib/generated/scrape-times'
 import { openPlannerAtTerm, selectTerm } from './helpers/planner'
-import { readSavedEnrollments, readScheduleRecords } from './helpers/schedule'
+import { readSavedEnrollments, readScheduleRecord } from './helpers/schedule'
 
 const TERM_ONE = '2026-27 Term 1'
 const TERM_TWO = '2026-27 Term 2'
@@ -122,11 +122,7 @@ async function savedEnrollment(page: Page, term: string) {
 async function expectNotSynced(page: Page, term: string, original: string) {
   expect(await page.evaluate((key) => localStorage.getItem(key), `schedule_${term}`)).toBe(original)
   // The startup load may adopt the default term before fixture selection, but must not sync it.
-  const records = await readScheduleRecords(page, term)
-  if (records?.current === undefined) {
-    expect(records?.receipt).toBeUndefined()
-    return
-  }
+  if ((await readScheduleRecord(page, term)) === undefined) return
   const untouched = await savedEnrollment(page, term)
   expect(untouched).toMatchObject({ courseId: COURSE_ID })
   expect(untouched?.lastSynced).toBeUndefined()
@@ -263,8 +259,8 @@ test('opening an unchanged catalog in another tab does not invalidate the first 
   context,
 }) => {
   await openPlanner(page, offering('Current room'))
-  const before = await readScheduleRecords(page, TERM_ONE)
-  expect(before?.current).toMatchObject({
+  const before = await readScheduleRecord(page, TERM_ONE)
+  expect(before).toMatchObject({
     catalogStamp: Date.parse(SCRAPED_AT_BY_YEAR['2026-27']),
   })
   const other = await context.newPage()
@@ -281,7 +277,7 @@ test('opening an unchanged catalog in another tab does not invalidate the first 
         requestAnimationFrame(() => requestAnimationFrame(() => resolve()))
       )
   )
-  expect(await readScheduleRecords(other, TERM_ONE)).toEqual(before)
+  expect(await readScheduleRecord(other, TERM_ONE)).toEqual(before)
 
   await courseCard(page).getByTitle('Hide course', { exact: true }).click()
   await expect.poll(() => savedEnrollment(page, TERM_ONE)).toMatchObject({ isVisible: false })
@@ -307,7 +303,7 @@ test('a confirmed replacement keeps the saved revision at the same catalog times
       isVisible: false,
       selectedSections: [{ meetings: [{ location: 'Current room' }] }],
     })
-  const saved = await readScheduleRecords(other, TERM_ONE)
+  const saved = await readScheduleRecord(other, TERM_ONE)
   await courseCard(page).getByTitle('Hide course', { exact: true }).click()
   const notice = page.locator('[data-schedule-storage-notice]')
   await expect(notice).toContainText('changed in another tab')
@@ -318,7 +314,7 @@ test('a confirmed replacement keeps the saved revision at the same catalog times
     .click()
   await expect(courseCard(page).getByTitle('Show course', { exact: true })).toBeVisible()
   await expect(notice).toHaveCount(0)
-  expect(await readScheduleRecords(page, TERM_ONE)).toEqual(saved)
+  expect(await readScheduleRecord(page, TERM_ONE)).toEqual(saved)
 })
 
 test('a tab with an older catalog can edit the cart but cannot add from its catalog', async ({

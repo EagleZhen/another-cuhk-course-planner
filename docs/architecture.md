@@ -49,16 +49,13 @@ Important invariants:
 
 [useSavedSchedule](../web/src/hooks/useSavedSchedule.ts) owns each cart’s term, load outcome, contents, and save status. Term changes activate an unread destination or retained unsaved edits; outgoing contents never acquire the destination’s label or storage key. Restore runs on the client, independently of catalog loading.
 
-[scheduleStorage.ts](../web/src/lib/scheduleStorage.ts) is the persistence boundary. It uses `idb` to access IndexedDB database `another-cuhk-course-planner`:
+[scheduleStorage.ts](../web/src/lib/scheduleStorage.ts) stores one schedule object, revision, and optional catalog timestamp per term in IndexedDB. Database version 2 carries forward active carts from the branch’s two-store layout and removes the old recovery copies.
 
-- `schedules` holds each term’s current payload, revision, and one previous payload.
-- `imports` holds an immutable receipt and exact original from localStorage key `schedule_${term}`.
-- Adoption validates the source, rechecks both stores, and commits both records together. A missing source becomes an explicit empty schedule. Legacy keys remain untouched.
-- Canonical data wins after adoption. A receipt without its schedule blocks re-import, so deletion cannot resurrect stale legacy data.
+A load imports `localStorage` only when the term has no IndexedDB record. Import validates the legacy data, rechecks the destination in a transaction, and leaves the legacy key untouched. Clearing a cart saves an empty record, so reload keeps it empty. If the record is separately deleted, the next load can import the legacy key again.
 
 [storedSchedule.ts](../web/src/lib/storedSchedule.ts) migrates historical enrollment shapes before validating the whole payload. Version 4 stores unknown waitlist counts as null and validates new writes without applying historical defaults. Malformed or unsupported data blocks loading without deleting the original.
 
-Every save validates compatibility and compares the expected revision inside one write transaction. It updates current and previous payloads together and reports success only after transaction completion. Saves run serially per term; an acknowledgment advances the base revision without marking newer edits saved. Load results apply only to their exact loading attempt.
+Each save requires an existing, compatible record at the expected revision. The check and write share a transaction, and the app reports success after it commits. Each tab saves serially per term and keeps edits made during a save pending.
 
 Failed saves retain pending edits across term switches and offer retry. Refused writes pause autosave. A confirmed conflict reload replaces edits only after a successful read and only if the edits are still the same. Closing or reloading the page can discard unsaved edits.
 
@@ -66,7 +63,7 @@ Each cart reconciles with a complete catalog for its own year and term. Once a r
 
 `SCHEDULE_DATA_VERSION` declares compatibility, even when migrations are idempotent. An incompatible shape needs a new version. Refusing a newer version must preserve its data. The codec preserves unrecognized envelope and payload fields instead of stripping them. This is not a compatibility guarantee for future semantic changes; catalog reconciliation still refreshes course and section snapshots.
 
-**Limits:** Legacy tabs can still damage legacy keys, but adopted schedules are isolated from those writes. Later legacy edits remain a separate fork; they are not automatically merged. Backups within the same browser do not survive site-data clearing or device loss. The separate historical-build suite reproduces legacy loss and checks adopted carts against frozen old-tab reentry, edits, and clearing.
+Legacy tabs can still change or remove legacy keys. Their later edits stay separate from adopted carts. Clearing site data removes the browser’s saved carts.
 
 ## Domain Logic
 

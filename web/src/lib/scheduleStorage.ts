@@ -1,27 +1,26 @@
-import { openDB } from 'idb'
+import { openDB, unwrap } from 'idb'
 import type { DBSchema, IDBPDatabase } from 'idb'
 import { z } from 'zod'
 import type { CourseEnrollment } from './types'
-import { readStoredEnrollments, serializeStoredSchedule } from './storedSchedule'
+import { encodeStoredSchedule, readStoredEnrollments } from './storedSchedule'
 
 const DATABASE = 'another-cuhk-course-planner'
-const recordSchema = z.looseObject({
-  recordFormat: z.literal(1),
-  term: z.string(),
+const DATABASE_VERSION = 2
+const recordSchema = z.object({
   revision: z.string().min(1),
-  currentRaw: z.string(),
-  previousRaw: z.string().nullable(),
+  schedule: z.unknown(),
   catalogStamp: z.number().int().optional(),
 })
-const receiptSchema = z.looseObject({
+const versionOneRecordSchema = z.object({
   recordFormat: z.literal(1),
   term: z.string(),
-  originalLegacyRaw: z.string().nullable(),
+  revision: recordSchema.shape.revision,
+  currentRaw: z.string(),
+  catalogStamp: recordSchema.shape.catalogStamp,
 })
 type ScheduleRecord = z.infer<typeof recordSchema>
 interface ScheduleDatabase extends DBSchema {
   schedules: { key: string; value: unknown }
-  imports: { key: string; value: unknown }
 }
 export type StorageProblem = {
   reason:
@@ -30,7 +29,6 @@ export type StorageProblem = {
     | 'invalid_data'
     | 'unsupported_version'
     | 'revision_conflict'
-    | 'missing_record'
     | 'database_blocked'
   layer?: 'database' | 'record' | 'payload' | 'legacy'
   version?: number
@@ -61,10 +59,31 @@ function database(): Promise<IDBPDatabase<ScheduleDatabase>> {
   if (opening) return opening
   opening = new Promise<IDBPDatabase<ScheduleDatabase>>((resolve, reject) => {
     let abandoned = false
-    void openDB<ScheduleDatabase>(DATABASE, 1, {
-      upgrade(db) {
-        db.createObjectStore('schedules')
-        db.createObjectStore('imports')
+    void openDB<ScheduleDatabase>(DATABASE, DATABASE_VERSION, {
+      upgrade(db, oldVersion, _newVersion, tx) {
+        if (oldVersion === 0) {
+          db.createObjectStore('schedules')
+          return
+        }
+
+        unwrap(db).deleteObjectStore('imports')
+        const request = unwrap(tx.objectStore('schedules')).openCursor()
+        request.onsuccess = () => {
+          const cursor = request.result
+          if (!cursor) return
+          const old = versionOneRecordSchema.safeParse(cursor.value)
+          if (old.success && old.data.term === cursor.primaryKey) {
+            const { currentRaw, revision, catalogStamp } = old.data
+            let schedule: unknown
+            try {
+              schedule = JSON.parse(currentRaw)
+            } catch {
+              // Leave an unreadable row intact so it cannot trigger a legacy re-import.
+            }
+            if (schedule !== undefined) cursor.update({ revision, schedule, catalogStamp })
+          }
+          cursor.continue()
+        }
       },
       blocked() {
         abandoned = true
@@ -97,71 +116,22 @@ function storageFailure(error: unknown, reason: 'read_failed' | 'write_failed'):
   return { reason, layer: 'database', error }
 }
 
-function inspectRecord(
-  value: unknown,
-  receipt: unknown,
-  term: string
-):
-  | { status: 'ready'; record: ScheduleRecord; decoded: Extract<ScheduleLoad, { status: 'ready' }> }
-  | ({ status: 'blocked' } & StorageProblem) {
-  if (value === undefined) return { status: 'blocked', reason: 'missing_record', layer: 'record' }
-  for (const candidate of [value, receipt]) {
-    if (
-      candidate &&
-      typeof candidate === 'object' &&
-      'recordFormat' in candidate &&
-      typeof candidate.recordFormat === 'number' &&
-      candidate.recordFormat !== 1
-    ) {
-      return {
-        status: 'blocked',
-        reason: 'unsupported_version',
-        layer: 'record',
-        version: candidate.recordFormat,
-      }
-    }
-  }
+function inspectRecord(value: unknown): ScheduleLoad {
   const parsed = recordSchema.safeParse(value)
-  const imported = receiptSchema.safeParse(receipt)
-  if (
-    !parsed.success ||
-    !imported.success ||
-    parsed.data.term !== term ||
-    imported.data.term !== term
-  ) {
-    return { status: 'blocked', reason: 'invalid_data', layer: 'record' }
-  }
-  try {
-    const decoded = readStoredEnrollments(JSON.parse(parsed.data.currentRaw))
-    if (decoded.status === 'blocked') return { ...decoded, layer: 'payload' }
-    return {
-      status: 'ready',
-      record: parsed.data,
-      decoded: {
-        ...decoded,
-        revision: parsed.data.revision,
-        catalogStamp: parsed.data.catalogStamp,
-      },
-    }
-  } catch {
-    return { status: 'blocked', reason: 'invalid_data', layer: 'payload' }
-  }
+  if (!parsed.success) return { status: 'blocked', reason: 'invalid_data', layer: 'record' }
+  const { schedule, revision, catalogStamp } = parsed.data
+  const decoded = readStoredEnrollments(schedule)
+  return decoded.status === 'ready'
+    ? { ...decoded, revision, catalogStamp }
+    : { ...decoded, layer: 'payload' }
 }
 
-// Canonical data always wins. The receipt prevents a missing record from reimporting stale data.
 export async function loadSchedule(term: string): Promise<ScheduleLoad> {
   try {
     const db = await database()
-    const read = db.transaction(['schedules', 'imports'])
-    const [current, receipt] = await Promise.all([
-      read.objectStore('schedules').get(term),
-      read.objectStore('imports').get(term),
-      read.done,
-    ])
-    if (current !== undefined || receipt !== undefined) {
-      const result = inspectRecord(current, receipt, term)
-      return result.status === 'ready' ? result.decoded : result
-    }
+    const read = db.transaction('schedules')
+    const [current] = await Promise.all([read.store.get(term), read.done])
+    if (current !== undefined) return inspectRecord(current)
 
     let raw: string | null
     try {
@@ -180,26 +150,17 @@ export async function loadSchedule(term: string): Promise<ScheduleLoad> {
     }
     if (decoded.status === 'blocked') return { ...decoded, layer: 'legacy' }
     const record: ScheduleRecord = {
-      recordFormat: 1,
-      term,
       revision: newRevision(),
-      currentRaw: serializeStoredSchedule(decoded.enrollments, decoded.envelope),
-      previousRaw: null,
+      schedule: encodeStoredSchedule(decoded.enrollments, decoded.envelope),
     }
-    const original = { recordFormat: 1, term, originalLegacyRaw: raw }
-    const tx = db.transaction(['schedules', 'imports'], 'readwrite')
+    const tx = db.transaction('schedules', 'readwrite')
     try {
-      const [winner, imported] = await Promise.all([
-        tx.objectStore('schedules').get(term),
-        tx.objectStore('imports').get(term),
-      ])
-      if (winner !== undefined || imported !== undefined) {
-        const result = inspectRecord(winner, imported, term)
+      const winner = await tx.store.get(term)
+      if (winner !== undefined) {
         await tx.done
-        return result.status === 'ready' ? result.decoded : result
+        return inspectRecord(winner)
       }
-      await tx.objectStore('schedules').add(record, term)
-      await tx.objectStore('imports').add(original, term)
+      await tx.store.add(record, term)
       await tx.done
       return { ...decoded, revision: record.revision }
     } catch (error) {
@@ -225,31 +186,26 @@ export async function commitSchedule(
 ): Promise<ScheduleCommit> {
   try {
     // Prepare before opening the transaction; do not await unrelated work inside it.
-    const currentRaw = serializeStoredSchedule(enrollments, envelope)
+    const schedule = encodeStoredSchedule(enrollments, envelope)
     const db = await database()
-    const tx = db.transaction(['schedules', 'imports'], 'readwrite')
+    const tx = db.transaction('schedules', 'readwrite')
     try {
-      const [current, receipt] = await Promise.all([
-        tx.objectStore('schedules').get(term),
-        tx.objectStore('imports').get(term),
-      ])
-      const result = inspectRecord(current, receipt, term)
-      if (result.status === 'blocked') {
+      const current = await tx.store.get(term)
+      const result = current === undefined ? undefined : inspectRecord(current)
+      if (result?.status === 'blocked') {
         await tx.done
         return { ...result, status: 'refused' }
       }
-      if (result.record.revision !== revision) {
+      if (!result || result.revision !== revision) {
         await tx.done
         return { status: 'refused', reason: 'revision_conflict', layer: 'record' }
       }
-      const next = {
-        ...result.record,
+      const next: ScheduleRecord = {
         revision: newRevision(),
-        currentRaw,
-        previousRaw: result.record.currentRaw,
+        schedule,
         catalogStamp,
       }
-      await tx.objectStore('schedules').put(next, term)
+      await tx.store.put(next, term)
       await tx.done
       return { status: 'saved', revision: next.revision }
     } catch (error) {

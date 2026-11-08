@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { createScheduleState, scheduleReducer } from './useSavedSchedule'
-import { readStoredEnrollments, serializeStoredSchedule } from '../lib/storedSchedule'
+import { readStoredEnrollments, encodeStoredSchedule } from '../lib/storedSchedule'
 import { transformExternalCourseData } from '../lib/validation'
 
 const term = '2026-27 Term 1'
@@ -95,8 +95,8 @@ describe('owned saved schedules', () => {
   })
 
   it('empty edits round-trip through the actual save producer without dropping metadata', () => {
-    const raw = serializeStoredSchedule([], { futureEnvelope: 'keep' })
-    expect(readStoredEnrollments(JSON.parse(raw))).toMatchObject({
+    const schedule = encodeStoredSchedule([], { futureEnvelope: 'keep' })
+    expect(readStoredEnrollments(schedule)).toMatchObject({
       status: 'ready',
       enrollments: [],
       envelope: { futureEnvelope: 'keep' },

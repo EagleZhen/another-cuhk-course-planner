@@ -43,8 +43,4 @@ npm run build:historical-schedules
 npm run test:compat
 ```
 
-This separate suite freezes two peers: `7c32e3dc` (numeric credits) and `af450c31` (range credits, unsafe legacy writer). The builder archives their pinned Git sources and installs each lockfile separately. Missing commits are fetched from `origin`; HEAD stays unchanged. Exports live in ignored `.cache/schedule-compat/`; removing that directory rebuilds them. The fixture manifest identifies the source revision; analytics build IDs can inherit the enclosing checkout’s identity.
-
-Per-page routes serve each production export on the same origin, including later asset requests. Tabs share real browser storage and retain different JavaScript. No HMR or real analytics requests are involved. Carts come from the historical Add flow, without storage seeding.
-
-The baseline proves deletion and the credits crash. Protected cases verify old reentry, edits, and clearing cannot change an adopted cart or resurrect an intentionally empty one. Reload does not reseed. CI runs both suites in Chromium and WebKit; ordinary E2E runs exclude the historical suite.
+The builder fetches missing fixture commits from `origin` and writes exports to `.cache/schedule-compat/`. Remove that directory to rebuild them. CI runs the compatibility suite in Chromium and WebKit after ordinary E2E.

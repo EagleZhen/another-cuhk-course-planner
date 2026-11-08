@@ -276,18 +276,21 @@ export function readStoredEnrollments(parsed: unknown): StoredScheduleResult {
   }
 }
 
-export function serializeStoredSchedule(
+export function encodeStoredSchedule(
   enrollments: CourseEnrollment[],
   envelope: Record<string, unknown> = {}
-): string {
-  const raw = JSON.stringify({
-    ...envelope,
-    version: SCHEDULE_DATA_VERSION,
-    enrollments,
-    savedAt: new Date().toISOString(),
-  })
-  if (readStoredEnrollments(JSON.parse(raw)).status !== 'ready') {
+): Record<string, unknown> {
+  // Preserve the payload format: dates are ISO strings and unknown counts are null.
+  const schedule: Record<string, unknown> = JSON.parse(
+    JSON.stringify({
+      ...envelope,
+      version: SCHEDULE_DATA_VERSION,
+      enrollments,
+      savedAt: new Date().toISOString(),
+    })
+  )
+  if (readStoredEnrollments(schedule).status !== 'ready') {
     throw new Error('The schedule writer produced an invalid payload')
   }
-  return raw
+  return schedule
 }

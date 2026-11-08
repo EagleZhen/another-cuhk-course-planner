@@ -5,7 +5,7 @@ import preVersion from '../src/lib/fixtures/schedule-pre-version-produced.json'
 import { transformExternalCourseData } from '../src/lib/validation'
 import { mockCatalog, expectEmptyCatalogLoaded, type CatalogFixtures } from './helpers/catalog'
 import { selectTerm } from './helpers/planner'
-import { readSavedEnrollments, readScheduleRecords } from './helpers/schedule'
+import { readSavedEnrollments, readScheduleRecord } from './helpers/schedule'
 
 const first = DEFAULT_CURRENT_TERM
 const second = first === '2026-27 Term 2' ? '2026-27 Term 1' : '2026-27 Term 2'
@@ -71,7 +71,7 @@ function schedule(term: string, code = '1111') {
 
 type Audit = {
   writes: { key: string; value: string | null }[]
-  canonicalWrites: { term: string; raw: string }[]
+  canonicalWrites: { term: string; schedule: { enrollments: { courseId: string }[] } }[]
   failRead: boolean
   failWrite: boolean
 }
@@ -132,7 +132,7 @@ async function prepare(
         if (store.name === 'schedules')
           audit.canonicalWrites.push({
             term: String(term),
-            raw: (value as { currentRaw: string }).currentRaw,
+            schedule: (value as Pick<Audit['canonicalWrites'][number], 'schedule'>).schedule,
           })
       }
       const add = IDBObjectStore.prototype.add
@@ -170,8 +170,7 @@ async function expectOwnedWrites(page: Page, expected: Record<string, string[]>)
   const writes = await page.evaluate(() => window.scheduleAudit.canonicalWrites)
   expect(writes.map((write) => write.term)).toEqual(expect.arrayContaining(Object.keys(expected)))
   for (const write of writes) {
-    const payload = JSON.parse(write.raw) as { enrollments: { courseId: string }[] }
-    expect(payload.enrollments.map((enrollment) => enrollment.courseId)).toEqual(
+    expect(write.schedule.enrollments.map((enrollment) => enrollment.courseId)).toEqual(
       expected[write.term]
     )
   }
@@ -196,9 +195,6 @@ test('adopts a historical cart and keeps its edits after reload', async ({ page 
   await page.reload()
   await selectTerm(page, term)
   await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
-  expect((await readScheduleRecords(page, term))?.receipt).toMatchObject({
-    originalLegacyRaw: original,
-  })
   expect(await legacyRaw(page, term)).toBe(original)
 })
 
@@ -255,8 +251,7 @@ for (const [name, original] of [
     await expect(notice(page)).toContainText('Your saved data has been kept unchanged')
     expect(await legacyRaw(page, first)).toBe(original)
     expect(await page.evaluate(() => window.scheduleAudit.writes)).toEqual([])
-    expect((await readScheduleRecords(page, first))?.current).toBeUndefined()
-    expect((await readScheduleRecords(page, first))?.receipt).toBeUndefined()
+    expect(await readScheduleRecord(page, first)).toBeUndefined()
     await expect(cart(page).getByText('No courses enrolled', { exact: true })).toHaveCount(0)
     await selectTerm(page, second)
     await selectTerm(page, first)

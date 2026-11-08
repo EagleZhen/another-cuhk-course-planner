@@ -2,8 +2,9 @@ import { test, expect } from '@playwright/test'
 import type { Page } from '@playwright/test'
 import { transformExternalCourseData } from '../src/lib/validation'
 import { DEFAULT_CURRENT_TERM as term } from '../src/lib/constants'
+import { encodeStoredSchedule } from '../src/lib/storedSchedule'
 import { mockCatalog, expectEmptyCatalogLoaded } from './helpers/catalog'
-import { readScheduleRecords, readSavedEnrollments } from './helpers/schedule'
+import { readScheduleRecord, readSavedEnrollments } from './helpers/schedule'
 import { selectTerm } from './helpers/planner'
 
 const key = `schedule_${term}`
@@ -13,12 +14,14 @@ const course = transformExternalCourseData({
     { subject: 'ACCT', course_code: '1111', title: 'Transaction fixture', credits: '3', terms: [] },
   ],
 }).courses[0]
-const original = JSON.stringify({
-  version: 3,
-  enrollments: [
-    { courseId: 'ACCT1111', course, selectedSections: [], color: 'bg-blue-500', isVisible: true },
-  ],
-})
+const enrollment = {
+  courseId: 'ACCT1111',
+  course,
+  selectedSections: [],
+  color: 'bg-blue-500',
+  isVisible: true,
+}
+const original = JSON.stringify({ version: 3, enrollments: [enrollment] })
 const cart = (page: Page) => page.locator('[data-shopping-cart]')
 const notice = (page: Page) => page.locator('[data-schedule-storage-notice]')
 
@@ -41,16 +44,11 @@ test.beforeEach(async ({ context }) => {
   )
 })
 
-test('adopts a verified copy and exact import receipt without rewriting legacy storage', async ({
-  page,
-}) => {
+test('adopts a validated schedule without rewriting legacy storage', async ({ page }) => {
   await open(page)
   await expect
     .poll(() => readSavedEnrollments(page, term))
     .toMatchObject([{ courseId: 'ACCT1111', isVisible: true }])
-  expect(await readScheduleRecords(page, term)).toMatchObject({
-    receipt: { recordFormat: 1, term, originalLegacyRaw: original },
-  })
   expect(await page.evaluate((key) => localStorage.getItem(key), key)).toBe(original)
   await expect(notice(page)).toHaveCount(0)
 })
@@ -62,6 +60,64 @@ test('adopts and saves when randomUUID is unavailable', async ({ page }) => {
   await open(page)
   await cart(page).getByTitle('Hide course', { exact: true }).click()
   await expect.poll(() => readSavedEnrollments(page, term)).toMatchObject([{ isVisible: false }])
+})
+
+test('upgrading the branch database preserves the active cart and removes its recovery copies', async ({
+  page,
+}) => {
+  await page.route('**/storage-fixture', (route) =>
+    route.fulfill({ contentType: 'text/html', body: '' })
+  )
+  await page.goto('/storage-fixture')
+  const schedule = encodeStoredSchedule([{ ...enrollment, isVisible: false }])
+  await page.evaluate(
+    ({ term, schedule, original }) =>
+      new Promise<void>((resolve, reject) => {
+        const request = indexedDB.open('another-cuhk-course-planner', 1)
+        request.onupgradeneeded = () => {
+          request.result.createObjectStore('schedules').add(
+            {
+              recordFormat: 1,
+              term,
+              revision: 'before-upgrade',
+              currentRaw: JSON.stringify(schedule),
+              previousRaw: original,
+              catalogStamp: 123,
+            },
+            term
+          )
+          request.result
+            .createObjectStore('imports')
+            .add({ recordFormat: 1, term, originalLegacyRaw: original }, term)
+        }
+        request.onsuccess = () => {
+          request.result.close()
+          resolve()
+        }
+        request.onerror = () => reject(request.error)
+      }),
+    { term, schedule, original }
+  )
+
+  await open(page)
+  await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
+  expect(await readScheduleRecord(page, term)).toEqual({
+    revision: 'before-upgrade',
+    schedule,
+    catalogStamp: 123,
+  })
+  const stores = await page.evaluate(
+    () =>
+      new Promise<string[]>((resolve, reject) => {
+        const request = indexedDB.open('another-cuhk-course-planner')
+        request.onsuccess = () => {
+          resolve(Array.from(request.result.objectStoreNames))
+          request.result.close()
+        }
+        request.onerror = () => reject(request.error)
+      })
+  )
+  expect(stores).toEqual(['schedules'])
 })
 
 test('reading a schedule keeps the cart frame without claiming an empty cart', async ({ page }) => {
@@ -133,11 +189,11 @@ test('a stale tab preserves its edits instead of replacing another committed rev
   await open(other)
   await cart(page).getByTitle('Hide course', { exact: true }).click()
   await expect.poll(() => readSavedEnrollments(page, term)).toMatchObject([{ isVisible: false }])
-  const before = await readScheduleRecords(page, term)
+  const before = await readScheduleRecord(page, term)
   await cart(other).getByTitle('Remove course', { exact: true }).click()
   await expect(notice(other)).toContainText('changed in another tab')
   await expect(cart(other).getByText('No courses enrolled', { exact: true })).toBeVisible()
-  expect(await readScheduleRecords(page, term)).toEqual(before)
+  expect(await readScheduleRecord(page, term)).toEqual(before)
 })
 
 test('a request success followed by transaction abort is never reported as saved', async ({
@@ -145,7 +201,7 @@ test('a request success followed by transaction abort is never reported as saved
 }) => {
   await open(page)
   await expect.poll(() => readSavedEnrollments(page, term)).not.toBeNull()
-  const before = await readScheduleRecords(page, term)
+  const before = await readScheduleRecord(page, term)
   await page.evaluate(() => {
     const put = IDBObjectStore.prototype.put
     IDBObjectStore.prototype.put = function (...args) {
@@ -158,10 +214,10 @@ test('a request success followed by transaction abort is never reported as saved
   await cart(page).getByTitle('Hide course', { exact: true }).click()
   await expect(notice(page)).toContainText('have not been saved')
   await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
-  expect(await readScheduleRecords(page, term)).toEqual(before)
+  expect(await readScheduleRecord(page, term)).toEqual(before)
 })
 
-async function changeCanonical(page: Page, change: 'newer_payload' | 'newer_record' | 'remove') {
+async function changeCanonical(page: Page, change: 'newer_payload' | 'remove') {
   await page.evaluate(
     async ({ term, change }) => {
       const db = await new Promise<IDBDatabase>((resolve, reject) => {
@@ -181,22 +237,16 @@ async function changeCanonical(page: Page, change: 'newer_payload' | 'newer_reco
           request.onsuccess = () => resolve(request.result)
           request.onerror = () => reject(request.error)
         })
-        if (
-          !record ||
-          typeof record !== 'object' ||
-          !('currentRaw' in record) ||
-          typeof record.currentRaw !== 'string'
-        )
+        if (!record || typeof record !== 'object' || !('schedule' in record))
           throw Error('Missing fixture record')
         if (change === 'remove') store.delete(term)
-        else if (change === 'newer_record') store.put({ ...record, recordFormat: 2 }, term)
         else {
-          const payload: unknown = JSON.parse(record.currentRaw)
-          if (!payload || typeof payload !== 'object') throw Error('Invalid fixture payload')
+          const schedule = record.schedule
+          if (!schedule || typeof schedule !== 'object') throw Error('Invalid fixture payload')
           store.put(
             {
               ...record,
-              currentRaw: JSON.stringify({ ...payload, version: Number.MAX_SAFE_INTEGER }),
+              schedule: { ...schedule, version: Number.MAX_SAFE_INTEGER },
             },
             term
           )
@@ -222,7 +272,7 @@ test('a failed replacement load keeps the confirmed local edits available', asyn
   await cart(other).getByTitle('Remove course', { exact: true }).click()
   await expect(notice(other)).toContainText('changed in another tab')
   await changeCanonical(page, 'newer_payload')
-  const before = await readScheduleRecords(page, term)
+  const before = await readScheduleRecord(page, term)
   other.once('dialog', (dialog) => dialog.accept())
   await notice(other)
     .getByRole('button', { name: 'Discard edits and load saved version', exact: true })
@@ -231,7 +281,7 @@ test('a failed replacement load keeps the confirmed local edits available', asyn
   await expect(
     notice(other).getByRole('button', { name: 'Discard edits and load saved version', exact: true })
   ).toHaveCount(0)
-  expect(await readScheduleRecords(page, term)).toEqual(before)
+  expect(await readScheduleRecord(page, term)).toEqual(before)
 })
 
 test('a transient replacement read failure remains recoverable without discarding local edits', async ({
@@ -245,7 +295,7 @@ test('a transient replacement read failure remains recoverable without discardin
   await expect.poll(() => readSavedEnrollments(page, term)).toMatchObject([{ isVisible: false }])
   await cart(other).getByTitle('Remove course', { exact: true }).click()
   await expect(notice(other)).toContainText('changed in another tab')
-  const before = await readScheduleRecords(page, term)
+  const before = await readScheduleRecord(page, term)
   await other.evaluate(() => {
     const get = IDBObjectStore.prototype.get
     window.restoreScheduleReads = () => {
@@ -269,61 +319,66 @@ test('a transient replacement read failure remains recoverable without discardin
   await expect(
     notice(other).getByRole('button', { name: 'Try saving again', exact: true })
   ).toHaveCount(0)
-  expect(await readScheduleRecords(page, term)).toEqual(before)
+  expect(await readScheduleRecord(page, term)).toEqual(before)
 
   await other.evaluate(() => window.restoreScheduleReads())
   other.once('dialog', (dialog) => dialog.accept())
   await replace.click()
   await expect(cart(other).getByTitle('Show course', { exact: true })).toBeVisible()
   await expect(notice(other)).toHaveCount(0)
-  expect(await readScheduleRecords(page, term)).toEqual(before)
+  expect(await readScheduleRecord(page, term)).toEqual(before)
 })
 
-test('an empty save stays empty and a receipt prevents silent reimport of a missing record', async ({
-  page,
-}) => {
+test('an empty save stays empty on reload even with a populated legacy cart', async ({ page }) => {
   await open(page)
   await cart(page).getByTitle('Remove course', { exact: true }).click()
   await expect.poll(() => readSavedEnrollments(page, term)).toEqual([])
   await page.reload()
   await expect(cart(page).getByText('No courses enrolled', { exact: true })).toBeVisible()
   expect(await page.evaluate((key) => localStorage.getItem(key), key)).toBe(original)
-  await changeCanonical(page, 'remove')
-  await page.reload()
-  await expect(notice(page)).toContainText('Saved schedule unavailable')
-  expect((await readScheduleRecords(page, term))?.current).toBeUndefined()
 })
 
-for (const change of ['newer_record', 'newer_payload'] as const) {
-  test(`a ${change} refuses an old writer without hiding its pending edits`, async ({ page }) => {
-    await open(page)
-    await changeCanonical(page, change)
-    const before = await readScheduleRecords(page, term)
-    await cart(page).getByTitle('Hide course', { exact: true }).click()
-    await expect(notice(page)).toContainText('not being saved')
-    await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
-    await expect(
-      notice(page).getByRole('button', {
-        name: 'Discard edits and load saved version',
-        exact: true,
-      })
-    ).toHaveCount(0)
-    expect(await readScheduleRecords(page, term)).toEqual(before)
-    await page.reload()
-    await expect(notice(page)).toContainText('Saved schedule unavailable')
-    await expect(notice(page)).toContainText('Refresh this page')
-    expect(await readScheduleRecords(page, term)).toEqual(before)
-  })
-}
-
-test('interrupted adoption rolls back the cart and receipt and keeps the legacy data', async ({
+test('a save cannot recreate a missing record, but a fresh load can import it', async ({
   page,
+  context,
 }) => {
+  await open(page)
+  const before = (await readScheduleRecord(page, term)) as { revision: string }
+  await changeCanonical(page, 'remove')
+  await cart(page).getByTitle('Hide course', { exact: true }).click()
+  await expect(notice(page)).toContainText('not being saved')
+  await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
+  expect(await readScheduleRecord(page, term)).toBeUndefined()
+
+  const other = await context.newPage()
+  await open(other)
+  await expect.poll(() => readSavedEnrollments(other, term)).toMatchObject([{ isVisible: true }])
+  expect(await readScheduleRecord(other, term)).not.toMatchObject({ revision: before.revision })
+})
+
+test('a newer payload refuses an old writer without hiding its pending edits', async ({ page }) => {
+  await open(page)
+  await changeCanonical(page, 'newer_payload')
+  const before = await readScheduleRecord(page, term)
+  await cart(page).getByTitle('Hide course', { exact: true }).click()
+  await expect(notice(page)).toContainText('not being saved')
+  await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
+  await expect(
+    notice(page).getByRole('button', { name: 'Discard edits and load saved version', exact: true })
+  ).toHaveCount(0)
+  expect(await readScheduleRecord(page, term)).toEqual(before)
+  await page.reload()
+  await expect(notice(page)).toContainText('Saved schedule unavailable')
+  await expect(notice(page)).toContainText('Refresh this page')
+  expect(await readScheduleRecord(page, term)).toEqual(before)
+})
+
+test('interrupted adoption rolls back the cart and keeps the legacy data', async ({ page }) => {
   await page.addInitScript(() => {
     const add = IDBObjectStore.prototype.add
     IDBObjectStore.prototype.add = function (...args) {
       const request = Reflect.apply(add, this, args) as IDBRequest
-      if (this.name === 'imports')
+      if (this.name === 'schedules')
         request.addEventListener('success', () => this.transaction.abort())
       return request
     }
@@ -331,9 +386,7 @@ test('interrupted adoption rolls back the cart and receipt and keeps the legacy 
   await mockCatalog(page)
   await page.goto('/')
   await expect(notice(page)).toContainText('Saved schedule unavailable')
-  const records = await readScheduleRecords(page, term)
-  expect(records?.current).toBeUndefined()
-  expect(records?.receipt).toBeUndefined()
+  expect(await readScheduleRecord(page, term)).toBeUndefined()
   expect(await page.evaluate((key) => localStorage.getItem(key), key)).toBe(original)
 })
 
@@ -354,10 +407,10 @@ test('an upgrade closes this connection and refuses further old-version writes',
   page,
 }) => {
   await open(page)
-  const before = await readScheduleRecords(page, term)
+  const before = await readScheduleRecord(page, term)
   await page.evaluate(async () => {
     await new Promise<void>((resolve, reject) => {
-      const request = indexedDB.open('another-cuhk-course-planner', 2)
+      const request = indexedDB.open('another-cuhk-course-planner', 3)
       request.onsuccess = () => {
         request.result.close()
         resolve()
@@ -367,7 +420,7 @@ test('an upgrade closes this connection and refuses further old-version writes',
   })
   await cart(page).getByTitle('Hide course', { exact: true }).click()
   await expect(notice(page)).toContainText('not being saved')
-  expect(await readScheduleRecords(page, term)).toEqual(before)
+  expect(await readScheduleRecord(page, term)).toEqual(before)
   await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
   await page.reload()
   await expect(notice(page)).toContainText('Saved schedule unavailable')
@@ -440,6 +493,7 @@ test('edits made during a commit use its new revision without conflicting with t
   page,
 }) => {
   await open(page)
+  const before = (await readScheduleRecord(page, term)) as { revision: string }
   await holdCommit(page)
   try {
     await cart(page).getByTitle('Hide course', { exact: true }).click()
@@ -450,8 +504,7 @@ test('edits made during a commit use its new revision without conflicting with t
   }
   await expect.poll(() => readSavedEnrollments(page, term)).toMatchObject([{ isVisible: true }])
   await expect(notice(page)).toHaveCount(0)
-  const record = (await readScheduleRecords(page, term))?.current as { previousRaw: string }
-  expect(JSON.parse(record.previousRaw).enrollments[0].isVisible).toBe(false)
+  expect(await readScheduleRecord(page, term)).not.toMatchObject({ revision: before.revision })
 })
 
 test('an outgoing in-flight commit cannot acquire the destination term or lose its edits', async ({
@@ -495,23 +548,11 @@ test('adoption rechecks a winner committed after its initial canonical read', as
         const value = get.call(this, name)
         if (name === key && db && !won) {
           won = true
-          const tx = db.transaction(['schedules', 'imports'], 'readwrite')
-          const payload = JSON.parse(original)
-          payload.enrollments[0].isVisible = false
-          tx.objectStore('schedules').add(
-            {
-              recordFormat: 1,
-              term,
-              revision: 'other-adopter',
-              currentRaw: JSON.stringify(payload),
-              previousRaw: null,
-            },
-            term
-          )
-          tx.objectStore('imports').add(
-            { recordFormat: 1, term, originalLegacyRaw: original },
-            term
-          )
+          const schedule = JSON.parse(original)
+          schedule.enrollments[0].isVisible = false
+          db.transaction('schedules', 'readwrite')
+            .objectStore('schedules')
+            .add({ revision: 'other-adopter', schedule }, term)
         }
         return value
       }
@@ -520,7 +561,7 @@ test('adoption rechecks a winner committed after its initial canonical read', as
   )
   await open(page)
   await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
-  expect((await readScheduleRecords(page, term))?.current).toMatchObject({
+  expect(await readScheduleRecord(page, term)).toMatchObject({
     revision: 'other-adopter',
   })
   expect(await page.evaluate((key) => localStorage.getItem(key), key)).toBe(original)

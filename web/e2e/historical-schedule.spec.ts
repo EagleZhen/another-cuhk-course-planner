@@ -3,7 +3,7 @@ import { resolve, sep } from 'node:path'
 import { test, expect } from '@playwright/test'
 import type { Page } from '@playwright/test'
 import { openPlannerAtTerm, selectTerm } from './helpers/planner'
-import { readSavedEnrollments, readScheduleRecords } from './helpers/schedule'
+import { readSavedEnrollments, readScheduleRecord } from './helpers/schedule'
 
 const root = resolve(__dirname, '../..')
 const origin = 'http://127.0.0.1:3014'
@@ -171,8 +171,8 @@ for (const action of ['hide', 'clear'] as const) {
     await expect
       .poll(() => readSavedEnrollments(newer, target))
       .toMatchObject(action === 'hide' ? [{ isVisible: false }] : [])
-    const before = await readScheduleRecords(newer, target)
-    expect(before?.receipt).toMatchObject({ originalLegacyRaw: original })
+    const before = await readScheduleRecord(newer, target)
+    expect(await legacyRaw(newer)).toBe(original)
     const start = await page.evaluate(() => window.historicalWrites.length)
     await returnOldYear(page)
     await expect(cart(page).getByText(title, { exact: true })).toBeVisible()
@@ -183,12 +183,12 @@ for (const action of ['hide', 'clear'] as const) {
     const writes = await page.evaluate((start) => window.historicalWrites.slice(start), start)
     expect(writes).toContainEqual({ key, value: null })
     expect(writes.some((write) => write.key === key && write.value !== null)).toBe(true)
-    expect(await readScheduleRecords(newer, target)).toEqual(before)
+    expect(await readScheduleRecord(newer, target)).toEqual(before)
     await newer.reload()
     await selectTerm(newer, target)
     if (action === 'hide')
       await expect(cart(newer).getByTitle('Show course', { exact: true })).toBeVisible()
     else await expect(cart(newer).getByText('No courses enrolled', { exact: true })).toBeVisible()
-    expect(await readScheduleRecords(newer, target)).toEqual(before)
+    expect(await readScheduleRecord(newer, target)).toEqual(before)
   })
 }
