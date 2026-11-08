@@ -8,8 +8,8 @@ export const NOTICE_STORAGE_KEY = 'desktop-notice-version'
 export const NOTICE_VERSION = '2' // Bump to re-show notice to all users
 export const NOTICE_IMAGE_LOADED_EVENT = 'mobile-notice-image-loaded'
 
-// Data versioning
-export const SCHEDULE_DATA_VERSION = 3
+// V4 stores unknown waitlist counts as null.
+export const SCHEDULE_DATA_VERSION = 4
 
 // CUHK's timezone. Pin it wherever a date is formatted or parsed: the page is
 // prerendered at build time, so reading the ambient zone instead would make the

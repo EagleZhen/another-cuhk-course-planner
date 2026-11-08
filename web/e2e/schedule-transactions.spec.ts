@@ -196,7 +196,13 @@ async function changeCanonical(page: Page, change: 'newer_payload' | 'newer_reco
         else {
           const payload: unknown = JSON.parse(record.currentRaw)
           if (!payload || typeof payload !== 'object') throw Error('Invalid fixture payload')
-          store.put({ ...record, currentRaw: JSON.stringify({ ...payload, version: 4 }) }, term)
+          store.put(
+            {
+              ...record,
+              currentRaw: JSON.stringify({ ...payload, version: Number.MAX_SAFE_INTEGER }),
+            },
+            term
+          )
         }
         await done
       } finally {

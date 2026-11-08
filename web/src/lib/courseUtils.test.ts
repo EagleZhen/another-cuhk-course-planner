@@ -1696,6 +1696,18 @@ describe('getAvailabilityBadges', () => {
     ])
   })
 
+  it('shows a queue count only when the count is known', () => {
+    const queue = (waitlistTotal: number, waitlistCapacity: number) =>
+      getAvailabilityBadges({ ...fullWithOpenQueue, waitlistTotal, waitlistCapacity }).find(
+        (badge) => badge.type === 'waitlist'
+      )
+    expect(queue(NaN, 999)).toBeUndefined()
+    expect(queue(6, NaN)).toMatchObject({
+      text: '6 Waiting',
+      title: '6 people on the wait list (capacity unknown)',
+    })
+  })
+
   it('colours the seat count by seats alone, not by the catalog status', () => {
     // UGFN 1000 C is real: CUHK says Open with 11 seats and 6 people queued, so its word
     // does not track the seat counts. If it ever says Wait List with seats left, the seat

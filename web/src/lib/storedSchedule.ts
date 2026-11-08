@@ -1,7 +1,11 @@
 import { z } from 'zod'
 import { ACADEMIC_CAREERS, SECTION_TYPE_CONFIG } from './types'
 import { SCHEDULE_DATA_VERSION } from './constants'
-import type { CourseEnrollment, Credits, InternalSection } from './types'
+import type { CourseEnrollment, Credits, InternalMeeting, InternalSection } from './types'
+
+const storedCountSchema = z
+  .union([z.number(), z.nan(), z.null()])
+  .transform((value) => value ?? NaN)
 
 // Validate stored objects without stripping fields this build does not use.
 const meetingSchema = z.looseObject({
@@ -24,13 +28,12 @@ const sectionSchema = z.looseObject({
     capacity: z.number(),
     enrolled: z.number(),
     status: z.enum(['Open', 'Closed', 'Wait List', 'Unknown']),
-    // JSON stores the legacy producer's unknown (NaN) seat count as null.
-    availableSeats: z.union([z.number(), z.nan(), z.null()]).transform((value) => value ?? NaN),
-    waitlistCapacity: z.number(),
-    waitlistTotal: z.number(),
+    availableSeats: storedCountSchema,
+    waitlistCapacity: storedCountSchema,
+    waitlistTotal: storedCountSchema,
   }),
   classAttributes: z.string(),
-  enrollmentRequirement: z.string().default(''), // Older saved sections predate this field.
+  enrollmentRequirement: z.string(),
 })
 const courseSchema = z.looseObject({
   subject: z.string().min(1),
@@ -67,22 +70,27 @@ const signatureSchema = z.looseObject({
   classAttributes: z.string(),
   requirement: z.string().optional(),
 })
-const enrollmentsSchema = z.array(
-  z.looseObject({
-    courseId: z.string().min(1),
-    course: courseSchema,
-    selectedSections: z.array(sectionSchema),
-    removedSections: z.array(sectionSchema).optional(),
-    color: z.string().default(''),
-    isVisible: z.boolean().default(true),
-    removedSectionsAcknowledged: z.boolean().optional(),
-    isInvalid: z.boolean().optional(),
-    invalidReason: z.string().optional(),
-    lastSynced: z.date().optional(),
-    lastSeenSections: z.record(z.string(), signatureSchema).optional(),
-    lastSeenInvalidState: z.looseObject({ reason: z.string() }).optional(),
-  })
-)
+const enrollmentsSchema = z
+  .array(
+    z.looseObject({
+      courseId: z.string().min(1),
+      course: courseSchema,
+      selectedSections: z.array(sectionSchema),
+      removedSections: z.array(sectionSchema).optional(),
+      color: z.string(),
+      isVisible: z.boolean(),
+      removedSectionsAcknowledged: z.boolean().optional(),
+      isInvalid: z.boolean().optional(),
+      invalidReason: z.string().optional(),
+      lastSynced: z.date().optional(),
+      lastSeenSections: z.record(z.string(), signatureSchema).optional(),
+      lastSeenInvalidState: z.looseObject({ reason: z.string() }).optional(),
+    })
+  )
+  .refine(
+    (enrollments) =>
+      new Set(enrollments.map(({ courseId }) => courseId)).size === enrollments.length
+  )
 
 export type StoredScheduleResult =
   | { status: 'ready'; enrollments: CourseEnrollment[]; envelope: Record<string, unknown> }
@@ -144,26 +152,50 @@ function stripLegacyInvalidStateFields(enrollments: CourseEnrollment[]): CourseE
   })
 }
 
-// Saved courses include alternative sections as well as picked and removed sections.
-// Normalize their old availability labels together.
-function renameStoredWaitlistStatus(enrollments: CourseEnrollment[]): CourseEnrollment[] {
-  const rename = (section: InternalSection): InternalSection =>
-    (section.availability?.status as string) === 'Waitlisted'
-      ? { ...section, availability: { ...section.availability, status: 'Wait List' } }
-      : section
+// Old writers carried earlier shapes forward, so migrate all section snapshots together.
+function normalizeLegacyShapes(enrollments: CourseEnrollment[]): CourseEnrollment[] {
+  const normalize = (section: InternalSection): InternalSection => {
+    const availability = section.availability
+    const status = availability.status as string
+    return {
+      ...section,
+      sectionType: (section.sectionType as string) === 'OTHER' ? 'UNK' : section.sectionType,
+      classAttributes: section.classAttributes === undefined ? '' : section.classAttributes,
+      enrollmentRequirement:
+        section.enrollmentRequirement === undefined ? '' : section.enrollmentRequirement,
+      meetings: section.meetings.map((meeting) => {
+        const { instructor, ...fields } = meeting as InternalMeeting & { instructor?: string }
+        return (
+          fields.instructors === undefined ? { ...fields, instructors: instructor } : fields
+        ) as InternalMeeting
+      }),
+      availability: {
+        ...availability,
+        status:
+          status === 'Waitlist' || status === 'Waitlisted' ? 'Wait List' : availability.status,
+        waitlistCapacity:
+          availability.waitlistCapacity === undefined ? NaN : availability.waitlistCapacity,
+        waitlistTotal: availability.waitlistTotal === undefined ? NaN : availability.waitlistTotal,
+      },
+    }
+  }
 
-  // A hand-edited blob can be missing either list.
   return enrollments.map((enrollment) => ({
     ...enrollment,
+    courseId: enrollment.courseId.includes('_')
+      ? enrollment.course.subject + enrollment.course.courseCode
+      : enrollment.courseId,
+    color: enrollment.color === undefined ? '' : enrollment.color,
+    isVisible: enrollment.isVisible === undefined ? true : enrollment.isVisible,
     course: {
       ...enrollment.course,
       terms: enrollment.course.terms.map((term) => ({
         ...term,
-        sections: term.sections.map(rename),
+        sections: term.sections.map(normalize),
       })),
     },
-    selectedSections: enrollment.selectedSections?.map(rename),
-    removedSections: enrollment.removedSections?.map(rename),
+    selectedSections: enrollment.selectedSections?.map(normalize),
+    removedSections: enrollment.removedSections?.map(normalize),
   }))
 }
 
@@ -203,15 +235,10 @@ function normalizeStoredCredits(enrollments: CourseEnrollment[]): CourseEnrollme
   })
 }
 
-// Every step is idempotent, so re-normalizing current-version data is a no-op.
-function normalizeStoredEnrollments(enrollments: CourseEnrollment[]): CourseEnrollment[] {
-  return reviveEnrollmentDates(
-    stripLegacyInvalidStateFields(
-      renameStoredClassAttributes(
-        renameStoredWaitlistStatus(
-          normalizeStoredCredits(migrateLegacyPartialRemovals(enrollments))
-        )
-      )
+function migrateLegacyEnrollments(enrollments: CourseEnrollment[]): CourseEnrollment[] {
+  return stripLegacyInvalidStateFields(
+    renameStoredClassAttributes(
+      normalizeLegacyShapes(normalizeStoredCredits(migrateLegacyPartialRemovals(enrollments)))
     )
   )
 }
@@ -221,12 +248,13 @@ export function readStoredEnrollments(parsed: unknown): StoredScheduleResult {
   const invalid: StoredScheduleResult = { status: 'blocked', reason: 'invalid_data' }
   let enrollments: unknown
   let envelope: Record<string, unknown> = {}
+  let version: number | undefined
   if (Array.isArray(parsed)) {
     enrollments = parsed
   } else if (parsed && typeof parsed === 'object') {
     envelope = parsed as Record<string, unknown>
-    const version = envelope.version
-    if (typeof version !== 'number') return invalid
+    if (typeof envelope.version !== 'number') return invalid
+    version = envelope.version
     if (!Number.isInteger(version) || version < 1 || version > SCHEDULE_DATA_VERSION) {
       return { status: 'blocked', reason: 'unsupported_version', version }
     }
@@ -236,15 +264,11 @@ export function readStoredEnrollments(parsed: unknown): StoredScheduleResult {
   if (!Array.isArray(enrollments)) return invalid
 
   try {
-    const normalized = normalizeStoredEnrollments(enrollments as CourseEnrollment[])
-    const result = enrollmentsSchema.safeParse(normalized)
-    if (!result.success) return invalid
-    const identities = result.data.map((enrollment) =>
-      enrollment.courseId.includes('_')
-        ? enrollment.course.subject + enrollment.course.courseCode
-        : enrollment.courseId
+    const revived = reviveEnrollmentDates(enrollments as CourseEnrollment[])
+    const result = enrollmentsSchema.safeParse(
+      version === undefined || version < 4 ? migrateLegacyEnrollments(revived) : revived
     )
-    if (new Set(identities).size !== identities.length) return invalid
+    if (!result.success) return invalid
     return { status: 'ready', enrollments: result.data, envelope }
   } catch {
     // Legacy normalization can encounter malformed nested data before validation.
@@ -252,8 +276,7 @@ export function readStoredEnrollments(parsed: unknown): StoredScheduleResult {
   }
 }
 
-// The same producer serves persistence and pending-data export.
-export function serializeStoredSchedule(
+export function serializeScheduleDraft(
   enrollments: CourseEnrollment[],
   envelope: Record<string, unknown> = {}
 ): string {
@@ -263,4 +286,15 @@ export function serializeStoredSchedule(
     enrollments,
     savedAt: new Date().toISOString(),
   })
+}
+
+export function serializeStoredSchedule(
+  enrollments: CourseEnrollment[],
+  envelope?: Record<string, unknown>
+): string {
+  const raw = serializeScheduleDraft(enrollments, envelope)
+  if (readStoredEnrollments(JSON.parse(raw)).status !== 'ready') {
+    throw new Error('The schedule writer produced an invalid payload')
+  }
+  return raw
 }

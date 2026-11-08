@@ -123,14 +123,10 @@ function ownedSchedule(term: string, loaded: ScheduleLoad): SavedSchedule {
     ...loaded,
     term,
     saveStatus: 'saved',
-    enrollments: loaded.enrollments.map((enrollment) => {
-      const id = `${enrollment.course.subject}${enrollment.course.courseCode}`
-      return {
-        ...enrollment,
-        courseId: enrollment.courseId.includes('_') ? id : enrollment.courseId,
-        color: getDeterministicColor(id),
-      }
-    }),
+    enrollments: loaded.enrollments.map((enrollment) => ({
+      ...enrollment,
+      color: getDeterministicColor(`${enrollment.course.subject}${enrollment.course.courseCode}`),
+    })),
   }
 }
 

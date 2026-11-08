@@ -231,9 +231,6 @@ export async function commitSchedule(
   try {
     // Prepare before opening the transaction; do not await unrelated work inside it.
     const currentRaw = serializeStoredSchedule(enrollments, envelope)
-    if (readStoredEnrollments(JSON.parse(currentRaw)).status !== 'ready') {
-      throw new Error('The schedule writer produced an invalid payload')
-    }
     const db = await database()
     const tx = db.transaction(['schedules', 'imports'], 'readwrite')
     try {

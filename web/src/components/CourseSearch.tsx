@@ -2088,13 +2088,7 @@ function CourseCard({
                                   <Badge
                                     key={badge.type}
                                     className={`text-[10px] px-1 py-0 ${badge.style.className}`}
-                                    title={
-                                      badge.type === 'status'
-                                        ? `Section status: ${badge.text}`
-                                        : badge.type === 'availability'
-                                          ? `${section.availability.availableSeats} seats available out of ${section.availability.capacity}`
-                                          : `${section.availability.waitlistTotal} people on the wait list (capacity ${section.availability.waitlistCapacity})`
-                                    }
+                                    title={badge.title}
                                   >
                                     {badge.text}
                                   </Badge>

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { AlertTriangle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import type { ReadySchedule, SavedSchedule } from '@/hooks/useSavedSchedule'
-import { serializeStoredSchedule } from '@/lib/storedSchedule'
+import { serializeScheduleDraft } from '@/lib/storedSchedule'
 import { readScheduleBackup } from '@/lib/scheduleStorage'
 
 export default function ScheduleStorageNotice({
@@ -126,7 +126,7 @@ export default function ScheduleStorageNotice({
               size="sm"
               onClick={() =>
                 download(
-                  () => serializeStoredSchedule(schedule.enrollments, schedule.envelope),
+                  () => serializeScheduleDraft(schedule.enrollments, schedule.envelope),
                   schedule.term,
                   'unsaved'
                 )

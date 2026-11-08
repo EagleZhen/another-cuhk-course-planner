@@ -56,7 +56,7 @@ Important invariants:
 - Adoption validates the source, rechecks both stores, and commits both records together. A missing source becomes an explicit empty schedule. Legacy keys remain untouched.
 - Canonical data wins after adoption. A receipt without its schedule blocks re-import, so deletion cannot resurrect stale legacy data.
 
-[storedSchedule.ts](../web/src/lib/storedSchedule.ts) keeps the existing enrollment format. It validates the whole payload and normalizes supported legacy shapes. Malformed or unsupported data blocks loading without deleting the original. No enrollment is silently filtered away.
+[storedSchedule.ts](../web/src/lib/storedSchedule.ts) migrates historical enrollment shapes before validating the whole payload. Version 4 stores unknown waitlist counts as null and validates new writes without applying historical defaults. Malformed or unsupported data blocks loading without deleting the original.
 
 Every save validates compatibility and compares the expected revision inside one write transaction. It updates current and previous payloads together and reports success only after transaction completion. Saves run serially per term; an acknowledgment advances the base revision without marking newer edits saved. Load results apply only to their exact loading attempt.
 

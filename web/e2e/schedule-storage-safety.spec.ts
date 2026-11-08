@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises'
 import { expect, test } from '@playwright/test'
 import type { Page } from '@playwright/test'
 import { DEFAULT_CURRENT_TERM, SCHEDULE_DATA_VERSION } from '../src/lib/constants'
+import preVersion from '../src/lib/fixtures/schedule-pre-version-produced.json'
 import { transformExternalCourseData } from '../src/lib/validation'
 import { mockCatalog, expectEmptyCatalogLoaded, type CatalogFixtures } from './helpers/catalog'
 import { selectTerm } from './helpers/planner'
@@ -183,6 +184,31 @@ async function downloadText(page: Page, label: string) {
   const download = await downloading
   return readFile((await download.path())!, 'utf8')
 }
+
+test('adopts a historical cart and keeps its edits after reload', async ({ page }) => {
+  const term = preVersion[0].course.terms[0].termName
+  const original = JSON.stringify(preVersion)
+  await prepare(page, { [key(term)]: original })
+  await selectTerm(page, term)
+  await expect(cart(page).getByText('Software Engineering', { exact: true })).toBeVisible()
+  await cart(page).getByTitle('Hide course', { exact: true }).click()
+  await expect
+    .poll(() => readSavedEnrollments(page, term))
+    .toMatchObject([
+      {
+        courseId: 'CSCI3100',
+        isVisible: false,
+        selectedSections: [{ id: 'CSCI3100_A-LEC', meetings: [{ instructors: 'Professor CHAN' }] }],
+      },
+    ])
+  await page.reload()
+  await selectTerm(page, term)
+  await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
+  expect((await readScheduleRecords(page, term))?.receipt).toMatchObject({
+    originalLegacyRaw: original,
+  })
+  expect(await legacyRaw(page, term)).toBe(original)
+})
 
 for (const destination of [second, '2025-26 Term 1']) {
   test(`loading and switching to ${destination} never writes an unrelated or empty snapshot`, async ({
@@ -400,4 +426,20 @@ test('a failed pending-data export keeps the edited schedule usable', async ({ p
   await expect(notice(page)).not.toContainText('The download failed')
   await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
   expect(await legacyRaw(page, first)).toBe(original)
+})
+
+test('a payload rejected by storage is still downloadable', async ({ page }) => {
+  const original = JSON.stringify(schedule(first))
+  await prepare(
+    page,
+    { [key(first)]: original },
+    {
+      catalog: { '2026-27/ACCT': [{ ...externalCourse(first), credits: '9'.repeat(400) }] },
+    }
+  )
+  await expect(notice(page)).toContainText('have not been saved')
+  expect((await readSavedEnrollments(page, first))?.[0]?.course.credits).toEqual({ min: 3, max: 3 })
+  expect(JSON.parse(await downloadText(page, 'Download changes')).enrollments).toMatchObject([
+    { courseId: 'ACCT1111', course: { credits: { min: null, max: null } } },
+  ])
 })

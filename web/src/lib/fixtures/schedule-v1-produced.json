@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "enrollments": [
+    {
+      "courseId": "CSCI3100",
+      "course": {
+        "subject": "CSCI",
+        "courseCode": "3100",
+        "title": "Software Engineering",
+        "credits": 3,
+        "terms": [
+          {
+            "termCode": "2510",
+            "termName": "2025-26 Term 1",
+            "sections": [
+              {
+                "id": "CSCI3100_A-LEC",
+                "sectionCode": "A-LEC",
+                "sectionType": "LEC",
+                "meetings": [
+                  {
+                    "time": "Mo 9:30AM - 10:15AM",
+                    "location": "Room 1",
+                    "instructor": "Professor CHAN",
+                    "dates": "01/09/2025 - 24/11/2025"
+                  }
+                ],
+                "availability": {
+                  "capacity": 30,
+                  "enrolled": 0,
+                  "status": "Open",
+                  "availableSeats": 30,
+                  "waitlistCapacity": 0,
+                  "waitlistTotal": 0
+                },
+                "classAttributes": "English only"
+              }
+            ]
+          }
+        ]
+      },
+      "selectedSections": [
+        {
+          "id": "CSCI3100_A-LEC",
+          "sectionCode": "A-LEC",
+          "sectionType": "LEC",
+          "meetings": [
+            {
+              "time": "Mo 9:30AM - 10:15AM",
+              "location": "Room 1",
+              "instructor": "Professor CHAN",
+              "dates": "01/09/2025 - 24/11/2025"
+            }
+          ],
+          "availability": {
+            "capacity": 30,
+            "enrolled": 0,
+            "status": "Open",
+            "availableSeats": 30,
+            "waitlistCapacity": 0,
+            "waitlistTotal": 0
+          },
+          "classAttributes": "English only"
+        }
+      ],
+      "color": "bg-fuchsia-500",
+      "isVisible": true
+    }
+  ],
+  "savedAt": "2025-08-10T12:00:00.000Z"
+}

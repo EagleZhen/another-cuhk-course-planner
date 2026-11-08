@@ -1359,6 +1359,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
   badges.push({
     type: 'status' as const,
     text: status,
+    title: `Section status: ${status}`,
     style: getSectionStatusStyle(status),
   })
 
@@ -1367,15 +1368,21 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
     badges.push({
       type: 'availability' as const,
       text: `${availableSeats}/${capacity} Available`,
+      title: `${availableSeats} seats available out of ${capacity}`,
       style: getAvailabilityBadgeStyle(availability),
     })
   }
 
   // 3. Waitlist Badge (only show if waitlist exists)
-  if (waitlistTotal > 0 || (status === 'Wait List' && waitlistCapacity > 0)) {
+  if (
+    Number.isFinite(waitlistTotal) &&
+    (waitlistTotal > 0 || (status === 'Wait List' && waitlistCapacity > 0))
+  ) {
+    const queueCapacity = Number.isFinite(waitlistCapacity) ? waitlistCapacity : 'unknown'
     badges.push({
       type: 'waitlist' as const,
       text: `${waitlistTotal} Waiting`,
+      title: `${waitlistTotal} people on the wait list (capacity ${queueCapacity})`,
       style: getWaitlistBadgeStyle(waitlistTotal),
     })
   }

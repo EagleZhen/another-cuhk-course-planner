@@ -1,6 +1,10 @@
 import { describe, it, expect } from 'vitest'
 import { SCHEDULE_DATA_VERSION } from './constants'
 import { diffEnrollment, sectionSignature } from './courseUtils'
+import preVersion from './fixtures/schedule-pre-version-produced.json'
+import versionOne from './fixtures/schedule-v1-produced.json'
+import migratedToV1 from './fixtures/schedule-pre-version-migrated-to-v1.json'
+import migratedToV3 from './fixtures/schedule-pre-version-migrated-to-v3.json'
 import { readStoredEnrollments, serializeStoredSchedule } from './storedSchedule'
 import { transformExternalCourseData } from './validation'
 import type { CourseEnrollment, InternalCourse, InternalSection, SectionSignature } from './types'
@@ -80,7 +84,7 @@ describe('readStoredEnrollments', () => {
       { ...makeEnrollment(), lastSeenSections: { lec: { meetings: [], language: '' } } },
     ] as unknown as CourseEnrollment[]
 
-    const loaded = readEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments: stored })
+    const loaded = readEnrollments({ version: 3, enrollments: stored })
     const now = makeSection({ id: 'lec', classAttributes: 'Cantonese and English' })
 
     expect(loaded?.[0].lastSeenSections!['lec'].classAttributes).toBe('')
@@ -114,7 +118,7 @@ describe('readStoredEnrollments', () => {
       },
     ] as unknown as CourseEnrollment[]
 
-    const loaded = readEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments: stored })
+    const loaded = readEnrollments({ version: 3, enrollments: stored })
 
     expect(loaded?.[0].selectedSections[0].availability.status).toBe('Wait List')
     expect(loaded?.[0].removedSections?.[0].availability.status).toBe('Wait List')
@@ -384,4 +388,50 @@ it('preserves the unknown seat count that the catalog producer serializes as nul
   expect(readStoredEnrollments({ version: 3, enrollments: result.enrollments }).status).toBe(
     'ready'
   )
+})
+
+// Captured from the historical producers at fa6808484, a6be221a4, and 728ade84b.
+it.each([
+  ['the unversioned writer', preVersion],
+  ['the v1 writer', versionOne],
+  ['v1 carrying unversioned data', migratedToV1],
+  ['v3 carrying unversioned data', migratedToV3],
+] as const)('round-trips choices from %s', (_writer, input) => {
+  const original = structuredClone(input)
+  const result = readStoredEnrollments(input)
+  if (result.status !== 'ready') throw Error('expected readable historical data')
+  const [enrollment] = result.enrollments
+  expect(enrollment).toMatchObject({
+    courseId: 'CSCI3100',
+    isVisible: true,
+    selectedSections: [{ id: 'CSCI3100_A-LEC', meetings: [{ instructors: 'Professor CHAN' }] }],
+  })
+  expect(enrollment.course.terms[0].sections[0].meetings[0].instructors).toBe('Professor CHAN')
+  const reloaded = readStoredEnrollments(JSON.parse(serializeStoredSchedule(result.enrollments)))
+  if (reloaded.status !== 'ready') throw Error('expected readable rewritten data')
+  expect(reloaded.enrollments).toEqual(result.enrollments)
+  expect(input).toEqual(original)
+})
+
+it('keeps historical waitlist counts unknown', () => {
+  const result = readStoredEnrollments(preVersion)
+  if (result.status !== 'ready') throw Error('expected readable historical data')
+  const [enrollment] = result.enrollments
+  expect(enrollment.selectedSections[0].availability).toMatchObject({
+    status: 'Wait List',
+    waitlistCapacity: NaN,
+    waitlistTotal: NaN,
+  })
+  expect(enrollment.course.terms[0].sections[1].sectionType).toBe('UNK')
+  const payload = JSON.parse(serializeStoredSchedule(result.enrollments))
+  expect(payload.enrollments[0].selectedSections[0].availability.waitlistTotal).toBeNull()
+})
+
+it('does not use historical defaults for the current format or writer', () => {
+  const enrollment = makeEnrollment({ selectedSections: [makeSection({})] })
+  Reflect.deleteProperty(enrollment.selectedSections[0].availability, 'waitlistTotal')
+  expect(
+    readStoredEnrollments({ version: SCHEDULE_DATA_VERSION, enrollments: [enrollment] })
+  ).toMatchObject({ status: 'blocked', reason: 'invalid_data' })
+  expect(() => serializeStoredSchedule([enrollment])).toThrow('invalid payload')
 })

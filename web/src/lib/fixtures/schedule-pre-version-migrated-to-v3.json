@@ -1,0 +1,88 @@
+{
+  "version": 3,
+  "enrollments": [
+    {
+      "courseId": "CSCI3100",
+      "course": {
+        "subject": "CSCI",
+        "courseCode": "3100",
+        "title": "Software Engineering",
+        "credits": {
+          "min": 3,
+          "max": 3
+        },
+        "terms": [
+          {
+            "termCode": "2510",
+            "termName": "2025-26 Term 1",
+            "sections": [
+              {
+                "id": "CSCI3100_A-LEC",
+                "sectionCode": "A-LEC",
+                "sectionType": "LEC",
+                "meetings": [
+                  {
+                    "time": "Mo 9:30AM - 10:15AM",
+                    "location": "Room 1",
+                    "instructor": "Professor CHAN",
+                    "dates": "01/09/2025 - 24/11/2025"
+                  }
+                ],
+                "availability": {
+                  "capacity": 30,
+                  "enrolled": 30,
+                  "status": "Waitlist",
+                  "availableSeats": 0
+                }
+              },
+              {
+                "id": "CSCI3100_A-ZZZ",
+                "sectionCode": "A-ZZZ",
+                "sectionType": "OTHER",
+                "meetings": [
+                  {
+                    "time": "TBD",
+                    "location": "TBD",
+                    "instructor": "Staff",
+                    "dates": "TBD"
+                  }
+                ],
+                "availability": {
+                  "capacity": 20,
+                  "enrolled": 1,
+                  "status": "Open",
+                  "availableSeats": 19
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "selectedSections": [
+        {
+          "id": "CSCI3100_A-LEC",
+          "sectionCode": "A-LEC",
+          "sectionType": "LEC",
+          "meetings": [
+            {
+              "time": "Mo 9:30AM - 10:15AM",
+              "location": "Room 1",
+              "instructor": "Professor CHAN",
+              "dates": "01/09/2025 - 24/11/2025"
+            }
+          ],
+          "availability": {
+            "capacity": 30,
+            "enrolled": 30,
+            "status": "Waitlist",
+            "availableSeats": 0
+          }
+        }
+      ],
+      "enrollmentDate": "2025-08-06T12:00:00.000Z",
+      "color": "bg-fuchsia-500",
+      "isVisible": true
+    }
+  ],
+  "savedAt": "2026-10-22T00:00:00.000Z"
+}
