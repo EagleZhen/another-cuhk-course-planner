@@ -7,7 +7,7 @@ const root = resolve(import.meta.dirname, '../..')
 const cache = resolve(root, '.cache/schedule-compat')
 const revisions = {
   old: '7c32e3dce3ed3e2d9bf82c1a7bac4114900491ac',
-  unsafe: '728ade84b4e4b3ae1bee364a65bf6968884baba0',
+  unsafe: 'af450c31fdccbc9c8172012c56be4ad87b928f09',
 }
 const env = {
   ...process.env,
