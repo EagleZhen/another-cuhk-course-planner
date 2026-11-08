@@ -49,13 +49,13 @@ Important invariants:
 
 [useSavedSchedule](../web/src/hooks/useSavedSchedule.ts) owns each cart’s term, load outcome, contents, and save status. Term changes activate an unread destination or retained unsaved edits; outgoing contents never acquire the destination’s label or storage key. Restore runs on the client, independently of catalog loading.
 
-[scheduleStorage.ts](../web/src/lib/scheduleStorage.ts) stores one schedule object, revision, and optional catalog timestamp per term in IndexedDB. Database version 2 carries forward active carts from the branch’s two-store layout and removes the old recovery copies.
+[scheduleStorage.ts](../web/src/lib/scheduleStorage.ts) stores one schedule object, revision, and optional catalog timestamp per term in IndexedDB.
 
 A load imports `localStorage` only when the term has no IndexedDB record. Import validates the legacy data, rechecks the destination in a transaction, and leaves the legacy key untouched. Clearing a cart saves an empty record, so reload keeps it empty. If the record is separately deleted, the next load can import the legacy key again.
 
 [storedSchedule.ts](../web/src/lib/storedSchedule.ts) migrates historical enrollment shapes before validating the whole payload. Version 4 stores unknown waitlist counts as null and validates new writes without applying historical defaults. Malformed or unsupported data blocks loading without deleting the original.
 
-Each save requires an existing, compatible record at the expected revision. The check and write share a transaction, and the app reports success after it commits. Each tab saves serially per term and keeps edits made during a save pending.
+Each save requires an existing, compatible record at the expected revision. The check and write share a transaction, and the app reports success after it commits. Random revisions prevent a recreated cart from matching a revision held by a stale tab. Each tab saves serially per term and keeps edits made during a save pending.
 
 Failed saves retain pending edits across term switches and offer retry. Refused writes pause autosave. A confirmed conflict reload replaces edits only after a successful read and only if the edits are still the same. Closing or reloading the page can discard unsaved edits.
 

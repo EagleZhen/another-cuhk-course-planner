@@ -1,22 +1,15 @@
-import { openDB, unwrap } from 'idb'
+import { openDB } from 'idb'
 import type { DBSchema, IDBPDatabase } from 'idb'
 import { z } from 'zod'
 import type { CourseEnrollment } from './types'
 import { encodeStoredSchedule, readStoredEnrollments } from './storedSchedule'
 
 const DATABASE = 'another-cuhk-course-planner'
-const DATABASE_VERSION = 2
+const DATABASE_VERSION = 1
 const recordSchema = z.object({
   revision: z.string().min(1),
   schedule: z.unknown(),
   catalogStamp: z.number().int().optional(),
-})
-const versionOneRecordSchema = z.object({
-  recordFormat: z.literal(1),
-  term: z.string(),
-  revision: recordSchema.shape.revision,
-  currentRaw: z.string(),
-  catalogStamp: recordSchema.shape.catalogStamp,
 })
 type ScheduleRecord = z.infer<typeof recordSchema>
 interface ScheduleDatabase extends DBSchema {
@@ -60,30 +53,8 @@ function database(): Promise<IDBPDatabase<ScheduleDatabase>> {
   opening = new Promise<IDBPDatabase<ScheduleDatabase>>((resolve, reject) => {
     let abandoned = false
     void openDB<ScheduleDatabase>(DATABASE, DATABASE_VERSION, {
-      upgrade(db, oldVersion, _newVersion, tx) {
-        if (oldVersion === 0) {
-          db.createObjectStore('schedules')
-          return
-        }
-
-        unwrap(db).deleteObjectStore('imports')
-        const request = unwrap(tx.objectStore('schedules')).openCursor()
-        request.onsuccess = () => {
-          const cursor = request.result
-          if (!cursor) return
-          const old = versionOneRecordSchema.safeParse(cursor.value)
-          if (old.success && old.data.term === cursor.primaryKey) {
-            const { currentRaw, revision, catalogStamp } = old.data
-            let schedule: unknown
-            try {
-              schedule = JSON.parse(currentRaw)
-            } catch {
-              // Leave an unreadable row intact so it cannot trigger a legacy re-import.
-            }
-            if (schedule !== undefined) cursor.update({ revision, schedule, catalogStamp })
-          }
-          cursor.continue()
-        }
+      upgrade(db) {
+        db.createObjectStore('schedules')
       },
       blocked() {
         abandoned = true

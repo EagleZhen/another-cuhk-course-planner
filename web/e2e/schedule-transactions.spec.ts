@@ -2,7 +2,6 @@ import { test, expect } from '@playwright/test'
 import type { Page } from '@playwright/test'
 import { transformExternalCourseData } from '../src/lib/validation'
 import { DEFAULT_CURRENT_TERM as term } from '../src/lib/constants'
-import { encodeStoredSchedule } from '../src/lib/storedSchedule'
 import { mockCatalog, expectEmptyCatalogLoaded } from './helpers/catalog'
 import { readScheduleRecord, readSavedEnrollments } from './helpers/schedule'
 import { selectTerm } from './helpers/planner'
@@ -14,14 +13,12 @@ const course = transformExternalCourseData({
     { subject: 'ACCT', course_code: '1111', title: 'Transaction fixture', credits: '3', terms: [] },
   ],
 }).courses[0]
-const enrollment = {
-  courseId: 'ACCT1111',
-  course,
-  selectedSections: [],
-  color: 'bg-blue-500',
-  isVisible: true,
-}
-const original = JSON.stringify({ version: 3, enrollments: [enrollment] })
+const original = JSON.stringify({
+  version: 3,
+  enrollments: [
+    { courseId: 'ACCT1111', course, selectedSections: [], color: 'bg-blue-500', isVisible: true },
+  ],
+})
 const cart = (page: Page) => page.locator('[data-shopping-cart]')
 const notice = (page: Page) => page.locator('[data-schedule-storage-notice]')
 
@@ -44,12 +41,27 @@ test.beforeEach(async ({ context }) => {
   )
 })
 
-test('adopts a validated schedule without rewriting legacy storage', async ({ page }) => {
+test('adopts a validated schedule into the v1 database without rewriting legacy storage', async ({
+  page,
+}) => {
   await open(page)
   await expect
     .poll(() => readSavedEnrollments(page, term))
     .toMatchObject([{ courseId: 'ACCT1111', isVisible: true }])
   expect(await page.evaluate((key) => localStorage.getItem(key), key)).toBe(original)
+  const database = await page.evaluate(
+    () =>
+      new Promise<{ version: number; stores: string[] }>((resolve, reject) => {
+        const request = indexedDB.open('another-cuhk-course-planner')
+        request.onsuccess = () => {
+          const db = request.result
+          resolve({ version: db.version, stores: Array.from(db.objectStoreNames) })
+          db.close()
+        }
+        request.onerror = () => reject(request.error)
+      })
+  )
+  expect(database).toEqual({ version: 1, stores: ['schedules'] })
   await expect(notice(page)).toHaveCount(0)
 })
 
@@ -60,64 +72,6 @@ test('adopts and saves when randomUUID is unavailable', async ({ page }) => {
   await open(page)
   await cart(page).getByTitle('Hide course', { exact: true }).click()
   await expect.poll(() => readSavedEnrollments(page, term)).toMatchObject([{ isVisible: false }])
-})
-
-test('upgrading the branch database preserves the active cart and removes its recovery copies', async ({
-  page,
-}) => {
-  await page.route('**/storage-fixture', (route) =>
-    route.fulfill({ contentType: 'text/html', body: '' })
-  )
-  await page.goto('/storage-fixture')
-  const schedule = encodeStoredSchedule([{ ...enrollment, isVisible: false }])
-  await page.evaluate(
-    ({ term, schedule, original }) =>
-      new Promise<void>((resolve, reject) => {
-        const request = indexedDB.open('another-cuhk-course-planner', 1)
-        request.onupgradeneeded = () => {
-          request.result.createObjectStore('schedules').add(
-            {
-              recordFormat: 1,
-              term,
-              revision: 'before-upgrade',
-              currentRaw: JSON.stringify(schedule),
-              previousRaw: original,
-              catalogStamp: 123,
-            },
-            term
-          )
-          request.result
-            .createObjectStore('imports')
-            .add({ recordFormat: 1, term, originalLegacyRaw: original }, term)
-        }
-        request.onsuccess = () => {
-          request.result.close()
-          resolve()
-        }
-        request.onerror = () => reject(request.error)
-      }),
-    { term, schedule, original }
-  )
-
-  await open(page)
-  await expect(cart(page).getByTitle('Show course', { exact: true })).toBeVisible()
-  expect(await readScheduleRecord(page, term)).toEqual({
-    revision: 'before-upgrade',
-    schedule,
-    catalogStamp: 123,
-  })
-  const stores = await page.evaluate(
-    () =>
-      new Promise<string[]>((resolve, reject) => {
-        const request = indexedDB.open('another-cuhk-course-planner')
-        request.onsuccess = () => {
-          resolve(Array.from(request.result.objectStoreNames))
-          request.result.close()
-        }
-        request.onerror = () => reject(request.error)
-      })
-  )
-  expect(stores).toEqual(['schedules'])
 })
 
 test('reading a schedule keeps the cart frame without claiming an empty cart', async ({ page }) => {
@@ -338,12 +292,10 @@ test('an empty save stays empty on reload even with a populated legacy cart', as
   expect(await page.evaluate((key) => localStorage.getItem(key), key)).toBe(original)
 })
 
-test('a save cannot recreate a missing record, but a fresh load can import it', async ({
-  page,
-  context,
-}) => {
+test('stale tabs cannot save over a missing or re-imported record', async ({ page, context }) => {
   await open(page)
-  const before = (await readScheduleRecord(page, term)) as { revision: string }
+  const stale = await context.newPage()
+  await open(stale)
   await changeCanonical(page, 'remove')
   await cart(page).getByTitle('Hide course', { exact: true }).click()
   await expect(notice(page)).toContainText('not being saved')
@@ -353,7 +305,11 @@ test('a save cannot recreate a missing record, but a fresh load can import it', 
   const other = await context.newPage()
   await open(other)
   await expect.poll(() => readSavedEnrollments(other, term)).toMatchObject([{ isVisible: true }])
-  expect(await readScheduleRecord(other, term)).not.toMatchObject({ revision: before.revision })
+  const reimported = await readScheduleRecord(other, term)
+  await cart(stale).getByTitle('Hide course', { exact: true }).click()
+  await expect(notice(stale)).toContainText('changed in another tab')
+  await expect(cart(stale).getByTitle('Show course', { exact: true })).toBeVisible()
+  expect(await readScheduleRecord(other, term)).toEqual(reimported)
 })
 
 test('a newer payload refuses an old writer without hiding its pending edits', async ({ page }) => {
@@ -410,7 +366,7 @@ test('an upgrade closes this connection and refuses further old-version writes',
   const before = await readScheduleRecord(page, term)
   await page.evaluate(async () => {
     await new Promise<void>((resolve, reject) => {
-      const request = indexedDB.open('another-cuhk-course-planner', 3)
+      const request = indexedDB.open('another-cuhk-course-planner', 2)
       request.onsuccess = () => {
         request.result.close()
         resolve()
