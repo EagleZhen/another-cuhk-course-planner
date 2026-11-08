@@ -120,9 +120,6 @@ jobs:
         if: matrix.browser != 'chromium'
         run: npm run build
 
-      - name: Build frozen storage peers
-        run: npm run build:historical-schedules
-
       - id: playwright
         run: echo "version=$(node -p 'require("@playwright/test/package.json").version')" >> "$GITHUB_OUTPUT"
 
@@ -135,6 +132,9 @@ jobs:
       - run: npx playwright install --with-deps ${{ matrix.browser }}
 
       - run: npx playwright test --project=${{ matrix.browser }}
+
+      - name: Build frozen storage peers
+        run: npm run build:historical-schedules
 
       - run: npm run test:compat -- --project=${{ matrix.browser }}
 

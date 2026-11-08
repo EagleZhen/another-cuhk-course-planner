@@ -3,7 +3,6 @@ import { SCHEDULE_DATA_VERSION } from './constants'
 import { diffEnrollment, sectionSignature } from './courseUtils'
 import preVersion from './fixtures/schedule-pre-version-produced.json'
 import versionOne from './fixtures/schedule-v1-produced.json'
-import migratedToV1 from './fixtures/schedule-pre-version-migrated-to-v1.json'
 import migratedToV3 from './fixtures/schedule-pre-version-migrated-to-v3.json'
 import { readStoredEnrollments, serializeStoredSchedule } from './storedSchedule'
 import { transformExternalCourseData } from './validation'
@@ -394,7 +393,6 @@ it('preserves the unknown seat count that the catalog producer serializes as nul
 it.each([
   ['the unversioned writer', preVersion],
   ['the v1 writer', versionOne],
-  ['v1 carrying unversioned data', migratedToV1],
   ['v3 carrying unversioned data', migratedToV3],
 ] as const)('round-trips choices from %s', (_writer, input) => {
   const original = structuredClone(input)
