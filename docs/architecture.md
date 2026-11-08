@@ -62,7 +62,7 @@ Every save validates compatibility and compares the expected revision inside one
 
 Failed saves retain pending contents across term switches and expose retry/export controls. Refused writes pause autosave while editing continues. After a conflict, the user can confirm replacing local edits; replacement applies only after a successful read and only if those edits have not changed meanwhile. Closing or reloading can still discard unsaved memory; the tab requests a browser warning. The storage-problem notice offers a recovery download of current, previous, and original saved data; unsaved changes have a separate download.
 
-Each cart reconciles with a complete catalog for its own year and term. The catalog timestamp is saved with the revision so reopening a cart cannot reconcile it against an older or equal snapshot. Missing courses and sections remain visible as invalid choices or tombstones.
+Each cart reconciles with a complete catalog for its own year and term. Once a revision records a catalog timestamp, only a newer snapshot can reconcile it. Missing courses and sections remain visible as invalid choices or tombstones.
 
 `SCHEDULE_DATA_VERSION` declares compatibility, even when migrations are idempotent. An incompatible shape needs a new version. Refusing a newer version must preserve its data. The codec preserves unrecognized envelope and payload fields instead of stripping them. This is not a compatibility guarantee for future semantic changes; catalog reconciliation still refreshes course and section snapshots.
 

@@ -84,7 +84,7 @@ interface CourseSearchProps {
   availableTerms?: string[]
   selectedSections: Map<string, string>
   selectedSubjects?: Set<string> // Subject filter
-  onAddCourse: (
+  onAddCourse?: (
     course: InternalCourse,
     termName: string,
     localSelections: Map<string, string>,
@@ -880,6 +880,9 @@ export default function CourseSearch({
 
       {/* Search Results with Natural Flow */}
       <div className="space-y-3 pb-8">
+        {canUseSchedule && !onAddCourse && (
+          <p role="status">Refresh this tab to add or replace courses.</p>
+        )}
         {!canUseSchedule && noConflictOnly ? (
           <p role="status">Load your schedule to check time conflicts.</p>
         ) : loading ? (
@@ -1120,8 +1123,10 @@ export default function CourseSearch({
 
                       onSelectedSectionsChange(newMap)
                     }}
-                    onAddCourse={(course, localSelections) =>
-                      onAddCourse(course, currentTerm, localSelections, noConflictOnly)
+                    onAddCourse={
+                      onAddCourse &&
+                      ((course, localSelections) =>
+                        onAddCourse(course, currentTerm, localSelections, noConflictOnly))
                     }
                     onRemoveCourse={onRemoveCourse}
                     isAdded={isCourseAdded(course)}
@@ -1278,19 +1283,20 @@ function CourseCartActions({
   isAdded: boolean
   isEnrollmentComplete: boolean
   hasSelectionsChanged: boolean
-  onAdd: () => void
+  onAdd?: () => void
   onRemove: () => void
   onScroll?: () => void
 }) {
   const isStacked = layout === 'stacked'
-  const canSubmit = canUseSchedule && isEnrollmentComplete && (!isAdded || hasSelectionsChanged)
+  const canSubmit =
+    canUseSchedule && !!onAdd && isEnrollmentComplete && (!isAdded || hasSelectionsChanged)
   const primaryAction = (
     <Button
       variant={canSubmit ? 'default' : 'secondary'}
       size="sm"
       onClick={(event) => {
         event.stopPropagation()
-        if (canSubmit) onAdd()
+        if (canSubmit) onAdd?.()
       }}
       disabled={!canSubmit}
       className={isStacked ? 'w-full' : 'min-w-[80px]'}
@@ -1420,7 +1426,7 @@ function CourseCard({
   currentTerm: string
   initialSelections?: Map<string, string>
   onSectionsChange: (course: InternalCourse, selections: Map<string, string>) => void
-  onAddCourse: (course: InternalCourse, localSelections: Map<string, string>) => void
+  onAddCourse?: (course: InternalCourse, localSelections: Map<string, string>) => void
   onRemoveCourse: (courseKey: string) => void
   isAdded: boolean
   hasSelectionsChanged: boolean
@@ -1614,7 +1620,7 @@ function CourseCard({
     isAdded,
     isEnrollmentComplete,
     hasSelectionsChanged,
-    onAdd: () => onAddCourse(course, localSelections),
+    onAdd: onAddCourse && (() => onAddCourse(course, localSelections)),
     onRemove: () => onRemoveCourse(courseKey),
     onScroll:
       onScrollToCart && enrolledCourse ? () => onScrollToCart(enrolledCourse.courseId) : undefined,

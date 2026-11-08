@@ -320,3 +320,39 @@ test('a confirmed replacement keeps the saved revision at the same catalog times
   await expect(notice).toHaveCount(0)
   expect(await readScheduleRecords(page, TERM_ONE)).toEqual(saved)
 })
+
+test('a tab with an older catalog can edit the cart but cannot add from its catalog', async ({
+  page,
+  context,
+}) => {
+  await openPlanner(page, offering('Current room'))
+  const older = await context.newPage()
+  await older.addInitScript((timestamp) => {
+    const previous = new Date(Date.parse(timestamp) - 86_400_000).toISOString()
+    window.Date = new Proxy(Date, {
+      construct(target, args, newTarget) {
+        return Reflect.construct(target, args[0] === timestamp ? [previous] : args, newTarget)
+      },
+    })
+  }, SCRAPED_AT_BY_YEAR['2026-27'])
+  await openPlanner(older, {
+    ...offering('Older room'),
+    course_code: '1112',
+    title: 'Older course',
+  })
+  const search = older.locator('[data-course-search]')
+  await search.getByText('Older course', { exact: true }).filter({ visible: true }).click()
+  await search.getByText(SECTION_CODE, { exact: true }).filter({ visible: true }).click()
+  await expect(
+    search.getByRole('button', { name: 'Add to Cart', exact: true }).first()
+  ).toBeDisabled()
+  await expect(search.getByText('Refresh this tab to add or replace courses.')).toBeVisible()
+
+  await courseCard(older).getByTitle('Hide course', { exact: true }).click()
+  await expect
+    .poll(() => savedEnrollment(older, TERM_ONE))
+    .toMatchObject({
+      isVisible: false,
+      selectedSections: [{ meetings: [{ location: 'Current room' }] }],
+    })
+})

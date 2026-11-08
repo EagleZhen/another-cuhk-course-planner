@@ -66,3 +66,5 @@ Cart action buttons scrolled out of view on long section lists. Fix: dock them b
 ## Schedule availability
 
 `canUseSchedule` gates cart actions while the selected schedule is loading or blocked. Ordinary browsing and tentative section selection remain available. The no-conflict preference is retained, but its results are withheld until the schedule is available; section cards make no conflict claims against an unavailable cart.
+
+A tab with an older catalog can edit the saved cart. It must refresh before adding or replacing courses from search.

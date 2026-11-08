@@ -70,6 +70,10 @@ export default function Home() {
   const courseEnrollments = cart.status === 'ready' ? cart.enrollments : EMPTY_ENROLLMENTS
   const selectedYear = extractAcademicYearCode(currentTerm)
   const catalog = useCourseCatalog(selectedYear)
+  const catalogIsStale =
+    scheduleCatalogStamp !== undefined &&
+    catalog.scrapedAt !== undefined &&
+    catalog.scrapedAt.getTime() < scheduleCatalogStamp
   // Archived = any year other than the live one; its data is a frozen snapshot.
   const isArchivedYear = selectedYear !== CURRENT_ACADEMIC_YEAR
 
@@ -324,7 +328,7 @@ export default function Home() {
     localSelections: Map<string, string>,
     noConflictActive: boolean
   ) => {
-    if (!canUseSchedule || termName !== currentTerm) return
+    if (!canUseSchedule || catalogIsStale || termName !== currentTerm) return
     const courseKey = `${course.subject}${course.courseCode}`
 
     // Convert local selections to actual section objects directly
@@ -666,7 +670,7 @@ export default function Home() {
               <CourseSearch
                 canUseSchedule={canUseSchedule}
                 catalog={catalog}
-                onAddCourse={handleAddCourse} // Event handler prop
+                onAddCourse={catalogIsStale ? undefined : handleAddCourse}
                 onRemoveCourse={handleRemoveCourse} // Event handler prop
                 courseEnrollments={courseEnrollments} // Data prop / State prop
                 currentTerm={currentTerm} // Data prop / State prop
