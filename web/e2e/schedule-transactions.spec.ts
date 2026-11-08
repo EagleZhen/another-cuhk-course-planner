@@ -168,7 +168,7 @@ async function changeCanonical(page: Page, change: 'newer_payload' | 'newer_reco
   await page.evaluate(
     async ({ term, change }) => {
       const db = await new Promise<IDBDatabase>((resolve, reject) => {
-        const request = indexedDB.open('cuhk-course-planner')
+        const request = indexedDB.open('another-cuhk-course-planner')
         request.onsuccess = () => resolve(request.result)
         request.onerror = () => reject(request.error)
       })
@@ -405,7 +405,7 @@ test('an upgrade closes this connection and refuses further old-version writes',
   const before = await readScheduleRecords(page, term)
   await page.evaluate(async () => {
     await new Promise<void>((resolve, reject) => {
-      const request = indexedDB.open('cuhk-course-planner', 2)
+      const request = indexedDB.open('another-cuhk-course-planner', 2)
       request.onsuccess = () => {
         request.result.close()
         resolve()
@@ -531,7 +531,7 @@ test('adoption rechecks a winner committed after its initial canonical read', as
       const open = IDBFactory.prototype.open
       IDBFactory.prototype.open = function (...args) {
         const request = Reflect.apply(open, this, args) as IDBOpenDBRequest
-        if (args[0] === 'cuhk-course-planner')
+        if (args[0] === 'another-cuhk-course-planner')
           request.addEventListener('success', () => {
             db ??= request.result
           })
@@ -580,7 +580,7 @@ test('an unexpectedly closed connection is reopened without discarding edits', a
     const open = IDBFactory.prototype.open
     IDBFactory.prototype.open = function (...args) {
       const request = Reflect.apply(open, this, args) as IDBOpenDBRequest
-      if (args[0] === 'cuhk-course-planner')
+      if (args[0] === 'another-cuhk-course-planner')
         request.addEventListener('success', () => {
           db ??= request.result
         })

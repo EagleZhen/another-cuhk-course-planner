@@ -4,7 +4,7 @@ import { z } from 'zod'
 import type { CourseEnrollment } from './types'
 import { readStoredEnrollments, serializeStoredSchedule } from './storedSchedule'
 
-const DATABASE = 'cuhk-course-planner'
+const DATABASE = 'another-cuhk-course-planner'
 const recordSchema = z.looseObject({
   recordFormat: z.literal(1),
   term: z.string(),

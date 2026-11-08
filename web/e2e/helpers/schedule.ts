@@ -3,7 +3,7 @@ import { readStoredEnrollments } from '../../src/lib/storedSchedule'
 
 export async function readScheduleRecords(page: Page, term: string) {
   return page.evaluate(async (term) => {
-    const name = 'cuhk-course-planner'
+    const name = 'another-cuhk-course-planner'
     if (!(await indexedDB.databases()).some((database) => database.name === name)) return null
     const db = await new Promise<IDBDatabase>((resolve, reject) => {
       const request = indexedDB.open(name)

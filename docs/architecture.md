@@ -49,7 +49,7 @@ Important invariants:
 
 [useSavedSchedule](../web/src/hooks/useSavedSchedule.ts) owns each cart’s term, load outcome, contents, and save status. Term changes activate an unread destination or retained unsaved edits; outgoing contents never acquire the destination’s label or storage key. Restore runs on the client, independently of catalog loading.
 
-[scheduleStorage.ts](../web/src/lib/scheduleStorage.ts) is the persistence boundary. It uses `idb` to access IndexedDB database `cuhk-course-planner`:
+[scheduleStorage.ts](../web/src/lib/scheduleStorage.ts) is the persistence boundary. It uses `idb` to access IndexedDB database `another-cuhk-course-planner`:
 
 - `schedules` holds each term’s current payload, revision, and one previous payload.
 - `imports` holds an immutable receipt and exact original from localStorage key `schedule_${term}`.
