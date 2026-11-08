@@ -43,6 +43,7 @@ let connection: IDBPDatabase<ScheduleDatabase> | undefined
 let opening: Promise<IDBPDatabase<ScheduleDatabase>> | undefined
 
 function newRevision(): string {
+  // Random revisions keep stale tabs from matching a cart recreated after deletion.
   // Unlike randomUUID, getRandomValues also works on the LAN dev server over HTTP.
   return crypto.getRandomValues(new Uint32Array(4)).join('-')
 }
