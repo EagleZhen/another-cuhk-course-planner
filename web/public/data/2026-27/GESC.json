@@ -1091,25 +1091,25 @@
               "meetings": [
                 {
                   "time": "Fr 2:30PM - 5:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 405",
+                  "location": "Wu Ho Man Yuen Bldg 505",
                   "instructor": "Dr. NG Kit Ying",
                   "dates": "15/1, 22/1, 29/1"
                 },
                 {
                   "time": "Fr 2:30PM - 5:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 405",
+                  "location": "Wu Ho Man Yuen Bldg 505",
                   "instructor": "Dr. NG Kit Ying",
                   "dates": "12/2, 19/2, 26/2, 5/3"
                 },
                 {
                   "time": "Fr 2:30PM - 5:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 405",
+                  "location": "Wu Ho Man Yuen Bldg 505",
                   "instructor": "Dr. NG Kit Ying",
                   "dates": "19/3"
                 },
                 {
                   "time": "Fr 2:30PM - 5:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 405",
+                  "location": "Wu Ho Man Yuen Bldg 505",
                   "instructor": "Dr. NG Kit Ying",
                   "dates": "2/4, 9/4, 16/4, 23/4"
                 }
@@ -1196,6 +1196,45 @@
               },
               "class_attributes": "Putonghua and English",
               "enrollment_requirement": "For Year 1 and Year 2 students"
+            },
+            {
+              "section": "XAJ1-PRJ (10118)",
+              "meetings": [
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 405",
+                  "instructor": "Staff",
+                  "dates": "15/1, 22/1, 29/1"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 405",
+                  "instructor": "Staff",
+                  "dates": "12/2, 19/2, 26/2, 5/3"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 405",
+                  "instructor": "Staff",
+                  "dates": "19/3"
+                },
+                {
+                  "time": "Fr 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 405",
+                  "instructor": "Staff",
+                  "dates": "2/4, 9/4, 16/4, 23/4"
+                }
+              ],
+              "availability": {
+                "capacity": "20",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "20",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": ""
             }
           ]
         }
