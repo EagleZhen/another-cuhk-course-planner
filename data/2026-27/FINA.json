@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "FINA",
     "subject_title": "Finance",
-    "total_courses": 115
+    "total_courses": 114
   },
   "courses": [
     {
@@ -271,10 +271,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "65",
+                "enrolled": "67",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "15",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -337,10 +337,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "59",
+                "enrolled": "58",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "22",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -1644,11 +1644,11 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "49",
+                "enrolled": "67",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "16",
-                "status": "Open"
+                "available_seats": "0",
+                "status": "Wait List"
               },
               "class_attributes": "English only",
               "enrollment_requirement": "1. Prerequisite: FINA2010 or 2310 or permission from instructor.\n2. Not for students who have taken ECON3520."
@@ -2348,10 +2348,10 @@
               ],
               "availability": {
                 "capacity": "60",
-                "enrolled": "17",
+                "enrolled": "18",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "43",
+                "available_seats": "42",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -4868,6 +4868,24 @@
                   "location": "TBA",
                   "instructor": "Dr. AU YEUNG Chau Kin",
                   "dates": "14/1, 21/1, 28/1"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 611",
+                  "instructor": "Dr. AU YEUNG Chau Kin",
+                  "dates": "19/2"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 613",
+                  "instructor": "Dr. AU YEUNG Chau Kin",
+                  "dates": "19/2"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 615",
+                  "instructor": "Dr. AU YEUNG Chau Kin",
+                  "dates": "19/2"
                 }
               ],
               "availability": {
@@ -4913,6 +4931,24 @@
                   "location": "Esther Lee Bldg LT1",
                   "instructor": "Dr. AU YEUNG Chau Kin",
                   "dates": "28/1, 4/2"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 611",
+                  "instructor": "Dr. AU YEUNG Chau Kin",
+                  "dates": "19/2"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 613",
+                  "instructor": "Dr. AU YEUNG Chau Kin",
+                  "dates": "19/2"
+                },
+                {
+                  "time": "Fr 9:30AM - 12:15PM",
+                  "location": "Cheng Yu Tung Building 615",
+                  "instructor": "Dr. AU YEUNG Chau Kin",
+                  "dates": "19/2"
                 }
               ],
               "availability": {
@@ -4949,66 +4985,6 @@
       "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
       "required_readings": "Corporate Finance by Ross, Westerfield and Jordon, McGraw Hill\nCorporate Finance by Berk and DeMarzo, Pearson",
       "recommended_readings": "Cases from Harvard Business School\nFinancial Times and academic articles"
-    },
-    {
-      "subject": "FINA",
-      "course_code": "5012",
-      "title": "Fundamentals of Sustainable Finance",
-      "credits": "1.50",
-      "terms": [
-        {
-          "term_code": "2430",
-          "term_name": "2026-27 Term 2",
-          "schedule": [
-            {
-              "section": "G-LEC (9875)",
-              "meetings": [
-                {
-                  "time": "Sa 9:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 505",
-                  "instructor": "Mr. LIU Chun Wai",
-                  "dates": "9/1, 16/1, 23/1, 30/1"
-                },
-                {
-                  "time": "Sa 9:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 505",
-                  "instructor": "Mr. LIU Chun Wai",
-                  "dates": "13/2, 20/2, 27/2"
-                }
-              ],
-              "availability": {
-                "capacity": "70",
-                "enrolled": "15",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "55",
-                "status": "Open"
-              },
-              "class_attributes": "English only",
-              "enrollment_requirement": "For students in MSc in Management"
-            }
-          ]
-        }
-      ],
-      "description": "The course aims to provide students with the knowledge and understanding of climate change risks and opportunities and their impact on capital markets. Topics will cover circular economy, core climate-economic theory and the role of central banks and supervisory authorities, climate change and equity investment opportunities, climate change risk management. An in-depth understanding of the impact of climate risks on asset allocation and the practical skills of portfolio alignment to a low-carbon economy will also be included.",
-      "enrollment_requirement": "For students in MSc in Management",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Taught",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of Business Administration",
-      "academic_org": "Div of Business Administration",
-      "learning_outcomes": "After completing this course, students are expected to:\n\n1. understand management issues relating to trends in sustainability, digitalisation and innovation\n\n2. gain deeper insights about the management of ESG/climate risks and opportunities",
-      "course_syllabus": "- Ecosystem of Sustainable Finance\n\n- Policy Framework for Sustainable Finance\n\n- The State and Trends of Global Climate & ESG Practices\n\n- Sustainability Integration in Business Models\n\n- Technology and Innovation that Enhance Sustainability\n\n- Sustainable & Responsible Investing\n\n- ESG Equities and Sustainable Banking\n\n- ‘Green’ instruments – Green Bonds, Notes and Debt, Carbon Credits, Public-Private Partnerships\n\n\\*Actual choice of topics will depend on individual course teachers",
-      "assessment_types": {
-        "Attendance": "25",
-        "Homework or assignment": "40",
-        "Project": "35"
-      },
-      "feedback_evaluation": "Mandatory Course and Teaching Evaluation (CTE) is conducted at the end of the course.",
-      "required_readings": "To be assigned by course instructor",
-      "recommended_readings": "To be assigned by course instructor"
     },
     {
       "subject": "FINA",
@@ -5217,11 +5193,11 @@
                 }
               ],
               "availability": {
-                "capacity": "70",
+                "capacity": "45",
                 "enrolled": "35",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "35",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -5339,15 +5315,15 @@
               "meetings": [
                 {
                   "time": "Sa 8:30AM - 6:15PM",
-                  "location": "Cheng Yu Tung Building LT4",
+                  "location": "TBA",
                   "instructor": "Staff",
-                  "dates": "12/12"
+                  "dates": "24/4"
                 },
                 {
                   "time": "Su 8:30AM - 6:15PM",
                   "location": "TBA",
                   "instructor": "Staff",
-                  "dates": "13/12"
+                  "dates": "25/4"
                 }
               ],
               "availability": {
@@ -6524,6 +6500,51 @@
       "title": "Derivatives Markets",
       "credits": "3.00",
       "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "S-LEC (10120)",
+              "meetings": [
+                {
+                  "time": "Sa 8:30AM - 6:30PM",
+                  "location": "TBA",
+                  "instructor": "Professor YAO Chen",
+                  "dates": "27/2"
+                },
+                {
+                  "time": "Sa 8:30AM - 6:30PM",
+                  "location": "TBA",
+                  "instructor": "Professor YAO Chen",
+                  "dates": "13/3"
+                },
+                {
+                  "time": "Su 8:30AM - 6:30PM",
+                  "location": "TBA",
+                  "instructor": "Professor YAO Chen",
+                  "dates": "28/2"
+                },
+                {
+                  "time": "Su 8:30AM - 6:30PM",
+                  "location": "TBA",
+                  "instructor": "Professor YAO Chen",
+                  "dates": "14/3"
+                }
+              ],
+              "availability": {
+                "capacity": "60",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "60",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": "For students in MSc Finance; or MBA in Finance (40324)"
+            }
+          ]
+        },
         {
           "term_code": "2440",
           "term_name": "2026-27 Term 3",
@@ -8138,8 +8159,8 @@
               "section": "V-LEC (1087)",
               "meetings": [
                 {
-                  "time": "Su 2:00PM - 5:15PM",
-                  "location": "Cheng Yu Tung Building 410",
+                  "time": "Su 2:00PM - 4:15PM",
+                  "location": "Cheng Yu Tung Building 615",
                   "instructor": "Professor CHEW Seen Meng",
                   "dates": "29/11"
                 },

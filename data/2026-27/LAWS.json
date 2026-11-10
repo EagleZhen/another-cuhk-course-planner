@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "LAWS",
     "subject_title": "Law",
-    "total_courses": 155
+    "total_courses": 157
   },
   "courses": [
     {
@@ -2717,10 +2717,10 @@
               ],
               "availability": {
                 "capacity": "20",
-                "enrolled": "3",
+                "enrolled": "4",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "17",
+                "available_seats": "16",
                 "status": "Open"
               },
               "class_attributes": "English only\nSTOT Course",
@@ -7679,7 +7679,7 @@
                 {
                   "time": "Fr 2:30PM - 5:15PM",
                   "location": "Graduate Law Centre",
-                  "instructor": "Dr. XU Lu",
+                  "instructor": "Dr. XU Lu, \nMr. Jonathan Robert GLUSMAN, \nProfessor Michael Lewis Paul LOWER",
                   "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
                 }
               ],
@@ -7700,7 +7700,7 @@
                 {
                   "time": "Fr 9:30AM - 12:15PM",
                   "location": "Graduate Law Centre",
-                  "instructor": "Professor Michael Lewis Paul LOWER",
+                  "instructor": "Dr. XU Lu, \nMr. Jonathan Robert GLUSMAN, \nProfessor Michael Lewis Paul LOWER",
                   "dates": "11/9, 18/9, 25/9, 2/10, 9/10, 16/10, 23/10, 30/10, 6/11, 13/11, 20/11, 27/11, 4/12"
                 }
               ],
@@ -7721,13 +7721,13 @@
                 {
                   "time": "Mo 6:30PM - 9:15PM",
                   "location": "Graduate Law Centre",
-                  "instructor": "Mr. Jonathan Robert GLUSMAN",
+                  "instructor": "Dr. XU Lu, \nMr. Jonathan Robert GLUSMAN, \nMr. Jonathan Robert GLUSMAN, \nProfessor Michael Lewis Paul LOWER",
                   "dates": "7/9, 14/9, 21/9, 28/9, 5/10, 12/10"
                 },
                 {
                   "time": "Mo 6:30PM - 9:15PM",
                   "location": "Graduate Law Centre",
-                  "instructor": "Mr. Jonathan Robert GLUSMAN",
+                  "instructor": "Dr. XU Lu, \nMr. Jonathan Robert GLUSMAN, \nMr. Jonathan Robert GLUSMAN, \nProfessor Michael Lewis Paul LOWER",
                   "dates": "26/10, 2/11, 9/11, 16/11, 23/11, 30/11"
                 }
               ],
@@ -10832,6 +10832,92 @@
     },
     {
       "subject": "LAWS",
+      "course_code": "6219",
+      "title": "Global Issues in Law",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (10147)",
+              "meetings": [
+                {
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Graduate Law Centre",
+                  "instructor": "Staff",
+                  "dates": "16/11"
+                },
+                {
+                  "time": "Tu 9:30AM - 12:15PM",
+                  "location": "Graduate Law Centre",
+                  "instructor": "Staff",
+                  "dates": "17/11, 24/11, 1/12"
+                },
+                {
+                  "time": "We 9:30AM - 12:15PM",
+                  "location": "Graduate Law Centre",
+                  "instructor": "Staff",
+                  "dates": "18/11, 25/11, 2/12"
+                },
+                {
+                  "time": "We 2:30PM - 5:15PM",
+                  "location": "Graduate Law Centre",
+                  "instructor": "Staff",
+                  "dates": "18/11, 25/11, 2/12"
+                },
+                {
+                  "time": "Th 2:30PM - 5:15PM",
+                  "location": "Graduate Law Centre",
+                  "instructor": "Staff",
+                  "dates": "26/11"
+                },
+                {
+                  "time": "Sa 9:30AM - 12:15PM",
+                  "location": "Graduate Law Centre",
+                  "instructor": "Staff",
+                  "dates": "28/11"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Graduate Law Centre",
+                  "instructor": "Staff",
+                  "dates": "28/11"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Juris Doctor, LLB-JD, BBA-JD Programme Double Degree, Juris Doctor/MBA Double Degree, LLM AI Law, LLM Chinese Business Law, LLM Common Law, LLM International Economic Law, LLM Energy and Environmental Law, LLM Legal History"
+            }
+          ]
+        }
+      ],
+      "description": "This course provides an opportunity for students to study select global issues in law. Topics vary according to the area of expertise of the course leader and the interests of the class. The aim of the course is to encourage students to think like global lawyers. Upon completion of the course, students should be able to deal with different legal systems and legal traditions.",
+      "enrollment_requirement": "For students in Juris Doctor, LLB-JD, BBA-JD Programme Double Degree, Juris Doctor/MBA Double Degree, LLM AI Law, LLM Chinese Business Law, LLM Common Law, LLM International Economic Law, LLM Energy and Environmental Law, LLM Legal History",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Law",
+      "academic_org": "Div of Law",
+      "learning_outcomes": "To be specified when the topic is assigned.",
+      "course_syllabus": "Refer to course outline.",
+      "assessment_types": {},
+      "feedback_evaluation": "Students will be invited to complete an evaluation of teaching towards the end of the course.",
+      "required_readings": "Refer to course outline.",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "LAWS",
       "course_code": "6221",
       "title": "Transnational Law After Empire",
       "credits": "3.00",
@@ -11954,6 +12040,62 @@
     },
     {
       "subject": "LAWS",
+      "course_code": "6401",
+      "title": "Project Finance and Infrastructure Law",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (10148)",
+              "meetings": [
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Graduate Law Centre",
+                  "instructor": "Professor Paul Caleb DEEMER",
+                  "dates": "12/1, 19/1, 26/1, 2/2"
+                },
+                {
+                  "time": "Tu 2:30PM - 5:15PM",
+                  "location": "Graduate Law Centre",
+                  "instructor": "Professor Paul Caleb DEEMER",
+                  "dates": "16/2, 23/2, 2/3, 9/3, 16/3, 23/3, 30/3, 6/4, 13/4, 20/4"
+                }
+              ],
+              "availability": {
+                "capacity": "70",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "70",
+                "status": "Open"
+              },
+              "class_attributes": "English only",
+              "enrollment_requirement": "For students in Juris Doctor, LLB-JD, BBA-JD Programme Double Degree, Juris Doctor/MBA Double Degree, LLM AI Law, LLM Chinese Business Law, LLM Common Law, LLM International Economic Law, LLM Energy and Environmental Law, LLM Legal History"
+            }
+          ]
+        }
+      ],
+      "description": "Hong Kong has been one of the world’s leading centers of project finance activity for decades. Its leadership position is the product of its prominence as a world financial center, its proximity to rapidly growing economies, its legal system and its appeal to the mix of investors, developers, bankers, lawyers and other technical, insurance and environmental consultants who are needed to identify, secure, structure, document and finance complex infrastructure projects.\nHong Kong’s domestic growth has been fueled in part by the development of its port terminals, rail network, toll roads, tunnels and bridges. However, many of the projects that originate in Hong Kong are completed outside of Hong Kong and involve cross-border flows of expertise and capital. Thus, in order to get a more authentic view of the practice in Hong Kong, we will study project finance from a cross-border perspective.\nOur focus will be the energy sector and the main case we will study throughout the course will involve the cross-border development and project financing of an electric power plant. Where appropriate, we will also consider how other types of projects within the energy sector differ from our case study to broaden our understanding of how project finance is used in practice.",
+      "enrollment_requirement": "For students in Juris Doctor, LLB-JD, BBA-JD Programme Double Degree, Juris Doctor/MBA Double Degree, LLM AI Law, LLM Chinese Business Law, LLM Common Law, LLM International Economic Law, LLM Energy and Environmental Law, LLM Legal History",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Taught",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of Law",
+      "academic_org": "Div of Law",
+      "learning_outcomes": "By the end of this course, you will be able to:\n• Diagram and explain the structure of a typical project finance transaction;\n• Identify the key actors in a project financing and their roles;\n• Understand the fundamental risks in a project financing and the basic ways to mitigate them;\n• Explain the main provisions of key project contracts and redraft them based on client instructions;\n• Explain the main provisions of key finance documents and redraft them based on client instructions; and\n• Understand how projects go bad and some of the key mechanisms to get them back on track.",
+      "course_syllabus": "Refer to course outline.",
+      "assessment_types": {},
+      "feedback_evaluation": "Students will be invited to complete an evaluation of teaching towards the end of the course.",
+      "required_readings": "Refer to course outline.",
+      "recommended_readings": ""
+    },
+    {
+      "subject": "LAWS",
       "course_code": "6402",
       "title": "Clean Technology Law",
       "credits": "3.00",
@@ -12491,7 +12633,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Professor Evan Corby GIBSON",
+                  "instructor": "Professor LIN Yuping",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
@@ -12595,7 +12737,7 @@
                 {
                   "time": "TBA",
                   "location": "No Room Required",
-                  "instructor": "Professor Evan Corby GIBSON",
+                  "instructor": "Professor LIN Yuping",
                   "dates": "11/01/2027 - 19/04/2027"
                 }
               ],
