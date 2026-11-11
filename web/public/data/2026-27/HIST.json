@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "HIST",
     "subject_title": "History",
-    "total_courses": 73
+    "total_courses": 75
   },
   "courses": [
     {
@@ -2927,28 +2927,22 @@
               "section": "C-LEC (4933)",
               "meetings": [
                 {
-                  "time": "Mo 4:30PM - 6:15PM",
-                  "location": "Y.C. Liang Hall G04",
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park 403",
                   "instructor": "Staff",
-                  "dates": "11/1, 18/1, 25/1, 1/2"
+                  "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
-                  "time": "Mo 4:30PM - 6:15PM",
-                  "location": "Y.C. Liang Hall G04",
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park 403",
                   "instructor": "Staff",
-                  "dates": "15/2, 22/2, 1/3"
+                  "dates": "18/2, 25/2, 4/3"
                 },
                 {
-                  "time": "Mo 4:30PM - 6:15PM",
-                  "location": "Y.C. Liang Hall G04",
+                  "time": "Th 12:30PM - 2:15PM",
+                  "location": "Yasumoto Int'l Acad Park 403",
                   "instructor": "Staff",
-                  "dates": "15/3, 22/3"
-                },
-                {
-                  "time": "Mo 4:30PM - 6:15PM",
-                  "location": "Y.C. Liang Hall G04",
-                  "instructor": "Staff",
-                  "dates": "12/4, 19/4"
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 }
               ],
               "availability": {
@@ -3147,6 +3141,88 @@
         "Discussion": "20",
         "Essays": "50",
         "Homework or assignment": "20"
+      }
+    },
+    {
+      "subject": "HIST",
+      "course_code": "4700",
+      "title": "Topic Studies in Public History",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "ZG-LEC (10150)",
+              "meetings": [
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 402",
+                  "instructor": "Staff",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 402",
+                  "instructor": "Staff",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 4:30PM - 6:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 402",
+                  "instructor": "Staff",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "ZGT1-TUT (10151)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Staff",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "50",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "50",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua only",
+              "enrollment_requirement": ""
+            }
+          ]
+        }
+      ],
+      "description": "This course studies selected topics on Public History. Contents and format will be designed by the instructor. Offerings with different subtitles can be taken up for credit, up to a maximum of two times.",
+      "enrollment_requirement": "",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Lecture\nInteractive Tutorial",
+      "campus": "Main Campus",
+      "academic_group": "Dept of History",
+      "academic_org": "Dept of History",
+      "learning_outcomes": "At the end of the course students should be able to:\n\n- demonstrate the knowledge of the selected topic via tutorial and class-centered exercises.\n\n- exhit critical thinking and research skills through the writing of scholarly assignments.\n\n學生畢業本科後，應能：\n- 通過導修及課堂練習顯示其對有關專題的知識。\n\n- 通過學術寫作顯示其批判性思考及研究技巧。",
+      "assessment_types": {
+        "Essays": "70",
+        "Others": "30"
       }
     },
     {
@@ -3434,6 +3510,52 @@
         "Essays": "30",
         "Examination": "40"
       }
+    },
+    {
+      "subject": "HIST",
+      "course_code": "4802",
+      "title": "Graduation Thesis",
+      "credits": "6.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "WCI1-IND (10152)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LAM Weng Cheong",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "10",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "10",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": "Prerequisite: HIST4801"
+            }
+          ]
+        }
+      ],
+      "description": "Continuation of HIST4801.",
+      "enrollment_requirement": "Prerequisite: HIST4601",
+      "course_attributes": "STOT Course",
+      "academic_career": "Undergraduate",
+      "grading_basis": "Graded",
+      "component": "Independent Study",
+      "campus": "Main Campus",
+      "academic_group": "Dept of History",
+      "academic_org": "Dept of History",
+      "learning_outcomes": "Students will be expected to have completed their individual Graduation Thesis by the end of the term. They should have learnt the skill of analytical and critical thinking as well as systematic organization which are important for writing an academic thesis.",
+      "assessment_types": {}
     },
     {
       "subject": "HIST",
@@ -3767,6 +3889,27 @@
           "term_name": "2026-27 Term 2",
           "schedule": [
             {
+              "section": "WCM1-TMC (10154)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Professor LAM Weng Cheong",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "8",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "8",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
+            },
+            {
               "section": "WTM1-TMC (8053)",
               "meetings": [
                 {
@@ -3801,6 +3944,27 @@
                 "capacity": "8",
                 "enrolled": "0",
                 "waitlist_capacity": "999",
+                "waitlist_total": "0",
+                "available_seats": "8",
+                "status": "Open"
+              },
+              "class_attributes": "Cantonese and English",
+              "enrollment_requirement": ""
+            },
+            {
+              "section": "YQM1-TMC (10153)",
+              "meetings": [
+                {
+                  "time": "TBA",
+                  "location": "No Room Required",
+                  "instructor": "Dr. WANG Yiqiao",
+                  "dates": "11/01/2027 - 19/04/2027"
+                }
+              ],
+              "availability": {
+                "capacity": "8",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
                 "waitlist_total": "0",
                 "available_seats": "8",
                 "status": "Open"

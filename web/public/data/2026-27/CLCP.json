@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "CLCP",
     "subject_title": "Putonghua",
-    "total_courses": 33
+    "total_courses": 34
   },
   "courses": [
     {
@@ -1395,19 +1395,19 @@
               "meetings": [
                 {
                   "time": "Th 10:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "location": "TBA",
                   "instructor": "Staff",
                   "dates": "14/1, 21/1, 28/1, 4/2"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "location": "TBA",
                   "instructor": "Staff",
                   "dates": "18/2, 25/2, 4/3"
                 },
                 {
                   "time": "Th 10:30AM - 12:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "location": "TBA",
                   "instructor": "Staff",
                   "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
                 }
@@ -5970,6 +5970,69 @@
       ],
       "description": "An advanced course designed for students who have completed CLCP4433 or CPTH4433. The course is designed to enhance students' language skills in communication, as well as to increase their understanding of life in China through a series of training, including reading and listening comprehension, special report, group discussion, etc.",
       "enrollment_requirement": "Pre-requisite: CLCP4433/CPTH4433",
+      "course_attributes": "",
+      "academic_career": "Undergraduate",
+      "grading_basis": "PTH/CAN",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Yale-China Chin Lang Acad",
+      "academic_org": "Yale-China Chin Lang Acad",
+      "learning_outcomes": "Students are expected to:\n(PO3: for level 4) actively participate in conversations on various topics in some formal and most informal settings, handle a wide variety of linguistic tasks with communicative strategies, and effectively deal with unanticipated complications in communication, satisfying requirements of school and work situations\n(S&L3) communicate fluently in professional discourse containing selected vocabulary items and grammatical structures in real-life settings\n(S&L4) comprehend professional discourse and give appropriate responses at the discourse level\n(R3) read and understand authentic articles related to daily life, culture, or society targeted at native Chinese speakers\n\n學生於完成本科時預期能：\n（學習成果：第四級）具備參與在正式及非正式場合中交際的能力，能就不同話題發表意見，並根據不同交際場境調整談話策略，能完成學習或工作中常見的任務\n(S&L3) 有效運用所學詞彙和句式在正式場合中與人進行交際溝通\n(S&L4) 具備聆聽、理解正式場合中的對話及較長語篇並作出恰當回應的能力\n(R3) 讀懂以中文母語者為目標讀者的與日常生活、文化或社會話題相關的文章",
+      "assessment_types": {
+        "Classwork": "30",
+        "Homework or assignment": "20",
+        "Participation": "25",
+        "Short answer test or exam": "25"
+      }
+    },
+    {
+      "subject": "CLCP",
+      "course_code": "4543",
+      "title": "Advanced Communication Skills on Business Topics II",
+      "credits": "3.00",
+      "terms": [
+        {
+          "term_code": "2430",
+          "term_name": "2026-27 Term 2",
+          "schedule": [
+            {
+              "section": "--LEC (10155)",
+              "meetings": [
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Staff",
+                  "dates": "14/1, 21/1, 28/1, 4/2"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Staff",
+                  "dates": "18/2, 25/2, 4/3"
+                },
+                {
+                  "time": "Th 9:30AM - 12:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 401",
+                  "instructor": "Staff",
+                  "dates": "18/3, 25/3, 1/4, 8/4, 15/4, 22/4"
+                }
+              ],
+              "availability": {
+                "capacity": "15",
+                "enrolled": "0",
+                "waitlist_capacity": "0",
+                "waitlist_total": "0",
+                "available_seats": "15",
+                "status": "Open"
+              },
+              "class_attributes": "Putonghua and English",
+              "enrollment_requirement": ""
+            }
+          ]
+        }
+      ],
+      "description": "An advanced course designed for students who have completed CLCP4443 or CPTH4443. The course is designed to enhance students’ communication skills in business and economic topics. Students will expand their vocabulary and have a better understanding of the economic condition of Hong Kong, the Chinese Mainland, and other places through a series of training, including reading and listening comprehension, special report, group discussion, etc.",
+      "enrollment_requirement": "Pre-requisite: CLCP4443/CPTH4443",
       "course_attributes": "",
       "academic_career": "Undergraduate",
       "grading_basis": "PTH/CAN",
