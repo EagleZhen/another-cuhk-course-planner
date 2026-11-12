@@ -3322,7 +3322,7 @@
               "availability": {
                 "capacity": "50",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "50",
                 "status": "Open"
@@ -3343,7 +3343,7 @@
               "availability": {
                 "capacity": "50",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "50",
                 "status": "Open"
@@ -3694,7 +3694,7 @@
               "availability": {
                 "capacity": "10",
                 "enrolled": "0",
-                "waitlist_capacity": "0",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
                 "available_seats": "10",
                 "status": "Open"
@@ -4064,10 +4064,10 @@
               ],
               "availability": {
                 "capacity": "8",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
+                "enrolled": "1",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
@@ -4127,10 +4127,10 @@
               ],
               "availability": {
                 "capacity": "8",
-                "enrolled": "0",
-                "waitlist_capacity": "0",
+                "enrolled": "1",
+                "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "8",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
@@ -4267,10 +4267,10 @@
               ],
               "availability": {
                 "capacity": "8",
-                "enrolled": "4",
+                "enrolled": "5",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "4",
+                "available_seats": "3",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
@@ -4519,10 +4519,10 @@
               ],
               "availability": {
                 "capacity": "8",
-                "enrolled": "7",
+                "enrolled": "6",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "1",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "Cantonese and English\nCapstone Course\nSTOT Course",
