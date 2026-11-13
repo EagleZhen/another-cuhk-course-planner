@@ -188,11 +188,12 @@ export default function Home() {
     }
   }, [courseEnrollments, selectedEnrollment])
 
-  // Auto-save schedule to localStorage whenever courseEnrollments changes
-  // Only after hydration to prevent deleting data on initial load
+  // Saves only once this term's cart is restored. Restore and term switches commit before
+  // the restored cart lands, so state can still hold the empty initial cart or the previous
+  // term's; writing it would delete or overwrite this term's, for good if a render crash
+  // stops the next save (#173).
   useEffect(() => {
-    // Don't save/delete during initial hydration
-    if (!isHydrated) return
+    if (restoredTerm !== currentTerm) return
 
     try {
       if (courseEnrollments.length > 0) {
@@ -204,14 +205,14 @@ export default function Home() {
         localStorage.setItem(`schedule_${currentTerm}`, JSON.stringify(scheduleData))
         console.debug(`Saved ${courseEnrollments.length} enrollments for ${currentTerm}`)
       } else {
-        // Only remove if we're sure this is intentional (after hydration)
+        // A restored cart that is empty now: the user removed its last course.
         localStorage.removeItem(`schedule_${currentTerm}`)
         console.debug(`Cleared empty schedule for ${currentTerm}`)
       }
     } catch (error) {
       console.error('Failed to save schedule:', error)
     }
-  }, [courseEnrollments, currentTerm, isHydrated])
+  }, [courseEnrollments, currentTerm, restoredTerm])
 
   // Convert enrollments to calendar events with conflict detection
   const calendarEvents = useMemo(() => {
