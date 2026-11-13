@@ -55,9 +55,9 @@ A cart is saved only after its own term is restored (`restoredTerm === currentTe
 
 Restore migrates known `SCHEDULE_DATA_VERSION`s forward via `readStoredEnrollments` in [courseUtils.ts](../web/src/lib/courseUtils.ts). Data it cannot read (an unknown or newer version, or a restore that throws) is reported to PostHog and left untouched: the term stays unrestored, so nothing writes over it. Carts hold whole sections, so a change to the section model migrates here too.
 
-The version is a readability gate, not a migration selector, and bumping it is not free: a browser still serving a stale bundle would read the newer number as data it cannot understand and clear the cart. So each step instead detects its own applicability from the data — a `lastSynced` that is still a string, a status still spelled `Waitlisted` — which makes re-running one a no-op.
+The version only says whether a build can read the data; it doesn't choose which migrations run. Each migration checks the data itself (a `lastSynced` still a string, a status still `Waitlisted`), so it leaves migrated data alone. Bumping the version has a cost: tabs still on an older build can't read the cart, and those from before the #173 fix delete it.
 
-Build a version ladder only when a step _cannot_ be made idempotent: a rename whose output is also valid input, say `Wait List` back to `Waitlisted`, where a stored `Waitlisted` could be either the old value or the migrated one. Until then a ladder only adds a version to keep accurate and an order to get wrong.
+Choose migrations by version only when the data can't tell you, such as renaming `Wait List` back to `Waitlisted`, where a stored `Waitlisted` could be old or already migrated.
 
 Each `(term, scrape time)` pair is synchronized only after that term's cart is restored and its complete catalog is ready. Missing courses or sections are marked invalid instead of silently deleted, so the user can see what changed.
 

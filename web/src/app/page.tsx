@@ -97,8 +97,7 @@ export default function Home() {
 
         const parsedSchedule = readStoredEnrollments(parsedData)
         if (parsedSchedule === null) {
-          // Likely saved by a newer build. Keep it for a build that can read it: leaving the
-          // term unrestored keeps the save effect off it.
+          // Likely saved by a newer build. Keep it: an unrestored term is never saved over.
           posthog.captureException(new Error('Unreadable saved schedule'), {
             error_context: 'saved_schedule_restore',
             term: currentTerm,
@@ -195,10 +194,8 @@ export default function Home() {
     }
   }, [courseEnrollments, selectedEnrollment])
 
-  // Saves only once this term's cart is restored. Restore and term switches commit before
-  // the restored cart lands, so state can still hold the empty initial cart or the previous
-  // term's; writing it would delete or overwrite this term's, for good if a render crash
-  // stops the next save (#173).
+  // Save only after this term's cart is restored. Until then, state may still hold the empty
+  // initial cart or the previous term's, and saving it would delete or overwrite this one (#173).
   useEffect(() => {
     if (restoredTerm !== currentTerm) return
 
