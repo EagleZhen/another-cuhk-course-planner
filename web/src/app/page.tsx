@@ -90,6 +90,10 @@ export default function Home() {
     // Only run after hydration to prevent SSR/client mismatch
     if (!isHydrated) return
 
+    // Only a successful restore below marks the term restored. Clearing it first keeps a
+    // failed one from leaving the previous term's mark in place.
+    setRestoredTerm(null)
+
     try {
       const savedData = localStorage.getItem(`schedule_${currentTerm}`)
       if (savedData) {

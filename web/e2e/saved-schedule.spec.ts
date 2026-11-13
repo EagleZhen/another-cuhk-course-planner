@@ -53,6 +53,15 @@ async function seedAndRecord(page: Page, seeded: Record<string, string>) {
 const recordedOps = (page: Page) =>
   page.evaluate(() => (window as unknown as { scheduleOps: StorageOp[] }).scheduleOps)
 
+// Every recorded op saves a term's own cart: no deletes, and no key outside `ownCourses`.
+async function expectOnlyOwnSaves(page: Page, ownCourses: Record<string, string[]>) {
+  for (const op of await recordedOps(page)) {
+    expect(Object.keys(ownCourses), `${op.op} ${op.key}`).toContain(op.key)
+    expect(op.op, `${op.op} ${op.key}`).toBe('set')
+    expect(op.courseIds, op.key).toEqual(ownCourses[op.key])
+  }
+}
+
 test('restoring and switching terms never deletes or cross-writes a cart', async ({ page }) => {
   await seedAndRecord(page, {
     [`schedule_${TERM_ONE}`]: JSON.stringify(schedule('1111')),
@@ -65,14 +74,10 @@ test('restoring and switching terms never deletes or cross-writes a cart', async
   await selectTerm(page, TERM_ONE)
   await expect(page.getByText('Fixture 1111')).toBeVisible()
 
-  const ownCourses: Record<string, string[]> = {
+  await expectOnlyOwnSaves(page, {
     [`schedule_${TERM_ONE}`]: ['ACCT1111'],
     [`schedule_${TERM_TWO}`]: ['ACCT2222'],
-  }
-  for (const op of await recordedOps(page)) {
-    expect(op.op, `${op.op} ${op.key}`).toBe('set')
-    expect(op.courseIds, op.key).toEqual(ownCourses[op.key])
-  }
+  })
 })
 
 test('leaves a cart this build cannot read untouched', async ({ page }) => {
@@ -87,8 +92,7 @@ test('leaves a cart this build cannot read untouched', async ({ page }) => {
   await selectTerm(page, TERM_ONE)
   await expect(page.getByText('Fixture 1111')).toBeVisible()
 
-  const ops = await recordedOps(page)
-  expect(ops.filter((op) => op.key === `schedule_${TERM_TWO}`)).toEqual([])
+  await expectOnlyOwnSaves(page, { [`schedule_${TERM_ONE}`]: ['ACCT1111'] })
   expect(await page.evaluate((k) => localStorage.getItem(k), `schedule_${TERM_TWO}`)).toBe(
     unreadable
   )
