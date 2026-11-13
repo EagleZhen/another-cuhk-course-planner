@@ -620,8 +620,8 @@ function normalizeStoredEnrollments(enrollments: CourseEnrollment[]): CourseEnro
   )
 }
 
-// Enrollments to load from a persisted schedule blob, or null to wipe it. Known versions
-// are normalized to the current model; unknown/newer versions are rejected.
+// Enrollments to load from a persisted schedule blob, or null if this build can't read it.
+// Known versions are normalized to the current model; unknown/newer versions are rejected.
 export function readStoredEnrollments(parsed: unknown): CourseEnrollment[] | null {
   if (Array.isArray(parsed)) {
     return normalizeStoredEnrollments(parsed as CourseEnrollment[])

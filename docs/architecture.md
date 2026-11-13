@@ -51,11 +51,13 @@ Important invariants:
 
 Schedules are stored per term using `schedule_${currentTerm}` keys. The state is restored only after hydration so browser-only APIs do not create SSR/client mismatches.
 
-Restore migrates known `SCHEDULE_DATA_VERSION`s forward via `readStoredEnrollments` in [courseUtils.ts](../web/src/lib/courseUtils.ts) rather than wiping on every schema change; only unknown or newer versions clear the cart. Carts hold whole sections, so a change to the section model migrates here too.
+A cart is saved only after its own term is restored (`restoredTerm === currentTerm`). Until then, state can still hold the empty initial cart or the previous term's, and saving it would delete or overwrite this term's.
 
-The version is a readability gate, not a migration selector, and bumping it is not free: a browser still serving a stale bundle would read the newer number as data it cannot understand and clear the cart. So each step instead detects its own applicability from the data — a `lastSynced` that is still a string, a status still spelled `Waitlisted` — which makes re-running one a no-op.
+Restore migrates known `SCHEDULE_DATA_VERSION`s forward via `readStoredEnrollments` in [courseUtils.ts](../web/src/lib/courseUtils.ts). Data it cannot read (an unknown or newer version, or a restore that throws) is reported to PostHog and left untouched: the term stays unrestored, so nothing writes over it. Carts hold whole sections, so a change to the section model migrates here too.
 
-Build a version ladder only when a step _cannot_ be made idempotent: a rename whose output is also valid input, say `Wait List` back to `Waitlisted`, where a stored `Waitlisted` could be either the old value or the migrated one. Until then a ladder only adds a version to keep accurate and an order to get wrong.
+The version only says whether a build can read the data; it doesn't choose which migrations run. Each migration checks the data itself (a `lastSynced` still a string, a status still `Waitlisted`), so it leaves migrated data alone. Bumping the version has a cost: tabs still on an older build can't read the cart, and those from before the #173 fix delete it.
+
+Choose migrations by version only when the data can't tell you, such as renaming `Wait List` back to `Waitlisted`, where a stored `Waitlisted` could be old or already migrated.
 
 Each `(term, scrape time)` pair is synchronized only after that term's cart is restored and its complete catalog is ready. Missing courses or sections are marked invalid instead of silently deleted, so the user can see what changed.
 

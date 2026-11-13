@@ -35,6 +35,7 @@ import type {
   InternalSection,
   SectionChange,
 } from '@/lib/types'
+import posthog from 'posthog-js'
 import { analytics } from '@/lib/analytics'
 import { getSubjectTitle } from '@/lib/subjectUtils'
 import { TERMS_BY_YEAR } from '@/lib/generated/terms'
@@ -89,6 +90,10 @@ export default function Home() {
     // Only run after hydration to prevent SSR/client mismatch
     if (!isHydrated) return
 
+    // Only a successful restore below marks the term restored. Clearing it first keeps a
+    // failed one from leaving the previous term's mark in place.
+    setRestoredTerm(null)
+
     try {
       const savedData = localStorage.getItem(`schedule_${currentTerm}`)
       if (savedData) {
@@ -96,8 +101,12 @@ export default function Home() {
 
         const parsedSchedule = readStoredEnrollments(parsedData)
         if (parsedSchedule === null) {
-          console.warn('⚠️ Unloadable schedule data, clearing...')
-          localStorage.removeItem(`schedule_${currentTerm}`)
+          // Likely saved by a newer build. Keep it: an unrestored term is never saved over.
+          posthog.captureException(new Error('Unreadable saved schedule'), {
+            error_context: 'saved_schedule_restore',
+            term: currentTerm,
+            version: parsedData?.version,
+          })
           setCourseEnrollments([])
           setSelectedSections(new Map())
           return
@@ -146,14 +155,15 @@ export default function Home() {
       // Restore subject filters from session state (term-specific)
       const termFilters = subjectFiltersByTerm.get(currentTerm) || new Set()
       setSelectedSubjects(termFilters)
+      setRestoredTerm(currentTerm)
     } catch (error) {
-      console.error('Failed to restore schedule:', error)
-      // Clear corrupted localStorage data
-      localStorage.removeItem(`schedule_${currentTerm}`)
+      // Left unrestored, like unreadable data above: never delete what we failed to read.
+      posthog.captureException(error, {
+        error_context: 'saved_schedule_restore',
+        term: currentTerm,
+      })
       setCourseEnrollments([])
       setSelectedSubjects(new Set())
-    } finally {
-      setRestoredTerm(currentTerm)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- subjectFiltersByTerm would cause infinite loop
   }, [currentTerm, isHydrated])
@@ -188,11 +198,10 @@ export default function Home() {
     }
   }, [courseEnrollments, selectedEnrollment])
 
-  // Auto-save schedule to localStorage whenever courseEnrollments changes
-  // Only after hydration to prevent deleting data on initial load
+  // Save only after this term's cart is restored. Until then, state may still hold the empty
+  // initial cart or the previous term's, and saving it would delete or overwrite this one (#173).
   useEffect(() => {
-    // Don't save/delete during initial hydration
-    if (!isHydrated) return
+    if (restoredTerm !== currentTerm) return
 
     try {
       if (courseEnrollments.length > 0) {
@@ -204,14 +213,14 @@ export default function Home() {
         localStorage.setItem(`schedule_${currentTerm}`, JSON.stringify(scheduleData))
         console.debug(`Saved ${courseEnrollments.length} enrollments for ${currentTerm}`)
       } else {
-        // Only remove if we're sure this is intentional (after hydration)
+        // A restored cart that is empty now: the user removed its last course.
         localStorage.removeItem(`schedule_${currentTerm}`)
         console.debug(`Cleared empty schedule for ${currentTerm}`)
       }
     } catch (error) {
       console.error('Failed to save schedule:', error)
     }
-  }, [courseEnrollments, currentTerm, isHydrated])
+  }, [courseEnrollments, currentTerm, restoredTerm])
 
   // Convert enrollments to calendar events with conflict detection
   const calendarEvents = useMemo(() => {
