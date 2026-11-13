@@ -54,8 +54,11 @@ const recordedOps = (page: Page) =>
   page.evaluate(() => (window as unknown as { scheduleOps: StorageOp[] }).scheduleOps)
 
 // Every recorded op saves a term's own cart: no deletes, and no key outside `ownCourses`.
+// A restore always saves its cart back, so no ops at all means the recorder broke.
 async function expectOnlyOwnSaves(page: Page, ownCourses: Record<string, string[]>) {
-  for (const op of await recordedOps(page)) {
+  const ops = await recordedOps(page)
+  expect(ops.length, 'recorded schedule ops').toBeGreaterThan(0)
+  for (const op of ops) {
     expect(Object.keys(ownCourses), `${op.op} ${op.key}`).toContain(op.key)
     expect(op.op, `${op.op} ${op.key}`).toBe('set')
     expect(op.courseIds, op.key).toEqual(ownCourses[op.key])
