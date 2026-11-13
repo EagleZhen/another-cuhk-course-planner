@@ -53,7 +53,7 @@ Schedules are stored per term using `schedule_${currentTerm}` keys. The state is
 
 A cart is saved only after its own term is restored (`restoredTerm === currentTerm`). Until then, state can still hold the empty initial cart or the previous term's, and saving it would delete or overwrite this term's.
 
-Restore migrates known `SCHEDULE_DATA_VERSION`s forward via `readStoredEnrollments` in [courseUtils.ts](../web/src/lib/courseUtils.ts) rather than wiping on every schema change; only unknown or newer versions clear the cart. Carts hold whole sections, so a change to the section model migrates here too.
+Restore migrates known `SCHEDULE_DATA_VERSION`s forward via `readStoredEnrollments` in [courseUtils.ts](../web/src/lib/courseUtils.ts). Data it cannot read (an unknown or newer version, or a restore that throws) is reported to PostHog and left untouched: the term stays unrestored, so nothing writes over it. Carts hold whole sections, so a change to the section model migrates here too.
 
 The version is a readability gate, not a migration selector, and bumping it is not free: a browser still serving a stale bundle would read the newer number as data it cannot understand and clear the cart. So each step instead detects its own applicability from the data — a `lastSynced` that is still a string, a status still spelled `Waitlisted` — which makes re-running one a no-op.
 

@@ -74,3 +74,22 @@ test('restoring and switching terms never deletes or cross-writes a cart', async
     expect(op.courseIds, op.key).toEqual(ownCourses[op.key])
   }
 })
+
+test('leaves a cart this build cannot read untouched', async ({ page }) => {
+  const unreadable = JSON.stringify({ version: 99, drafts: [] })
+  await seedAndRecord(page, {
+    [`schedule_${TERM_ONE}`]: JSON.stringify(schedule('1111')),
+    [`schedule_${TERM_TWO}`]: unreadable,
+  })
+  await openPlannerAtTerm(page, { term: TERM_ONE })
+  await expect(page.getByText('Fixture 1111')).toBeVisible()
+  await selectTerm(page, TERM_TWO)
+  await selectTerm(page, TERM_ONE)
+  await expect(page.getByText('Fixture 1111')).toBeVisible()
+
+  const ops = await recordedOps(page)
+  expect(ops.filter((op) => op.key === `schedule_${TERM_TWO}`)).toEqual([])
+  expect(await page.evaluate((k) => localStorage.getItem(k), `schedule_${TERM_TWO}`)).toBe(
+    unreadable
+  )
+})

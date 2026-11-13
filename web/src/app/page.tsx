@@ -35,6 +35,7 @@ import type {
   InternalSection,
   SectionChange,
 } from '@/lib/types'
+import posthog from 'posthog-js'
 import { analytics } from '@/lib/analytics'
 import { getSubjectTitle } from '@/lib/subjectUtils'
 import { TERMS_BY_YEAR } from '@/lib/generated/terms'
@@ -96,8 +97,13 @@ export default function Home() {
 
         const parsedSchedule = readStoredEnrollments(parsedData)
         if (parsedSchedule === null) {
-          console.warn('⚠️ Unloadable schedule data, clearing...')
-          localStorage.removeItem(`schedule_${currentTerm}`)
+          // Likely saved by a newer build. Keep it for a build that can read it: leaving the
+          // term unrestored keeps the save effect off it.
+          posthog.captureException(new Error('Unreadable saved schedule'), {
+            error_context: 'saved_schedule_restore',
+            term: currentTerm,
+            version: parsedData?.version,
+          })
           setCourseEnrollments([])
           setSelectedSections(new Map())
           return
@@ -146,14 +152,15 @@ export default function Home() {
       // Restore subject filters from session state (term-specific)
       const termFilters = subjectFiltersByTerm.get(currentTerm) || new Set()
       setSelectedSubjects(termFilters)
+      setRestoredTerm(currentTerm)
     } catch (error) {
-      console.error('Failed to restore schedule:', error)
-      // Clear corrupted localStorage data
-      localStorage.removeItem(`schedule_${currentTerm}`)
+      // Left unrestored, like unreadable data above: never delete what we failed to read.
+      posthog.captureException(error, {
+        error_context: 'saved_schedule_restore',
+        term: currentTerm,
+      })
       setCourseEnrollments([])
       setSelectedSubjects(new Set())
-    } finally {
-      setRestoredTerm(currentTerm)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- subjectFiltersByTerm would cause infinite loop
   }, [currentTerm, isHydrated])
