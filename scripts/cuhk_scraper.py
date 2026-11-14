@@ -547,6 +547,11 @@ class CuhkScraper:
                 # Check for HTTP errors
                 response.raise_for_status()
 
+                # With no charset in the header, requests falls back to Latin-1. CUSIS's
+                # error page names none, and every CUSIS page is UTF-8.
+                if "charset=" not in response.headers.get("Content-Type", "").lower():
+                    response.encoding = "utf-8"
+
                 return response
 
             # ChunkedEncodingError is a body that stopped early. Named separately because it

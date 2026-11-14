@@ -9,6 +9,7 @@ from types import SimpleNamespace
 import cuhk_scraper
 import data_utils
 import pytest
+import requests
 from bs4 import BeautifulSoup
 from cuhk_scraper import (
     CatalogResponseError,
@@ -866,7 +867,7 @@ def _paced_scraper(get, delay=REQUEST_DELAY):
 
 
 def _ok(content=b""):
-    return SimpleNamespace(raise_for_status=lambda: None, content=content)
+    return SimpleNamespace(raise_for_status=lambda: None, content=content, headers={})
 
 
 def _answering(answers):
@@ -945,6 +946,29 @@ def test_a_body_that_dies_partway_is_retried_in_place(monkeypatch):
 
     assert CuhkScraper._robust_request(scraper, "GET", "http://test.invalid") is whole
     assert answers == []
+
+
+@pytest.mark.parametrize(
+    "content_type, charset",
+    [("text/html", "utf-8"), ("text/html; charset=big5", "big5")],
+    ids=["none named", "named"],
+)
+def test_a_page_is_read_as_utf8_unless_its_header_names_a_charset(
+    monkeypatch, content_type, charset
+):
+    # CUSIS's system-error page names none, which requests would read as Latin-1.
+    _fake_clock(monkeypatch)
+    page = "<title>System error</title>系統有誤，請稍後再試。"
+    response = requests.Response()
+    response.status_code = 200
+    response.headers["Content-Type"] = content_type
+    response._content = page.encode(charset)
+    # As requests sets it when building a response
+    response.encoding = requests.utils.get_encoding_from_headers(response.headers)
+
+    served = CuhkScraper._robust_request(_paced_scraper(lambda *a, **k: response), "GET", "x")
+
+    assert served.text == page
 
 
 def test_a_request_that_never_recovers_gives_up(monkeypatch):
