@@ -122,7 +122,7 @@ class Course:
     credits: str
     terms: list[TermInfo]  # List of terms this course is offered
     postback_target: str = ""  # For getting detailed info
-    # Where CUSIS kept serving its system error, so this course was saved without it.
+    # Where CUSIS kept returning its system error, so this course was saved without it.
     unavailable: list[str] = field(default_factory=list)
 
     # Additional course details
@@ -304,7 +304,7 @@ class ScrapingProgressTracker:
         output_files: list[str],
         unavailable: list[str],
     ):
-        """Mark subject as completed, with where CUSIS kept serving its system error"""
+        """Mark subject as completed, with where CUSIS kept returning its system error"""
         subjects = self.progress_data["subjects"]
         subjects[subject] = {
             "status": "completed",
@@ -433,7 +433,7 @@ def show_scrape_context(scraper: "CuhkScraper", handlers: list[logging.Handler])
 
 
 class CatalogResponseError(ValueError):
-    """CUSIS served a page the scraper cannot use. The page has already been saved."""
+    """CUSIS returned a page the scraper cannot use. The page has already been saved."""
 
     def __init__(self, problem: str, where: str):
         super().__init__(f"{problem} at {where}")
@@ -441,7 +441,7 @@ class CatalogResponseError(ValueError):
 
 
 class CatalogSystemError(CatalogResponseError):
-    """CUSIS served its "System error" page."""
+    """CUSIS returned its "System error" page."""
 
 
 # Every catalog page carries the form state the next postback must send back.
@@ -707,7 +707,7 @@ class CuhkScraper:
         target: str = "",
         error: type[CatalogResponseError] = CatalogResponseError,
     ) -> NoReturn:
-        """Save the page CUSIS served, then raise naming where the scrape was."""
+        """Save the page CUSIS returned, then raise naming where the scrape was."""
         subject, code = self.current_subject or "", self.current_course_code or ""
         where = " ".join(filter(None, (stage, subject + code, target)))
         kind = "SYSTEM_ERROR" if error is CatalogSystemError else "INVALID"
@@ -1162,7 +1162,7 @@ class CuhkScraper:
                         return detailed_course
                     wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
                     self.logger.warning(
-                        f"CUSIS would not serve {', '.join(gaps)} "
+                        f"CUSIS system error at {', '.join(gaps)} "
                         f"(attempt {attempt}), retrying in {wait_time}s"
                     )
                     time.sleep(wait_time)
@@ -1998,7 +1998,7 @@ class CuhkScraper:
                     unavailable = [gap for course in courses or [] for gap in course.unavailable]
                     if unavailable:
                         self.logger.warning(
-                            f"{subject} saved without what CUSIS would not serve: "
+                            f"{subject} saved without the parts that got a CUSIS system error: "
                             + ", ".join(unavailable)
                         )
                     if self.progress_tracker:

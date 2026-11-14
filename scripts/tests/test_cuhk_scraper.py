@@ -290,7 +290,7 @@ def _loop_scraper(tmp_path, *, failing=()):
     return scraper
 
 
-def test_a_completed_subject_records_what_cusis_would_not_serve(tmp_path):
+def test_a_completed_subject_records_where_cusis_errored(tmp_path):
     # Kept per subject, so a resume or a one-subject re-scrape updates exactly its own.
     gap = _course("1000", [])
     gap.unavailable = ["show_sections TEST1000 2026-27 Term 2"]

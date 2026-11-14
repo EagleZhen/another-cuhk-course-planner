@@ -257,7 +257,7 @@ ls -t logs/scrape/scrape_*.log | head -1
 jq '.subjects.CSCI' logs/scraping_progress.json
 ```
 
-List what CUSIS would not serve in each subject's latest scrape:
+List where each subject's latest scrape got a CUSIS system error:
 
 ```bash
 jq '.subjects | map_values(.unavailable | select(length > 0))' logs/scraping_progress.json
