@@ -115,7 +115,7 @@ A year the latest full scrape did not produce is **archived**: CUHK no longer se
 
 These checks validate selected files; they do not prove that an academic year contains every subject. Treat unexpected subject removals as data-review signals.
 
-It also lists, without blocking, what each subject's latest scrape left out after a CUSIS system error ([why](decisions.md#leave-out-what-cusis-errors-on)).
+It also lists, without blocking, what each subject's latest scrape saved empty after a CUSIS system error ([why](decisions.md#save-what-cusis-errors-on-as-empty)).
 
 A run ends by copying a ready-to-paste commit title to the clipboard: `chore(data): update <years> courses (<scrape time in HKT>)`. It lists only the years stamped by the latest full scrape, excluding archived ones.
 
@@ -199,9 +199,9 @@ Any catalog request can return CUSIS's system-error page, not just the course ou
 
 The scraper rejects any page without `__VIEWSTATE`, which every catalog page carries, so an unfamiliar error page also fails instead of parsing as empty. A page titled `System error` counts as a system error.
 
-Only CUHK can fix a system error, so on a course outcome or a term it does not fail the subject. That term or outcome retries on its own, up to `max_course_attempts` times, then the course is saved without it, and the subject's progress entry lists it under `unavailable`. On any other page it fails like any bad page.
+Only CUHK can fix a system error, so on a course outcome or a term it does not fail the subject. That term or outcome retries on its own, up to `max_course_attempts` times, then is saved empty (a term with no sections, an outcome with empty fields), and the subject's progress entry lists it under `unavailable`. On any other page it fails like any bad page.
 
-For example, if switching ELTU1001 to 2026-27 Term 2 keeps erroring, ELTU1001 is saved with its other terms and the ELTU entry reads:
+For example, if switching ELTU1001 to 2026-27 Term 2 keeps erroring, ELTU1001 is saved with that term empty and the ELTU entry reads:
 
 ```json
 "unavailable": ["term_switch ELTU1001 2026-27 Term 2"]
@@ -235,7 +235,7 @@ Failures retry rather than resolving to empty data, because empty is what a legi
 | Scope | Retries on | Limit | When it runs out |
 | --- | --- | --- | --- |
 | Request | network errors, HTTP 502/503/504 | `max_request_attempts` (6) | raises to the course; any other status raises at once |
-| Term or outcome | a system error | `max_course_attempts` (5) | saves the course without it |
+| Term or outcome | a system error | `max_course_attempts` (5) | saves it empty and records it |
 | Course | anything else raised while fetching or parsing a course page | `max_course_attempts` (5) | costs the subject one attempt |
 | Subject | any course failure, restarting from the course list on a new session | `max_subject_attempts` (10) | records the subject failed, run moves on |
 

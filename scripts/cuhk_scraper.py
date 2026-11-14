@@ -124,7 +124,7 @@ class Course:
     credits: str
     terms: list[TermInfo]  # List of terms this course is offered
     postback_target: str = ""  # For getting detailed info
-    # Where CUSIS kept returning its system error, so this course was saved without it.
+    # Where CUSIS kept returning its system error, so that part of the course is empty.
     unavailable: list[str] = field(default_factory=list)
 
     # Additional course details
@@ -1197,14 +1197,14 @@ class CuhkScraper:
         """Run one part of a course, retrying a CUSIS system error on its own.
 
         Once attempts run out, record where on the course and return None, so the
-        course is saved without that part.
+        caller saves that part empty.
         """
         for attempt in range(1, self.config.max_course_attempts + 1):
             try:
                 return fetch()
             except CatalogSystemError as e:
                 if attempt == self.config.max_course_attempts:
-                    self.logger.error(f"{e}; saving the course without it")
+                    self.logger.error(f"{e}; saving it empty")
                     course.unavailable.append(e.where)
                     return None
                 wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
@@ -1252,8 +1252,11 @@ class CuhkScraper:
                 base_course,
                 lambda: self._scrape_term_details(html, base_course, term_code, term_name),
             )
-            if term_info:
-                all_term_info.append(term_info)
+            # Still a term CUSIS lists, so keep it, with no sections; the course's
+            # `unavailable` record says why they are missing.
+            if term_info is None:
+                term_info = TermInfo(term_code=term_code, term_name=term_name, schedule=[])
+            all_term_info.append(term_info)
 
         base_course.terms = all_term_info
 

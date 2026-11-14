@@ -284,19 +284,19 @@ Both `class_attributes` and `enrollment_requirement` are thinned ([#327](https:/
 
 2025-26 was thinned before its first save, so its blank sections stay blank. `class_attributes` keeps CUHK's name: sections also carry a teaching mode or an SDG-GE tag there, so calling it a language would claim more than we know.
 
-## Leave Out What CUSIS Errors On
+## Save What CUSIS Errors On As Empty
 
 A CUSIS system error can keep coming back for days, and only CUHK can fix it. ELTU1001's 2026-27 Term 2 did in November 2026, and failing the subject would have blocked every publish until then.
 
-Decision: a course retries, then is saved without the outcome or term that still errors, and the subject's progress entry lists it under `unavailable`. Publishing goes ahead and prints the list.
+Decision: the term or outcome that errors retries on its own, then is saved empty, and the subject's progress entry lists it under `unavailable`. Publishing goes ahead and prints the list.
 
 Why not:
 
-- save an empty term: it reads as a real term with no sections, which is how this error first went unnoticed
+- leave the term out: the course would vanish from a term CUSIS still lists it in
 - keep the last published copy: it mixes data from different scrapes, and that copy can be wrong too (ELTU's already showed 0 sections)
 - treat every bad page this way: only the system error is known to be CUHK's to fix, so any other bad page still fails the subject
 
-Limitation: until a scrape gets the term, the app shows the course as not offered in it.
+Limitation: the data alone reads as a term with no sections. Only `unavailable` says why, until the app can show it.
 
 ## Where A Transformation Belongs
 

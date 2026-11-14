@@ -1234,12 +1234,13 @@ def _system_error_at(failing_stage, *, calls=range(1, 100)):
     return lambda stage, call: error if stage == failing_stage and call in calls else None
 
 
-def test_a_term_cusis_keeps_failing_is_left_out_and_recorded(monkeypatch):
+def test_a_term_cusis_keeps_failing_is_kept_empty_and_recorded(monkeypatch):
     course, calls = _course_server(monkeypatch, _system_error_at("term_switch"))
 
     # Retried on its own, without redoing the rest of the course.
     assert calls == {"course_details": 1, "course_outcome": 1, "term_switch": 3}
-    assert [term.term_name for term in course.terms] == ["2025-26 Term 2"]
+    # Still listed, as on CUSIS, with no sections; the record says why.
+    assert [(term.term_name, term.schedule) for term in course.terms][1] == ("2026-27 Term 1", [])
     assert course.learning_outcomes
     assert course.unavailable == ["term_switch TEST1000 2026-27 Term 1"]
     assert "unavailable" not in course.to_dict()
