@@ -199,7 +199,7 @@ Any catalog request can return CUSIS's system-error page, not just the course ou
 
 The scraper rejects any page without `__VIEWSTATE`, which every catalog page carries, so an unfamiliar error page also fails instead of parsing as empty. A page titled `System error` counts as a system error.
 
-Only CUHK can fix a system error, so on a course outcome or a term it does not fail the subject. The course retries within `max_course_attempts`, then is saved without what still errors, and the subject's progress entry lists it under `unavailable`. On any other page it fails like any bad page.
+Only CUHK can fix a system error, so on a course outcome or a term it does not fail the subject. That term or outcome retries on its own, up to `max_course_attempts` times, then the course is saved without it, and the subject's progress entry lists it under `unavailable`. On any other page it fails like any bad page.
 
 For example, if switching ELTU1001 to 2026-27 Term 2 keeps erroring, ELTU1001 is saved with its other terms and the ELTU entry reads:
 
@@ -235,7 +235,8 @@ Failures retry rather than resolving to empty data, because empty is what a legi
 | Scope | Retries on | Limit | When it runs out |
 | --- | --- | --- | --- |
 | Request | network errors, HTTP 502/503/504 | `max_request_attempts` (6) | raises to the course; any other status raises at once |
-| Course | anything raised while fetching or parsing a course page, or a system error on its outcome or a term | `max_course_attempts` (5) | costs the subject one attempt, or saves the course without what still errors |
+| Term or outcome | a system error | `max_course_attempts` (5) | saves the course without it |
+| Course | anything else raised while fetching or parsing a course page | `max_course_attempts` (5) | costs the subject one attempt |
 | Subject | any course failure, restarting from the course list on a new session | `max_subject_attempts` (10) | records the subject failed, run moves on |
 
 So a run finishes even when subjects fail, rather than stalling on one course. A failed subject blocks publishing, which names it and stops before writing anything. Re-scrape that subject and publish again.

@@ -1177,10 +1177,10 @@ def test_every_saved_detail_page_shows_the_course_its_list_row_names(page_name, 
     )
 
 
-def _course_server(monkeypatch, fails):
+def _course_server(monkeypatch, replace):
     """CUSIS for one course with two terms, its outcome, and a switch to 2026-27 Term 1.
 
-    `fails(stage, call)` says which numbered request to a stage gets the system error.
+    `replace(stage, call)` may return a page to serve instead, for that numbered request.
     """
     monkeypatch.setattr(time, "sleep", lambda _: None)
     pages = {
@@ -1198,8 +1198,7 @@ def _course_server(monkeypatch, fails):
         else:
             stage = "course_details"
         calls[stage] += 1
-        failed = fails(stage, calls[stage])
-        return SimpleNamespace(text=_sample_html("System error.html") if failed else pages[stage])
+        return SimpleNamespace(text=replace(stage, calls[stage]) or pages[stage])
 
     config = ScrapingConfig(
         max_course_attempts=3, get_course_outcome=True, get_enrollment_details=False
@@ -1210,10 +1209,16 @@ def _course_server(monkeypatch, fails):
     return CuhkScraper.get_course_details(scraper, course, DETAIL_HTML), calls
 
 
-def test_a_term_cusis_keeps_failing_is_left_out_and_recorded(monkeypatch):
-    course, calls = _course_server(monkeypatch, lambda stage, _: stage == "term_switch")
+def _system_error_at(failing_stage, *, calls=range(1, 100)):
+    error = _sample_html("System error.html")
+    return lambda stage, call: error if stage == failing_stage and call in calls else None
 
-    assert calls["course_details"] == 3  # retried before settling
+
+def test_a_term_cusis_keeps_failing_is_left_out_and_recorded(monkeypatch):
+    course, calls = _course_server(monkeypatch, _system_error_at("term_switch"))
+
+    # Retried on its own, without redoing the rest of the course.
+    assert calls == {"course_details": 1, "course_outcome": 1, "term_switch": 3}
     assert [term.term_name for term in course.terms] == ["2025-26 Term 2"]
     assert course.learning_outcomes
     assert course.unavailable == ["term_switch TEST1000 2026-27 Term 1"]
@@ -1221,33 +1226,38 @@ def test_a_term_cusis_keeps_failing_is_left_out_and_recorded(monkeypatch):
 
 
 def test_an_outcome_cusis_keeps_failing_is_left_out_and_recorded(monkeypatch):
-    course, _ = _course_server(monkeypatch, lambda stage, _: stage == "course_outcome")
+    course, calls = _course_server(monkeypatch, _system_error_at("course_outcome"))
 
+    assert calls == {"course_details": 1, "course_outcome": 3, "term_switch": 1}
     assert len(course.terms) == 2
     assert course.learning_outcomes == ""
     assert course.unavailable == ["course_outcome TEST1000"]
 
 
 def test_a_system_error_that_clears_on_retry_leaves_no_gap(monkeypatch):
-    course, calls = _course_server(
-        monkeypatch, lambda stage, call: stage == "term_switch" and call == 1
-    )
+    course, calls = _course_server(monkeypatch, _system_error_at("term_switch", calls=[1]))
 
-    assert calls["course_details"] == 2
+    assert calls == {"course_details": 1, "course_outcome": 1, "term_switch": 2}
     assert len(course.terms) == 2
-    assert course.learning_outcomes
     assert course.unavailable == []
 
 
-def test_a_retry_keeps_nothing_from_the_attempt_it_replaced(monkeypatch):
-    # The first attempt's outcome would otherwise sit beside a record saying it is missing.
-    course, _ = _course_server(
+def test_a_course_retry_keeps_nothing_from_the_attempt_it_replaced(monkeypatch):
+    # Another failure retries the whole course. The first attempt's outcome would
+    # otherwise sit beside a record saying it is missing.
+    expired = "<html><title>Session expired</title></html>"
+    outcome_errors_after_first = _system_error_at("course_outcome", calls=range(2, 100))
+    course, calls = _course_server(
         monkeypatch,
-        lambda stage, call: stage == "term_switch" or (stage == "course_outcome" and call > 1),
+        lambda stage, call: (
+            (expired if (stage, call) == ("term_switch", 1) else None)
+            or outcome_errors_after_first(stage, call)
+        ),
     )
 
+    assert calls["course_details"] == 2
     assert course.learning_outcomes == ""
-    assert course.unavailable == ["course_outcome TEST1000", "term_switch TEST1000 2026-27 Term 1"]
+    assert course.unavailable == ["course_outcome TEST1000"]
 
 
 def test_the_saved_chlt1001_page_shows_the_term_it_was_requested_for():

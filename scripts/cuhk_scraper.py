@@ -3,7 +3,7 @@ import logging
 import os
 import re
 import time
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 from contextlib import contextmanager
 from dataclasses import asdict, dataclass, field, replace
 from datetime import UTC, datetime, timedelta
@@ -1161,16 +1161,7 @@ class CuhkScraper:
                         response.text, f"course_details_{course.subject}_{course.course_code}.html"
                     )
 
-                    attempt += 1
-                    gaps = detailed_course.unavailable
-                    if not gaps or attempt >= self.config.max_course_attempts:
-                        return detailed_course
-                    wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
-                    self.logger.warning(
-                        f"CUSIS system error at {', '.join(gaps)} "
-                        f"(attempt {attempt}), retrying in {wait_time}s"
-                    )
-                    time.sleep(wait_time)
+                    return detailed_course
 
                 # Giving up fails the subject, which blocks publishing and names it. Looping
                 # here instead would strand every subject after this one.
@@ -1199,6 +1190,24 @@ class CuhkScraper:
                         f"Unexpected error getting course details (attempt {attempt}), retrying in {wait_time}s: {e}"
                     )
                     time.sleep(wait_time)
+
+    def _retry_system_error[T](self, course: Course, fetch: Callable[[], T]) -> T | None:
+        """Run one part of a course, retrying a CUSIS system error on its own.
+
+        Once attempts run out, record where on the course and return None, so the
+        course is saved without that part.
+        """
+        for attempt in range(1, self.config.max_course_attempts + 1):
+            try:
+                return fetch()
+            except CatalogSystemError as e:
+                if attempt == self.config.max_course_attempts:
+                    self.logger.error(f"{e}; saving the course without it")
+                    course.unavailable.append(e.where)
+                    return None
+                wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
+                self.logger.warning(f"{e} (attempt {attempt}), retrying in {wait_time}s")
+                time.sleep(wait_time)
 
     def _get_course_details_with_term_selection(self, html: str, base_course: Course) -> Course:
         """Get course details for all available terms"""
@@ -1237,12 +1246,10 @@ class CuhkScraper:
         all_term_info = []
         for i, (term_code, term_name) in enumerate(available_terms):
             self.logger.info(f"Scraping term {i + 1}/{len(available_terms)}: {term_name}")
-            try:
-                term_info = self._scrape_term_details(html, base_course, term_code, term_name)
-            except CatalogSystemError as e:
-                self.logger.error(f"{e}; leaving the term out")
-                base_course.unavailable.append(e.where)
-                continue
+            term_info = self._retry_system_error(
+                base_course,
+                lambda: self._scrape_term_details(html, base_course, term_code, term_name),
+            )
             if term_info:
                 all_term_info.append(term_info)
 
@@ -1819,11 +1826,11 @@ class CuhkScraper:
 
         # Submit Course Outcome request
         self.logger.info("Navigating to Course Outcome page")
-        try:
-            response = self._request_catalog_html("POST", stage="course_outcome", data=form_data)
-        except CatalogSystemError as e:
-            self.logger.error(f"{e}; continuing without the course outcome")
-            course.unavailable.append(e.where)
+        response = self._retry_system_error(
+            course,
+            lambda: self._request_catalog_html("POST", stage="course_outcome", data=form_data),
+        )
+        if response is None:
             return
 
         # Debug: save Course Outcome response (using smart saving)
