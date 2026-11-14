@@ -266,7 +266,7 @@ List where each subject's latest scrape got a CUSIS system error:
 jq '.subjects | map_values(.unavailable | select(length > 0))' logs/scraping_progress.json
 ```
 
-A production scrape already keeps the page behind each failure, so look for one before reproducing it:
+A production scrape already keeps the page behind each failure in `logs/error_pages/<run's log name>/`, so look for one before reproducing it:
 
 | File | Written when |
 | --- | --- |
@@ -282,7 +282,7 @@ config.save_debug_files = True
 scraper = CuhkScraper(config)
 ```
 
-Debug HTML is saved to [lab/scraper/outputs/debug_html/](../lab/scraper/outputs/debug_html/), which `.gitignore` covers only at the repository root — the path is relative, so run the scraper from the root or the files land somewhere untracked.
+In debug mode every page goes to [lab/scraper/outputs/debug_html/](../lab/scraper/outputs/debug_html/), which `.gitignore` covers only at the repository root — the path is relative, so run the scraper from the root or the files land somewhere untracked.
 
 ## See Also
 

@@ -508,7 +508,7 @@ def _live_scraper(*, save_debug_html=False, **overrides):
     """A CuhkScraper with no __init__ — the real one loads OCR models and opens log files.
 
     Debug saving is stubbed unless a test asks for it, and then it must point
-    `debug_html_directory` at a tmp_path: the real one is relative to the cwd.
+    `error_pages_dir` (failure pages) or `debug_html_directory` (debug mode) into a tmp_path.
     """
     scraper = CuhkScraper.__new__(CuhkScraper)
     scraper.logger = logging.getLogger("test")
@@ -667,11 +667,30 @@ def test_a_course_that_never_parses_gives_up_instead_of_looping(monkeypatch):
         CuhkScraper.get_course_details(scraper, course, DETAIL_HTML)
 
 
+@pytest.mark.parametrize(
+    "debug_mode, folder",
+    [(True, "debug_html"), (False, "error_pages")],
+    ids=["debug mode keeps every page", "a normal run keeps a failure in its own folder"],
+)
+def test_a_saved_page_goes_where_its_reason_for_saving_says(tmp_path, debug_mode, folder):
+    config = ScrapingConfig(
+        save_debug_files=debug_mode, debug_html_directory=str(tmp_path / "debug_html")
+    )
+    scraper = _live_scraper(
+        save_debug_html=True, config=config, error_pages_dir=str(tmp_path / "error_pages")
+    )
+
+    CuhkScraper._save_debug_html(scraper, "<html></html>", "page_FAILED.html", force_save=True)
+
+    assert [p.relative_to(tmp_path).as_posix() for p in tmp_path.rglob("*.html")] == [
+        f"{folder}/page_FAILED.html"
+    ]
+
+
 def _production_like(tmp_path, **overrides):
     return ScrapingConfig(
         save_debug_files=False,  # as production: nothing saved unless it failed
         save_debug_on_error=True,
-        debug_html_directory=str(tmp_path),
         max_course_attempts=2,
         get_course_outcome=False,
         get_enrollment_details=False,
@@ -683,6 +702,7 @@ def _failing_scraper(tmp_path, page):
     scraper = _live_scraper(
         save_debug_html=True,
         config=_production_like(tmp_path),
+        error_pages_dir=str(tmp_path),
         _robust_request=lambda *a, **k: SimpleNamespace(text=page),
     )
     course = _course("1000", [])
@@ -1045,8 +1065,8 @@ SAMPLE_PAGES = Path(__file__).resolve().parents[2] / "lab" / "scraper" / "sample
 def _bare_scraper(*, save_debug_html=False, **attributes):
     """A CuhkScraper with __init__ skipped: no session, no OCR model, real methods.
 
-    Debug saving is stubbed unless a test asks for it, and then `config` must point
-    `debug_html_directory` at a tmp_path: the real one is relative to the cwd.
+    Debug saving is stubbed unless a test asks for it, and then it must point
+    `error_pages_dir` (failure pages) or `debug_html_directory` (debug mode) into a tmp_path.
     """
     scraper = CuhkScraper.__new__(CuhkScraper)
     scraper.logger = logging.getLogger("test")
@@ -1502,9 +1522,8 @@ REAL_CLASS_DETAILS = [
 
 def _parse_details(page_name, section_name, tmp_path):
     scraper = _bare_scraper(
-        config=SimpleNamespace(
-            save_debug_files=False, save_debug_on_error=True, debug_html_directory=str(tmp_path)
-        ),
+        config=SimpleNamespace(save_debug_files=False, save_debug_on_error=True),
+        error_pages_dir=str(tmp_path),
         save_debug_html=True,
         current_subject="TEST",
         current_course_code="1000",
@@ -1553,9 +1572,8 @@ def test_a_class_details_page_with_no_seat_counts_raises(tmp_path):
     # The seat counts sit in a different panel from the status, so a page can carry a
     # status and still say nothing about seats.
     scraper = _bare_scraper(
-        config=SimpleNamespace(
-            save_debug_files=False, save_debug_on_error=True, debug_html_directory=str(tmp_path)
-        ),
+        config=SimpleNamespace(save_debug_files=False, save_debug_on_error=True),
+        error_pages_dir=str(tmp_path),
         save_debug_html=True,
         current_subject="TEST",
         current_course_code="1000",

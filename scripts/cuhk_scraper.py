@@ -45,6 +45,8 @@ SOURCE_DATA_DIR = "data"
 # Operational logs and summaries
 LOGS_DIR = "logs"
 SCRAPE_LOG_DIR = os.path.join(LOGS_DIR, "scrape")
+# Pages behind a failure outside debug mode, one folder per run named after its log
+ERROR_PAGES_DIR = os.path.join(LOGS_DIR, "error_pages")
 SCRAPING_PROGRESS_FILE = os.path.join(LOGS_DIR, "scraping_progress.json")
 
 
@@ -476,7 +478,8 @@ class CuhkScraper:
         self.current_course_code: str | None = None
 
         # Set up file logging automatically
-        self._setup_file_logging()
+        log_path = self._setup_file_logging()
+        self.error_pages_dir = os.path.join(ERROR_PAGES_DIR, Path(log_path).stem)
 
         # Suppress ONNX warnings
         onnxruntime.set_default_logger_severity(3)
@@ -674,21 +677,20 @@ class CuhkScraper:
         return form_data
 
     def _save_debug_html(self, content: str, filename: str, force_save: bool = False) -> None:
-        """Smart HTML debug file saving with separate directory"""
-        # Save if explicitly enabled, or when the caller is keeping a failure
-        should_save = self.config.save_debug_files or (
-            force_save and self.config.save_debug_on_error
-        )
+        """Save every page in debug mode; otherwise only one behind a failure, in this
+        run's folder under logs/error_pages/."""
+        if self.config.save_debug_files:
+            directory = self.config.debug_html_directory
+        elif force_save and self.config.save_debug_on_error:
+            directory = self.error_pages_dir
+        else:
+            return
 
-        if should_save:
-            # Ensure debug directory exists
-            os.makedirs(self.config.debug_html_directory, exist_ok=True)
-
-            # Save to separate debug directory
-            debug_path = os.path.join(self.config.debug_html_directory, filename)
-            with open(debug_path, "w", encoding="utf-8") as f:
-                f.write(content)
-            self.logger.info(f"Saved debug HTML: {debug_path}")
+        os.makedirs(directory, exist_ok=True)
+        debug_path = os.path.join(directory, filename)
+        with open(debug_path, "w", encoding="utf-8") as f:
+            f.write(content)
+        self.logger.info(f"Saved debug HTML: {debug_path}")
 
     def _request_catalog_html(
         self, method: str, *, stage: str, target: str = "", **kwargs
