@@ -191,11 +191,13 @@ On the list page, the course code may be wrapped in brackets and the title may i
 
 ### System Error Pages
 
-CUHK sometimes returns a system-error page for course outcomes:
+Any catalog request can return CUSIS's system-error page, not just the course outcome.
 
 - [System error sample](<../lab/scraper/samples/webpages/System error.html>)
 
-Retrying never clears these — CUHK's data for the course is malformed, so the fix has to come from ITSC. `logs/failed_course_outcomes.txt` lists them.
+The scraper rejects any page without `__VIEWSTATE`, which every catalog page carries, so an unfamiliar error page also fails instead of parsing as empty. A page titled `System error` counts as a system error.
+
+On the course outcome, a system error skips the outcome and is listed in `logs/failed_course_outcomes.txt`. Elsewhere it retries like any bad page.
 
 ### Incomplete Or Alternate Pages
 
@@ -211,9 +213,8 @@ Outcome validation checks structure, not content completeness. A sparse outcome 
 
 Outcome pages pass validation when they:
 
-1. are not system-error pages
-2. have the expected Course Outcome page title
-3. contain outcome section headers
+1. have the expected Course Outcome page title
+2. contain outcome section headers
 
 Course code/title validation is intentionally not repeated on outcome pages, because the detail page is authoritative.
 
@@ -227,7 +228,7 @@ Failures retry rather than resolving to empty data, because empty is what a legi
 
 So a run finishes even when subjects fail, rather than stalling on one course. A failed subject blocks publishing, which names it and stops before writing anything. Re-scrape that subject and publish again.
 
-CUHK's own system-error pages are permanent and never retried — see [System Error Pages](#system-error-pages).
+The course outcome is the exception — see [System Error Pages](#system-error-pages).
 
 ### Request Pacing
 
@@ -256,11 +257,11 @@ Only a scrape that reached every subject rewrites it — a partial run, or one t
 
 A production scrape already keeps the page behind each failure, so look for one before reproducing it:
 
-| File                  | Written when                                                            |
-| --------------------- | ----------------------------------------------------------------------- |
-| `*_FAILED.html`       | a course exhausted `max_course_attempts`                                |
-| `*_SYSTEM_ERROR.html` | CUHK's outcome page is malformed for good                               |
-| `*_INVALID.html`      | an outcome page failed validation — kept even if a retry then succeeded |
+| File | Written when |
+| --- | --- |
+| `*_FAILED.html` | a course exhausted `max_course_attempts` |
+| `*_SYSTEM_ERROR.html` | CUSIS returned its system-error page |
+| `*_INVALID.html` | a page lacked `__VIEWSTATE`, or an outcome page failed validation — kept even if a retry then succeeded |
 
 To keep every page instead, while investigating parser behavior:
 

@@ -423,6 +423,19 @@ def show_scrape_context(scraper: "CuhkScraper", handlers: list[logging.Handler])
         handler.setFormatter(scrape_log_formatter())
 
 
+class CatalogResponseError(ValueError):
+    """CUSIS served a page the scraper cannot use. The page has already been saved."""
+
+
+class CatalogSystemError(CatalogResponseError):
+    """CUSIS served its "System error" page."""
+
+
+# Every catalog page carries the form state the next postback must send back.
+_FORM_STATE = re.compile(r'name="__VIEWSTATE"')
+_SYSTEM_ERROR_TITLE = re.compile(r"<title>\s*System error\s*</title>", re.IGNORECASE)
+
+
 class CuhkScraper:
     """Simplified CUHK course scraper"""
 
@@ -659,6 +672,28 @@ class CuhkScraper:
                 f.write(content)
             self.logger.info(f"Saved debug HTML: {debug_path}")
 
+    def _request_catalog_html(
+        self, method: str, *, stage: str, target: str = "", **kwargs
+    ) -> requests.Response:
+        """Request a catalog page. Rejects a page without form state, so even an
+        unfamiliar error page fails instead of parsing as empty."""
+        response = self._robust_request(method, self.base_url, **kwargs)
+        if _FORM_STATE.search(response.text):
+            return response
+
+        is_system_error = bool(_SYSTEM_ERROR_TITLE.search(response.text))
+        subject, code = self.current_subject or "", self.current_course_code or ""
+        where = " ".join(filter(None, (stage, subject + code, target)))
+        kind = "SYSTEM_ERROR" if is_system_error else "INVALID"
+        filename = "_".join(filter(None, (stage, subject, code, target, kind)))
+        self._save_debug_html(
+            response.text, re.sub(r"[^A-Za-z0-9_-]+", "_", filename) + ".html", force_save=True
+        )
+
+        if is_system_error:
+            raise CatalogSystemError(f"CUSIS system error at {where}")
+        raise CatalogResponseError(f"CUSIS page without form state at {where}")
+
     def _solve_captcha(self, image_bytes: bytes) -> str | None:
         """Solve captcha using ddddocr"""
         try:
@@ -790,7 +825,7 @@ class CuhkScraper:
                 {"code": code, "title": title} for code, title in self.subject_titles_cache.items()
             ]
 
-        response = self._robust_request("GET", self.base_url)
+        response = self._request_catalog_html("GET", stage="subject_list")
         soup = BeautifulSoup(response.text, "html.parser")
         select = soup.find("select", {"name": "ddl_subject"})
         if not select:
@@ -817,7 +852,7 @@ class CuhkScraper:
                     self.logger.info(f"Fetching course list, attempt {attempt + 1}")
 
                     # Get the initial page to extract form data
-                    response = self._robust_request("GET", self.base_url)
+                    response = self._request_catalog_html("GET", stage="subject_form")
 
                     soup = BeautifulSoup(response.text, "html.parser")
 
@@ -826,7 +861,9 @@ class CuhkScraper:
                     form_data["ddl_subject"] = subject_code
 
                     # Submit the form
-                    response = self._robust_request("POST", self.base_url, data=form_data)
+                    response = self._request_catalog_html(
+                        "POST", stage="course_list", data=form_data
+                    )
 
                     # Validate captcha was accepted by server
                     validation = self._validate_captcha_response(response.text)
@@ -1057,7 +1094,9 @@ class CuhkScraper:
                     form_data["__EVENTARGUMENT"] = ""
 
                     # Submit the postback to get course details page
-                    response = self._robust_request("POST", self.base_url, data=form_data)
+                    response = self._request_catalog_html(
+                        "POST", stage="course_details", data=form_data
+                    )
 
                     # Get course details with all available terms
                     # This will raise ValueError if HTML is corrupted (e.g., missing Course Outcome button)
@@ -1173,7 +1212,9 @@ class CuhkScraper:
             form_data["__EVENTARGUMENT"] = ""
 
             # Submit term change
-            response = self._robust_request("POST", self.base_url, data=form_data)
+            response = self._request_catalog_html(
+                "POST", stage="term_switch", target=term_name, data=form_data
+            )
             html = response.text
             soup = BeautifulSoup(html, "html.parser")
 
@@ -1192,7 +1233,9 @@ class CuhkScraper:
                 form_data["uc_course$ddl_class_term"] = term_code
 
                 # Submit show sections
-                response = self._robust_request("POST", self.base_url, data=form_data)
+                response = self._request_catalog_html(
+                    "POST", stage="show_sections", target=term_name, data=form_data
+                )
                 html = response.text
             else:
                 self.logger.info(f"'Show sections' disabled for {term_name}: already shown")
@@ -1514,7 +1557,9 @@ class CuhkScraper:
         form_data["__EVENTARGUMENT"] = ""
 
         # Submit the postback to get class details
-        response = self._robust_request("POST", self.base_url, data=form_data)
+        response = self._request_catalog_html(
+            "POST", stage="class_details", target=section_name, data=form_data
+        )
         class_details_html = response.text
 
         # Save debug file for class details HTML (using smart saving)
@@ -1736,25 +1781,14 @@ class CuhkScraper:
 
         # Submit Course Outcome request
         self.logger.info("Navigating to Course Outcome page")
-        response = self._robust_request("POST", self.base_url, data=form_data)
-
-        # Check for PERMANENT system error (don't retry these)
-        if (
-            "<title>System error</title>" in response.text
-            or "System error. Please try again" in response.text
-        ):
-            self.logger.error("System error (PERMANENT) for the course outcome - cannot scrape")
+        try:
+            response = self._request_catalog_html("POST", stage="course_outcome", data=form_data)
+        except CatalogSystemError as e:
+            self.logger.error(f"{e}; continuing without the course outcome")
             self._track_failed_course_outcome(
                 course.subject, course.course_code, "system_error_permanent"
             )
-            # Kept like an exhausted course: nothing retries this, so the page is the only
-            # evidence the outcome is missing rather than empty.
-            self._save_debug_html(
-                response.text,
-                f"course_outcome_{course.subject}_{course.course_code}_SYSTEM_ERROR.html",
-                force_save=True,
-            )
-            return  # Don't retry system errors - they're permanent (malformed data in CUHK database)
+            return
 
         # Debug: save Course Outcome response (using smart saving)
         self._save_debug_html(
@@ -1789,13 +1823,7 @@ class CuhkScraper:
             False: Invalid response, preserve existing course outcome data
         """
         try:
-            # Check 1: System error page detection (primary failure mode - ~8% of requests)
-            # Example failure: <title>System error</title><body>系統有誤，請稍後再試。<br />System error. Please try again latter.</body>
-            if "<title>System error</title>" in html or "System error. Please try again" in html:
-                self.logger.error("System error page for the course outcome")
-                return False
-
-            # Check 2: Minimum structural requirements - ensure it's actually a course outcome page
+            # Check 1: Minimum structural requirements - ensure it's actually a course outcome page
             # Example valid: <div class="titleNormal">Course Outcome</div>
             # Example invalid: <div class="titleNormal">Course Catalog</div> (wrong page)
             soup = BeautifulSoup(html, "html.parser")
@@ -1803,7 +1831,7 @@ class CuhkScraper:
                 self.logger.error("Missing 'Course Outcome' title")
                 return False
 
-            # Check 3: Content structure validation - ensure page has outcome sections
+            # Check 2: Content structure validation - ensure page has outcome sections
             # Checks for section headers like "Learning Outcome", "Course Syllabus", "Assessment Type", etc.
             # These headers have class="reverseHeaderStyle" and indicate the page has actual content
             # Example: <td class="reverseHeaderStyle">Learning Outcome</td>
