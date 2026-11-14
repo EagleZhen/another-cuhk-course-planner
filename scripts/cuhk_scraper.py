@@ -718,10 +718,13 @@ class CuhkScraper:
         subject, code = self.current_subject or "", self.current_course_code or ""
         where = " ".join(filter(None, (stage, subject + code, target)))
         kind = "SYSTEM_ERROR" if error is CatalogSystemError else "INVALID"
-        filename = "_".join(filter(None, (stage, subject + code, target, kind)))
-        self._save_debug_html(
-            html, re.sub(r"[^A-Za-z0-9_-]+", "_", filename) + ".html", force_save=True
+        # Cleaned part by part, so "(9978)" at the end of a part leaves no stray "_".
+        parts = (
+            re.sub(r"[^A-Za-z0-9_-]+", "_", part).strip("_")
+            for part in (stage, subject + code, target, kind)
         )
+        filename = "_".join(filter(None, parts)) + ".html"
+        self._save_debug_html(html, filename, force_save=True)
         raise error(problem, where)
 
     def _check_course_page(

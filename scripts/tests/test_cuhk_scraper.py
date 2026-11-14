@@ -1104,17 +1104,21 @@ def test_every_saved_catalog_page_passes_the_form_state_check(tmp_path, page_nam
     assert list(tmp_path.iterdir()) == []
 
 
-def test_the_system_error_page_is_named_and_kept(tmp_path):
+@pytest.mark.parametrize(
+    "stage, target, kept_as",
+    [
+        ("show_sections", "2026-27 Term 2", "show_sections_TEST1000_2026-27_Term_2_SYSTEM_ERROR"),
+        ("class_details", "AZC1-CLW (9978)", "class_details_TEST1000_AZC1-CLW_9978_SYSTEM_ERROR"),
+    ],
+)
+def test_the_system_error_page_is_named_and_kept(tmp_path, stage, target, kept_as):
     page = _sample_html("System error.html")
     scraper, _ = _failing_scraper(tmp_path, page)
 
-    with pytest.raises(CatalogSystemError, match="system error at show_sections TEST1000 2026-27"):
-        CuhkScraper._request_catalog_html(
-            scraper, "POST", stage="show_sections", target="2026-27 Term 2"
-        )
+    with pytest.raises(CatalogSystemError, match=f"system error at {stage} TEST1000"):
+        CuhkScraper._request_catalog_html(scraper, "POST", stage=stage, target=target)
 
-    kept = tmp_path / "show_sections_TEST1000_2026-27_Term_2_SYSTEM_ERROR.html"
-    assert kept.read_text() == page
+    assert (tmp_path / f"{kept_as}.html").read_text() == page
 
 
 def test_an_unknown_page_without_form_state_is_rejected_but_not_as_a_system_error(tmp_path):
