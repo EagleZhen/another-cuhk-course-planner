@@ -120,10 +120,10 @@ def test_run_counters_cover_only_this_run(tmp_path):
     progress_file = tmp_path / "progress.json"
     first = _tracker(progress_file, ["AAAA", "BBBB", "CCCC"])
     for subject in ("AAAA", "BBBB", "CCCC"):
-        first.complete_subject(subject, 1, [f"data/{subject}.json"])
+        first.complete_subject(subject, 1, [f"data/{subject}.json"], [])
 
     retry = _tracker(progress_file, ["BBBB"])
-    retry.complete_subject("BBBB", 2, ["data/BBBB.json"])
+    retry.complete_subject("BBBB", 2, ["data/BBBB.json"], [])
 
     run = _saved(retry)["latest_run"]
     assert (run["subjects_total"], run["subjects_completed"]) == (1, 1)
@@ -136,8 +136,8 @@ def test_run_counters_cover_only_this_run(tmp_path):
 
 def test_run_counters_split_completed_from_failed(tmp_path):
     tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB", "CCCC"])
-    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"])
-    tracker.complete_subject("BBBB", 1, ["data/BBBB.json"])
+    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"], [])
+    tracker.complete_subject("BBBB", 1, ["data/BBBB.json"], [])
     tracker.fail_subject("CCCC", "boom")
 
     run = _saved(tracker)["latest_run"]
@@ -151,7 +151,7 @@ def test_run_counters_ignore_what_an_earlier_run_completed(tmp_path):
     progress_file = tmp_path / "progress.json"
     first = _tracker(progress_file, ["AAAA", "BBBB"])
     for subject in ("AAAA", "BBBB"):
-        first.complete_subject(subject, 1, [f"data/{subject}.json"])
+        first.complete_subject(subject, 1, [f"data/{subject}.json"], [])
 
     second = _tracker(progress_file, ["AAAA", "BBBB"])
     second.start_subject("AAAA")
@@ -163,7 +163,7 @@ def test_run_counters_ignore_what_an_earlier_run_completed(tmp_path):
 def test_finish_run_is_what_marks_a_run_completed(tracker):
     # A killed run can never write its own ending, so "in_progress" has to survive
     # everything except finish_run().
-    tracker.complete_subject("TEST", 1, ["data/TEST.json"])
+    tracker.complete_subject("TEST", 1, ["data/TEST.json"], [])
     assert _saved(tracker)["latest_run"]["status"] == "in_progress"
 
     tracker.finish_run()
@@ -178,11 +178,11 @@ def test_a_full_run_starts_a_scrape_and_a_partial_run_leaves_it_alone(tmp_path):
     # A one-subject smoke run must not clobber the scrape a killed full run left behind.
     progress_file = tmp_path / "progress.json"
     full = _tracker(progress_file, ["AAAA", "BBBB"], mode="full")
-    full.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"])
+    full.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], [])
     started_at = _saved(full)["latest_full_scrape"]["started_at"]
 
     partial = _tracker(progress_file, ["AAAA"], mode="partial")
-    partial.complete_subject("AAAA", 2, ["data/2025-26/AAAA.json"])
+    partial.complete_subject("AAAA", 2, ["data/2025-26/AAAA.json"], [])
 
     scrape = _saved(partial)["latest_full_scrape"]
     assert scrape["started_at"] == started_at
@@ -192,8 +192,8 @@ def test_a_full_run_starts_a_scrape_and_a_partial_run_leaves_it_alone(tmp_path):
 
 def test_a_scrape_collects_every_directory_its_subjects_wrote(tmp_path):
     tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB"], mode="full")
-    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json", "data/no-terms/AAAA.json"])
-    tracker.complete_subject("BBBB", 1, ["data/2026-27/BBBB.json"])
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json", "data/no-terms/AAAA.json"], [])
+    tracker.complete_subject("BBBB", 1, ["data/2026-27/BBBB.json"], [])
 
     assert _saved(tracker)["latest_full_scrape"]["directories"] == ["data/2026-27", "data/no-terms"]
 
@@ -210,7 +210,7 @@ def test_a_failed_subject_still_leaves_the_scrapes_to_do_list(tmp_path):
 def test_a_killed_scrape_leaves_behind_what_it_never_reached(tmp_path):
     # The whole point of the block: a run that dies mid-catalog says what is left.
     tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB", "CCCC"], mode="full")
-    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"])
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], [])
 
     assert _saved(tracker)["latest_full_scrape"]["remaining"] == ["BBBB", "CCCC"]
 
@@ -219,7 +219,7 @@ def test_a_scrape_that_reaches_every_subject_empties_its_to_do_list(tmp_path):
     # An empty `remaining` is the only thing that says a scrape finished, so nothing may
     # empty it but attempting the subjects.
     tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB"], mode="full")
-    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"])
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], [])
     tracker.fail_subject("BBBB", "boom")
 
     assert _saved(tracker)["latest_full_scrape"]["remaining"] == []
@@ -235,7 +235,7 @@ def _stamp(scraper, tmp_path, *, mode, courses=None):
         else [_course("1000", ["2025-26 Term 1"]), _course("9999", [])],
         tmp_path,
     )
-    scraper.progress_tracker.complete_subject("TEST", len(saved), saved)
+    scraper.progress_tracker.complete_subject("TEST", len(saved), saved, [])
     CuhkScraper._write_scrape_times(scraper, mode)
     scrape = _saved(scraper.progress_tracker).get("latest_full_scrape")
     return scrape and scrape["started_at"]
@@ -274,7 +274,7 @@ def test_dropped_year_keeps_its_scrape_time(scraper, tmp_path, monkeypatch):
     assert (tmp_path / "2026-27" / "_scraped_at.txt").read_text() == f"{second}\n"
 
 
-def _loop_scraper(tmp_path, *, failing=(), report=None):
+def _loop_scraper(tmp_path, *, failing=()):
     """A scraper whose network calls are stubbed, so the loop runs off the live site."""
     scraper = CuhkScraper.__new__(CuhkScraper)
     scraper.logger = logging.getLogger("test")
@@ -287,22 +287,21 @@ def _loop_scraper(tmp_path, *, failing=(), report=None):
     scraper.get_subjects_with_titles_from_live_site = lambda: []
     scraper.scrape_subject = lambda subject: _boom() if subject in failing else []
     scraper._save_subject_immediately = lambda subject, courses, config: []
-    scraper._report_course_outcome_failures = report or (lambda *a: None)
     return scraper
 
 
-@pytest.mark.parametrize(
-    "failing, covered", [((), True), (("BBBB",), False)], ids=["all reached", "one lost"]
-)
-def test_only_a_run_that_reached_every_subject_speaks_for_the_catalog(tmp_path, failing, covered):
-    # A full run was asked to cover everything, which is not the same as having done it.
-    # A subject that died never reached its courses, so their failures are still outstanding.
-    spoke_for = []
-    scraper = _loop_scraper(tmp_path, failing=failing, report=spoke_for.append)
+def test_a_completed_subject_records_what_cusis_would_not_serve(tmp_path):
+    # Kept per subject, so a resume or a one-subject re-scrape updates exactly its own.
+    gap = _course("1000", [])
+    gap.unavailable = ["show_sections TEST1000 2026-27 Term 2"]
+    scraper = _loop_scraper(tmp_path)
+    scraper.scrape_subject = lambda subject: [gap] if subject == "AAAA" else [_course("1000", [])]
 
-    CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB"], mode="full")
+    CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB"])
 
-    assert spoke_for == [covered]
+    subjects = _read(tmp_path / "progress.json")["subjects"]
+    assert subjects["AAAA"]["unavailable"] == ["show_sections TEST1000 2026-27 Term 2"]
+    assert subjects["BBBB"]["unavailable"] == []
 
 
 def _hours_ago(hours):
@@ -352,19 +351,6 @@ def test_resume_stamps_every_directory_the_scrape_wrote_with_its_start(tmp_path)
 
     for directory in ("2026-27", "no-terms"):
         assert (tmp_path / directory / "_scraped_at.txt").read_text() == f"{started_at}\n"
-
-
-def test_a_resume_cannot_speak_for_the_course_outcomes_it_never_rescraped(tmp_path):
-    # Collected per run, so a resume holds only its own subjects' — rewriting the report
-    # from those would drop the rest.
-    _interrupted(tmp_path, ["BBBB"], ["2026-27"])
-    spoke_for = []
-
-    CuhkScraper.scrape_all_subjects(
-        _loop_scraper(tmp_path, report=spoke_for.append), [], mode="resume"
-    )
-
-    assert spoke_for == [False]
 
 
 @pytest.mark.parametrize(
@@ -452,7 +438,7 @@ def test_run_config_is_recorded_once_for_the_run(tmp_path):
     tracker = _tracker(
         tmp_path / "progress.json", ["AAAA"], ScrapingConfig(max_courses_per_subject=5)
     )
-    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"])
+    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"], [])
 
     saved = _saved(tracker)
     assert saved["latest_run"]["config"]["max_courses"] == 5
@@ -462,7 +448,7 @@ def test_run_config_is_recorded_once_for_the_run(tmp_path):
 def test_the_run_records_which_mode_it_ran_in(tmp_path):
     # subjects_total cannot tell them apart: a partial run may name every subject.
     tracker = _tracker(tmp_path / "progress.json", ["AAAA"], mode="full")
-    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"])
+    tracker.complete_subject("AAAA", 1, ["data/2026-27/AAAA.json"], [])
 
     assert _saved(tracker)["latest_run"]["mode"] == "full"
 
@@ -471,8 +457,8 @@ def test_registry_stays_sorted_as_subjects_are_added(tmp_path):
     # Key order otherwise records scrape history: a subject CUHK adds later lands at the
     # end and stays there, so the file drifts out of order one addition at a time.
     tracker = _tracker(tmp_path / "progress.json", ["MATH", "AAAA"])
-    tracker.complete_subject("MATH", 1, ["data/MATH.json"])
-    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"])
+    tracker.complete_subject("MATH", 1, ["data/MATH.json"], [])
+    tracker.complete_subject("AAAA", 1, ["data/AAAA.json"], [])
 
     saved = _saved(tracker)
     assert list(saved["subjects"]) == ["AAAA", "MATH"]
@@ -572,68 +558,6 @@ def test_broken_section_retries_while_a_term_without_sections_stays_empty():
         [],
         set(),
     )
-
-
-def test_permanent_outcome_failure_is_recorded_once_per_course():
-    # An unrelated failure re-scrapes the course, reaching the same permanent failure.
-    scraper = _live_scraper()
-    for _ in range(3):
-        CuhkScraper._track_failed_course_outcome(scraper, "TEST", "1000", "system_error_permanent")
-    CuhkScraper._track_failed_course_outcome(scraper, "TEST", "1000", "other_reason")
-
-    assert [f["reason"] for f in scraper._failed_course_outcomes] == [
-        "system_error_permanent",
-        "other_reason",
-    ]
-
-
-STALE_REPORT = "COMM5962 - system_error_permanent (2026-06-27T08:59:13+00:00)\n"
-
-
-def _report_outcome_failures(monkeypatch, tmp_path, failures, *, covered_every_subject=True):
-    report = tmp_path / "failed_course_outcomes.txt"
-    monkeypatch.setattr(cuhk_scraper, "FAILED_COURSE_OUTCOMES_FILE", str(report))
-    scraper = _live_scraper()
-    for subject, code in failures:
-        CuhkScraper._track_failed_course_outcome(scraper, subject, code, "system_error_permanent")
-    CuhkScraper._report_course_outcome_failures(scraper, covered_every_subject)
-    return report
-
-
-def test_a_full_run_with_failures_writes_the_report(monkeypatch, tmp_path):
-    report = _report_outcome_failures(monkeypatch, tmp_path, [("TEST", "1000")])
-
-    assert "TEST1000 - system_error_permanent" in report.read_text()
-
-
-def test_a_clean_full_run_removes_a_previous_run_s_report(monkeypatch, tmp_path):
-    # The file is committed, so a leftover reads as this run's result — one from June sat
-    # in the repo for months looking current.
-    report = tmp_path / "failed_course_outcomes.txt"
-    report.write_text(STALE_REPORT)
-
-    _report_outcome_failures(monkeypatch, tmp_path, [])
-
-    assert not report.exists()
-
-
-@pytest.mark.parametrize("failures", [[], [("PHED", "1370")]], ids=["clean", "with failures"])
-def test_a_run_that_missed_subjects_leaves_the_report_alone(monkeypatch, tmp_path, failures):
-    # Re-scraping one subject is how you check whether ITSC fixed it. That run knows
-    # nothing about the other subjects listed, so it must not speak for them.
-    report = tmp_path / "failed_course_outcomes.txt"
-    report.write_text(STALE_REPORT)
-
-    _report_outcome_failures(monkeypatch, tmp_path, failures, covered_every_subject=False)
-
-    assert report.read_text() == STALE_REPORT
-
-
-def test_a_clean_run_survives_having_no_report_to_remove(monkeypatch, tmp_path):
-    report = tmp_path / "nonexistent" / "failed_course_outcomes.txt"
-    monkeypatch.setattr(cuhk_scraper, "FAILED_COURSE_OUTCOMES_FILE", str(report))
-
-    CuhkScraper._report_course_outcome_failures(_live_scraper(), True)  # must not raise
 
 
 def _row(code, *, title=True):
@@ -785,7 +709,7 @@ def test_a_course_that_succeeds_keeps_nothing(tmp_path):
     # The other side of the rule: a normal production scrape must not write a file per course.
     scraper, course = _failing_scraper(tmp_path, DETAIL_HTML)
 
-    assert CuhkScraper.get_course_details(scraper, course, DETAIL_HTML) is course
+    assert CuhkScraper.get_course_details(scraper, course, DETAIL_HTML).course_code == "1000"
     assert list(tmp_path.iterdir()) == []
 
 
@@ -858,17 +782,6 @@ def test_a_valid_outcome_page_keeps_nothing(tmp_path):
     assert list(tmp_path.iterdir()) == []
 
 
-def test_a_permanent_system_error_keeps_the_outcome_page(tmp_path):
-    # Nothing retries a permanent system error, so this page is the only evidence that the
-    # outcome is missing rather than genuinely empty.
-    scraper, course = _failing_scraper(tmp_path, SYSTEM_ERROR_PAGE)
-
-    CuhkScraper._scrape_course_outcome(scraper, OUTCOME_BUTTON_HTML, course)
-
-    assert [f.name for f in tmp_path.iterdir()] == ["course_outcome_TEST_1000_SYSTEM_ERROR.html"]
-    assert [f["reason"] for f in scraper._failed_course_outcomes] == ["system_error_permanent"]
-
-
 def test_a_course_that_parses_on_a_later_attempt_still_succeeds(monkeypatch):
     # The cap must only stop failures that never resolve. Transient corruption clears on
     # a re-fetch, and that course still has to come back rather than failing the subject.
@@ -878,7 +791,7 @@ def test_a_course_that_parses_on_a_later_attempt_still_succeeds(monkeypatch):
     course = _course("1000", [])
     course.postback_target = "target"
 
-    assert CuhkScraper.get_course_details(scraper, course, DETAIL_HTML) is course
+    assert CuhkScraper.get_course_details(scraper, course, DETAIL_HTML).course_code == "1000"
     assert pages == []  # took all three attempts
 
 
@@ -1238,6 +1151,79 @@ def test_every_saved_detail_page_shows_the_course_its_list_row_names(page_name, 
     CuhkScraper._check_course_page(
         _live_scraper(), BeautifulSoup(html, "html.parser"), html, course, stage="course_details"
     )
+
+
+def _course_server(monkeypatch, fails):
+    """CUSIS for one course with two terms, its outcome, and a switch to 2026-27 Term 1.
+
+    `fails(stage, call)` says which numbered request to a stage gets the system error.
+    """
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+    pages = {
+        "course_details": _term_page(selected="2390") + OUTCOME_BUTTON_HTML,
+        "course_outcome": _sample_html("Course Outcome - PHED 1370 - Archery.html"),
+        "term_switch": _term_page(selected="2410"),
+    }
+    calls = dict.fromkeys(pages, 0)
+
+    def request(method, url, *, data, **kwargs):
+        if "btn_course_outcome" in data:
+            stage = "course_outcome"
+        elif data.get("__EVENTTARGET") == "uc_course$ddl_class_term":
+            stage = "term_switch"
+        else:
+            stage = "course_details"
+        calls[stage] += 1
+        failed = fails(stage, calls[stage])
+        return SimpleNamespace(text=_sample_html("System error.html") if failed else pages[stage])
+
+    config = ScrapingConfig(
+        max_course_attempts=3, get_course_outcome=True, get_enrollment_details=False
+    )
+    scraper = _live_scraper(config=config, _robust_request=request, current_subject="TEST")
+    course = _course("1000", [])
+    course.postback_target = "target"
+    return CuhkScraper.get_course_details(scraper, course, DETAIL_HTML), calls
+
+
+def test_a_term_cusis_keeps_failing_is_left_out_and_recorded(monkeypatch):
+    course, calls = _course_server(monkeypatch, lambda stage, _: stage == "term_switch")
+
+    assert calls["course_details"] == 3  # retried before settling
+    assert [term.term_name for term in course.terms] == ["2025-26 Term 2"]
+    assert course.learning_outcomes
+    assert course.unavailable == ["term_switch TEST1000 2026-27 Term 1"]
+    assert "unavailable" not in course.to_dict()
+
+
+def test_an_outcome_cusis_keeps_failing_is_left_out_and_recorded(monkeypatch):
+    course, _ = _course_server(monkeypatch, lambda stage, _: stage == "course_outcome")
+
+    assert len(course.terms) == 2
+    assert course.learning_outcomes == ""
+    assert course.unavailable == ["course_outcome TEST1000"]
+
+
+def test_a_system_error_that_clears_on_retry_leaves_no_gap(monkeypatch):
+    course, calls = _course_server(
+        monkeypatch, lambda stage, call: stage == "term_switch" and call == 1
+    )
+
+    assert calls["course_details"] == 2
+    assert len(course.terms) == 2
+    assert course.learning_outcomes
+    assert course.unavailable == []
+
+
+def test_a_retry_keeps_nothing_from_the_attempt_it_replaced(monkeypatch):
+    # The first attempt's outcome would otherwise sit beside a record saying it is missing.
+    course, _ = _course_server(
+        monkeypatch,
+        lambda stage, call: stage == "term_switch" or (stage == "course_outcome" and call > 1),
+    )
+
+    assert course.learning_outcomes == ""
+    assert course.unavailable == ["course_outcome TEST1000", "term_switch TEST1000 2026-27 Term 1"]
 
 
 def test_the_saved_chlt1001_page_shows_the_term_it_was_requested_for():

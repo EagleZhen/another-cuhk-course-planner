@@ -197,7 +197,15 @@ Any catalog request can return CUSIS's system-error page, not just the course ou
 
 The scraper rejects any page without `__VIEWSTATE`, which every catalog page carries, so an unfamiliar error page also fails instead of parsing as empty. A page titled `System error` counts as a system error.
 
-On the course outcome, a system error skips the outcome and is listed in `logs/failed_course_outcomes.txt`. Elsewhere it retries like any bad page.
+Only CUHK can fix a system error, so on a course outcome or a term it does not fail the subject. The course retries within `max_course_attempts`, then is saved without what still errors, and the subject's progress entry lists it under `unavailable`. On any other page it fails like any bad page.
+
+For example, if switching ELTU1001 to 2026-27 Term 2 keeps erroring, ELTU1001 is saved with its other terms and the ELTU entry reads:
+
+```json
+"unavailable": ["term_switch ELTU1001 2026-27 Term 2"]
+```
+
+The next scrape that gets the term brings it back and clears the entry.
 
 ### Incomplete Or Alternate Pages
 
@@ -225,12 +233,12 @@ Failures retry rather than resolving to empty data, because empty is what a legi
 | Scope | Retries on | Limit | When it runs out |
 | --- | --- | --- | --- |
 | Request | network errors, HTTP 502/503/504 | `max_request_attempts` (6) | raises to the course; any other status raises at once |
-| Course | anything raised while fetching or parsing a course page | `max_course_attempts` (5) | costs the subject one attempt |
+| Course | anything raised while fetching or parsing a course page, or a system error on its outcome or a term | `max_course_attempts` (5) | costs the subject one attempt, or saves the course without what still errors |
 | Subject | any course failure, restarting from the course list on a new session | `max_subject_attempts` (10) | records the subject failed, run moves on |
 
 So a run finishes even when subjects fail, rather than stalling on one course. A failed subject blocks publishing, which names it and stops before writing anything. Re-scrape that subject and publish again.
 
-The course outcome is the exception — see [System Error Pages](#system-error-pages).
+A system error on a course outcome or a term is the exception — see [System Error Pages](#system-error-pages).
 
 ### Request Pacing
 
@@ -249,13 +257,11 @@ ls -t logs/scrape/scrape_*.log | head -1
 jq '.subjects.CSCI' logs/scraping_progress.json
 ```
 
-Check for outstanding outcome failures — no file means none:
+List what CUSIS would not serve in each subject's latest scrape:
 
 ```bash
-cat logs/failed_course_outcomes.txt 2>/dev/null || echo "none outstanding"
+jq '.subjects | map_values(.unavailable | select(length > 0))' logs/scraping_progress.json
 ```
-
-Only a scrape that reached every subject rewrites it — a partial run, or one that lost a subject, leaves the list alone rather than speaking for what it never saw.
 
 A production scrape already keeps the page behind each failure, so look for one before reproducing it:
 

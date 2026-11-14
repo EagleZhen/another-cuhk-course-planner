@@ -5,7 +5,7 @@ import re
 import time
 from collections.abc import Iterator
 from contextlib import contextmanager
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, field, replace
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any, NoReturn
@@ -46,7 +46,6 @@ SOURCE_DATA_DIR = "data"
 LOGS_DIR = "logs"
 SCRAPE_LOG_DIR = os.path.join(LOGS_DIR, "scrape")
 SCRAPING_PROGRESS_FILE = os.path.join(LOGS_DIR, "scraping_progress.json")
-FAILED_COURSE_OUTCOMES_FILE = os.path.join(LOGS_DIR, "failed_course_outcomes.txt")
 
 
 @dataclass
@@ -123,6 +122,8 @@ class Course:
     credits: str
     terms: list[TermInfo]  # List of terms this course is offered
     postback_target: str = ""  # For getting detailed info
+    # Where CUSIS kept serving its system error, so this course was saved without it.
+    unavailable: list[str] = field(default_factory=list)
 
     # Additional course details
     description: str = ""
@@ -152,6 +153,7 @@ class Course:
         data = asdict(self)
         # Remove postback_target from exported data
         data.pop("postback_target", None)
+        data.pop("unavailable", None)
         # Convert terms to dict format
         data["terms"] = [term.to_dict() for term in self.terms]
         return data
@@ -295,13 +297,20 @@ class ScrapingProgressTracker:
         subjects[subject] = {"status": "in_progress", "started_at": utc_now_iso()}
         self._save_progress()
 
-    def complete_subject(self, subject: str, courses_count: int, output_files: list[str]):
-        """Mark subject as completed"""
+    def complete_subject(
+        self,
+        subject: str,
+        courses_count: int,
+        output_files: list[str],
+        unavailable: list[str],
+    ):
+        """Mark subject as completed, with where CUSIS kept serving its system error"""
         subjects = self.progress_data["subjects"]
         subjects[subject] = {
             "status": "completed",
             "courses_count": courses_count,
             "output_file": render_output_files(output_files),
+            "unavailable": unavailable,
         }
 
         self._record_scrape_progress(subject, output_files)
@@ -425,6 +434,10 @@ def show_scrape_context(scraper: "CuhkScraper", handlers: list[logging.Handler])
 
 class CatalogResponseError(ValueError):
     """CUSIS served a page the scraper cannot use. The page has already been saved."""
+
+    def __init__(self, problem: str, where: str):
+        super().__init__(f"{problem} at {where}")
+        self.where = where
 
 
 class CatalogSystemError(CatalogResponseError):
@@ -702,7 +715,7 @@ class CuhkScraper:
         self._save_debug_html(
             html, re.sub(r"[^A-Za-z0-9_-]+", "_", filename) + ".html", force_save=True
         )
-        raise error(f"{problem} at {where}")
+        raise error(problem, where)
 
     def _check_course_page(
         self,
@@ -1133,10 +1146,9 @@ class CuhkScraper:
                         "POST", stage="course_details", data=form_data
                     )
 
-                    # Get course details with all available terms
-                    # This will raise ValueError if HTML is corrupted (e.g., missing Course Outcome button)
+                    # A fresh copy, so nothing carries over from an earlier attempt.
                     detailed_course = self._get_course_details_with_term_selection(
-                        response.text, course
+                        response.text, replace(course, unavailable=[])
                     )
 
                     # Debug: save detailed response (using smart saving)
@@ -1144,7 +1156,16 @@ class CuhkScraper:
                         response.text, f"course_details_{course.subject}_{course.course_code}.html"
                     )
 
-                    return detailed_course
+                    attempt += 1
+                    gaps = detailed_course.unavailable
+                    if not gaps or attempt >= self.config.max_course_attempts:
+                        return detailed_course
+                    wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
+                    self.logger.warning(
+                        f"CUSIS would not serve {', '.join(gaps)} "
+                        f"(attempt {attempt}), retrying in {wait_time}s"
+                    )
+                    time.sleep(wait_time)
 
                 # Giving up fails the subject, which blocks publishing and names it. Looping
                 # here instead would strand every subject after this one.
@@ -1206,12 +1227,17 @@ class CuhkScraper:
             f"Found {len(available_terms)} terms: {[name for _, name in available_terms]}"
         )
 
-        # A failure propagates to get_course_details, which re-scrapes the course: a
-        # dropped term is indistinguishable from one CUHK stopped offering.
+        # Any other failure propagates to get_course_details, which re-scrapes the course:
+        # a dropped term is indistinguishable from one CUHK stopped offering.
         all_term_info = []
         for i, (term_code, term_name) in enumerate(available_terms):
             self.logger.info(f"Scraping term {i + 1}/{len(available_terms)}: {term_name}")
-            term_info = self._scrape_term_details(html, base_course, term_code, term_name)
+            try:
+                term_info = self._scrape_term_details(html, base_course, term_code, term_name)
+            except CatalogSystemError as e:
+                self.logger.error(f"{e}; leaving the term out")
+                base_course.unavailable.append(e.where)
+                continue
             if term_info:
                 all_term_info.append(term_info)
 
@@ -1792,9 +1818,7 @@ class CuhkScraper:
             response = self._request_catalog_html("POST", stage="course_outcome", data=form_data)
         except CatalogSystemError as e:
             self.logger.error(f"{e}; continuing without the course outcome")
-            self._track_failed_course_outcome(
-                course.subject, course.course_code, "system_error_permanent"
-            )
+            course.unavailable.append(e.where)
             return
 
         # Debug: save Course Outcome response (using smart saving)
@@ -1853,79 +1877,6 @@ class CuhkScraper:
         except Exception as e:
             self.logger.error(f"Error validating course outcome response: {e}")
             return False  # Fail safe - preserve existing data if validation fails
-
-    def _track_failed_course_outcome(self, subject: str, course_code: str, reason: str):
-        """Track failed course outcomes for potential retry"""
-        if not hasattr(self, "_failed_course_outcomes"):
-            self._failed_course_outcomes = []
-
-        # An unrelated failure re-scrapes the whole course, so this can be reached again.
-        if any(
-            (f["subject"], f["course_code"], f["reason"]) == (subject, course_code, reason)
-            for f in self._failed_course_outcomes
-        ):
-            return
-
-        self._failed_course_outcomes.append(
-            {
-                "subject": subject,
-                "course_code": course_code,
-                "reason": reason,
-                "timestamp": utc_now_iso(),
-            }
-        )
-
-        self.logger.info(f"Tracked failed course outcome ({reason})")
-
-    def _report_course_outcome_failures(self, covered_every_subject: bool):
-        """Report course outcomes CUHK serves a system error for
-
-        Only a run that reached every subject rewrites the report file: one that skipped
-        or lost a subject cannot say whether that subject's courses are still failing.
-        The console block still names whatever this run hit.
-        """
-        if not hasattr(self, "_failed_course_outcomes") or not self._failed_course_outcomes:
-            if not covered_every_subject:
-                self.logger.info("Course outcomes: no failures in the subjects this run reached")
-                return
-            self.logger.info("Course outcomes: all scraped successfully")
-            Path(FAILED_COURSE_OUTCOMES_FILE).unlink(missing_ok=True)
-            return
-
-        failures_by_reason: dict[str, list[str]] = {}
-        for failure in self._failed_course_outcomes:
-            failures_by_reason.setdefault(failure["reason"], []).append(
-                f"{failure['subject']}{failure['course_code']}"
-            )
-
-        # One record: this is a report about the run, not a sequence of events.
-        failure_count = len(self._failed_course_outcomes)
-        lines = [f"Course outcomes: {failure_count} failed"]
-        lines += [
-            f"    {reason.upper()}: {', '.join(codes)}"
-            for reason, codes in failures_by_reason.items()
-        ]
-        lines.append(
-            "    Retrying will not help — CUHK's data for these courses is malformed. Report them to ITSC; until an upstream fix lands they carry empty course outcome data."
-        )
-        lines.append(f"    Each page CUHK returned is saved in {self.config.debug_html_directory}")
-
-        if covered_every_subject:
-            # The list outlives the terminal: an upstream fix can take weeks.
-            failure_file = FAILED_COURSE_OUTCOMES_FILE
-            os.makedirs(os.path.dirname(failure_file), exist_ok=True)
-            with open(failure_file, "w") as f:
-                f.write("# Failed Course Outcomes - Needs an Upstream Fix from ITSC\n")
-                f.write(f"# Generated: {utc_now_iso()}\n\n")
-                for failure in self._failed_course_outcomes:
-                    f.write(
-                        f"{failure['subject']}{failure['course_code']} - {failure['reason']} ({failure['timestamp']})\n"
-                    )
-            lines.append(f"    Details saved to {failure_file}")
-        else:
-            lines.append("    Run did not reach every subject: leaving the report file alone")
-
-        self.logger.info("\n".join(lines))
 
     def _parse_course_outcome_content(self, html: str, course: Course) -> None:
         """Parse Course Outcome page content and extract all relevant information"""
@@ -2044,9 +1995,15 @@ class CuhkScraper:
                     saved_display = render_output_files(saved_file)
 
                     duration_minutes = (time.time() - start_time) / 60
+                    unavailable = [gap for course in courses or [] for gap in course.unavailable]
+                    if unavailable:
+                        self.logger.warning(
+                            f"{subject} saved without what CUSIS would not serve: "
+                            + ", ".join(unavailable)
+                        )
                     if self.progress_tracker:
                         self.progress_tracker.complete_subject(
-                            subject, len(courses or []), saved_file
+                            subject, len(courses or []), saved_file, unavailable
                         )
 
                     # Use different message for empty vs populated subjects
@@ -2082,12 +2039,6 @@ class CuhkScraper:
 
         # Reaching the end of the loop proves the catalog was covered, failures included.
         self._write_scrape_times(mode)
-
-        # Report course outcomes CUHK is serving a system error for. A subject that failed
-        # never reached its courses, so this run cannot vouch for them either.
-        # TODO(#321): "full", not "resume": these failures are collected per run, so a
-        # resume holds only the subjects it rescraped, and the report goes stale after one.
-        self._report_course_outcome_failures(mode == "full" and not failed_subjects)
 
         tally = ""
         # Last: a run that dies writing the files above is a killed run, and stays
