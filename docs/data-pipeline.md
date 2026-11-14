@@ -115,6 +115,8 @@ A year the latest full scrape did not produce is **archived**: CUHK no longer se
 
 These checks validate selected files; they do not prove that an academic year contains every subject. Treat unexpected subject removals as data-review signals.
 
+It also lists, without blocking, what each subject's latest scrape left out after a CUSIS system error ([why](decisions.md#leave-out-what-cusis-errors-on)).
+
 A run ends by copying a ready-to-paste commit title to the clipboard: `chore(data): update <years> courses (<scrape time in HKT>)`. It lists only the years stamped by the latest full scrape, excluding archived ones.
 
 After validation succeeds, publishing regenerates the app's manifests (see [Generated Manifests](#generated-manifests)). Validation failures and dry runs leave them unchanged.

@@ -734,7 +734,7 @@ def format_duration(minutes: float) -> str:
 
 
 def report_scrape_summary(progress_data: dict | None, scrape_times: dict[str, str]) -> None:
-    """Print the one-line summary of the scrape the publish is based on.
+    """Print a summary of the scrape the publish is based on, and what it is missing.
 
     The counts cover the whole scrape corpus in data/, so they exceed the number of
     published files: no-terms/ holds courses that belong to no year directory.
@@ -758,6 +758,17 @@ def report_scrape_summary(progress_data: dict | None, scrape_times: dict[str, st
         f"Scraped {when}: {stats['completed_subjects']} subjects, "
         f"{stats['total_courses']:,} courses, {stats['failed_subjects']} failed"
     )
+
+    # Only CUHK can fix these, so they publish as they are, but whoever publishes should know.
+    missing = {
+        code: entry["unavailable"]
+        for code, entry in sorted(progress_data["subjects"].items())
+        if entry["status"] == "completed" and entry["unavailable"]
+    }
+    if missing:
+        print(f"⚠️ Missing after a CUSIS system error ({len(missing)} subjects):")
+        for code, where in missing.items():
+            print(f"      - {code}: {', '.join(where)}")
 
 
 def report_subject_manifest_changes(old_content: str, new_content: str) -> None:

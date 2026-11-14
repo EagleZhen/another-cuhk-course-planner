@@ -150,8 +150,8 @@ def _progress(**progress):
     progress.setdefault(
         "subjects",
         {
-            "CSCI": {"status": "completed", "courses_count": 1234},
-            "MATH": {"status": "completed", "courses_count": 66},
+            "CSCI": {"status": "completed", "courses_count": 1234, "unavailable": []},
+            "MATH": {"status": "completed", "courses_count": 66, "unavailable": []},
             "PHYS": {"status": "failed"},
         },
     )
@@ -217,6 +217,24 @@ def test_report_scrape_summary_reads_what_the_scraper_actually_writes(tmp_path, 
     assert capsys.readouterr().out == (
         "Scraped as of 2026-08-07 20:30 HKT: 1 subjects, 7 courses, 0 failed\n"
     )
+
+
+def test_report_scrape_summary_names_what_a_cusis_system_error_left_out(tmp_path, capsys):
+    progress_file = tmp_path / "progress.json"
+    tracker = ScrapingProgressTracker(
+        str(progress_file), logging.getLogger("test"), ["AAAA"], ScrapingConfig(), "full"
+    )
+    tracker.complete_subject("AAAA", 7, [], [])
+    tracker.complete_subject("ELTU", 1, [], ["term_switch ELTU1001 2026-27 Term 2"])
+
+    publish_course_data.report_scrape_summary(
+        json.loads(progress_file.read_text(encoding="utf-8")), {}
+    )
+
+    assert capsys.readouterr().out.splitlines()[1:] == [
+        "⚠️ Missing after a CUSIS system error (1 subjects):",
+        "      - ELTU: term_switch ELTU1001 2026-27 Term 2",
+    ]
 
 
 def _terms(*term_names):
@@ -360,7 +378,7 @@ def test_a_subject_that_failed_before_writing_any_file_still_blocks(tmp_path, mo
         [source_dir / "2025-26"],
         {
             "subjects": {
-                "AAAA": {"status": "completed", "courses_count": 1},
+                "AAAA": {"status": "completed", "courses_count": 1, "unavailable": []},
                 "ZZZZ": {"status": "failed"},
             }
         },
