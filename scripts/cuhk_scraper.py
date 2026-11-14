@@ -8,7 +8,7 @@ from contextlib import contextmanager
 from dataclasses import asdict, dataclass, field
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from typing import Any
+from typing import Any, NoReturn
 
 import ddddocr
 import onnxruntime
@@ -680,19 +680,54 @@ class CuhkScraper:
         response = self._robust_request(method, self.base_url, **kwargs)
         if _FORM_STATE.search(response.text):
             return response
+        if _SYSTEM_ERROR_TITLE.search(response.text):
+            self._reject_page(
+                response.text, "CUSIS system error", stage, target, CatalogSystemError
+            )
+        self._reject_page(response.text, "CUSIS page without form state", stage, target)
 
-        is_system_error = bool(_SYSTEM_ERROR_TITLE.search(response.text))
+    def _reject_page(
+        self,
+        html: str,
+        problem: str,
+        stage: str,
+        target: str = "",
+        error: type[CatalogResponseError] = CatalogResponseError,
+    ) -> NoReturn:
+        """Save the page CUSIS served, then raise naming where the scrape was."""
         subject, code = self.current_subject or "", self.current_course_code or ""
         where = " ".join(filter(None, (stage, subject + code, target)))
-        kind = "SYSTEM_ERROR" if is_system_error else "INVALID"
+        kind = "SYSTEM_ERROR" if error is CatalogSystemError else "INVALID"
         filename = "_".join(filter(None, (stage, subject, code, target, kind)))
         self._save_debug_html(
-            response.text, re.sub(r"[^A-Za-z0-9_-]+", "_", filename) + ".html", force_save=True
+            html, re.sub(r"[^A-Za-z0-9_-]+", "_", filename) + ".html", force_save=True
         )
+        raise error(f"{problem} at {where}")
 
-        if is_system_error:
-            raise CatalogSystemError(f"CUSIS system error at {where}")
-        raise CatalogResponseError(f"CUSIS page without form state at {where}")
+    def _check_course_page(
+        self,
+        soup: BeautifulSoup,
+        html: str,
+        course: Course,
+        *,
+        stage: str,
+        term_code: str = "",
+        term_name: str = "",
+    ) -> None:
+        """Reject a page for another course, or a term page showing another term."""
+        header = self._extract_course_header_info(soup)
+        shown = " ".join(header[:2]) if header else "no course"
+        requested = f"{course.subject} {course.course_code.strip('()')}"
+        if shown != requested:
+            self._reject_page(html, f"Page shows {shown}, not {requested}", stage, term_name)
+
+        if term_code:
+            term_select = "#uc_course_ddl_class_term option[selected]"
+            selected = [option.get("value") for option in soup.select(term_select)]
+            if selected != [term_code]:
+                self._reject_page(
+                    html, f"Page selects term {selected}, not {term_code}", stage, term_name
+                )
 
     def _solve_captcha(self, image_bytes: bytes) -> str | None:
         """Solve captcha using ddddocr"""
@@ -1142,8 +1177,7 @@ class CuhkScraper:
     def _get_course_details_with_term_selection(self, html: str, base_course: Course) -> Course:
         """Get course details for all available terms"""
         soup = BeautifulSoup(html, "html.parser")
-
-        # Extract all course details from detail page
+        self._check_course_page(soup, html, base_course, stage="course_details")
         self._extract_course_details(soup, base_course)
 
         # Extract Course Outcome details if requested
@@ -1217,6 +1251,14 @@ class CuhkScraper:
             )
             html = response.text
             soup = BeautifulSoup(html, "html.parser")
+            self._check_course_page(
+                soup,
+                html,
+                base_course,
+                stage="term_switch",
+                term_code=term_code,
+                term_name=term_name,
+            )
 
         # Check "Show sections" button - click only if enabled
         show_sections_btn = soup.find("input", {"id": "uc_course_btn_class_section"})
@@ -1237,6 +1279,14 @@ class CuhkScraper:
                     "POST", stage="show_sections", target=term_name, data=form_data
                 )
                 html = response.text
+                self._check_course_page(
+                    BeautifulSoup(html, "html.parser"),
+                    html,
+                    base_course,
+                    stage="show_sections",
+                    term_code=term_code,
+                    term_name=term_name,
+                )
             else:
                 self.logger.info(f"'Show sections' disabled for {term_name}: already shown")
 
@@ -1247,65 +1297,22 @@ class CuhkScraper:
         # Parse the term-specific information
         return self._parse_term_info(html, term_code, term_name)
 
-    def _extract_course_header_info(self, soup: BeautifulSoup) -> tuple[str, str] | None:
-        """
-        Extract course code and title from detail page header.
-
-        Helper function for parsing the complex header format. The detail page header
-        is the authoritative source - list page may have artifacts like "(1370)".
-
-        Args:
-            soup: Parsed course detail page
-
-        Returns:
-            Tuple of (course_code, title) or None if parsing fails
-            Example: ("1370", "Archery")
-        """
-        course_header = soup.find("span", {"id": "uc_course_lbl_course"})
-        if not course_header:
+    def _extract_course_header_info(self, soup: BeautifulSoup) -> tuple[str, str, str] | None:
+        """Subject, number and title from a detail page header like "PHED 1370 - Archery"."""
+        header = soup.find("span", {"id": "uc_course_lbl_course"})
+        if not header:
             return None
-
-        header_text = course_header.get_text().strip()
-        # Expected format: "PHED 1370 - Archery"
-
-        if " - " not in header_text:
+        subject_and_code, separator, title = header.get_text().strip().partition(" - ")
+        parts = subject_and_code.split()
+        if not separator or len(parts) != 2:
             return None
-
-        # Split on " - " to separate subject+code from title
-        parts = header_text.split(" - ", 1)
-        subject_and_code = parts[0].strip()  # "PHED 1370"
-        title = parts[1].strip()  # "Archery"
-
-        # Split subject and code on last space
-        code_parts = subject_and_code.rsplit(" ", 1)
-        if len(code_parts) == 2:
-            return code_parts[1], title  # ("1370", "Archery")
-
-        return None
+        return parts[0], parts[1], title.strip()
 
     def _extract_course_details(self, soup: BeautifulSoup, course: Course) -> None:
         """Extract all course details from the detail page"""
 
-        # Course code and title (from header - authoritative source)
-        header_info = self._extract_course_header_info(soup)
-        if header_info:
-            detail_page_code, detail_page_title = header_info
-
-            # Log if mismatch with list page (for debugging, not failing)
-            if detail_page_code != course.course_code.removeprefix("(").removesuffix(")"):
-                self.logger.info(
-                    f"Course code updated: '{course.course_code}' → '{detail_page_code}'"
-                )
-
-            # Overwrite with authoritative data from detail page
-            course.course_code = detail_page_code
-            course.title = detail_page_title
-        else:
-            # Cannot parse header = malformed page, should retry
-            raise ValueError(
-                f"Could not parse course header for {course.course_code} - "
-                f"detail page may be corrupted"
-            )
+        # The header is clean where the list row may bracket the number: "(1370)".
+        _, course.course_code, course.title = self._extract_course_header_info(soup)
 
         # Credits
         units_elem = soup.find("span", {"id": "uc_course_lbl_units"})

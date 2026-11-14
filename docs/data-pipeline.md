@@ -218,6 +218,8 @@ Outcome pages pass validation when they:
 
 Course code/title validation is intentionally not repeated on outcome pages, because the detail page is authoritative.
 
+A detail page must show the requested subject and course number, and a term switch or **Show sections** page must also select exactly the requested term. Otherwise one course's or term's sections could be saved under another.
+
 Failures retry rather than resolving to empty data, because empty is what a legitimately empty subject, term, or section returns. Each scope retries by redoing the whole unit below it:
 
 | Scope | Retries on | Limit | When it runs out |
@@ -261,7 +263,7 @@ A production scrape already keeps the page behind each failure, so look for one 
 | --- | --- |
 | `*_FAILED.html` | a course exhausted `max_course_attempts` |
 | `*_SYSTEM_ERROR.html` | CUSIS returned its system-error page |
-| `*_INVALID.html` | a page lacked `__VIEWSTATE`, or an outcome page failed validation — kept even if a retry then succeeded |
+| `*_INVALID.html` | a page lacked `__VIEWSTATE`, showed another course or term, or an outcome page failed validation — kept even if a retry then succeeded |
 
 To keep every page instead, while investigating parser behavior:
 

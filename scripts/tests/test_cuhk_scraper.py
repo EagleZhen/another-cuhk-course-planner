@@ -776,7 +776,6 @@ def test_a_course_that_fails_for_good_keeps_the_page_that_failed(monkeypatch, tm
     with pytest.raises(ValueError):
         CuhkScraper.get_course_details(scraper, course, DETAIL_HTML)
 
-    assert [f.name for f in tmp_path.iterdir()] == ["course_details_TEST_1000_FAILED.html"]
     assert (tmp_path / "course_details_TEST_1000_FAILED.html").read_text() == (
         f"<html>{FORM_STATE}</html>"
     )
@@ -1173,14 +1172,88 @@ def test_an_unknown_page_without_form_state_is_rejected_but_not_as_a_system_erro
     assert (tmp_path / "course_details_TEST_1000_INVALID.html").read_text() == page
 
 
+SHOW_SECTIONS = '<input id="uc_course_btn_class_section" type="submit" value="Show sections"/>'
+
+
 def test_a_system_error_on_show_sections_is_not_saved_as_an_empty_term(tmp_path):
-    show_sections = '<input id="uc_course_btn_class_section" type="submit" value="Show sections"/>'
     scraper, course = _failing_scraper(tmp_path, _sample_html("System error.html"))
 
     with pytest.raises(CatalogSystemError):
         CuhkScraper._scrape_term_details(
-            scraper, _term_page(selected="2410") + show_sections, course, "2410", "2026-27 Term 1"
+            scraper, _term_page(selected="2410") + SHOW_SECTIONS, course, "2410", "2026-27 Term 1"
         )
+
+
+# Requesting 2026-27 Term 1 (2410): a switch from another term, or Show sections on it.
+TERM_POSTBACK_START = {
+    "term_switch": _term_page(selected="2390"),
+    "show_sections": _term_page(selected="2410") + SHOW_SECTIONS,
+}
+
+
+@pytest.mark.parametrize("stage", TERM_POSTBACK_START)
+@pytest.mark.parametrize(
+    "returned",
+    [
+        pytest.param(_term_page(selected="2390"), id="previous_term"),
+        pytest.param(
+            _term_page(selected="2410").replace("TEST 1000", "OTHR 1000"), id="other_course"
+        ),
+    ],
+)
+def test_a_term_page_for_another_term_or_course_is_rejected(tmp_path, stage, returned):
+    # Otherwise its sections would be saved under the requested term.
+    scraper, course = _failing_scraper(tmp_path, returned)
+
+    with pytest.raises(CatalogResponseError):
+        CuhkScraper._scrape_term_details(
+            scraper, TERM_POSTBACK_START[stage], course, "2410", "2026-27 Term 1"
+        )
+
+    kept = tmp_path / f"{stage}_TEST_1000_2026-27_Term_1_INVALID.html"
+    assert kept.read_text() == returned
+
+
+def test_a_detail_page_for_another_course_is_rejected(tmp_path):
+    page = DETAIL_HTML.replace("TEST 1000", "OTHR 1000")
+    scraper, course = _failing_scraper(tmp_path, page)
+
+    with pytest.raises(CatalogResponseError, match="OTHR 1000"):
+        CuhkScraper._get_course_details_with_term_selection(scraper, page, course)
+
+    assert (tmp_path / "course_details_TEST_1000_INVALID.html").read_text() == page
+
+
+@pytest.mark.parametrize("bracketed", [False, True], ids=["plain", "bracketed"])
+@pytest.mark.parametrize(
+    "page_name", sorted(p.name for p in SAMPLE_PAGES.glob("Course Detail*.html"))
+)
+def test_every_saved_detail_page_shows_the_course_its_list_row_names(page_name, bracketed):
+    # A future-dated course's list row brackets its number.
+    subject, code = page_name.split(" - ")[1].split()
+    course = _course(f"({code})" if bracketed else code, [])
+    course.subject = subject
+    html = _sample_html(page_name)
+
+    CuhkScraper._check_course_page(
+        _live_scraper(), BeautifulSoup(html, "html.parser"), html, course, stage="course_details"
+    )
+
+
+def test_the_saved_chlt1001_page_shows_the_term_it_was_requested_for():
+    # The page also selects a language elsewhere, which must not count as a second term.
+    html = _sample_html("Course Details - CHLT 1001 - University Chinese I.html")
+    course = _course("1001", [])
+    course.subject = "CHLT"
+
+    CuhkScraper._check_course_page(
+        _live_scraper(),
+        BeautifulSoup(html, "html.parser"),
+        html,
+        course,
+        stage="show_sections",
+        term_code="2420",
+    )
 
 
 def test_a_section_keeps_the_attributes_its_own_page_states(monkeypatch):
@@ -1200,10 +1273,12 @@ def test_a_section_keeps_the_attributes_its_own_page_states(monkeypatch):
         ),
     )
 
+    course = _course("3530", [])
+    course.subject = "MUSC"
     course = CuhkScraper._get_course_details_with_term_selection(
         scraper,
         _sample_html("Course Details - MUSC 3530 - Music Performer\u2019s Issues.html"),
-        _course("3530", []),
+        course,
     )
 
     assert course.course_attributes == "Cantonese and English"
