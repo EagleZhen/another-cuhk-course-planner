@@ -1113,7 +1113,7 @@ def test_the_system_error_page_is_named_and_kept(tmp_path):
             scraper, "POST", stage="show_sections", target="2026-27 Term 2"
         )
 
-    kept = tmp_path / "show_sections_TEST_1000_2026-27_Term_2_SYSTEM_ERROR.html"
+    kept = tmp_path / "show_sections_TEST1000_2026-27_Term_2_SYSTEM_ERROR.html"
     assert kept.read_text() == page
 
 
@@ -1126,7 +1126,7 @@ def test_an_unknown_page_without_form_state_is_rejected_but_not_as_a_system_erro
         CuhkScraper._request_catalog_html(scraper, "POST", stage="course_details")
 
     assert not isinstance(raised.value, CatalogSystemError)
-    assert (tmp_path / "course_details_TEST_1000_INVALID.html").read_text() == page
+    assert (tmp_path / "course_details_TEST1000_INVALID.html").read_text() == page
 
 
 SHOW_SECTIONS = '<input id="uc_course_btn_class_section" type="submit" value="Show sections"/>'
@@ -1167,7 +1167,7 @@ def test_a_term_page_for_another_term_or_course_is_rejected(tmp_path, stage, ret
             scraper, TERM_POSTBACK_START[stage], course, "2410", "2026-27 Term 1"
         )
 
-    kept = tmp_path / f"{stage}_TEST_1000_2026-27_Term_1_INVALID.html"
+    kept = tmp_path / f"{stage}_TEST1000_2026-27_Term_1_INVALID.html"
     assert kept.read_text() == returned
 
 
@@ -1178,7 +1178,7 @@ def test_a_detail_page_for_another_course_is_rejected(tmp_path):
     with pytest.raises(CatalogResponseError, match="OTHR 1000"):
         CuhkScraper._get_course_details_with_term_selection(scraper, page, course)
 
-    assert (tmp_path / "course_details_TEST_1000_INVALID.html").read_text() == page
+    assert (tmp_path / "course_details_TEST1000_INVALID.html").read_text() == page
 
 
 @pytest.mark.parametrize("bracketed", [False, True], ids=["plain", "bracketed"])

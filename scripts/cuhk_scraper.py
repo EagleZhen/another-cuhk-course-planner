@@ -718,7 +718,7 @@ class CuhkScraper:
         subject, code = self.current_subject or "", self.current_course_code or ""
         where = " ".join(filter(None, (stage, subject + code, target)))
         kind = "SYSTEM_ERROR" if error is CatalogSystemError else "INVALID"
-        filename = "_".join(filter(None, (stage, subject, code, target, kind)))
+        filename = "_".join(filter(None, (stage, subject + code, target, kind)))
         self._save_debug_html(
             html, re.sub(r"[^A-Za-z0-9_-]+", "_", filename) + ".html", force_save=True
         )
