@@ -42,12 +42,11 @@ def test_resume_and_a_subject_list_are_rejected_together():
 
 @pytest.mark.parametrize(
     "error",
-    [cuhk_scraper.NothingToResume, data_utils.UnreadableProgressLog],
-    ids=["nothing to resume", "unreadable log"],
+    [cuhk_scraper.NothingToResume, data_utils.UnreadableProgressLog, RuntimeError],
+    ids=["nothing to resume", "unreadable log", "fatal error"],
 )
-def test_a_refusal_to_scrape_exits_nonzero(monkeypatch, error):
-    # Otherwise it lands in the catch-all below, which returns 0 — a caller would read
-    # a scrape that never started as a scrape that worked.
+def test_a_scrape_that_stops_on_an_error_exits_nonzero(monkeypatch, error):
+    # A caller would otherwise read a scrape that never finished as one that worked.
     monkeypatch.setattr(
         cuhk_scraper.ScrapingConfig, "for_production", classmethod(lambda cls: cls())
     )
