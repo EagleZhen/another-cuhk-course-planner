@@ -256,25 +256,21 @@ test('reports a conflict for sections that share a date', async ({ page }) => {
   await expect(conflictZone(page).first()).toBeVisible()
 })
 
-// Pause real transitions before sampling so slow CI cannot miss the resizing.
-async function watchGridResizing(page: Page) {
-  return page.evaluateHandle(() => {
-    const state = { started: 0 }
-    document.addEventListener('transitionrun', (event) => {
-      const target = event.target as HTMLElement
-      if (!target.closest('.time-column, .day-column')) return
-      if (!['top', 'height'].includes(event.propertyName)) return
-      state.started++
-      for (const animation of target.getAnimations()) {
-        if (
+// Pause the resize in the same step as the toggle; on slow CI it can finish before a later step.
+async function toggleWithResizePaused(page: Page, label: string) {
+  const toggle = page.getByRole('button', { name: label, exact: true })
+  return toggle.evaluate(async (button: HTMLElement) => {
+    button.click()
+    await Promise.resolve() // React renders the click in a microtask
+    const resizing = Array.from(document.querySelectorAll('.time-column, .day-column'))
+      .flatMap((column) => column.getAnimations({ subtree: true }))
+      .filter(
+        (animation) =>
           animation instanceof CSSTransition &&
           ['top', 'height'].includes(animation.transitionProperty)
-        ) {
-          animation.pause()
-        }
-      }
-    })
-    return state
+      )
+    for (const animation of resizing) animation.pause()
+    return resizing.length
   })
 }
 
@@ -337,20 +333,11 @@ test('keeps meetings and conflicts aligned with the grid throughout resizing', a
   await openPlanner(page, '11/9')
   await expect(cards(page)).toHaveCount(2)
   await expect(conflictZone(page)).toHaveCount(1)
-  await watchGridResizing(page)
   let previous = await gridGeometry(page)
   expectGridAlignment(previous)
 
   for (const label of ['Title', 'Instructor', 'Instructor', 'Title']) {
-    await page.getByRole('button', { name: label, exact: true }).click()
-    const hour = page.locator('.time-column > div > div').first()
-    await expect
-      .poll(() =>
-        hour.evaluate((element) =>
-          element.getAnimations().some((animation) => animation.playState === 'paused')
-        )
-      )
-      .toBe(true)
+    expect(await toggleWithResizePaused(page, label)).toBeGreaterThan(0)
 
     const quarter = await gridGeometry(page, 0.25)
     const later = await gridGeometry(page, 0.75)
@@ -377,16 +364,10 @@ test('resizes the timetable immediately with reduced motion', async ({ page }) =
   await openPlanner(page, '11/9')
   await expect(cards(page)).toHaveCount(2)
   await expect(conflictZone(page)).toHaveCount(1)
-  const motion = await watchGridResizing(page)
   const before = await gridGeometry(page)
 
-  await page.getByRole('button', { name: 'Title', exact: true }).click()
+  expect(await toggleWithResizePaused(page, 'Title')).toBe(0)
   await expect(cards(page).first().getByText('College Induction Course')).toBeVisible()
-  await page.evaluate(
-    () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
-  )
-
-  expect(await motion.evaluate((state) => state.started)).toBe(0)
   const after = await gridGeometry(page)
   expect(after.hourHeight - before.hourHeight).toBeGreaterThan(1)
   expectGridAlignment(after)
