@@ -27,4 +27,6 @@ After navigation or reload, use `expectEmptyCatalogLoaded(page)` for empty fixtu
 
 `setFixedTime()` fixes the date but leaves timers running, so it does not prevent expiry races.
 
+Don't race animations: CI's WebKit can stall for seconds. To check one mid-way, start and pause it in the same `evaluate`.
+
 Note: Playwright's WebKit is not real Safari.app and does not reproduce every Safari-specific rendering quirk. For those, test in real Safari (`safaridriver`) or a device cloud.
