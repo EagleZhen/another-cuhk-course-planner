@@ -435,6 +435,10 @@ def validate_course_file(
     return len(issues) == 0, issues
 
 
+# Only CUHK can fix what makes a subject incomplete, so it publishes with a warning.
+SAVED_STATUSES = ("completed", "incomplete")
+
+
 def validate_scrape_progress(progress_data: dict | None) -> dict[str, list[str]]:
     """Issues by subject code, from what the scrape recorded.
 
@@ -450,9 +454,9 @@ def validate_scrape_progress(progress_data: dict | None) -> dict[str, list[str]]
     # TODO(#290): nothing prunes the registry, so a subject CUHK drops keeps whatever
     # status it last recorded — a stale `failed` blocks every publish.
     return {
-        subject_code: [f"Subject status is '{status}', not 'completed'"]
+        subject_code: [f"Subject status is '{status}', not saved"]
         for subject_code, subject_progress in progress_data.get("subjects", {}).items()
-        if (status := subject_progress.get("status")) != "completed"
+        if (status := subject_progress.get("status")) not in SAVED_STATUSES
     }
 
 
@@ -699,20 +703,20 @@ def summarize_subject_registry(progress_data: dict | None) -> dict | None:
     if not progress_data or "subjects" not in progress_data:
         return None
 
-    completed_subjects = 0
+    saved_subjects = 0
     failed_subjects = 0
     total_courses = 0
 
     for subject_data in progress_data["subjects"].values():
         status = subject_data.get("status")
-        if status == "completed":
-            completed_subjects += 1
+        if status in SAVED_STATUSES:
+            saved_subjects += 1
             total_courses += subject_data.get("courses_count", 0)
         elif status == "failed":
             failed_subjects += 1
 
     return {
-        "completed_subjects": completed_subjects,
+        "saved_subjects": saved_subjects,
         "failed_subjects": failed_subjects,
         "total_courses": total_courses,
     }
@@ -755,7 +759,7 @@ def report_scrape_summary(progress_data: dict | None, scrape_times: dict[str, st
     )
 
     print(
-        f"Scraped {when}: {stats['completed_subjects']} subjects, "
+        f"Scraped {when}: {stats['saved_subjects']} subjects, "
         f"{stats['total_courses']:,} courses, {stats['failed_subjects']} failed"
     )
 
@@ -763,7 +767,7 @@ def report_scrape_summary(progress_data: dict | None, scrape_times: dict[str, st
     missing = {
         code: entry["unavailable"]
         for code, entry in sorted(progress_data["subjects"].items())
-        if entry["status"] == "completed" and entry["unavailable"]
+        if entry["status"] == "incomplete"
     }
     if missing:
         print(f"⚠️ Missing after a CUSIS system error ({len(missing)} subjects):")

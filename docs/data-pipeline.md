@@ -199,15 +199,16 @@ Any catalog request can return CUSIS's system-error page, not just the course ou
 
 The scraper rejects any page without `__VIEWSTATE`, which every catalog page carries, so an unfamiliar error page also fails instead of parsing as empty. A page titled `System error` counts as a system error.
 
-Only CUHK can fix a system error, so on a course outcome or a term it does not fail the subject. That term or outcome retries on its own, up to `max_course_attempts` times, then is saved empty (a term with no sections, an outcome with empty fields), and the subject's progress entry lists it under `unavailable`. On any other page it fails like any bad page.
+Only CUHK can fix a system error, so on a course outcome or a term it does not fail the subject. That term or outcome retries on its own, up to `max_course_attempts` times, then is saved empty (a term with no sections, an outcome with empty fields). The subject is recorded as `incomplete`, listing what is missing under `unavailable`, and publishes with a warning. On any other page it fails like any bad page.
 
 For example, if switching ELTU1001 to 2026-27 Term 2 keeps erroring, ELTU1001 is saved with that term empty and the ELTU entry reads:
 
 ```json
+"status": "incomplete",
 "unavailable": ["term_switch ELTU1001 2026-27 Term 2"]
 ```
 
-The next scrape that gets the term brings it back and clears the entry.
+The next scrape that gets the term brings it back and the subject returns to `completed`.
 
 ### Incomplete Or Alternate Pages
 
@@ -263,7 +264,7 @@ jq '.subjects.CSCI' logs/scraping_progress.json
 List where each subject's latest scrape got a CUSIS system error:
 
 ```bash
-jq '.subjects | map_values(.unavailable | select(length > 0))' logs/scraping_progress.json
+jq '.subjects | map_values(select(.status == "incomplete") | .unavailable)' logs/scraping_progress.json
 ```
 
 A production scrape already keeps the page behind each failure in `logs/error_pages/<run's log name>/`, so look for one before reproducing it:

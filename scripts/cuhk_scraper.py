@@ -3,7 +3,7 @@ import logging
 import os
 import re
 import time
-from collections.abc import Callable, Iterator
+from collections.abc import Callable, Iterator, Sequence
 from contextlib import contextmanager
 from dataclasses import asdict, dataclass, field, replace
 from datetime import UTC, datetime, timedelta
@@ -258,6 +258,7 @@ class ScrapingProgressTracker:
             "mode": self.mode,
             "subjects_total": len(self.run_subjects),
             "subjects_completed": subject_statuses.count("completed"),
+            "subjects_incomplete": subject_statuses.count("incomplete"),
             "subjects_failed": subject_statuses.count("failed"),
             # What the numbers above were produced under: a run that skipped details or
             # capped courses per subject explains data that looks thin.
@@ -304,19 +305,22 @@ class ScrapingProgressTracker:
         subject: str,
         courses_count: int,
         output_files: list[str],
-        unavailable: list[str],
+        *,
+        unavailable: Sequence[str] = (),
     ):
-        """Mark subject as completed, with where CUSIS kept returning its system error"""
-        subjects = self.progress_data["subjects"]
-        subjects[subject] = {
-            "status": "completed",
+        """Mark subject as saved: "incomplete" if `unavailable` lists parts CUSIS kept
+        erroring on, otherwise "completed"."""
+        entry = {
+            "status": "incomplete" if unavailable else "completed",
             "courses_count": courses_count,
             "output_file": render_output_files(output_files),
-            "unavailable": unavailable,
         }
+        if unavailable:
+            entry["unavailable"] = list(unavailable)
+        self.progress_data["subjects"][subject] = entry
 
         self._record_scrape_progress(subject, output_files)
-        self._subject_statuses[subject] = "completed"
+        self._subject_statuses[subject] = entry["status"]
         self._save_progress()
 
     def fail_subject(self, subject: str, error_message: str):
@@ -360,7 +364,10 @@ class ScrapingProgressTracker:
 
     def get_failed_subjects(self) -> list[str]:
         """Get the subjects this run failed, for summary/retry purposes"""
-        return [subject for subject, status in self._subject_statuses.items() if status == "failed"]
+        return self._subjects_with_status("failed")
+
+    def _subjects_with_status(self, status: str) -> list[str]:
+        return [subject for subject, seen in self._subject_statuses.items() if seen == status]
 
     def run_summary(self) -> str:
         """This run's tally, for the line that closes the run."""
@@ -369,10 +376,10 @@ class ScrapingProgressTracker:
             f"{run['subjects_completed']} of {run['subjects_total']} subjects in {run['duration']}"
         )
 
-        failed_subjects = self.get_failed_subjects()
-        if failed_subjects:
-            # Its own line: the list is as long as the run was bad.
-            summary += f"\n    {len(failed_subjects)} failed: {', '.join(failed_subjects)}"
+        # Each its own line: the list is as long as the run was bad.
+        for status in ("incomplete", "failed"):
+            if subjects := self._subjects_with_status(status):
+                summary += f"\n    {len(subjects)} {status}: {', '.join(subjects)}"
         return summary
 
 
@@ -2023,7 +2030,7 @@ class CuhkScraper:
                         )
                     if self.progress_tracker:
                         self.progress_tracker.complete_subject(
-                            subject, len(courses or []), saved_file, unavailable
+                            subject, len(courses or []), saved_file, unavailable=unavailable
                         )
 
                     # Use different message for empty vs populated subjects
