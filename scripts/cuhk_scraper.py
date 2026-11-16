@@ -3,12 +3,12 @@ import logging
 import os
 import re
 import time
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator, Sequence
 from contextlib import contextmanager
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, field, replace
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from typing import Any
+from typing import Any, NoReturn
 
 import ddddocr
 import onnxruntime
@@ -45,8 +45,9 @@ SOURCE_DATA_DIR = "data"
 # Operational logs and summaries
 LOGS_DIR = "logs"
 SCRAPE_LOG_DIR = os.path.join(LOGS_DIR, "scrape")
+# Pages behind a failure outside debug mode, one folder per run named after its log
+ERROR_PAGES_DIR = os.path.join(LOGS_DIR, "error_pages")
 SCRAPING_PROGRESS_FILE = os.path.join(LOGS_DIR, "scraping_progress.json")
-FAILED_COURSE_OUTCOMES_FILE = os.path.join(LOGS_DIR, "failed_course_outcomes.txt")
 
 
 @dataclass
@@ -123,6 +124,8 @@ class Course:
     credits: str
     terms: list[TermInfo]  # List of terms this course is offered
     postback_target: str = ""  # For getting detailed info
+    # Where CUSIS kept returning its system error, so that part of the course is empty.
+    unavailable: list[str] = field(default_factory=list)
 
     # Additional course details
     description: str = ""
@@ -152,6 +155,7 @@ class Course:
         data = asdict(self)
         # Remove postback_target from exported data
         data.pop("postback_target", None)
+        data.pop("unavailable", None)
         # Convert terms to dict format
         data["terms"] = [term.to_dict() for term in self.terms]
         return data
@@ -254,6 +258,7 @@ class ScrapingProgressTracker:
             "mode": self.mode,
             "subjects_total": len(self.run_subjects),
             "subjects_completed": subject_statuses.count("completed"),
+            "subjects_incomplete": subject_statuses.count("incomplete"),
             "subjects_failed": subject_statuses.count("failed"),
             # What the numbers above were produced under: a run that skipped details or
             # capped courses per subject explains data that looks thin.
@@ -295,17 +300,27 @@ class ScrapingProgressTracker:
         subjects[subject] = {"status": "in_progress", "started_at": utc_now_iso()}
         self._save_progress()
 
-    def complete_subject(self, subject: str, courses_count: int, output_files: list[str]):
-        """Mark subject as completed"""
-        subjects = self.progress_data["subjects"]
-        subjects[subject] = {
-            "status": "completed",
+    def complete_subject(
+        self,
+        subject: str,
+        courses_count: int,
+        output_files: list[str],
+        *,
+        unavailable: Sequence[str] = (),
+    ):
+        """Mark subject as saved: "incomplete" if `unavailable` lists parts CUSIS kept
+        erroring on, otherwise "completed"."""
+        entry = {
+            "status": "incomplete" if unavailable else "completed",
             "courses_count": courses_count,
             "output_file": render_output_files(output_files),
         }
+        if unavailable:
+            entry["unavailable"] = list(unavailable)
+        self.progress_data["subjects"][subject] = entry
 
         self._record_scrape_progress(subject, output_files)
-        self._subject_statuses[subject] = "completed"
+        self._subject_statuses[subject] = entry["status"]
         self._save_progress()
 
     def fail_subject(self, subject: str, error_message: str):
@@ -349,7 +364,10 @@ class ScrapingProgressTracker:
 
     def get_failed_subjects(self) -> list[str]:
         """Get the subjects this run failed, for summary/retry purposes"""
-        return [subject for subject, status in self._subject_statuses.items() if status == "failed"]
+        return self._subjects_with_status("failed")
+
+    def _subjects_with_status(self, status: str) -> list[str]:
+        return [subject for subject, seen in self._subject_statuses.items() if seen == status]
 
     def run_summary(self) -> str:
         """This run's tally, for the line that closes the run."""
@@ -358,10 +376,10 @@ class ScrapingProgressTracker:
             f"{run['subjects_completed']} of {run['subjects_total']} subjects in {run['duration']}"
         )
 
-        failed_subjects = self.get_failed_subjects()
-        if failed_subjects:
-            # Its own line: the list is as long as the run was bad.
-            summary += f"\n    {len(failed_subjects)} failed: {', '.join(failed_subjects)}"
+        # Each its own line: the list is as long as the run was bad.
+        for status in ("incomplete", "failed"):
+            if subjects := self._subjects_with_status(status):
+                summary += f"\n    {len(subjects)} {status}: {', '.join(subjects)}"
         return summary
 
 
@@ -423,6 +441,23 @@ def show_scrape_context(scraper: "CuhkScraper", handlers: list[logging.Handler])
         handler.setFormatter(scrape_log_formatter())
 
 
+class CatalogResponseError(ValueError):
+    """CUSIS returned a page the scraper cannot use. The page has already been saved."""
+
+    def __init__(self, problem: str, where: str):
+        super().__init__(f"{problem} at {where}")
+        self.where = where
+
+
+class CatalogSystemError(CatalogResponseError):
+    """CUSIS returned its "System error" page."""
+
+
+# Every catalog page carries the form state the next postback must send back.
+_FORM_STATE = re.compile(r'name="__VIEWSTATE"')
+_SYSTEM_ERROR_TITLE = re.compile(r"<title>\s*System error\s*</title>", re.IGNORECASE)
+
+
 class CuhkScraper:
     """Simplified CUHK course scraper"""
 
@@ -450,7 +485,8 @@ class CuhkScraper:
         self.current_course_code: str | None = None
 
         # Set up file logging automatically
-        self._setup_file_logging()
+        log_path = self._setup_file_logging()
+        self.error_pages_dir = os.path.join(ERROR_PAGES_DIR, Path(log_path).stem)
 
         # Suppress ONNX warnings
         onnxruntime.set_default_logger_severity(3)
@@ -520,6 +556,11 @@ class CuhkScraper:
 
                 # Check for HTTP errors
                 response.raise_for_status()
+
+                # With no charset in the header, requests falls back to Latin-1. CUSIS's
+                # error page names none, and every CUSIS page is UTF-8.
+                if "charset=" not in response.headers.get("Content-Type", "").lower():
+                    response.encoding = "utf-8"
 
                 return response
 
@@ -643,21 +684,80 @@ class CuhkScraper:
         return form_data
 
     def _save_debug_html(self, content: str, filename: str, force_save: bool = False) -> None:
-        """Smart HTML debug file saving with separate directory"""
-        # Save if explicitly enabled, or when the caller is keeping a failure
-        should_save = self.config.save_debug_files or (
-            force_save and self.config.save_debug_on_error
+        """Save every page in debug mode; otherwise only one behind a failure, in this
+        run's folder under logs/error_pages/."""
+        if self.config.save_debug_files:
+            directory = self.config.debug_html_directory
+        elif force_save and self.config.save_debug_on_error:
+            directory = self.error_pages_dir
+        else:
+            return
+
+        os.makedirs(directory, exist_ok=True)
+        debug_path = os.path.join(directory, filename)
+        with open(debug_path, "w", encoding="utf-8") as f:
+            f.write(content)
+        self.logger.info(f"Saved debug HTML: {debug_path}")
+
+    def _request_catalog_html(
+        self, method: str, *, stage: str, target: str = "", **kwargs
+    ) -> requests.Response:
+        """Request a catalog page. Rejects a page without form state, so even an
+        unfamiliar error page fails instead of parsing as empty."""
+        response = self._robust_request(method, self.base_url, **kwargs)
+        if _FORM_STATE.search(response.text):
+            return response
+        if _SYSTEM_ERROR_TITLE.search(response.text):
+            self._reject_page(
+                response.text, "CUSIS system error", stage, target, CatalogSystemError
+            )
+        self._reject_page(response.text, "CUSIS page without form state", stage, target)
+
+    def _reject_page(
+        self,
+        html: str,
+        problem: str,
+        stage: str,
+        target: str = "",
+        error: type[CatalogResponseError] = CatalogResponseError,
+    ) -> NoReturn:
+        """Save the page CUSIS returned, then raise naming where the scrape was."""
+        subject, code = self.current_subject or "", self.current_course_code or ""
+        where = " ".join(filter(None, (stage, subject + code, target)))
+        kind = "SYSTEM_ERROR" if error is CatalogSystemError else "INVALID"
+        # Cleaned part by part, so "(9978)" at the end of a part leaves no stray "_".
+        parts = (
+            re.sub(r"[^A-Za-z0-9_-]+", "_", part).strip("_")
+            for part in (stage, subject + code, target, kind)
         )
+        filename = "_".join(filter(None, parts)) + ".html"
+        self._save_debug_html(html, filename, force_save=True)
+        raise error(problem, where)
 
-        if should_save:
-            # Ensure debug directory exists
-            os.makedirs(self.config.debug_html_directory, exist_ok=True)
+    def _check_course_page(
+        self,
+        soup: BeautifulSoup,
+        html: str,
+        course: Course,
+        *,
+        stage: str,
+        term_code: str = "",
+        term_name: str = "",
+    ) -> None:
+        """Reject a page for another course, or a term page showing another term."""
+        header = self._extract_course_header_info(soup)
+        shown = " ".join(header[:2]) if header else "no course"
+        requested = f"{course.subject} {course.course_code.strip('()')}"
+        if shown != requested:
+            self._reject_page(html, f"Page shows {shown}, not {requested}", stage, term_name)
 
-            # Save to separate debug directory
-            debug_path = os.path.join(self.config.debug_html_directory, filename)
-            with open(debug_path, "w", encoding="utf-8") as f:
-                f.write(content)
-            self.logger.info(f"Saved debug HTML: {debug_path}")
+        if term_code:
+            term_select = "#uc_course_ddl_class_term option[selected]"
+            selected = [option.get("value") for option in soup.select(term_select)]
+            if selected != [term_code]:
+                self._reject_page(
+                    html, f"Page selects term {selected}, not {term_code}", stage, term_name
+                )
 
     def _solve_captcha(self, image_bytes: bytes) -> str | None:
         """Solve captcha using ddddocr"""
@@ -790,7 +890,7 @@ class CuhkScraper:
                 {"code": code, "title": title} for code, title in self.subject_titles_cache.items()
             ]
 
-        response = self._robust_request("GET", self.base_url)
+        response = self._request_catalog_html("GET", stage="subject_list")
         soup = BeautifulSoup(response.text, "html.parser")
         select = soup.find("select", {"name": "ddl_subject"})
         if not select:
@@ -817,7 +917,7 @@ class CuhkScraper:
                     self.logger.info(f"Fetching course list, attempt {attempt + 1}")
 
                     # Get the initial page to extract form data
-                    response = self._robust_request("GET", self.base_url)
+                    response = self._request_catalog_html("GET", stage="subject_form")
 
                     soup = BeautifulSoup(response.text, "html.parser")
 
@@ -826,7 +926,9 @@ class CuhkScraper:
                     form_data["ddl_subject"] = subject_code
 
                     # Submit the form
-                    response = self._robust_request("POST", self.base_url, data=form_data)
+                    response = self._request_catalog_html(
+                        "POST", stage="course_list", data=form_data
+                    )
 
                     # Validate captcha was accepted by server
                     validation = self._validate_captcha_response(response.text)
@@ -1057,12 +1159,13 @@ class CuhkScraper:
                     form_data["__EVENTARGUMENT"] = ""
 
                     # Submit the postback to get course details page
-                    response = self._robust_request("POST", self.base_url, data=form_data)
+                    response = self._request_catalog_html(
+                        "POST", stage="course_details", data=form_data
+                    )
 
-                    # Get course details with all available terms
-                    # This will raise ValueError if HTML is corrupted (e.g., missing Course Outcome button)
+                    # A fresh copy, so nothing carries over from an earlier attempt.
                     detailed_course = self._get_course_details_with_term_selection(
-                        response.text, course
+                        response.text, replace(course, unavailable=[])
                     )
 
                     # Debug: save detailed response (using smart saving)
@@ -1100,11 +1203,28 @@ class CuhkScraper:
                     )
                     time.sleep(wait_time)
 
+    def _retry_system_error[T](self, course: Course, fetch: Callable[[], T]) -> T | None:
+        """Run one part of a course, retrying a CUSIS system error on its own.
+
+        Once attempts run out, record where on the course and return None, so the
+        caller saves that part empty.
+        """
+        for attempt in range(1, self.config.max_course_attempts + 1):
+            try:
+                return fetch()
+            except CatalogSystemError as e:
+                if attempt == self.config.max_course_attempts:
+                    self.logger.error(f"{e}; saving it empty")
+                    course.unavailable.append(e.where)
+                    return None
+                wait_time = min(60, 1.0 * (2 ** (attempt - 1)))
+                self.logger.warning(f"{e} (attempt {attempt}), retrying in {wait_time}s")
+                time.sleep(wait_time)
+
     def _get_course_details_with_term_selection(self, html: str, base_course: Course) -> Course:
         """Get course details for all available terms"""
         soup = BeautifulSoup(html, "html.parser")
-
-        # Extract all course details from detail page
+        self._check_course_page(soup, html, base_course, stage="course_details")
         self._extract_course_details(soup, base_course)
 
         # Extract Course Outcome details if requested
@@ -1133,14 +1253,20 @@ class CuhkScraper:
             f"Found {len(available_terms)} terms: {[name for _, name in available_terms]}"
         )
 
-        # A failure propagates to get_course_details, which re-scrapes the course: a
-        # dropped term is indistinguishable from one CUHK stopped offering.
+        # Any other failure propagates to get_course_details, which re-scrapes the course:
+        # a dropped term is indistinguishable from one CUHK stopped offering.
         all_term_info = []
         for i, (term_code, term_name) in enumerate(available_terms):
             self.logger.info(f"Scraping term {i + 1}/{len(available_terms)}: {term_name}")
-            term_info = self._scrape_term_details(html, base_course, term_code, term_name)
-            if term_info:
-                all_term_info.append(term_info)
+            term_info = self._retry_system_error(
+                base_course,
+                lambda: self._scrape_term_details(html, base_course, term_code, term_name),
+            )
+            # Still a term CUSIS lists, so keep it, with no sections; the course's
+            # `unavailable` record says why they are missing.
+            if term_info is None:
+                term_info = TermInfo(term_code=term_code, term_name=term_name, schedule=[])
+            all_term_info.append(term_info)
 
         base_course.terms = all_term_info
 
@@ -1173,9 +1299,19 @@ class CuhkScraper:
             form_data["__EVENTARGUMENT"] = ""
 
             # Submit term change
-            response = self._robust_request("POST", self.base_url, data=form_data)
+            response = self._request_catalog_html(
+                "POST", stage="term_switch", target=term_name, data=form_data
+            )
             html = response.text
             soup = BeautifulSoup(html, "html.parser")
+            self._check_course_page(
+                soup,
+                html,
+                base_course,
+                stage="term_switch",
+                term_code=term_code,
+                term_name=term_name,
+            )
 
         # Check "Show sections" button - click only if enabled
         show_sections_btn = soup.find("input", {"id": "uc_course_btn_class_section"})
@@ -1192,8 +1328,18 @@ class CuhkScraper:
                 form_data["uc_course$ddl_class_term"] = term_code
 
                 # Submit show sections
-                response = self._robust_request("POST", self.base_url, data=form_data)
+                response = self._request_catalog_html(
+                    "POST", stage="show_sections", target=term_name, data=form_data
+                )
                 html = response.text
+                self._check_course_page(
+                    BeautifulSoup(html, "html.parser"),
+                    html,
+                    base_course,
+                    stage="show_sections",
+                    term_code=term_code,
+                    term_name=term_name,
+                )
             else:
                 self.logger.info(f"'Show sections' disabled for {term_name}: already shown")
 
@@ -1204,65 +1350,22 @@ class CuhkScraper:
         # Parse the term-specific information
         return self._parse_term_info(html, term_code, term_name)
 
-    def _extract_course_header_info(self, soup: BeautifulSoup) -> tuple[str, str] | None:
-        """
-        Extract course code and title from detail page header.
-
-        Helper function for parsing the complex header format. The detail page header
-        is the authoritative source - list page may have artifacts like "(1370)".
-
-        Args:
-            soup: Parsed course detail page
-
-        Returns:
-            Tuple of (course_code, title) or None if parsing fails
-            Example: ("1370", "Archery")
-        """
-        course_header = soup.find("span", {"id": "uc_course_lbl_course"})
-        if not course_header:
+    def _extract_course_header_info(self, soup: BeautifulSoup) -> tuple[str, str, str] | None:
+        """Subject, number and title from a detail page header like "PHED 1370 - Archery"."""
+        header = soup.find("span", {"id": "uc_course_lbl_course"})
+        if not header:
             return None
-
-        header_text = course_header.get_text().strip()
-        # Expected format: "PHED 1370 - Archery"
-
-        if " - " not in header_text:
+        subject_and_code, separator, title = header.get_text().strip().partition(" - ")
+        parts = subject_and_code.split()
+        if not separator or len(parts) != 2:
             return None
-
-        # Split on " - " to separate subject+code from title
-        parts = header_text.split(" - ", 1)
-        subject_and_code = parts[0].strip()  # "PHED 1370"
-        title = parts[1].strip()  # "Archery"
-
-        # Split subject and code on last space
-        code_parts = subject_and_code.rsplit(" ", 1)
-        if len(code_parts) == 2:
-            return code_parts[1], title  # ("1370", "Archery")
-
-        return None
+        return parts[0], parts[1], title.strip()
 
     def _extract_course_details(self, soup: BeautifulSoup, course: Course) -> None:
         """Extract all course details from the detail page"""
 
-        # Course code and title (from header - authoritative source)
-        header_info = self._extract_course_header_info(soup)
-        if header_info:
-            detail_page_code, detail_page_title = header_info
-
-            # Log if mismatch with list page (for debugging, not failing)
-            if detail_page_code != course.course_code.removeprefix("(").removesuffix(")"):
-                self.logger.info(
-                    f"Course code updated: '{course.course_code}' → '{detail_page_code}'"
-                )
-
-            # Overwrite with authoritative data from detail page
-            course.course_code = detail_page_code
-            course.title = detail_page_title
-        else:
-            # Cannot parse header = malformed page, should retry
-            raise ValueError(
-                f"Could not parse course header for {course.course_code} - "
-                f"detail page may be corrupted"
-            )
+        # The header is clean where the list row may bracket the number: "(1370)".
+        _, course.course_code, course.title = self._extract_course_header_info(soup)
 
         # Credits
         units_elem = soup.find("span", {"id": "uc_course_lbl_units"})
@@ -1514,7 +1617,9 @@ class CuhkScraper:
         form_data["__EVENTARGUMENT"] = ""
 
         # Submit the postback to get class details
-        response = self._robust_request("POST", self.base_url, data=form_data)
+        response = self._request_catalog_html(
+            "POST", stage="class_details", target=section_name, data=form_data
+        )
         class_details_html = response.text
 
         # Save debug file for class details HTML (using smart saving)
@@ -1736,25 +1841,12 @@ class CuhkScraper:
 
         # Submit Course Outcome request
         self.logger.info("Navigating to Course Outcome page")
-        response = self._robust_request("POST", self.base_url, data=form_data)
-
-        # Check for PERMANENT system error (don't retry these)
-        if (
-            "<title>System error</title>" in response.text
-            or "System error. Please try again" in response.text
-        ):
-            self.logger.error("System error (PERMANENT) for the course outcome - cannot scrape")
-            self._track_failed_course_outcome(
-                course.subject, course.course_code, "system_error_permanent"
-            )
-            # Kept like an exhausted course: nothing retries this, so the page is the only
-            # evidence the outcome is missing rather than empty.
-            self._save_debug_html(
-                response.text,
-                f"course_outcome_{course.subject}_{course.course_code}_SYSTEM_ERROR.html",
-                force_save=True,
-            )
-            return  # Don't retry system errors - they're permanent (malformed data in CUHK database)
+        response = self._retry_system_error(
+            course,
+            lambda: self._request_catalog_html("POST", stage="course_outcome", data=form_data),
+        )
+        if response is None:
+            return
 
         # Debug: save Course Outcome response (using smart saving)
         self._save_debug_html(
@@ -1789,13 +1881,7 @@ class CuhkScraper:
             False: Invalid response, preserve existing course outcome data
         """
         try:
-            # Check 1: System error page detection (primary failure mode - ~8% of requests)
-            # Example failure: <title>System error</title><body>系統有誤，請稍後再試。<br />System error. Please try again latter.</body>
-            if "<title>System error</title>" in html or "System error. Please try again" in html:
-                self.logger.error("System error page for the course outcome")
-                return False
-
-            # Check 2: Minimum structural requirements - ensure it's actually a course outcome page
+            # Check 1: Minimum structural requirements - ensure it's actually a course outcome page
             # Example valid: <div class="titleNormal">Course Outcome</div>
             # Example invalid: <div class="titleNormal">Course Catalog</div> (wrong page)
             soup = BeautifulSoup(html, "html.parser")
@@ -1803,7 +1889,7 @@ class CuhkScraper:
                 self.logger.error("Missing 'Course Outcome' title")
                 return False
 
-            # Check 3: Content structure validation - ensure page has outcome sections
+            # Check 2: Content structure validation - ensure page has outcome sections
             # Checks for section headers like "Learning Outcome", "Course Syllabus", "Assessment Type", etc.
             # These headers have class="reverseHeaderStyle" and indicate the page has actual content
             # Example: <td class="reverseHeaderStyle">Learning Outcome</td>
@@ -1818,79 +1904,6 @@ class CuhkScraper:
         except Exception as e:
             self.logger.error(f"Error validating course outcome response: {e}")
             return False  # Fail safe - preserve existing data if validation fails
-
-    def _track_failed_course_outcome(self, subject: str, course_code: str, reason: str):
-        """Track failed course outcomes for potential retry"""
-        if not hasattr(self, "_failed_course_outcomes"):
-            self._failed_course_outcomes = []
-
-        # An unrelated failure re-scrapes the whole course, so this can be reached again.
-        if any(
-            (f["subject"], f["course_code"], f["reason"]) == (subject, course_code, reason)
-            for f in self._failed_course_outcomes
-        ):
-            return
-
-        self._failed_course_outcomes.append(
-            {
-                "subject": subject,
-                "course_code": course_code,
-                "reason": reason,
-                "timestamp": utc_now_iso(),
-            }
-        )
-
-        self.logger.info(f"Tracked failed course outcome ({reason})")
-
-    def _report_course_outcome_failures(self, covered_every_subject: bool):
-        """Report course outcomes CUHK serves a system error for
-
-        Only a run that reached every subject rewrites the report file: one that skipped
-        or lost a subject cannot say whether that subject's courses are still failing.
-        The console block still names whatever this run hit.
-        """
-        if not hasattr(self, "_failed_course_outcomes") or not self._failed_course_outcomes:
-            if not covered_every_subject:
-                self.logger.info("Course outcomes: no failures in the subjects this run reached")
-                return
-            self.logger.info("Course outcomes: all scraped successfully")
-            Path(FAILED_COURSE_OUTCOMES_FILE).unlink(missing_ok=True)
-            return
-
-        failures_by_reason: dict[str, list[str]] = {}
-        for failure in self._failed_course_outcomes:
-            failures_by_reason.setdefault(failure["reason"], []).append(
-                f"{failure['subject']}{failure['course_code']}"
-            )
-
-        # One record: this is a report about the run, not a sequence of events.
-        failure_count = len(self._failed_course_outcomes)
-        lines = [f"Course outcomes: {failure_count} failed"]
-        lines += [
-            f"    {reason.upper()}: {', '.join(codes)}"
-            for reason, codes in failures_by_reason.items()
-        ]
-        lines.append(
-            "    Retrying will not help — CUHK's data for these courses is malformed. Report them to ITSC; until an upstream fix lands they carry empty course outcome data."
-        )
-        lines.append(f"    Each page CUHK returned is saved in {self.config.debug_html_directory}")
-
-        if covered_every_subject:
-            # The list outlives the terminal: an upstream fix can take weeks.
-            failure_file = FAILED_COURSE_OUTCOMES_FILE
-            os.makedirs(os.path.dirname(failure_file), exist_ok=True)
-            with open(failure_file, "w") as f:
-                f.write("# Failed Course Outcomes - Needs an Upstream Fix from ITSC\n")
-                f.write(f"# Generated: {utc_now_iso()}\n\n")
-                for failure in self._failed_course_outcomes:
-                    f.write(
-                        f"{failure['subject']}{failure['course_code']} - {failure['reason']} ({failure['timestamp']})\n"
-                    )
-            lines.append(f"    Details saved to {failure_file}")
-        else:
-            lines.append("    Run did not reach every subject: leaving the report file alone")
-
-        self.logger.info("\n".join(lines))
 
     def _parse_course_outcome_content(self, html: str, course: Course) -> None:
         """Parse Course Outcome page content and extract all relevant information"""
@@ -2009,9 +2022,15 @@ class CuhkScraper:
                     saved_display = render_output_files(saved_file)
 
                     duration_minutes = (time.time() - start_time) / 60
+                    unavailable = [gap for course in courses or [] for gap in course.unavailable]
+                    if unavailable:
+                        self.logger.warning(
+                            f"{subject} saved with these empty after a CUSIS system error: "
+                            + ", ".join(unavailable)
+                        )
                     if self.progress_tracker:
                         self.progress_tracker.complete_subject(
-                            subject, len(courses or []), saved_file
+                            subject, len(courses or []), saved_file, unavailable=unavailable
                         )
 
                     # Use different message for empty vs populated subjects
@@ -2047,12 +2066,6 @@ class CuhkScraper:
 
         # Reaching the end of the loop proves the catalog was covered, failures included.
         self._write_scrape_times(mode)
-
-        # Report course outcomes CUHK is serving a system error for. A subject that failed
-        # never reached its courses, so this run cannot vouch for them either.
-        # TODO(#321): "full", not "resume": these failures are collected per run, so a
-        # resume holds only the subjects it rescraped, and the report goes stale after one.
-        self._report_course_outcome_failures(mode == "full" and not failed_subjects)
 
         tally = ""
         # Last: a run that dies writing the files above is a killed run, and stays
@@ -2109,8 +2122,8 @@ class CuhkScraper:
         directory's stamp would speak for the subjects it never touched.
 
         A full run that had failures still stamps, which overstates their age. Publishing
-        is what stops that reaching the app: it blocks on any subject whose status isn't
-        "completed". Keep the two in step if that check ever loosens.
+        is what stops that reaching the app: it blocks on any `failed` subject. An
+        `incomplete` one was scraped this run, so the stamp is true for it.
         """
         if mode == "partial":
             self.logger.info("Partial scrape: leaving scrape times untouched")

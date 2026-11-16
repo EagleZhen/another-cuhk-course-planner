@@ -219,6 +219,41 @@ def test_report_scrape_summary_reads_what_the_scraper_actually_writes(tmp_path, 
     )
 
 
+def test_report_scrape_summary_names_what_a_cusis_system_error_left_empty(tmp_path, capsys):
+    progress_file = tmp_path / "progress.json"
+    tracker = ScrapingProgressTracker(
+        str(progress_file), logging.getLogger("test"), ["AAAA"], ScrapingConfig(), "full"
+    )
+    tracker.complete_subject("AAAA", 7, [])
+    tracker.complete_subject("ELTU", 1, [], unavailable=["term_switch ELTU1001 2026-27 Term 2"])
+
+    publish_course_data.report_scrape_summary(
+        json.loads(progress_file.read_text(encoding="utf-8")), {}
+    )
+
+    assert capsys.readouterr().out.splitlines() == [
+        "Scraped data: 2 subjects, 8 courses, 0 failed",
+        "⚠️ Missing after a CUSIS system error (1 subjects):",
+        "      - ELTU: term_switch ELTU1001 2026-27 Term 2",
+    ]
+
+
+def test_an_incomplete_subject_publishes_but_a_failed_one_blocks(tmp_path):
+    # Only CUHK can fix a CUSIS system error, so it must not hold back the other subjects.
+    progress_file = tmp_path / "progress.json"
+    tracker = ScrapingProgressTracker(
+        str(progress_file), logging.getLogger("test"), ["ELTU", "MATH"], ScrapingConfig(), "full"
+    )
+    tracker.complete_subject("ELTU", 1, [], unavailable=["course_outcome ELTU1001"])
+    tracker.fail_subject("MATH", "boom")
+
+    issues = publish_course_data.validate_scrape_progress(
+        json.loads(progress_file.read_text(encoding="utf-8"))
+    )
+
+    assert list(issues) == ["MATH"]
+
+
 def _terms(*term_names):
     return render_terms_module({"2025-26": list(term_names)})
 

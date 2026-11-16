@@ -115,6 +115,8 @@ A year the latest full scrape did not produce is **archived**: CUHK no longer se
 
 These checks validate selected files; they do not prove that an academic year contains every subject. Treat unexpected subject removals as data-review signals.
 
+It also lists, without blocking, what each subject's latest scrape saved empty after a CUSIS system error ([why](decisions.md#save-what-cusis-errors-on-as-empty)).
+
 A run ends by copying a ready-to-paste commit title to the clipboard: `chore(data): update <years> courses (<scrape time in HKT>)`. It lists only the years stamped by the latest full scrape, excluding archived ones.
 
 After validation succeeds, publishing regenerates the app's manifests (see [Generated Manifests](#generated-manifests)). Validation failures and dry runs leave them unchanged.
@@ -191,11 +193,22 @@ On the list page, the course code may be wrapped in brackets and the title may i
 
 ### System Error Pages
 
-CUHK sometimes returns a system-error page for course outcomes:
+Any catalog request can return CUSIS's system-error page, not just the course outcome.
 
 - [System error sample](<../lab/scraper/samples/webpages/System error.html>)
 
-Retrying never clears these — CUHK's data for the course is malformed, so the fix has to come from ITSC. `logs/failed_course_outcomes.txt` lists them.
+The scraper rejects any page without `__VIEWSTATE`, which every catalog page carries, so an unfamiliar error page also fails instead of parsing as empty. A page titled `System error` counts as a system error.
+
+Only CUHK can fix a system error, so on a course outcome or a term it does not fail the subject. That term or outcome retries on its own, up to `max_course_attempts` times, then is saved empty (a term with no sections, an outcome with empty fields). The subject is recorded as `incomplete`, listing what is missing under `unavailable`, and publishes with a warning. On any other page it fails like any bad page.
+
+For example, if switching ELTU1001 to 2026-27 Term 2 keeps erroring, ELTU1001 is saved with that term empty and the ELTU entry reads:
+
+```json
+"status": "incomplete",
+"unavailable": ["term_switch ELTU1001 2026-27 Term 2"]
+```
+
+The next scrape that gets the term brings it back and the subject returns to `completed`.
 
 ### Incomplete Or Alternate Pages
 
@@ -211,23 +224,25 @@ Outcome validation checks structure, not content completeness. A sparse outcome 
 
 Outcome pages pass validation when they:
 
-1. are not system-error pages
-2. have the expected Course Outcome page title
-3. contain outcome section headers
+1. have the expected Course Outcome page title
+2. contain outcome section headers
 
 Course code/title validation is intentionally not repeated on outcome pages, because the detail page is authoritative.
+
+A detail page must show the requested subject and course number, and a term switch or **Show sections** page must also select exactly the requested term. Otherwise one course's or term's sections could be saved under another.
 
 Failures retry rather than resolving to empty data, because empty is what a legitimately empty subject, term, or section returns. Each scope retries by redoing the whole unit below it:
 
 | Scope | Retries on | Limit | When it runs out |
 | --- | --- | --- | --- |
 | Request | network errors, HTTP 502/503/504 | `max_request_attempts` (6) | raises to the course; any other status raises at once |
-| Course | anything raised while fetching or parsing a course page | `max_course_attempts` (5) | costs the subject one attempt |
+| Term or outcome | a system error | `max_course_attempts` (5) | saves it empty and records it |
+| Course | anything else raised while fetching or parsing a course page | `max_course_attempts` (5) | costs the subject one attempt |
 | Subject | any course failure, restarting from the course list on a new session | `max_subject_attempts` (10) | records the subject failed, run moves on |
 
 So a run finishes even when subjects fail, rather than stalling on one course. A failed subject blocks publishing, which names it and stops before writing anything. Re-scrape that subject and publish again.
 
-CUHK's own system-error pages are permanent and never retried — see [System Error Pages](#system-error-pages).
+A system error on a course outcome or a term is the exception — see [System Error Pages](#system-error-pages).
 
 ### Request Pacing
 
@@ -246,21 +261,19 @@ ls -t logs/scrape/scrape_*.log | head -1
 jq '.subjects.CSCI' logs/scraping_progress.json
 ```
 
-Check for outstanding outcome failures — no file means none:
+List where each subject's latest scrape got a CUSIS system error:
 
 ```bash
-cat logs/failed_course_outcomes.txt 2>/dev/null || echo "none outstanding"
+jq '.subjects | map_values(select(.status == "incomplete") | .unavailable)' logs/scraping_progress.json
 ```
 
-Only a scrape that reached every subject rewrites it — a partial run, or one that lost a subject, leaves the list alone rather than speaking for what it never saw.
+A production scrape already keeps the page behind each failure in `logs/error_pages/<run's log name>/`, so look for one before reproducing it:
 
-A production scrape already keeps the page behind each failure, so look for one before reproducing it:
-
-| File                  | Written when                                                            |
-| --------------------- | ----------------------------------------------------------------------- |
-| `*_FAILED.html`       | a course exhausted `max_course_attempts`                                |
-| `*_SYSTEM_ERROR.html` | CUHK's outcome page is malformed for good                               |
-| `*_INVALID.html`      | an outcome page failed validation — kept even if a retry then succeeded |
+| File | Written when |
+| --- | --- |
+| `*_FAILED.html` | a course exhausted `max_course_attempts` |
+| `*_SYSTEM_ERROR.html` | CUSIS returned its system-error page |
+| `*_INVALID.html` | a page lacked `__VIEWSTATE`, showed another course or term, or an outcome page failed validation — kept even if a retry then succeeded |
 
 To keep every page instead, while investigating parser behavior:
 
@@ -270,7 +283,7 @@ config.save_debug_files = True
 scraper = CuhkScraper(config)
 ```
 
-Debug HTML is saved to [lab/scraper/outputs/debug_html/](../lab/scraper/outputs/debug_html/), which `.gitignore` covers only at the repository root — the path is relative, so run the scraper from the root or the files land somewhere untracked.
+In debug mode every page goes to [lab/scraper/outputs/debug_html/](../lab/scraper/outputs/debug_html/), which `.gitignore` covers only at the repository root — the path is relative, so run the scraper from the root or the files land somewhere untracked.
 
 ## See Also
 

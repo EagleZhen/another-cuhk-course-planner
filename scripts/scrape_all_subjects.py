@@ -107,6 +107,7 @@ def main():
         logger.error(f"Scraping failed: {e}")
         logger.info("Check the progress file to see completed subjects.")
         logger.info("Re-run with specific subjects to retry failures.")
+        sys.exit(1)
 
 
 if __name__ == "__main__":

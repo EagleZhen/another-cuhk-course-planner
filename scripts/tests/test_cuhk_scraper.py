@@ -9,8 +9,11 @@ from types import SimpleNamespace
 import cuhk_scraper
 import data_utils
 import pytest
+import requests
 from bs4 import BeautifulSoup
 from cuhk_scraper import (
+    CatalogResponseError,
+    CatalogSystemError,
     Course,
     CuhkScraper,
     ScrapingConfig,
@@ -132,15 +135,24 @@ def test_run_counters_cover_only_this_run(tmp_path):
     assert registry["AAAA"]["courses_count"] == 1
 
 
-def test_run_counters_split_completed_from_failed(tmp_path):
-    tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB", "CCCC"])
+def test_run_counters_split_completed_incomplete_and_failed(tmp_path):
+    tracker = _tracker(tmp_path / "progress.json", ["AAAA", "BBBB", "CCCC", "DDDD"])
     tracker.complete_subject("AAAA", 1, ["data/AAAA.json"])
     tracker.complete_subject("BBBB", 1, ["data/BBBB.json"])
-    tracker.fail_subject("CCCC", "boom")
+    tracker.complete_subject("CCCC", 1, ["data/CCCC.json"], unavailable=["course_outcome CCCC1000"])
+    tracker.fail_subject("DDDD", "boom")
 
     run = _saved(tracker)["latest_run"]
-    assert (run["subjects_completed"], run["subjects_failed"]) == (2, 1)
-    assert tracker.get_failed_subjects() == ["CCCC"]
+    assert (run["subjects_completed"], run["subjects_incomplete"], run["subjects_failed"]) == (
+        2,
+        1,
+        1,
+    )
+    assert tracker.get_failed_subjects() == ["DDDD"]
+    assert tracker.run_summary().splitlines()[1:] == [
+        "    1 incomplete: CCCC",
+        "    1 failed: DDDD",
+    ]
 
 
 def test_run_counters_ignore_what_an_earlier_run_completed(tmp_path):
@@ -272,7 +284,7 @@ def test_dropped_year_keeps_its_scrape_time(scraper, tmp_path, monkeypatch):
     assert (tmp_path / "2026-27" / "_scraped_at.txt").read_text() == f"{second}\n"
 
 
-def _loop_scraper(tmp_path, *, failing=(), report=None):
+def _loop_scraper(tmp_path, *, failing=()):
     """A scraper whose network calls are stubbed, so the loop runs off the live site."""
     scraper = CuhkScraper.__new__(CuhkScraper)
     scraper.logger = logging.getLogger("test")
@@ -285,22 +297,24 @@ def _loop_scraper(tmp_path, *, failing=(), report=None):
     scraper.get_subjects_with_titles_from_live_site = lambda: []
     scraper.scrape_subject = lambda subject: _boom() if subject in failing else []
     scraper._save_subject_immediately = lambda subject, courses, config: []
-    scraper._report_course_outcome_failures = report or (lambda *a: None)
     return scraper
 
 
-@pytest.mark.parametrize(
-    "failing, covered", [((), True), (("BBBB",), False)], ids=["all reached", "one lost"]
-)
-def test_only_a_run_that_reached_every_subject_speaks_for_the_catalog(tmp_path, failing, covered):
-    # A full run was asked to cover everything, which is not the same as having done it.
-    # A subject that died never reached its courses, so their failures are still outstanding.
-    spoke_for = []
-    scraper = _loop_scraper(tmp_path, failing=failing, report=spoke_for.append)
+def test_a_subject_saved_with_a_cusis_system_error_is_incomplete(tmp_path):
+    # Kept per subject, so a resume or a one-subject re-scrape updates exactly its own.
+    gap = _course("1000", [])
+    gap.unavailable = ["show_sections TEST1000 2026-27 Term 2"]
+    scraper = _loop_scraper(tmp_path)
+    scraper.scrape_subject = lambda subject: [gap] if subject == "AAAA" else [_course("1000", [])]
 
-    CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB"], mode="full")
+    CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB"])
 
-    assert spoke_for == [covered]
+    subjects = _read(tmp_path / "progress.json")["subjects"]
+    assert subjects["AAAA"]["status"] == "incomplete"
+    assert subjects["AAAA"]["unavailable"] == ["show_sections TEST1000 2026-27 Term 2"]
+    # Unchanged shape, so entries never rewritten stay valid.
+    assert subjects["BBBB"]["status"] == "completed"
+    assert "unavailable" not in subjects["BBBB"]
 
 
 def _hours_ago(hours):
@@ -350,19 +364,6 @@ def test_resume_stamps_every_directory_the_scrape_wrote_with_its_start(tmp_path)
 
     for directory in ("2026-27", "no-terms"):
         assert (tmp_path / directory / "_scraped_at.txt").read_text() == f"{started_at}\n"
-
-
-def test_a_resume_cannot_speak_for_the_course_outcomes_it_never_rescraped(tmp_path):
-    # Collected per run, so a resume holds only its own subjects' — rewriting the report
-    # from those would drop the rest.
-    _interrupted(tmp_path, ["BBBB"], ["2026-27"])
-    spoke_for = []
-
-    CuhkScraper.scrape_all_subjects(
-        _loop_scraper(tmp_path, report=spoke_for.append), [], mode="resume"
-    )
-
-    assert spoke_for == [False]
 
 
 @pytest.mark.parametrize(
@@ -497,7 +498,9 @@ def test_the_run_ends_on_one_line_holding_its_tally(tmp_path, caplog):
 # Each case below is one distinction: did this come back empty because it is empty, or
 # because something broke?
 
-DETAIL_HTML = '<span id="uc_course_lbl_course">TEST 1000 - Course 1000</span>'
+# Every real catalog page carries this, and the scraper rejects a page without it.
+FORM_STATE = '<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="state"/>'
+DETAIL_HTML = f'{FORM_STATE}<span id="uc_course_lbl_course">TEST 1000 - Course 1000</span>'
 TERM_OPTIONS = {"2390": "2025-26 Term 2", "2410": "2026-27 Term 1"}
 
 
@@ -517,7 +520,7 @@ def _live_scraper(*, save_debug_html=False, **overrides):
     """A CuhkScraper with no __init__ — the real one loads OCR models and opens log files.
 
     Debug saving is stubbed unless a test asks for it, and then it must point
-    `debug_html_directory` at a tmp_path: the real one is relative to the cwd.
+    `error_pages_dir` (failure pages) or `debug_html_directory` (debug mode) into a tmp_path.
     """
     scraper = CuhkScraper.__new__(CuhkScraper)
     scraper.logger = logging.getLogger("test")
@@ -570,68 +573,6 @@ def test_broken_section_retries_while_a_term_without_sections_stays_empty():
     )
 
 
-def test_permanent_outcome_failure_is_recorded_once_per_course():
-    # An unrelated failure re-scrapes the course, reaching the same permanent failure.
-    scraper = _live_scraper()
-    for _ in range(3):
-        CuhkScraper._track_failed_course_outcome(scraper, "TEST", "1000", "system_error_permanent")
-    CuhkScraper._track_failed_course_outcome(scraper, "TEST", "1000", "other_reason")
-
-    assert [f["reason"] for f in scraper._failed_course_outcomes] == [
-        "system_error_permanent",
-        "other_reason",
-    ]
-
-
-STALE_REPORT = "COMM5962 - system_error_permanent (2026-06-27T08:59:13+00:00)\n"
-
-
-def _report_outcome_failures(monkeypatch, tmp_path, failures, *, covered_every_subject=True):
-    report = tmp_path / "failed_course_outcomes.txt"
-    monkeypatch.setattr(cuhk_scraper, "FAILED_COURSE_OUTCOMES_FILE", str(report))
-    scraper = _live_scraper()
-    for subject, code in failures:
-        CuhkScraper._track_failed_course_outcome(scraper, subject, code, "system_error_permanent")
-    CuhkScraper._report_course_outcome_failures(scraper, covered_every_subject)
-    return report
-
-
-def test_a_full_run_with_failures_writes_the_report(monkeypatch, tmp_path):
-    report = _report_outcome_failures(monkeypatch, tmp_path, [("TEST", "1000")])
-
-    assert "TEST1000 - system_error_permanent" in report.read_text()
-
-
-def test_a_clean_full_run_removes_a_previous_run_s_report(monkeypatch, tmp_path):
-    # The file is committed, so a leftover reads as this run's result — one from June sat
-    # in the repo for months looking current.
-    report = tmp_path / "failed_course_outcomes.txt"
-    report.write_text(STALE_REPORT)
-
-    _report_outcome_failures(monkeypatch, tmp_path, [])
-
-    assert not report.exists()
-
-
-@pytest.mark.parametrize("failures", [[], [("PHED", "1370")]], ids=["clean", "with failures"])
-def test_a_run_that_missed_subjects_leaves_the_report_alone(monkeypatch, tmp_path, failures):
-    # Re-scraping one subject is how you check whether ITSC fixed it. That run knows
-    # nothing about the other subjects listed, so it must not speak for them.
-    report = tmp_path / "failed_course_outcomes.txt"
-    report.write_text(STALE_REPORT)
-
-    _report_outcome_failures(monkeypatch, tmp_path, failures, covered_every_subject=False)
-
-    assert report.read_text() == STALE_REPORT
-
-
-def test_a_clean_run_survives_having_no_report_to_remove(monkeypatch, tmp_path):
-    report = tmp_path / "nonexistent" / "failed_course_outcomes.txt"
-    monkeypatch.setattr(cuhk_scraper, "FAILED_COURSE_OUTCOMES_FILE", str(report))
-
-    CuhkScraper._report_course_outcome_failures(_live_scraper(), True)  # must not raise
-
-
 def _row(code, *, title=True):
     title_link = f'<a id="gv_detail_ctl02_lbtn_course_title">Course {code}</a>' if title else ""
     return (
@@ -676,7 +617,7 @@ def _subject_scraper(page):
         config=ScrapingConfig(max_subject_attempts=MAX_SUBJECT_ATTEMPTS, get_details=False),
         progress_tracker=None,
         _extract_form_data=lambda soup: {},
-        _robust_request=lambda *a, **k: SimpleNamespace(text=page),
+        _robust_request=lambda *a, **k: SimpleNamespace(text=FORM_STATE + page),
     )
 
 
@@ -738,11 +679,30 @@ def test_a_course_that_never_parses_gives_up_instead_of_looping(monkeypatch):
         CuhkScraper.get_course_details(scraper, course, DETAIL_HTML)
 
 
+@pytest.mark.parametrize(
+    "debug_mode, folder",
+    [(True, "debug_html"), (False, "error_pages")],
+    ids=["debug mode keeps every page", "a normal run keeps a failure in its own folder"],
+)
+def test_a_saved_page_goes_where_its_reason_for_saving_says(tmp_path, debug_mode, folder):
+    config = ScrapingConfig(
+        save_debug_files=debug_mode, debug_html_directory=str(tmp_path / "debug_html")
+    )
+    scraper = _live_scraper(
+        save_debug_html=True, config=config, error_pages_dir=str(tmp_path / "error_pages")
+    )
+
+    CuhkScraper._save_debug_html(scraper, "<html></html>", "page_FAILED.html", force_save=True)
+
+    assert [p.relative_to(tmp_path).as_posix() for p in tmp_path.rglob("*.html")] == [
+        f"{folder}/page_FAILED.html"
+    ]
+
+
 def _production_like(tmp_path, **overrides):
     return ScrapingConfig(
         save_debug_files=False,  # as production: nothing saved unless it failed
         save_debug_on_error=True,
-        debug_html_directory=str(tmp_path),
         max_course_attempts=2,
         get_course_outcome=False,
         get_enrollment_details=False,
@@ -754,10 +714,13 @@ def _failing_scraper(tmp_path, page):
     scraper = _live_scraper(
         save_debug_html=True,
         config=_production_like(tmp_path),
+        error_pages_dir=str(tmp_path),
         _robust_request=lambda *a, **k: SimpleNamespace(text=page),
     )
     course = _course("1000", [])
     course.postback_target = "target"
+    # As inside get_course_details, which names the pages it keeps after this scope.
+    scraper.current_subject, scraper.current_course_code = course.subject, course.course_code
     return scraper, course
 
 
@@ -765,20 +728,21 @@ def test_a_course_that_fails_for_good_keeps_the_page_that_failed(monkeypatch, tm
     # Production saves no debug HTML, so this page is the only record of what CUHK served —
     # and the failure blocks the publish until someone reads it.
     monkeypatch.setattr(time, "sleep", lambda _: None)
-    scraper, course = _failing_scraper(tmp_path, "<html></html>")
+    scraper, course = _failing_scraper(tmp_path, f"<html>{FORM_STATE}</html>")
 
     with pytest.raises(ValueError):
         CuhkScraper.get_course_details(scraper, course, DETAIL_HTML)
 
-    assert [f.name for f in tmp_path.iterdir()] == ["course_details_TEST_1000_FAILED.html"]
-    assert (tmp_path / "course_details_TEST_1000_FAILED.html").read_text() == "<html></html>"
+    assert (tmp_path / "course_details_TEST_1000_FAILED.html").read_text() == (
+        f"<html>{FORM_STATE}</html>"
+    )
 
 
 def test_a_course_that_succeeds_keeps_nothing(tmp_path):
     # The other side of the rule: a normal production scrape must not write a file per course.
     scraper, course = _failing_scraper(tmp_path, DETAIL_HTML)
 
-    assert CuhkScraper.get_course_details(scraper, course, DETAIL_HTML) is course
+    assert CuhkScraper.get_course_details(scraper, course, DETAIL_HTML).course_code == "1000"
     assert list(tmp_path.iterdir()) == []
 
 
@@ -807,7 +771,7 @@ def test_a_course_keeps_the_last_page_served_not_the_last_attempt(monkeypatch, t
     # Resetting `response` per attempt would save nothing here.
     monkeypatch.setattr(time, "sleep", lambda _: None)
     scraper, course = _failing_scraper(tmp_path, "")
-    served = ["<html>served once</html>"]
+    served = [f"<html>{FORM_STATE}served once</html>"]
 
     def _one_page_then_a_stale_session(*args, **kwargs):
         if served:
@@ -820,11 +784,11 @@ def test_a_course_keeps_the_last_page_served_not_the_last_attempt(monkeypatch, t
         CuhkScraper.get_course_details(scraper, course, DETAIL_HTML)
 
     failed = tmp_path / "course_details_TEST_1000_FAILED.html"
-    assert failed.read_text() == "<html>served once</html>"
+    assert failed.read_text() == f"<html>{FORM_STATE}served once</html>"
 
 
 # Not a system error - fails validation on the title check instead.
-WRONG_PAGE = '<html><div class="titleNormal">Course Catalog</div></html>'
+WRONG_PAGE = f'<html>{FORM_STATE}<div class="titleNormal">Course Catalog</div></html>'
 
 
 def test_an_invalid_outcome_page_is_kept(tmp_path):
@@ -841,7 +805,7 @@ def test_an_invalid_outcome_page_is_kept(tmp_path):
 def test_a_valid_outcome_page_keeps_nothing(tmp_path):
     # The other side: no file per course that parsed fine.
     valid = (
-        '<html><div class="titleNormal">Course Outcome</div>'
+        f'<html>{FORM_STATE}<div class="titleNormal">Course Outcome</div>'
         '<td class="reverseHeaderStyle">Learning Outcome</td></html>'
     )
     scraper, course = _failing_scraper(tmp_path, valid)
@@ -849,17 +813,6 @@ def test_a_valid_outcome_page_keeps_nothing(tmp_path):
     CuhkScraper._scrape_course_outcome(scraper, OUTCOME_BUTTON_HTML, course)
 
     assert list(tmp_path.iterdir()) == []
-
-
-def test_a_permanent_system_error_keeps_the_outcome_page(tmp_path):
-    # Nothing retries a permanent system error, so this page is the only evidence that the
-    # outcome is missing rather than genuinely empty.
-    scraper, course = _failing_scraper(tmp_path, SYSTEM_ERROR_PAGE)
-
-    CuhkScraper._scrape_course_outcome(scraper, OUTCOME_BUTTON_HTML, course)
-
-    assert [f.name for f in tmp_path.iterdir()] == ["course_outcome_TEST_1000_SYSTEM_ERROR.html"]
-    assert [f["reason"] for f in scraper._failed_course_outcomes] == ["system_error_permanent"]
 
 
 def test_a_course_that_parses_on_a_later_attempt_still_succeeds(monkeypatch):
@@ -871,21 +824,21 @@ def test_a_course_that_parses_on_a_later_attempt_still_succeeds(monkeypatch):
     course = _course("1000", [])
     course.postback_target = "target"
 
-    assert CuhkScraper.get_course_details(scraper, course, DETAIL_HTML) is course
+    assert CuhkScraper.get_course_details(scraper, course, DETAIL_HTML).course_code == "1000"
     assert pages == []  # took all three attempts
 
 
 def test_missing_titles_abort_the_run_rather_than_blanking_every_subject_title():
     # An empty title list is not "no titles" — it would blank every subject title, and the
     # scrape would look successful.
-    empty = '<select name="ddl_subject"><option value="">Select a subject</option></select>'
+    empty = f'{FORM_STATE}<select name="ddl_subject"><option value="">Select a subject</option></select>'
     for page in (DETAIL_HTML, empty):
         with pytest.raises(ValueError):
             CuhkScraper.get_subjects_with_titles_from_live_site(
                 _live_scraper(_robust_request=lambda *a, **k: SimpleNamespace(text=page))
             )
 
-    page = '<select name="ddl_subject"><option value="TEST">TEST - Test Subject</option></select>'
+    page = f'{FORM_STATE}<select name="ddl_subject"><option value="TEST">TEST - Test Subject</option></select>'
     assert CuhkScraper.get_subjects_with_titles_from_live_site(
         _live_scraper(_robust_request=lambda *a, **k: SimpleNamespace(text=page))
     ) == [{"code": "TEST", "title": "TEST - Test Subject"}]
@@ -902,7 +855,7 @@ def test_missing_titles_abort_the_run_rather_than_blanking_every_subject_title()
 
 def test_the_subject_catalog_is_fetched_once_per_run():
     # The runner asks for the codes and the scrape asks for the titles, off one page.
-    page = '<select name="ddl_subject"><option value="TEST">TEST - Test Subject</option></select>'
+    page = f'{FORM_STATE}<select name="ddl_subject"><option value="TEST">TEST - Test Subject</option></select>'
     requests = []
 
     def request(*args, **kwargs):
@@ -946,7 +899,7 @@ def _paced_scraper(get, delay=REQUEST_DELAY):
 
 
 def _ok(content=b""):
-    return SimpleNamespace(raise_for_status=lambda: None, content=content)
+    return SimpleNamespace(raise_for_status=lambda: None, content=content, headers={})
 
 
 def _answering(answers):
@@ -1027,6 +980,29 @@ def test_a_body_that_dies_partway_is_retried_in_place(monkeypatch):
     assert answers == []
 
 
+@pytest.mark.parametrize(
+    "content_type, charset",
+    [("text/html", "utf-8"), ("text/html; charset=big5", "big5")],
+    ids=["none named", "named"],
+)
+def test_a_page_is_read_as_utf8_unless_its_header_names_a_charset(
+    monkeypatch, content_type, charset
+):
+    # CUSIS's system-error page names none, which requests would read as Latin-1.
+    _fake_clock(monkeypatch)
+    page = "<title>System error</title>系統有誤，請稍後再試。"
+    response = requests.Response()
+    response.status_code = 200
+    response.headers["Content-Type"] = content_type
+    response._content = page.encode(charset)
+    # As requests sets it when building a response
+    response.encoding = requests.utils.get_encoding_from_headers(response.headers)
+
+    served = CuhkScraper._robust_request(_paced_scraper(lambda *a, **k: response), "GET", "x")
+
+    assert served.text == page
+
+
 def test_a_request_that_never_recovers_gives_up(monkeypatch):
     # The 2026-09-08 regression. The sentinel turns an unbounded loop into a failure
     # rather than a hung CI.
@@ -1101,8 +1077,8 @@ SAMPLE_PAGES = Path(__file__).resolve().parents[2] / "lab" / "scraper" / "sample
 def _bare_scraper(*, save_debug_html=False, **attributes):
     """A CuhkScraper with __init__ skipped: no session, no OCR model, real methods.
 
-    Debug saving is stubbed unless a test asks for it, and then `config` must point
-    `debug_html_directory` at a tmp_path: the real one is relative to the cwd.
+    Debug saving is stubbed unless a test asks for it, and then it must point
+    `error_pages_dir` (failure pages) or `debug_html_directory` (debug mode) into a tmp_path.
     """
     scraper = CuhkScraper.__new__(CuhkScraper)
     scraper.logger = logging.getLogger("test")
@@ -1117,6 +1093,224 @@ def _bare_scraper(*, save_debug_html=False, **attributes):
 
 def _sample_html(page_name):
     return (SAMPLE_PAGES / page_name).read_text(encoding="utf-8")
+
+
+# Saved fragments of a page rather than whole responses, and the error page itself.
+NOT_CATALOG_RESPONSES = {
+    "Course Outcome - Recommended Reading - List.html",
+    "Course Syllabus - List + Table.html",
+    "System error.html",
+}
+
+
+@pytest.mark.parametrize(
+    "page_name",
+    sorted(p.name for p in SAMPLE_PAGES.glob("*.html") if p.name not in NOT_CATALOG_RESPONSES),
+)
+def test_every_saved_catalog_page_passes_the_form_state_check(tmp_path, page_name):
+    # Rejecting a real page would fail every scrape.
+    page = _sample_html(page_name)
+    scraper, _ = _failing_scraper(tmp_path, page)
+
+    assert CuhkScraper._request_catalog_html(scraper, "POST", stage="course_list").text == page
+    assert list(tmp_path.iterdir()) == []
+
+
+@pytest.mark.parametrize(
+    "stage, target, kept_as",
+    [
+        ("show_sections", "2026-27 Term 2", "show_sections_TEST1000_2026-27_Term_2_SYSTEM_ERROR"),
+        ("class_details", "AZC1-CLW (9978)", "class_details_TEST1000_AZC1-CLW_9978_SYSTEM_ERROR"),
+    ],
+)
+def test_the_system_error_page_is_named_and_kept(tmp_path, stage, target, kept_as):
+    page = _sample_html("System error.html")
+    scraper, _ = _failing_scraper(tmp_path, page)
+
+    with pytest.raises(CatalogSystemError, match=f"system error at {stage} TEST1000"):
+        CuhkScraper._request_catalog_html(scraper, "POST", stage=stage, target=target)
+
+    assert (tmp_path / f"{kept_as}.html").read_text() == page
+
+
+def test_an_unknown_page_without_form_state_is_rejected_but_not_as_a_system_error(tmp_path):
+    # A session timeout or maintenance notice would otherwise parse as an empty result.
+    page = "<html><title>Session expired</title></html>"
+    scraper, _ = _failing_scraper(tmp_path, page)
+
+    with pytest.raises(CatalogResponseError, match="at course_details TEST1000") as raised:
+        CuhkScraper._request_catalog_html(scraper, "POST", stage="course_details")
+
+    assert not isinstance(raised.value, CatalogSystemError)
+    assert (tmp_path / "course_details_TEST1000_INVALID.html").read_text() == page
+
+
+SHOW_SECTIONS = '<input id="uc_course_btn_class_section" type="submit" value="Show sections"/>'
+
+
+def test_a_system_error_on_show_sections_is_not_saved_as_an_empty_term(tmp_path):
+    scraper, course = _failing_scraper(tmp_path, _sample_html("System error.html"))
+
+    with pytest.raises(CatalogSystemError):
+        CuhkScraper._scrape_term_details(
+            scraper, _term_page(selected="2410") + SHOW_SECTIONS, course, "2410", "2026-27 Term 1"
+        )
+
+
+# Requesting 2026-27 Term 1 (2410): a switch from another term, or Show sections on it.
+TERM_POSTBACK_START = {
+    "term_switch": _term_page(selected="2390"),
+    "show_sections": _term_page(selected="2410") + SHOW_SECTIONS,
+}
+
+
+@pytest.mark.parametrize("stage", TERM_POSTBACK_START)
+@pytest.mark.parametrize(
+    "returned",
+    [
+        pytest.param(_term_page(selected="2390"), id="previous_term"),
+        pytest.param(
+            _term_page(selected="2410").replace("TEST 1000", "OTHR 1000"), id="other_course"
+        ),
+    ],
+)
+def test_a_term_page_for_another_term_or_course_is_rejected(tmp_path, stage, returned):
+    # Otherwise its sections would be saved under the requested term.
+    scraper, course = _failing_scraper(tmp_path, returned)
+
+    with pytest.raises(CatalogResponseError):
+        CuhkScraper._scrape_term_details(
+            scraper, TERM_POSTBACK_START[stage], course, "2410", "2026-27 Term 1"
+        )
+
+    kept = tmp_path / f"{stage}_TEST1000_2026-27_Term_1_INVALID.html"
+    assert kept.read_text() == returned
+
+
+def test_a_detail_page_for_another_course_is_rejected(tmp_path):
+    page = DETAIL_HTML.replace("TEST 1000", "OTHR 1000")
+    scraper, course = _failing_scraper(tmp_path, page)
+
+    with pytest.raises(CatalogResponseError, match="OTHR 1000"):
+        CuhkScraper._get_course_details_with_term_selection(scraper, page, course)
+
+    assert (tmp_path / "course_details_TEST1000_INVALID.html").read_text() == page
+
+
+@pytest.mark.parametrize("bracketed", [False, True], ids=["plain", "bracketed"])
+@pytest.mark.parametrize(
+    "page_name", sorted(p.name for p in SAMPLE_PAGES.glob("Course Detail*.html"))
+)
+def test_every_saved_detail_page_shows_the_course_its_list_row_names(page_name, bracketed):
+    # A future-dated course's list row brackets its number.
+    subject, code = page_name.split(" - ")[1].split()
+    course = _course(f"({code})" if bracketed else code, [])
+    course.subject = subject
+    html = _sample_html(page_name)
+
+    CuhkScraper._check_course_page(
+        _live_scraper(), BeautifulSoup(html, "html.parser"), html, course, stage="course_details"
+    )
+
+
+def _course_server(monkeypatch, replace):
+    """CUSIS for one course with two terms, its outcome, and a switch to 2026-27 Term 1.
+
+    `replace(stage, call)` may return a page to serve instead, for that numbered request.
+    """
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+    pages = {
+        "course_details": _term_page(selected="2390") + OUTCOME_BUTTON_HTML,
+        "course_outcome": _sample_html("Course Outcome - PHED 1370 - Archery.html"),
+        "term_switch": _term_page(selected="2410"),
+    }
+    calls = dict.fromkeys(pages, 0)
+
+    def request(method, url, *, data, **kwargs):
+        if "btn_course_outcome" in data:
+            stage = "course_outcome"
+        elif data.get("__EVENTTARGET") == "uc_course$ddl_class_term":
+            stage = "term_switch"
+        else:
+            stage = "course_details"
+        calls[stage] += 1
+        return SimpleNamespace(text=replace(stage, calls[stage]) or pages[stage])
+
+    config = ScrapingConfig(
+        max_course_attempts=3, get_course_outcome=True, get_enrollment_details=False
+    )
+    scraper = _live_scraper(config=config, _robust_request=request, current_subject="TEST")
+    course = _course("1000", [])
+    course.postback_target = "target"
+    return CuhkScraper.get_course_details(scraper, course, DETAIL_HTML), calls
+
+
+def _system_error_at(failing_stage, *, calls=range(1, 100)):
+    error = _sample_html("System error.html")
+    return lambda stage, call: error if stage == failing_stage and call in calls else None
+
+
+def test_a_term_cusis_keeps_failing_is_kept_empty_and_recorded(monkeypatch):
+    course, calls = _course_server(monkeypatch, _system_error_at("term_switch"))
+
+    # Retried on its own, without redoing the rest of the course.
+    assert calls == {"course_details": 1, "course_outcome": 1, "term_switch": 3}
+    # Still listed, as on CUSIS, with no sections; the record says why.
+    assert [(term.term_name, term.schedule) for term in course.terms][1] == ("2026-27 Term 1", [])
+    assert course.learning_outcomes
+    assert course.unavailable == ["term_switch TEST1000 2026-27 Term 1"]
+    assert "unavailable" not in course.to_dict()
+
+
+def test_an_outcome_cusis_keeps_failing_is_saved_empty_and_recorded(monkeypatch):
+    course, calls = _course_server(monkeypatch, _system_error_at("course_outcome"))
+
+    assert calls == {"course_details": 1, "course_outcome": 3, "term_switch": 1}
+    assert len(course.terms) == 2
+    assert course.learning_outcomes == ""
+    assert course.unavailable == ["course_outcome TEST1000"]
+
+
+def test_a_system_error_that_clears_on_retry_leaves_no_gap(monkeypatch):
+    course, calls = _course_server(monkeypatch, _system_error_at("term_switch", calls=[1]))
+
+    assert calls == {"course_details": 1, "course_outcome": 1, "term_switch": 2}
+    assert len(course.terms) == 2
+    assert course.unavailable == []
+
+
+def test_a_course_retry_keeps_nothing_from_the_attempt_it_replaced(monkeypatch):
+    # Another failure retries the whole course. The first attempt's outcome would
+    # otherwise sit beside a record saying it is missing.
+    expired = "<html><title>Session expired</title></html>"
+    outcome_errors_after_first = _system_error_at("course_outcome", calls=range(2, 100))
+    course, calls = _course_server(
+        monkeypatch,
+        lambda stage, call: (
+            (expired if (stage, call) == ("term_switch", 1) else None)
+            or outcome_errors_after_first(stage, call)
+        ),
+    )
+
+    assert calls["course_details"] == 2
+    assert course.learning_outcomes == ""
+    assert course.unavailable == ["course_outcome TEST1000"]
+
+
+def test_the_saved_chlt1001_page_shows_the_term_it_was_requested_for():
+    # The page also selects a language elsewhere, which must not count as a second term.
+    html = _sample_html("Course Details - CHLT 1001 - University Chinese I.html")
+    course = _course("1001", [])
+    course.subject = "CHLT"
+
+    CuhkScraper._check_course_page(
+        _live_scraper(),
+        BeautifulSoup(html, "html.parser"),
+        html,
+        course,
+        stage="show_sections",
+        term_code="2420",
+    )
 
 
 def test_a_section_keeps_the_attributes_its_own_page_states(monkeypatch):
@@ -1136,10 +1330,12 @@ def test_a_section_keeps_the_attributes_its_own_page_states(monkeypatch):
         ),
     )
 
+    course = _course("3530", [])
+    course.subject = "MUSC"
     course = CuhkScraper._get_course_details_with_term_selection(
         scraper,
         _sample_html("Course Details - MUSC 3530 - Music Performer\u2019s Issues.html"),
-        _course("3530", []),
+        course,
     )
 
     assert course.course_attributes == "Cantonese and English"
@@ -1343,9 +1539,8 @@ REAL_CLASS_DETAILS = [
 
 def _parse_details(page_name, section_name, tmp_path):
     scraper = _bare_scraper(
-        config=SimpleNamespace(
-            save_debug_files=False, save_debug_on_error=True, debug_html_directory=str(tmp_path)
-        ),
+        config=SimpleNamespace(save_debug_files=False, save_debug_on_error=True),
+        error_pages_dir=str(tmp_path),
         save_debug_html=True,
         current_subject="TEST",
         current_course_code="1000",
@@ -1394,9 +1589,8 @@ def test_a_class_details_page_with_no_seat_counts_raises(tmp_path):
     # The seat counts sit in a different panel from the status, so a page can carry a
     # status and still say nothing about seats.
     scraper = _bare_scraper(
-        config=SimpleNamespace(
-            save_debug_files=False, save_debug_on_error=True, debug_html_directory=str(tmp_path)
-        ),
+        config=SimpleNamespace(save_debug_files=False, save_debug_on_error=True),
+        error_pages_dir=str(tmp_path),
         save_debug_html=True,
         current_subject="TEST",
         current_course_code="1000",
