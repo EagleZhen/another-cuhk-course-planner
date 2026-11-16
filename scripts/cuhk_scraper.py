@@ -2025,7 +2025,7 @@ class CuhkScraper:
                     unavailable = [gap for course in courses or [] for gap in course.unavailable]
                     if unavailable:
                         self.logger.warning(
-                            f"{subject} saved without the parts that got a CUSIS system error: "
+                            f"{subject} saved with these empty after a CUSIS system error: "
                             + ", ".join(unavailable)
                         )
                     if self.progress_tracker:
@@ -2122,8 +2122,8 @@ class CuhkScraper:
         directory's stamp would speak for the subjects it never touched.
 
         A full run that had failures still stamps, which overstates their age. Publishing
-        is what stops that reaching the app: it blocks on any subject whose status isn't
-        "completed". Keep the two in step if that check ever loosens.
+        is what stops that reaching the app: it blocks on any `failed` subject. An
+        `incomplete` one was scraped this run, so the stamp is true for it.
         """
         if mode == "partial":
             self.logger.info("Partial scrape: leaving scrape times untouched")

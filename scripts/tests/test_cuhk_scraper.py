@@ -1262,7 +1262,7 @@ def test_a_term_cusis_keeps_failing_is_kept_empty_and_recorded(monkeypatch):
     assert "unavailable" not in course.to_dict()
 
 
-def test_an_outcome_cusis_keeps_failing_is_left_out_and_recorded(monkeypatch):
+def test_an_outcome_cusis_keeps_failing_is_saved_empty_and_recorded(monkeypatch):
     course, calls = _course_server(monkeypatch, _system_error_at("course_outcome"))
 
     assert calls == {"course_details": 1, "course_outcome": 3, "term_switch": 1}

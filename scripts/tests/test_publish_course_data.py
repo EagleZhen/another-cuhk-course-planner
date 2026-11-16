@@ -219,7 +219,7 @@ def test_report_scrape_summary_reads_what_the_scraper_actually_writes(tmp_path, 
     )
 
 
-def test_report_scrape_summary_names_what_a_cusis_system_error_left_out(tmp_path, capsys):
+def test_report_scrape_summary_names_what_a_cusis_system_error_left_empty(tmp_path, capsys):
     progress_file = tmp_path / "progress.json"
     tracker = ScrapingProgressTracker(
         str(progress_file), logging.getLogger("test"), ["AAAA"], ScrapingConfig(), "full"
