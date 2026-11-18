@@ -330,7 +330,7 @@ export default function ShoppingCart({
                 className={bannerButtonClass}
                 title="Review the next changed course from top to bottom"
               >
-                Review next
+                Review Next
               </Button>
             )}
             {onDismissAllChanges && (
@@ -341,7 +341,7 @@ export default function ShoppingCart({
                 className={bannerButtonClass}
                 title="Dismiss all change notifications"
               >
-                Dismiss all
+                Dismiss All
               </Button>
             )}
           </span>

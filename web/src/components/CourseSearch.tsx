@@ -1912,7 +1912,7 @@ function CourseCard({
                               : `Show all ${typeGroup.displayName.toLowerCase()} options`
                           }
                         >
-                          {showingAllForType ? 'Hide extra' : 'Show all'}
+                          {showingAllForType ? 'Hide Extra' : 'Show All'}
                         </Button>
                       </span>
                     )}

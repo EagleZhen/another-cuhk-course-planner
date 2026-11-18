@@ -749,7 +749,7 @@ export default function WeeklyCalendar({
                   className="h-6 border-1 px-2 text-xs font-normal focus-visible:ring-1 max-md:order-last border-purple-300 text-purple-700 hover:bg-purple-50 hover:text-purple-800 active:bg-purple-100 active:text-purple-900 dark:border-purple-700 dark:text-purple-300 dark:hover:bg-purple-950 dark:hover:text-purple-200 dark:active:bg-purple-900 dark:active:text-purple-100"
                 >
                   <AlertTriangle className="size-3" />
-                  Review next conflict
+                  Review Next Conflict
                 </Button>
               )}
             </div>
@@ -794,7 +794,7 @@ export default function WeeklyCalendar({
               onClick={() => setSkipRepeatWeeks(!skipRepeatWeeks)}
               className="justify-self-start h-6 px-2 text-xs font-normal border-1 cursor-pointer focus-visible:ring-1"
             >
-              Skip repeated weeks
+              Skip Repeated Weeks
             </Button>
           </div>
         )}

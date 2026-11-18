@@ -50,7 +50,7 @@ export default function ErrorPage({ error }: { error: Error & { digest?: string 
         <p className="mt-2 text-balance text-sm text-slate-600">Reload the page to try again.</p>
         <Button className="mt-6" onClick={() => window.location.reload()}>
           <RefreshCw aria-hidden="true" />
-          Reload page
+          Reload Page
         </Button>
         <p className="mt-3 text-xs text-slate-500">Still stuck? Let me know through Feedback.</p>
       </section>

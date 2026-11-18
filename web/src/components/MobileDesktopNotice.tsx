@@ -191,7 +191,7 @@ export default function MobileDesktopNotice() {
               className="w-full select-none motion-safe:active:scale-95"
             >
               {copied ? <Check /> : <Share2 />}
-              {copied ? 'Link copied!' : 'Send link to my computer'}
+              {copied ? 'Link Copied!' : 'Send Link to My Computer'}
             </Button>
             <Button
               variant="ghost"
@@ -199,7 +199,7 @@ export default function MobileDesktopNotice() {
               onClick={() => dismissNotice('button')}
               className="w-full select-none motion-safe:active:scale-95"
             >
-              Continue on mobile
+              Continue on Mobile
             </Button>
           </div>
 
