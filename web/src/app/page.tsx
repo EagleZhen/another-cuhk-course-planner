@@ -564,7 +564,7 @@ export default function Home() {
             <span className="truncate">
               <span className="hidden sm:inline">
                 Viewing <strong className="font-semibold">{currentTerm}</strong> — archived, for
-                reference only.
+                reference only
               </span>
               <span className="sm:hidden">
                 Archived: <strong className="font-semibold">{currentTerm}</strong>
