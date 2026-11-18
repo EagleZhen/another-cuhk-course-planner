@@ -120,13 +120,18 @@ jobs:
         if: matrix.browser != 'chromium'
         run: npm run build
 
+      # Browsers need the image's system libraries, and `playwright install`
+      # won't replace a cached build from another image, so key on ImageOS.
+      # It's a runner variable that `${{ env }}` can't see, so read it here.
       - id: playwright
-        run: echo "version=$(node -p 'require("@playwright/test/package.json").version')" >> "$GITHUB_OUTPUT"
+        run: |
+          echo "version=$(node -p 'require("@playwright/test/package.json").version')" >> "$GITHUB_OUTPUT"
+          echo "image=${ImageOS:?}" >> "$GITHUB_OUTPUT"
 
       - uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ matrix.browser }}-${{ steps.playwright.outputs.version }}
+          key: playwright-${{ steps.playwright.outputs.image }}-${{ matrix.browser }}-${{ steps.playwright.outputs.version }}
 
       # Cached binaries still need the runner's system dependencies.
       - run: npx playwright install --with-deps ${{ matrix.browser }}
