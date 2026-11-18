@@ -878,7 +878,7 @@ function SubjectFilterControls({
             <Search className="absolute left-1.5 top-1/2 -translate-y-1/2 w-3 h-3 text-gray-400 pointer-events-none" />
             <input
               type="text"
-              placeholder="Search subjects..."
+              placeholder="Filter Subjects"
               value={subjectSearchTerm}
               onChange={(e) => onSubjectSearchChange(e.target.value)}
               className="h-6 pl-6 pr-2 text-xs border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 w-full shadow-sm hover:shadow-md focus:shadow-md transition-shadow"
