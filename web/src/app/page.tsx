@@ -574,7 +574,9 @@ export default function Home() {
               onClick={() => handleTermChange(DEFAULT_CURRENT_TERM)}
               className="h-auto gap-0 rounded-full bg-amber-600 px-3 py-1 text-xs text-white shadow-none hover:bg-amber-700 active:bg-amber-800"
             >
-              Back to current<span className="hidden sm:inline"> term</span>
+              <span>
+                Back to current<span className="hidden sm:inline"> term</span>
+              </span>
             </Button>
             {catalog.scrapedAt && (
               /* Pinned right from lg and hidden below, where the disclaimer banner
