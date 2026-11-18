@@ -32,6 +32,7 @@ import type {
   SectionType,
   SectionChange,
   MeetingRow,
+  SectionAvailability,
 } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
 import { MeetingRowCard } from '@/components/MeetingRowCard'
@@ -65,6 +66,14 @@ function creditSummaryOf(visible: Credits | undefined, total: Credits | undefine
     label: `${visibleValue} / ${totalValue} credits`,
     title: `${visibleValue} visible credits, ${totalValue} total credits from enrolled courses`,
   }
+}
+
+// Takes the data's own status, so the chips match the section badges.
+function statusCountLabel(
+  { visible, total }: { visible: number; total: number },
+  status: SectionAvailability['status']
+): string {
+  return visible === total ? `${total} ${status}` : `${visible}/${total} ${status}`
 }
 
 // Shared style for the change-banner actions; the grid gives both equal width.
@@ -825,11 +834,7 @@ export default function ShoppingCart({
                       }
                     >
                       <span className="w-2 h-2 bg-green-600 rounded-full"></span>
-                      <span>
-                        {statusCounts.open.visible === statusCounts.open.total
-                          ? `${statusCounts.open.total} Open`
-                          : `${statusCounts.open.visible}/${statusCounts.open.total} Open`}
-                      </span>
+                      <span>{statusCountLabel(statusCounts.open, 'Open')}</span>
                     </div>
                   )}
                   {statusCounts.waitlisted.total > 0 && (
@@ -842,11 +847,7 @@ export default function ShoppingCart({
                       }
                     >
                       <AlertTriangle className="w-3 h-3" />
-                      <span>
-                        {statusCounts.waitlisted.visible === statusCounts.waitlisted.total
-                          ? `${statusCounts.waitlisted.total} Wait List`
-                          : `${statusCounts.waitlisted.visible}/${statusCounts.waitlisted.total} Wait List`}
-                      </span>
+                      <span>{statusCountLabel(statusCounts.waitlisted, 'Wait List')}</span>
                     </div>
                   )}
                   {statusCounts.closed.total > 0 && (
@@ -859,11 +860,7 @@ export default function ShoppingCart({
                       }
                     >
                       <AlertTriangle className="w-3 h-3" />
-                      <span>
-                        {statusCounts.closed.visible === statusCounts.closed.total
-                          ? `${statusCounts.closed.total} Closed`
-                          : `${statusCounts.closed.visible}/${statusCounts.closed.total} Closed`}
-                      </span>
+                      <span>{statusCountLabel(statusCounts.closed, 'Closed')}</span>
                     </div>
                   )}
                   {statusCounts.invalid.total > 0 && (
