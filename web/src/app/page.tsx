@@ -537,7 +537,8 @@ export default function Home() {
           </span>
           {catalog.scrapedAt && (
             /* Pinned right only from lg: the centred message needs the timestamp's
-               width clear on both sides, which narrower screens cannot give. */
+               width clear on both sides, which narrower screens cannot give.
+               TODO(#409): share with the other sync timestamps. */
             <div className="text-amber-700 lg:absolute lg:right-4 lg:top-1/2 lg:-translate-y-1/2">
               {/* Only the <time> waits for hydration, as in the filter panel: a
                   prerendered one is what iOS data detectors latch onto, and it would
@@ -585,7 +586,8 @@ export default function Home() {
                  itself beneath it with a hardcoded top offset, so a second row here
                  would slide that header under the bar. "Last synced" reads correctly
                  here too, since the bar already says the year is archived.
-                 Positioned against the full-width bar, as on the banner. */
+                 Positioned against the full-width bar, as on the banner.
+                 TODO(#409): share with the other sync timestamps. */
               <div className="hidden text-xs text-amber-700 lg:absolute lg:right-4 lg:top-1/2 lg:block lg:-translate-y-1/2">
                 Last synced:{' '}
                 {isHydrated ? (

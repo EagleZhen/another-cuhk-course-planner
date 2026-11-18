@@ -741,7 +741,8 @@ export default function CourseSearch({
                       Last Data Sync:{' '}
                       {/* The whole element waits for mount: a prerendered <time> is what iOS
                           data detectors look for, and it would wrap non-temporal placeholder
-                          text. dateTime carries the instant for machines and screen readers. */}
+                          text. dateTime carries the instant for machines and screen readers.
+                          TODO(#409): share with the other sync timestamps. */}
                       {mounted ? (
                         <time dateTime={catalog.scrapedAt.toISOString()}>
                           {formatSyncTimestamp(catalog.scrapedAt)}
