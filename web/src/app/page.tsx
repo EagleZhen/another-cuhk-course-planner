@@ -575,7 +575,7 @@ export default function Home() {
               className="h-auto gap-0 rounded-full bg-amber-600 px-3 py-1 text-xs text-white shadow-none hover:bg-amber-700 active:bg-amber-800"
             >
               <span>
-                Back to current<span className="hidden sm:inline"> term</span>
+                Back to Current<span className="hidden sm:inline"> Term</span>
               </span>
             </Button>
             {catalog.scrapedAt && (
