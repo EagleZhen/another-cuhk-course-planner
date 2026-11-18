@@ -559,7 +559,7 @@ export default function Home() {
       {/* Reference-mode bar: sticky, global reminder while browsing a frozen, non-live year */}
       {isArchivedYear && (
         <div className="sticky top-0 z-40 border-b border-amber-300 bg-amber-50 text-amber-900 shadow-sm">
-          <div className="relative mx-auto flex max-w-7xl items-center justify-center gap-2 px-4 py-2 text-sm">
+          <div className="mx-auto flex max-w-7xl items-center justify-center gap-2 px-4 py-2 text-sm">
             <Archive className="h-4 w-4 flex-shrink-0 text-amber-600" />
             <span className="truncate">
               <span className="hidden sm:inline">
@@ -584,7 +584,8 @@ export default function Home() {
                  deliberate: this bar is sticky and CourseSearch's search header pins
                  itself beneath it with a hardcoded top offset, so a second row here
                  would slide that header under the bar. "Last synced" reads correctly
-                 here too, since the bar already says the year is archived. */
+                 here too, since the bar already says the year is archived.
+                 Positioned against the full-width bar, as on the banner. */
               <div className="hidden text-xs text-amber-700 lg:absolute lg:right-4 lg:top-1/2 lg:block lg:-translate-y-1/2">
                 Last synced:{' '}
                 {isHydrated ? (
