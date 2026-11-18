@@ -2,6 +2,11 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 import nextVitals from 'eslint-config-next/core-web-vitals'
 import nextTypescript from 'eslint-config-next/typescript'
 
+// A capitalised word after the first ("Add to Cart" fails; "CUSIS" passes).
+const laterCapital = String.raw`/\S\s+[A-Z][a-z]/`
+const labelElement = 'JSXElement[openingElement.name.name=/^(Button|Badge)$/]'
+const sentenceCaseMessage = 'Use sentence case for button and badge labels (docs/design.md).'
+
 export default defineConfig([
   ...nextVitals,
   ...nextTypescript,
@@ -24,6 +29,14 @@ export default defineConfig([
           selector: 'JSXOpeningElement[name.type="JSXIdentifier"][name.name="button"]',
           message:
             'Use Button for feature actions so interaction feedback stays shared. Justify any native-button exception with a local ESLint suppression.',
+        },
+        {
+          selector: `${labelElement} > JSXText[value=${laterCapital}]`,
+          message: sentenceCaseMessage,
+        },
+        {
+          selector: `${labelElement} > JSXExpressionContainer > ConditionalExpression > Literal[value=${laterCapital}]`,
+          message: sentenceCaseMessage,
         },
       ],
     },

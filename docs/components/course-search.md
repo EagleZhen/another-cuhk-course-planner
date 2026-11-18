@@ -33,7 +33,7 @@ Course-level filtering lives in [courseFilters.ts](../../web/src/lib/courseFilte
 
 ## External Resource Links
 
-Google queries use `CUHK`, the compact course code (`CSCI3100`), and bilingual keywords (`Outline OR 大綱`, `Review OR 評價`) to find English and Traditional Chinese resources. Past Papers searches the CUHK Library.
+Google queries use `CUHK`, the compact course code (`CSCI3100`), and bilingual keywords (`Outline OR 大綱`, `Review OR 評價`) to find English and Traditional Chinese resources. Past papers searches the CUHK Library.
 
 ## Seat Availability
 

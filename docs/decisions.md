@@ -74,7 +74,7 @@ Where:
 
 A formatted date/time in the static export is a magnet for anything that rewrites text before React hydrates — timezone drift (build renders UTC, browser renders local), iOS data detectors, page translation, extensions — and each mismatch is a hydration error (React #418). The app is prerendered but almost entirely client-rendered, so such text buys little and risks this.
 
-Decision: keep volatile, rewritable text out of the prerendered HTML. The "Last Data Sync" time renders only after mount (a brief "Loading…" ships instead); its formatter is also timezone-pinned so our own output is deterministic.
+Decision: keep volatile, rewritable text out of the prerendered HTML. The "Last data sync" time renders only after mount (a brief "Loading…" ships instead); its formatter is also timezone-pinned so our own output is deterministic.
 
 Why it fits:
 

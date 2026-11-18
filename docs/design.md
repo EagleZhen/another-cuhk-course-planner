@@ -20,6 +20,8 @@ Keep selection distinguishable from momentary pressing. Passive labels should no
 
 State controls keep their option labels and show whether they are active, as filter chips do. Action controls describe the next action; align the icon with that label (crossed-out eye to hide, open eye to show).
 
+Use sentence case for all UI text: capitalise only the first word, proper nouns and CUHK's own terms ("Add to cart", "2 Wait List", "Interactive Tutorial"). ESLint checks literal Button and Badge text.
+
 Button uses short color transitions for hover and selection; pressed colors share that timing. Keep transition properties explicit so feedback changes do not remove needed motion.
 
 Cards use selection or expanded content to show results; whole-card pressed fills or dimming compete with that result. Keep keyboard actions accessible and isolate nested actions from clickable parents.

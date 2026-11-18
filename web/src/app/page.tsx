@@ -537,7 +537,8 @@ export default function Home() {
           </span>
           {catalog.scrapedAt && (
             /* Pinned right only from lg: the centred message needs the timestamp's
-               width clear on both sides, which narrower screens cannot give. */
+               width clear on both sides, which narrower screens cannot give.
+               TODO(#409): share with the other sync timestamps. */
             <div className="text-amber-700 lg:absolute lg:right-4 lg:top-1/2 lg:-translate-y-1/2">
               {/* Only the <time> waits for hydration, as in the filter panel: a
                   prerendered one is what iOS data detectors latch onto, and it would
@@ -559,12 +560,12 @@ export default function Home() {
       {/* Reference-mode bar: sticky, global reminder while browsing a frozen, non-live year */}
       {isArchivedYear && (
         <div className="sticky top-0 z-40 border-b border-amber-300 bg-amber-50 text-amber-900 shadow-sm">
-          <div className="relative mx-auto flex max-w-7xl items-center justify-center gap-2 px-4 py-2 text-sm">
+          <div className="mx-auto flex max-w-7xl items-center justify-center gap-2 px-4 py-2 text-sm">
             <Archive className="h-4 w-4 flex-shrink-0 text-amber-600" />
             <span className="truncate">
               <span className="hidden sm:inline">
                 Viewing <strong className="font-semibold">{currentTerm}</strong> — archived, for
-                reference only.
+                reference only
               </span>
               <span className="sm:hidden">
                 Archived: <strong className="font-semibold">{currentTerm}</strong>
@@ -574,7 +575,9 @@ export default function Home() {
               onClick={() => handleTermChange(DEFAULT_CURRENT_TERM)}
               className="h-auto gap-0 rounded-full bg-amber-600 px-3 py-1 text-xs text-white shadow-none hover:bg-amber-700 active:bg-amber-800"
             >
-              Back to current<span className="hidden sm:inline"> term</span>
+              <span>
+                Back to current<span className="hidden sm:inline"> term</span>
+              </span>
             </Button>
             {catalog.scrapedAt && (
               /* Pinned right from lg and hidden below, where the disclaimer banner
@@ -582,7 +585,9 @@ export default function Home() {
                  deliberate: this bar is sticky and CourseSearch's search header pins
                  itself beneath it with a hardcoded top offset, so a second row here
                  would slide that header under the bar. "Last synced" reads correctly
-                 here too, since the bar already says the year is archived. */
+                 here too, since the bar already says the year is archived.
+                 Positioned against the full-width bar, as on the banner.
+                 TODO(#409): share with the other sync timestamps. */
               <div className="hidden text-xs text-amber-700 lg:absolute lg:right-4 lg:top-1/2 lg:block lg:-translate-y-1/2">
                 Last synced:{' '}
                 {isHydrated ? (
@@ -644,10 +649,10 @@ export default function Home() {
             <CardHeader>
               <div className="space-y-2">
                 <div>
-                  <CardTitle>Course Catalog</CardTitle>
+                  <CardTitle>Course catalog</CardTitle>
                 </div>
 
-                {/* Available Subjects - Modern Toggle Interface */}
+                {/* Available subjects - Modern Toggle Interface */}
                 <div className="space-y-2">
                   {/* Desktop layout: title and controls in one row */}
                   <SubjectFilterControls
@@ -862,7 +867,7 @@ function SubjectFilterControls({
     >
       <div className={`flex items-center gap-3 ${isVertical ? 'flex-col items-start' : ''}`}>
         <div className={isVertical ? 'text-sm font-medium text-gray-700' : ''}>
-          Available Subjects{' '}
+          Available subjects{' '}
           {availableSubjects.length > 0 &&
             `(${showSelectedOnly ? selectedSubjects.size : availableSubjects.length})`}
         </div>
@@ -873,7 +878,7 @@ function SubjectFilterControls({
             <Search className="absolute left-1.5 top-1/2 -translate-y-1/2 w-3 h-3 text-gray-400 pointer-events-none" />
             <input
               type="text"
-              placeholder="Search subjects..."
+              placeholder="Filter subjects"
               value={subjectSearchTerm}
               onChange={(e) => onSubjectSearchChange(e.target.value)}
               className="h-6 pl-6 pr-2 text-xs border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 w-full shadow-sm hover:shadow-md focus:shadow-md transition-shadow"
@@ -892,7 +897,7 @@ function SubjectFilterControls({
             className="h-5 rounded px-1.5 text-xs font-normal"
             title={showSelectedOnly ? 'Show all subjects' : 'Show selected subjects only'}
           >
-            {showSelectedOnly ? 'Show All' : 'Show Selected Only'}
+            {showSelectedOnly ? 'Show all' : 'Show selected only'}
           </Button>
           {selectedSubjects.size > 0 && (
             <Button
@@ -902,7 +907,7 @@ function SubjectFilterControls({
               className="h-5 px-2 text-xs font-normal cursor-pointer"
               title="Clear all subject filters and search"
             >
-              Clear Subjects
+              Clear subjects
             </Button>
           )}
         </div>

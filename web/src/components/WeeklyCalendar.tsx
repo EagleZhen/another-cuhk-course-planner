@@ -314,7 +314,7 @@ export default function WeeklyCalendar({
         '1. Create a NEW calendar in your calendar app (Google Calendar, Outlook, etc.).\n' +
         '2. Import the downloaded .ics file to that NEW calendar\n\n' +
         'This keeps your course schedule separate and easier to manage.\n\n' +
-        'P.S. If you imported to the wrong calendar, use the dropdown menu (⌄) → "Undo Previous Import" to cancel all events.\n\n' +
+        'P.S. If you imported to the wrong calendar, use the dropdown menu (⌄) → "Undo previous import" to cancel all events.\n\n' +
         'Click OK to proceed with the export.'
     )
 
@@ -576,7 +576,7 @@ export default function WeeklyCalendar({
                   >
                     <div className="flex items-center gap-2 text-sm font-medium">
                       <Undo className="w-3.5 h-3.5" />
-                      Undo Previous Import
+                      Undo previous import
                     </div>
                     <div className="text-xs text-gray-500">
                       Upload original .ics to cancel events
@@ -661,7 +661,7 @@ export default function WeeklyCalendar({
                     >
                       <div className="flex items-center gap-2 text-sm font-medium">
                         <Undo className="w-3.5 h-3.5" />
-                        Undo Previous Import
+                        Undo previous import
                       </div>
                       <div className="text-xs text-gray-500">
                         Upload original .ics to cancel events
@@ -1384,7 +1384,7 @@ function UnscheduledSectionsCard({
                     {displayConfig.showTime && (
                       <div className={`${TEXT_STYLES.TIME} truncate`}>
                         {item.meeting.time === 'TBA'
-                          ? 'No Set Time'
+                          ? 'No set time'
                           : formatTimeCompact(item.meeting.time)}
                       </div>
                     )}
@@ -1392,7 +1392,7 @@ function UnscheduledSectionsCard({
                     {displayConfig.showLocation && (
                       <div className={`${TEXT_STYLES.LOCATION} truncate`}>
                         {item.meeting.location === 'TBA'
-                          ? 'No Set Location'
+                          ? 'No set location'
                           : item.meeting.location}
                       </div>
                     )}

@@ -14,9 +14,9 @@ test('mounts native feedback links only while the menu is open', async ({ page }
 
   await feedback.click()
   await expect(links).toHaveCount(3)
-  const form = menu.getByRole('link', { name: 'Fill a Form', exact: true })
-  const chat = menu.getByRole('link', { name: 'Have a Chat!', exact: true })
-  const email = menu.getByRole('link', { name: 'Send an Email', exact: true })
+  const form = menu.getByRole('link', { name: 'Fill a form', exact: true })
+  const chat = menu.getByRole('link', { name: 'Have a chat!', exact: true })
+  const email = menu.getByRole('link', { name: 'Send an email', exact: true })
   await expect(form).toHaveAttribute(
     'href',
     /^https:\/\/docs\.google\.com\/forms\/d\/e\/[^/]+\/viewform$/

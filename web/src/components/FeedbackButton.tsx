@@ -33,7 +33,7 @@ export default function FeedbackButton() {
 
           <div className="absolute bottom-full right-0 mb-2 z-[60] bg-white border border-gray-200 rounded-lg shadow-lg min-w-[240px]">
             <div className="p-2 border-b border-gray-100">
-              <div className="text-sm font-medium text-gray-900">Share Feedback</div>
+              <div className="text-sm font-medium text-gray-900">Share feedback</div>
             </div>
             <div className="py-1">
               <MenuItem asChild>
@@ -44,7 +44,7 @@ export default function FeedbackButton() {
                   onClick={() => setIsOpen(false)}
                 >
                   <MessageSquare className="w-4 h-4 text-gray-500" />
-                  Fill a Form
+                  Fill a form
                 </a>
               </MenuItem>
               <MenuItem asChild>
@@ -55,7 +55,7 @@ export default function FeedbackButton() {
                   onClick={() => setIsOpen(false)}
                 >
                   <MessageCircle className="w-4 h-4 text-gray-500" />
-                  Have a Chat!
+                  Have a chat!
                 </a>
               </MenuItem>
               <MenuItem asChild>
@@ -65,7 +65,7 @@ export default function FeedbackButton() {
                   onClick={() => setIsOpen(false)}
                 >
                   <Mail className="w-4 h-4 text-gray-500" />
-                  Send an Email
+                  Send an email
                 </a>
               </MenuItem>
             </div>

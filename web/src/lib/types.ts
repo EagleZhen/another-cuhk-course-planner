@@ -121,7 +121,7 @@ export interface SectionAvailability {
 
 // Centralized section type configuration - SINGLE SOURCE OF TRUTH
 export const SECTION_TYPE_CONFIG = {
-  ASB: { displayName: 'Assembly', icon: '🦻', aliases: ['ASB'] },
+  ASB: { displayName: 'Assembly', icon: '🏛️', aliases: ['ASB'] },
   CLW: { displayName: 'Classwork', icon: '✍️', aliases: ['CLW'] },
   DIS: { displayName: 'Discussion', icon: '💬', aliases: ['DIS'] },
   EXR: { displayName: 'Exercise', icon: '✏️', aliases: ['EXR'] },

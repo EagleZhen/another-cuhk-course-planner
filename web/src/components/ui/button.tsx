@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // E.g. Add to Cart and selected filter chips.
+        // E.g. Add to cart and selected filter chips.
         default:
           'bg-primary text-primary-foreground shadow-xs hover:bg-primary active:bg-primary/80 cursor-pointer',
         // E.g. Remove from Cart and Clear filters.
@@ -18,26 +18,26 @@ const buttonVariants = cva(
         // E.g. term selectors and unselected filter chips.
         outline:
           'border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground active:bg-border/70 active:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 dark:active:bg-input/70 cursor-pointer',
-        // E.g. disabled Add to Cart and Added status.
+        // E.g. disabled Add to cart and Added status.
         secondary:
           'bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80 active:bg-secondary/60 cursor-pointer',
         // E.g. ICS export and its dropdown chevron.
         ghost:
           'hover:bg-accent hover:text-accent-foreground active:bg-border active:text-accent-foreground dark:hover:bg-accent/50 dark:active:bg-accent cursor-pointer',
-        // E.g. Show All / Show Selected Only beside the subject filters.
+        // E.g. Show all / Show selected only beside the subject filters.
         'text-action':
           'text-blue-700 hover:bg-blue-50 hover:text-blue-800 active:bg-blue-100 active:text-blue-900 dark:text-blue-400 dark:hover:bg-blue-950 dark:hover:text-blue-300 dark:active:bg-blue-900 dark:active:text-blue-200 cursor-pointer',
         // E.g. eye icons over timetable events.
         overlay:
           'bg-black/20 text-white backdrop-blur-sm hover:bg-white/40 active:bg-white/60 cursor-pointer',
 
-        // E.g. Outline / Reviews / Past Papers and cart section arrows.
+        // E.g. Outline / Reviews / Past papers and cart section arrows.
         'ghost-neutral':
           'hover:text-accent-foreground active:text-accent-foreground cursor-pointer text-muted-foreground hover:bg-gray-200 active:bg-gray-300 dark:hover:bg-gray-700 dark:active:bg-gray-600',
         // E.g. cart trash button.
         'ghost-danger':
           'cursor-pointer text-red-600 hover:bg-red-50 hover:text-red-700 active:bg-red-100 active:text-red-800 dark:text-red-400 dark:hover:bg-red-950 dark:hover:text-red-300 dark:active:bg-red-900 dark:active:text-red-200',
-        // E.g. Review Changes / Dismiss All and replacement-section arrows.
+        // E.g. Review next / Dismiss all and replacement-section arrows.
         'ghost-warning':
           'cursor-pointer text-amber-800 hover:bg-amber-100 hover:text-amber-900 active:bg-amber-200 active:text-amber-950 dark:text-amber-300 dark:hover:bg-amber-950 dark:hover:text-amber-200 dark:active:bg-amber-900 dark:active:text-amber-100',
         // E.g. Feedback and successful copy state.
