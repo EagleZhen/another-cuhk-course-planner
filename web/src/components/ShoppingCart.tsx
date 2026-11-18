@@ -463,7 +463,7 @@ export default function ShoppingCart({
                           event.stopPropagation()
                           toggleSelection()
                         }}
-                        className="h-full rounded-sm p-0 text-sm font-semibold leading-5 disabled:opacity-100"
+                        className="h-full rounded-sm p-0 text-sm font-semibold leading-5 hover:bg-transparent hover:text-inherit active:bg-transparent active:text-inherit disabled:opacity-100"
                       >
                         {formatCourseCodeWithPrefix(
                           enrollment.course.subject,
