@@ -32,6 +32,7 @@ import type {
   SectionType,
   SectionChange,
   MeetingRow,
+  SectionAvailability,
 } from '@/lib/types'
 import { analytics } from '@/lib/analytics'
 import { MeetingRowCard } from '@/components/MeetingRowCard'
@@ -65,6 +66,14 @@ function creditSummaryOf(visible: Credits | undefined, total: Credits | undefine
     label: `${visibleValue} / ${totalValue} credits`,
     title: `${visibleValue} visible credits, ${totalValue} total credits from enrolled courses`,
   }
+}
+
+// Takes the data's own status, so the chips match the section badges.
+function statusCountLabel(
+  { visible, total }: { visible: number; total: number },
+  status: SectionAvailability['status']
+): string {
+  return visible === total ? `${total} ${status}` : `${visible}/${total} ${status}`
 }
 
 // Shared style for the change-banner actions; the grid gives both equal width.
@@ -414,7 +423,7 @@ export default function ShoppingCart({
                     relative group space-y-2 rounded border border-l-4 p-2
                     transition-[box-shadow,scale] duration-300 motion-reduce:transition-none
                     ${isInvalid ? 'border-amber-200 bg-amber-50' : 'border-gray-200 bg-white'}
-                    ${isSelectable && onSelectEnrollment && !isSelected ? 'hover:shadow-md' : ''}
+                    ${isSelectable && onSelectEnrollment && !isSelected ? 'hover:shadow-[2px_4px_8px_-2px_rgb(0_0_0/0.15)]' : ''}
                     ${isSelected && isSelectable ? `ring-1 shadow-lg scale-[1.02]` : ''}
                     ${cardCursorClass}
                   `}
@@ -454,7 +463,7 @@ export default function ShoppingCart({
                           event.stopPropagation()
                           toggleSelection()
                         }}
-                        className="h-full rounded-sm p-0 text-sm font-semibold leading-5 disabled:opacity-100"
+                        className="h-full rounded-sm p-0 text-sm font-semibold leading-5 hover:bg-transparent hover:text-inherit active:bg-transparent active:text-inherit disabled:opacity-100"
                       >
                         {formatCourseCodeWithPrefix(
                           enrollment.course.subject,
@@ -825,11 +834,7 @@ export default function ShoppingCart({
                       }
                     >
                       <span className="w-2 h-2 bg-green-600 rounded-full"></span>
-                      <span>
-                        {statusCounts.open.visible === statusCounts.open.total
-                          ? `${statusCounts.open.total} Open`
-                          : `${statusCounts.open.visible}/${statusCounts.open.total} Open`}
-                      </span>
+                      <span>{statusCountLabel(statusCounts.open, 'Open')}</span>
                     </div>
                   )}
                   {statusCounts.waitlisted.total > 0 && (
@@ -842,11 +847,7 @@ export default function ShoppingCart({
                       }
                     >
                       <AlertTriangle className="w-3 h-3" />
-                      <span>
-                        {statusCounts.waitlisted.visible === statusCounts.waitlisted.total
-                          ? `${statusCounts.waitlisted.total} Wait List`
-                          : `${statusCounts.waitlisted.visible}/${statusCounts.waitlisted.total} Wait List`}
-                      </span>
+                      <span>{statusCountLabel(statusCounts.waitlisted, 'Wait List')}</span>
                     </div>
                   )}
                   {statusCounts.closed.total > 0 && (
@@ -859,11 +860,7 @@ export default function ShoppingCart({
                       }
                     >
                       <AlertTriangle className="w-3 h-3" />
-                      <span>
-                        {statusCounts.closed.visible === statusCounts.closed.total
-                          ? `${statusCounts.closed.total} Closed`
-                          : `${statusCounts.closed.visible}/${statusCounts.closed.total} Closed`}
-                      </span>
+                      <span>{statusCountLabel(statusCounts.closed, 'Closed')}</span>
                     </div>
                   )}
                   {statusCounts.invalid.total > 0 && (
