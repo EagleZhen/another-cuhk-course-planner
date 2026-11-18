@@ -139,7 +139,7 @@ export default function MobileDesktopNotice() {
         <div className="text-center mb-4">
           <div className="flex items-center justify-center gap-2 mb-2">
             <Monitor className="w-4 h-4 text-muted-foreground" />
-            <h2 className="text-base font-bold text-foreground">Better on Computer</h2>
+            <h2 className="text-base font-bold text-foreground">Better on computer</h2>
           </div>
           <p className="text-muted-foreground text-sm">
             This tool works best on desktop with side-by-side layout, live preview, and clearer
@@ -191,7 +191,7 @@ export default function MobileDesktopNotice() {
               className="w-full select-none motion-safe:active:scale-95"
             >
               {copied ? <Check /> : <Share2 />}
-              {copied ? 'Link Copied!' : 'Send Link to My Computer'}
+              {copied ? 'Link copied!' : 'Send link to my computer'}
             </Button>
             <Button
               variant="ghost"
@@ -199,7 +199,7 @@ export default function MobileDesktopNotice() {
               onClick={() => dismissNotice('button')}
               className="w-full select-none motion-safe:active:scale-95"
             >
-              Continue on Mobile
+              Continue on mobile
             </Button>
           </div>
 

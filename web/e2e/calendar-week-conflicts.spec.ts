@@ -396,7 +396,7 @@ test('jumps to the one week a conflict falls in', async ({ page }) => {
   // The lecture runs both weeks; the tutorial meets once, clashing only on 18/9.
   await openPlanner(page, '18/9', '11/9, 18/9')
 
-  const jump = page.getByRole('button', { name: 'Review Next Conflict' })
+  const jump = page.getByRole('button', { name: 'Review next conflict' })
   await expect(jump).toHaveAttribute('title', '1 of 2 weeks have a conflict')
   await expect(conflictZone(page)).toHaveCount(0)
 
@@ -411,7 +411,7 @@ test('jumps to the one week a conflict falls in', async ({ page }) => {
 test('offers no jump when nothing clashes', async ({ page }) => {
   await openPlanner(page, '25/9')
 
-  await expect(page.getByRole('button', { name: 'Review Next Conflict' })).toHaveCount(0)
+  await expect(page.getByRole('button', { name: 'Review next conflict' })).toHaveCount(0)
 })
 
 // Two thirds of conflicted carts clash every week, where the chevrons already
@@ -420,7 +420,7 @@ test('offers no jump when the shown week already clashes', async ({ page }) => {
   await openPlanner(page, '11/9')
 
   await expect(conflictZone(page).first()).toBeVisible()
-  await expect(page.getByRole('button', { name: 'Review Next Conflict' })).toHaveCount(0)
+  await expect(page.getByRole('button', { name: 'Review next conflict' })).toHaveCount(0)
 })
 
 // Standing inside a run of repeated weeks, back used to step to that run's own
@@ -428,7 +428,7 @@ test('offers no jump when the shown week already clashes', async ({ page }) => {
 // which is also the only route the unit tests cannot take.
 test('back clears the run it is standing in', async ({ page }) => {
   await openPlanner(page, '25/9, 2/10, 9/10', '11/9, 18/9')
-  const skip = page.getByRole('button', { name: 'Skip Repeated Weeks' })
+  const skip = page.getByRole('button', { name: 'Skip repeated weeks' })
   const nextWeek = page.getByRole('button', { name: 'Next week' })
   const previousWeek = page.getByRole('button', { name: 'Previous week' })
 

@@ -42,7 +42,7 @@ Accuracy does not help a student who never looks. A median 13-week cart holds on
 
 A clash can occupy one week of thirteen while the cart reports it all term — `MBTE3510` and `BECE4020` clash on 2 November alone — so the badge says there is a problem and the grid shows none.
 
-**"Review Next Conflict" appears only when the week on screen is clear and another is not**, the one state where the two disagree. Showing it whenever any week clashed is the obvious rule and wrong: of conflicted carts, 66% clash in _every_ week and 30% in nine of ten, so it would duplicate the `next week` chevron almost always.
+**"Review next conflict" appears only when the week on screen is clear and another is not**, the one state where the two disagree. Showing it whenever any week clashed is the obvious rule and wrong: of conflicted carts, 66% clash in _every_ week and 30% in nine of ten, so it would duplicate the `next week` chevron almost always.
 
 It ignores the skip toggle: where the clash is and which weeks are worth stepping through are different questions.
 

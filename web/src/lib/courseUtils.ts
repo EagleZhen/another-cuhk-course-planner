@@ -1496,7 +1496,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
   if (capacity > 0) {
     badges.push({
       type: 'availability' as const,
-      text: `${availableSeats}/${capacity} Available`,
+      text: `${availableSeats}/${capacity} available`,
       style: getAvailabilityBadgeStyle(availability),
     })
   }
@@ -1505,7 +1505,7 @@ export function getAvailabilityBadges(availability: SectionAvailability) {
   if (waitlistTotal > 0 || (status === 'Wait List' && waitlistCapacity > 0)) {
     badges.push({
       type: 'waitlist' as const,
-      text: `${waitlistTotal} Waiting`,
+      text: `${waitlistTotal} waiting`,
       style: getWaitlistBadgeStyle(waitlistTotal),
     })
   }

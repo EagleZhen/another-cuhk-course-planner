@@ -56,13 +56,13 @@ function creditSummaryOf(visible: Credits | undefined, total: Credits | undefine
   if (!total) return { label: '', title: '' }
   if (sameCredits(visible, total)) {
     const value = formatCreditTotal(total)
-    return { label: `${value} Credits`, title: `${value} total credits from enrolled courses` }
+    return { label: `${value} credits`, title: `${value} total credits from enrolled courses` }
   }
 
   const visibleValue = visible ? formatCreditTotal(visible) : '0.0'
   const totalValue = formatCreditTotal(total)
   return {
-    label: `${visibleValue} / ${totalValue} Credits`,
+    label: `${visibleValue} / ${totalValue} credits`,
     title: `${visibleValue} visible credits, ${totalValue} total credits from enrolled courses`,
   }
 }
@@ -272,7 +272,7 @@ export default function ShoppingCart({
     <Card className="h-[800px] flex flex-col gap-1 py-2 pt-4" data-shopping-cart>
       <CardHeader className="pb-0 pt-1 flex-shrink-0">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-base">Shopping Cart</CardTitle>
+          <CardTitle className="text-base">Shopping cart</CardTitle>
           <Badge
             variant="secondary"
             className="text-xs"
@@ -297,11 +297,11 @@ export default function ShoppingCart({
 
               // Show simple count when all are visible (like credits logic)
               if (visibleCount === totalCount) {
-                return `${totalCount} ${totalCount === 1 ? 'Course' : 'Courses'}`
+                return `${totalCount} ${totalCount === 1 ? 'course' : 'courses'}`
               }
 
               // Show visible/total when some are hidden
-              return `${visibleCount}/${totalCount} ${totalCount === 1 ? 'Course' : 'Courses'}`
+              return `${visibleCount}/${totalCount} ${totalCount === 1 ? 'course' : 'courses'}`
             })()}
           </Badge>
         </div>
@@ -330,7 +330,7 @@ export default function ShoppingCart({
                 className={bannerButtonClass}
                 title="Review the next changed course from top to bottom"
               >
-                Review Next
+                Review next
               </Button>
             )}
             {onDismissAllChanges && (
@@ -341,7 +341,7 @@ export default function ShoppingCart({
                 className={bannerButtonClass}
                 title="Dismiss all change notifications"
               >
-                Dismiss All
+                Dismiss all
               </Button>
             )}
           </span>
@@ -472,7 +472,7 @@ export default function ShoppingCart({
                           className="h-full min-w-0 shrink justify-start rounded px-1 py-0 text-xs font-medium text-gray-600"
                           title={`${formatCredits(enrollment.course.credits)} credits`}
                         >
-                          {formatCredits(enrollment.course.credits)} Cr
+                          {formatCredits(enrollment.course.credits)} cr
                         </Badge>
                       )}
                     </div>
@@ -552,7 +552,7 @@ export default function ShoppingCart({
                       </div>
                       {enrollment.lastSynced && (
                         <div className="mt-2 text-xs text-gray-500">
-                          Last Synced · {formatSyncTimestamp(enrollment.lastSynced)}
+                          Last synced · {formatSyncTimestamp(enrollment.lastSynced)}
                         </div>
                       )}
                     </div>
@@ -603,7 +603,7 @@ export default function ShoppingCart({
                                 )}
                               </div>
 
-                              {/* Cycling controls or "Only Option" badge */}
+                              {/* Cycling controls or "Only option" badge */}
                               {canCycle ? (
                                 <div className="flex items-center gap-1">
                                   <span className="text-[10px] text-gray-500">
@@ -639,7 +639,7 @@ export default function ShoppingCart({
                                   variant="outline"
                                   className="text-[9px] px-1 py-0 h-4 text-gray-500 border-gray-300"
                                 >
-                                  Only Option
+                                  Only option
                                 </Badge>
                               )}
                             </div>
@@ -797,7 +797,7 @@ export default function ShoppingCart({
                   title="Selected sections have time conflicts"
                 >
                   <AlertTriangle className="w-3 h-3" />
-                  <span>Conflicts Detected</span>
+                  <span>Conflicts detected</span>
                 </div>
               )}
             </div>

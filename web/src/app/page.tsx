@@ -544,7 +544,7 @@ export default function Home() {
                   prerendered one is what iOS data detectors latch onto, and it would
                   wrap the placeholder. The line renders either way so the banner
                   cannot grow a row under lg, where this sits in flow. */}
-              Last Synced:{' '}
+              Last synced:{' '}
               {isHydrated ? (
                 <time dateTime={catalog.scrapedAt.toISOString()}>
                   {formatSyncTimestamp(catalog.scrapedAt)}
@@ -576,7 +576,7 @@ export default function Home() {
               className="h-auto gap-0 rounded-full bg-amber-600 px-3 py-1 text-xs text-white shadow-none hover:bg-amber-700 active:bg-amber-800"
             >
               <span>
-                Back to Current<span className="hidden sm:inline"> Term</span>
+                Back to current<span className="hidden sm:inline"> term</span>
               </span>
             </Button>
             {catalog.scrapedAt && (
@@ -584,12 +584,12 @@ export default function Home() {
                  instead drops its timestamp onto its own line. The difference is
                  deliberate: this bar is sticky and CourseSearch's search header pins
                  itself beneath it with a hardcoded top offset, so a second row here
-                 would slide that header under the bar. "Last Synced" reads correctly
+                 would slide that header under the bar. "Last synced" reads correctly
                  here too, since the bar already says the year is archived.
                  Positioned against the full-width bar, as on the banner.
                  TODO(#409): share with the other sync timestamps. */
               <div className="hidden text-xs text-amber-700 lg:absolute lg:right-4 lg:top-1/2 lg:block lg:-translate-y-1/2">
-                Last Synced:{' '}
+                Last synced:{' '}
                 {isHydrated ? (
                   <time dateTime={catalog.scrapedAt.toISOString()}>
                     {formatSyncTimestamp(catalog.scrapedAt)}
@@ -649,10 +649,10 @@ export default function Home() {
             <CardHeader>
               <div className="space-y-2">
                 <div>
-                  <CardTitle>Course Catalog</CardTitle>
+                  <CardTitle>Course catalog</CardTitle>
                 </div>
 
-                {/* Available Subjects - Modern Toggle Interface */}
+                {/* Available subjects - Modern Toggle Interface */}
                 <div className="space-y-2">
                   {/* Desktop layout: title and controls in one row */}
                   <SubjectFilterControls
@@ -867,7 +867,7 @@ function SubjectFilterControls({
     >
       <div className={`flex items-center gap-3 ${isVertical ? 'flex-col items-start' : ''}`}>
         <div className={isVertical ? 'text-sm font-medium text-gray-700' : ''}>
-          Available Subjects{' '}
+          Available subjects{' '}
           {availableSubjects.length > 0 &&
             `(${showSelectedOnly ? selectedSubjects.size : availableSubjects.length})`}
         </div>
@@ -878,7 +878,7 @@ function SubjectFilterControls({
             <Search className="absolute left-1.5 top-1/2 -translate-y-1/2 w-3 h-3 text-gray-400 pointer-events-none" />
             <input
               type="text"
-              placeholder="Filter Subjects"
+              placeholder="Filter subjects"
               value={subjectSearchTerm}
               onChange={(e) => onSubjectSearchChange(e.target.value)}
               className="h-6 pl-6 pr-2 text-xs border border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 w-full shadow-sm hover:shadow-md focus:shadow-md transition-shadow"
@@ -897,7 +897,7 @@ function SubjectFilterControls({
             className="h-5 rounded px-1.5 text-xs font-normal"
             title={showSelectedOnly ? 'Show all subjects' : 'Show selected subjects only'}
           >
-            {showSelectedOnly ? 'Show All' : 'Show Selected Only'}
+            {showSelectedOnly ? 'Show all' : 'Show selected only'}
           </Button>
           {selectedSubjects.size > 0 && (
             <Button
@@ -907,7 +907,7 @@ function SubjectFilterControls({
               className="h-5 px-2 text-xs font-normal cursor-pointer"
               title="Clear all subject filters and search"
             >
-              Clear Subjects
+              Clear subjects
             </Button>
           )}
         </div>

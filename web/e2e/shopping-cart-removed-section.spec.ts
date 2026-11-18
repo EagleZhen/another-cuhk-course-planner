@@ -148,7 +148,7 @@ test('previous replaces a removed section with the last compatible alternative',
 test('outlines both warning actions and reviews the changed course', async ({ page }) => {
   await openCart(page, [firstReplacement, lastReplacement])
   const cart = page.locator('[data-shopping-cart]')
-  for (const name of ['Review Next', 'Dismiss All']) {
+  for (const name of ['Review next', 'Dismiss all']) {
     const action = cart.getByRole('button', { name, exact: true })
     await expect(action).toBeVisible()
     const borders = await action.evaluate((element) => {
@@ -175,7 +175,7 @@ test('outlines both warning actions and reviews the changed course', async ({ pa
       expect(border.opacity, `${name}: ${border.side} opacity`).toBeGreaterThan(0)
     }
   }
-  await cart.getByRole('button', { name: 'Review Next', exact: true }).click()
+  await cart.getByRole('button', { name: 'Review next', exact: true }).click()
   await expect(cart.getByRole('button', { name: 'ACCT1111', exact: true })).toHaveAttribute(
     'aria-pressed',
     'true'
@@ -187,7 +187,7 @@ test('dismisses the banner without removing the tombstone or replacement control
 }) => {
   await openCart(page, [firstReplacement, lastReplacement])
 
-  await page.getByRole('button', { name: 'Dismiss All' }).click()
+  await page.getByRole('button', { name: 'Dismiss all' }).click()
 
   await expect(page.getByText('1 course changed since you last checked')).toHaveCount(0)
   await expect(page.getByText('A-LEC (removed)', { exact: true })).toBeVisible()

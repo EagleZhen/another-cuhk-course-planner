@@ -560,7 +560,7 @@ export default function CourseSearch({
       .join(', ')
     filterPills.push({
       filter: 'credits',
-      label: `${credits} Credits`,
+      label: `${credits} credits`,
       onRemove: () => setSelectedCredits(new Set()),
     })
   }
@@ -587,7 +587,7 @@ export default function CourseSearch({
   if (noConflictOnly) {
     filterPills.push({
       filter: 'noConflict',
-      label: 'No Time Conflicts',
+      label: 'No time conflicts',
       onRemove: () => setNoConflictOnly(false),
     })
   }
@@ -692,7 +692,6 @@ export default function CourseSearch({
                 variant="ghost-danger"
                 onClick={() => window.location.reload()}
                 className="h-auto rounded px-0 py-0 text-inherit underline font-semibold"
-                // eslint-disable-next-line no-restricted-syntax -- a link inside a sentence
               >
                 Reload the page
               </Button>{' '}
@@ -739,7 +738,7 @@ export default function CourseSearch({
                       <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                     </span>
                     <span className="whitespace-nowrap">
-                      Last Data Sync:{' '}
+                      Last data sync:{' '}
                       {/* The whole element waits for mount: a prerendered <time> is what iOS
                           data detectors look for, and it would wrap non-temporal placeholder
                           text. dateTime carries the instant for machines and screen readers.
@@ -768,7 +767,7 @@ export default function CourseSearch({
               isSelected={(dayKey) => selectedDays.has(DAYS[dayKey].index)}
               onToggle={(dayKey) => toggleDayFilter(DAYS[dayKey].index)}
               onClear={() => setSelectedDays(new Set())}
-              clearLabel="Clear Days"
+              clearLabel="Clear days"
               emptyText="No courses available for day filtering"
               hasSelection={selectedDays.size > 0}
               toggleTitle={(dayKey, selected) =>
@@ -788,7 +787,7 @@ export default function CourseSearch({
               isSelected={(credits) => selectedCredits.has(credits)}
               onToggle={(credits) => toggleCreditFilter(credits)}
               onClear={() => setSelectedCredits(new Set())}
-              clearLabel="Clear Credits"
+              clearLabel="Clear credits"
               emptyText="No courses available for credit filtering"
               hasSelection={selectedCredits.size > 0}
               toggleTitle={(credits, selected) =>
@@ -808,7 +807,7 @@ export default function CourseSearch({
               isSelected={(level) => selectedLevels.has(level)}
               onToggle={(level) => toggleLevelFilter(level)}
               onClear={() => setSelectedLevels(new Set())}
-              clearLabel="Clear Level"
+              clearLabel="Clear level"
               emptyText="No courses available for level filtering"
               hasSelection={selectedLevels.size > 0}
               toggleTitle={(level, selected) =>
@@ -830,7 +829,7 @@ export default function CourseSearch({
               isSelected={(career) => selectedCareers.has(career)}
               onToggle={(career) => toggleCareerFilter(career)}
               onClear={() => setSelectedCareers(new Set())}
-              clearLabel="Clear Career"
+              clearLabel="Clear career"
               emptyText="No courses available for career filtering"
               hasSelection={selectedCareers.size > 0}
               toggleTitle={(career, selected) =>
@@ -853,7 +852,7 @@ export default function CourseSearch({
                     : 'Show only courses with no time conflicts'
                 }
               >
-                No Time Conflicts
+                No time conflicts
               </Button>
             </div>
           </div>
@@ -923,7 +922,7 @@ export default function CourseSearch({
                   {/* Progress Card */}
                   <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
                     <div className="flex items-center justify-between text-sm mb-3">
-                      <span className="text-gray-600 font-medium">Loading Progress</span>
+                      <span className="text-gray-600 font-medium">Loading progress</span>
                       <span className="font-mono text-sm text-gray-900">
                         {loadingProgress.loaded} / {loadingProgress.total}
                         <span className="ml-2 text-xs text-gray-500 font-sans">
@@ -977,7 +976,7 @@ export default function CourseSearch({
                   <div className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center">
                     <Info className="w-2.5 h-2.5 text-blue-600" />
                   </div>
-                  <span>Search Tips</span>
+                  <span>Search tips</span>
                 </h4>
                 <div className="text-sm text-slate-700 space-y-2">
                   <div className="flex items-start gap-2">
@@ -1152,7 +1151,7 @@ function CourseResourceLinks({ courseCode }: { courseCode: string }) {
       widthClass: 'min-w-[60px] sm:min-w-[65px]',
     },
     {
-      label: 'Past Papers',
+      label: 'Past papers',
       href: getCuhkLibrarySearchUrl(courseCode),
       title: `Search CUHK Library for "${courseCode}" past papers`,
       Icon: CuhkLibraryImageIcon,
@@ -1252,7 +1251,7 @@ function InstructorFilters({
           }}
           title="Clear all instructor filters"
         >
-          Clear Instructors
+          Clear instructors
         </Button>
       )}
     </>
@@ -1301,11 +1300,11 @@ function CourseCartActions({
       {!isAdded && isStacked && isEnrollmentComplete && <Plus className="w-3 h-3 mr-1" />}
       {isAdded
         ? canSubmit
-          ? 'Replace Cart'
+          ? 'Replace cart'
           : 'Added ✓'
         : isEnrollmentComplete
-          ? 'Add to Cart'
-          : 'Select Sections First'}
+          ? 'Add to cart'
+          : 'Select sections first'}
     </Button>
   )
 
@@ -1338,7 +1337,7 @@ function CourseCartActions({
       title="Scroll to course in shopping cart"
     >
       <ShoppingCart className="w-3 h-3 mr-1" />
-      Scroll to Cart
+      Scroll to cart
     </Button>
   )
 
@@ -1386,7 +1385,7 @@ function CourseSeatAvailabilityBadge({
       className={`text-xs border ${style.className}`}
       title={`${available} seats available out of ${total} total for ${seatInfo.type} sections`}
     >
-      {available}/{total} Available Seats
+      {available}/{total} available seats
     </Badge>
   )
 }
@@ -1739,7 +1738,7 @@ function CourseCard({
           title={expanded ? 'Hide sections' : 'Show sections'}
         >
           {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-          <span className="ml-2">{expanded ? 'Hide Sections' : 'Show Sections'}</span>
+          <span className="ml-2">{expanded ? 'Hide sections' : 'Show sections'}</span>
         </Button>
       </div>
 
@@ -1791,7 +1790,7 @@ function CourseCard({
                   className="h-6 px-2 text-xs font-medium"
                   title="Clear all day filters"
                 >
-                  Clear Days
+                  Clear days
                 </Button>
               )}
             </div>
@@ -1881,7 +1880,6 @@ function CourseCard({
                         variant="outline"
                         className="text-xs text-purple-700 border-purple-300 bg-purple-50"
                       >
-                        {/* eslint-disable-next-line no-restricted-syntax -- a status message */}
                         Filtered by {selectedInstructors.size} instructor
                         {selectedInstructors.size > 1 ? 's' : ''}
                       </Badge>
@@ -1914,7 +1912,7 @@ function CourseCard({
                               : `Show all ${typeGroup.displayName.toLowerCase()} options`
                           }
                         >
-                          {showingAllForType ? 'Hide Extra' : 'Show All'}
+                          {showingAllForType ? 'Hide extra' : 'Show all'}
                         </Button>
                       </span>
                     )}
@@ -2127,11 +2125,11 @@ function CourseCard({
 
             {/* Course Details */}
             <div className="border-t pt-4 space-y-3">
-              {/* Enrollment Requirement - Show first for student decision making */}
+              {/* Enrollment requirement - Show first for student decision making */}
               {course.enrollmentRequirement && (
                 <div>
                   <h4 className="font-semibold text-sm text-gray-700 mb-1">
-                    Enrollment Requirement
+                    Enrollment requirement
                   </h4>
                   <p className="text-sm text-gray-600 whitespace-pre-line">
                     {course.enrollmentRequirement}
@@ -2139,10 +2137,10 @@ function CourseCard({
                 </div>
               )}
 
-              {/* Course Attributes - Language, course type, etc. */}
+              {/* Course attributes - Language, course type, etc. */}
               {course.courseAttributes && (
                 <div>
-                  <h4 className="font-semibold text-sm text-gray-700 mb-1">Course Attributes</h4>
+                  <h4 className="font-semibold text-sm text-gray-700 mb-1">Course attributes</h4>
                   <p className="text-sm text-gray-600 whitespace-pre-line">
                     {course.courseAttributes}
                   </p>
@@ -2190,7 +2188,7 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
   const sectionConfigs = [
     {
       key: 'assessmentTypes',
-      title: 'Assessment Types',
+      title: 'Assessment types',
       content: course.assessmentTypes,
       isTable: true,
       alwaysVisible: true, // Critical info - always shown
@@ -2198,7 +2196,7 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
     },
     {
       key: 'learningOutcomes',
-      title: 'Learning Outcomes',
+      title: 'Learning outcomes',
       content: course.learningOutcomes,
       isTable: false,
       alwaysVisible: true, // Visible - Useful although there are still some formatting issues, but still better than nothing
@@ -2206,7 +2204,7 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
     },
     {
       key: 'requiredReadings',
-      title: 'Required Readings',
+      title: 'Required readings',
       content: course.requiredReadings,
       isTable: false,
       alwaysVisible: false, // Hidden - formatting not production-ready
@@ -2214,7 +2212,7 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
     },
     {
       key: 'recommendedReadings',
-      title: 'Recommended Readings',
+      title: 'Recommended readings',
       content: course.recommendedReadings,
       isTable: false,
       alwaysVisible: false, // Hidden - formatting not production-ready
@@ -2222,7 +2220,7 @@ function CourseOutcomeSections({ course }: { course: InternalCourse }) {
     },
     {
       key: 'feedbackEvaluation',
-      title: 'Feedback for Evaluation',
+      title: 'Feedback for evaluation',
       content: course.feedbackEvaluation,
       isTable: false,
       alwaysVisible: false, // Hidden - formatting not production-ready

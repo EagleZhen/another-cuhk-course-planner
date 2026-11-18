@@ -1813,8 +1813,8 @@ describe('getAvailabilityBadges', () => {
   it('shows the queue on a full class whose wait list is open but empty', () => {
     expect(getAvailabilityBadges(fullWithOpenQueue).map((badge) => badge.text)).toEqual([
       'Wait List',
-      '0/25 Available',
-      '0 Waiting',
+      '0/25 available',
+      '0 waiting',
     ])
   })
 
@@ -1847,7 +1847,7 @@ describe('getAvailabilityBadges', () => {
       status: 'Closed',
       waitlistCapacity: 0,
     })
-    expect(badges.map((badge) => badge.text)).toEqual(['Closed', '0/25 Available'])
+    expect(badges.map((badge) => badge.text)).toEqual(['Closed', '0/25 available'])
   })
 })
 
