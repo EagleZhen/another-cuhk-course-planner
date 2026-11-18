@@ -91,6 +91,7 @@ for (const width of [375, 1280]) {
     page,
     browserName,
   }) => {
+    // TODO(#413): drop once e2e skips drop-shadow painting, the real cost here.
     test.slow(
       browserName === 'webkit',
       'The long filter-selection workflow exceeds the default budget in CI WebKit'
