@@ -20,7 +20,7 @@ Keep selection distinguishable from momentary pressing. Passive labels should no
 
 State controls keep their option labels and show whether they are active, as filter chips do. Action controls describe the next action; align the icon with that label (crossed-out eye to hide, open eye to show).
 
-Short labels — buttons, badges, chips, "Label:" prefixes — use title case ("Add to Cart", "12.0 Credits"). Messages, tooltips and aria labels use sentence case ("No classes this week", "Remove course from cart").
+Labels (buttons, badges, chips, "Label:" prefixes) use title case: "Add to Cart". Messages and tooltips use sentence case: "No classes this week". ESLint checks only literal Button and Badge text.
 
 Button uses short color transitions for hover and selection; pressed colors share that timing. Keep transition properties explicit so feedback changes do not remove needed motion.
 

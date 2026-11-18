@@ -472,7 +472,7 @@ export default function ShoppingCart({
                           className="h-full min-w-0 shrink justify-start rounded px-1 py-0 text-xs font-medium text-gray-600"
                           title={`${formatCredits(enrollment.course.credits)} credits`}
                         >
-                          {formatCredits(enrollment.course.credits)} cr
+                          {formatCredits(enrollment.course.credits)} Cr
                         </Badge>
                       )}
                     </div>

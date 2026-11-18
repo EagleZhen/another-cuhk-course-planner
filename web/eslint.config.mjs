@@ -2,6 +2,11 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 import nextVitals from 'eslint-config-next/core-web-vitals'
 import nextTypescript from 'eslint-config-next/typescript'
 
+// A lowercase word other than a small word like "to" ("Add to Cart" passes).
+const lowercaseWord = String.raw`/(^|[\s(])(?!(a|an|the|and|or|of|to|in|on|for|by|at|with|vs)\b)[a-z]{2,}/`
+const labelElement = 'JSXElement[openingElement.name.name=/^(Button|Badge)$/]'
+const titleCaseMessage = 'Use title case for button and badge labels (docs/design.md).'
+
 export default defineConfig([
   ...nextVitals,
   ...nextTypescript,
@@ -24,6 +29,14 @@ export default defineConfig([
           selector: 'JSXOpeningElement[name.type="JSXIdentifier"][name.name="button"]',
           message:
             'Use Button for feature actions so interaction feedback stays shared. Justify any native-button exception with a local ESLint suppression.',
+        },
+        {
+          selector: `${labelElement} > JSXText[value=${lowercaseWord}]`,
+          message: titleCaseMessage,
+        },
+        {
+          selector: `${labelElement} > JSXExpressionContainer > ConditionalExpression > Literal[value=${lowercaseWord}]`,
+          message: titleCaseMessage,
         },
       ],
     },

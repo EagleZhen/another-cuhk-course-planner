@@ -692,6 +692,7 @@ export default function CourseSearch({
                 variant="ghost-danger"
                 onClick={() => window.location.reload()}
                 className="h-auto rounded px-0 py-0 text-inherit underline font-semibold"
+                // eslint-disable-next-line no-restricted-syntax -- a link inside a sentence
               >
                 Reload the page
               </Button>{' '}
@@ -1880,6 +1881,7 @@ function CourseCard({
                         variant="outline"
                         className="text-xs text-purple-700 border-purple-300 bg-purple-50"
                       >
+                        {/* eslint-disable-next-line no-restricted-syntax -- a status message */}
                         Filtered by {selectedInstructors.size} instructor
                         {selectedInstructors.size > 1 ? 's' : ''}
                       </Badge>
