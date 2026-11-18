@@ -544,7 +544,7 @@ export default function Home() {
                   prerendered one is what iOS data detectors latch onto, and it would
                   wrap the placeholder. The line renders either way so the banner
                   cannot grow a row under lg, where this sits in flow. */}
-              Last synced:{' '}
+              Last Synced:{' '}
               {isHydrated ? (
                 <time dateTime={catalog.scrapedAt.toISOString()}>
                   {formatSyncTimestamp(catalog.scrapedAt)}
@@ -584,12 +584,12 @@ export default function Home() {
                  instead drops its timestamp onto its own line. The difference is
                  deliberate: this bar is sticky and CourseSearch's search header pins
                  itself beneath it with a hardcoded top offset, so a second row here
-                 would slide that header under the bar. "Last synced" reads correctly
+                 would slide that header under the bar. "Last Synced" reads correctly
                  here too, since the bar already says the year is archived.
                  Positioned against the full-width bar, as on the banner.
                  TODO(#409): share with the other sync timestamps. */
               <div className="hidden text-xs text-amber-700 lg:absolute lg:right-4 lg:top-1/2 lg:block lg:-translate-y-1/2">
-                Last synced:{' '}
+                Last Synced:{' '}
                 {isHydrated ? (
                   <time dateTime={catalog.scrapedAt.toISOString()}>
                     {formatSyncTimestamp(catalog.scrapedAt)}

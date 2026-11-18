@@ -560,7 +560,7 @@ export default function CourseSearch({
       .join(', ')
     filterPills.push({
       filter: 'credits',
-      label: `${credits} credits`,
+      label: `${credits} Credits`,
       onRemove: () => setSelectedCredits(new Set()),
     })
   }
@@ -587,7 +587,7 @@ export default function CourseSearch({
   if (noConflictOnly) {
     filterPills.push({
       filter: 'noConflict',
-      label: 'No time conflicts',
+      label: 'No Time Conflicts',
       onRemove: () => setNoConflictOnly(false),
     })
   }
@@ -852,7 +852,7 @@ export default function CourseSearch({
                     : 'Show only courses with no time conflicts'
                 }
               >
-                No time conflicts
+                No Time Conflicts
               </Button>
             </div>
           </div>

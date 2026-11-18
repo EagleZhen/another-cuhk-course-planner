@@ -134,7 +134,7 @@ for (const width of [375, 1280]) {
       summary.getByRole('button', { name: `Remove ${dayLabel} filter`, exact: true })
     ).toBeVisible()
     await expect(
-      summary.getByRole('button', { name: 'Remove 3 credits filter', exact: true })
+      summary.getByRole('button', { name: 'Remove 3 Credits filter', exact: true })
     ).toBeVisible()
     await expect(
       summary.getByRole('button', { name: 'Remove L1 filter', exact: true })

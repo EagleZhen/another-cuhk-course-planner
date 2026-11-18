@@ -56,13 +56,13 @@ function creditSummaryOf(visible: Credits | undefined, total: Credits | undefine
   if (!total) return { label: '', title: '' }
   if (sameCredits(visible, total)) {
     const value = formatCreditTotal(total)
-    return { label: `${value} credits`, title: `${value} total credits from enrolled courses` }
+    return { label: `${value} Credits`, title: `${value} total credits from enrolled courses` }
   }
 
   const visibleValue = visible ? formatCreditTotal(visible) : '0.0'
   const totalValue = formatCreditTotal(total)
   return {
-    label: `${visibleValue} / ${totalValue} credits`,
+    label: `${visibleValue} / ${totalValue} Credits`,
     title: `${visibleValue} visible credits, ${totalValue} total credits from enrolled courses`,
   }
 }
@@ -297,11 +297,11 @@ export default function ShoppingCart({
 
               // Show simple count when all are visible (like credits logic)
               if (visibleCount === totalCount) {
-                return `${totalCount} ${totalCount === 1 ? 'course' : 'courses'}`
+                return `${totalCount} ${totalCount === 1 ? 'Course' : 'Courses'}`
               }
 
               // Show visible/total when some are hidden
-              return `${visibleCount}/${totalCount} ${totalCount === 1 ? 'course' : 'courses'}`
+              return `${visibleCount}/${totalCount} ${totalCount === 1 ? 'Course' : 'Courses'}`
             })()}
           </Badge>
         </div>
@@ -552,7 +552,7 @@ export default function ShoppingCart({
                       </div>
                       {enrollment.lastSynced && (
                         <div className="mt-2 text-xs text-gray-500">
-                          Last synced · {formatSyncTimestamp(enrollment.lastSynced)}
+                          Last Synced · {formatSyncTimestamp(enrollment.lastSynced)}
                         </div>
                       )}
                     </div>
@@ -603,7 +603,7 @@ export default function ShoppingCart({
                                 )}
                               </div>
 
-                              {/* Cycling controls or "only option" badge */}
+                              {/* Cycling controls or "Only Option" badge */}
                               {canCycle ? (
                                 <div className="flex items-center gap-1">
                                   <span className="text-[10px] text-gray-500">
@@ -639,7 +639,7 @@ export default function ShoppingCart({
                                   variant="outline"
                                   className="text-[9px] px-1 py-0 h-4 text-gray-500 border-gray-300"
                                 >
-                                  only option
+                                  Only Option
                                 </Badge>
                               )}
                             </div>
