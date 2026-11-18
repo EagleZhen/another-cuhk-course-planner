@@ -423,7 +423,7 @@ export default function ShoppingCart({
                     relative group space-y-2 rounded border border-l-4 p-2
                     transition-[box-shadow,scale] duration-300 motion-reduce:transition-none
                     ${isInvalid ? 'border-amber-200 bg-amber-50' : 'border-gray-200 bg-white'}
-                    ${isSelectable && onSelectEnrollment && !isSelected ? 'hover:shadow-md' : ''}
+                    ${isSelectable && onSelectEnrollment && !isSelected ? 'hover:shadow-[2px_4px_8px_-2px_rgb(0_0_0/0.15)]' : ''}
                     ${isSelected && isSelectable ? `ring-1 shadow-lg scale-[1.02]` : ''}
                     ${cardCursorClass}
                   `}
