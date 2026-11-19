@@ -942,7 +942,7 @@ class CuhkScraper:
             if not result.startswith("captcha_failed"):
                 # Not a miss: CUHK sent something we don't know, so keep the page.
                 self._reject_page(
-                    response.text, f"Unrecognised search result: {described}", "course_list"
+                    response.text, f"Unrecognized search result: {described}", "course_list"
                 )
             self.logger.info(f"Captcha rejected (attempt {attempt}): {described}")
 

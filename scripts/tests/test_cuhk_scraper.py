@@ -696,7 +696,7 @@ def test_an_impossible_read_is_never_sent():
 
 
 def test_a_search_form_without_a_captcha_is_a_subject_failure(monkeypatch, caplog):
-    # A form we don't recognise is not an OCR miss: it says what broke, sends nothing,
+    # A form we don't recognize is not an OCR miss: it says what broke, sends nothing,
     # and retries the subject on a new session.
     monkeypatch.setattr(time, "sleep", lambda _: None)
     scraper = _subject_scraper(NO_RECORDS_PAGE, form=f'{FORM_STATE}<input name="txt_captcha"/>')
@@ -748,7 +748,7 @@ def test_a_captcha_result_carries_only_what_cuhk_said(caplog):
     ],
     ids=["unknown message", "no table, no form", "empty table"],
 )
-def test_an_unrecognised_search_page_is_kept_and_fails_the_subject(
+def test_an_unrecognized_search_page_is_kept_and_fails_the_subject(
     monkeypatch, caplog, tmp_path, page, said
 ):
     # Not a wrong code: CUHK sent something new, so it retries the subject, not the
