@@ -14,6 +14,7 @@ import logging
 import sys
 
 from cuhk_scraper import (
+    CaptchaNotAccepted,
     CuhkScraper,
     NothingToResume,
     scrape_log_formatter,
@@ -102,6 +103,12 @@ def main():
 
     except KeyboardInterrupt:
         logger.info("Scraping interrupted by user")
+
+    except CaptchaNotAccepted as e:
+        logger.error(str(e))
+        again = "run with --resume" if mode != "partial" else "run the same subjects again"
+        logger.info(f"Once the OCR reads it again, {again}.")
+        sys.exit(1)
 
     except Exception as e:
         logger.error(f"Scraping failed: {e}")
