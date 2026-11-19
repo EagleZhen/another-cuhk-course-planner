@@ -63,7 +63,7 @@ class ScrapingConfig:
     request_delay: float = 1.0
     max_subject_attempts: int = 5
     # Wrong reads are routine and cost only a new captcha. This many in a row means the
-    # OCR can no longer read it, so the subject fails without retrying.
+    # OCR can no longer read it, so the run stops.
     max_captcha_attempts: int = 20
     # Transient corruption clears on the next attempt; this many identical parse failures
     # means the page shape changed and no amount of retrying will parse it.
@@ -1016,7 +1016,8 @@ class CuhkScraper:
             )
 
         raise CaptchaNotAccepted(
-            f"{subject_code}: no captcha accepted in {self.config.max_captcha_attempts} attempts"
+            f"{subject_code}: no captcha accepted in {self.config.max_captcha_attempts} attempts. "
+            "The OCR may no longer read it; check the OCR reads in the log."
         )
 
     def _extract_form_data(self, soup: BeautifulSoup) -> dict[str, str] | None:
@@ -2036,6 +2037,10 @@ class CuhkScraper:
                 del courses  # Explicit cleanup
                 gc.collect()  # Force garbage collection
 
+            except CaptchaNotAccepted:
+                # The next subject would get the same captcha, so stop as if interrupted:
+                # this subject stays unattempted and --resume starts from it.
+                raise
             except Exception as e:
                 failed_subjects.append(subject)
                 self.logger.error(f"{subject} failed with exception: {e}")

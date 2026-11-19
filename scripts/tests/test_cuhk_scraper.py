@@ -302,6 +302,30 @@ def _loop_scraper(tmp_path, *, failing=()):
     return scraper
 
 
+def test_an_unreadable_captcha_stops_the_run_where_resume_picks_up(tmp_path):
+    def run(error, directory):
+        scraped = []
+
+        def scrape(subject):
+            scraped.append(subject)
+            if subject == "BBBB":
+                raise error
+            return []
+
+        scraper = _loop_scraper(tmp_path / directory)
+        scraper.scrape_subject = scrape
+        CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB", "CCCC"], mode="full")
+        return scraped
+
+    # Any other failure is the subject's own, so the run moves on.
+    assert run(ConnectionError("network is down"), "other") == ["AAAA", "BBBB", "CCCC"]
+
+    with pytest.raises(CaptchaNotAccepted):
+        run(CaptchaNotAccepted("BBBB"), "captcha")
+    scrape = _read(tmp_path / "captcha" / "progress.json")["latest_full_scrape"]
+    assert scrape["remaining"] == ["BBBB", "CCCC"]
+
+
 def test_a_subject_saved_with_a_cusis_system_error_is_incomplete(tmp_path):
     # Kept per subject, so a resume or a one-subject re-scrape updates exactly its own.
     gap = _course("1000", [])
