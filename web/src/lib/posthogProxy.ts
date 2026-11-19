@@ -3,8 +3,11 @@
 
 export const PROXY_PREFIX = '/x8m2k'
 
-// RFC 3986 path characters. An old tab's plain path decodes to bytes outside it.
-const PATH = /^[\w\-.~!$&'()*+,;=:@%/]+$/
+// Tokens use only base64url, so a plain path with `/` or `.` is never decoded.
+const TOKEN = /^[\w-]+$/
+// Printable ASCII, which any URL path is. A plain word like `decide` decodes to
+// a byte ≥ 0x80.
+const PATH = /^[!-~]+$/
 
 // XOR with our route name, so our tokens differ from other sites'. Not a secret.
 function scramble(text: string) {
@@ -28,6 +31,7 @@ export function encodeProxyPath(url: URL): URL {
 
 // The token comes from the browser, so bad input returns null.
 export function decodeProxyPath(token: string): string | null {
+  if (!TOKEN.test(token)) return null
   let bytes: string
   try {
     bytes = atob(token.replace(/-/g, '+').replace(/_/g, '/'))

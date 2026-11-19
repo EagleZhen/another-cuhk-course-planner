@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { encodeProxyPath, PROXY_PREFIX } from './posthogProxy'
+import { decodeProxyPath, encodeProxyPath, PROXY_PREFIX } from './posthogProxy'
 
 // Paths posthog-js 1.447.7 requests under `api_host`, before `rewriteRequestPath`.
 const SDK_PATHS = [
@@ -39,5 +39,18 @@ describe('an encoded path', () => {
   it('leaves URLs outside the proxy alone', () => {
     const url = 'https://planner.test/data/2026-27/CSCI.json'
     expect(encodeProxyPath(new URL(url)).href).toBe(url)
+  })
+
+  it('decodes back for every character a URL path can hold', () => {
+    // Printable ASCII, minus `?` and `#`, which end the path.
+    const chars = Array.from({ length: 94 }, (_, i) => String.fromCharCode(33 + i))
+      .filter((c) => c !== '?' && c !== '#')
+      .join('')
+    const pathname = encode(chars)
+    const original = new URL(`https://planner.test${PROXY_PREFIX}/${chars}`).pathname
+
+    expect(decodeProxyPath(pathname.slice(`${PROXY_PREFIX}/`.length))).toBe(
+      original.slice(`${PROXY_PREFIX}/`.length)
+    )
   })
 })

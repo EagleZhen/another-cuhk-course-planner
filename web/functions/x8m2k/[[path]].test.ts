@@ -84,14 +84,22 @@ describe('an encoded path', () => {
 })
 
 describe('a plain path from a tab loaded before encoding', () => {
+  // With and without the SDK's trailing slash, in case the route keeps it.
   it.each([
     'e',
+    'e/',
     's',
+    's/',
     'flags',
+    'flags/',
     'decide',
+    'decide/',
     'batch',
+    'batch/',
     'engage',
+    'engage/',
     'i/v0/e',
+    'i/v0/e/',
     'e/static/x',
     'static/1.433.4/exception-autocapture.js',
     'array/phc_test/config',
