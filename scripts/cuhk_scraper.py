@@ -456,6 +456,8 @@ class CatalogSystemError(CatalogResponseError):
 # Every catalog page carries the form state the next postback must send back.
 _FORM_STATE = re.compile(r'name="__VIEWSTATE"')
 _SYSTEM_ERROR_TITLE = re.compile(r"<title>\s*System error\s*</title>", re.IGNORECASE)
+# CUHK's captcha never uses I, O or 0 (none in 3,013 accepted codes).
+_CAPTCHA_CODE = re.compile(r"[A-HJ-NP-Z1-9]{4}")
 
 
 class CuhkScraper:
@@ -766,13 +768,12 @@ class CuhkScraper:
             raw_result = self.ocr.classification(image_bytes)
             text = str(raw_result).strip().upper()
 
-            # Validate captcha format (4 alphanumeric characters)
-            if len(text) == 4 and text.isalnum():
+            if _CAPTCHA_CODE.fullmatch(text):
                 self.logger.info(f"OCR produced: {text} (awaiting server validation)")
                 return text
             else:
                 # Re-solved on the next attempt; only running out of them is a failure.
-                self.logger.info(f"Invalid OCR format: '{text}' (expected 4 alphanumeric)")
+                self.logger.info(f"Invalid OCR format: '{text}' (not a possible captcha code)")
 
         except Exception as e:
             self.logger.error(f"OCR processing failed: {e}")

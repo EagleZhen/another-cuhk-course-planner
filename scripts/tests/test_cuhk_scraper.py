@@ -667,6 +667,23 @@ def test_an_unrecognised_rejection_is_the_one_worth_marking(monkeypatch, caplog)
     assert rejection_level(span % "Invalid Verification Code") == logging.INFO
 
 
+@pytest.mark.parametrize(
+    "read, sent",
+    [
+        # Real OCR reads from scrape logs.
+        ("I5BN", None),
+        ("LV50", None),
+        ("H8;4", None),
+        ("KWP", None),
+        ("G6J1", "G6J1"),
+        ("cxrh", "CXRH"),
+    ],
+)
+def test_only_a_possible_captcha_code_is_sent(read, sent):
+    scraper = _live_scraper(ocr=SimpleNamespace(classification=lambda image: read))
+    assert CuhkScraper._solve_captcha(scraper, b"image") == sent
+
+
 def test_a_course_that_never_parses_gives_up_instead_of_looping(monkeypatch):
     # Retrying forever would strand every subject queued behind this one. Giving up fails
     # the subject, which blocks publishing and names it.
