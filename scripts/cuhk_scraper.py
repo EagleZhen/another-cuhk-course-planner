@@ -845,7 +845,6 @@ class CuhkScraper:
                     "error_message": None,
                 }
             else:
-                # TODO(#324): keep the page — an unrecognised shape leaves no evidence.
                 return {
                     "captcha_accepted": True,  # Uncertain but likely accepted
                     "has_results": False,
@@ -876,7 +875,6 @@ class CuhkScraper:
             }
 
         # 5. Fallback: table exists but unclear content
-        # TODO(#324): keep the page — an unrecognised shape leaves no evidence.
         return {
             "captcha_accepted": True,  # Assume accepted if we got to results
             "has_results": False,
@@ -1007,16 +1005,17 @@ class CuhkScraper:
             response = self._request_catalog_html("POST", stage="course_list", data=form_data)
 
             validation = self._validate_captcha_response(response.text)
-            result = validation["result_type"]
-            if validation["captcha_accepted"]:
+            result, said = validation["result_type"], validation["error_message"]
+            described = result + (f" - {said}" if said else "")
+            if result in ("has_courses", "no_records"):
                 self.logger.info(f"Captcha accepted: {result}")
                 return response, result
-            if result == "server_error":  # not a miss: CUHK said something we don't know
-                raise ValueError(f"CUHK rejected the search: {validation['error_message']}")
-            said = validation["error_message"]
-            self.logger.info(
-                f"Captcha rejected (attempt {attempt}): {result}" + (f" - {said}" if said else "")
-            )
+            if not result.startswith("captcha_failed"):
+                # Not a miss: CUHK sent something we don't know, so keep the page.
+                self._reject_page(
+                    response.text, f"Unrecognised search result: {described}", "course_list"
+                )
+            self.logger.info(f"Captcha rejected (attempt {attempt}): {described}")
 
         raise CaptchaNotAccepted(
             f"{subject_code}: no captcha accepted in {self.config.max_captcha_attempts} attempts. "

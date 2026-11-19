@@ -736,17 +736,37 @@ def test_a_captcha_result_carries_only_what_cuhk_said(caplog):
     assert rejection.endswith("captcha_failed_form_redisplayed")
 
 
-def test_an_unrecognised_rejection_is_a_subject_failure(monkeypatch, caplog):
-    # A wrong OCR guess is what the captcha loop costs. Text we have no branch for is
-    # CUHK saying something new, so it is logged as an error and retries the subject.
+@pytest.mark.parametrize(
+    "page, said",
+    [
+        (
+            '<span id="lbl_error" class="errorLabel">Service unavailable</span>',
+            "Service unavailable",
+        ),
+        ("<p>Something new</p>", "unknown_error"),
+        (_list_page(""), "empty_unclear"),
+    ],
+    ids=["unknown message", "no table, no form", "empty table"],
+)
+def test_an_unrecognised_search_page_is_kept_and_fails_the_subject(
+    monkeypatch, caplog, tmp_path, page, said
+):
+    # Not a wrong code: CUHK sent something new, so it retries the subject, not the
+    # captcha. Production keeps no debug pages, so the saved page is the only record.
     monkeypatch.setattr(time, "sleep", lambda _: None)
-    unknown = f'{FORM_STATE}<span id="lbl_error" class="errorLabel">Service unavailable</span>'
+    scraper = _subject_scraper(page)
+    del scraper._save_debug_html  # save for real, as production does
+    scraper.config.save_debug_files = False
+    scraper.error_pages_dir = str(tmp_path)
+    scraper._new_session = lambda: None
 
     with caplog.at_level(logging.INFO), pytest.raises(RuntimeError, match="no usable results"):
-        CuhkScraper.scrape_subject(_subject_scraper(unknown), "TEST")
+        CuhkScraper.scrape_subject(scraper, "TEST")
+    assert len(scraper.sent) == MAX_SUBJECT_ATTEMPTS
     errors = [r.message for r in caplog.records if r.levelno == logging.ERROR]
     assert len(errors) == MAX_SUBJECT_ATTEMPTS
-    assert all("Service unavailable" in message for message in errors)
+    assert all(said in message for message in errors)
+    assert [p.name for p in tmp_path.iterdir()] == ["course_list_TEST_INVALID.html"]
 
 
 @pytest.mark.parametrize(
