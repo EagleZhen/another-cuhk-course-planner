@@ -84,6 +84,7 @@ describe('an encoded path', () => {
   })
 })
 
+// TODO(#419): becomes a test that these get 400.
 describe('a plain path from a tab loaded before encoding', () => {
   // With and without the SDK's trailing slash, in case the route keeps it.
   it.each([

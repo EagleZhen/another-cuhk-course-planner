@@ -5,8 +5,7 @@ export const PROXY_PREFIX = '/x8m2k'
 
 // Tokens use only base64url, so a plain path with `/` or `.` is never decoded.
 const TOKEN = /^[\w-]+$/
-// Printable ASCII, which any URL path is. The plain words old tabs send
-// (`decide`, `engage`) decode to a byte ≥ 0x80.
+// Printable ASCII, which any URL path is.
 const PATH = /^[!-~]+$/
 
 // XOR with our route name, so our tokens differ from other sites'. Not a secret.

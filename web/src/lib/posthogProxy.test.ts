@@ -1,7 +1,9 @@
+import { existsSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import { decodeProxyPath, encodeProxyPath, PROXY_PREFIX } from './posthogProxy'
 
 // Mixed case like a real key, so its token needs base64's `+` and `/` swapped.
+// Picked for the current key: re-pick it if PROXY_PREFIX changes.
 const CONFIG_PATH = 'array/phc_FakeForTest/config.js'
 
 // Paths posthog-js 1.447.7 requests under `api_host`, before `rewriteRequestPath`.
@@ -56,4 +58,11 @@ describe('an encoded path', () => {
       original.slice(`${PROXY_PREFIX}/`.length)
     )
   })
+})
+
+// The Function's folder name is its route, so renaming one without the other
+// sends every request to a 404.
+it('matches the Function folder', () => {
+  const fn = new URL(`../../functions${PROXY_PREFIX}/[[path]].ts`, import.meta.url)
+  expect(existsSync(fn)).toBe(true)
 })
