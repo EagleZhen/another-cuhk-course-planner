@@ -1,14 +1,14 @@
 {
   "latest_run": {
-    "started_at": "2026-11-17 22:22:03 HK",
-    "last_updated": "2026-11-18 07:37:11 HK",
-    "duration": "9h 15m 7s",
+    "started_at": "2026-11-18 22:22:04 HK",
+    "last_updated": "2026-11-19 07:44:00 HK",
+    "duration": "9h 21m 55s",
     "status": "completed",
     "mode": "full",
     "subjects_total": 270,
-    "subjects_completed": 270,
+    "subjects_completed": 269,
     "subjects_incomplete": 0,
-    "subjects_failed": 0,
+    "subjects_failed": 1,
     "config": {
       "get_details": true,
       "get_enrollment_details": true,
@@ -16,7 +16,7 @@
     }
   },
   "latest_full_scrape": {
-    "started_at": "2026-11-17T14:22:03.948277+00:00",
+    "started_at": "2026-11-18T14:22:04.106296+00:00",
     "remaining": [],
     "directories": [
       "data/2026-27",
@@ -1215,9 +1215,9 @@
       "output_file": "data/2026-27/SLPA.json, data/no-terms/SLPA.json"
     },
     "SOCI": {
-      "status": "completed",
-      "courses_count": 93,
-      "output_file": "data/2026-27/SOCI.json, data/no-terms/SOCI.json"
+      "status": "failed",
+      "last_attempt": "2026-11-18T22:41:15.622670+00:00",
+      "error": "SOCI: no usable results after 10 attempts"
     },
     "SOSC": {
       "status": "completed",
