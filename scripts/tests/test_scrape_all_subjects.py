@@ -1,3 +1,4 @@
+import logging
 from types import SimpleNamespace
 
 import cuhk_scraper
@@ -57,6 +58,32 @@ def test_a_scrape_that_stops_on_an_error_exits_nonzero(monkeypatch, error):
         scrape_all_subjects.main()
 
     assert raised.value.code == 1
+
+
+@pytest.mark.parametrize(
+    "argv, advice",
+    [
+        (["--resume"], "run with --resume"),
+        (["CSCI,MATH"], "run the same subjects again"),  # a partial run has nothing to resume
+    ],
+)
+def test_an_unreadable_captcha_says_how_to_continue(monkeypatch, caplog, argv, advice):
+    monkeypatch.setattr(
+        cuhk_scraper.ScrapingConfig, "for_production", classmethod(lambda cls: cls())
+    )
+    monkeypatch.setattr(
+        scrape_all_subjects,
+        "CuhkScraper",
+        lambda config: _raising_scraper(cuhk_scraper.CaptchaNotAccepted),
+    )
+    monkeypatch.setattr("sys.argv", ["scrape_all_subjects.py", *argv])
+
+    with caplog.at_level(logging.INFO), pytest.raises(SystemExit) as raised:
+        scrape_all_subjects.main()
+
+    assert raised.value.code == 1
+    assert f"Once the OCR reads it again, {advice}." in caplog.messages
+    assert not any("specific subjects" in message for message in caplog.messages)
 
 
 def _raising_scraper(error):

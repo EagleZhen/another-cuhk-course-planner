@@ -241,7 +241,7 @@ Failures retry rather than resolving to empty data, because empty is what a legi
 | Captcha | a wrong or unreadable code, on a fresh search form | `max_captcha_attempts` (20) | stops the run; `--resume` starts from this subject |
 | Subject | anything else that fails the search or a course, restarting from the course list on a new session | `max_subject_attempts` (10) | records the subject failed, run moves on |
 
-So a run finishes even when subjects fail, rather than stalling on one course. A failed subject blocks publishing, which names it and stops before writing anything. Re-scrape that subject and publish again.
+So a run finishes even when subjects fail, rather than stalling on one course, unless the captcha can't be read. A failed subject blocks publishing, which names it and stops before writing anything. Re-scrape that subject and publish again.
 
 A system error on a course outcome or a term is the exception — see [System Error Pages](#system-error-pages).
 
