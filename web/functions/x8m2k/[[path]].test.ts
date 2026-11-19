@@ -67,7 +67,8 @@ describe('an encoded path', () => {
     ['i/v0/e/', ingest],
     ['e/', ingest],
     ['flags/?v=2', ingest],
-    ['array/phc_test/config.js', assets],
+    // Mixed case like a real key, so its token contains `-` and `_`.
+    ['array/phc_FakeForTest/config.js', assets],
     ['static/1.447.7/web-vitals.js', assets],
   ])('reaches PostHog as %s on %s', async (sdkPath, host) => {
     const encoded = encodeProxyPath(new URL(`https://planner.test${PROXY_PREFIX}/${sdkPath}`))
