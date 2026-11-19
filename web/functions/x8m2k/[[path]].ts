@@ -2,6 +2,8 @@
 // don't see PostHog's domain. Replaces the next.config rewrite (dropped under
 // output: 'export') and is our only Function; everything else is static.
 
+import { decodeProxyPath } from '../../src/lib/posthogProxy'
+
 const ASSETS_HOST = 'https://us-assets.i.posthog.com'
 const INGEST_HOST = 'https://us.i.posthog.com'
 
@@ -9,9 +11,11 @@ export const onRequest: PagesFunction = async (context) => {
   const { request, params } = context
 
   // Catch-all segments: array for a/b, string for a, undefined for the bare path.
-  const path = Array.isArray(params.path) ? params.path.join('/') : (params.path ?? '')
-  // Prefixes per PostHog's Cloudflare recipe, minus its leading slash — `path`
-  // is rebuilt from segments, so `/static/` would never match.
+  const received = Array.isArray(params.path) ? params.path.join('/') : (params.path ?? '')
+  // TODO(#419): plain paths are from tabs opened before encoding; drop after 2027-01-29.
+  const path = decodeProxyPath(received) ?? received
+  // Prefixes per PostHog's Cloudflare recipe, minus its leading slash, which
+  // `path` never has.
   const isAsset = path.startsWith('static/') || path.startsWith('array/')
   const search = new URL(request.url).search
 

@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { encodeProxyPath, PROXY_PREFIX } from '../../src/lib/posthogProxy'
 import { onRequest } from './[[path]]'
 
 const upstream = vi.fn(() => Promise.resolve(new Response('ok')))
@@ -55,6 +56,59 @@ describe('the upstream host', () => {
   ])('serves %s from %s', async (path, expected) => {
     const [url] = await proxyGet(path.split('/'))
     expect(url).toBe(`${expected}/${path}`)
+  })
+})
+
+describe('an encoded path', () => {
+  const assets = 'https://us-assets.i.posthog.com'
+  const ingest = 'https://us.i.posthog.com'
+
+  it.each([
+    ['i/v0/e/', ingest],
+    ['e/', ingest],
+    ['flags/?v=2', ingest],
+    // Mixed case like a real key, so its token contains `-` and `_`.
+    ['array/phc_FakeForTest/config.js', assets],
+    ['static/1.447.7/web-vitals.js', assets],
+  ])('reaches PostHog as %s on %s', async (sdkPath, host) => {
+    const encoded = encodeProxyPath(new URL(`https://planner.test${PROXY_PREFIX}/${sdkPath}`))
+    encoded.searchParams.append('retry_count', '1') // the SDK adds this after the rewrite
+    // What the catch-all route hands the Function for this URL.
+    const segments = encoded.pathname.slice(`${PROXY_PREFIX}/`.length).split('/')
+
+    const [url] = await proxyGet(segments, encoded.href)
+
+    const expected = new URL(`${host}/${sdkPath}`)
+    expected.searchParams.append('retry_count', '1')
+    expect(url).toBe(expected.href)
+  })
+})
+
+// TODO(#419): becomes a test that these get 400.
+describe('a plain path from a tab loaded before encoding', () => {
+  // With and without the SDK's trailing slash, in case the route keeps it.
+  it.each([
+    'e',
+    'e/',
+    's',
+    's/',
+    'flags',
+    'flags/',
+    'decide',
+    'decide/',
+    'batch',
+    'batch/',
+    'engage',
+    'engage/',
+    'i/v0/e',
+    'i/v0/e/',
+    'e/static/x',
+    'static/1.433.4/exception-autocapture.js',
+    'array/phc_test/config',
+    'array/phc_test/config.js',
+  ])('forwards %s unchanged', async (path) => {
+    const [url] = await proxyGet(path.split('/'))
+    expect(new URL(url).pathname).toBe(`/${path}`)
   })
 })
 
