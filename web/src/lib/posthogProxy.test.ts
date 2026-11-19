@@ -1,0 +1,43 @@
+import { describe, expect, it } from 'vitest'
+import { encodeProxyPath, PROXY_PREFIX } from './posthogProxy'
+
+// Paths posthog-js 1.447.7 requests under `api_host`, before `rewriteRequestPath`.
+const SDK_PATHS = [
+  'i/v0/e/',
+  'e/',
+  'flags/',
+  'array/phc_test/config.js',
+  'static/1.447.7/web-vitals.js',
+]
+
+function encode(path: string) {
+  return encodeProxyPath(new URL(`https://planner.test${PROXY_PREFIX}/${path}`)).pathname
+}
+
+function tokenFor(path: string) {
+  return encode(path).slice(`${PROXY_PREFIX}/`.length)
+}
+
+describe('an encoded path', () => {
+  it.each(SDK_PATHS)('keeps PostHog vocabulary out of %s', (path) => {
+    const token = tokenFor(path)
+    for (const word of ['e/', 'i/v0', 'flags', 'array', 'phc_', 'static', 'posthog']) {
+      expect(token).not.toContain(word)
+    }
+  })
+
+  it.each(SDK_PATHS)('is scrambled, not plain base64, for %s', (path) => {
+    const plain = btoa(path).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+    expect(tokenFor(path)).not.toBe(plain)
+  })
+
+  // uBlock's `/?compression=*&ip=` needs a `/` right before the query.
+  it.each(SDK_PATHS)('does not end in a slash for %s', (path) => {
+    expect(encode(path)).not.toMatch(/\/$/)
+  })
+
+  it('leaves URLs outside the proxy alone', () => {
+    const url = 'https://planner.test/data/2026-27/CSCI.json'
+    expect(encodeProxyPath(new URL(url)).href).toBe(url)
+  })
+})
