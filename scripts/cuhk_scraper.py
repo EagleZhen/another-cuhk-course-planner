@@ -982,6 +982,7 @@ class CuhkScraper:
 
         # Data rows only, which skips the header and the "No record found" row: an empty
         # subject has to count zero, not one.
+        # TODO(#418): a renamed row class reads as no rows.
         data_rows = course_table.find_all(
             "tr", class_=["normalGridViewRowStyle", "normalGridViewAlternatingRowStyle"]
         )
@@ -1471,6 +1472,7 @@ class CuhkScraper:
 
         for table in schedule_tables:
             # Get section rows
+            # TODO(#418): a renamed row class reads as no rows.
             rows = table.find_all(
                 "tr", class_=["normalGridViewRowStyle", "normalGridViewAlternatingRowStyle"]
             )
@@ -1621,6 +1623,7 @@ class CuhkScraper:
         meetings = []
         meeting_table = soup.find("table", {"id": "uc_class_gv_meet"})
         if meeting_table:
+            # TODO(#418): a renamed row class reads as no rows.
             rows = meeting_table.find_all(
                 "tr", class_=["normalGridViewRowStyle", "normalGridViewAlternatingRowStyle"]
             )
