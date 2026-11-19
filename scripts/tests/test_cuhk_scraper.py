@@ -619,9 +619,11 @@ SEARCH_FORM = (
 REJECTED = f'{SEARCH_FORM}<span id="lbl_error" class="errorLabel">Invalid Verification Code</span>'
 
 
-def _subject_scraper(*pages, reads=("G6J1",), max_subject_attempts=MAX_SUBJECT_ATTEMPTS):
+def _subject_scraper(
+    *pages, reads=("G6J1",), max_subject_attempts=MAX_SUBJECT_ATTEMPTS, form=SEARCH_FORM
+):
     """A scraper whose OCR gives `reads` and whose searches get `pages`, both in order with
-    the last repeating. `scraper.sent` collects the codes it submitted."""
+    the last repeating, on `form`. `scraper.sent` collects the codes it submitted."""
     scraper = _live_scraper(
         config=ScrapingConfig(
             max_subject_attempts=max_subject_attempts,
@@ -639,7 +641,7 @@ def _subject_scraper(*pages, reads=("G6J1",), max_subject_attempts=MAX_SUBJECT_A
         if url.endswith("BuildCaptcha.aspx"):
             return SimpleNamespace(content=b"image")
         if method == "GET":
-            return SimpleNamespace(text=SEARCH_FORM)
+            return SimpleNamespace(text=form)
         scraper.sent.append(data["txt_captcha"])
         return SimpleNamespace(text=FORM_STATE + next(pages))
 
@@ -652,6 +654,29 @@ def test_an_impossible_read_is_never_sent():
     scraper = _subject_scraper(NO_RECORDS_PAGE, reads=reads, max_subject_attempts=1)
     assert CuhkScraper.scrape_subject(scraper, "TEST") == []
     assert scraper.sent == ["G6J1"]
+
+    # Unreadable reads still spend the captcha budget, so OCR that never reads stops.
+    scraper = _subject_scraper(NO_RECORDS_PAGE, reads=("I5BN",))
+    read, tries = scraper.ocr.classification, []
+    scraper.ocr.classification = lambda image: tries.append(image) or read(image)
+    with pytest.raises(CaptchaNotAccepted):
+        CuhkScraper.scrape_subject(scraper, "TEST")
+    assert len(tries) == MAX_CAPTCHA_ATTEMPTS
+    assert scraper.sent == []
+
+
+def test_a_search_form_without_a_captcha_is_a_subject_failure(monkeypatch, caplog):
+    # A form we don't recognise is not an OCR miss: it says what broke, sends nothing,
+    # and retries the subject on a new session.
+    monkeypatch.setattr(time, "sleep", lambda _: None)
+    scraper = _subject_scraper(NO_RECORDS_PAGE, form=f'{FORM_STATE}<input name="txt_captcha"/>')
+
+    with caplog.at_level(logging.INFO), pytest.raises(RuntimeError, match="no usable results"):
+        CuhkScraper.scrape_subject(scraper, "TEST")
+    assert scraper.sent == []
+    errors = [r.message for r in caplog.records if r.levelno == logging.ERROR]
+    assert len(errors) == MAX_SUBJECT_ATTEMPTS
+    assert all("imgCaptcha" in message for message in errors)
 
 
 def test_captcha_misses_use_their_own_budget():
@@ -687,7 +712,7 @@ def test_an_unrecognised_rejection_is_a_subject_failure(monkeypatch, caplog):
     monkeypatch.setattr(time, "sleep", lambda _: None)
     unknown = f'{FORM_STATE}<span id="lbl_error" class="errorLabel">Service unavailable</span>'
 
-    with caplog.at_level(logging.INFO), pytest.raises(RuntimeError):
+    with caplog.at_level(logging.INFO), pytest.raises(RuntimeError, match="no usable results"):
         CuhkScraper.scrape_subject(_subject_scraper(unknown), "TEST")
     errors = [r.message for r in caplog.records if r.levelno == logging.ERROR]
     assert len(errors) == MAX_SUBJECT_ATTEMPTS
