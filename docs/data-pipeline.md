@@ -274,7 +274,7 @@ A production scrape already keeps the page behind each failure in `logs/error_pa
 | --- | --- |
 | `*_FAILED.html` | a course exhausted `max_course_attempts` |
 | `*_SYSTEM_ERROR.html` | CUSIS returned its system-error page |
-| `*_INVALID.html` | a page lacked `__VIEWSTATE`, showed another course or term, or an outcome page failed validation — kept even if a retry then succeeded |
+| `*_INVALID.html` | a page lacked `__VIEWSTATE`, showed another course or term, was a search result the scraper doesn't recognize, or an outcome page failed validation — kept even if a retry then succeeded |
 
 To keep every page instead, while investigating parser behavior:
 

@@ -790,99 +790,35 @@ class CuhkScraper:
 
         return None
 
-    def _validate_captcha_response(self, response_html: str) -> dict:
-        """
-        Analyze server response to determine captcha status and result type
+    def _classify_search_result(self, response_html: str) -> dict:
+        """Classify CUHK's reply to a search, with the message it showed, if any.
 
-        Args:
-            response_html: HTML response from server after captcha submission
-
-        Returns:
-            dict: {
-                'captcha_accepted': bool,
-                'has_results': bool,
-                'result_type': str,  # 'captcha_failed' | 'no_records' | 'has_courses' | 'server_error' | etc.
-                'error_message': str | None  # what CUHK said, where it said anything
-            }
-
-        `captcha_failed_form_redisplayed` was `captcha_failed_no_table` before 2026-09;
-        logs written until then use the old name.
+        Logs before 2026-09 call `captcha_failed_form_redisplayed` `captcha_failed_no_table`.
         """
         soup = BeautifulSoup(response_html, "html.parser")
 
-        # 1. Check for explicit captcha error message
         error_span = soup.find("span", {"id": "lbl_error", "class": "errorLabel"})
-        if error_span:
-            error_text = error_span.get_text(strip=True)
-            if error_text:  # Non-empty error message
-                if "Invalid Verification Code" in error_text:
-                    return {
-                        "captcha_accepted": False,
-                        "has_results": False,
-                        "result_type": "captcha_failed",
-                        "error_message": error_text,
-                    }
-                else:
-                    # Other server errors
-                    return {
-                        "captcha_accepted": False,
-                        "has_results": False,
-                        "result_type": "server_error",
-                        "error_message": error_text,
-                    }
+        error_text = error_span.get_text(strip=True) if error_span else ""
+        if error_text:
+            if "Invalid Verification Code" in error_text:
+                return {"result_type": "captcha_failed", "error_message": error_text}
+            return {"result_type": "server_error", "error_message": error_text}
 
-        # 2. If no error message, check for results table
         results_table = soup.find("table", {"id": "gv_detail"})
         if not results_table:
-            # No results table = captcha might have failed (form redisplay)
-            # Double-check: if search form is still present = captcha failed
-            search_form = soup.find("input", {"name": "txt_captcha"})
-            if search_form:
-                return {
-                    "captcha_accepted": False,
-                    "has_results": False,
-                    "result_type": "captcha_failed_form_redisplayed",
-                    "error_message": None,
-                }
-            else:
-                # TODO(#324): keep the page — an unrecognised shape leaves no evidence.
-                return {
-                    "captcha_accepted": True,  # Uncertain but likely accepted
-                    "has_results": False,
-                    "result_type": "unknown_error",
-                    "error_message": None,
-                }
+            # The search form again, with no message, is also a wrong code.
+            if soup.find("input", {"name": "txt_captcha"}):
+                return {"result_type": "captcha_failed_form_redisplayed", "error_message": None}
+            return {"result_type": "unknown_error", "error_message": None}
 
-        # 3. Results table exists - check if it has actual data
         empty_row = results_table.find("tr", class_="normalGridViewEmptyDataRowStyle")
-        if empty_row:
-            empty_text = empty_row.get_text(strip=True)
-            if "No record found" in empty_text:
-                return {
-                    "captcha_accepted": True,
-                    "has_results": False,
-                    "result_type": "no_records",
-                    "error_message": None,
-                }
+        if empty_row and "No record found" in empty_row.get_text(strip=True):
+            return {"result_type": "no_records", "error_message": None}
 
-        # 4. Check for actual course data rows
-        course_links = results_table.find_all("a", {"id": lambda x: x and "lbtn_course_nbr" in x})
-        if course_links:
-            return {
-                "captcha_accepted": True,
-                "has_results": True,
-                "result_type": "has_courses",
-                "error_message": None,
-            }
+        if results_table.find_all("a", {"id": lambda x: x and "lbtn_course_nbr" in x}):
+            return {"result_type": "has_courses", "error_message": None}
 
-        # 5. Fallback: table exists but unclear content
-        # TODO(#324): keep the page — an unrecognised shape leaves no evidence.
-        return {
-            "captcha_accepted": True,  # Assume accepted if we got to results
-            "has_results": False,
-            "result_type": "empty_unclear",
-            "error_message": None,
-        }
+        return {"result_type": "empty_unclear", "error_message": None}
 
     def get_subjects_from_live_site(self) -> list[str]:
         """Subject codes from the live website. Raises like the titled fetch it delegates to."""
@@ -968,16 +904,7 @@ class CuhkScraper:
                             detailed_courses.extend(courses[self.config.max_courses_per_subject :])
                         courses = detailed_courses
 
-                    # Both are successes; every other type falls through to a retry.
-                    if result == "no_records":
-                        return []  # Success - empty subject, no retry needed
-                    elif result == "has_courses":
-                        return courses  # Success - return found courses
-
-                    # If we reach here, something unexpected happened - retry
-                    self.logger.warning(f"Unexpected validation result: {result}")
-                    if attempt < self.config.max_subject_attempts - 1:
-                        time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
+                    return [] if result == "no_records" else courses
 
                 except CaptchaNotAccepted:
                     raise
@@ -1006,17 +933,18 @@ class CuhkScraper:
             form_data["ddl_subject"] = subject_code
             response = self._request_catalog_html("POST", stage="course_list", data=form_data)
 
-            validation = self._validate_captcha_response(response.text)
-            result = validation["result_type"]
-            if validation["captcha_accepted"]:
+            search = self._classify_search_result(response.text)
+            result, said = search["result_type"], search["error_message"]
+            described = result + (f" - {said}" if said else "")
+            if result in ("has_courses", "no_records"):
                 self.logger.info(f"Captcha accepted: {result}")
                 return response, result
-            if result == "server_error":  # not a miss: CUHK said something we don't know
-                raise ValueError(f"CUHK rejected the search: {validation['error_message']}")
-            said = validation["error_message"]
-            self.logger.info(
-                f"Captcha rejected (attempt {attempt}): {result}" + (f" - {said}" if said else "")
-            )
+            if not result.startswith("captcha_failed"):
+                # Not a miss: CUHK sent something we don't know, so keep the page.
+                self._reject_page(
+                    response.text, f"Unrecognized search result: {described}", "course_list"
+                )
+            self.logger.info(f"Captcha rejected (attempt {attempt}): {described}")
 
         raise CaptchaNotAccepted(
             f"{subject_code}: no captcha accepted in {self.config.max_captcha_attempts} attempts. "
@@ -1054,6 +982,7 @@ class CuhkScraper:
 
         # Data rows only, which skips the header and the "No record found" row: an empty
         # subject has to count zero, not one.
+        # TODO(#418): a renamed row class reads as no rows.
         data_rows = course_table.find_all(
             "tr", class_=["normalGridViewRowStyle", "normalGridViewAlternatingRowStyle"]
         )
@@ -1543,6 +1472,7 @@ class CuhkScraper:
 
         for table in schedule_tables:
             # Get section rows
+            # TODO(#418): a renamed row class reads as no rows.
             rows = table.find_all(
                 "tr", class_=["normalGridViewRowStyle", "normalGridViewAlternatingRowStyle"]
             )
@@ -1693,6 +1623,7 @@ class CuhkScraper:
         meetings = []
         meeting_table = soup.find("table", {"id": "uc_class_gv_meet"})
         if meeting_table:
+            # TODO(#418): a renamed row class reads as no rows.
             rows = meeting_table.find_all(
                 "tr", class_=["normalGridViewRowStyle", "normalGridViewAlternatingRowStyle"]
             )
