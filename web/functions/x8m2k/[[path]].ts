@@ -12,7 +12,7 @@ export const onRequest: PagesFunction = async (context) => {
 
   // Catch-all segments: array for a/b, string for a, undefined for the bare path.
   const received = Array.isArray(params.path) ? params.path.join('/') : (params.path ?? '')
-  // A plain path comes from a tab loaded before encoding shipped.
+  // TODO(#419): plain paths are from tabs opened before encoding; drop after 2027-01-29.
   const path = decodeProxyPath(received) ?? received
   // Prefixes per PostHog's Cloudflare recipe, minus its leading slash, which
   // `path` never has.

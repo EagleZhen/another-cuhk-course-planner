@@ -11,6 +11,7 @@
 
 import posthog from 'posthog-js'
 import { getClientExceptionContext, preparePostHogEvent } from '@/lib/posthogEvent'
+import { encodeProxyPath, PROXY_PREFIX } from '@/lib/posthogProxy'
 import { registerStaleChunkRecovery } from '@/lib/staleChunk'
 
 const posthogKey = process.env.NEXT_PUBLIC_POSTHOG_KEY
@@ -21,7 +22,8 @@ if (typeof window !== 'undefined') registerStaleChunkRecovery()
 // Initialize PostHog for all environments (filter in dashboard by hostname)
 if (typeof window !== 'undefined' && posthogKey) {
   posthog.init(posthogKey, {
-    api_host: '/x8m2k', // Reverse proxy on Cloudflare (bypasses ad blockers)
+    api_host: PROXY_PREFIX, // Reverse proxy on Cloudflare (bypasses ad blockers)
+    rewriteRequestPath: encodeProxyPath,
     ui_host: 'https://us.posthog.com', // PostHog dashboard (always the same for US region)
 
     // Privacy-first settings for student users

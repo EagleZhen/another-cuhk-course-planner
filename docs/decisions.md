@@ -70,6 +70,14 @@ Where:
 - analytics initializes in [web/src/instrumentation-client.ts](../web/src/instrumentation-client.ts)
 - event helpers live in [web/src/lib/analytics.ts](../web/src/lib/analytics.ts)
 
+## Encode PostHog Paths Behind The Proxy
+
+Ad-block lists match PostHog's request paths (`/i/v0/e/`) on any domain, so hiding the domain wasn't enough.
+
+Decision: `rewriteRequestPath` sends each path as one scrambled token, which the proxy decodes ([posthogProxy.ts](../web/src/lib/posthogProxy.ts)).
+
+Not readable names instead: PostHog's servers pick the event path at runtime, and names like `/track` already match list rules.
+
 ## Keep Volatile Text Out Of Prerendered HTML
 
 A formatted date/time in the static export is a magnet for anything that rewrites text before React hydrates — timezone drift (build renders UTC, browser renders local), iOS data detectors, page translation, extensions — and each mismatch is a hydration error (React #418). The app is prerendered but almost entirely client-rendered, so such text buys little and risks this.
