@@ -215,6 +215,9 @@ class ScrapingProgressTracker:
         self._subject_statuses: dict[str, str] = {}
         self.progress_data, existing_scrape = self._load_progress()
         self.latest_full_scrape = self._open_scrape(existing_scrape)
+        # On disk before the first search, so a run stopped there leaves this scrape for
+        # --resume rather than the previous one.
+        self._save_progress()
 
     def _load_progress(self) -> tuple[dict, dict | None]:
         """Load the subject registry and the last full scrape; run state is always fresh"""

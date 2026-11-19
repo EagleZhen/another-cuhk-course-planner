@@ -302,28 +302,34 @@ def _loop_scraper(tmp_path, *, failing=()):
     return scraper
 
 
-def test_an_unreadable_captcha_stops_the_run_where_resume_picks_up(tmp_path):
+@pytest.mark.parametrize("stopped_at", ["AAAA", "BBBB"])
+def test_an_unreadable_captcha_stops_the_run_where_resume_picks_up(tmp_path, stopped_at):
+    subjects = ["AAAA", "BBBB", "CCCC"]
+
     def run(error, directory):
         scraped = []
 
         def scrape(subject):
             scraped.append(subject)
-            if subject == "BBBB":
+            if subject == stopped_at and error:
                 raise error
             return []
 
         scraper = _loop_scraper(tmp_path / directory)
         scraper.scrape_subject = scrape
-        CuhkScraper.scrape_all_subjects(scraper, ["AAAA", "BBBB", "CCCC"], mode="full")
+        CuhkScraper.scrape_all_subjects(scraper, subjects, mode="full")
         return scraped
 
     # Any other failure is the subject's own, so the run moves on.
-    assert run(ConnectionError("network is down"), "other") == ["AAAA", "BBBB", "CCCC"]
+    assert run(ConnectionError("network is down"), "other") == subjects
 
+    # A finished scrape is on disk; the next one stops at the captcha, even on its
+    # first subject, and --resume must find this scrape rather than the finished one.
+    run(None, "captcha")
     with pytest.raises(CaptchaNotAccepted):
-        run(CaptchaNotAccepted("BBBB"), "captcha")
-    scrape = _read(tmp_path / "captcha" / "progress.json")["latest_full_scrape"]
-    assert scrape["remaining"] == ["BBBB", "CCCC"]
+        run(CaptchaNotAccepted(stopped_at), "captcha")
+    remaining = _read(tmp_path / "captcha" / "progress.json")["latest_full_scrape"]["remaining"]
+    assert remaining == subjects[subjects.index(stopped_at) :]
 
 
 def test_a_subject_saved_with_a_cusis_system_error_is_incomplete(tmp_path):
