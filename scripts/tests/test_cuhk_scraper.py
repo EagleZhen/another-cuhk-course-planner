@@ -3,6 +3,7 @@ import json
 import logging
 import time
 from datetime import UTC, datetime, timedelta
+from itertools import chain, repeat
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -12,6 +13,7 @@ import pytest
 import requests
 from bs4 import BeautifulSoup
 from cuhk_scraper import (
+    CaptchaNotAccepted,
     CatalogResponseError,
     CatalogSystemError,
     Course,
@@ -610,61 +612,86 @@ def test_course_list_shortfall_is_reported(page):
 
 
 MAX_SUBJECT_ATTEMPTS = 2  # enough to exhaust the loop quickly; production uses 10
+MAX_CAPTCHA_ATTEMPTS = 3
+SEARCH_FORM = (
+    f'{FORM_STATE}<img id="imgCaptcha" src="BuildCaptcha.aspx"/><input name="txt_captcha"/>'
+)
+REJECTED = f'{SEARCH_FORM}<span id="lbl_error" class="errorLabel">Invalid Verification Code</span>'
 
 
-def _subject_scraper(page):
-    return _live_scraper(
-        config=ScrapingConfig(max_subject_attempts=MAX_SUBJECT_ATTEMPTS, get_details=False),
+def _subject_scraper(*pages, reads=("G6J1",), max_subject_attempts=MAX_SUBJECT_ATTEMPTS):
+    """A scraper whose OCR gives `reads` and whose searches get `pages`, both in order with
+    the last repeating. `scraper.sent` collects the codes it submitted."""
+    scraper = _live_scraper(
+        config=ScrapingConfig(
+            max_subject_attempts=max_subject_attempts,
+            max_captcha_attempts=MAX_CAPTCHA_ATTEMPTS,
+            get_details=False,
+        ),
         progress_tracker=None,
-        _extract_form_data=lambda soup: {},
-        _robust_request=lambda *a, **k: SimpleNamespace(text=FORM_STATE + page),
+        sent=[],
     )
+    reads = chain(reads, repeat(reads[-1]))
+    pages = chain(pages, repeat(pages[-1]))
+    scraper.ocr = SimpleNamespace(classification=lambda image: next(reads))
+
+    def request(method, url, data=None):
+        if url.endswith("BuildCaptcha.aspx"):
+            return SimpleNamespace(content=b"image")
+        if method == "GET":
+            return SimpleNamespace(text=SEARCH_FORM)
+        scraper.sent.append(data["txt_captcha"])
+        return SimpleNamespace(text=FORM_STATE + next(pages))
+
+    scraper._robust_request = request
+    return scraper
 
 
-def test_exhausted_subject_raises_while_an_empty_subject_completes(monkeypatch):
-    monkeypatch.setattr(time, "sleep", lambda _: None)
-
-    # Every attempt rejected: returning [] here would be read as "this subject has no
-    # courses" and the run would report success.
-    rejected = '<span id="lbl_error" class="errorLabel">Invalid Verification Code</span>'
-    with pytest.raises(RuntimeError, match=f"{MAX_SUBJECT_ATTEMPTS} attempts"):
-        CuhkScraper.scrape_subject(_subject_scraper(rejected), "TEST")
-
-    # A subject CUHK really has nothing for still succeeds with no courses.
-    assert CuhkScraper.scrape_subject(_subject_scraper(NO_RECORDS_PAGE), "TEST") == []
+def test_an_impossible_read_is_never_sent():
+    reads = ("I5BN", "H8;4", "G6J1")
+    scraper = _subject_scraper(NO_RECORDS_PAGE, reads=reads, max_subject_attempts=1)
+    assert CuhkScraper.scrape_subject(scraper, "TEST") == []
+    assert scraper.sent == ["G6J1"]
 
 
-def test_a_captcha_result_carries_only_what_cuhk_said(monkeypatch, caplog):
-    monkeypatch.setattr(time, "sleep", lambda _: None)
+def test_captcha_misses_use_their_own_budget():
+    # One miss short of the limit, the subject still completes on its first attempt.
+    misses = [REJECTED] * (MAX_CAPTCHA_ATTEMPTS - 1)
+    scraper = _subject_scraper(*misses, NO_RECORDS_PAGE, max_subject_attempts=1)
+    assert CuhkScraper.scrape_subject(scraper, "TEST") == []
+
+    # At the limit the subject fails at once: returning [] would read as "no courses", and
+    # restarting the subject would only repeat the misses.
+    scraper = _subject_scraper(REJECTED)
+    with pytest.raises(CaptchaNotAccepted):
+        CuhkScraper.scrape_subject(scraper, "TEST")
+    assert len(scraper.sent) == MAX_CAPTCHA_ATTEMPTS
+
+
+def test_a_captcha_result_carries_only_what_cuhk_said(caplog):
     # CUHK sending the search form back says nothing beyond the classification itself.
-    redisplayed = '<input name="txt_captcha" />'
-    rejected = '<span id="lbl_error" class="errorLabel">Invalid Verification Code</span>'
-
     validate = CuhkScraper._validate_captcha_response
-    assert validate(_live_scraper(), redisplayed)["error_message"] is None
-    assert validate(_live_scraper(), rejected)["error_message"] == "Invalid Verification Code"
+    assert validate(_live_scraper(), SEARCH_FORM)["error_message"] is None
+    assert validate(_live_scraper(), REJECTED)["error_message"] == "Invalid Verification Code"
 
     # So the rejection line ends at the classification rather than trailing a "None".
-    with caplog.at_level(logging.INFO), pytest.raises(RuntimeError):
-        CuhkScraper.scrape_subject(_subject_scraper(redisplayed), "TEST")
+    with caplog.at_level(logging.INFO), pytest.raises(CaptchaNotAccepted):
+        CuhkScraper.scrape_subject(_subject_scraper(SEARCH_FORM), "TEST")
     rejection = next(m for m in caplog.messages if m.startswith("Captcha rejected"))
     assert rejection.endswith("captcha_failed_form_redisplayed")
 
 
-def test_an_unrecognised_rejection_is_the_one_worth_marking(monkeypatch, caplog):
+def test_an_unrecognised_rejection_is_a_subject_failure(monkeypatch, caplog):
     # A wrong OCR guess is what the captcha loop costs. Text we have no branch for is
-    # CUHK saying something new, and a later attempt succeeding would bury it.
+    # CUHK saying something new, so it is logged as an error and retries the subject.
     monkeypatch.setattr(time, "sleep", lambda _: None)
-    span = '<span id="lbl_error" class="errorLabel">%s</span>'
+    unknown = f'{FORM_STATE}<span id="lbl_error" class="errorLabel">Service unavailable</span>'
 
-    def rejection_level(page):
-        caplog.clear()
-        with caplog.at_level(logging.INFO), pytest.raises(RuntimeError):
-            CuhkScraper.scrape_subject(_subject_scraper(page), "TEST")
-        return next(r.levelno for r in caplog.records if "Captcha rejected" in r.message)
-
-    assert rejection_level(span % "Service temporarily unavailable") == logging.WARNING
-    assert rejection_level(span % "Invalid Verification Code") == logging.INFO
+    with caplog.at_level(logging.INFO), pytest.raises(RuntimeError):
+        CuhkScraper.scrape_subject(_subject_scraper(unknown), "TEST")
+    errors = [r.message for r in caplog.records if r.levelno == logging.ERROR]
+    assert len(errors) == MAX_SUBJECT_ATTEMPTS
+    assert all("Service unavailable" in message for message in errors)
 
 
 @pytest.mark.parametrize(

@@ -62,6 +62,9 @@ class ScrapingConfig:
     # Seconds between every request, retries included. Production uses 0.8; going much lower invites hardening (tougher captcha, a WAF) that breaks this scraper permanently — nobody wins. Rationale: "Request Pacing" in docs/data-pipeline.md.
     request_delay: float = 1.0
     max_subject_attempts: int = 5
+    # Wrong reads are routine and cost only a new captcha. This many in a row means the
+    # OCR can no longer read it, so the subject fails without retrying.
+    max_captcha_attempts: int = 20
     # Transient corruption clears on the next attempt; this many identical parse failures
     # means the page shape changed and no amount of retrying will parse it.
     max_course_attempts: int = 5
@@ -451,6 +454,10 @@ class CatalogResponseError(ValueError):
 
 class CatalogSystemError(CatalogResponseError):
     """CUSIS returned its "System error" page."""
+
+
+class CaptchaNotAccepted(RuntimeError):
+    """No captcha read was accepted within `max_captcha_attempts`."""
 
 
 # Every catalog page carries the form state the next postback must send back.
@@ -916,41 +923,7 @@ class CuhkScraper:
             for attempt in range(self.config.max_subject_attempts):
                 try:
                     self.logger.info(f"Fetching course list, attempt {attempt + 1}")
-
-                    # Get the initial page to extract form data
-                    response = self._request_catalog_html("GET", stage="subject_form")
-
-                    soup = BeautifulSoup(response.text, "html.parser")
-
-                    # Extract form data
-                    form_data = self._extract_form_data(soup)
-                    form_data["ddl_subject"] = subject_code
-
-                    # Submit the form
-                    response = self._request_catalog_html(
-                        "POST", stage="course_list", data=form_data
-                    )
-
-                    # Validate captcha was accepted by server
-                    validation = self._validate_captcha_response(response.text)
-                    if not validation["captcha_accepted"]:
-                        # Guessing a 4-character image wrong is what OCR costs, not a fault.
-                        # A server_error is not that: CUHK said something we have no
-                        # branch for, and a later attempt succeeding would bury it.
-                        said = validation["error_message"]
-                        rejection = validation["result_type"]
-                        self.logger.log(
-                            logging.WARNING if rejection == "server_error" else logging.INFO,
-                            f"Captcha rejected (attempt {attempt + 1}): {rejection}"
-                            + (f" - {said}" if said else ""),
-                        )
-                        # Continue to next attempt
-                        if attempt < self.config.max_subject_attempts - 1:
-                            time.sleep(1)  # Brief delay before retry
-                        continue
-
-                    # Captcha accepted! Log result type
-                    self.logger.info(f"Captcha accepted: {validation['result_type']}")
+                    response, result = self._search_subject(subject_code)
 
                     # Debug: save response to understand structure (using smart saving)
                     self._save_debug_html(
@@ -993,18 +966,18 @@ class CuhkScraper:
                         courses = detailed_courses
 
                     # Both are successes; every other type falls through to a retry.
-                    if validation["result_type"] == "no_records":
+                    if result == "no_records":
                         return []  # Success - empty subject, no retry needed
-                    elif validation["result_type"] == "has_courses":
+                    elif result == "has_courses":
                         return courses  # Success - return found courses
 
                     # If we reach here, something unexpected happened - retry
-                    self.logger.warning(
-                        f"Unexpected validation result: {validation['result_type']}"
-                    )
+                    self.logger.warning(f"Unexpected validation result: {result}")
                     if attempt < self.config.max_subject_attempts - 1:
                         time.sleep(min(60, 2**attempt))  # Exponential backoff, max 60s
 
+                except CaptchaNotAccepted:
+                    raise
                 except Exception as e:
                     self.logger.error(f"Attempt {attempt + 1} failed: {e}")
                     if attempt < self.config.max_subject_attempts - 1:
@@ -1020,40 +993,49 @@ class CuhkScraper:
                 f"{subject_code}: no usable results after {self.config.max_subject_attempts} attempts"
             )
 
-    def _extract_form_data(self, soup: BeautifulSoup) -> dict[str, str]:
-        """Extract necessary form data from the page"""
-        # Get ViewState and other ASP.NET form fields
+    def _search_subject(self, subject_code: str) -> tuple[requests.Response, str]:
+        """Submit the subject's search, on a fresh captcha until CUHK accepts one."""
+        for attempt in range(1, self.config.max_captcha_attempts + 1):
+            form = self._request_catalog_html("GET", stage="subject_form")
+            form_data = self._extract_form_data(BeautifulSoup(form.text, "html.parser"))
+            if form_data is None:
+                continue
+            form_data["ddl_subject"] = subject_code
+            response = self._request_catalog_html("POST", stage="course_list", data=form_data)
+
+            validation = self._validate_captcha_response(response.text)
+            result = validation["result_type"]
+            if validation["captcha_accepted"]:
+                self.logger.info(f"Captcha accepted: {result}")
+                return response, result
+            if result == "server_error":  # not a miss: CUHK said something we don't know
+                raise ValueError(f"CUHK rejected the search: {validation['error_message']}")
+            said = validation["error_message"]
+            self.logger.info(
+                f"Captcha rejected (attempt {attempt}): {result}" + (f" - {said}" if said else "")
+            )
+
+        raise CaptchaNotAccepted(
+            f"{subject_code}: no captcha accepted in {self.config.max_captcha_attempts} attempts"
+        )
+
+    def _extract_form_data(self, soup: BeautifulSoup) -> dict[str, str] | None:
+        """The search form's fields with the captcha solved, or None if it was unreadable."""
         form_data = self._extract_asp_hidden_fields(soup)
 
-        # Get captcha image and solve it
         captcha_img = soup.find("img", {"id": "imgCaptcha"})
-        if captcha_img:
-            captcha_url = captcha_img.get("src")
-            if captcha_url:
-                # Make absolute URL
-                if not captcha_url.startswith("http"):
-                    base_parts = self.base_url.rsplit("/", 1)[0]
-                    captcha_url = base_parts + "/" + captcha_url
+        captcha_url = captcha_img.get("src") if captcha_img else None
+        if not captcha_url:
+            raise ValueError("Captcha image (imgCaptcha) missing from the search form")
+        if not captcha_url.startswith("http"):
+            captcha_url = self.base_url.rsplit("/", 1)[0] + "/" + captcha_url
 
-                # Get captcha image
-                captcha_response = self._robust_request("GET", captcha_url)
-                captcha_text = self._solve_captcha(captcha_response.content)
+        captcha_text = self._solve_captcha(self._robust_request("GET", captcha_url).content)
+        if not captcha_text:
+            return None
 
-                if not captcha_text:
-                    return {}
-
-                form_data["txt_captcha"] = captcha_text
-            else:
-                self.logger.error("Could not find captcha URL")
-                return {}
-        else:
-            self.logger.error("Could not find captcha image")
-            return {}
-
-        # Add other form fields
-        form_data["ddl_subject"] = ""  # Will be set per subject
+        form_data["txt_captcha"] = captcha_text
         form_data["btn_search"] = "Search"
-
         return form_data
 
     def _parse_course_list(self, html: str) -> list[Course]:
