@@ -790,7 +790,7 @@ class CuhkScraper:
 
         return None
 
-    def _validate_captcha_response(self, response_html: str) -> dict:
+    def _classify_search_result(self, response_html: str) -> dict:
         """Classify CUHK's reply to a search, with the message it showed, if any.
 
         Logs before 2026-09 call `captcha_failed_form_redisplayed` `captcha_failed_no_table`.
@@ -933,8 +933,8 @@ class CuhkScraper:
             form_data["ddl_subject"] = subject_code
             response = self._request_catalog_html("POST", stage="course_list", data=form_data)
 
-            validation = self._validate_captcha_response(response.text)
-            result, said = validation["result_type"], validation["error_message"]
+            search = self._classify_search_result(response.text)
+            result, said = search["result_type"], search["error_message"]
             described = result + (f" - {said}" if said else "")
             if result in ("has_courses", "no_records"):
                 self.logger.info(f"Captcha accepted: {result}")

@@ -725,9 +725,9 @@ def test_captcha_misses_use_their_own_budget():
 
 def test_a_captcha_result_carries_only_what_cuhk_said(caplog):
     # CUHK sending the search form back says nothing beyond the classification itself.
-    validate = CuhkScraper._validate_captcha_response
-    assert validate(_live_scraper(), SEARCH_FORM)["error_message"] is None
-    assert validate(_live_scraper(), REJECTED)["error_message"] == "Invalid Verification Code"
+    classify = CuhkScraper._classify_search_result
+    assert classify(_live_scraper(), SEARCH_FORM)["error_message"] is None
+    assert classify(_live_scraper(), REJECTED)["error_message"] == "Invalid Verification Code"
 
     # So the rejection line ends at the classification rather than trailing a "None".
     with caplog.at_level(logging.INFO), pytest.raises(CaptchaNotAccepted):
