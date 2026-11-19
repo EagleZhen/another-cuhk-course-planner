@@ -1,14 +1,14 @@
 {
   "latest_run": {
-    "started_at": "2026-11-18 22:22:04 HK",
-    "last_updated": "2026-11-19 07:44:00 HK",
-    "duration": "9h 21m 55s",
+    "started_at": "2026-11-19 08:43:25 HK",
+    "last_updated": "2026-11-19 08:50:45 HK",
+    "duration": "7m 19s",
     "status": "completed",
-    "mode": "full",
-    "subjects_total": 270,
-    "subjects_completed": 269,
+    "mode": "partial",
+    "subjects_total": 1,
+    "subjects_completed": 1,
     "subjects_incomplete": 0,
-    "subjects_failed": 1,
+    "subjects_failed": 0,
     "config": {
       "get_details": true,
       "get_enrollment_details": true,
@@ -1215,9 +1215,9 @@
       "output_file": "data/2026-27/SLPA.json, data/no-terms/SLPA.json"
     },
     "SOCI": {
-      "status": "failed",
-      "last_attempt": "2026-11-18T22:41:15.622670+00:00",
-      "error": "SOCI: no usable results after 10 attempts"
+      "status": "completed",
+      "courses_count": 93,
+      "output_file": "data/2026-27/SOCI.json, data/no-terms/SOCI.json"
     },
     "SOSC": {
       "status": "completed",
