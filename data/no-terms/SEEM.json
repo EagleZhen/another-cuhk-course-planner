@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "SEEM",
     "subject_title": "Systems Engineering & Engineering Management",
-    "total_courses": 13
+    "total_courses": 14
   },
   "courses": [
     {
@@ -156,6 +156,31 @@
       "feedback_evaluation": "Feedback from students, CTE.",
       "required_readings": "As recommended by course teacher.",
       "recommended_readings": "1. Ian Goodfellow, Yoshua Bengio and Aaron Courville (2016), Deep Learning, MIT Press\n2. Jurafsky Daniel, Martin James, Norvig Peter, Russell Stuart (2014), Speech and Language Processing, Pearson\n3. Vaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, and Illia Polosukhin (2017), Attention Is All You Need, Advances in Neural Information Processing Systems\n4. Jacob Einstein (2019), Introduction to Natural Language Processing, MIT Press\n5. Long Ouyang, et al., (2022), Training language models to follow instructions with human feedback, Advances in Neural Information Processing Systems\n6. Yang Song et. al., (2021), Score-Based Generative Modeling through Stochastic Differential Equations, International Conference on Learning Representation\n7. Aditya Grover and Stefano Ermon, (2018), Tutorial on Deep Generative Models, IJCAI-ECAI\n8. Jun-Yan Zhu, Taesung Park, Mihaela Rosca, Phillip Isola, and Ian Goodfellow, (2018), Tutorial on GANs. CVPR\n9. Shakir Mohamed and Danilo Rezende, (2017), Tutorial on Deep Generative Models. UAI"
+    },
+    {
+      "subject": "SEEM",
+      "course_code": "5120",
+      "title": "Advanced Topics in Systems Engineering and Engineering Management (I)",
+      "credits": "3.00",
+      "terms": [],
+      "description": "This course is designed to investigate and to discuss selected advanced topics of current interest in Systems Engineering and Engineering Management.",
+      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management",
+      "course_attributes": "",
+      "academic_career": "Postgraduate - Research",
+      "grading_basis": "Graded",
+      "component": "Lecture",
+      "campus": "Main Campus",
+      "academic_group": "Div of System Erg & Erg Mgt",
+      "academic_org": "Div of System Erg & Erg Mgt",
+      "learning_outcomes": "At the completion of the course, the students should have acquired the ability to understand the foundations of the new research topics, to explore new topics along the same research direction, and to integrate the techniques developed with their own research topics.",
+      "course_syllabus": "According to the course teacher in the respective teaching term.",
+      "assessment_types": {
+        "Essay test or exam": "40",
+        "Others": "60"
+      },
+      "feedback_evaluation": "Feedbacks from students; CTE.",
+      "required_readings": "As recommended by course teacher.",
+      "recommended_readings": "As recommended by course teacher"
     },
     {
       "subject": "SEEM",

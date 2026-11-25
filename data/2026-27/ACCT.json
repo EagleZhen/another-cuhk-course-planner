@@ -117,7 +117,7 @@
                 "capacity": "70",
                 "enrolled": "39",
                 "waitlist_capacity": "999",
-                "waitlist_total": "18",
+                "waitlist_total": "19",
                 "available_seats": "31",
                 "status": "Open"
               },
@@ -298,10 +298,10 @@
               ],
               "availability": {
                 "capacity": "130",
-                "enrolled": "125",
+                "enrolled": "124",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "5",
+                "available_seats": "6",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -551,7 +551,7 @@
                 "capacity": "75",
                 "enrolled": "68",
                 "waitlist_capacity": "999",
-                "waitlist_total": "29",
+                "waitlist_total": "30",
                 "available_seats": "7",
                 "status": "Open"
               },
@@ -588,11 +588,11 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "75",
+                "enrolled": "74",
                 "waitlist_capacity": "999",
-                "waitlist_total": "10",
-                "available_seats": "0",
-                "status": "Wait List"
+                "waitlist_total": "9",
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": "Pre-requisite: ACCT1111 or ACCT2111"
@@ -621,11 +621,11 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "75",
+                "enrolled": "74",
                 "waitlist_capacity": "999",
                 "waitlist_total": "5",
-                "available_seats": "0",
-                "status": "Wait List"
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": "Pre-requisite: ACCT1111 or ACCT2111"
@@ -693,10 +693,10 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "48",
+                "enrolled": "49",
                 "waitlist_capacity": "999",
-                "waitlist_total": "7",
-                "available_seats": "27",
+                "waitlist_total": "8",
+                "available_seats": "26",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -726,10 +726,10 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "59",
+                "enrolled": "60",
                 "waitlist_capacity": "999",
                 "waitlist_total": "4",
-                "available_seats": "16",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -1011,7 +1011,7 @@
                 "capacity": "35",
                 "enrolled": "35",
                 "waitlist_capacity": "999",
-                "waitlist_total": "2",
+                "waitlist_total": "1",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -1044,7 +1044,7 @@
                 "capacity": "35",
                 "enrolled": "35",
                 "waitlist_capacity": "999",
-                "waitlist_total": "10",
+                "waitlist_total": "9",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -1075,10 +1075,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "29",
+                "enrolled": "28",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "6",
+                "available_seats": "7",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -1108,10 +1108,10 @@
               ],
               "availability": {
                 "capacity": "35",
-                "enrolled": "32",
+                "enrolled": "33",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "3",
+                "available_seats": "2",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -1143,7 +1143,7 @@
                 "capacity": "35",
                 "enrolled": "35",
                 "waitlist_capacity": "999",
-                "waitlist_total": "8",
+                "waitlist_total": "9",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -1744,11 +1744,11 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "50",
+                "enrolled": "49",
                 "waitlist_capacity": "999",
-                "waitlist_total": "3",
-                "available_seats": "0",
-                "status": "Wait List"
+                "waitlist_total": "0",
+                "available_seats": "1",
+                "status": "Open"
               },
               "class_attributes": "English only",
               "enrollment_requirement": "1. For Year 2 or above PACC majors\n2. For all PACC majors admitted to Senior Year places\n1. Pre-requisite: ACCT2111\n2. Not for students who have taken ACCT3141"
@@ -1779,7 +1779,7 @@
                 "capacity": "50",
                 "enrolled": "50",
                 "waitlist_capacity": "999",
-                "waitlist_total": "6",
+                "waitlist_total": "5",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -3599,16 +3599,40 @@
               "section": "CC-LEC (1632)",
               "meetings": [
                 {
-                  "time": "We 2:30PM - 5:45PM",
+                  "time": "We 2:00PM - 5:15PM",
                   "location": "Cheng Yu Tung Building LT4",
                   "instructor": "Professor XIN Xiangang",
-                  "dates": "9/12, 16/12, 23/12, 30/12, 6/1, 13/1, 20/1, 27/1, 3/2"
+                  "dates": "9/12"
+                },
+                {
+                  "time": "We 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor XIN Xiangang",
+                  "dates": "23/12, 30/12"
+                },
+                {
+                  "time": "We 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor XIN Xiangang",
+                  "dates": "13/1, 20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building LT4",
+                  "instructor": "Professor XIN Xiangang",
+                  "dates": "17/2, 24/2"
                 },
                 {
                   "time": "We 2:30PM - 5:45PM",
                   "location": "Cheng Yu Tung Building LT4",
                   "instructor": "Professor XIN Xiangang",
-                  "dates": "17/2, 24/2"
+                  "dates": "16/12"
+                },
+                {
+                  "time": "We 2:00PM - 5:15PM",
+                  "location": "Cheng Yu Tung Building 209B",
+                  "instructor": "Professor XIN Xiangang",
+                  "dates": "6/1"
                 }
               ],
               "availability": {
@@ -3898,9 +3922,9 @@
                 },
                 {
                   "time": "We 9:30AM - 11:00AM",
-                  "location": "Cheng Yu Tung Building 202",
+                  "location": "Wu Ho Man Yuen Bldg 306",
                   "instructor": "Professor ZHANG Yinglei",
-                  "dates": "23/12"
+                  "dates": "6/1"
                 }
               ],
               "availability": {
@@ -3937,9 +3961,9 @@
                 },
                 {
                   "time": "We 11:00AM - 12:15PM",
-                  "location": "Cheng Yu Tung Building 202",
+                  "location": "Wu Ho Man Yuen Bldg 306",
                   "instructor": "Professor ZHANG Yinglei",
-                  "dates": "23/12"
+                  "dates": "6/1"
                 },
                 {
                   "time": "Tu 9:30AM - 12:45PM",
@@ -4006,15 +4030,33 @@
                 },
                 {
                   "time": "Mo 9:30AM - 12:45PM",
-                  "location": "T.C. Cheng Bldg C1",
+                  "location": "Cheng Yu Tung Building LT3",
                   "instructor": "Dr. GUAN Yanling",
-                  "dates": "7/12, 14/12, 21/12, 28/12, 4/1, 11/1, 18/1, 25/1, 1/2"
+                  "dates": "7/12, 14/12, 21/12"
                 },
                 {
                   "time": "Mo 9:30AM - 12:45PM",
-                  "location": "T.C. Cheng Bldg C1",
+                  "location": "Cheng Yu Tung Building LT3",
                   "instructor": "Dr. GUAN Yanling",
-                  "dates": "15/2, 22/2"
+                  "dates": "15/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT3",
+                  "instructor": "Dr. GUAN Yanling",
+                  "dates": "4/1"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT3",
+                  "instructor": "Dr. GUAN Yanling",
+                  "dates": "18/1, 25/1, 1/2"
+                },
+                {
+                  "time": "Mo 9:30AM - 12:45PM",
+                  "location": "Yasumoto Int'l Acad Park LT2",
+                  "instructor": "Dr. GUAN Yanling",
+                  "dates": "11/1"
                 }
               ],
               "availability": {
@@ -4057,27 +4099,33 @@
                 },
                 {
                   "time": "We 9:30AM - 12:45PM",
-                  "location": "Cheng Yu Tung Building 201",
+                  "location": "Cheng Yu Tung Building 202",
                   "instructor": "Dr. GUAN Yanling",
-                  "dates": "16/12, 23/12, 30/12, 6/1"
+                  "dates": "13/1"
                 },
                 {
                   "time": "We 9:30AM - 12:45PM",
-                  "location": "Yasumoto Int'l Acad Park 201",
+                  "location": "Cheng Yu Tung Building LT3",
                   "instructor": "Dr. GUAN Yanling",
-                  "dates": "9/12"
+                  "dates": "9/12, 16/12, 23/12"
                 },
                 {
                   "time": "We 9:30AM - 12:45PM",
-                  "location": "TBA",
+                  "location": "Cheng Yu Tung Building LT3",
                   "instructor": "Dr. GUAN Yanling",
-                  "dates": "13/1, 20/1, 27/1, 3/2"
+                  "dates": "6/1"
                 },
                 {
                   "time": "We 9:30AM - 12:45PM",
-                  "location": "TBA",
+                  "location": "Cheng Yu Tung Building LT3",
                   "instructor": "Dr. GUAN Yanling",
-                  "dates": "17/2, 24/2"
+                  "dates": "20/1, 27/1, 3/2"
+                },
+                {
+                  "time": "We 9:30AM - 12:45PM",
+                  "location": "Cheng Yu Tung Building LT3",
+                  "instructor": "Dr. GUAN Yanling",
+                  "dates": "17/2"
                 }
               ],
               "availability": {
@@ -6293,13 +6341,13 @@
               "section": "CA-LEC (4802)",
               "meetings": [
                 {
-                  "time": "Tu 7:00PM - 9:30PM",
+                  "time": "Tu 6:30PM - 9:30PM",
                   "location": "Cheng Yu Tung Building 615",
                   "instructor": "Professor ZHANG Qi",
                   "dates": "8/12, 15/12, 22/12, 29/12, 5/1, 12/1, 19/1, 26/1, 2/2"
                 },
                 {
-                  "time": "Tu 7:00PM - 9:30PM",
+                  "time": "Tu 6:30PM - 9:30PM",
                   "location": "Cheng Yu Tung Building 615",
                   "instructor": "Professor ZHANG Qi",
                   "dates": "16/2"

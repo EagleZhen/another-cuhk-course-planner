@@ -96,7 +96,7 @@
                 "capacity": "50",
                 "enrolled": "40",
                 "waitlist_capacity": "999",
-                "waitlist_total": "23",
+                "waitlist_total": "22",
                 "available_seats": "10",
                 "status": "Open"
               },
@@ -127,10 +127,10 @@
               ],
               "availability": {
                 "capacity": "75",
-                "enrolled": "25",
+                "enrolled": "26",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "50",
+                "available_seats": "49",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -1879,7 +1879,7 @@
                 "capacity": "27",
                 "enrolled": "27",
                 "waitlist_capacity": "999",
-                "waitlist_total": "1",
+                "waitlist_total": "2",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -2386,7 +2386,7 @@
                 "capacity": "50",
                 "enrolled": "50",
                 "waitlist_capacity": "999",
-                "waitlist_total": "8",
+                "waitlist_total": "10",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -2474,10 +2474,10 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "34",
+                "enrolled": "36",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "9",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -2727,7 +2727,7 @@
                 "capacity": "40",
                 "enrolled": "40",
                 "waitlist_capacity": "999",
-                "waitlist_total": "5",
+                "waitlist_total": "4",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -3093,7 +3093,7 @@
                 "capacity": "40",
                 "enrolled": "40",
                 "waitlist_capacity": "999",
-                "waitlist_total": "7",
+                "waitlist_total": "8",
                 "available_seats": "0",
                 "status": "Wait List"
               },
@@ -4644,10 +4644,10 @@
               ],
               "availability": {
                 "capacity": "40",
-                "enrolled": "26",
+                "enrolled": "27",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "14",
+                "available_seats": "13",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -4706,10 +4706,10 @@
               ],
               "availability": {
                 "capacity": "30",
-                "enrolled": "12",
+                "enrolled": "13",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "18",
+                "available_seats": "17",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -5326,10 +5326,10 @@
               ],
               "availability": {
                 "capacity": "45",
-                "enrolled": "24",
+                "enrolled": "25",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "21",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -8708,6 +8708,30 @@
                   "location": "Wu Ho Man Yuen Bldg 408",
                   "instructor": "Mr. JI Jingtao",
                   "dates": "2/4, 9/4, 16/4, 23/4, 30/4, 7/5"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Mr. JI Jingtao",
+                  "dates": "16/1, 23/1, 30/1"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Mr. JI Jingtao",
+                  "dates": "13/2, 20/2, 27/2, 6/3, 13/3, 20/3"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Mr. JI Jingtao",
+                  "dates": "3/4, 10/4, 17/4, 24/4"
+                },
+                {
+                  "time": "Sa 2:30PM - 5:15PM",
+                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "instructor": "Mr. JI Jingtao",
+                  "dates": "8/5"
                 }
               ],
               "availability": {
@@ -8802,28 +8826,22 @@
               "section": "-S01-SEM (1545)",
               "meetings": [
                 {
-                  "time": "Sa 2:30PM - 5:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Chien Mu Library Bldg 203",
                   "instructor": "Mr. Pushkar Vijay SANE",
-                  "dates": "16/1, 23/1, 30/1"
+                  "dates": "11/1, 18/1, 25/1, 1/2"
                 },
                 {
-                  "time": "Sa 2:30PM - 5:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Chien Mu Library Bldg 203",
                   "instructor": "Mr. Pushkar Vijay SANE",
-                  "dates": "13/2, 20/2, 27/2, 6/3, 13/3, 20/3"
+                  "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
                 },
                 {
-                  "time": "Sa 2:30PM - 5:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 408",
+                  "time": "Mo 2:30PM - 5:15PM",
+                  "location": "Chien Mu Library Bldg 203",
                   "instructor": "Mr. Pushkar Vijay SANE",
-                  "dates": "3/4, 10/4, 17/4, 24/4"
-                },
-                {
-                  "time": "Sa 2:30PM - 5:15PM",
-                  "location": "Wu Ho Man Yuen Bldg 408",
-                  "instructor": "Mr. Pushkar Vijay SANE",
-                  "dates": "8/5"
+                  "dates": "12/4, 19/4, 26/4, 3/5"
                 }
               ],
               "availability": {

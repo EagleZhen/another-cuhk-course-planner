@@ -3,7 +3,7 @@
     "schema_version": 3,
     "subject": "SEEM",
     "subject_title": "Systems Engineering & Engineering Management",
-    "total_courses": 56
+    "total_courses": 55
   },
   "courses": [
     {
@@ -58,10 +58,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "33",
+                "enrolled": "34",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "47",
+                "available_seats": "46",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -79,10 +79,10 @@
               ],
               "availability": {
                 "capacity": "80",
-                "enrolled": "33",
+                "enrolled": "34",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "47",
+                "available_seats": "46",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -249,10 +249,10 @@
               ],
               "availability": {
                 "capacity": "155",
-                "enrolled": "109",
+                "enrolled": "110",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "46",
+                "available_seats": "45",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -270,10 +270,10 @@
               ],
               "availability": {
                 "capacity": "155",
-                "enrolled": "109",
+                "enrolled": "110",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "46",
+                "available_seats": "45",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -423,10 +423,10 @@
               ],
               "availability": {
                 "capacity": "70",
-                "enrolled": "57",
+                "enrolled": "55",
                 "waitlist_capacity": "0",
                 "waitlist_total": "0",
-                "available_seats": "13",
+                "available_seats": "15",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -763,10 +763,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "54",
+                "enrolled": "55",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -784,10 +784,10 @@
               ],
               "availability": {
                 "capacity": "65",
-                "enrolled": "54",
+                "enrolled": "55",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "11",
+                "available_seats": "10",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -873,10 +873,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "28",
+                "enrolled": "27",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "23",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -894,10 +894,10 @@
               ],
               "availability": {
                 "capacity": "50",
-                "enrolled": "28",
+                "enrolled": "27",
                 "waitlist_capacity": "999",
                 "waitlist_total": "0",
-                "available_seats": "22",
+                "available_seats": "23",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -1093,10 +1093,10 @@
               ],
               "availability": {
                 "capacity": "135",
-                "enrolled": "114",
+                "enrolled": "115",
                 "waitlist_capacity": "999",
                 "waitlist_total": "4",
-                "available_seats": "21",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -1114,10 +1114,10 @@
               ],
               "availability": {
                 "capacity": "135",
-                "enrolled": "114",
+                "enrolled": "115",
                 "waitlist_capacity": "999",
                 "waitlist_total": "4",
-                "available_seats": "21",
+                "available_seats": "20",
                 "status": "Open"
               },
               "class_attributes": "English only",
@@ -3428,71 +3428,6 @@
       "feedback_evaluation": "1) Email feedback\n2) Review meeting",
       "required_readings": "Literature review materials will be recommended by the project supervisor.",
       "recommended_readings": ""
-    },
-    {
-      "subject": "SEEM",
-      "course_code": "5120",
-      "title": "Advanced Topics in Systems Engineering and Engineering Management (I)",
-      "credits": "3.00",
-      "terms": [
-        {
-          "term_code": "2430",
-          "term_name": "2026-27 Term 2",
-          "schedule": [
-            {
-              "section": "--LEC (2469)",
-              "meetings": [
-                {
-                  "time": "Mo 11:30AM - 2:15PM",
-                  "location": "Lee Shau Kee Archi Bldg G03",
-                  "instructor": "Staff",
-                  "dates": "11/1, 18/1, 25/1, 1/2"
-                },
-                {
-                  "time": "Mo 11:30AM - 2:15PM",
-                  "location": "Lee Shau Kee Archi Bldg G03",
-                  "instructor": "Staff",
-                  "dates": "15/2, 22/2, 1/3, 8/3, 15/3, 22/3"
-                },
-                {
-                  "time": "Mo 11:30AM - 2:15PM",
-                  "location": "Lee Shau Kee Archi Bldg G03",
-                  "instructor": "Staff",
-                  "dates": "12/4, 19/4"
-                }
-              ],
-              "availability": {
-                "capacity": "40",
-                "enrolled": "7",
-                "waitlist_capacity": "0",
-                "waitlist_total": "0",
-                "available_seats": "33",
-                "status": "Open"
-              },
-              "class_attributes": "English only",
-              "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management"
-            }
-          ]
-        }
-      ],
-      "description": "This course is designed to investigate and to discuss selected advanced topics of current interest in Systems Engineering and Engineering Management.",
-      "enrollment_requirement": "For students in MPhil-PhD Systems Engineering and Engineering Management",
-      "course_attributes": "",
-      "academic_career": "Postgraduate - Research",
-      "grading_basis": "Graded",
-      "component": "Lecture",
-      "campus": "Main Campus",
-      "academic_group": "Div of System Erg & Erg Mgt",
-      "academic_org": "Div of System Erg & Erg Mgt",
-      "learning_outcomes": "At the completion of the course, the students should have acquired the ability to understand the foundations of the new research topics, to explore new topics along the same research direction, and to integrate the techniques developed with their own research topics.",
-      "course_syllabus": "According to the course teacher in the respective teaching term.",
-      "assessment_types": {
-        "Essay test or exam": "40",
-        "Others": "60"
-      },
-      "feedback_evaluation": "Feedbacks from students; CTE.",
-      "required_readings": "As recommended by course teacher.",
-      "recommended_readings": "As recommended by course teacher"
     },
     {
       "subject": "SEEM",
